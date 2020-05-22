@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SCANDB.exe" version="1.0.0.0" publicKeyToken="321128b779fdf013" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="search_page.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="SCANDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="SCANDB.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.AcroPDFLib.dll" size="9216">
+      <assemblyIdentity name="AxInterop.AcroPDFLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4IWtiE42m9Myndam2No2NOIJQePJ1PY6unGdz5xExLo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.MSWinsockLib.dll" size="12800">
+      <assemblyIdentity name="AxInterop.MSWinsockLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>oSEx2LcHM/oRMrfulIQZ2qb3sFM77FfLDkXLsaVRIqo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.AcroPDFLib.dll" size="12800">
+      <assemblyIdentity name="Interop.AcroPDFLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>nUJnv6Z93Juhua7CJe+1boe5KyNFycdWh02zW4GJBKM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.MSWinsockLib.dll" size="16896">
+      <assemblyIdentity name="Interop.MSWinsockLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>NkGX4zdl7wosZN2ekokaJK6uiZ6RleP+aGYxjon07Gw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="3020192">
+      <assemblyIdentity name="SCANDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Mi4jaIjpG3z5rbBXXLSQtL7/du6JTUrWcjyK6R+MPsw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="SCANDB.exe.config" size="883">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1BmX/3v/hFqeYGsHzhElAScvJYqKwcswj6cIMy8K+tY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="search_page.ico" size="67646">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GxRxdafq2iLv7erFediqZnnI+xYoHPDiqAtMYbSXu2Y=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MIND\Admin" issuerKeyHash="5ac5c83deff5217df9835ccc779cdadb6aa7c61a" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ZQ4BK7kqKXdbc9JTR+UueEjuMn7PKNPDpRiewAN3JTo=</DigestValue></Reference></SignedInfo><SignatureValue>FkexaNqPW4OePHGnGrAv4hkvsUgdzyYC6pKi/M0drQKwgiAyADMVvNOQ/pMOUI15BAKXo+SpnjWtDEJZrtv8xVqZU9+mBiFUpxyZzGf60FzIwCOkfY8fOy9A1BV/+CFgKlqfHRb54AWiCDSPjfMxR0z4unFMiyW3S3biBCPlSZk=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>qtDWaje23anIiAPVYuDrJYB57jLyDhsO6uUduieBfQJerbzxk9PC58XdLJuL/j/jCOXdjSqbLbL2hK3Azsh2rK/9PGxt6cIiQHlWVQAXhxXZEWiJ/TG21Xf0s3MrpzF1QWtFV+s9ScFqUUXq1G8rEmS2xUVLQEYYHp9/YvcaCE0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="3a257703c09e18a5c3d328cf7e32ee48782ee54753d2735b77292ab92b010e65" Description="" Url=""><as:assemblyIdentity name="SCANDB.exe" version="1.0.0.0" publicKeyToken="321128b779fdf013" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MIND\Admin</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>OcKvq0WTIAKA1pt0RoIGNVajf7dgrQZQFDvM6l3x3/M=</DigestValue></Reference></SignedInfo><SignatureValue>DRt4ZrlocMeIsweMa+83uqEVK2ZkTCz1mbRwmfLFE7a9dWiivoNq8s0FBh9jxZIQOB9jFv/bTP87z1FuD/O0IPJgRm4D2ou7D1M/HQN+e0djTEKwbsMgertA7iHfpqGDjXfGoG5PhGGdA5WeiRQkIRjMcGP6OC6+zJLPStl5rQM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>qtDWaje23anIiAPVYuDrJYB57jLyDhsO6uUduieBfQJerbzxk9PC58XdLJuL/j/jCOXdjSqbLbL2hK3Azsh2rK/9PGxt6cIiQHlWVQAXhxXZEWiJ/TG21Xf0s3MrpzF1QWtFV+s9ScFqUUXq1G8rEmS2xUVLQEYYHp9/YvcaCE0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQXWvG9akS37JML2EPkyF+rDANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDHhQATQBJAE4ARABcAEEAZABtAGkAbjAeFw0yMDAyMTMwNDE3MDFaFw0yMTAyMTIxMDE3MDFaMB8xHTAbBgNVBAMeFABNAEkATgBEAFwAQQBkAG0AaQBuMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCq0NZqN7bdqciIA9Vi4OslgHnuMvIOGw7q5R26J4F9Al6tvPGT08Lnxd0sm4v+P+MI5d2NKpstsvaErcDOyHasr/08bG3pwiJAeVZVABeHFdkRaIn9MbbVd/SzcyunMXVBa0VX6z1JwWpRRerUbysSZLbFRUtARhgen39i9xoITQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAGnpoemdW6ebIs8M+5hBGpdi8EEJIpdDMJTP++f0i+/XEz6KqNO/ZAbFfQjkH/U5/vAeHQyeNUeYU2BOKnWy9lP9nt9VMQHItk8VEcQ83DKqqE+dLqosgEJJHZvjj65G5f3XE0QpNAuAAlMsa4ykQyZDnk4Zkm4VsK5rf79Gnc+G</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
