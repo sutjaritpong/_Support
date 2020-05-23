@@ -189,12 +189,15 @@ Public Class Frmimportexe
                     lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                     Main_progressbar.Value = (i / y) * Max
                     Threading.Thread.Sleep(100)
+
                     '-------------------------------------- UPLOAD แถลงบัญชี ----------------------------------'
+
                 Case "บังคับคดีตั้งเรื่อง" : sql &= $"EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCTOTAL,ACCDETAIL,ACCMONTH)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(9).Value.ToString}')"
 
                     lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                     Main_progressbar.Value = (i / y) * Max
                     Threading.Thread.Sleep(100)
+
                     '---------------------- UPLOAD เบิกบังคับคดีที่ไปตั้งเรื่อง --------------------'
 
                 Case "ผลคัดประกันสังคม" : sql &= $"EXESOC(EXEKEY,EXECUSOWN,EXECUSIDC,EXEOFFICE,EXEDATE)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}')"
@@ -203,6 +206,7 @@ Public Class Frmimportexe
                     lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                     Main_progressbar.Value = (i / y) * Max
                     Threading.Thread.Sleep(100)
+
                     '-------------------------------------- UPLOAD SOC ----------------------------------'
 
                 Case "ตรวจสำนวนตามใบงาน" : sql &= $"EXETRACKING(EXEKEY,EXEBANK,EXEIDC,EXECUSNAM,EXECOURT,EXERED,EXEDATE,EXEEMPLOYEE,EXEDETAIL,EXENODOC,EXENOSEND)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(8).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(9).Value.ToString}')"
@@ -211,6 +215,7 @@ Public Class Frmimportexe
                     lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                     Main_progressbar.Value = (i / y) * Max
                     Threading.Thread.Sleep(100)
+
                     '--------------------------------------UPLOAD TRACKING ----------------------------------'
 
                 Case "ถอนอายัด/ยึด" : sql &= $"EXEWDS(EXEKEY,EXECUSOWN,EXEHUBS,EXEDATECOLLEC,EXECUSIDC,EXECUSCUS,EXECUSACC,EXECUSNAM,EXECUSBLACK,EXECUSRED,EXEDATEPAY,EXETOTAL,EXECUSPHONE,EXESTATUS,EXEADMIN,EXEEMPLOYEE,EXEDATEWDS,EXEDETAILWDS,EXEREFUND)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{ Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(8).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(9).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(12).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(13).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(14).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(15).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(16).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(17).Value.ToString}')"
@@ -234,13 +239,17 @@ Public Class Frmimportexe
                     lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                     Main_progressbar.Value = (i / y) * Max
                     Threading.Thread.Sleep(100)
+
                     '-------------------------- UPLOAD EXECHECK ----------------------------------'
+
                 Case "ส่งคัดประกันสังคมฟ้องเอง" : sql &= $"Execution_Port(Customer_Owner,Customer_Id_Card,Customer_Number,Serial_Account,Customer_Name,OA,Legal_Status,Date_send)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}') "
 
                     lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                     Main_progressbar.Value = (i / y) * Max
                     Threading.Thread.Sleep(100)
+
                     '-------------------------- UPLOAD EXECHECK ----------------------------------'
+
             End Select
 
             cmd = New SqlCommand(sql, cn)

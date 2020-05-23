@@ -95,6 +95,26 @@ Module VBcode
         End Select
 
     End Sub
+    Public Sub _autocomplete(ByRef sender As TextBox, _columns As String, _table As String)
+        sql = $"SELECT * FROM {_table}"
+        connect()
+        Dim cmd As New SqlCommand(sql, cn)
+        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        Dim autocomp As New AutoCompleteStringCollection()
+
+        While reader.Read()
+            autocomp.Add(reader(_columns))
+        End While
+
+        reader.Close()
+
+        sender.AutoCompleteMode = AutoCompleteMode.Suggest
+        sender.AutoCompleteSource = AutoCompleteSource.CustomSource
+        sender.AutoCompleteCustomSource = autocomp
+
+        Return
+
+    End Sub
 
     Public Function GetCellValue(gv As GridView, Column As Integer) As String
         Try

@@ -179,6 +179,12 @@
     <Compile Include="Execution\Frmreportexe.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Execution\FrmTracking.Designer.vb">
+      <DependentUpon>FrmTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\FrmTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Execution\FrmWDS.Designer.vb">
       <DependentUpon>FrmWDS.vb</DependentUpon>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Frmreportexe.resx">
       <DependentUpon>Frmreportexe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\FrmTracking.resx">
+      <DependentUpon>FrmTracking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmWDS.resx">
       <DependentUpon>FrmWDS.vb</DependentUpon>

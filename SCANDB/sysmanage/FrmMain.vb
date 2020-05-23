@@ -21,6 +21,7 @@ Public Class FrmMain
         connect()
         _Getlogdata("LOGIN")
         Me.WindowState = FormWindowState.Maximized              '// ทำให้ Form หลักมีขนาดเต็มจอ
+
     End Sub
     Private Sub ออกจากระบบToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ออกจากระบบToolStripMenuItem.Click
         If Msg_confirm("คุณต้องการปิดโปรแกรมใช่หรือไม่") = vbYes Then
@@ -187,6 +188,12 @@ Public Class FrmMain
     End Sub
 
     Private Sub Menu_EXEverify_Click(sender As Object, e As EventArgs) Handles Menu_EXEverify.Click
+
+        With FrmTracking
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
 
     End Sub
 End Class

@@ -1,6 +1,7 @@
 ﻿Option Explicit On
 Imports System.Data.SqlClient
 Imports System.Data
+Imports System.DBNull
 Public Class FrmWDS
 
 
@@ -48,7 +49,7 @@ Public Class FrmWDS
         DR.Close()
         cbo_hub.SelectedItem = 0
 
-        loaddata()
+
 
         If chk_datewds.Checked = False Then
 
@@ -73,7 +74,7 @@ Public Class FrmWDS
             dtp_payment.Enabled = False
 
         End If
-
+        loaddata()
         cn.Close()
     End Sub
     Public Sub loaddata()
@@ -104,13 +105,23 @@ Public Class FrmWDS
 
         dtgv_data.DataSource = DS.Tables("table")
 
-
-            For i = 0 To headers.Length - 1
+        For i = 0 To headers.Length - 1
 
             dtgv_data.Columns(i).HeaderText = headers(i)
             dtgv_data.Columns(0).Visible = False
 
         Next
+
+        'For c = 0 To dtgv_data.Rows.Count - 1 Step +1
+
+        '    If CStr(dtgv_data.Rows.Item(c).Cells(16).Value.ToString) = "" Then
+
+        '        dtgv_data.Rows(c).DefaultCellStyle.BackColor = Color.OrangeRed
+
+        '    End If
+
+        'Next
+
 
         cn.Close()
 
@@ -585,9 +596,31 @@ Public Class FrmWDS
         DS = New DataSet
         DA.Fill(DS, "datelate")
 
+        Dim headers() As String = {"KEY", "ธนาคาร", "ศูนย์ประสานงาน", "Collecแจ้งถอนอายัด", "เลขบัตรประชาชน", "เลขที่ลูกหนี้", "เลขที่สัญญา", "ชื่อ-นามสกุล", "คดีดำ", "เลขคดีแดง", "วันที่ชำระ", "ยอดชำระ", "เบอร์ติดต่อลูกค้า", "สถานะ", "Admin-รับงาน", "พนักงานภาคสนาม", "วันที่ถอนอายัด/ยึด", "รายละเอียดการถอน", "จำนวนเงินคืน", "วันที่ส่งเช็ค", "ระยะเวลาล่าช้า", "รายละเอียดเช็ค"}
+
         dtgv_data.DataSource = DS.Tables("datelate")
 
+        For i = 0 To headers.Length - 1
+            dtgv_data.Columns(i).HeaderText = headers(i)
+            dtgv_data.Columns(0).Visible = False
+        Next
 
+    End Sub
+
+    Private Sub dtgv_data_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dtgv_data.DataBindingComplete
+        Try
+            For Each gridRow As DataGridViewRow In dtgv_data.Rows
+
+                Dim WDS As String = (gridRow.Cells(16).Value.ToString())
+
+                If WDS <> "" Then
+                    gridRow.DefaultCellStyle.BackColor = Color.Orange
+                End If
+
+            Next
+        Catch ex As Exception
+
+        End Try
     End Sub
 
 End Class
