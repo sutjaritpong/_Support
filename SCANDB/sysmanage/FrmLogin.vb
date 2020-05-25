@@ -26,7 +26,7 @@ Public Class FrmLogin
         End If
     End Sub
     Private Sub btnlogin_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
-
+        connect()
         Dim _userid As String = txt_idlog.Text
         Dim _pass As String = txt_passlog.Text
 

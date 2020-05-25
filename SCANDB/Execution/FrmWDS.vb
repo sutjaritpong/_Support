@@ -612,9 +612,18 @@ Public Class FrmWDS
             For Each gridRow As DataGridViewRow In dtgv_data.Rows
 
                 Dim WDS As String = (gridRow.Cells(16).Value.ToString())
+                Dim check As String = (gridRow.Cells(19).Value.ToString())
 
-                If WDS <> "" Then
+                If WDS <> "" And check <> "" Then
+
+                    gridRow.DefaultCellStyle.BackColor = Color.GreenYellow
+
+                End If
+
+                If WDS = "" And check = "" Then
+
                     gridRow.DefaultCellStyle.BackColor = Color.Orange
+
                 End If
 
             Next
