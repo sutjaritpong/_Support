@@ -6,7 +6,11 @@ Public Class FrmCheck
         cbo_cusowner.SelectedIndex = -1
         check_notedit()
 
+
+
     End Sub
+
+
     Private Sub dtgv_check_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_check.CellMouseUp
         Try
             If e.RowIndex = -1 Then Exit Sub
