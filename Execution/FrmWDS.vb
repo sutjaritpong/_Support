@@ -81,10 +81,10 @@ Public Class FrmWDS
 
         connect()
 
-        Dim headers() As String = {"KEY", "ธนาคาร", "ศูนย์ประสานงาน", "Collecแจ้งถอนอายัด", "เลขบัตรประชาชน", "เลขที่ลูกหนี้", "เลขที่สัญญา", "ชื่อ-นามสกุล", "คดีดำ", "เลขคดีแดง", "วันที่ชำระ", "ยอดชำระ", "เบอร์ติดต่อลูกค้า", "สถานะ", "Admin-รับงาน", "พนักงานภาคสนาม", "วันที่ถอนอายัด/ยึด", "รายละเอียดการถอน", "จำนวนเงินคืน", "วันที่ส่งเช็ค"}
+        Dim headers() As String = {"KEY", "ธนาคาร", "ศูนย์ประสานงาน", "Collecแจ้งถอนอายัด", "เลขบัตรประชาชน", "เลขที่ลูกหนี้", "เลขที่สัญญา", "ชื่อ-นามสกุล", "คดีดำ", "เลขคดีแดง", "วันที่ชำระ", "ยอดชำระ", "เบอร์ติดต่อลูกค้า", "สถานะ", "Admin-รับงาน", "พนักงานภาคสนาม", "วันที่ถอนอายัด/ยึด", "รายละเอียดการถอน", "จำนวนเงินคืน", "วันที่ส่งเช็ค", "รายละเอียดเช็ค"}
 
 
-        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC "
+        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC "
 
         Select Case cbo_product.SelectedItem
             Case "ALL PRODUCT" : sql &= $"ORDER BY EXEDATECOLLEC"
@@ -571,7 +571,6 @@ Public Class FrmWDS
             FrmCheck.dtgv_check.Columns(i).HeaderText = headers(i)
             FrmCheck.dtgv_check.Columns(0).Visible = False
         Next
-
         If c <= 0 Then
             If Msg_confirm("ไม่พบข้อมูลเช็ค คุณต้องการเพิ่มข้อมูลหรือไม่", "แจ้งเตือน") = vbYes Then
                 With FrmCheck
@@ -584,13 +583,14 @@ Public Class FrmWDS
                 End With
             End If
         Else
+            _showgrid()
             FrmCheck.Show()
         End If
     End Sub
 
     Private Sub cmd_datediff_Click(sender As Object, e As EventArgs) Handles cmd_datediff.Click
         connect()
-        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS"
+        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) EXE AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
         DS = New DataSet
@@ -606,15 +606,58 @@ Public Class FrmWDS
         Next
 
     End Sub
+    Public Sub _showgrid()
+        With FrmCheck
 
+            .cbo_cusowner.Text = .dtgv_check.Rows(0).Cells(1).Value.ToString
+            .txt_checkbank.Text = .dtgv_check.Rows(0).Cells(2).Value.ToString
+            .txt_hub.Text = .dtgv_check.Rows(0).Cells(3).Value.ToString
+            .txt_numcheck.Text = .dtgv_check.Rows(0).Cells(4).Value.ToString
+
+            If .dtgv_check.Rows(0).Cells(5).Value.ToString <> "" Then
+                .chk_datecheck.Checked = True
+            Else
+                .chk_datecheck.Checked = False
+            End If
+
+            .dtp_datecheck.Text = CStr(.dtgv_check.Rows(0).Cells(5).Value.ToString)
+            .txt_totalcheck.Text = .dtgv_check.Rows(0).Cells(6).Value.ToString
+            .txt_cusid.Text = .dtgv_check.Rows(0).Cells(7).Value.ToString
+            .txt_cusacc.Text = .dtgv_check.Rows(0).Cells(8).Value.ToString
+            .txt_cusaccno.Text = .dtgv_check.Rows(0).Cells(9).Value.ToString
+            .txt_cusname.Text = .dtgv_check.Rows(0).Cells(10).Value.ToString
+
+            If .dtgv_check.Rows(0).Cells(12).Value.ToString <> "" Then
+                .chk_checksend.Checked = True
+            Else
+                .chk_checksend.Checked = False
+            End If
+
+            .dtp_checksend.Text = CStr(.dtgv_check.Rows(0).Cells(12).Value.ToString)
+            .txt_total.Text = .dtgv_check.Rows(0).Cells(13).Value.ToString
+            .txt_refund.Text = .dtgv_check.Rows(0).Cells(14).Value.ToString
+            .txt_note.Text = .dtgv_check.Rows(0).Cells(15).Value.ToString
+
+        End With
+
+    End Sub
     Private Sub dtgv_data_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dtgv_data.DataBindingComplete
         Try
             For Each gridRow As DataGridViewRow In dtgv_data.Rows
 
                 Dim WDS As String = (gridRow.Cells(16).Value.ToString())
+                Dim check As String = (gridRow.Cells(19).Value.ToString())
 
-                If WDS <> "" Then
+                If WDS <> "" And check <> "" Then
+
+                    gridRow.DefaultCellStyle.BackColor = Color.GreenYellow
+
+                End If
+
+                If WDS = "" And check = "" Then
+
                     gridRow.DefaultCellStyle.BackColor = Color.Orange
+
                 End If
 
             Next
