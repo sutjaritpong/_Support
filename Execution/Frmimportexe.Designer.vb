@@ -83,6 +83,7 @@ Partial Class Frmimportexe
         Me.Dtgv_Exe.AllowUserToOrderColumns = True
         Me.Dtgv_Exe.BackgroundColor = System.Drawing.SystemColors.Window
         Me.Dtgv_Exe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dtgv_Exe.GridColor = System.Drawing.Color.Black
         Me.Dtgv_Exe.Location = New System.Drawing.Point(73, 86)
         Me.Dtgv_Exe.Name = "Dtgv_Exe"
         Me.Dtgv_Exe.ReadOnly = True

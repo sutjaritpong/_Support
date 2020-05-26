@@ -164,6 +164,9 @@ Public Class FrmCheck
         check_notedit()
 
     End Sub
+    ''' <summary>
+    ''' 
+    ''' </summary>
     Private Sub updatecheck()
         connect()
 
@@ -208,5 +211,23 @@ Public Class FrmCheck
 
         savecheck()
 
+    End Sub
+
+    Private Sub chk_datecheck_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecheck.CheckedChanged
+
+        If chk_datecheck.Checked = True Then
+            dtp_datecheck.Enabled = True
+        Else
+            dtp_datecheck.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub chk_checksend_CheckedChanged(sender As Object, e As EventArgs) Handles chk_checksend.CheckedChanged
+        If chk_checksend.Checked = True Then
+            dtp_checksend.Enabled = True
+        Else
+            dtp_datecheck.Enabled = False
+        End If
     End Sub
 End Class

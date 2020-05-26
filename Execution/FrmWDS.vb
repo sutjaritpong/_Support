@@ -36,6 +36,7 @@ Public Class FrmWDS
         End While
 
         DR.Close()
+
         cbo_empexe.SelectedItem = 0
 
         sql = "SELECT HUBS FROM HUBS"
