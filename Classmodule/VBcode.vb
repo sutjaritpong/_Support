@@ -14,7 +14,7 @@ Module VBcode
 
     Friend pc As String = Environment.MachineName
 
-    Friend Function _Getlogdata(_status As String)
+    Friend Sub _Getlogdata(_status As String)
         connect()
         _sql = $"SELECT * FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(_sql, cn)
@@ -25,8 +25,8 @@ Module VBcode
         cmd.CommandText = sql
         cmd.ExecuteNonQuery()
         cn.Close()
-    End Function
-    Friend Function _cleardatagrid(sender As Object)
+    End Sub
+    Friend Sub _cleardatagrid(sender As Object)
 
         If sender.rows.count > 0 Then
 
@@ -34,7 +34,7 @@ Module VBcode
 
         End If
 
-    End Function
+    End Sub
     '##### เพิ่มข้อมูลจากฐานข้อมูลเข้า Combobox ########
     Friend Sub _cboArray(_combobox As Object, ar() As String)
 
@@ -116,12 +116,12 @@ Module VBcode
 
     End Sub
 
-    Public Function GetCellValue(gv As GridView, Column As Integer) As String
-        Try
-            Return gv.GetRowCellValue(gv.GetSelectedRows(0), gv.Columns(Column)).ToString()
-        Catch ex As Exception
-        End Try
-    End Function
+    'Public Function GetCellValue(gv As GridView, Column As Integer) As String
+    '    Try
+    '        Return gv.GetRowCellValue(gv.GetSelectedRows(0), gv.Columns(Column)).ToString()
+    '    Catch ex As Exception
+    '    End Try
+    'End Function
     Public Function Getdate(datetime As DateTime)
         Dim strMonthDaye As String
         Dim strYeare As String

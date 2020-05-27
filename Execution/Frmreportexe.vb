@@ -232,10 +232,10 @@ Public Class Frmreportexe
                 Dim misValue As Object = System.Reflection.Missing.Value
                 Dim i As Integer
 
+
                 xlApp = New Microsoft.Office.Interop.Excel.Application
                 xlWorkBook = xlApp.Workbooks.Add(misValue)
                 xlWorkSheet = xlWorkBook.Sheets("Sheet1")
-
 
                 For Each column In dtgv_reportsm.Columns
                     xlWorkSheet.Cells(i + 2, column.index + 1).value = column.Name

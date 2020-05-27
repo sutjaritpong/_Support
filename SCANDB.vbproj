@@ -99,11 +99,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http">
-      <Private>True</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -392,7 +387,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="SCANDB_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AcroPDFLib">
@@ -598,7 +592,6 @@
     <None Include="Resources\Customer-service-icon16x16.png" />
     <None Include="Resources\Customer-service-icon32x32.png" />
     <None Include="Resources\Customer-service-icon24x24.png" />
-    <None Include="Resources\edit-validated-icon24x24.png" />
     <None Include="Resources\page_add.png" />
     <None Include="Resources\page_delete.png" />
     <None Include="Resources\application_form_edit.png" />

@@ -182,11 +182,6 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:SCANDB.My.Resources.Resources.edit_validated_icon24x24">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
 <member name="P:SCANDB.My.Resources.Resources.Excel_icon">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -401,6 +396,11 @@ SCANDB
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member>
+<member name="M:SCANDB.FrmCheck.updatecheck">
+ <summary>
+ 
+ </summary>
 </member>
 <member name="M:SCANDB.VBdatabase.connect">
  <summary>

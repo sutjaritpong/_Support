@@ -202,9 +202,6 @@
   <data name="accept_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\accept_page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit-validated-icon24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit-validated-icon24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="calendar_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
