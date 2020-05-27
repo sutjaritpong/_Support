@@ -249,9 +249,9 @@ Public Class Frmimport
     End Sub
     Public Sub Excelimport()
         Dim conn As OleDbConnection
-        Dim dtr As OleDbDataReader
+        'Dim dtr As OleDbDataReader
         Dim dta As OleDbDataAdapter
-        Dim cmd As OleDbCommand
+        'Dim cmd As OleDbCommand
         Dim dts As DataSet
         Dim excel As String
         Dim fi As New FileInfo(OpenFileDialog1.FileName)

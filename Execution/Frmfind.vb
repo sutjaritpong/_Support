@@ -70,13 +70,12 @@ Public Class Frmfind
                 .txt_performance.Text = DS.Tables("table").Rows(0)("EXEPERFORMANCE")
                 .txt_hubs.Text = DS.Tables("table").Rows(0)("EXEHUBS")
                 .txt_result.Text = DS.Tables("table").Rows(0)("EXERESULT")
-                .dtp_tracking.Text = DS.Tables("table").Rows(0)("EXEDATE")
+                .dtp_tracking_date.Text = DS.Tables("table").Rows(0)("EXEDATE")
                 .txt_EmployeeExE.Text = DS.Tables("table").Rows(0)("EXEEMP")
-                .dtp_dateexework.Text = DS.Tables("table").Rows(0)("EXERESDT")
-                .txt_detail2.Text = DS.Tables("table").Rows(0)("EXEDET1")
-                .txt_detail3.Text = DS.Tables("table").Rows(0)("EXEDET2")
-                .txt_verifyResult.Text = DS.Tables("table").Rows(0)("ERE")
-                .txt_perfor.Text = DS.Tables("table").Rows(0)("EXEPERFOR")
+                .dtp_verify_date.Text = DS.Tables("table").Rows(0)("EXERESDT")
+
+                .txt_verify_comment.Text = DS.Tables("table").Rows(0)("ERE")
+                .txt_verify_result.Text = DS.Tables("table").Rows(0)("EXEPERFOR")
 
                 .Reader()
                 .txt_total.Text = CDbl(FrmExecution.txt_total.Text).ToString("##,##0.00")

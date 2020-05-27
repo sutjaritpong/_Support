@@ -27,13 +27,13 @@ Public Class FrmTracking
 
         DR.Close()
 
-        sql = $"SELECT DISTINCT EXEDETAIL FROM EXETRACKING"
+        sql = $"SELECT DISTINCT Tracking_detail FROM EXETRACKING"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
         While DR.Read()
 
-            cbo_detail.Items.Add($"{DR("EXEDETAIL")}")
+            cbo_detail.Items.Add($"{DR("Tracking_detail")}")
 
         End While
 
@@ -78,7 +78,7 @@ Public Class FrmTracking
 
             _cleardatagrid(dtgv_tracking)
 
-            sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.EXEDATE FROM EXESM as S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.EXEIDC  WHERE EXEID = '{txt_cusid.Text}' ORDER BY S.EXEID "
+            sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}' ORDER BY S.EXEID "
 
             cmd = New SqlCommand(sql, cn)
             DA = New SqlDataAdapter(cmd)
@@ -90,7 +90,7 @@ Public Class FrmTracking
             txt_red.Text = DS.Tables("tables").Rows(0)("EXERED").ToString
             txt_court.Text = DS.Tables("tables").Rows(0)("EXECOURT").ToString
             dtp_date_send.Text = DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString
-            dtp_date_verify.Text = DS.Tables("tables").Rows(0)("EXEDATE").ToString
+            dtp_date_verify.Text = DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString
 
             If dtp_date_send.Text <> "" Then
 
@@ -139,7 +139,7 @@ Public Class FrmTracking
         Dim acckey As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime}"
 
         connect()
-        sql = "INSERT INTO EXETRACKING(EXEKEY,EXEBANK,EXEIDC,EXECUSNAM,EXECOURT,EXERED,EXEDATE,EXEEMPLOYEE,EXEDETAIL,EXENODOC,EXENOSEND)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend)"
+        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,Execution_employee,Tracing_detail,Tracking_nosheet,Tracking_Collector_nosend)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend)"
         With cmd
             .CommandText = sql
             .Parameters.Clear()
