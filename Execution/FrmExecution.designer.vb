@@ -43,6 +43,7 @@ Partial Class FrmExecution
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_save = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txt_count_acc = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txt_tracking_detail = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -139,7 +140,7 @@ Partial Class FrmExecution
         Me.cmd_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_search.Name = "cmd_search"
         Me.cmd_search.Size = New System.Drawing.Size(121, 31)
-        Me.cmd_search.TabIndex = 4
+        Me.cmd_search.TabIndex = 2
         Me.cmd_search.Text = "ค้นหา"
         Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -152,7 +153,7 @@ Partial Class FrmExecution
         Me.txt_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_search.Name = "txt_search"
         Me.txt_search.Size = New System.Drawing.Size(222, 22)
-        Me.txt_search.TabIndex = 3
+        Me.txt_search.TabIndex = 1
         '
         'Label2
         '
@@ -211,7 +212,7 @@ Partial Class FrmExecution
         Me.Group_detail.Controls.Add(Me.lbl_count)
         Me.Group_detail.Controls.Add(Me.lbl_datetoday)
         Me.Group_detail.Controls.Add(Me.lbl_timer)
-        Me.Group_detail.Location = New System.Drawing.Point(833, 12)
+        Me.Group_detail.Location = New System.Drawing.Point(834, 42)
         Me.Group_detail.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Group_detail.Name = "Group_detail"
         Me.Group_detail.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
@@ -267,7 +268,7 @@ Partial Class FrmExecution
         Me.GroupBox2.Controls.Add(Me.cmd_edit)
         Me.GroupBox2.Controls.Add(Me.cmd_cancel)
         Me.GroupBox2.Controls.Add(Me.cmd_save)
-        Me.GroupBox2.Location = New System.Drawing.Point(833, 142)
+        Me.GroupBox2.Location = New System.Drawing.Point(834, 252)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
@@ -299,7 +300,7 @@ Partial Class FrmExecution
         Me.cmd_edit.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(155, 33)
-        Me.cmd_edit.TabIndex = 2
+        Me.cmd_edit.TabIndex = 4
         Me.cmd_edit.Text = "แก้ไข"
         Me.cmd_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -308,13 +309,14 @@ Partial Class FrmExecution
         'cmd_cancel
         '
         Me.cmd_cancel.BackColor = System.Drawing.Color.White
+        Me.cmd_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.edit_delete_icon16x16
         Me.cmd_cancel.Location = New System.Drawing.Point(8, 100)
         Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(155, 33)
-        Me.cmd_cancel.TabIndex = 1
+        Me.cmd_cancel.TabIndex = 33
         Me.cmd_cancel.Text = "ยกเลิก"
         Me.cmd_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -329,7 +331,7 @@ Partial Class FrmExecution
         Me.cmd_save.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_save.Name = "cmd_save"
         Me.cmd_save.Size = New System.Drawing.Size(155, 33)
-        Me.cmd_save.TabIndex = 0
+        Me.cmd_save.TabIndex = 34
         Me.cmd_save.Text = "บันทึก"
         Me.cmd_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -337,7 +339,8 @@ Partial Class FrmExecution
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.Window
+        Me.GroupBox1.Controls.Add(Me.txt_count_acc)
         Me.GroupBox1.Controls.Add(Me.Label27)
         Me.GroupBox1.Controls.Add(Me.txt_tracking_detail)
         Me.GroupBox1.Controls.Add(Me.Label26)
@@ -395,10 +398,21 @@ Partial Class FrmExecution
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox1.Location = New System.Drawing.Point(5, 252)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(819, 561)
+        Me.GroupBox1.Size = New System.Drawing.Size(819, 572)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ข้อมูลแถลงทำบัญชีรับจ่าย"
+        '
+        'txt_count_acc
+        '
+        Me.txt_count_acc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txt_count_acc.ForeColor = System.Drawing.Color.Blue
+        Me.txt_count_acc.Location = New System.Drawing.Point(348, 118)
+        Me.txt_count_acc.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.txt_count_acc.Name = "txt_count_acc"
+        Me.txt_count_acc.Size = New System.Drawing.Size(24, 22)
+        Me.txt_count_acc.TabIndex = 9
+        Me.txt_count_acc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label27
         '
@@ -421,7 +435,7 @@ Partial Class FrmExecution
         Me.txt_tracking_detail.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_tracking_detail.Name = "txt_tracking_detail"
         Me.txt_tracking_detail.Size = New System.Drawing.Size(238, 22)
-        Me.txt_tracking_detail.TabIndex = 86
+        Me.txt_tracking_detail.TabIndex = 29
         '
         'Label26
         '
@@ -444,7 +458,7 @@ Partial Class FrmExecution
         Me.txt_collec_nosend.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_collec_nosend.Name = "txt_collec_nosend"
         Me.txt_collec_nosend.Size = New System.Drawing.Size(238, 22)
-        Me.txt_collec_nosend.TabIndex = 84
+        Me.txt_collec_nosend.TabIndex = 28
         '
         'Label25
         '
@@ -467,7 +481,7 @@ Partial Class FrmExecution
         Me.txt_tracking_nosheet.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_tracking_nosheet.Name = "txt_tracking_nosheet"
         Me.txt_tracking_nosheet.Size = New System.Drawing.Size(238, 22)
-        Me.txt_tracking_nosheet.TabIndex = 82
+        Me.txt_tracking_nosheet.TabIndex = 27
         '
         'Label17
         '
@@ -502,7 +516,7 @@ Partial Class FrmExecution
         Me.txt_number.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_number.Name = "txt_number"
         Me.txt_number.Size = New System.Drawing.Size(121, 22)
-        Me.txt_number.TabIndex = 69
+        Me.txt_number.TabIndex = 12
         '
         'Label11
         '
@@ -526,7 +540,7 @@ Partial Class FrmExecution
         Me.cbo_department.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cbo_department.Name = "cbo_department"
         Me.cbo_department.Size = New System.Drawing.Size(230, 24)
-        Me.cbo_department.TabIndex = 60
+        Me.cbo_department.TabIndex = 14
         '
         'txt_namecus
         '
@@ -536,7 +550,7 @@ Partial Class FrmExecution
         Me.txt_namecus.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_namecus.Name = "txt_namecus"
         Me.txt_namecus.Size = New System.Drawing.Size(230, 22)
-        Me.txt_namecus.TabIndex = 55
+        Me.txt_namecus.TabIndex = 7
         '
         'Label14
         '
@@ -573,7 +587,7 @@ Partial Class FrmExecution
         Me.cbo_court.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cbo_court.Name = "cbo_court"
         Me.cbo_court.Size = New System.Drawing.Size(230, 24)
-        Me.cbo_court.TabIndex = 59
+        Me.cbo_court.TabIndex = 10
         '
         'Label13
         '
@@ -609,7 +623,7 @@ Partial Class FrmExecution
         Me.txt_red.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_red.Name = "txt_red"
         Me.txt_red.Size = New System.Drawing.Size(121, 22)
-        Me.txt_red.TabIndex = 56
+        Me.txt_red.TabIndex = 13
         '
         'txt_performance
         '
@@ -620,7 +634,7 @@ Partial Class FrmExecution
         Me.txt_performance.Multiline = True
         Me.txt_performance.Name = "txt_performance"
         Me.txt_performance.Size = New System.Drawing.Size(238, 24)
-        Me.txt_performance.TabIndex = 34
+        Me.txt_performance.TabIndex = 22
         '
         'Label15
         '
@@ -644,7 +658,7 @@ Partial Class FrmExecution
         Me.dtp_datesheet.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.dtp_datesheet.Name = "dtp_datesheet"
         Me.dtp_datesheet.Size = New System.Drawing.Size(101, 22)
-        Me.dtp_datesheet.TabIndex = 58
+        Me.dtp_datesheet.TabIndex = 19
         '
         'Label16
         '
@@ -667,7 +681,7 @@ Partial Class FrmExecution
         Me.txt_total.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_total.Name = "txt_total"
         Me.txt_total.Size = New System.Drawing.Size(230, 22)
-        Me.txt_total.TabIndex = 70
+        Me.txt_total.TabIndex = 15
         '
         'txt_black
         '
@@ -676,7 +690,7 @@ Partial Class FrmExecution
         Me.txt_black.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_black.Name = "txt_black"
         Me.txt_black.Size = New System.Drawing.Size(121, 22)
-        Me.txt_black.TabIndex = 45
+        Me.txt_black.TabIndex = 11
         '
         'txt_idcus
         '
@@ -686,7 +700,7 @@ Partial Class FrmExecution
         Me.txt_idcus.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_idcus.Name = "txt_idcus"
         Me.txt_idcus.Size = New System.Drawing.Size(230, 22)
-        Me.txt_idcus.TabIndex = 50
+        Me.txt_idcus.TabIndex = 6
         '
         'txt_result
         '
@@ -697,7 +711,7 @@ Partial Class FrmExecution
         Me.txt_result.Multiline = True
         Me.txt_result.Name = "txt_result"
         Me.txt_result.Size = New System.Drawing.Size(238, 24)
-        Me.txt_result.TabIndex = 35
+        Me.txt_result.TabIndex = 24
         '
         'Label6
         '
@@ -720,7 +734,7 @@ Partial Class FrmExecution
         Me.txt_hub.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_hub.Name = "txt_hub"
         Me.txt_hub.Size = New System.Drawing.Size(230, 22)
-        Me.txt_hub.TabIndex = 64
+        Me.txt_hub.TabIndex = 18
         '
         'cbo_acc
         '
@@ -730,8 +744,8 @@ Partial Class FrmExecution
         Me.cbo_acc.Location = New System.Drawing.Point(142, 117)
         Me.cbo_acc.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cbo_acc.Name = "cbo_acc"
-        Me.cbo_acc.Size = New System.Drawing.Size(230, 24)
-        Me.cbo_acc.TabIndex = 43
+        Me.cbo_acc.Size = New System.Drawing.Size(205, 24)
+        Me.cbo_acc.TabIndex = 8
         '
         'Label4
         '
@@ -767,7 +781,7 @@ Partial Class FrmExecution
         Me.txt_hubs.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_hubs.Name = "txt_hubs"
         Me.txt_hubs.Size = New System.Drawing.Size(238, 22)
-        Me.txt_hubs.TabIndex = 71
+        Me.txt_hubs.TabIndex = 23
         '
         'Label5
         '
@@ -804,7 +818,7 @@ Partial Class FrmExecution
         Me.dtp_verify_date.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.dtp_verify_date.Name = "dtp_verify_date"
         Me.dtp_verify_date.Size = New System.Drawing.Size(102, 22)
-        Me.dtp_verify_date.TabIndex = 78
+        Me.dtp_verify_date.TabIndex = 30
         '
         'Label12
         '
@@ -828,7 +842,7 @@ Partial Class FrmExecution
         Me.txt_verify_comment.Multiline = True
         Me.txt_verify_comment.Name = "txt_verify_comment"
         Me.txt_verify_comment.Size = New System.Drawing.Size(238, 72)
-        Me.txt_verify_comment.TabIndex = 36
+        Me.txt_verify_comment.TabIndex = 32
         '
         'Label19
         '
@@ -865,7 +879,7 @@ Partial Class FrmExecution
         Me.txt_verify_result.Multiline = True
         Me.txt_verify_result.Name = "txt_verify_result"
         Me.txt_verify_result.Size = New System.Drawing.Size(237, 24)
-        Me.txt_verify_result.TabIndex = 38
+        Me.txt_verify_result.TabIndex = 31
         '
         'txt_phone
         '
@@ -875,7 +889,7 @@ Partial Class FrmExecution
         Me.txt_phone.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_phone.Name = "txt_phone"
         Me.txt_phone.Size = New System.Drawing.Size(230, 22)
-        Me.txt_phone.TabIndex = 54
+        Me.txt_phone.TabIndex = 17
         '
         'chk_verify_date
         '
@@ -898,7 +912,7 @@ Partial Class FrmExecution
         Me.txt_detail1.Multiline = True
         Me.txt_detail1.Name = "txt_detail1"
         Me.txt_detail1.Size = New System.Drawing.Size(253, 58)
-        Me.txt_detail1.TabIndex = 73
+        Me.txt_detail1.TabIndex = 21
         '
         'Label8
         '
@@ -921,7 +935,7 @@ Partial Class FrmExecution
         Me.txt_product.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_product.Name = "txt_product"
         Me.txt_product.Size = New System.Drawing.Size(230, 22)
-        Me.txt_product.TabIndex = 72
+        Me.txt_product.TabIndex = 5
         '
         'txt_employee
         '
@@ -931,7 +945,7 @@ Partial Class FrmExecution
         Me.txt_employee.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_employee.Name = "txt_employee"
         Me.txt_employee.Size = New System.Drawing.Size(230, 22)
-        Me.txt_employee.TabIndex = 51
+        Me.txt_employee.TabIndex = 20
         '
         'Label22
         '
@@ -992,7 +1006,7 @@ Partial Class FrmExecution
         Me.txt_nameem.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_nameem.Name = "txt_nameem"
         Me.txt_nameem.Size = New System.Drawing.Size(230, 22)
-        Me.txt_nameem.TabIndex = 44
+        Me.txt_nameem.TabIndex = 16
         '
         'Label23
         '
@@ -1015,7 +1029,7 @@ Partial Class FrmExecution
         Me.txt_EmployeeExE.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_EmployeeExE.Name = "txt_EmployeeExE"
         Me.txt_EmployeeExE.Size = New System.Drawing.Size(238, 22)
-        Me.txt_EmployeeExE.TabIndex = 37
+        Me.txt_EmployeeExE.TabIndex = 25
         '
         'dtp_tracking_date
         '
@@ -1026,14 +1040,15 @@ Partial Class FrmExecution
         Me.dtp_tracking_date.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.dtp_tracking_date.Name = "dtp_tracking_date"
         Me.dtp_tracking_date.Size = New System.Drawing.Size(102, 22)
-        Me.dtp_tracking_date.TabIndex = 75
+        Me.dtp_tracking_date.TabIndex = 26
         '
         'FrmExecution
         '
         Me.AcceptButton = Me.cmd_search
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.BackColor = System.Drawing.SystemColors.Window
+        Me.CancelButton = Me.cmd_cancel
         Me.ClientSize = New System.Drawing.Size(1004, 825)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
@@ -1132,4 +1147,5 @@ Partial Class FrmExecution
     Friend WithEvents Label23 As Label
     Friend WithEvents txt_EmployeeExE As TextBox
     Friend WithEvents dtp_tracking_date As DateTimePicker
+    Friend WithEvents txt_count_acc As TextBox
 End Class

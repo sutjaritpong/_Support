@@ -28,7 +28,7 @@ Public Class FrmExecution
 
         lbl_count.Text = DS.Tables("countrow").Rows(0)("COUNTS") & "" & "ราย"
 
-        Dim types() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรม", "ศูนย์ประสานงาน", "ชื่อพนักงาน", "พนักงานบังคับคดี"}
+        Dim types() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "เลขที่สัญญา", "ชื่อ-นามสกุล", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรม", "ศูนย์ประสานงาน", "ชื่อพนักงาน", "พนักงานบังคับคดี"}
 
         cbo_type.Items.AddRange(types)
         cbo_type.SelectedIndex = 0
@@ -134,6 +134,7 @@ Public Class FrmExecution
 
     Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
+
         cell_refresh()
         Refresh()
 
@@ -197,13 +198,28 @@ Public Class FrmExecution
         clear_text()
 
         Try
+
             Dim addacc() = {dtgv_search.CurrentRow.Cells(3).Value.ToString, dtgv_search.CurrentRow.Cells(4).Value.ToString, dtgv_search.CurrentRow.Cells(5).Value.ToString}
             txt_product.Text = dtgv_search.CurrentRow.Cells(0).Value.ToString
             txt_idcus.Text = dtgv_search.CurrentRow.Cells(1).Value.ToString
             txt_namecus.Text = dtgv_search.CurrentRow.Cells(2).Value.ToString
+
             cbo_acc.Items.Clear()
-            cbo_acc.Items.AddRange(addacc)
+
+            If addacc(0) <> "" Then
+                cbo_acc.Items.Add(addacc(0))
+            End If
+            If addacc(1) <> "" Then
+                cbo_acc.Items.Add(addacc(1))
+            End If
+            If addacc(2) <> "" Then
+                cbo_acc.Items.Add(addacc(2))
+            End If
+
             cbo_acc.SelectedIndex = 0
+
+            txt_count_acc.Text = cbo_acc.Items.Count
+
             cbo_court.Text = dtgv_search.CurrentRow.Cells(6).Value.ToString
             txt_black.Text = dtgv_search.CurrentRow.Cells(7).Value.ToString
             txt_red.Text = dtgv_search.CurrentRow.Cells(8).Value.ToString
@@ -231,9 +247,11 @@ Public Class FrmExecution
 
 
         Catch ex As Exception
+
             Reader()
-            MsgBox(ex)
+
         End Try
+
     End Sub
 
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
@@ -243,6 +261,7 @@ Public Class FrmExecution
 
     End Sub
     Friend Sub Reader()
+
 
         dtp_tracking_date.Enabled = False
         dtp_verify_date.Enabled = False
@@ -271,12 +290,23 @@ Public Class FrmExecution
         txt_tracking_detail.ReadOnly = True
         txt_tracking_nosheet.ReadOnly = True
         txt_collec_nosend.ReadOnly = True
-
+        txt_count_acc.ReadOnly = True
         chk_datesheet.Enabled = False
         chk_tracking_date.Enabled = False
         chk_verify_date.Enabled = False
 
-        txt_total.Text = CDbl(txt_total.Text).ToString("##,##0.00")
+        If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
+
+
+        Else
+
+            txt_total.Text = CDbl(txt_total.Text).ToString("##,##0.00")
+
+        End If
+
+
+
+
     End Sub
     Friend Sub Write()
 
@@ -305,6 +335,7 @@ Public Class FrmExecution
         txt_tracking_detail.ReadOnly = False
         txt_tracking_nosheet.ReadOnly = False
         txt_collec_nosend.ReadOnly = False
+        txt_count_acc.ReadOnly = False
 
         chk_datesheet.Enabled = True
         chk_tracking_date.Enabled = True
@@ -332,7 +363,8 @@ Public Class FrmExecution
         Select Case cbo_type.SelectedItem
 
             Case "ธนาคาร" : sqll &= "ES.EXEBANK "
-            Case "เลขประจำตัวประชาชน" : sqll &= "EXESM.EXEID "
+            Case "เลขประจำตัวประชาชน" : sqll &= "ES.EXEID "
+            Case "เลขที่สัญญา" : sqll &= $"ES.EXEACC1 LIKE'%{txt_search.Text}%' OR ES.EXEACC2 LIKE '%{txt_search.Text}%' OR ES.EXEACC3 "
             Case "ชื่อ-นามสกุล" : sqll &= "EXESM.EXECUSTOMER "
             Case "ศาล" : sqll &= "ES.EXECOURT "
             Case "คดีดำ" : sqll &= "ES.EXEBLACK "
@@ -342,6 +374,7 @@ Public Class FrmExecution
             Case "ศูนย์ประสานงาน" : sqll &= "ES.EXEHUB "
             Case "ชื่อพนักงาน" : sqll &= "ES.EXEFULLNAME "
             Case "พนักงานบังคับคดี" : sqll &= "Emp.EXEEMPPLOYEES "
+
 
         End Select
 
@@ -365,7 +398,9 @@ Public Class FrmExecution
             dtgv_search.Columns(i).HeaderText = header(i)
 
             For x = 9 To 28 Step +1
-
+                If x = 15 Then
+                    Continue For
+                End If
                 dtgv_search.Columns(x).Visible = False
 
             Next
@@ -457,13 +492,30 @@ Public Class FrmExecution
 
         With dtgv_search
 
-            Dim addacc() = {CStr(.Rows.Item(e.RowIndex).Cells(3).Value.ToString), CStr(.Rows.Item(e.RowIndex).Cells(4).Value.ToString), CStr(.Rows.Item(e.RowIndex).Cells(5).Value.ToString)}
+            Dim dtgvrows_acc() As String = {CStr(dtgv_search.Rows.Item(e.RowIndex).Cells(3).Value.ToString), CStr(dtgv_search.Rows.Item(e.RowIndex).Cells(4).Value.ToString), CStr(dtgv_search.Rows.Item(e.RowIndex).Cells(5).Value.ToString)}
+
             txt_product.Text = CStr(.Rows.Item(e.RowIndex).Cells(0).Value.ToString)
             txt_idcus.Text = CStr(.Rows.Item(e.RowIndex).Cells(1).Value.ToString)
             txt_namecus.Text = CStr(.Rows.Item(e.RowIndex).Cells(2).Value.ToString)
+
             cbo_acc.Items.Clear()
-            cbo_acc.Items.AddRange(addacc)
+
+            If dtgvrows_acc(0) <> "" Then
+                cbo_acc.Items.Add(dtgvrows_acc(0))
+            End If
+
+            If dtgvrows_acc(1) <> "" Then
+                cbo_acc.Items.Add(dtgvrows_acc(1))
+            End If
+
+            If dtgvrows_acc(2) <> "" Then
+                cbo_acc.Items.Add(dtgvrows_acc(2))
+            End If
+
             cbo_acc.SelectedIndex = 0
+            txt_count_acc.Text = cbo_acc.Items.Count
+
+
             cbo_court.Text = CStr(.Rows.Item(e.RowIndex).Cells(6).Value.ToString)
             txt_black.Text = CStr(.Rows.Item(e.RowIndex).Cells(7).Value.ToString)
             txt_red.Text = CStr(.Rows.Item(e.RowIndex).Cells(8).Value.ToString)
@@ -528,7 +580,6 @@ Public Class FrmExecution
         Reader()
 
     End Sub
-
 
 End Class
 
