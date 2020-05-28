@@ -296,10 +296,13 @@ Partial Class FrmTracking
         '
         'dtgv_tracking
         '
+        Me.dtgv_tracking.AllowUserToAddRows = False
+        Me.dtgv_tracking.AllowUserToDeleteRows = False
         Me.dtgv_tracking.BackgroundColor = System.Drawing.SystemColors.HighlightText
         Me.dtgv_tracking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_tracking.Location = New System.Drawing.Point(22, 334)
         Me.dtgv_tracking.Name = "dtgv_tracking"
+        Me.dtgv_tracking.ReadOnly = True
         Me.dtgv_tracking.Size = New System.Drawing.Size(558, 200)
         Me.dtgv_tracking.TabIndex = 131
         '

@@ -80,7 +80,6 @@ Partial Class Frmimportexe
         '
         Me.Dtgv_Exe.AllowUserToAddRows = False
         Me.Dtgv_Exe.AllowUserToDeleteRows = False
-        Me.Dtgv_Exe.AllowUserToOrderColumns = True
         Me.Dtgv_Exe.BackgroundColor = System.Drawing.SystemColors.Window
         Me.Dtgv_Exe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dtgv_Exe.GridColor = System.Drawing.Color.Black

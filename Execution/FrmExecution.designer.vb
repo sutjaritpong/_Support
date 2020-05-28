@@ -195,7 +195,6 @@ Partial Class FrmExecution
         '
         Me.dtgv_search.AllowUserToAddRows = False
         Me.dtgv_search.AllowUserToDeleteRows = False
-        Me.dtgv_search.AllowUserToOrderColumns = True
         Me.dtgv_search.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dtgv_search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_search.GridColor = System.Drawing.Color.Black

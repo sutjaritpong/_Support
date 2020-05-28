@@ -323,9 +323,12 @@ Partial Class FrmEXEACC
         '
         'dtgv_exeacc
         '
+        Me.dtgv_exeacc.AllowUserToAddRows = False
+        Me.dtgv_exeacc.AllowUserToDeleteRows = False
         Me.dtgv_exeacc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_exeacc.Location = New System.Drawing.Point(33, 437)
         Me.dtgv_exeacc.Name = "dtgv_exeacc"
+        Me.dtgv_exeacc.ReadOnly = True
         Me.dtgv_exeacc.Size = New System.Drawing.Size(941, 257)
         Me.dtgv_exeacc.TabIndex = 86
         '

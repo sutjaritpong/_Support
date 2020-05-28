@@ -133,13 +133,13 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click, cmd_find.Click
+    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
         Dim _datetime As DateTime = dtp_date_verify.Text
         Dim acckey As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime}"
 
         connect()
-        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,Execution_employee,Tracing_detail,Tracking_nosheet,Tracking_Collector_nosend)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend)"
+        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,Tracking_Execution_employee,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend)"
         With cmd
             .CommandText = sql
             .Parameters.Clear()

@@ -25,6 +25,9 @@ Partial Class FrmPort
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPort))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbo_status = New System.Windows.Forms.ComboBox()
+        Me.txt_oa = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.dtp_datesend = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -32,25 +35,22 @@ Partial Class FrmPort
         Me.cbo_owner = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.txt_countacc = New System.Windows.Forms.TextBox()
+        Me.cbo_acc = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_cusid = New System.Windows.Forms.TextBox()
         Me.txt_cusname = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_cuscus = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cbo_acc = New System.Windows.Forms.ComboBox()
-        Me.txt_countacc = New System.Windows.Forms.TextBox()
         Me.dtgv_exeport = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txt_oa = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cbo_status = New System.Windows.Forms.ComboBox()
-        Me.cmd_search = New System.Windows.Forms.Button()
-        Me.cbo_type_find = New System.Windows.Forms.ComboBox()
-        Me.txt_find = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.txt_find = New System.Windows.Forms.TextBox()
+        Me.cbo_type_find = New System.Windows.Forms.ComboBox()
+        Me.cmd_search = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -85,6 +85,33 @@ Partial Class FrmPort
         Me.GroupBox2.TabIndex = 86
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ช้อมูลลูกค้า"
+        '
+        'cbo_status
+        '
+        Me.cbo_status.FormattingEnabled = True
+        Me.cbo_status.Location = New System.Drawing.Point(122, 47)
+        Me.cbo_status.Name = "cbo_status"
+        Me.cbo_status.Size = New System.Drawing.Size(163, 24)
+        Me.cbo_status.TabIndex = 77
+        '
+        'txt_oa
+        '
+        Me.txt_oa.Location = New System.Drawing.Point(122, 19)
+        Me.txt_oa.Name = "txt_oa"
+        Me.txt_oa.Size = New System.Drawing.Size(163, 22)
+        Me.txt_oa.TabIndex = 88
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.SystemColors.Window
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label1.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(74, 20)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(29, 20)
+        Me.Label1.TabIndex = 87
+        Me.Label1.Text = "OA"
         '
         'dtp_datesend
         '
@@ -171,6 +198,45 @@ Partial Class FrmPort
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
         '
+        'txt_countacc
+        '
+        Me.txt_countacc.Location = New System.Drawing.Point(283, 102)
+        Me.txt_countacc.Name = "txt_countacc"
+        Me.txt_countacc.Size = New System.Drawing.Size(20, 22)
+        Me.txt_countacc.TabIndex = 84
+        '
+        'cbo_acc
+        '
+        Me.cbo_acc.FormattingEnabled = True
+        Me.cbo_acc.Location = New System.Drawing.Point(109, 101)
+        Me.cbo_acc.Name = "cbo_acc"
+        Me.cbo_acc.Size = New System.Drawing.Size(173, 24)
+        Me.cbo_acc.TabIndex = 77
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.Window
+        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label6.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(37, 65)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(66, 20)
+        Me.Label6.TabIndex = 82
+        Me.Label6.Text = "เลขที่ลูกหนี้"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.SystemColors.Window
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label5.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(32, 102)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 20)
+        Me.Label5.TabIndex = 61
+        Me.Label5.Text = "เลขที่สัญญา"
+        '
         'txt_cusid
         '
         Me.txt_cusid.Location = New System.Drawing.Point(112, 27)
@@ -216,50 +282,14 @@ Partial Class FrmPort
         Me.txt_cuscus.Size = New System.Drawing.Size(170, 22)
         Me.txt_cuscus.TabIndex = 83
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.SystemColors.Window
-        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label5.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(32, 102)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(71, 20)
-        Me.Label5.TabIndex = 61
-        Me.Label5.Text = "เลขที่สัญญา"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.SystemColors.Window
-        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label6.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(37, 65)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(66, 20)
-        Me.Label6.TabIndex = 82
-        Me.Label6.Text = "เลขที่ลูกหนี้"
-        '
-        'cbo_acc
-        '
-        Me.cbo_acc.FormattingEnabled = True
-        Me.cbo_acc.Location = New System.Drawing.Point(109, 101)
-        Me.cbo_acc.Name = "cbo_acc"
-        Me.cbo_acc.Size = New System.Drawing.Size(173, 24)
-        Me.cbo_acc.TabIndex = 77
-        '
-        'txt_countacc
-        '
-        Me.txt_countacc.Location = New System.Drawing.Point(283, 102)
-        Me.txt_countacc.Name = "txt_countacc"
-        Me.txt_countacc.Size = New System.Drawing.Size(20, 22)
-        Me.txt_countacc.TabIndex = 84
-        '
         'dtgv_exeport
         '
+        Me.dtgv_exeport.AllowUserToAddRows = False
+        Me.dtgv_exeport.AllowUserToDeleteRows = False
         Me.dtgv_exeport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_exeport.Location = New System.Drawing.Point(14, 532)
         Me.dtgv_exeport.Name = "dtgv_exeport"
+        Me.dtgv_exeport.ReadOnly = True
         Me.dtgv_exeport.Size = New System.Drawing.Size(982, 185)
         Me.dtgv_exeport.TabIndex = 93
         '
@@ -278,63 +308,6 @@ Partial Class FrmPort
         Me.GroupBox3.TabIndex = 92
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ค้นหาข้อมูล"
-        '
-        'txt_oa
-        '
-        Me.txt_oa.Location = New System.Drawing.Point(122, 19)
-        Me.txt_oa.Name = "txt_oa"
-        Me.txt_oa.Size = New System.Drawing.Size(163, 22)
-        Me.txt_oa.TabIndex = 88
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.SystemColors.Window
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(74, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 20)
-        Me.Label1.TabIndex = 87
-        Me.Label1.Text = "OA"
-        '
-        'cbo_status
-        '
-        Me.cbo_status.FormattingEnabled = True
-        Me.cbo_status.Location = New System.Drawing.Point(122, 47)
-        Me.cbo_status.Name = "cbo_status"
-        Me.cbo_status.Size = New System.Drawing.Size(163, 24)
-        Me.cbo_status.TabIndex = 77
-        '
-        'cmd_search
-        '
-        Me.cmd_search.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
-        Me.cmd_search.Location = New System.Drawing.Point(527, 20)
-        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_search.Name = "cmd_search"
-        Me.cmd_search.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_search.TabIndex = 94
-        Me.cmd_search.Text = "ค้นหาข้อมูล"
-        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_search.UseVisualStyleBackColor = False
-        '
-        'cbo_type_find
-        '
-        Me.cbo_type_find.FormattingEnabled = True
-        Me.cbo_type_find.Location = New System.Drawing.Point(92, 23)
-        Me.cbo_type_find.Name = "cbo_type_find"
-        Me.cbo_type_find.Size = New System.Drawing.Size(147, 24)
-        Me.cbo_type_find.TabIndex = 77
-        '
-        'txt_find
-        '
-        Me.txt_find.Location = New System.Drawing.Point(350, 23)
-        Me.txt_find.Name = "txt_find"
-        Me.txt_find.Size = New System.Drawing.Size(170, 22)
-        Me.txt_find.TabIndex = 85
         '
         'Label13
         '
@@ -360,6 +333,36 @@ Partial Class FrmPort
         Me.Label12.TabIndex = 95
         Me.Label12.Text = "ข้อมูลที่ต้องการหา"
         '
+        'txt_find
+        '
+        Me.txt_find.Location = New System.Drawing.Point(350, 23)
+        Me.txt_find.Name = "txt_find"
+        Me.txt_find.Size = New System.Drawing.Size(170, 22)
+        Me.txt_find.TabIndex = 85
+        '
+        'cbo_type_find
+        '
+        Me.cbo_type_find.FormattingEnabled = True
+        Me.cbo_type_find.Location = New System.Drawing.Point(92, 23)
+        Me.cbo_type_find.Name = "cbo_type_find"
+        Me.cbo_type_find.Size = New System.Drawing.Size(147, 24)
+        Me.cbo_type_find.TabIndex = 77
+        '
+        'cmd_search
+        '
+        Me.cmd_search.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
+        Me.cmd_search.Location = New System.Drawing.Point(527, 20)
+        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_search.Name = "cmd_search"
+        Me.cmd_search.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_search.TabIndex = 94
+        Me.cmd_search.Text = "ค้นหาข้อมูล"
+        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_search.UseVisualStyleBackColor = False
+        '
         'FrmPort
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -376,8 +379,7 @@ Partial Class FrmPort
         Me.ForeColor = System.Drawing.Color.Blue
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmPort"
         Me.Text = "ส่งคัดประกันสังคมฟ้องเอง"
         Me.GroupBox2.ResumeLayout(False)

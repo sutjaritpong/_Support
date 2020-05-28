@@ -624,12 +624,15 @@ Partial Class FrmWDS
         '
         'dtgv_data
         '
+        Me.dtgv_data.AllowUserToAddRows = False
+        Me.dtgv_data.AllowUserToDeleteRows = False
         Me.dtgv_data.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dtgv_data.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dtgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_data.GridColor = System.Drawing.SystemColors.MenuText
         Me.dtgv_data.Location = New System.Drawing.Point(624, 187)
         Me.dtgv_data.Name = "dtgv_data"
+        Me.dtgv_data.ReadOnly = True
         Me.dtgv_data.RowHeadersVisible = False
         Me.dtgv_data.Size = New System.Drawing.Size(359, 520)
         Me.dtgv_data.TabIndex = 95
