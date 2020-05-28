@@ -20,6 +20,14 @@ Public Class FrmExecution
         'Me.dtp_tracking.CustomFormat = "dd MMM yyyy"
         'Me.dtp_tracking.Format = DateTimePickerFormat.Custom
 
+        sql = "SELECT  EMPLOYEES_KEY,EXEEMOPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
+        cmd = New SqlCommand(sql, cn)
+        DR = cmd.ExecuteReader()
+
+        While DR.Read()
+            cbo_employees_exe.Items.Add($"{DR("EXEEMOPLOYEES")}")
+        End While
+
         sql = "SELECT COUNT(*) AS COUNTS FROM EXESM "
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -145,7 +153,7 @@ Public Class FrmExecution
         txt_detail1.Text = ""
 
         txt_employee.Text = ""
-        txt_EmployeeExE.Text = ""
+        cbo_employees_exe.Text = ""
         txt_hub.Text = ""
         txt_hubs.Text = ""
         txt_idcus.Text = ""
@@ -235,7 +243,7 @@ Public Class FrmExecution
             txt_performance.Text = dtgv_search.CurrentRow.Cells(18).Value.ToString
             txt_hubs.Text = dtgv_search.CurrentRow.Cells(19).Value.ToString
             txt_result.Text = dtgv_search.CurrentRow.Cells(20).Value.ToString
-            txt_EmployeeExE.Text = dtgv_search.CurrentRow.Cells(21).Value.ToString
+            cbo_employees_exe.Text = dtgv_search.CurrentRow.Cells(21).Value.ToString
             dtp_tracking_date.Text = dtgv_search.CurrentRow.Cells(22).Value.ToString
             txt_tracking_nosheet.Text = dtgv_search.CurrentRow.Cells(23).Value.ToString
             txt_collec_nosend.Text = dtgv_search.CurrentRow.Cells(24).Value.ToString
@@ -244,6 +252,14 @@ Public Class FrmExecution
             txt_verify_result.Text = dtgv_search.CurrentRow.Cells(27).Value.ToString
             txt_verify_comment.Text = dtgv_search.CurrentRow.Cells(28).Value.ToString
 
+            If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
+
+
+            Else
+
+                txt_total.Text = CDbl(txt_total.Text).ToString("##,##0.00")
+
+            End If
 
 
         Catch ex As Exception
@@ -284,7 +300,7 @@ Public Class FrmExecution
         txt_hubs.ReadOnly = True
         txt_performance.ReadOnly = True
         txt_result.ReadOnly = True
-        txt_EmployeeExE.ReadOnly = True
+        cbo_employees_exe.Enabled = False
         txt_verify_result.ReadOnly = True
         txt_verify_comment.ReadOnly = True
         txt_tracking_detail.ReadOnly = True
@@ -329,7 +345,7 @@ Public Class FrmExecution
         txt_performance.ReadOnly = False
         txt_result.ReadOnly = False
         txt_hubs.ReadOnly = False
-        txt_EmployeeExE.ReadOnly = False
+        cbo_employees_exe.Enabled = True
         txt_verify_result.ReadOnly = False
         txt_verify_comment.ReadOnly = False
         txt_tracking_detail.ReadOnly = False
@@ -414,16 +430,19 @@ Public Class FrmExecution
     Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
         connect()
+        Dim _datetime_sheet As DateTime = dtp_datesheet.Text
+        Dim _datetime_verify As DateTime = dtp_verify_date.Text
 
         If txt_idcus.Text = "" Or txt_namecus.Text = "" Or txt_nameem.Text = "" Then
             Msg_error("กรุณาตรวจสอบ ชื่อลูกค้า เลขประจำตัวประชาชน หรือชื่อผู้ส่งใบงาน")
             Return
         Else
-            sql = $"UPDATE EXESM SET EXEKEY='{txt_idcus.Text}-{txt_product.Text}-{lbl_datetoday.Text}-{lbl_timer.Text}',EXEBANK='{txt_product.Text}',EXEID='{txt_idcus.Text}',EXECUSTOMER= '{txt_namecus.Text}',EXECOURT='{cbo_court.Text}',EXEBLACK='{txt_black.Text}',EXERED= '{txt_red.Text}',EXENUMBER='{txt_number.Text}',EXETOTAL='{txt_total.Text}',EXEEMPLOYEE= '{txt_nameem.Text}',EXEPHONE='{txt_phone.Text}',EXEHUB='{txt_hub.Text}',EXEDATEWORK= '{dtp_datesheet.Text}',EXEFULLNAME='{txt_employee.Text}',EXEDETAIL='{txt_detail1.Text}',EXEPERFORMANCE = '{txt_performance.Text}',EXERESULT='{ txt_result.Text}' WHERE EXEID='{txt_idcus.Text}' AND EXEFULLNAME = '{txt_employee.Text}';"
+            sql = $"UPDATE EXESM SET EXEKEY='{txt_product.Text}-{txt_idcus.Text}-{_datetime_sheet}-{txt_hubs.Text}',EXEBANK='{txt_product.Text}',EXEID='{txt_idcus.Text}',EXECUSTOMER= '{txt_namecus.Text}',EXECOURT='{cbo_court.Text}',EXEBLACK='{txt_black.Text}',EXERED= '{txt_red.Text}',EXENUMBER='{txt_number.Text}',EXETOTAL='{txt_total.Text}',EXEEMPLOYEE= '{txt_nameem.Text}',EXEPHONE='{txt_phone.Text}',EXEHUB='{txt_hub.Text}',EXEDATEWORK= '{dtp_datesheet.Text}',EXEFULLNAME='{txt_employee.Text}',EXEDETAIL='{txt_detail1.Text}',EXEPERFORMANCE = '{txt_performance.Text}',EXERESULT='{ txt_result.Text}' WHERE EXEKEY = '{txt_product.Text}-{txt_idcus.Text}-{_datetime_sheet}-{txt_hubs.Text}';
+                    UPDATE Execution_verify SET Execution_verify_pk ='{txt_product.Text}-{txt_idcus.Text}-{dtp_verify_date.Text}',Customer_owner = '{txt_product.Text}',Customer_id_card = '{txt_idcus.Text}',Customer_account = {cbo_acc.Text},Customer_fullname = {txt_namecus.Text}"
 
 
 
-            cmd_excuteScalar()
+            cmd_excuteNonquery()
 
             If dtgv_search.Rows.Count <> 0 Then
 
@@ -432,8 +451,8 @@ Public Class FrmExecution
                 cell_refresh()
 
                 Msg_OK("บันทึกข้อมูลสำเร็จ")
-
-
+            Else
+                Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
             End If
 
         End If
@@ -532,7 +551,7 @@ Public Class FrmExecution
             txt_hubs.Text = CStr(.Rows.Item(e.RowIndex).Cells(19).Value.ToString)
             txt_result.Text = CStr(.Rows.Item(e.RowIndex).Cells(20).Value.ToString)
 
-            txt_EmployeeExE.Text = CStr(.Rows.Item(e.RowIndex).Cells(21).Value.ToString)
+            cbo_employees_exe.Text = CStr(.Rows.Item(e.RowIndex).Cells(21).Value.ToString)
 
             dtp_tracking_date.Text = CStr(.Rows.Item(e.RowIndex).Cells(22).Value.ToString)
             txt_tracking_nosheet.Text = CStr(.Rows.Item(e.RowIndex).Cells(23).Value.ToString)

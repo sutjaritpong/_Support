@@ -113,17 +113,6 @@ Public Class FrmWDS
 
         Next
 
-        'For c = 0 To dtgv_data.Rows.Count - 1 Step +1
-
-        '    If CStr(dtgv_data.Rows.Item(c).Cells(16).Value.ToString) = "" Then
-
-        '        dtgv_data.Rows(c).DefaultCellStyle.BackColor = Color.OrangeRed
-
-        '    End If
-
-        'Next
-
-
         cn.Close()
 
     End Sub

@@ -96,8 +96,8 @@ Partial Class FrmExecution
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txt_nameem = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.txt_EmployeeExE = New System.Windows.Forms.TextBox()
         Me.dtp_tracking_date = New System.Windows.Forms.DateTimePicker()
+        Me.cbo_employees_exe = New System.Windows.Forms.ComboBox()
         Me.Group_search.SuspendLayout()
         CType(Me.dtgv_search, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Group_detail.SuspendLayout()
@@ -340,6 +340,7 @@ Partial Class FrmExecution
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.Window
+        Me.GroupBox1.Controls.Add(Me.cbo_employees_exe)
         Me.GroupBox1.Controls.Add(Me.txt_count_acc)
         Me.GroupBox1.Controls.Add(Me.Label27)
         Me.GroupBox1.Controls.Add(Me.txt_tracking_detail)
@@ -393,7 +394,6 @@ Partial Class FrmExecution
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.txt_nameem)
         Me.GroupBox1.Controls.Add(Me.Label23)
-        Me.GroupBox1.Controls.Add(Me.txt_EmployeeExE)
         Me.GroupBox1.Controls.Add(Me.dtp_tracking_date)
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox1.Location = New System.Drawing.Point(5, 252)
@@ -676,7 +676,7 @@ Partial Class FrmExecution
         'txt_total
         '
         Me.txt_total.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_total.ForeColor = System.Drawing.Color.GreenYellow
+        Me.txt_total.ForeColor = System.Drawing.Color.DarkOrange
         Me.txt_total.Location = New System.Drawing.Point(142, 307)
         Me.txt_total.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_total.Name = "txt_total"
@@ -1021,16 +1021,6 @@ Partial Class FrmExecution
         Me.Label23.TabIndex = 76
         Me.Label23.Text = "เจ้าหน้าที่บังคับคดี :"
         '
-        'txt_EmployeeExE
-        '
-        Me.txt_EmployeeExE.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_EmployeeExE.ForeColor = System.Drawing.Color.Blue
-        Me.txt_EmployeeExE.Location = New System.Drawing.Point(571, 117)
-        Me.txt_EmployeeExE.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.txt_EmployeeExE.Name = "txt_EmployeeExE"
-        Me.txt_EmployeeExE.Size = New System.Drawing.Size(238, 22)
-        Me.txt_EmployeeExE.TabIndex = 25
-        '
         'dtp_tracking_date
         '
         Me.dtp_tracking_date.CalendarForeColor = System.Drawing.Color.Blue
@@ -1041,6 +1031,17 @@ Partial Class FrmExecution
         Me.dtp_tracking_date.Name = "dtp_tracking_date"
         Me.dtp_tracking_date.Size = New System.Drawing.Size(102, 22)
         Me.dtp_tracking_date.TabIndex = 26
+        '
+        'cbo_employees_exe
+        '
+        Me.cbo_employees_exe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cbo_employees_exe.ForeColor = System.Drawing.Color.Blue
+        Me.cbo_employees_exe.FormattingEnabled = True
+        Me.cbo_employees_exe.Location = New System.Drawing.Point(571, 117)
+        Me.cbo_employees_exe.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.cbo_employees_exe.Name = "cbo_employees_exe"
+        Me.cbo_employees_exe.Size = New System.Drawing.Size(240, 24)
+        Me.cbo_employees_exe.TabIndex = 88
         '
         'FrmExecution
         '
@@ -1145,7 +1146,7 @@ Partial Class FrmExecution
     Friend WithEvents Label10 As Label
     Friend WithEvents txt_nameem As TextBox
     Friend WithEvents Label23 As Label
-    Friend WithEvents txt_EmployeeExE As TextBox
     Friend WithEvents dtp_tracking_date As DateTimePicker
     Friend WithEvents txt_count_acc As TextBox
+    Friend WithEvents cbo_employees_exe As ComboBox
 End Class
