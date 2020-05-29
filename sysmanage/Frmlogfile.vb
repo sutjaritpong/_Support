@@ -11,6 +11,7 @@ Imports System.Xml
 Imports System.Globalization
 Imports System.Data.OleDb
 Imports System.Linq
+
 Public Class Frmlogfile
     Private Sub Frmlogfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect()
@@ -26,8 +27,11 @@ Public Class Frmlogfile
 
         loaddatagrid()
         lbl_countdtgv.Text = dtgvlogfile.Rows.Count                             '// นับจำนวนแถวใน Datagridview
+
         For Each col As DataGridViewColumn In dtgvlogfile.Columns
+
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
         Next
     End Sub
 
@@ -55,14 +59,19 @@ Public Class Frmlogfile
 
             Next
         End With
+
         sql = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"
         cmd.CommandText = sql
         DA.SelectCommand = cmd
         DA.Fill(DS, "countdata")
+
         lbl_countdata.Text = DS.Tables("countdata").Rows(0)("countdatas")
         lbl_countdtgv.Text = dtgvlogfile.Rows.Count
+
         For Each col As DataGridViewColumn In dtgvlogfile.Columns
+
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
         Next
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
@@ -70,19 +79,21 @@ Public Class Frmlogfile
         loaddatagrid()
     End Sub
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+
         dtgvlogfile.DataSource.clear()
+
         Dim headerdgv() As String = {"วันที่", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
         Dim sqll As String = "SELECT * FROM tbl_logfiles WHERE LOGDATE BETWEEN @sdate AND @edate AND "
-        'Dim _sql As String = "SELECT * FROM tbl_logfiles WHERE "
+
         Select Case cbo_where.SelectedItem
-            'Case "วันที่" : _sql &= "LOGDATE BETWEEN @sdate AND @edate "
             Case "ชื่อเข้าระบบ" : sqll &= "LOGUSER "
             Case "ชื่อพนักงาน" : sqll &= "LOGNAME "
             Case "IP" : sqll &= "LOGIP "
             Case "PC" : sqll &= "LOGPCNAME "
             Case "รายละเอียด" : sqll &= "LOGDETAIL "
         End Select
-        sqll &= $"LIKE '{txt_find.Text}%' ORDER BY LOGDATE"
+
+        sqll &= $"LIKE '{txt_find.Text}%' ORDER BY LOGDATE DESC"
         With cmd
             .Parameters.Clear()
             .Parameters.Add("@sdate", SqlDbType.Date).Value = DateTimestart.Value
@@ -91,6 +102,7 @@ Public Class Frmlogfile
         End With
         DA.SelectCommand = cmd
         DA.Fill(DS, "find")
+
         With dtgvlogfile
             For i = 0 To headerdgv.Length - 1
                 .DataSource = DS.Tables("find")
@@ -99,22 +111,30 @@ Public Class Frmlogfile
             Next
 
         End With
+
         lbl_countdtgv.Text = dtgvlogfile.Rows.Count
+
         For Each col As DataGridViewColumn In dtgvlogfile.Columns
+
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
         Next
 
     End Sub
 
+    '## ปุ่มสำหรับดึงข้อมูล log มา เป็นรูปแบบ Excel อ่่านค่าจาก datagridview แล้วดึงข้อมูล มาใส่ใน ไฟล์ Excel
     Private Sub cmd_text_Click(sender As Object, e As EventArgs) Handles cmd_text.Click
+
         Try
             lbl_statusexport.Text = "โปรดรอ..."
-            cmd_text.Enabled = False                    '// ปุ่มสำหรับดึงข้อมูล log มา เป็นรูปแบบ Excel อ่่านค่าจาก datagridview แล้วดึงข้อมูล
-            cmd_refresh.Enabled = False                 '// มาใส่ใน ไฟล์ Excel
+            cmd_text.Enabled = False
+            cmd_refresh.Enabled = False
             cmd_find.Enabled = False
 
             SaveFileDialog1.Filter = "Excel 97-2003 Workbook (*.xls)|*.xls"
+
             If SaveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+
                 Dim xlApp As Microsoft.Office.Interop.Excel.Application
                 Dim xlWorkBook As Microsoft.Office.Interop.Excel.Workbook
                 Dim xlWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
@@ -127,16 +147,17 @@ Public Class Frmlogfile
                 xlWorkSheet = xlWorkBook.Sheets("sheet1")
 
                 For i = 0 To dtgvlogfile.RowCount - 2
+
                     For y = 0 To dtgvlogfile.ColumnCount - 1
+
                         For x As Integer = 1 To dtgvlogfile.Columns.Count
+
                             xlWorkSheet.Cells(1, x) = dtgvlogfile.Columns(x - 1).HeaderText
                             xlWorkSheet.Cells(i + 2, y + 1) = dtgvlogfile(y, i).Value.ToString()
-
 
                         Next
 
                     Next
-
 
                 Next
                 xlWorkSheet.SaveAs(SaveFileDialog1.FileName)
@@ -158,8 +179,11 @@ Public Class Frmlogfile
                 cmd_find.Enabled = True
                 cmd_refresh.Enabled = True
                 Return
+
             End If
+
         Catch ex As Exception
+
             Msg_error("การ Export ข้อมูลล้มเหลว !!")
             lbl_statusexport.Text = "ไม่มีการทำงาน"
             cmd_text.Enabled = True
@@ -168,6 +192,7 @@ Public Class Frmlogfile
 
             Return
         End Try
+
     End Sub
 
     Private Sub releaseObject(ByVal obj As Object)
