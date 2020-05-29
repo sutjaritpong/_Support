@@ -9,6 +9,7 @@ Imports System.Xml.XPath
 Imports System.Data
 Imports System.Xml
 Imports System.Globalization
+Imports Microsoft
 Public Class Frmreportexe
 
     Dim headerdgv() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อ-นามสกุล", "เลขที่สัญญา 1", "เลขที่สัญญา 2", "เลขที่สัญญา 3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรม", "จำนวนเงิน", "ชื่อเจ้าของใบงาน", "เบอร์ติดต่อ", "ศูนย์ประสานงาน", "วันที่ออกใบงาน", "ชื่อ-นามสกุลพนักงาน", "รายละเอียด", "ผลปฎิบัติงาน", "เดือนที่ออกใบงาน", "HUBS", "ผลลัพธ์"}
@@ -191,13 +192,14 @@ Public Class Frmreportexe
     End Sub
 
     Private Sub cmd_export_Click(sender As Object, e As EventArgs) Handles cmd_export.Click
-        If dtgv_reportsm.Rows.Count = 0 Then
+        If dtgv_reportsm.Rows.Count = 0 Or dtgv_reportsm.Columns.Count = 0 Then
 
             Msg_error("กรุณา แสดงข้อมูล ก่อน Export ทุกครั้ง")
 
         End If
 
         Exportexcel()
+
         cn.Close()
 
     End Sub
@@ -212,6 +214,7 @@ Public Class Frmreportexe
         End Try
     End Sub
 
+
     Public Sub Exportexcel()
         Dim columnscount As Integer = dtgv_reportsm.Columns.Count
         Dim O As Integer = dtgv_reportsm.Rows.Count
@@ -224,7 +227,7 @@ Public Class Frmreportexe
             cmd_view.Enabled = False              '// มาใส่ใน ไฟล์ Excel
 
 
-            SaveFileDialog1.Filter = "Excel 97-2003 Workbook (*.xls)|*.xls"
+            SaveFileDialog1.Filter = "Excel 97-2003 Workbook (*.xls)|*.xls|Excel Workbook (*.xlsx)|*.xlsx"
             If SaveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 Dim xlApp As Microsoft.Office.Interop.Excel.Application
                 Dim xlWorkBook As Microsoft.Office.Interop.Excel.Workbook

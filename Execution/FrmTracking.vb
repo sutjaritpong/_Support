@@ -46,9 +46,9 @@ Public Class FrmTracking
         cn.Close()
     End Sub
 
-    Private Sub chk_datetracking_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datetracking.CheckedChanged
+    Private Sub chk_datetracking_CheckedChanged(sender As Object, e As EventArgs)
 
-        If chk_datetracking.Checked = True Then
+        If dtp_date_verify.Checked = True Then
 
             dtp_date_verify.Enabled = True
         Else
@@ -183,10 +183,10 @@ Public Class FrmTracking
         cbo_detail.Enabled = False
         cbo_document.Enabled = False
         chk_datesend.Enabled = False
-        chk_datetracking.Enabled = False
+        dtp_date_verify.Enabled = False
         dtp_date_verify.Enabled = False
         dtp_date_send.Enabled = False
-
+        chk_datetracking.Enabled = False
     End Sub
 
     Private Sub _write()
@@ -195,14 +195,14 @@ Public Class FrmTracking
         txt_cusname.ReadOnly = False
         txt_red.ReadOnly = False
         txt_court.ReadOnly = False
-
+        chk_datetracking.Enabled = True
         cbo_waning.Enabled = True
         cbo_owner.Enabled = True
         cbo_empexe.Enabled = True
         cbo_detail.Enabled = True
         cbo_document.Enabled = True
         chk_datesend.Enabled = True
-        chk_datetracking.Enabled = True
+        dtp_date_verify.Enabled = True
 
         If dtp_date_send.Text = "" Then
 
@@ -211,10 +211,26 @@ Public Class FrmTracking
         End If
         If dtp_date_verify.Text = "" Then
 
-            chk_datetracking.Checked = False
+            dtp_date_verify.Checked = False
 
         End If
 
+    End Sub
+    Private Sub clear()
+        txt_court.Text = ""
+        txt_cusid.Text = ""
+        txt_cusname.Text = ""
+        txt_detail.Text = ""
+        txt_red.Text = ""
+        cbo_detail.Text = ""
+        cbo_document.Text = ""
+        cbo_empexe.Text = ""
+        cbo_owner.Text = ""
+        cbo_waning.Text = ""
+        dtp_date_send.Text = ""
+        dtp_date_verify.Text = ""
+        chk_datesend.Checked = False
+        chk_datetracking.Checked = False
     End Sub
 
     Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
@@ -229,5 +245,11 @@ Public Class FrmTracking
 
     End Sub
 
+    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
+    End Sub
+
+    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+
+    End Sub
 End Class

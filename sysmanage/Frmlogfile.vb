@@ -34,7 +34,7 @@ Public Class Frmlogfile
 
         Next
     End Sub
-
+    '## Sql command ในการ ค้นหาข้อมูล โดยกำหนดเงื่อนไข การค้นหา ด้วยคำสั่ง BETWEEN AND 
     Private Sub loaddatagrid()
 
         DateTimestart.Value = DateTime.Now.AddDays(0)
@@ -42,9 +42,9 @@ Public Class Frmlogfile
 
         Dim header() As String = {"วันที่เข้าใช้", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
         sql = "SELECT * FROM tbl_logfiles  WHERE LOGDATE BETWEEN @sdate AND @edate ORDER BY LOGDATE DESC"
-        With cmd                                '// คำสั่ง SQL ด้านบน ใช้หาค่าในช่วงเวลานึงถึงอีกช่วงเวลานึง
+        With cmd
             .Parameters.Clear()
-            .Parameters.Add("@sdate", SqlDbType.Date).Value = DateTimestart.Value      '// ใช้พารามิเตอร์ หาค่าผลต่างระหว่างเวลา ที่ 1 กับ 2
+            .Parameters.Add("@sdate", SqlDbType.Date).Value = DateTimestart.Value
             .Parameters.Add("@edate", SqlDbType.Date).Value = DateTimeend.Value
             .Connection = cn
             .CommandText = sql
@@ -131,7 +131,7 @@ Public Class Frmlogfile
             cmd_refresh.Enabled = False
             cmd_find.Enabled = False
 
-            SaveFileDialog1.Filter = "Excel 97-2003 Workbook (*.xls)|*.xls"
+            SaveFileDialog1.Filter = "Excel 97-2003 Workbook (*.xls)|*.xls|Excel Workbook (*.xlsx)|*.xlsx"
 
             If SaveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
 

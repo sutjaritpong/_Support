@@ -921,7 +921,7 @@ Partial Class FrmExecution
         Me.txt_detail1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_detail1.Multiline = True
         Me.txt_detail1.Name = "txt_detail1"
-        Me.txt_detail1.Size = New System.Drawing.Size(253, 58)
+        Me.txt_detail1.Size = New System.Drawing.Size(234, 58)
         Me.txt_detail1.TabIndex = 21
         '
         'Label8
