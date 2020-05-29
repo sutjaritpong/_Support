@@ -43,6 +43,7 @@ Partial Class FrmExecution
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_save = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbo_employees_exe = New System.Windows.Forms.ComboBox()
         Me.txt_count_acc = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txt_tracking_detail = New System.Windows.Forms.TextBox()
@@ -97,7 +98,6 @@ Partial Class FrmExecution
         Me.txt_nameem = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.dtp_tracking_date = New System.Windows.Forms.DateTimePicker()
-        Me.cbo_employees_exe = New System.Windows.Forms.ComboBox()
         Me.Group_search.SuspendLayout()
         CType(Me.dtgv_search, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Group_detail.SuspendLayout()
@@ -401,6 +401,17 @@ Partial Class FrmExecution
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ข้อมูลแถลงทำบัญชีรับจ่าย"
+        '
+        'cbo_employees_exe
+        '
+        Me.cbo_employees_exe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cbo_employees_exe.ForeColor = System.Drawing.Color.Blue
+        Me.cbo_employees_exe.FormattingEnabled = True
+        Me.cbo_employees_exe.Location = New System.Drawing.Point(571, 117)
+        Me.cbo_employees_exe.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.cbo_employees_exe.Name = "cbo_employees_exe"
+        Me.cbo_employees_exe.Size = New System.Drawing.Size(240, 24)
+        Me.cbo_employees_exe.TabIndex = 88
         '
         'txt_count_acc
         '
@@ -1030,17 +1041,6 @@ Partial Class FrmExecution
         Me.dtp_tracking_date.Name = "dtp_tracking_date"
         Me.dtp_tracking_date.Size = New System.Drawing.Size(102, 22)
         Me.dtp_tracking_date.TabIndex = 26
-        '
-        'cbo_employees_exe
-        '
-        Me.cbo_employees_exe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cbo_employees_exe.ForeColor = System.Drawing.Color.Blue
-        Me.cbo_employees_exe.FormattingEnabled = True
-        Me.cbo_employees_exe.Location = New System.Drawing.Point(571, 117)
-        Me.cbo_employees_exe.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.cbo_employees_exe.Name = "cbo_employees_exe"
-        Me.cbo_employees_exe.Size = New System.Drawing.Size(240, 24)
-        Me.cbo_employees_exe.TabIndex = 88
         '
         'FrmExecution
         '

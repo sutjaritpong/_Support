@@ -1,18 +1,40 @@
-﻿Imports System.Data.SqlClient
-Imports DevExpress.XtraGrid.Views.Grid
-Module VBcode
+﻿'## Descriptions ##'
+'## NameSpaces System.Data.SqlClient ใช้สำหรับเชื่อมต่อกับฐานข้อมูล เช่น SELECT UPDATE INSERT DELETE ##
+'## NameSpaces DevExpress.XtraGrid.Views.Grid สำหรับ จัดการ Event ต่าง ๆ ใน Datagridview ##
 
+Imports System.Data.SqlClient
+Imports DevExpress.XtraGrid.Views.Grid
+
+Module VBcode
+    '## Descriptions ##'
+    '## Massegebox Error ใช้สำหรับ แสดงการแจ้งเตือนปันหาต่าง ๆ  ในโปรแกรม ##
+    '## Parameters text As String สำหรับ สำหรับ เพิ่มข้อมูลที่ต้องการแสดง ##
     Friend Sub Msg_error(text As String, Optional title As String = "ผิดพลาด")
-        MsgBox(text, vbCritical + vbOKOnly, title)          'Massegebox Error ใช้สำหรับ แสดงการแจ้งเตือนปันหาต่าง ๆ ในโปรแกรม
+        MsgBox(text, vbCritical + vbOKOnly, title)
     End Sub
+    '## Descriptions ##'
+    '## Sub Messegebox OK ใช้สำหรับ แสดงการแจ้งเตือนข้อความ เช่น ยินดีด้วย,สำเร็จแล้ว,เสร็จสิ้นแล้ว ในโปรแกรม ##
+    '## Parameters text As String สำหรับ เพิ่มข้อมูลที่ต้องการแสดง ##
+
     Friend Sub Msg_OK(text As String, Optional title As String = "สำเร็จ")
         MsgBox(text, vbInformation + vbOKOnly, title)
     End Sub
+    '## Descriptions ##
+    '## Function Confirm แสดงปุ่มแจ้งเตือน ขึ้นให้ผู้ใช้ยืนยัน ใช้รวมกับ IF ##
+    '## Parameter สองตัว สำหรับ แสดงข้อความแจ้งเตือน ##
+
     Friend Function Msg_confirm(text As String, Optional title As String = "แจ้งเตือน")
         Return MsgBox(text, vbQuestion + vbYesNo, title)
     End Function
+    '## Descriptions ##
+    '## เข้าถึงข้อมูล Environment ใช้สำหรับ ตรวจสอบ สภาพแวดล้อมของเครื่อง Computer Client ##
 
     Friend pc As String = Environment.MachineName
+    '## Descriptions ##
+    '## Sub สำหรับทำ เก็บ HistoryLog ในฐานข้อมูล SCANDB สามารถกำหนด Parameters Detail ภายใน ##
+    '## ข้อมูลที่เก็บคือ วันที่นำเข้าข้อมูล , ชื่อเข้าสู่ระบบ , ชื่อ-นามสกุลที่สมัคร , IP Address , ComputerName , รายละเอียดข้อมูล ##
+    '## ดึงข้อมูลจาก User Name ที่เข้าใช้งานระบบ ## 
+    '## Parameters _status As String ใช้สำหรับใส่ข้อความรายละเอียด ##
 
     Friend Sub _Getlogdata(_status As String)
         connect()
@@ -26,6 +48,10 @@ Module VBcode
         cmd.ExecuteNonQuery()
         cn.Close()
     End Sub
+    '## Descriptions ##
+    '## Sub Clear Datagridview ใช้สำหรับลบ ข้อมูล ถ้า Datagridview นั้นมีข้อมูลค้างอยู่ ##
+    '## Parameters sender As Object ในการผ่านข้อมูล Datagridview ที่ต้องการใช้เพิ่มข้อมูล ##
+
     Friend Sub _cleardatagrid(sender As Object)
 
         If sender.rows.count > 0 Then
@@ -35,8 +61,14 @@ Module VBcode
         End If
 
     End Sub
-    '##### เพิ่มข้อมูลจากฐานข้อมูลเข้า Combobox ########
-    Friend Sub _cboArray(_combobox As Object, ar() As String)
+
+    '## Descriptions ##
+    '## Sub ส่งข้อมูลจาก Array เข้าไปใน Combobox ทำงานโดยใช้ Method Clear ข้อมูลทั้งหมดจาก Combobox ##
+    '## แล้วใช้ Method Items.AddRange() เพิ่ม ข้อมูล Array ไปใน Combobox ##
+    '## ใช้ Method SelectedIndex เพื่อเลือก Array แรก สุดมาแสดง ##
+    '## Parametes _combobox As Object ใช้เพิ่ม Combobox เข้าไปใน Sub ##
+    '## Parameters ar As String() ใช้เพิ่ม Array ข้อมูลที่ต้องการ ##
+    Friend Sub _cboArray(_combobox As Object, ar As String())
 
         _combobox.Items.clear()
 
@@ -45,6 +77,11 @@ Module VBcode
 
     End Sub
 
+    '## Descriptions ##
+    '## Sub ใช้ในการเพิ่มข้อมูล Combobox ในการดึงข้อมูลจาก Database หรือ SQLSERVER ทำการเชื่อมต่อ ฐานข้อมูล จากนั้นใช้ เคลียข้อมูลใน Combobox แล้ว Query ข้อมูลคอลัมน์ ที่ต้องการนำมาแสดง โดยใช้ Loop While ในการอ่านข้อมูลในคอลัมน์ที่ Query มาแล้วเพิ่มเข้า ##
+    '## Parameters _combobox As Object ใช้เพิ่ม Combobox เข้าไปใน
+    '## Parameters _columns As String อ้างถึงชื่อคอลัมน์ของข้อมูลที่จะนำมาแสดง
+    '## Parameters _tables As String ใช้อ้างถึงชื่อตารางที่จะนำข้อมูลมาแสดง
 
     Friend Sub _comboboxadd(_combobox As Object, _columns As String, _tables As String)
 
@@ -64,6 +101,11 @@ Module VBcode
         _combobox.SelectedIndex = 0
 
     End Sub
+
+    '## Descriptions ##
+    '## Sub Permissions ใช้กำหนดสิทธิในการเข้าถึง Object หรือ ฟอร์ม ต่างๆ โดยการดึง สิทธิข้อมูลผู้ใช้จากฐานข้อมูล แล้วกำหนดการใช้งานข้อมูล ของสิทธินั้น ๆ  ##
+    '## Parameters _userid As String ใช้ในการกำหนด Username ในการอ้างถึง สิทธิ ในการใช้ข้อมูล ##
+    '## Parameters _userpass As String ใช้ในการกำหนด Password ในการอ้างถึง สิทธิ ในการใช้ข้อมูล ##
 
     Friend Sub Permissions(_userid As String, _userpass As String)
 
@@ -95,6 +137,13 @@ Module VBcode
         End Select
 
     End Sub
+
+    '## Descriptions ##
+    '## Sub _autocomplete ใข้ในการสร้าง AutoComplete จากข้อมูลใน Database ให้กับ TextBox เพื่อง่ายต่อการค้นหาข้อมูล ใช้ Loop While ในการอ่านข้อมูลจากฐานข้อมูล มาแสดง เป็น List เวลาค้นหา ข้อมูลต่าง ๆ ##
+    '## Parameters ByRef sender As TextBox ใช้ในการเพิ่ม TextBox ที่ต้องการทำ AutoComplete ##
+    '## Parameters _columns As String ใช้กำหนด คอลัมน์ ในการค้นหาข้อมูล ##
+    '## Parameters _table As String ใช้กำหนด ตาราง ในการค้นหาข้อมูล ##
+
     Public Sub _autocomplete(ByRef sender As TextBox, _columns As String, _table As String)
         sql = $"SELECT * FROM {_table}"
         connect()
@@ -116,12 +165,10 @@ Module VBcode
 
     End Sub
 
-    'Public Function GetCellValue(gv As GridView, Column As Integer) As String
-    '    Try
-    '        Return gv.GetRowCellValue(gv.GetSelectedRows(0), gv.Columns(Column)).ToString()
-    '    Catch ex As Exception
-    '    End Try
-    'End Function
+    '## Descriptions ##
+    '## Function เก็บค่าวันที่ ##
+    '## Parameter datetime As DateTime ใช้รับค่าข้อมูลประเภท เวลา/วันที่ ##
+
     Public Function Getdate(datetime As DateTime)
         Dim strMonthDaye As String
         Dim strYeare As String
@@ -133,6 +180,11 @@ Module VBcode
         styMonthDayYeare = strYeare & "-" & strMonthDaye
         Return styMonthDayYeare
     End Function
+
+    '## Descriptions ##
+    '## Function เก็บค่าวันที่ และเวลาสุดท้ายของวัน ##
+    '## Parameter datetime As DateTime ใช้รับค่าข้อมูลประเภท เวลา/วันที่ ##
+
     Public Function Getdateend(datetime As DateTime)
         Dim strMonthDaye As String
         Dim strYeare As String

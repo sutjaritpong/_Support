@@ -323,10 +323,6 @@ Public Class FrmExecution
         chk_tracking_date.Enabled = False
         chk_verify_date.Enabled = False
 
-
-
-
-
     End Sub
     Friend Sub Write()
 

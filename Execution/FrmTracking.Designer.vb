@@ -345,7 +345,7 @@ Partial Class FrmTracking
         '
         'FrmTracking
         '
-        Me.AcceptButton = Me.cmd_save
+        Me.AcceptButton = Me.cmd_find
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
