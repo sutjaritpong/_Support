@@ -168,8 +168,6 @@ Module VBcode
         sender.AutoCompleteSource = AutoCompleteSource.CustomSource
         sender.AutoCompleteCustomSource = autocomp
 
-        Return
-
     End Sub
 
     '## Descriptions ##
@@ -177,6 +175,7 @@ Module VBcode
     '## Parameter datetime As DateTime ใช้รับค่าข้อมูลประเภท เวลา/วันที่ ##
 
     Public Function Getdate(datetime As DateTime)
+
         Dim strMonthDaye As String
         Dim strYeare As String
         Dim styMonthDayYeare As String
@@ -186,6 +185,7 @@ Module VBcode
         strMonthDaye = Format(datetime, "MM-dd")
         styMonthDayYeare = strYeare & "-" & strMonthDaye
         Return styMonthDayYeare
+
     End Function
 
     '## Descriptions ##

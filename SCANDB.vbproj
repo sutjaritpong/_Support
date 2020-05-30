@@ -126,10 +126,10 @@
     <Compile Include="Execution\FrmEXEACC.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\Frmfindtracking.Designer.vb">
-      <DependentUpon>Frmfindtracking.vb</DependentUpon>
+    <Compile Include="Execution\FrmfindExecution.Designer.vb">
+      <DependentUpon>FrmfindExecution.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Frmfindtracking.vb">
+    <Compile Include="Execution\FrmfindExecution.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\FrmPort.Designer.vb">
@@ -302,8 +302,8 @@
     <EmbeddedResource Include="Execution\FrmEXEACC.resx">
       <DependentUpon>FrmEXEACC.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Frmfindtracking.resx">
-      <DependentUpon>Frmfindtracking.vb</DependentUpon>
+    <EmbeddedResource Include="Execution\FrmfindExecution.resx">
+      <DependentUpon>FrmfindExecution.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmPort.resx">
       <DependentUpon>FrmPort.vb</DependentUpon>

@@ -102,7 +102,7 @@ Public Class FrmLogin
                 cmd.ExecuteScalar()
 
                 Msg_error("คุณใส่รหัสผ่านผิดเกินจำนวนที่กำหนดกรุณาแจ้งผู้ดูแล")
-                cn.Dispose()
+
                 cn.Close()
 
 
@@ -176,7 +176,7 @@ Public Class FrmLogin
             If check <> False Then
 
                 Msg_error("ไม่สามารถเข้าสู่ระบบได้เนื่องจาก ขาดการใช้งานหรือจำนวนครั้ง ในการใส่รหัสผ่านผิดเกินกำหนด โปรดติดต่อผู้ดูแล!")
-                cn.Dispose()
+
                 cn.Close()
                 Return
 

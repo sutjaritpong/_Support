@@ -44,6 +44,8 @@ Public Class FrmExecution
         cbo_type.Items.AddRange(types)
         cbo_type.SelectedIndex = 0
 
+
+
         sql = "SELECT DISTINCT EXECOURT FROM EXESM"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
@@ -380,7 +382,7 @@ Public Class FrmExecution
             Case "ธนาคาร" : sqll &= "ES.EXEBANK "
             Case "เลขประจำตัวประชาชน" : sqll &= "ES.EXEID "
             Case "เลขที่สัญญา" : sqll &= $"ES.EXEACC1 LIKE'%{txt_search.Text}%' OR ES.EXEACC2 LIKE '%{txt_search.Text}%' OR ES.EXEACC3 "
-            Case "ชื่อ-นามสกุล" : sqll &= "EXESM.EXECUSTOMER "
+            Case "ชื่อ-นามสกุล" : sqll &= "ES.EXECUSTOMER "
             Case "ศาล" : sqll &= "ES.EXECOURT "
             Case "คดีดำ" : sqll &= "ES.EXEBLACK "
             Case "คดีแดง" : sqll &= "ES.EXERED "

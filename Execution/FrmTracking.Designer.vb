@@ -24,7 +24,7 @@ Partial Class FrmTracking
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTracking))
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmd_find = New System.Windows.Forms.Button()
+        Me.cmd_links = New System.Windows.Forms.Button()
         Me.cmd_edit = New System.Windows.Forms.Button()
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_save = New System.Windows.Forms.Button()
@@ -70,20 +70,20 @@ Partial Class FrmTracking
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "เพิ่มข้อมูลใบงาน ตรวจสำนวน"
         '
-        'cmd_find
+        'cmd_links
         '
-        Me.cmd_find.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_find.Image = Global.SCANDB.My.Resources.Resources.search
-        Me.cmd_find.Location = New System.Drawing.Point(22, 429)
-        Me.cmd_find.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_find.Name = "cmd_find"
-        Me.cmd_find.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_find.TabIndex = 2
-        Me.cmd_find.Text = "แสดงข้อมูล"
-        Me.cmd_find.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_find.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_find.UseVisualStyleBackColor = False
+        Me.cmd_links.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_links.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_links.Image = Global.SCANDB.My.Resources.Resources.search
+        Me.cmd_links.Location = New System.Drawing.Point(22, 429)
+        Me.cmd_links.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_links.Name = "cmd_links"
+        Me.cmd_links.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_links.TabIndex = 2
+        Me.cmd_links.Text = "แสดงข้อมูล"
+        Me.cmd_links.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_links.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_links.UseVisualStyleBackColor = False
         '
         'cmd_edit
         '
@@ -289,6 +289,7 @@ Partial Class FrmTracking
         Me.dtgv_tracking.Location = New System.Drawing.Point(22, 464)
         Me.dtgv_tracking.Name = "dtgv_tracking"
         Me.dtgv_tracking.ReadOnly = True
+        Me.dtgv_tracking.RowHeadersVisible = False
         Me.dtgv_tracking.Size = New System.Drawing.Size(558, 140)
         Me.dtgv_tracking.TabIndex = 131
         '
@@ -416,7 +417,7 @@ Partial Class FrmTracking
         '
         'FrmTracking
         '
-        Me.AcceptButton = Me.cmd_find
+        Me.AcceptButton = Me.cmd_links
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
@@ -449,7 +450,7 @@ Partial Class FrmTracking
         Me.Controls.Add(Me.txt_cusname)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.cmd_find)
+        Me.Controls.Add(Me.cmd_links)
         Me.Controls.Add(Me.cmd_edit)
         Me.Controls.Add(Me.cmd_cancel)
         Me.Controls.Add(Me.cmd_save)
@@ -467,7 +468,7 @@ Partial Class FrmTracking
     End Sub
 
     Friend WithEvents Label8 As Label
-    Friend WithEvents cmd_find As Button
+    Friend WithEvents cmd_links As Button
     Friend WithEvents cmd_edit As Button
     Friend WithEvents cmd_cancel As Button
     Friend WithEvents cmd_save As Button

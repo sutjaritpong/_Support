@@ -2,7 +2,7 @@
 Option Explicit On
 Imports System.Data.SqlClient
 
-Public Class Frmfindtracking
+Public Class FrmfindExecution
     Private Sub Frmfindtracking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         sql = "SELECT * FROM EXESM"

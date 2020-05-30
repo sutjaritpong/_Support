@@ -4,6 +4,10 @@ Public Class FrmTracking
     Private Sub FrmTracking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         _cleardatagrid(dtgv_tracking)
+        Dim _nosend() As String = {"ไม่ได้ส่งมาออกใบงานแถลงบัญชี", "ส่งมาออกใบงาน"}
+
+        _cboArray(cbo_waning, _nosend)
+        cbo_waning.SelectedIndex = -1
 
         Dim _tracking() As String = {"ไม่มีใบงานแถลงบัญชี", "มีใบงานแถลงบัญชี"}
 
@@ -46,9 +50,9 @@ Public Class FrmTracking
         cn.Close()
     End Sub
 
-    Private Sub chk_datetracking_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub chk_datetracking_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datetracking.CheckedChanged
 
-        If dtp_date_verify.Checked = True Then
+        If chk_datetracking.Checked = True Then
 
             dtp_date_verify.Enabled = True
         Else
@@ -72,13 +76,13 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+    Private Sub cmd_links_Click(sender As Object, e As EventArgs) Handles cmd_links.Click
         Try
             connect()
 
             _cleardatagrid(dtgv_tracking)
 
-            sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}' ORDER BY S.EXEID "
+            sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet,TR.Tracking_other FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}' ORDER BY S.EXEID "
 
             cmd = New SqlCommand(sql, cn)
             DA = New SqlDataAdapter(cmd)
@@ -91,23 +95,36 @@ Public Class FrmTracking
             txt_court.Text = DS.Tables("tables").Rows(0)("EXECOURT").ToString
             dtp_date_send.Text = DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString
             dtp_date_verify.Text = DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString
+            txt_detail.Text = DS.Tables("tables").Rows(0)("Tracking_other").ToString
 
-            If dtp_date_send.Text <> "" Then
-
-                chk_datesend.Checked = True
-
-            Else
+            If dtp_date_send.Text = "" Then
 
                 chk_datesend.Checked = False
 
-            End If
-            If chk_datesend.Checked = False Then
+            Else
 
-                cbo_waning.Text = "ไม่ได้ส่งมาออกใบงาน"
+                chk_datesend.Checked = True
+
+            End If
+
+            If dtp_date_verify.Text = "" Then
+
+                chk_datetracking.Checked = False
 
             Else
 
-                cbo_waning.Text = "มีใบงานแถลงบัญชี"
+                chk_datetracking.Checked = True
+
+            End If
+
+
+            If chk_datesend.Checked = False Then
+
+                cbo_waning.Text = "ไม่ได้ส่งมาออกใบงานแถลงบัญชี"
+
+            Else
+
+                cbo_waning.Text = "ส่งมาออกใบงาน"
 
             End If
 
@@ -134,12 +151,12 @@ Public Class FrmTracking
     End Sub
 
     Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
-
+        Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ"}
         Dim _datetime As DateTime = dtp_date_verify.Text
         Dim acckey As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime}"
 
         connect()
-        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,Tracking_Execution_employee,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend)"
+        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,Tracking_Execution_employee,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend,@other)"
         With cmd
             .CommandText = sql
             .Parameters.Clear()
@@ -154,6 +171,8 @@ Public Class FrmTracking
             .Parameters.AddWithValue("detail", cbo_detail.Text)
             .Parameters.AddWithValue("nodoc", cbo_document.Text)
             .Parameters.AddWithValue("nosend", cbo_waning.Text)
+            .Parameters.AddWithValue("other", txt_detail.Text)
+
             Dim _query As Integer = .ExecuteNonQuery()
 
             If _query = -1 Then
@@ -162,12 +181,29 @@ Public Class FrmTracking
 
             Else
 
+                _cleardatagrid(dtgv_invalid)
+
+                sql = $"SELECT * FROM EXETRACKING WHERE Customer_idc = '{txt_cusid.Text}'"
+                cmd.CommandText = sql
+                DA.SelectCommand = cmd
+                DA.Fill(DS, "_views")
+
+                dtgv_invalid.DataSource = DS.Tables("_views")
+                dtgv_invalid.Columns(0).Visible = False
+
+                For i = 0 To _headertext.Length - 1
+
+                    dtgv_invalid.Columns(i).HeaderText = _headertext(i)
+                Next
+
                 _Getlogdata($"เพิ่มข้อมูลลูกค้า {txt_cusid.Text} ตรวจสำนวน ทำบัญชี-รับจ่าย ตามใบงาน")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
                 clear()
+
             End If
 
         End With
+
 
     End Sub
 
@@ -176,49 +212,58 @@ Public Class FrmTracking
         txt_cusname.ReadOnly = True
         txt_red.ReadOnly = True
         txt_court.ReadOnly = True
-
+        txt_detail.ReadOnly = True
         cbo_waning.Enabled = False
         cbo_owner.Enabled = False
         cbo_empexe.Enabled = False
         cbo_detail.Enabled = False
         cbo_document.Enabled = False
+
         chk_datesend.Enabled = False
-        dtp_date_verify.Enabled = False
+        chk_datetracking.Enabled = False
+
         dtp_date_verify.Enabled = False
         dtp_date_send.Enabled = False
-        chk_datetracking.Enabled = False
+
+
     End Sub
 
     Private Sub _write()
 
-
+        txt_detail.ReadOnly = False
         txt_cusname.ReadOnly = False
         txt_red.ReadOnly = False
         txt_court.ReadOnly = False
-        chk_datetracking.Enabled = True
+
         cbo_waning.Enabled = True
         cbo_owner.Enabled = True
         cbo_empexe.Enabled = True
         cbo_detail.Enabled = True
         cbo_document.Enabled = True
+
         chk_datesend.Enabled = True
-        dtp_date_verify.Enabled = True
+        chk_datetracking.Enabled = True
 
         If dtp_date_send.Text = "" Then
 
             chk_datesend.Checked = False
+        Else
+            chk_datesend.Checked = True
 
         End If
 
         If dtp_date_verify.Text = "" Then
 
-            dtp_date_verify.Checked = False
+            chk_datetracking.Checked = False
+        Else
+            chk_datetracking.Checked = True
 
         End If
 
     End Sub
     Private Sub clear()
 
+        txt_detail.Text = ""
         txt_court.Text = ""
         txt_cusid.Text = ""
         txt_cusname.Text = ""
@@ -257,6 +302,7 @@ Public Class FrmTracking
     Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
         clear()
         _cleardatagrid(dtgv_invalid)
+
     End Sub
 
 End Class
