@@ -97,7 +97,7 @@ Public Class FrmTracking
             dtp_date_verify.Text = DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString
             txt_detail.Text = DS.Tables("tables").Rows(0)("Tracking_other").ToString
 
-            If dtp_date_send.Text = "" Then
+            If DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString = "" Then
 
                 chk_datesend.Checked = False
 
@@ -107,7 +107,7 @@ Public Class FrmTracking
 
             End If
 
-            If dtp_date_verify.Text = "" Then
+            If DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString = "" Then
 
                 chk_datetracking.Checked = False
 
