@@ -46,7 +46,9 @@ Module VBcode
         sql = ($"INSERT INTO tbl_logfiles(LOGDATE,LOGUSER,LOGNAME,LOGIP,LOGPCNAME,LOGDETAIL)VALUES(GETDATE(),'{FrmLogin.txt_idlog.Text}','{DS.Tables("Fullname").Rows(0)("USRNAME")}','{FrmLogin.aws.LocalIP}','{pc}','{_status}')")
         cmd.CommandText = sql
         cmd.ExecuteNonQuery()
+
         cn.Close()
+
     End Sub
     '## Descriptions ##
     '## Sub Clear Datagridview ใช้สำหรับลบ ข้อมูล ถ้า Datagridview นั้นมีข้อมูลค้างอยู่ ##
@@ -136,6 +138,8 @@ Module VBcode
                 FrmMain.settingms.Enabled = False
         End Select
 
+        cn.Close()
+
     End Sub
 
     '## Descriptions ##
@@ -145,8 +149,11 @@ Module VBcode
     '## Parameters _table As String ใช้กำหนด ตาราง ในการค้นหาข้อมูล ##
 
     Public Sub _autocomplete(ByRef sender As TextBox, _columns As String, _table As String)
-        sql = $"SELECT * FROM {_table}"
+
         connect()
+
+        sql = $"SELECT {_columns} FROM {_table}"
+
         Dim cmd As New SqlCommand(sql, cn)
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         Dim autocomp As New AutoCompleteStringCollection()

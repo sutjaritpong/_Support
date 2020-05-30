@@ -352,11 +352,15 @@ Partial Class FrmTracking
         '
         'dtgv_invalid
         '
+        Me.dtgv_invalid.AllowUserToAddRows = False
+        Me.dtgv_invalid.AllowUserToDeleteRows = False
         Me.dtgv_invalid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgv_invalid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_invalid.GridColor = System.Drawing.SystemColors.ControlText
         Me.dtgv_invalid.Location = New System.Drawing.Point(22, 320)
         Me.dtgv_invalid.Name = "dtgv_invalid"
+        Me.dtgv_invalid.ReadOnly = True
+        Me.dtgv_invalid.RowHeadersVisible = False
         Me.dtgv_invalid.Size = New System.Drawing.Size(558, 103)
         Me.dtgv_invalid.TabIndex = 136
         '

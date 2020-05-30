@@ -125,10 +125,10 @@ Public Class FrmTracking
 
             End With
 
-            cn.Close()
-
         Catch ex As Exception
 
+        Finally
+            cn.Close()
         End Try
 
     End Sub
@@ -164,7 +164,7 @@ Public Class FrmTracking
 
                 _Getlogdata($"เพิ่มข้อมูลลูกค้า {txt_cusid.Text} ตรวจสำนวน ทำบัญชี-รับจ่าย ตามใบงาน")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
-
+                clear()
             End If
 
         End With
@@ -209,6 +209,7 @@ Public Class FrmTracking
             chk_datesend.Checked = False
 
         End If
+
         If dtp_date_verify.Text = "" Then
 
             dtp_date_verify.Checked = False
@@ -217,6 +218,7 @@ Public Class FrmTracking
 
     End Sub
     Private Sub clear()
+
         txt_court.Text = ""
         txt_cusid.Text = ""
         txt_cusname.Text = ""
@@ -231,6 +233,7 @@ Public Class FrmTracking
         dtp_date_verify.Text = ""
         chk_datesend.Checked = False
         chk_datetracking.Checked = False
+
     End Sub
 
     Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
@@ -247,9 +250,13 @@ Public Class FrmTracking
 
     Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
+        Frmfind.Show()
+
     End Sub
 
     Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
-
+        clear()
+        _cleardatagrid(dtgv_invalid)
     End Sub
+
 End Class
