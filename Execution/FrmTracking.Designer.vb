@@ -57,8 +57,8 @@ Partial Class FrmTracking
         Me.dtp_date_verify = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lbl_invalid = New System.Windows.Forms.Label()
+        Me.lbl_tracking = New System.Windows.Forms.Label()
         CType(Me.dtgv_tracking, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgv_invalid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -443,25 +443,25 @@ Partial Class FrmTracking
         Me.Label6.TabIndex = 144
         Me.Label6.Text = "ข้อมูลส่งแถลงบัญชี"
         '
-        'Label7
+        'lbl_invalid
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(108, 273)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(94, 18)
-        Me.Label7.TabIndex = 145
-        Me.Label7.Text = "ผลลัพย์การค้นหา"
+        Me.lbl_invalid.AutoSize = True
+        Me.lbl_invalid.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_invalid.Location = New System.Drawing.Point(108, 271)
+        Me.lbl_invalid.Name = "lbl_invalid"
+        Me.lbl_invalid.Size = New System.Drawing.Size(87, 18)
+        Me.lbl_invalid.TabIndex = 145
+        Me.lbl_invalid.Text = "ผลลัพการค้นหา"
         '
-        'Label9
+        'lbl_tracking
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(130, 417)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(94, 18)
-        Me.Label9.TabIndex = 146
-        Me.Label9.Text = "ผลลัพย์การค้นหา"
+        Me.lbl_tracking.AutoSize = True
+        Me.lbl_tracking.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_tracking.Location = New System.Drawing.Point(130, 415)
+        Me.lbl_tracking.Name = "lbl_tracking"
+        Me.lbl_tracking.Size = New System.Drawing.Size(87, 18)
+        Me.lbl_tracking.TabIndex = 146
+        Me.lbl_tracking.Text = "ผลลัพการค้นหา"
         '
         'FrmTracking
         '
@@ -471,8 +471,8 @@ Partial Class FrmTracking
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.CancelButton = Me.cmd_cancel
         Me.ClientSize = New System.Drawing.Size(1004, 725)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.lbl_tracking)
+        Me.Controls.Add(Me.lbl_invalid)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.chk_datetracking)
@@ -553,6 +553,6 @@ Partial Class FrmTracking
     Friend WithEvents dtp_date_verify As DateTimePicker
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label9 As Label
+    Friend WithEvents lbl_invalid As Label
+    Friend WithEvents lbl_tracking As Label
 End Class

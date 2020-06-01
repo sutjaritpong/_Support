@@ -150,6 +150,12 @@ Public Class FrmTracking
 
                 Next
 
+                If dtgv_tracking.RowCount = 0 Then
+                    lbl_invalid.Text = "ไม่พบข้อมูลที่ค้นหา"
+                Else
+                    lbl_invalid.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_invalid.RowCount.ToString} "
+                End If
+
             End With
 
         Catch ex As Exception
@@ -272,38 +278,6 @@ Public Class FrmTracking
 
         chk_datesend.Enabled = True
         chk_datetracking.Enabled = True
-
-        'If dtp_date_send.Text = "" Then
-
-        '    chk_datesend.Checked = False
-        'Else
-        '    chk_datesend.Checked = True
-
-        'End If
-
-        'If dtp_date_verify.Text = "" Then
-
-        '    chk_datetracking.Checked = False
-        'Else
-        '    chk_datetracking.Checked = True
-
-        'End If
-
-        'If chk_datesend.Checked = True Then
-
-        '    dtp_date_send.Enabled = True
-        'Else
-        '    dtp_date_send.Enabled = False
-
-        'End If
-
-        'If chk_datetracking.Checked = True Then
-
-        '    dtp_date_verify.Enabled = True
-        'Else
-        '    dtp_date_verify.Enabled = False
-
-        'End If
 
     End Sub
     Private Sub clear()

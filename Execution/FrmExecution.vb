@@ -147,7 +147,6 @@ Public Class FrmExecution
 
     Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
-
         cell_refresh()
         Refresh()
 
@@ -156,7 +155,6 @@ Public Class FrmExecution
 
         txt_black.Text = ""
         txt_detail1.Text = ""
-
         txt_employee.Text = ""
         cbo_employees_exe.Text = ""
         txt_hub.Text = ""
@@ -673,6 +671,9 @@ Public Class FrmExecution
 
     End Sub
 
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
 End Class
 
 
