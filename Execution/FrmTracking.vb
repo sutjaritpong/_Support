@@ -151,9 +151,12 @@ Public Class FrmTracking
                 Next
 
                 If dtgv_tracking.RowCount = 0 Then
-                    lbl_invalid.Text = "ไม่พบข้อมูลที่ค้นหา"
+
+                    lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
+                    lbl_tracking.ForeColor = Color.Red
                 Else
-                    lbl_invalid.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_invalid.RowCount.ToString} "
+                    lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_tracking.RowCount.ToString} แถว"
+                    lbl_tracking.ForeColor = Color.DarkGreen
                 End If
 
             End With
