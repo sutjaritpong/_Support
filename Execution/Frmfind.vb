@@ -8,7 +8,23 @@ Public Class Frmfind
 
         connect()
 
-        _autocomplete(txt_findid, "Customer_idc", "EXETRACKING")
+        sql = "SELECT Customer_idc,Customer_fullname FROM EXETRACKING"
+
+        cmd = New SqlCommand(sql, cn)
+        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        Dim autocomp As New AutoCompleteStringCollection()
+
+        While reader.Read()
+            autocomp.Add(reader("Customer_idc"))
+            autocomp.Add(reader("Customer_fullname"))
+        End While
+
+        reader.Close()
+
+        txt_find.AutoCompleteMode = AutoCompleteMode.Suggest
+        txt_find.AutoCompleteSource = AutoCompleteSource.CustomSource
+        txt_find.AutoCompleteCustomSource = autocomp
+
 
         cn.Close()
 
@@ -18,7 +34,7 @@ Public Class Frmfind
 
         _cleardatagrid(FrmTracking.dtgv_invalid)
 
-        If txt_findid.Text = "" Then
+        If txt_find.Text = "" Then
 
             Msg_error("กรุณากรอกเลขที่บัตรประชาชนลูกค้า")
 
@@ -30,7 +46,7 @@ Public Class Frmfind
 
         Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน"}
 
-        sql = $"SELECT * FROM EXETRACKING WHERE Customer_idc = '{txt_findid.Text}' "
+        sql = $"SELECT * FROM EXETRACKING WHERE Customer_idc = '{txt_find.Text}' OR Customer_fullname = '{txt_find.Text}' "
 
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -49,11 +65,37 @@ Public Class Frmfind
 
             Next
 
-            cn.Close()
-            txt_findid.Clear()
+        End With
+
+        _cleardatagrid(FrmTracking.dtgv_tracking)
+
+        Dim _headers() As String = {"ธนาคาร", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี"}
+
+        _sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK FROM EXESM AS S WHERE S.EXEID LIKE '%{txt_find.Text}%' OR  S.EXECUSTOMER LIKE '%{txt_find.Text}%'"
+
+        cmd = New SqlCommand(_sql, cn)
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "findsm")
+
+        With FrmTracking
+
+            If .dtgv_tracking.RowCount = 0 Or .dtgv_tracking.ColumnCount = 0 Then
+
+                .dtgv_tracking.DataSource = DS.Tables("findsm")
+
+                For x = 0 To _headers.Length - 1
+
+                    .dtgv_tracking.Columns(x).HeaderText = _headers(x)
+
+                Next
+
+            End If
 
         End With
 
+        txt_find.Clear()
+        cn.Close()
         Me.Close()
 
     End Sub

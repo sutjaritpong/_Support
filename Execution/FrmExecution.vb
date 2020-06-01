@@ -367,15 +367,13 @@ Public Class FrmExecution
         Dim header() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อลูกค้า", "เลขที่สัญญา1", "เลขที่สัญญา2", "เลขที่สัญญา3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรมบังคับคดี", "จำนวนเงิน", "ชื่อพนักงานตามใบงาน", "เบอร์โทรศัพท์", "ศูนย์ประสานงาน", "วันที่ส่งใบงาน", "ชื่อสกุล-พนักงาน", "หมายเหตุ", "ผลปฎิบัติงาน", "HUB", "Result", "เจ้าหน้าที่บังคับคดี", "วันที่ใบคำร้อง", "ใบงานที่ทาง MIS ออก", "Collectorส่งมาออกใบงาน", "รายละเอียดตามคำร้อง", "วันที่บังคับคดีไปตรวจสำนวน", "สถานะ", "รายละเอียด"}
         Dim p As Integer = header.Length
 
-        Console.WriteLine(p)
-
         If txt_search.Text = "" Then
             Msg_error("กรุณากรอกข้อมูลในช่องค้นหา")
             Return
         End If
 
         Dim sqll As String = "SELECT ES.EXEBANK, ES.EXEID,ES.EXECUSTOMER,ES.EXEACC1,ES.EXEACC2,ES.EXEACC3,ES.EXECOURT,ES.EXEBLACK,ES.EXERED,ES.EXENUMBER,ES.EXEDEPARTMENT,ES.EXETOTAL,ES.EXEEMPLOYEE,ES.EXEPHONE,ES.EXEHUB,ES.EXEDATEWORK,ES.EXEFULLNAME,ES.EXEDETAIL,ES.EXEPERFORMANCE,ES.EXEHUBS,ES.EXERESULT,Emp.EXEEMPLOYEES,ET.Tracking_date_sheet,ET.Tracking_nosheet,ET.Tracking_Collector_nosend,ET.Tracking_detail,EV.Execution_verify_date,Ev.Execution_verify_result,Ev.Execution_verify_comment
-    FROM EXESM As ES LEFT JOIN Execution_verify AS EV On EV.Customer_id_card = ES.EXEID LEFT JOIN EXEEMPLOYEE AS Emp ON EV.Execution_id_employees = EMPLOYEES_KEY LEFT JOIN EXETRACKING AS ET ON ES.EXEID = ET.Customer_idc WHERE "
+    FROM EXESM As ES LEFT JOIN Execution_verify AS EV On EV.Customer_id_card = ES.EXEID LEFT JOIN EXEEMPLOYEE AS Emp ON EV.EMPLOYEES_KEY = Emp.EMPLOYEES_KEY LEFT JOIN EXETRACKING AS ET ON ES.EXEID = ET.Customer_idc WHERE "
 
         Select Case cbo_type.SelectedItem
 
@@ -460,13 +458,16 @@ Public Class FrmExecution
                 sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2,EXEACC3 = @acc3"
             End If
 
-            sql &= $",EXECOURT= @court,EXEBLACK= @black,EXERED= @red,EXENUMBER= @number,EXETOTAL= @total,EXEEMPLOYEE= @nameemp,EXEPHONE= @phone,EXEHUB= @hub,EXEDATEWORK= @dtsheet,EXEFULLNAME= @empfull,EXEDETAIL= @detail,EXEPERFORMANCE = @performance,EXERESULT= @result WHERE EXEKEY = @exesm_key;
+            sql &= $",EXECOURT= @court,EXEBLACK= @black,EXERED= @red,EXENUMBER= @number,EXETOTAL= @total,EXEEMPLOYEE= @nameemp,EXEPHONE= @phone,EXEHUB= @hub,EXEDATEWORK= @dtsheet,EXEFULLNAME= @empfull,EXEDETAIL= @detail,EXEPERFORMANCE = @performance,EXERESULT= @result WHERE EXEKEY = @exesm_key;"
 
-                    UPDATE Execution_verify SET Execution_verify_pk = @vrpk,Customer_owner = @owner,Customer_id_card = @idcus,Customer_account = @acc1,Customer_fullname = @namecus,Execution_id_employees = @idemp,Execution_verify_date = @vrdate,Execution_verify_result = @vrresult,Execution_verify_comment = @vrcomment WHERE Execution_verify_pk = @vrpk;
+            sql &= $"UPDATE Execution_verify SET Execution_verify_pk = @vrpk,Customer_owner = @owner,Customer_id_card = @idcus,Customer_account = @acc1,Customer_fullname = @namecus,EMPLOYEES_KEY = @idemp,Execution_verify_date = @vrdate,Execution_verify_result = @vrresult,Execution_verify_comment = @vrcomment WHERE Execution_verify_pk = @vrpk;"
 
-                    UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend WHERE Tracking_pk = @tkpk;"
+            sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp WHERE Tracking_pk = @tkpk;"
+
+            cmd = New SqlCommand(sql, cn)
+
             With cmd
-                .CommandText = sql
+
                 .Parameters.Clear()
                 .Parameters.AddWithValue("exesm_key", _pk)
                 .Parameters.AddWithValue("owner", txt_product.Text)
@@ -507,6 +508,7 @@ Public Class FrmExecution
                 .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
                 .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
                 .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
+                .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
                 .ExecuteNonQuery()
 
             End With

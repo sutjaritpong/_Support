@@ -23,19 +23,19 @@ Partial Class Frmfind
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frmfind))
-        Me.txt_findid = New System.Windows.Forms.TextBox()
+        Me.txt_find = New System.Windows.Forms.TextBox()
         Me.cmd_find = New System.Windows.Forms.Button()
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txt_findid
+        'txt_find
         '
-        Me.txt_findid.Location = New System.Drawing.Point(49, 12)
-        Me.txt_findid.Name = "txt_findid"
-        Me.txt_findid.Size = New System.Drawing.Size(194, 20)
-        Me.txt_findid.TabIndex = 0
+        Me.txt_find.Location = New System.Drawing.Point(49, 12)
+        Me.txt_find.Name = "txt_find"
+        Me.txt_find.Size = New System.Drawing.Size(194, 20)
+        Me.txt_find.TabIndex = 0
         '
         'cmd_find
         '
@@ -74,20 +74,20 @@ Partial Class Frmfind
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.cmd_cancel)
         Me.Controls.Add(Me.cmd_find)
-        Me.Controls.Add(Me.txt_findid)
+        Me.Controls.Add(Me.txt_find)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frmfind"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ค้นหาเลขที่บัตรประชาชน"
+        Me.Text = "ค้นหา ชื่อ/เลขที่บัตรประชาชน"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents txt_findid As TextBox
+    Friend WithEvents txt_find As TextBox
     Friend WithEvents cmd_find As Button
     Friend WithEvents cmd_cancel As Button
     Friend WithEvents PictureBox1 As PictureBox

@@ -55,6 +55,10 @@ Partial Class FrmTracking
         Me.cmd_clear = New System.Windows.Forms.Button()
         Me.chk_datetracking = New System.Windows.Forms.CheckBox()
         Me.dtp_date_verify = New System.Windows.Forms.DateTimePicker()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.dtgv_tracking, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgv_invalid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -75,7 +79,7 @@ Partial Class FrmTracking
         Me.cmd_links.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_links.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_links.Image = Global.SCANDB.My.Resources.Resources.search
-        Me.cmd_links.Location = New System.Drawing.Point(22, 429)
+        Me.cmd_links.Location = New System.Drawing.Point(20, 562)
         Me.cmd_links.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_links.Name = "cmd_links"
         Me.cmd_links.Size = New System.Drawing.Size(133, 29)
@@ -90,7 +94,7 @@ Partial Class FrmTracking
         Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(163, 429)
+        Me.cmd_edit.Location = New System.Drawing.Point(161, 562)
         Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(133, 29)
@@ -106,7 +110,7 @@ Partial Class FrmTracking
         Me.cmd_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.edit_delete_icon16x16
-        Me.cmd_cancel.Location = New System.Drawing.Point(306, 429)
+        Me.cmd_cancel.Location = New System.Drawing.Point(304, 562)
         Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(133, 29)
@@ -121,7 +125,7 @@ Partial Class FrmTracking
         Me.cmd_save.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_save.Location = New System.Drawing.Point(447, 429)
+        Me.cmd_save.Location = New System.Drawing.Point(161, 597)
         Me.cmd_save.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_save.Name = "cmd_save"
         Me.cmd_save.Size = New System.Drawing.Size(133, 29)
@@ -286,11 +290,11 @@ Partial Class FrmTracking
         Me.dtgv_tracking.AllowUserToDeleteRows = False
         Me.dtgv_tracking.BackgroundColor = System.Drawing.SystemColors.HighlightText
         Me.dtgv_tracking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgv_tracking.Location = New System.Drawing.Point(22, 464)
+        Me.dtgv_tracking.Location = New System.Drawing.Point(22, 438)
         Me.dtgv_tracking.Name = "dtgv_tracking"
         Me.dtgv_tracking.ReadOnly = True
         Me.dtgv_tracking.RowHeadersVisible = False
-        Me.dtgv_tracking.Size = New System.Drawing.Size(558, 140)
+        Me.dtgv_tracking.Size = New System.Drawing.Size(558, 118)
         Me.dtgv_tracking.TabIndex = 131
         '
         'cbo_owner
@@ -327,7 +331,7 @@ Partial Class FrmTracking
         Me.cbo_waning.FormattingEnabled = True
         Me.cbo_waning.Location = New System.Drawing.Point(633, 127)
         Me.cbo_waning.Name = "cbo_waning"
-        Me.cbo_waning.Size = New System.Drawing.Size(160, 21)
+        Me.cbo_waning.Size = New System.Drawing.Size(110, 21)
         Me.cbo_waning.TabIndex = 133
         '
         'txt_detail
@@ -336,7 +340,7 @@ Partial Class FrmTracking
         Me.txt_detail.Location = New System.Drawing.Point(511, 209)
         Me.txt_detail.Multiline = True
         Me.txt_detail.Name = "txt_detail"
-        Me.txt_detail.Size = New System.Drawing.Size(282, 43)
+        Me.txt_detail.Size = New System.Drawing.Size(232, 43)
         Me.txt_detail.TabIndex = 134
         '
         'Label1
@@ -358,11 +362,11 @@ Partial Class FrmTracking
         Me.dtgv_invalid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgv_invalid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_invalid.GridColor = System.Drawing.SystemColors.ControlText
-        Me.dtgv_invalid.Location = New System.Drawing.Point(22, 320)
+        Me.dtgv_invalid.Location = New System.Drawing.Point(22, 294)
         Me.dtgv_invalid.Name = "dtgv_invalid"
         Me.dtgv_invalid.ReadOnly = True
         Me.dtgv_invalid.RowHeadersVisible = False
-        Me.dtgv_invalid.Size = New System.Drawing.Size(558, 103)
+        Me.dtgv_invalid.Size = New System.Drawing.Size(558, 118)
         Me.dtgv_invalid.TabIndex = 136
         '
         'cmd_search
@@ -370,7 +374,7 @@ Partial Class FrmTracking
         Me.cmd_search.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.folder_explore
-        Me.cmd_search.Location = New System.Drawing.Point(22, 285)
+        Me.cmd_search.Location = New System.Drawing.Point(445, 562)
         Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_search.Name = "cmd_search"
         Me.cmd_search.Size = New System.Drawing.Size(133, 29)
@@ -385,7 +389,7 @@ Partial Class FrmTracking
         Me.cmd_clear.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources.Actions_edit_rename_icon24x24
-        Me.cmd_clear.Location = New System.Drawing.Point(163, 285)
+        Me.cmd_clear.Location = New System.Drawing.Point(22, 597)
         Me.cmd_clear.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_clear.Name = "cmd_clear"
         Me.cmd_clear.Size = New System.Drawing.Size(133, 29)
@@ -415,6 +419,50 @@ Partial Class FrmTracking
         Me.dtp_date_verify.Size = New System.Drawing.Size(116, 20)
         Me.dtp_date_verify.TabIndex = 141
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.SystemColors.Window
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label5.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(22, 271)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(80, 20)
+        Me.Label5.TabIndex = 143
+        Me.Label5.Text = "ข้อมูลใบคำร้อง"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.Window
+        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label6.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(22, 415)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(102, 20)
+        Me.Label6.TabIndex = 144
+        Me.Label6.Text = "ข้อมูลส่งแถลงบัญชี"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(108, 273)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(94, 18)
+        Me.Label7.TabIndex = 145
+        Me.Label7.Text = "ผลลัพย์การค้นหา"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(130, 417)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(94, 18)
+        Me.Label9.TabIndex = 146
+        Me.Label9.Text = "ผลลัพย์การค้นหา"
+        '
         'FrmTracking
         '
         Me.AcceptButton = Me.cmd_links
@@ -423,6 +471,10 @@ Partial Class FrmTracking
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.CancelButton = Me.cmd_cancel
         Me.ClientSize = New System.Drawing.Size(1004, 725)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.chk_datetracking)
         Me.Controls.Add(Me.dtp_date_verify)
         Me.Controls.Add(Me.cmd_search)
@@ -499,4 +551,8 @@ Partial Class FrmTracking
     Friend WithEvents cmd_clear As Button
     Friend WithEvents chk_datetracking As CheckBox
     Friend WithEvents dtp_date_verify As DateTimePicker
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label9 As Label
 End Class
