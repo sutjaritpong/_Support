@@ -304,7 +304,15 @@ Public Class FrmWDS
 
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
 
-        FrmsearchIDWDS.Show()
+        If Application.OpenForms().OfType(Of FrmsearchIDWDS).Any Then
+
+            FrmsearchIDWDS.Focus()
+        Else
+            FrmsearchIDWDS.ShowDialog()
+            FrmsearchIDWDS.StartPosition = FormStartPosition.CenterScreen
+
+        End If
+
 
     End Sub
 
@@ -410,7 +418,14 @@ Public Class FrmWDS
 
     Private Sub cmd_addnew_Click(sender As Object, e As EventArgs) Handles cmd_addnew.Click
 
-        FrmsaveWDS.Show()
+        If Application.OpenForms().OfType(Of FrmsaveWDS).Any Then
+
+            FrmsaveWDS.Focus()
+        Else
+            FrmsaveWDS.ShowDialog()
+            FrmsaveWDS.StartPosition = FormStartPosition.CenterScreen
+
+        End If
 
     End Sub
 
@@ -574,7 +589,15 @@ Public Class FrmWDS
             End If
         Else
             _showgrid()
-            FrmCheck.Show()
+
+            If Application.OpenForms().OfType(Of FrmCheck).Any Then
+
+                FrmCheck.Focus()
+            Else
+                FrmCheck.ShowDialog()
+                FrmCheck.StartPosition = FormStartPosition.CenterScreen
+
+            End If
         End If
     End Sub
 

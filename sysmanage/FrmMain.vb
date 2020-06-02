@@ -97,9 +97,17 @@ Public Class FrmMain
     End Sub
 
     Private Sub settingms_Click(sender As Object, e As EventArgs) Handles settingms.Click
-        With FrmSetting
-            .Show()
-        End With
+
+        If Application.OpenForms.OfType(Of FrmSetting).Any Then
+
+            FrmSetting.Focus()
+        Else
+            With FrmSetting
+                .ShowDialog()
+            End With
+
+        End If
+
     End Sub
 
     Private Sub FrmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -125,10 +133,15 @@ Public Class FrmMain
 
 
     Private Sub changespassword_Click(sender As Object, e As EventArgs) Handles changespassword.Click
-        With FrmPasssetting
-            .MdiParent = Me
-            .Show()
-        End With
+        If Application.OpenForms().OfType(Of FrmPasssetting).Any Then
+
+            FrmPasssetting.Focus()
+        Else
+            With FrmPasssetting
+                .MdiParent = Me
+                .ShowDialog()
+            End With
+        End If
     End Sub
 
     Private Sub Uploads_Click(sender As Object, e As EventArgs) Handles Uploads.Click

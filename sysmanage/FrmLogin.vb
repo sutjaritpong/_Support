@@ -131,11 +131,21 @@ Public Class FrmLogin
             Dim checklimitpass As Integer = DS.Tables("limitpass").Rows(0)("Changelimit")
 
             If checkdiffpass >= checklimitpass Then
-                FrmPasschange.Show()
-                txt_idlog.Enabled = False
-                txt_passlog.Enabled = False
 
-                Return
+                If Application.OpenForms().OfType(Of FrmPasschange).Any Then
+
+                    FrmPasschange.Focus()
+                Else
+                    FrmPasschange.ShowDialog()
+                    FrmPasschange.StartPosition = FormStartPosition.CenterScreen
+                    txt_idlog.Enabled = False
+                    txt_passlog.Enabled = False
+                    Return
+
+                End If
+
+
+
 
             End If
 

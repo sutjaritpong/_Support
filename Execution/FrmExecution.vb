@@ -281,11 +281,17 @@ Public Class FrmExecution
     End Sub
 
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+        If Application.OpenForms().OfType(Of FrmfindExecution).Any Then
+            With FrmfindExecution
+                .Focus()
+            End With
+        Else
+            clear_text()
 
-        clear_text()
-        Frmfind.Show()
+            FrmfindExecution.ShowDialog()
+            FrmfindExecution.StartPosition = FormStartPosition.CenterScreen
 
-        Frmfind.StartPosition = FormStartPosition.CenterScreen
+        End If
 
     End Sub
     Friend Sub Reader()

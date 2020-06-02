@@ -49,7 +49,7 @@ Partial Class FrmfindExecution
         '
         'txt_findid
         '
-        Me.txt_findid.Location = New System.Drawing.Point(134, 33)
+        Me.txt_findid.Location = New System.Drawing.Point(110, 12)
         Me.txt_findid.Name = "txt_findid"
         Me.txt_findid.Size = New System.Drawing.Size(194, 20)
         Me.txt_findid.TabIndex = 3
@@ -60,13 +60,13 @@ Partial Class FrmfindExecution
         Me.Label14.BackColor = System.Drawing.SystemColors.Window
         Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label14.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(37, 33)
+        Me.Label14.Location = New System.Drawing.Point(13, 12)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(95, 20)
         Me.Label14.TabIndex = 111
         Me.Label14.Text = "เลขบัตรประชาชน"
         '
-        'Frmfindtracking
+        'FrmfindExecution
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -76,7 +76,7 @@ Partial Class FrmfindExecution
         Me.Controls.Add(Me.cmd_find)
         Me.Controls.Add(Me.txt_findid)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Frmfindtracking"
+        Me.Name = "FrmfindExecution"
         Me.Text = "ค้นหาข้อมูลตรวจสำนวน"
         Me.ResumeLayout(False)
         Me.PerformLayout()

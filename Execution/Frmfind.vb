@@ -143,5 +143,9 @@ Public Class Frmfind
 
     End Sub
 
+    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
+        Me.Close()
+
+    End Sub
 End Class

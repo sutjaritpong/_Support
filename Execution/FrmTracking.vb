@@ -302,10 +302,12 @@ Public Class FrmTracking
         chk_datetracking.Checked = False
 
         If chk_datesend.Checked = False Then
+
             dtp_date_send.Enabled = False
 
         End If
         If chk_datetracking.Checked = False Then
+
             dtp_date_verify.Enabled = False
 
         End If
@@ -341,8 +343,18 @@ Public Class FrmTracking
     End Sub
 
     Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+        If Application.OpenForms().OfType(Of Frmfind).Any Then
 
-        Frmfind.Show()
+
+            Frmfind.Focus()
+
+        Else
+            With Frmfind
+                .ShowDialog()
+                .StartPosition = FormStartPosition.CenterScreen
+            End With
+        End If
+
 
     End Sub
 
