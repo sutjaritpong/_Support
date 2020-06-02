@@ -8,15 +8,17 @@ Public Class Frmfind
 
         connect()
 
-        sql = "SELECT Customer_idc,Customer_fullname FROM EXETRACKING"
+        sql = "SELECT DISTINCT Customer_idc,Customer_fullname FROM EXETRACKING"
 
         cmd = New SqlCommand(sql, cn)
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         Dim autocomp As New AutoCompleteStringCollection()
 
         While reader.Read()
+
             autocomp.Add(reader("Customer_idc"))
             autocomp.Add(reader("Customer_fullname"))
+
         End While
 
         reader.Close()
@@ -65,7 +67,7 @@ Public Class Frmfind
 
             Next
 
-            If .dtgv_invalid.RowCount = 0 Then
+            If .dtgv_invalid.Rows.Count <= 0 Then
 
                 .lbl_invalid.Text = "ไม่พบข้อมูลที่ค้นหา"
                 .lbl_invalid.ForeColor = Color.Red
@@ -78,9 +80,9 @@ Public Class Frmfind
 
         _cleardatagrid(FrmTracking.dtgv_tracking)
 
-        Dim _headers() As String = {"ธนาคาร", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี"}
+        Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี"}
 
-        _sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK FROM EXESM AS S WHERE S.EXEID LIKE '%{txt_find.Text}%' OR  S.EXECUSTOMER LIKE '%{txt_find.Text}%'"
+        _sql = $"SELECT S.EXEBANK,S.EXEID,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK FROM EXESM AS S WHERE S.EXEID LIKE '%{txt_find.Text}%' OR  S.EXECUSTOMER LIKE '%{txt_find.Text}%'"
 
         cmd = New SqlCommand(_sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -102,7 +104,7 @@ Public Class Frmfind
             End If
 
 
-            If .dtgv_tracking.RowCount = 0 Then
+            If .dtgv_tracking.RowCount <= 0 Then
 
                 .lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
                 .lbl_tracking.ForeColor = Color.Red

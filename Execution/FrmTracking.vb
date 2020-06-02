@@ -150,7 +150,7 @@ Public Class FrmTracking
 
                 Next
 
-                If dtgv_tracking.RowCount = 0 Then
+                If dtgv_tracking.Rows.Count <= 0 Then
 
                     lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
                     lbl_tracking.ForeColor = Color.Red

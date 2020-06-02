@@ -133,13 +133,14 @@ Public Class FrmMain
 
 
     Private Sub changespassword_Click(sender As Object, e As EventArgs) Handles changespassword.Click
+
         If Application.OpenForms().OfType(Of FrmPasssetting).Any Then
 
             FrmPasssetting.Focus()
         Else
             With FrmPasssetting
                 .MdiParent = Me
-                .ShowDialog()
+                .Show()
             End With
         End If
     End Sub
