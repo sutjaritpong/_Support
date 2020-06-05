@@ -47,6 +47,7 @@ Public Class FrmTracking
 
         '## สร้าง Autocomplete ให้กับ txt_cusid โดยดึงข้อมูล ของ Column EXEID ใน Table EXESM ##'
 
+        _autocomplete(txt_cusname, "EXECUSTOMER", "EXESM")
         _autocomplete(txt_cusid, "EXEID", "EXESM")
 
         _readonly()
@@ -92,13 +93,14 @@ Public Class FrmTracking
 
             _cleardatagrid(dtgv_tracking)
 
-            sql = $"SELECT S.EXEBANK,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet,TR.Tracking_other FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}' ORDER BY S.EXEID "
+            sql = $"SELECT S.EXEBANK,S.EXEID,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet,TR.Tracking_other FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}' OR S.EXECUSTOMER = '{txt_cusname.Text}' ORDER BY S.EXEID "
 
             cmd = New SqlCommand(sql, cn)
             DA = New SqlDataAdapter(cmd)
             DS = New DataSet
             DA.Fill(DS, "tables")
 
+            txt_cusid.Text = DS.Tables("tables").Rows(0)("EXEID").ToString
             cbo_owner.Text = DS.Tables("tables").Rows(0)("EXEBANK").ToString
             txt_cusname.Text = DS.Tables("tables").Rows(0)("EXECUSTOMER").ToString
             txt_red.Text = DS.Tables("tables").Rows(0)("EXERED").ToString
@@ -138,7 +140,7 @@ Public Class FrmTracking
 
             End If
 
-            Dim _headers() As String = {"ธนาคาร", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี", "วันที่ตรวจสำนวน"}
+            Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี", "วันที่ตรวจสำนวน"}
 
             With dtgv_tracking
 
@@ -171,10 +173,22 @@ Public Class FrmTracking
 
     Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
+        connect()
+
         Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ"}
 
         Dim _datetime As DateTime = dtp_date_verify.Text
         Dim acckey As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime}"
+
+        sql = $"SELECT COUNT(Tracking_pk) FROM EXETRACKING WHERE Tracking_pk = '{acckey}'"
+
+        cmd = New SqlCommand(sql, cn)
+        Dim _counts As Integer = cmd.ExecuteScalar()
+
+        If _counts > 0 Then
+            Msg_error("มีข้อมูลนี้ในระบบแล้ว !")
+            Exit Sub
+        End If
 
         sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = @emp"
         cmd.CommandText = sql
@@ -184,7 +198,7 @@ Public Class FrmTracking
         DS = New DataSet
         DA.Fill(DS, "_emp")
 
-        connect()
+
         sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend,@other)"
 
         With cmd
@@ -226,7 +240,7 @@ Public Class FrmTracking
                     dtgv_invalid.Columns(i).HeaderText = _headertext(i)
                 Next
 
-                _Getlogdata($"เพิ่มข้อมูลลูกค้า {txt_cusid.Text} ตรวจสำนวน ทำบัญชี-รับจ่าย ตามใบงาน")
+                _Getlogdata($"เพิ่มข้อมูลลูกค้า {txt_cusid.Text} ชื่อ {txt_cusname.Text} พนักงานบังคับคดี {cbo_empexe.Text} ตรวจสำนวน ทำบัญชี-รับจ่าย ตามใบงาน")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
                 clear()
                 _readonly()
