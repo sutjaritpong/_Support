@@ -31,7 +31,7 @@ Partial Class FrmfindExecution
         '
         'cmd_cancel
         '
-        Me.cmd_cancel.Location = New System.Drawing.Point(253, 567)
+        Me.cmd_cancel.Location = New System.Drawing.Point(191, 38)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(75, 23)
         Me.cmd_cancel.TabIndex = 5
@@ -40,7 +40,7 @@ Partial Class FrmfindExecution
         '
         'cmd_find
         '
-        Me.cmd_find.Location = New System.Drawing.Point(172, 567)
+        Me.cmd_find.Location = New System.Drawing.Point(110, 38)
         Me.cmd_find.Name = "cmd_find"
         Me.cmd_find.Size = New System.Drawing.Size(75, 23)
         Me.cmd_find.TabIndex = 4
@@ -70,11 +70,12 @@ Partial Class FrmfindExecution
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(340, 602)
+        Me.ClientSize = New System.Drawing.Size(318, 71)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.cmd_cancel)
         Me.Controls.Add(Me.cmd_find)
         Me.Controls.Add(Me.txt_findid)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmfindExecution"
         Me.Text = "ค้นหาข้อมูลตรวจสำนวน"

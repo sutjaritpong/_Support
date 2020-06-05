@@ -132,6 +132,12 @@
     <Compile Include="Execution\FrmfindExecution.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Execution\FrmInsolvent.Designer.vb">
+      <DependentUpon>FrmInsolvent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\FrmInsolvent.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Execution\FrmPort.Designer.vb">
       <DependentUpon>FrmPort.vb</DependentUpon>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmfindExecution.resx">
       <DependentUpon>FrmfindExecution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\FrmInsolvent.resx">
+      <DependentUpon>FrmInsolvent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmPort.resx">
       <DependentUpon>FrmPort.vb</DependentUpon>
@@ -607,6 +616,7 @@
     <None Include="Resources\coins_delete.png" />
     <None Include="Resources\group_go.png" />
     <None Include="Resources\textfield_add.png" />
+    <None Include="Resources\lorry_error.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

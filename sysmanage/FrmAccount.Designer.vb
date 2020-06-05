@@ -44,74 +44,83 @@ Partial Class FrmAccount
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(337, 498)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label14.Location = New System.Drawing.Point(354, 497)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 13)
+        Me.Label14.Size = New System.Drawing.Size(51, 16)
         Me.Label14.TabIndex = 58
         Me.Label14.Text = "Group :"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(337, 469)
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label13.Location = New System.Drawing.Point(354, 468)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(60, 13)
+        Me.Label13.Size = New System.Drawing.Size(75, 16)
         Me.Label13.TabIndex = 57
         Me.Label13.Text = "Full Name :"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(25, 495)
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label11.Location = New System.Drawing.Point(29, 494)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 13)
+        Me.Label11.Size = New System.Drawing.Size(74, 16)
         Me.Label11.TabIndex = 56
         Me.Label11.Text = "Password :"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(25, 469)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label12.Location = New System.Drawing.Point(29, 468)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(43, 13)
+        Me.Label12.Size = New System.Drawing.Size(52, 16)
         Me.Label12.TabIndex = 55
         Me.Label12.Text = "USER :"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(306, 498)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label6.Location = New System.Drawing.Point(326, 497)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(0, 13)
+        Me.Label6.Size = New System.Drawing.Size(0, 16)
         Me.Label6.TabIndex = 52
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(274, 469)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label7.Location = New System.Drawing.Point(294, 468)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(0, 13)
+        Me.Label7.Size = New System.Drawing.Size(0, 16)
         Me.Label7.TabIndex = 51
         '
         'Fullname
         '
-        Me.Fullname.Location = New System.Drawing.Point(398, 466)
+        Me.Fullname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Fullname.Location = New System.Drawing.Point(435, 465)
         Me.Fullname.Name = "Fullname"
-        Me.Fullname.Size = New System.Drawing.Size(238, 20)
+        Me.Fullname.Size = New System.Drawing.Size(238, 22)
         Me.Fullname.TabIndex = 3
         '
         'Password
         '
-        Me.Password.Location = New System.Drawing.Point(90, 492)
+        Me.Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Password.Location = New System.Drawing.Point(110, 491)
         Me.Password.Name = "Password"
-        Me.Password.Size = New System.Drawing.Size(238, 20)
+        Me.Password.Size = New System.Drawing.Size(238, 22)
         Me.Password.TabIndex = 2
         '
         'Userid
         '
-        Me.Userid.Location = New System.Drawing.Point(90, 466)
+        Me.Userid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Userid.Location = New System.Drawing.Point(110, 465)
         Me.Userid.Name = "Userid"
-        Me.Userid.Size = New System.Drawing.Size(238, 20)
+        Me.Userid.Size = New System.Drawing.Size(238, 22)
         Me.Userid.TabIndex = 1
         '
         'dgvaccount
@@ -123,19 +132,20 @@ Partial Class FrmAccount
         '
         'cbo_group
         '
+        Me.cbo_group.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cbo_group.FormattingEnabled = True
-        Me.cbo_group.Location = New System.Drawing.Point(398, 492)
+        Me.cbo_group.Location = New System.Drawing.Point(435, 491)
         Me.cbo_group.Name = "cbo_group"
-        Me.cbo_group.Size = New System.Drawing.Size(238, 21)
+        Me.cbo_group.Size = New System.Drawing.Size(238, 24)
         Me.cbo_group.TabIndex = 4
         '
         'cmd_edit
         '
         Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.Undo_16x16
+        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.refresh
         Me.cmd_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_edit.Location = New System.Drawing.Point(852, 418)
+        Me.cmd_edit.Location = New System.Drawing.Point(854, 419)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(144, 33)
         Me.cmd_edit.TabIndex = 7
@@ -148,7 +158,7 @@ Partial Class FrmAccount
         Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete
         Me.cmd_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_delete.Location = New System.Drawing.Point(702, 418)
+        Me.cmd_delete.Location = New System.Drawing.Point(704, 419)
         Me.cmd_delete.Name = "cmd_delete"
         Me.cmd_delete.Size = New System.Drawing.Size(144, 33)
         Me.cmd_delete.TabIndex = 6
@@ -161,7 +171,7 @@ Partial Class FrmAccount
         Me.cmd_register.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_register.Image = Global.SCANDB.My.Resources.Resources.add
         Me.cmd_register.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_register.Location = New System.Drawing.Point(552, 418)
+        Me.cmd_register.Location = New System.Drawing.Point(554, 419)
         Me.cmd_register.Name = "cmd_register"
         Me.cmd_register.Size = New System.Drawing.Size(144, 33)
         Me.cmd_register.TabIndex = 5
@@ -174,9 +184,9 @@ Partial Class FrmAccount
         Me.cmd_unlockall.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_unlockall.Image = Global.SCANDB.My.Resources.Resources.Key_32x32
         Me.cmd_unlockall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_unlockall.Location = New System.Drawing.Point(28, 527)
+        Me.cmd_unlockall.Location = New System.Drawing.Point(32, 532)
         Me.cmd_unlockall.Name = "cmd_unlockall"
-        Me.cmd_unlockall.Size = New System.Drawing.Size(210, 38)
+        Me.cmd_unlockall.Size = New System.Drawing.Size(210, 37)
         Me.cmd_unlockall.TabIndex = 59
         Me.cmd_unlockall.Text = "   ปลดล็อคผู้ใช้ทั้งหมด"
         Me.cmd_unlockall.UseVisualStyleBackColor = False
@@ -185,6 +195,7 @@ Partial Class FrmAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.cmd_unlockall)
         Me.Controls.Add(Me.cbo_group)

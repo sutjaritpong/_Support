@@ -242,6 +242,11 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.lorry_error">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.new_page">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

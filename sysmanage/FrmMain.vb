@@ -210,4 +210,14 @@ Public Class FrmMain
         End With
 
     End Sub
+
+    Private Sub Menu_insolvent_Click(sender As Object, e As EventArgs) Handles Menu_insolvent.Click
+
+        With FrmInsolvent
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
+    End Sub
 End Class
