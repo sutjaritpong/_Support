@@ -47,10 +47,10 @@ Partial Class FrmTSS
         '
         Me.AxAcroPDFtss.Dock = System.Windows.Forms.DockStyle.Right
         Me.AxAcroPDFtss.Enabled = True
-        Me.AxAcroPDFtss.Location = New System.Drawing.Point(747, 0)
+        Me.AxAcroPDFtss.Location = New System.Drawing.Point(491, 0)
         Me.AxAcroPDFtss.Name = "AxAcroPDFtss"
         Me.AxAcroPDFtss.OcxState = CType(resources.GetObject("AxAcroPDFtss.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFtss.Size = New System.Drawing.Size(517, 985)
+        Me.AxAcroPDFtss.Size = New System.Drawing.Size(517, 729)
         Me.AxAcroPDFtss.TabIndex = 91
         '
         'txt_searchtss
@@ -190,7 +190,7 @@ Partial Class FrmTSS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 985)
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_bankseltss)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)

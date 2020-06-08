@@ -287,10 +287,10 @@ Partial Class FrmPort
         Me.dtgv_exeport.AllowUserToAddRows = False
         Me.dtgv_exeport.AllowUserToDeleteRows = False
         Me.dtgv_exeport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgv_exeport.Location = New System.Drawing.Point(14, 532)
+        Me.dtgv_exeport.Location = New System.Drawing.Point(14, 511)
         Me.dtgv_exeport.Name = "dtgv_exeport"
         Me.dtgv_exeport.ReadOnly = True
-        Me.dtgv_exeport.Size = New System.Drawing.Size(982, 185)
+        Me.dtgv_exeport.Size = New System.Drawing.Size(982, 159)
         Me.dtgv_exeport.TabIndex = 93
         '
         'GroupBox3
@@ -368,7 +368,7 @@ Partial Class FrmPort
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.ClientSize = New System.Drawing.Size(1004, 725)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.dtgv_exeport)
         Me.Controls.Add(Me.GroupBox4)

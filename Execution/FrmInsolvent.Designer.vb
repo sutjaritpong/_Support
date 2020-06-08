@@ -617,7 +617,7 @@ Partial Class FrmInsolvent
         Me.dtgv_insolvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_insolvent.Location = New System.Drawing.Point(20, 567)
         Me.dtgv_insolvent.Name = "dtgv_insolvent"
-        Me.dtgv_insolvent.Size = New System.Drawing.Size(656, 150)
+        Me.dtgv_insolvent.Size = New System.Drawing.Size(656, 127)
         Me.dtgv_insolvent.TabIndex = 100
         Me.dtgv_insolvent.Visible = False
         '

@@ -47,10 +47,10 @@ Partial Class FrmTMB
         '
         Me.AxAcroPDFtmb.Dock = System.Windows.Forms.DockStyle.Right
         Me.AxAcroPDFtmb.Enabled = True
-        Me.AxAcroPDFtmb.Location = New System.Drawing.Point(747, 0)
+        Me.AxAcroPDFtmb.Location = New System.Drawing.Point(491, 0)
         Me.AxAcroPDFtmb.Name = "AxAcroPDFtmb"
         Me.AxAcroPDFtmb.OcxState = CType(resources.GetObject("AxAcroPDFtmb.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFtmb.Size = New System.Drawing.Size(517, 985)
+        Me.AxAcroPDFtmb.Size = New System.Drawing.Size(517, 729)
         Me.AxAcroPDFtmb.TabIndex = 103
         '
         'txt_searchtmb
@@ -190,7 +190,7 @@ Partial Class FrmTMB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 985)
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_prodseltmb)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)

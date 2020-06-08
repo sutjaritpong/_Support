@@ -47,10 +47,10 @@ Partial Class FrmUOB
         '
         Me.AxAcroPDFuob.Dock = System.Windows.Forms.DockStyle.Right
         Me.AxAcroPDFuob.Enabled = True
-        Me.AxAcroPDFuob.Location = New System.Drawing.Point(747, 0)
+        Me.AxAcroPDFuob.Location = New System.Drawing.Point(491, 0)
         Me.AxAcroPDFuob.Name = "AxAcroPDFuob"
         Me.AxAcroPDFuob.OcxState = CType(resources.GetObject("AxAcroPDFuob.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFuob.Size = New System.Drawing.Size(517, 985)
+        Me.AxAcroPDFuob.Size = New System.Drawing.Size(517, 729)
         Me.AxAcroPDFuob.TabIndex = 115
         '
         'txt_searchuob
@@ -190,7 +190,7 @@ Partial Class FrmUOB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 985)
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_bankseluob)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)

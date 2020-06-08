@@ -634,7 +634,7 @@ Partial Class FrmWDS
         Me.dtgv_data.Name = "dtgv_data"
         Me.dtgv_data.ReadOnly = True
         Me.dtgv_data.RowHeadersVisible = False
-        Me.dtgv_data.Size = New System.Drawing.Size(359, 520)
+        Me.dtgv_data.Size = New System.Drawing.Size(359, 492)
         Me.dtgv_data.TabIndex = 95
         '
         'datetimestart
