@@ -54,9 +54,6 @@ Public Class FrmTracking
         clear()
         cn.Close()
 
-
-
-
     End Sub
 
     '## Event CheckedChanged ใช้ในการเช็คค่าของ Checkbox ##'

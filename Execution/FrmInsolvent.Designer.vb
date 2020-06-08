@@ -22,6 +22,7 @@ Partial Class FrmInsolvent
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmInsolvent))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbo_owner = New System.Windows.Forms.ComboBox()
@@ -56,7 +57,7 @@ Partial Class FrmInsolvent
         Me.dtp_date_send = New System.Windows.Forms.DateTimePicker()
         Me.txt_total_receipt = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.txt_receipt = New System.Windows.Forms.TextBox()
+        Me.txt_receipt_description = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txt_total = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -73,9 +74,10 @@ Partial Class FrmInsolvent
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmd_search = New System.Windows.Forms.Button()
         Me.cbo_search = New System.Windows.Forms.ComboBox()
         Me.txt_search = New System.Windows.Forms.TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -394,7 +396,7 @@ Partial Class FrmInsolvent
         Me.GroupBox3.Controls.Add(Me.dtp_date_send)
         Me.GroupBox3.Controls.Add(Me.txt_total_receipt)
         Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Controls.Add(Me.txt_receipt)
+        Me.GroupBox3.Controls.Add(Me.txt_receipt_description)
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.txt_total)
         Me.GroupBox3.Controls.Add(Me.Label14)
@@ -447,12 +449,12 @@ Partial Class FrmInsolvent
         Me.Label11.TabIndex = 69
         Me.Label11.Text = "ใบเสร็จรับเงิน"
         '
-        'txt_receipt
+        'txt_receipt_description
         '
-        Me.txt_receipt.Location = New System.Drawing.Point(133, 61)
-        Me.txt_receipt.Name = "txt_receipt"
-        Me.txt_receipt.Size = New System.Drawing.Size(170, 20)
-        Me.txt_receipt.TabIndex = 68
+        Me.txt_receipt_description.Location = New System.Drawing.Point(133, 61)
+        Me.txt_receipt_description.Name = "txt_receipt_description"
+        Me.txt_receipt_description.Size = New System.Drawing.Size(170, 20)
+        Me.txt_receipt_description.TabIndex = 68
         '
         'Label13
         '
@@ -625,7 +627,7 @@ Partial Class FrmInsolvent
         '
         Me.GroupBox6.Controls.Add(Me.Label15)
         Me.GroupBox6.Controls.Add(Me.Label16)
-        Me.GroupBox6.Controls.Add(Me.Button1)
+        Me.GroupBox6.Controls.Add(Me.cmd_search)
         Me.GroupBox6.Controls.Add(Me.cbo_search)
         Me.GroupBox6.Controls.Add(Me.txt_search)
         Me.GroupBox6.Location = New System.Drawing.Point(20, 505)
@@ -661,19 +663,19 @@ Partial Class FrmInsolvent
         Me.Label16.TabIndex = 91
         Me.Label16.Text = "ข้อมูลที่ต้องการหา"
         '
-        'Button1
+        'cmd_search
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button1.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
-        Me.Button1.Location = New System.Drawing.Point(514, 14)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(133, 29)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "ค้นหาข้อมูล"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
+        Me.cmd_search.Location = New System.Drawing.Point(514, 14)
+        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_search.Name = "cmd_search"
+        Me.cmd_search.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_search.TabIndex = 4
+        Me.cmd_search.Text = "ค้นหาข้อมูล"
+        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_search.UseVisualStyleBackColor = True
         '
         'cbo_search
         '
@@ -690,6 +692,10 @@ Partial Class FrmInsolvent
         Me.txt_search.Name = "txt_search"
         Me.txt_search.Size = New System.Drawing.Size(170, 22)
         Me.txt_search.TabIndex = 91
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
         '
         'FrmInsolvent
         '
@@ -761,7 +767,7 @@ Partial Class FrmInsolvent
     Friend WithEvents dtp_date_send As DateTimePicker
     Friend WithEvents txt_total_receipt As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents txt_receipt As TextBox
+    Friend WithEvents txt_receipt_description As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents txt_total As TextBox
     Friend WithEvents Label14 As Label
@@ -778,7 +784,8 @@ Partial Class FrmInsolvent
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents cmd_search As Button
     Friend WithEvents cbo_search As ComboBox
     Friend WithEvents txt_search As TextBox
+    Friend WithEvents Timer1 As Timer
 End Class

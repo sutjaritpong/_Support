@@ -202,7 +202,7 @@ Partial Class FrmExecution
         Me.dtgv_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.dtgv_search.Name = "dtgv_search"
         Me.dtgv_search.ReadOnly = True
-        Me.dtgv_search.Size = New System.Drawing.Size(819, 80)
+        Me.dtgv_search.Size = New System.Drawing.Size(819, 113)
         Me.dtgv_search.TabIndex = 6
         '
         'Group_detail
@@ -395,7 +395,7 @@ Partial Class FrmExecution
         Me.GroupBox1.Controls.Add(Me.Label23)
         Me.GroupBox1.Controls.Add(Me.dtp_tracking_date)
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox1.Location = New System.Drawing.Point(5, 174)
+        Me.GroupBox1.Location = New System.Drawing.Point(5, 207)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(819, 506)
         Me.GroupBox1.TabIndex = 9
