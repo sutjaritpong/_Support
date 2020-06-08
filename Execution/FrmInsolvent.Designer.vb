@@ -284,7 +284,7 @@ Partial Class FrmInsolvent
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox2.Size = New System.Drawing.Size(335, 202)
+        Me.GroupBox2.Size = New System.Drawing.Size(334, 202)
         Me.GroupBox2.TabIndex = 86
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ข้อมูลล้มละลาย"
@@ -295,7 +295,7 @@ Partial Class FrmInsolvent
         Me.chk_verify_insolvent.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chk_verify_insolvent.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_verify_insolvent.ForeColor = System.Drawing.Color.Blue
-        Me.chk_verify_insolvent.Location = New System.Drawing.Point(17, 140)
+        Me.chk_verify_insolvent.Location = New System.Drawing.Point(36, 140)
         Me.chk_verify_insolvent.Name = "chk_verify_insolvent"
         Me.chk_verify_insolvent.Size = New System.Drawing.Size(120, 22)
         Me.chk_verify_insolvent.TabIndex = 96
@@ -308,7 +308,7 @@ Partial Class FrmInsolvent
         Me.Chk_date_request.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Chk_date_request.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Chk_date_request.ForeColor = System.Drawing.Color.Blue
-        Me.Chk_date_request.Location = New System.Drawing.Point(5, 116)
+        Me.Chk_date_request.Location = New System.Drawing.Point(24, 116)
         Me.Chk_date_request.Name = "Chk_date_request"
         Me.Chk_date_request.Size = New System.Drawing.Size(132, 22)
         Me.Chk_date_request.TabIndex = 95
@@ -318,7 +318,7 @@ Partial Class FrmInsolvent
         'dtp_verify_insolvent
         '
         Me.dtp_verify_insolvent.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_verify_insolvent.Location = New System.Drawing.Point(143, 142)
+        Me.dtp_verify_insolvent.Location = New System.Drawing.Point(162, 142)
         Me.dtp_verify_insolvent.Name = "dtp_verify_insolvent"
         Me.dtp_verify_insolvent.Size = New System.Drawing.Size(116, 20)
         Me.dtp_verify_insolvent.TabIndex = 94
@@ -326,14 +326,14 @@ Partial Class FrmInsolvent
         'dtp_date_request
         '
         Me.dtp_date_request.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_date_request.Location = New System.Drawing.Point(143, 116)
+        Me.dtp_date_request.Location = New System.Drawing.Point(162, 116)
         Me.dtp_date_request.Name = "dtp_date_request"
         Me.dtp_date_request.Size = New System.Drawing.Size(116, 20)
         Me.dtp_date_request.TabIndex = 92
         '
         'txt_description
         '
-        Me.txt_description.Location = New System.Drawing.Point(143, 88)
+        Me.txt_description.Location = New System.Drawing.Point(121, 88)
         Me.txt_description.Name = "txt_description"
         Me.txt_description.Size = New System.Drawing.Size(170, 20)
         Me.txt_description.TabIndex = 70
@@ -344,7 +344,7 @@ Partial Class FrmInsolvent
         Me.Label9.BackColor = System.Drawing.SystemColors.Window
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(81, 88)
+        Me.Label9.Location = New System.Drawing.Point(59, 88)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 20)
         Me.Label9.TabIndex = 69
@@ -352,7 +352,7 @@ Partial Class FrmInsolvent
         '
         'txt_number_insolvent
         '
-        Me.txt_number_insolvent.Location = New System.Drawing.Point(143, 62)
+        Me.txt_number_insolvent.Location = New System.Drawing.Point(121, 62)
         Me.txt_number_insolvent.Name = "txt_number_insolvent"
         Me.txt_number_insolvent.Size = New System.Drawing.Size(170, 20)
         Me.txt_number_insolvent.TabIndex = 68
@@ -363,7 +363,7 @@ Partial Class FrmInsolvent
         Me.Label7.BackColor = System.Drawing.SystemColors.Window
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(50, 62)
+        Me.Label7.Location = New System.Drawing.Point(28, 62)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(87, 20)
         Me.Label7.TabIndex = 67
@@ -371,7 +371,7 @@ Partial Class FrmInsolvent
         '
         'txt_court_isolvent
         '
-        Me.txt_court_isolvent.Location = New System.Drawing.Point(143, 36)
+        Me.txt_court_isolvent.Location = New System.Drawing.Point(121, 36)
         Me.txt_court_isolvent.Name = "txt_court_isolvent"
         Me.txt_court_isolvent.Size = New System.Drawing.Size(170, 20)
         Me.txt_court_isolvent.TabIndex = 64
@@ -382,7 +382,7 @@ Partial Class FrmInsolvent
         Me.Label12.BackColor = System.Drawing.SystemColors.Window
         Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label12.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(62, 36)
+        Me.Label12.Location = New System.Drawing.Point(40, 36)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(75, 20)
         Me.Label12.TabIndex = 59

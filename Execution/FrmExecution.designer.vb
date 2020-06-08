@@ -444,7 +444,7 @@ Partial Class FrmExecution
         Me.txt_tracking_detail.Location = New System.Drawing.Point(571, 251)
         Me.txt_tracking_detail.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_tracking_detail.Name = "txt_tracking_detail"
-        Me.txt_tracking_detail.Size = New System.Drawing.Size(238, 22)
+        Me.txt_tracking_detail.Size = New System.Drawing.Size(237, 22)
         Me.txt_tracking_detail.TabIndex = 29
         '
         'Label26
@@ -812,7 +812,7 @@ Partial Class FrmExecution
         Me.Label24.BackColor = System.Drawing.SystemColors.Window
         Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label24.Location = New System.Drawing.Point(443, 437)
+        Me.Label24.Location = New System.Drawing.Point(439, 437)
         Me.Label24.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(122, 18)
@@ -917,11 +917,11 @@ Partial Class FrmExecution
         '
         Me.txt_detail1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txt_detail1.ForeColor = System.Drawing.Color.Blue
-        Me.txt_detail1.Location = New System.Drawing.Point(575, 437)
+        Me.txt_detail1.Location = New System.Drawing.Point(571, 437)
         Me.txt_detail1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_detail1.Multiline = True
         Me.txt_detail1.Name = "txt_detail1"
-        Me.txt_detail1.Size = New System.Drawing.Size(234, 54)
+        Me.txt_detail1.Size = New System.Drawing.Size(237, 54)
         Me.txt_detail1.TabIndex = 21
         '
         'Label8
