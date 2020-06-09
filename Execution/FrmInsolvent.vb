@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Globalization
 Imports System.Threading
 Imports System.IO
+Imports System.Data
 
 Public Class FrmInsolvent
     '## สร้างตัวแปร Array ชื่อ _headertext() เก็บหัวตารางเพื่อแสดงใน Datagridview และเพิ่ม Item เป็นหัวข้อในการค้นหา
@@ -170,7 +171,6 @@ Public Class FrmInsolvent
 
         cbo_owner.Enabled = True
 
-
     End Sub
 
     '## Sub สำหรับการ Save ข้อมูล ลงใน ฐานข้อมูล EXEINSOLVENT โดยใช้คำสั่ง INSERT 
@@ -230,7 +230,6 @@ Public Class FrmInsolvent
         cmd.Parameters.AddWithValue("total", txt_total.Text)
         cmd.Parameters.AddWithValue("datesend", dtp_date_send.Text)
 
-
         Dim comple As Integer = cmd.ExecuteNonQuery()
         If comple > 0 Then
             Msg_OK("เพิ่มข้อมูลสำเร็จ")
@@ -278,45 +277,47 @@ Public Class FrmInsolvent
 
         connect()
 
-            _sql = "SELECT insolvent_owner,insolvent_idc,insolvent_fullname,insolvent_black,insolvent_red,insolvent_court FROM EXEINSOLVENT WHERE "
+        _sql = "SELECT insolvent_owner,insolvent_idc,insolvent_fullname,insolvent_black,insolvent_red,insolvent_court FROM EXEINSOLVENT WHERE "
 
-            Select Case cbo_finds.SelectedItem
-                Case "ธนาคาร" : _sql &= "insolvent_owner "
-                Case "เลขบัตรประชาชน" : _sql &= "insolvent_idc "
-                Case "ชื่อ-นามสกุล" : _sql &= "insolvent_fullname "
-                Case "เลขคดีดำ" : _sql &= "insolvent_black "
-                Case "เลขคดีแดง" : _sql &= "insolvent_red "
-                Case "ศาล" : _sql &= "insolvent_court "
-            End Select
+        Select Case cbo_finds.SelectedItem
+            Case "ธนาคาร" : _sql &= "insolvent_owner "
+            Case "เลขบัตรประชาชน" : _sql &= "insolvent_idc "
+            Case "ชื่อ-นามสกุล" : _sql &= "insolvent_fullname "
+            Case "เลขคดีดำ" : _sql &= "insolvent_black "
+            Case "เลขคดีแดง" : _sql &= "insolvent_red "
+            Case "ศาล" : _sql &= "insolvent_court "
+        End Select
 
-            _sql &= $"LIKE '%{txt_search.Text}%' ORDER BY insolvent_owner "
-            cmd = New SqlCommand(_sql, cn)
-            DA = New SqlDataAdapter(cmd)
-            DS = New DataSet
-            DA.Fill(DS, "insolvents")
+        _sql &= $"LIKE '%{txt_search.Text}%' ORDER BY insolvent_owner "
+        cmd = New SqlCommand(_sql, cn)
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "insolvents")
 
-            dtgv_insolvent.DataSource = DS.Tables("insolvents")
+        dtgv_insolvent.DataSource = DS.Tables("insolvents")
 
-            For i = 0 To _headertext.Length - 1
-                dtgv_insolvent.Columns(i).HeaderText = _headertext(i)
-            Next
-            cn.Close()
+        For i = 0 To _headertext.Length - 1
+            dtgv_insolvent.Columns(i).HeaderText = _headertext(i)
+        Next
+
+        cn.Close()
 
     End Sub
+    '## Event ปุ่ม Save เรียก Sub _saveinformation() และ _subreadonly() มาใช้ 
     Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
         _saveinformation()
         _subreadonly()
     End Sub
-
+    '## Event ปุ่ม Cancel เรียก Sub _cleartext() และ _subreadonly() มาใช้
     Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
         _cleartext()
         _subreadonly()
     End Sub
-
+    '## Event ปุ่ม Edit เรียก Sub _written() มาใช้
     Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
         _Written()
     End Sub
-
+    '## Event ปุ่ม DELETE เรียก Sub _Deleteinformation() และ _cleartext() มาใช้
     Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
         _deleteinformation()
         _cleartext()
@@ -325,7 +326,7 @@ Public Class FrmInsolvent
     Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_finds.Click
         _findinformation()
     End Sub
-
+    '## Event Cellclick ของ Object datagridview ใช้สำหรับดึงข้อมูลที่ค้นหามาแสดงใน Object ต่าง ๆ 
     Private Sub dtgv_insolvent_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_insolvent.CellClick
         Try
             cbo_owner.Text = dtgv_insolvent.CurrentRow.Cells(0).Value
@@ -343,17 +344,21 @@ Public Class FrmInsolvent
             DS = New DataSet
             DA.Fill(DS, "cellclick")
 
-            If DS.Tables("cellclick").Rows(0)("insolvent_date_request").ToString = "" Or vbNull Then
-                Chk_date_request.Checked = False
-            Else
+            If DS.Tables("cellclick").Rows(0)("insolvent_date_request").ToString <> DBNull.Value.ToString Then
                 Chk_date_request.Checked = True
-            End If
-            If DS.Tables("cellclick").Rows(0)("insolvent_date_verify").ToString = "" Or vbNull Then
-                chk_verify_insolvent.Checked = False
             Else
-                chk_verify_insolvent.Checked = True
+                Chk_date_request.Checked = False
             End If
-
+            If DS.Tables("cellclick").Rows(0)("insolvent_date_verify").ToString <> DBNull.Value.ToString Then
+                chk_verify_insolvent.Checked = True
+            Else
+                chk_verify_insolvent.Checked = False
+            End If
+            If DS.Tables("cellclick").Rows(0)("insolvent_send").ToString <> DBNull.Value.ToString Then
+                chk_date_send.Checked = True
+            Else
+                chk_date_send.Checked = False
+            End If
 
             txt_company.Text = DS.Tables("cellclick").Rows(0)("insolvent_company").ToString
                 txt_court_isolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_department").ToString
@@ -367,7 +372,6 @@ Public Class FrmInsolvent
                 dtp_date_send.Text = DS.Tables("cellclick").Rows(0)("insolvent_send").ToString
 
                 If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
-
 
             Else
 
@@ -390,7 +394,7 @@ Public Class FrmInsolvent
         End Try
 
     End Sub
-
+    '## Event ปิด Form มี Method Dispose และ Close()
     Private Sub FrmInsolvent_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         cn.Close()

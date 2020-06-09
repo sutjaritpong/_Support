@@ -3,7 +3,14 @@ Imports System.Data.SqlClient
 Public Class FrmCheck
     Private Sub FrmCheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        cbo_cusowner.SelectedIndex = -1
+        cbo_cusowner.Items.Clear()
+
+        Dim types1() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
+
+        cbo_cusowner.Items.AddRange(types1)
+
+        cbo_cusowner.SelectedIndex = 0
+
         check_notedit()
 
 

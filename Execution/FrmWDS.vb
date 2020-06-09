@@ -553,15 +553,12 @@ Public Class FrmWDS
 
     Private Sub cmd_checkview_Click(sender As Object, e As EventArgs) Handles cmd_checkview.Click
 
-        Dim types1() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
-        FrmCheck.cbo_cusowner.Items.AddRange(types1)
-        FrmCheck.cbo_cusowner.SelectedIndex = 0
-
         sql = $"SELECT * FROM EXECHECK WHERE CHKACC = '{txt_cusacc.Text}'"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
         DS = New DataSet()
-        Dim c As Integer = DA.Fill(DS, "check")
+        DA.Fill(DS, "check")
+        Dim c As Integer = DS.Tables("check").Rows.Count
         FrmCheck.dtgv_check.DataSource = DS.Tables("check")
 
         Dim headers() As String = {"KEY", "ธนาคาร", "เช็คธนาคาร", "สาขา", "เลขที่เช็ค", "ลงวันที่ในเช็ค", "จำนวนเงินตามหน้าเช็ค", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "คดีแดง", "วันที่ส่งเช็คเข้าแบงค์", "จำนวนเงินอายัด", "ค่าใช้จ่ายคืน", "หมายเหตุ"}

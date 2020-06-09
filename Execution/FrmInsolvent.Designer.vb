@@ -103,6 +103,7 @@ Partial Class FrmInsolvent
         '
         'cbo_owner
         '
+        Me.cbo_owner.ForeColor = System.Drawing.Color.Blue
         Me.cbo_owner.FormattingEnabled = True
         Me.cbo_owner.Location = New System.Drawing.Point(119, 23)
         Me.cbo_owner.Name = "cbo_owner"
@@ -157,6 +158,7 @@ Partial Class FrmInsolvent
         '
         'txt_company
         '
+        Me.txt_company.ForeColor = System.Drawing.Color.Blue
         Me.txt_company.Location = New System.Drawing.Point(119, 64)
         Me.txt_company.Name = "txt_company"
         Me.txt_company.Size = New System.Drawing.Size(170, 20)
@@ -176,6 +178,7 @@ Partial Class FrmInsolvent
         '
         'txt_court
         '
+        Me.txt_court.ForeColor = System.Drawing.Color.Blue
         Me.txt_court.Location = New System.Drawing.Point(119, 168)
         Me.txt_court.Name = "txt_court"
         Me.txt_court.Size = New System.Drawing.Size(170, 20)
@@ -227,6 +230,7 @@ Partial Class FrmInsolvent
         '
         'txt_cusid
         '
+        Me.txt_cusid.ForeColor = System.Drawing.Color.Blue
         Me.txt_cusid.Location = New System.Drawing.Point(119, 36)
         Me.txt_cusid.Name = "txt_cusid"
         Me.txt_cusid.Size = New System.Drawing.Size(170, 20)
@@ -234,6 +238,7 @@ Partial Class FrmInsolvent
         '
         'txt_cusname
         '
+        Me.txt_cusname.ForeColor = System.Drawing.Color.Blue
         Me.txt_cusname.Location = New System.Drawing.Point(119, 90)
         Me.txt_cusname.Name = "txt_cusname"
         Me.txt_cusname.Size = New System.Drawing.Size(170, 20)
@@ -319,6 +324,7 @@ Partial Class FrmInsolvent
         '
         'dtp_verify_insolvent
         '
+        Me.dtp_verify_insolvent.CalendarForeColor = System.Drawing.Color.Blue
         Me.dtp_verify_insolvent.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtp_verify_insolvent.Location = New System.Drawing.Point(162, 142)
         Me.dtp_verify_insolvent.Name = "dtp_verify_insolvent"
@@ -327,6 +333,7 @@ Partial Class FrmInsolvent
         '
         'dtp_date_request
         '
+        Me.dtp_date_request.CalendarForeColor = System.Drawing.Color.Blue
         Me.dtp_date_request.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtp_date_request.Location = New System.Drawing.Point(162, 116)
         Me.dtp_date_request.Name = "dtp_date_request"
@@ -335,6 +342,7 @@ Partial Class FrmInsolvent
         '
         'txt_description
         '
+        Me.txt_description.ForeColor = System.Drawing.Color.Blue
         Me.txt_description.Location = New System.Drawing.Point(121, 88)
         Me.txt_description.Name = "txt_description"
         Me.txt_description.Size = New System.Drawing.Size(170, 20)
@@ -354,6 +362,7 @@ Partial Class FrmInsolvent
         '
         'txt_number_insolvent
         '
+        Me.txt_number_insolvent.ForeColor = System.Drawing.Color.Blue
         Me.txt_number_insolvent.Location = New System.Drawing.Point(121, 62)
         Me.txt_number_insolvent.Name = "txt_number_insolvent"
         Me.txt_number_insolvent.Size = New System.Drawing.Size(170, 20)
@@ -373,6 +382,7 @@ Partial Class FrmInsolvent
         '
         'txt_court_isolvent
         '
+        Me.txt_court_isolvent.ForeColor = System.Drawing.Color.Blue
         Me.txt_court_isolvent.Location = New System.Drawing.Point(121, 36)
         Me.txt_court_isolvent.Name = "txt_court_isolvent"
         Me.txt_court_isolvent.Size = New System.Drawing.Size(170, 20)
@@ -424,6 +434,7 @@ Partial Class FrmInsolvent
         '
         'dtp_date_send
         '
+        Me.dtp_date_send.CalendarForeColor = System.Drawing.Color.Blue
         Me.dtp_date_send.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtp_date_send.Location = New System.Drawing.Point(133, 113)
         Me.dtp_date_send.Name = "dtp_date_send"
@@ -432,6 +443,7 @@ Partial Class FrmInsolvent
         '
         'txt_receipt
         '
+        Me.txt_receipt.ForeColor = System.Drawing.Color.Blue
         Me.txt_receipt.Location = New System.Drawing.Point(133, 87)
         Me.txt_receipt.Name = "txt_receipt"
         Me.txt_receipt.Size = New System.Drawing.Size(170, 20)
@@ -451,6 +463,7 @@ Partial Class FrmInsolvent
         '
         'txt_receipt_description
         '
+        Me.txt_receipt_description.ForeColor = System.Drawing.Color.Blue
         Me.txt_receipt_description.Location = New System.Drawing.Point(133, 61)
         Me.txt_receipt_description.Name = "txt_receipt_description"
         Me.txt_receipt_description.Size = New System.Drawing.Size(170, 20)
@@ -470,6 +483,7 @@ Partial Class FrmInsolvent
         '
         'txt_total
         '
+        Me.txt_total.ForeColor = System.Drawing.Color.Blue
         Me.txt_total.Location = New System.Drawing.Point(133, 35)
         Me.txt_total.Name = "txt_total"
         Me.txt_total.Size = New System.Drawing.Size(170, 20)
