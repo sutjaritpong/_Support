@@ -69,8 +69,6 @@ Partial Class FrmWDS
         Me.txt_detail1 = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.txt_detail2 = New System.Windows.Forms.TextBox()
         Me.dtgv_data = New System.Windows.Forms.DataGridView()
         Me.datetimestart = New System.Windows.Forms.DateTimePicker()
         Me.datetimefinish = New System.Windows.Forms.DateTimePicker()
@@ -94,7 +92,6 @@ Partial Class FrmWDS
         Me.GroupBox4.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
         CType(Me.dtgv_data, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -585,7 +582,6 @@ Partial Class FrmWDS
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(13, 438)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -602,25 +598,6 @@ Partial Class FrmWDS
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "รายละเอียด-ถอนอายัด/ยึด"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.txt_detail2)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(308, 111)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "รายละเอียด-ส่งเช็ค"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'txt_detail2
-        '
-        Me.txt_detail2.Location = New System.Drawing.Point(0, 0)
-        Me.txt_detail2.Multiline = True
-        Me.txt_detail2.Name = "txt_detail2"
-        Me.txt_detail2.Size = New System.Drawing.Size(308, 111)
-        Me.txt_detail2.TabIndex = 71
         '
         'dtgv_data
         '
@@ -882,8 +859,6 @@ Partial Class FrmWDS
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
         CType(Me.dtgv_data, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -936,8 +911,6 @@ Partial Class FrmWDS
     Friend WithEvents txt_black As TextBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents txt_detail2 As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents cmd_find As Button
     Friend WithEvents cmd_edit As Button

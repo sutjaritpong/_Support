@@ -355,4 +355,11 @@ Public Class FrmEXEACC
         _write()
 
     End Sub
+
+    Private Sub FrmEXEACC_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
 End Class

@@ -241,7 +241,7 @@ Public Class FrmTracking
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
                 clear()
                 _readonly()
-
+                cn.Close()
             End If
 
         End With
@@ -276,8 +276,6 @@ Public Class FrmTracking
     End Sub
 
     Private Sub _write()
-
-
 
         txt_detail.ReadOnly = False
         txt_cusname.ReadOnly = False
@@ -376,4 +374,10 @@ Public Class FrmTracking
 
     End Sub
 
+    Private Sub FrmTracking_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
 End Class

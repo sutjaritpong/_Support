@@ -55,14 +55,14 @@ Partial Class FrmInsolvent
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.chk_date_send = New System.Windows.Forms.CheckBox()
         Me.dtp_date_send = New System.Windows.Forms.DateTimePicker()
-        Me.txt_total_receipt = New System.Windows.Forms.TextBox()
+        Me.txt_receipt = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txt_receipt_description = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txt_total = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.cmd_send = New System.Windows.Forms.Button()
+        Me.cmd_delete = New System.Windows.Forms.Button()
         Me.cmd_edit = New System.Windows.Forms.Button()
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_save = New System.Windows.Forms.Button()
@@ -74,8 +74,8 @@ Partial Class FrmInsolvent
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.cmd_search = New System.Windows.Forms.Button()
-        Me.cbo_search = New System.Windows.Forms.ComboBox()
+        Me.cmd_finds = New System.Windows.Forms.Button()
+        Me.cbo_finds = New System.Windows.Forms.ComboBox()
         Me.txt_search = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
@@ -394,7 +394,7 @@ Partial Class FrmInsolvent
         '
         Me.GroupBox3.Controls.Add(Me.chk_date_send)
         Me.GroupBox3.Controls.Add(Me.dtp_date_send)
-        Me.GroupBox3.Controls.Add(Me.txt_total_receipt)
+        Me.GroupBox3.Controls.Add(Me.txt_receipt)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.txt_receipt_description)
         Me.GroupBox3.Controls.Add(Me.Label13)
@@ -430,12 +430,12 @@ Partial Class FrmInsolvent
         Me.dtp_date_send.Size = New System.Drawing.Size(116, 20)
         Me.dtp_date_send.TabIndex = 92
         '
-        'txt_total_receipt
+        'txt_receipt
         '
-        Me.txt_total_receipt.Location = New System.Drawing.Point(133, 87)
-        Me.txt_total_receipt.Name = "txt_total_receipt"
-        Me.txt_total_receipt.Size = New System.Drawing.Size(170, 20)
-        Me.txt_total_receipt.TabIndex = 70
+        Me.txt_receipt.Location = New System.Drawing.Point(133, 87)
+        Me.txt_receipt.Name = "txt_receipt"
+        Me.txt_receipt.Size = New System.Drawing.Size(170, 20)
+        Me.txt_receipt.TabIndex = 70
         '
         'Label11
         '
@@ -489,7 +489,7 @@ Partial Class FrmInsolvent
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.cmd_send)
+        Me.GroupBox5.Controls.Add(Me.cmd_delete)
         Me.GroupBox5.Controls.Add(Me.cmd_edit)
         Me.GroupBox5.Controls.Add(Me.cmd_cancel)
         Me.GroupBox5.Controls.Add(Me.cmd_save)
@@ -501,19 +501,19 @@ Partial Class FrmInsolvent
         Me.GroupBox5.TabIndex = 98
         Me.GroupBox5.TabStop = False
         '
-        'cmd_send
+        'cmd_delete
         '
-        Me.cmd_send.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_send.Image = Global.SCANDB.My.Resources.Resources.add
-        Me.cmd_send.Location = New System.Drawing.Point(7, 36)
-        Me.cmd_send.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_send.Name = "cmd_send"
-        Me.cmd_send.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_send.TabIndex = 3
-        Me.cmd_send.Text = "เพิ่มข้อมูลลูกค้า"
-        Me.cmd_send.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_send.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_send.UseVisualStyleBackColor = True
+        Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.page_delete
+        Me.cmd_delete.Location = New System.Drawing.Point(7, 142)
+        Me.cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_delete.Name = "cmd_delete"
+        Me.cmd_delete.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_delete.TabIndex = 3
+        Me.cmd_delete.Text = "ลบข้อมูลลูกค้า"
+        Me.cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_delete.UseVisualStyleBackColor = True
         '
         'cmd_edit
         '
@@ -547,7 +547,7 @@ Partial Class FrmInsolvent
         '
         Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_save.Location = New System.Drawing.Point(7, 142)
+        Me.cmd_save.Location = New System.Drawing.Point(7, 38)
         Me.cmd_save.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_save.Name = "cmd_save"
         Me.cmd_save.Size = New System.Drawing.Size(133, 29)
@@ -615,10 +615,14 @@ Partial Class FrmInsolvent
         '
         'dtgv_insolvent
         '
+        Me.dtgv_insolvent.AllowUserToAddRows = False
+        Me.dtgv_insolvent.AllowUserToDeleteRows = False
         Me.dtgv_insolvent.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgv_insolvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_insolvent.Location = New System.Drawing.Point(20, 567)
         Me.dtgv_insolvent.Name = "dtgv_insolvent"
+        Me.dtgv_insolvent.ReadOnly = True
+        Me.dtgv_insolvent.RowHeadersVisible = False
         Me.dtgv_insolvent.Size = New System.Drawing.Size(656, 127)
         Me.dtgv_insolvent.TabIndex = 100
         Me.dtgv_insolvent.Visible = False
@@ -627,8 +631,8 @@ Partial Class FrmInsolvent
         '
         Me.GroupBox6.Controls.Add(Me.Label15)
         Me.GroupBox6.Controls.Add(Me.Label16)
-        Me.GroupBox6.Controls.Add(Me.cmd_search)
-        Me.GroupBox6.Controls.Add(Me.cbo_search)
+        Me.GroupBox6.Controls.Add(Me.cmd_finds)
+        Me.GroupBox6.Controls.Add(Me.cbo_finds)
         Me.GroupBox6.Controls.Add(Me.txt_search)
         Me.GroupBox6.Location = New System.Drawing.Point(20, 505)
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(5)
@@ -663,27 +667,27 @@ Partial Class FrmInsolvent
         Me.Label16.TabIndex = 91
         Me.Label16.Text = "ข้อมูลที่ต้องการหา"
         '
-        'cmd_search
+        'cmd_finds
         '
-        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
-        Me.cmd_search.Location = New System.Drawing.Point(514, 14)
-        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_search.Name = "cmd_search"
-        Me.cmd_search.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_search.TabIndex = 4
-        Me.cmd_search.Text = "ค้นหาข้อมูล"
-        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_search.UseVisualStyleBackColor = True
+        Me.cmd_finds.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_finds.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
+        Me.cmd_finds.Location = New System.Drawing.Point(514, 14)
+        Me.cmd_finds.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_finds.Name = "cmd_finds"
+        Me.cmd_finds.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_finds.TabIndex = 4
+        Me.cmd_finds.Text = "ค้นหาข้อมูล"
+        Me.cmd_finds.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_finds.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_finds.UseVisualStyleBackColor = True
         '
-        'cbo_search
+        'cbo_finds
         '
-        Me.cbo_search.FormattingEnabled = True
-        Me.cbo_search.Location = New System.Drawing.Point(92, 17)
-        Me.cbo_search.Name = "cbo_search"
-        Me.cbo_search.Size = New System.Drawing.Size(137, 21)
-        Me.cbo_search.TabIndex = 92
+        Me.cbo_finds.FormattingEnabled = True
+        Me.cbo_finds.Location = New System.Drawing.Point(92, 17)
+        Me.cbo_finds.Name = "cbo_finds"
+        Me.cbo_finds.Size = New System.Drawing.Size(137, 21)
+        Me.cbo_finds.TabIndex = 92
         '
         'txt_search
         '
@@ -765,14 +769,14 @@ Partial Class FrmInsolvent
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents chk_date_send As CheckBox
     Friend WithEvents dtp_date_send As DateTimePicker
-    Friend WithEvents txt_total_receipt As TextBox
+    Friend WithEvents txt_receipt As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents txt_receipt_description As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents txt_total As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents cmd_send As Button
+    Friend WithEvents cmd_delete As Button
     Friend WithEvents cmd_edit As Button
     Friend WithEvents cmd_cancel As Button
     Friend WithEvents cmd_save As Button
@@ -784,8 +788,8 @@ Partial Class FrmInsolvent
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
-    Friend WithEvents cmd_search As Button
-    Friend WithEvents cbo_search As ComboBox
+    Friend WithEvents cmd_finds As Button
+    Friend WithEvents cbo_finds As ComboBox
     Friend WithEvents txt_search As TextBox
     Friend WithEvents Timer1 As Timer
 End Class

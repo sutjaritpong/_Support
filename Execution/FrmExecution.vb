@@ -303,6 +303,8 @@ Public Class FrmExecution
         cbo_court.Enabled = False
         cbo_department.Enabled = False
         cbo_acc.Enabled = False
+        cbo_employees_exe.Enabled = False
+
         txt_product.ReadOnly = True
         txt_idcus.ReadOnly = True
         txt_namecus.ReadOnly = True
@@ -318,13 +320,13 @@ Public Class FrmExecution
         txt_hubs.ReadOnly = True
         txt_performance.ReadOnly = True
         txt_result.ReadOnly = True
-        cbo_employees_exe.Enabled = False
         txt_verify_result.ReadOnly = True
         txt_verify_comment.ReadOnly = True
         txt_tracking_detail.ReadOnly = True
         txt_tracking_nosheet.ReadOnly = True
         txt_collec_nosend.ReadOnly = True
         txt_count_acc.ReadOnly = True
+
         chk_datesheet.Enabled = False
         chk_tracking_date.Enabled = False
         chk_verify_date.Enabled = False
@@ -677,6 +679,13 @@ Public Class FrmExecution
 
     End Sub
 
+    Private Sub FrmExecution_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
 End Class
 
 

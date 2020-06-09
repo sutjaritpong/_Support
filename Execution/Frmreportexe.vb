@@ -324,4 +324,10 @@ Public Class Frmreportexe
 
     End Sub
 
+    Private Sub Frmreportexe_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
 End Class

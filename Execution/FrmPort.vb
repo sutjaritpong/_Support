@@ -111,4 +111,11 @@ Public Class FrmPort
         cbo_acc.Items.Clear()
 
     End Sub
+
+    Private Sub FrmPort_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
 End Class

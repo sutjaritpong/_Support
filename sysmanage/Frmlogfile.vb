@@ -213,6 +213,9 @@ Public Class Frmlogfile
     End Sub
 
     Private Sub Frmlogfile_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
         Me.Dispose()
+
     End Sub
 End Class

@@ -174,6 +174,9 @@ Public Class FrmAccount
     End Sub
 
     Private Sub FrmAccount_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
         Me.Dispose()
+
     End Sub
 End Class

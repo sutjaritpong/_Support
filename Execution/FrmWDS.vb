@@ -158,7 +158,6 @@ Public Class FrmWDS
     End Sub
     Private Sub edit()
 
-
         cbo_owner.Enabled = True
         txt_cusid.ReadOnly = False
         txt_cusacc.ReadOnly = False
@@ -179,10 +178,8 @@ Public Class FrmWDS
         chk_datepayment.Enabled = True
         chk_datewds.Enabled = True
 
-
     End Sub
     Public Sub refrom()
-
 
         txt_payment.Text = ""
         txt_black.Text = ""
@@ -202,7 +199,7 @@ Public Class FrmWDS
         dtp_daterefund.Text = ""
         txt_detail1.Text = ""
         dtp_datecollector.Text = ""
-        txt_detail2.Text = ""
+
         chk_datecheck.Checked = False
         chk_datecollector.Checked = False
         chk_datewds.Checked = False
@@ -225,11 +222,8 @@ Public Class FrmWDS
 
         End If
 
-
         loaddata()
         notedit()
-
-
 
     End Sub
 
@@ -371,7 +365,6 @@ Public Class FrmWDS
             dtp_daterefund.Enabled = False
 
         End If
-
 
     End Sub
 
@@ -603,7 +596,7 @@ Public Class FrmWDS
 
     Private Sub cmd_datediff_Click(sender As Object, e As EventArgs) Handles cmd_datediff.Click
         connect()
-        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) EXE AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS"
+        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
         DS = New DataSet
@@ -679,4 +672,10 @@ Public Class FrmWDS
         End Try
     End Sub
 
+    Private Sub FrmWDS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
 End Class

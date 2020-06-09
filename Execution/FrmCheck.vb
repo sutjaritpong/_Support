@@ -172,7 +172,7 @@ Public Class FrmCheck
 
         If txt_cusid.ReadOnly = False Then
 
-            sql = $"UPDATE EXECHECK SET CHKOWN = '{cbo_cusowner.Text}',CHKBANK = '{txt_checkbank.Text}',CHKHUB = '{txt_hub.Text}',CHKNUM = '{txt_numcheck.Text}',CHKDATE = '{dtp_datecheck.Text}',CHKTOTAL = '{txt_totalcheck.Text}',CHKIDC = '{txt_cusid.Text}',CHKACC = '{txt_cusacc.Text}',CHKACCNO = '{txt_cusaccno.Text}',CHKNAME = '{txt_cusname.Text}',CHKDATESEND = '{dtp_checksend.Text}',CHKTOTALEXE = '{txt_total.Text}',CHKTOTALEXERE = '{txt_refund.Text}',CHKDETAIL1 = '{txt_note.Text}' WHERE (CHKACC = '{FrmWDS.txt_cusacc.Text}' AND CHKNAME = '{FrmWDS.txt_cusname.Text}') OR (CHKACCNO = '{txt_cusaccno.Text}' AND CHKNAME = '{txt_cusname.Text}')"
+            sql = $"UPDATE EXECHECK SET CHKKEY='{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}-{dtp_checksend.Text}',CHKOWN = '{cbo_cusowner.Text}',CHKBANK = '{txt_checkbank.Text}',CHKHUB = '{txt_hub.Text}',CHKNUM = '{txt_numcheck.Text}',CHKDATE = '{dtp_datecheck.Text}',CHKTOTAL = '{txt_totalcheck.Text}',CHKIDC = '{txt_cusid.Text}',CHKACC = '{txt_cusacc.Text}',CHKACCNO = '{txt_cusaccno.Text}',CHKNAME = '{txt_cusname.Text}',CHKDATESEND = '{dtp_checksend.Text}',CHKTOTALEXE = '{txt_total.Text}',CHKTOTALEXERE = '{txt_refund.Text}',CHKDETAIL1 = '{txt_note.Text}' WHERE (CHKACC = '{FrmWDS.txt_cusacc.Text}' AND CHKNAME = '{FrmWDS.txt_cusname.Text}') OR (CHKACCNO = '{txt_cusaccno.Text}' AND CHKNAME = '{txt_cusname.Text}')"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
@@ -194,7 +194,7 @@ Public Class FrmCheck
 
             connect()
 
-            sql = $"INSERT INTO EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}')"
+            sql = $"INSERT INTO EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}{dtp_checksend.Text}','{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}')"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
