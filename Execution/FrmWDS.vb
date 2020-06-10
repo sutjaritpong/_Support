@@ -444,7 +444,7 @@ Public Class FrmWDS
         If cbo_product.SelectedItem = "ALL PRODUCT" Then
             sql = $"SELECT * FROM EXEWDS WHERE EXEDATEWDS BETWEEN  '{datetimestart.Text}' and '{datetimefinish.Text}'"
         Else
-            sql = $"SELECT * FROM EXEWDS WHERE EXEDATEWDS BETWEEN  '{datetimestart.Text}' and '{datetimefinish.Text}' AND EXEPRODUCT = "
+            sql = $"SELECT * FROM EXEWDS WHERE EXEDATEWDS BETWEEN  '{datetimestart.Text}' and '{datetimefinish.Text}' AND EXECUSOWN = "
             Select Case cbo_product.SelectedItem
                 Case "KBANK" : sql &= $"'KBANK'"
                 Case "SCB" : sql &= $"'SCB'"
