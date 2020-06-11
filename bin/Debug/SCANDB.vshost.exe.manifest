@@ -175,14 +175,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="5606304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="5611936">
       <assemblyIdentity name="SCANDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>hFoSI6nHmUTjLlFGsHcKPvhxtlg=</dsig:DigestValue>
+        <dsig:DigestValue>EooDlJHkyNT6YrhL5DUubQUjF2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

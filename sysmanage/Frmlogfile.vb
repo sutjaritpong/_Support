@@ -19,14 +19,14 @@ Public Class Frmlogfile
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0
 
-        sql = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"                 '// นับจำนวน ROWS ข้อมูลใน Table SQL
+        sql = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"            '// นับจำนวน ROWS ข้อมูลใน Table SQL
         cmd.CommandText = sql
         DA.SelectCommand = cmd
         DA.Fill(DS, "countdata")
         lbl_countdata.Text = DS.Tables("countdata").Rows(0)("countdatas")
 
         loaddatagrid()
-        lbl_countdtgv.Text = dtgvlogfile.Rows.Count                             '// นับจำนวนแถวใน Datagridview
+        lbl_countdtgv.Text = dtgvlogfile.Rows.Count                        '// นับจำนวนแถวใน Datagridview
 
         For Each col As DataGridViewColumn In dtgvlogfile.Columns
 

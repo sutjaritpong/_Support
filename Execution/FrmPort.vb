@@ -1,6 +1,8 @@
 ﻿Option Explicit On
 Imports System.Data.SqlClient
 Public Class FrmPort
+
+
     Private Sub FrmPort_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         _comboboxadd(cbo_owner, "Customer_Owner", "Execution_Port")
@@ -19,8 +21,7 @@ Public Class FrmPort
         _cboArray(cbo_type_find, _type)
 
     End Sub
-
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub _find()
 
         _cleardatagrid(dtgv_exeport)
 
@@ -42,7 +43,7 @@ Public Class FrmPort
             Case "เลขที่สัญญา" : sql &= $" WHERE EP.Serial_Account "
             Case "ชื่อ-นามสกุล" : sql &= $" WHERE EP.Customer_Name "
         End Select
-        sql &= $"= '%' + @find + '%' ORDER BY EP.Customer_Id_Card"
+        sql &= $"LIKE '%'+ @find +'%' ORDER BY EP.Customer_Id_Card"
 
         cmd.CommandText = sql
         cmd.Parameters.Clear()
@@ -56,6 +57,7 @@ Public Class FrmPort
             lbl_search.ForeColor = Color.Red
             dtgv_exeport.Visible = False
             Exit Sub
+
         Else
 
             With dtgv_exeport
@@ -88,9 +90,108 @@ Public Class FrmPort
 
     End Sub
 
+    Private Sub _write()
+
+        txt_address.ReadOnly = False
+        txt_cuscus.ReadOnly = False
+        txt_cusid.ReadOnly = False
+        txt_countacc.ReadOnly = False
+        txt_cusname.ReadOnly = False
+        txt_oa.ReadOnly = False
+        txt_office.ReadOnly = False
+        txt_review_description.ReadOnly = False
+        txt_user.ReadOnly = False
+
+        chk_date_send.Enabled = True
+        chk_date_soc.Enabled = True
+        chk_review.Enabled = True
+
+        cbo_acc.Enabled = True
+        cbo_owner.Enabled = True
+        cbo_status.Enabled = True
+        cbo_type_result.Enabled = True
+
+    End Sub
+
+    Private Sub _Readonly()
+
+        txt_address.ReadOnly = True
+        txt_cuscus.ReadOnly = True
+        txt_cusid.ReadOnly = True
+        txt_countacc.ReadOnly = True
+        txt_cusname.ReadOnly = True
+        txt_oa.ReadOnly = True
+        txt_office.ReadOnly = True
+        txt_review_description.ReadOnly = True
+        txt_user.ReadOnly = True
+
+        chk_date_send.Enabled = False
+        chk_date_soc.Enabled = False
+        chk_review.Enabled = False
+
+        cbo_acc.Enabled = False
+        cbo_owner.Enabled = False
+        cbo_status.Enabled = False
+        cbo_type_result.Enabled = False
+
+        If chk_date_send.Enabled = False Then
+            dtp_datesend.Enabled = False
+        End If
+        If chk_date_soc.Enabled = False Then
+            dtp_date_soc.Enabled = False
+        End If
+        If chk_review.Enabled = False Then
+            dtp_date_review.Enabled = False
+        End If
+
+
+    End Sub
+    Private Sub _cleartext()
+
+        txt_countacc.Text = ""
+        txt_cuscus.Text = ""
+        txt_cusid.Text = ""
+        txt_cusname.Text = ""
+        txt_oa.Text = ""
+        txt_review_description.Text = ""
+        txt_user.Text = ""
+        txt_office.Text = ""
+        txt_address.Text = ""
+
+        dtp_datesend.Text = ""
+        dtp_date_review.Text = ""
+        dtp_date_soc.Text = ""
+
+        cbo_type_result.Text = ""
+        cbo_status.Text = ""
+        cbo_owner.Text = ""
+        cbo_acc.Text = ""
+
+        chk_date_send.Checked = False
+        chk_date_soc.Checked = False
+        chk_review.Checked = False
+
+        If chk_date_send.Checked = False Then
+            dtp_datesend.Enabled = False
+        End If
+        If chk_date_soc.Checked = False Then
+            dtp_date_soc.Enabled = False
+        End If
+        If chk_review.Checked = False Then
+            dtp_date_review.Enabled = False
+        End If
+    End Sub
+
+    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+
+        _find()
+        _Readonly()
+
+    End Sub
+
     Private Sub dtgv_exeport_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_exeport.CellClick
 
-        cleartext()
+        _cleartext()
 
         Try
             With dtgv_exeport
@@ -109,8 +210,12 @@ Public Class FrmPort
                 dtp_date_soc.Text = .CurrentRow.Cells(12).Value.ToString
                 txt_address.Text = .CurrentRow.Cells(13).Value.ToString
 
+                cbo_acc.Items.Clear()
+
                 For i = 0 To .Rows.Count - 1
+
                     If .Rows(i).Cells(4).Value.ToString = .CurrentRow.Cells(4).Value.ToString Then
+
 
                         cbo_acc.Items.Add(.Rows(i).Cells(3).Value.ToString)
                         cbo_acc.SelectedIndex = 0
@@ -120,27 +225,153 @@ Public Class FrmPort
 
                 Next
 
+                If .CurrentRow.Cells(7).Value.ToString = "" Then
+                    chk_date_send.Checked = False
+                Else
+                    chk_date_send.Checked = True
+                End If
+                If .CurrentRow.Cells(12).Value.ToString = "" Then
+                    chk_date_soc.Checked = False
+                Else
+                    chk_date_soc.Checked = True
+                End If
+
+                _Readonly()
             End With
         Catch ex As Exception
 
         End Try
     End Sub
-    Sub cleartext()
-
-        txt_countacc.Text = ""
-        txt_cuscus.Text = ""
-        txt_cusid.Text = ""
-        txt_cusname.Text = ""
-        txt_oa.Text = ""
-        cbo_acc.Items.Clear()
-
-    End Sub
-
     Private Sub FrmPort_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         cn.Close()
         Me.Dispose()
 
     End Sub
+
+    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+
+        _Readonly()
+        _cleartext()
+
+    End Sub
+
+    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+
+        _write()
+
+        If chk_date_send.Checked = True Then
+
+            dtp_datesend.Enabled = True
+        Else
+            dtp_datesend.Enabled = False
+
+        End If
+
+        If chk_date_soc.Checked = True Then
+
+            dtp_date_soc.Enabled = True
+        Else
+            dtp_date_soc.Enabled = False
+
+        End If
+
+    End Sub
+
+    Private Sub cmd_update_Click(sender As Object, e As EventArgs) Handles cmd_update.Click
+        connect()
+        Dim Primarykeys As String = $"{cbo_owner.Text}-{txt_cusid.Text}"
+
+        sql = $"UPDATE Execution_port SET Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_number = @number,Customer_Name = @name,OA = @OA,Legal_Status = @status,Date_send = @send,Review_Result = @result,Review_Result_Description = @Description,Employees_User = @Employees WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text};
+               UPDATE EXESOC SET EXEKEY = @key,Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_OFFICE = @office,Customer_date_SOC = @datesoc,Customer_Address = @address WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text};"
+        cmd = New SqlCommand(sql, cn)
+        With cmd.Parameters
+            .Clear()
+            .AddWithValue("Owner", cbo_owner.Text)
+            .AddWithValue("Id", txt_cusid.Text)
+            .AddWithValue("number", txt_cuscus.Text)
+            .AddWithValue("name", txt_cusname.Text)
+            .AddWithValue("OA", txt_oa.Text)
+            .AddWithValue("status", cbo_status.Text)
+            .AddWithValue("send", dtp_datesend.Text)
+            .AddWithValue("result", cbo_type_result.Text)
+            .AddWithValue("Description", txt_review_description.Text)
+            .AddWithValue("Employees", txt_user.Text)
+            .AddWithValue("key", Primarykeys)
+            .AddWithValue("office", txt_office.Text)
+            .AddWithValue("datesoc", dtp_date_soc.Text)
+            .AddWithValue("address", txt_address.Text)
+        End With
+
+        If Msg_confirm("คุณต้องการแก้ไข หรือ อัพเดต ข้อมูลใช่หรือไม่") = vbYes Then
+            Dim i As Integer = cmd.ExecuteNonQuery()
+            If i > 0 Then
+
+                Msg_OK("อัพเดตข้อมูลสำเร็จ")
+                _Getlogdata($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ")
+                cn.Close()
+            Else
+                Msg_error("อัพเดตข้อมูลล้มเหลว")
+                cn.Close()
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
+
+        connect()
+        sql = $"DELETE FROM Execution_port WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text};
+                DELETE FROM EXESOC WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text}; "
+        cmd = New SqlCommand(sql, cn)
+
+        If Msg_confirm("คุณต้องการ ลบ ข้อมูลนี้ใช่หรือไม่") = vbYes Then
+            Dim x As Integer = cmd.ExecuteNonQuery()
+            If x > 0 Then
+                Msg_OK("ลบข้อมูลสำเร็จ")
+                _Getlogdata($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text}  ")
+                cn.Close()
+            Else
+                Msg_error("ลบข้อมูลล้มเหลว")
+                cn.Close()
+            End If
+        End If
+    End Sub
+
+    Private Sub chk_date_soc_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_soc.CheckedChanged
+
+        If chk_date_soc.Checked = True Then
+
+            dtp_date_soc.Enabled = True
+        Else
+            dtp_date_soc.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub chk_date_send_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_send.CheckedChanged
+
+        If chk_date_send.Checked = True Then
+
+            dtp_datesend.Enabled = True
+        Else
+            dtp_datesend.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub chk_review_CheckedChanged(sender As Object, e As EventArgs) Handles chk_review.CheckedChanged
+
+        If chk_review.Checked = True Then
+
+            dtp_date_review.Enabled = True
+        Else
+            dtp_date_review.Enabled = False
+
+        End If
+
+    End Sub
+
 
 End Class

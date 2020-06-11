@@ -219,7 +219,7 @@ Partial Class Frmlogfile
         'txt_detaillog
         '
         Me.txt_detaillog.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_detaillog.ForeColor = System.Drawing.Color.Red
+        Me.txt_detaillog.ForeColor = System.Drawing.Color.Black
         Me.txt_detaillog.Location = New System.Drawing.Point(766, 104)
         Me.txt_detaillog.Multiline = True
         Me.txt_detaillog.Name = "txt_detaillog"

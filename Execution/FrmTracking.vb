@@ -161,8 +161,9 @@ Public Class FrmTracking
             End With
 
         Catch ex As Exception
-            _readonly()
+
         Finally
+            _readonly()
             cn.Close()
         End Try
 
@@ -237,7 +238,7 @@ Public Class FrmTracking
                     dtgv_invalid.Columns(i).HeaderText = _headertext(i)
                 Next
 
-                _Getlogdata($"เพิ่มข้อมูลลูกค้า {txt_cusid.Text} ชื่อ {txt_cusname.Text} พนักงานบังคับคดี {cbo_empexe.Text} ตรวจสำนวน ทำบัญชี-รับจ่าย ตามใบงาน")
+                _Getlogdata($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
                 clear()
                 _readonly()
@@ -260,6 +261,10 @@ Public Class FrmTracking
         cbo_empexe.Enabled = False
         cbo_detail.Enabled = False
         cbo_document.Enabled = False
+
+        chk_datesend.Enabled = False
+        chk_datetracking.Enabled = False
+
 
         If chk_datesend.Enabled = False Then
 

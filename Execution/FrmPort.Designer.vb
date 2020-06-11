@@ -52,8 +52,6 @@ Partial Class FrmPort
         Me.cbo_type_find = New System.Windows.Forms.ComboBox()
         Me.cmd_search = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dtp_date_review = New System.Windows.Forms.DateTimePicker()
-        Me.chk_review = New System.Windows.Forms.CheckBox()
         Me.cbo_type_result = New System.Windows.Forms.ComboBox()
         Me.txt_review_description = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -72,6 +70,8 @@ Partial Class FrmPort
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_delete = New System.Windows.Forms.Button()
         Me.cmd_update = New System.Windows.Forms.Button()
+        Me.chk_review = New System.Windows.Forms.CheckBox()
+        Me.dtp_date_review = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -412,26 +412,6 @@ Partial Class FrmPort
         Me.Label2.TabIndex = 97
         Me.Label2.Text = "ผล อนุมัติ/ไม่อนุมัติ"
         '
-        'dtp_date_review
-        '
-        Me.dtp_date_review.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_date_review.Location = New System.Drawing.Point(142, 113)
-        Me.dtp_date_review.Name = "dtp_date_review"
-        Me.dtp_date_review.Size = New System.Drawing.Size(116, 22)
-        Me.dtp_date_review.TabIndex = 16
-        '
-        'chk_review
-        '
-        Me.chk_review.AutoSize = True
-        Me.chk_review.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_review.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_review.Location = New System.Drawing.Point(58, 113)
-        Me.chk_review.Name = "chk_review"
-        Me.chk_review.Size = New System.Drawing.Size(78, 22)
-        Me.chk_review.TabIndex = 98
-        Me.chk_review.Text = "วันที่อนุมัติ"
-        Me.chk_review.UseVisualStyleBackColor = True
-        '
         'cbo_type_result
         '
         Me.cbo_type_result.ForeColor = System.Drawing.Color.Blue
@@ -580,9 +560,9 @@ Partial Class FrmPort
         Me.lbl_search.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_search.Location = New System.Drawing.Point(31, 457)
         Me.lbl_search.Name = "lbl_search"
-        Me.lbl_search.Size = New System.Drawing.Size(121, 32)
+        Me.lbl_search.Size = New System.Drawing.Size(136, 32)
         Me.lbl_search.TabIndex = 107
-        Me.lbl_search.Text = "ผลการค้นหา"
+        Me.lbl_search.Text = "ผลการค้นหา..."
         '
         'cmd_edit
         '
@@ -643,6 +623,26 @@ Partial Class FrmPort
         Me.cmd_update.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_update.UseVisualStyleBackColor = False
+        '
+        'chk_review
+        '
+        Me.chk_review.AutoSize = True
+        Me.chk_review.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_review.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_review.Location = New System.Drawing.Point(58, 113)
+        Me.chk_review.Name = "chk_review"
+        Me.chk_review.Size = New System.Drawing.Size(78, 22)
+        Me.chk_review.TabIndex = 98
+        Me.chk_review.Text = "วันที่อนุมัติ"
+        Me.chk_review.UseVisualStyleBackColor = True
+        '
+        'dtp_date_review
+        '
+        Me.dtp_date_review.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_date_review.Location = New System.Drawing.Point(142, 113)
+        Me.dtp_date_review.Name = "dtp_date_review"
+        Me.dtp_date_review.Size = New System.Drawing.Size(116, 22)
+        Me.dtp_date_review.TabIndex = 16
         '
         'FrmPort
         '
@@ -716,8 +716,6 @@ Partial Class FrmPort
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents dtp_date_review As DateTimePicker
-    Friend WithEvents chk_review As CheckBox
     Friend WithEvents cbo_type_result As ComboBox
     Friend WithEvents txt_review_description As TextBox
     Friend WithEvents Label14 As Label
@@ -737,4 +735,6 @@ Partial Class FrmPort
     Friend WithEvents cmd_delete As Button
     Friend WithEvents cmd_cancel As Button
     Friend WithEvents cmd_edit As Button
+    Friend WithEvents dtp_date_review As DateTimePicker
+    Friend WithEvents chk_review As CheckBox
 End Class
