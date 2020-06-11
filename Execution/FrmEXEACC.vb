@@ -86,7 +86,7 @@ Public Class FrmEXEACC
 
     Sub _Cleartext()
 
-        Dim _text() As Object = {cbo_owner.Text, txt_black.Text, txt_cusid.Text, txt_cusname.Text, txt_other_receipt.Text, txt_red.Text, txt_search.Text, txt_status.Text, txt_total_receipt.Text}
+        Dim _text() As Object = {cbo_owner.Text, txt_black.Text, txt_cusid.Text, txt_cusname.Text, txt_detail_receipt.Text, txt_red.Text, txt_search.Text, txt_status.Text, txt_total_receipt.Text}
 
         Dim _bound As Integer = UBound(_text)
 
@@ -100,7 +100,7 @@ Public Class FrmEXEACC
     Private Sub _read()
 
         cbo_owner.Enabled = False  'enable = false if readonly = true
-        dtp_datebill.Enabled = False
+        dtp_date_receipt.Enabled = False
         dtp_datework.Enabled = False
 
         txt_cusid.ReadOnly = True
@@ -109,7 +109,7 @@ Public Class FrmEXEACC
         txt_red.ReadOnly = True
         txt_status.ReadOnly = True
         txt_total_receipt.ReadOnly = True
-        txt_other_receipt.ReadOnly = True
+        txt_detail_receipt.ReadOnly = True
 
     End Sub
     Private Sub _datagrid()
@@ -171,7 +171,7 @@ Public Class FrmEXEACC
     Private Sub _write()
 
         cbo_owner.Enabled = True  '#enable = true if readonly = false
-        dtp_datebill.Enabled = True
+        dtp_date_receipt.Enabled = True
         dtp_datework.Enabled = True
 
         txt_cusid.ReadOnly = False
@@ -180,7 +180,7 @@ Public Class FrmEXEACC
         txt_red.ReadOnly = False
         txt_status.ReadOnly = False
         txt_total_receipt.ReadOnly = False
-        txt_other_receipt.ReadOnly = False
+        txt_detail_receipt.ReadOnly = False
 
     End Sub
 
@@ -203,9 +203,9 @@ Public Class FrmEXEACC
             txt_black.Text = dtgv_exeacc.CurrentRow.Cells(4).Value.ToString
             txt_red.Text = dtgv_exeacc.CurrentRow.Cells(5).Value.ToString
             txt_status.Text = dtgv_exeacc.CurrentRow.Cells(6).Value.ToString
-            dtp_datebill.Text = dtgv_exeacc.CurrentRow.Cells(7).Value.ToString
+            dtp_date_receipt.Text = dtgv_exeacc.CurrentRow.Cells(7).Value.ToString
             txt_total_receipt.Text = CInt(dtgv_exeacc.CurrentRow.Cells(8).Value)
-            txt_other_receipt.Text = dtgv_exeacc.CurrentRow.Cells(9).Value.ToString
+            txt_detail_receipt.Text = dtgv_exeacc.CurrentRow.Cells(9).Value.ToString
             dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(10).Value.ToString
 
             CDbl(txt_total_receipt.Text).ToString("##,##0.00")
@@ -237,7 +237,7 @@ Public Class FrmEXEACC
 
         End If
 
-        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_datebill.Text}'"
+        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_date_receipt.Text}'"
 
         If cmd_excuteScalar() > 0 Then '# เช็คข้อมูลในฐานข้อมูลถ้ามีข้อมูลอยู่แล้ว ให้ Update ถ้ายังไม่มี ให้ Insert
 
@@ -256,9 +256,9 @@ Public Class FrmEXEACC
                 cmd.Parameters.AddWithValue("red", txt_red.Text)
                 cmd.Parameters.AddWithValue("status", txt_status.Text)
                 cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
-                cmd.Parameters.AddWithValue("detail", txt_other_receipt.Text)
+                cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
 
-                cmd.Parameters.AddWithValue("date_work", dtp_datebill.Text)
+                cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
 
                 cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
 
@@ -308,7 +308,7 @@ Public Class FrmEXEACC
                     cmd.CommandText = sql
                     cmd.Parameters.Clear()
 
-                    Dim _date As DateTime = dtp_datebill.Text
+                    Dim _date As DateTime = dtp_date_receipt.Text
                     Dim acckey = $"{cbo_owner.Text}-{txt_cusid.Text}-{_date}"
 
                     cmd.Parameters.AddWithValue("KEY", acckey)
@@ -318,9 +318,9 @@ Public Class FrmEXEACC
                     cmd.Parameters.AddWithValue("black", txt_black.Text)
                     cmd.Parameters.AddWithValue("red", txt_red.Text)
                     cmd.Parameters.AddWithValue("status", txt_status.Text)
-                    cmd.Parameters.AddWithValue("date_work", dtp_datebill.Text)
+                    cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
                     cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
-                    cmd.Parameters.AddWithValue("detail", txt_other_receipt.Text)
+                    cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
                     cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
 
                     Dim r As Integer = cmd.ExecuteNonQuery()
