@@ -92,6 +92,11 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.arrow_redo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.back">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -158,6 +163,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.delete_page">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.delete1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

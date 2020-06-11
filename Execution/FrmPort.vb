@@ -7,6 +7,9 @@ Public Class FrmPort
 
         _comboboxadd(cbo_status, "Legal_status", "Execution_Port")
 
+        _comboboxadd(cbo_type_result, "Review_Result", "Execution_Port")
+
+        cbo_type_result.SelectedIndex = -1
         cbo_status.SelectedIndex = -1
         cbo_owner.SelectedIndex = -1
 
@@ -30,15 +33,16 @@ Public Class FrmPort
 
         End If
 
-        sql = $"SELECT * FROM Execution_Port"
+        sql = $"SELECT EP.*,ES.Customer_OFFICE,ES.Customer_date_SOC,Customer_Address FROM Execution_Port AS EP LEFT JOIN EXESOC AS ES ON EP.Customer_Id_Card = ES.Customer_Id_Card "
 
         Select Case cbo_type_find.SelectedItem
-            Case "ธนาคาร" : sql &= $" WHERE Customer_Owner = @find ORDER BY Customer_Id_Card"
-            Case "เลขที่บัตรประชาชน" : sql &= $" WHERE Customer_Id_Card = @find ORDER BY Customer_Id_Card"
-            Case "เลขที่ลูกหนี้" : sql &= $" WHERE Customer_Number = @find ORDER BY Customer_Id_Card"
-            Case "เลขที่สัญญา" : sql &= $" WHERE Serial_Account = @find ORDER BY Customer_Id_Card"
-            Case "ชื่อ-นามสกุล" : sql &= $" WHERE Customer_Name = @find ORDER BY Customer_Id_Card"
+            Case "ธนาคาร" : sql &= $" WHERE EP.Customer_Owner "
+            Case "เลขที่บัตรประชาชน" : sql &= $" WHERE EP.Customer_Id_Card "
+            Case "เลขที่ลูกหนี้" : sql &= $" WHERE EP.Customer_Number "
+            Case "เลขที่สัญญา" : sql &= $" WHERE EP.Serial_Account "
+            Case "ชื่อ-นามสกุล" : sql &= $" WHERE EP.Customer_Name "
         End Select
+        sql &= $"= '%' + @find + '%' ORDER BY EP.Customer_Id_Card"
 
         cmd.CommandText = sql
         cmd.Parameters.Clear()
@@ -48,23 +52,37 @@ Public Class FrmPort
         DA.Fill(DS, "tables")
 
         If DS.Tables("tables").Rows.Count <= 0 Then
-            Msg_error("ไม่พบข้อมูลที่ค้นหา")
+            lbl_search.Text = "ไม่พบข้อมูลที่ค้นหา.."
+            lbl_search.ForeColor = Color.Red
+            dtgv_exeport.Visible = False
             Exit Sub
+        Else
+
+            With dtgv_exeport
+
+                .DataSource = DS.Tables("tables")
+                .Columns(0).HeaderText = "ธนาคาร"
+                .Columns(1).HeaderText = "เลขบัตรประชาชน"
+                .Columns(2).HeaderText = "เลขที่ลูกหนี้"
+                .Columns(3).HeaderText = "เลขที่สัญญา"
+                .Columns(4).HeaderText = "ชื่อ-นามสกุล"
+                .Columns(5).HeaderText = "OA"
+                .Columns(6).HeaderText = "ประเภท"
+                .Columns(7).HeaderText = "วันที่ส่งคัด ปกส."
+                .Columns(8).HeaderText = "ผลอนุมัติ/ไม่อนุมัติ"
+                .Columns(9).HeaderText = "เหตุผลที่ไม่อนุมัติ"
+                .Columns(10).HeaderText = "USER"
+                .Columns(11).HeaderText = "บริษัท/ที่ทำงาน"
+                .Columns(12).HeaderText = "วันที่ส่งผลคัด"
+                .Columns(13).HeaderText = "ที่ตั้ง"
+
+            End With
+
+            dtgv_exeport.Visible = True
+            lbl_search.Text = $"พบข้อมูล {dtgv_exeport.RowCount.ToString} รายการ.."
+            lbl_search.ForeColor = Color.Green
+
         End If
-
-        With dtgv_exeport
-
-            .DataSource = DS.Tables("tables")
-            .Columns(0).HeaderText = "ธนาคาร"
-            .Columns(1).HeaderText = "เลขบัตรประชาชน"
-            .Columns(2).HeaderText = "เลขที่ลูกหนี้"
-            .Columns(3).HeaderText = "เลขที่สัญญา"
-            .Columns(4).HeaderText = "ชื่อ-นามสกุล"
-            .Columns(5).HeaderText = "OA"
-            .Columns(6).HeaderText = "ประเภท"
-            .Columns(7).HeaderText = "วันที่ส่งคัด ปกส."
-
-        End With
 
         cn.Close()
 
@@ -84,6 +102,12 @@ Public Class FrmPort
                 txt_oa.Text = .CurrentRow.Cells(5).Value.ToString
                 cbo_status.Text = .CurrentRow.Cells(6).Value.ToString
                 dtp_datesend.Text = .CurrentRow.Cells(7).Value.ToString
+                cbo_type_result.Text = .CurrentRow.Cells(8).Value.ToString
+                txt_review_description.Text = .CurrentRow.Cells(9).Value.ToString
+                txt_user.Text = .CurrentRow.Cells(10).Value.ToString
+                txt_office.Text = .CurrentRow.Cells(11).Value.ToString
+                dtp_date_soc.Text = .CurrentRow.Cells(12).Value.ToString
+                txt_address.Text = .CurrentRow.Cells(13).Value.ToString
 
                 For i = 0 To .Rows.Count - 1
                     If .Rows(i).Cells(4).Value.ToString = .CurrentRow.Cells(4).Value.ToString Then

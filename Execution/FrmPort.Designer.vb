@@ -25,6 +25,7 @@ Partial Class FrmPort
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPort))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.chk_date_send = New System.Windows.Forms.CheckBox()
         Me.cbo_status = New System.Windows.Forms.ComboBox()
         Me.txt_oa = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -51,24 +52,26 @@ Partial Class FrmPort
         Me.cbo_type_find = New System.Windows.Forms.ComboBox()
         Me.cmd_search = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txt_collec_review = New System.Windows.Forms.TextBox()
         Me.dtp_date_review = New System.Windows.Forms.DateTimePicker()
         Me.chk_review = New System.Windows.Forms.CheckBox()
-        Me.cbo_type = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cbo_type_result = New System.Windows.Forms.ComboBox()
         Me.txt_review_description = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txt_user = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.chk_date_soc = New System.Windows.Forms.CheckBox()
+        Me.txt_address = New System.Windows.Forms.TextBox()
         Me.txt_office = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.txt_address = New System.Windows.Forms.TextBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.chk_date_send = New System.Windows.Forms.CheckBox()
+        Me.dtp_date_soc = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_search = New System.Windows.Forms.Label()
+        Me.cmd_edit = New System.Windows.Forms.Button()
+        Me.cmd_cancel = New System.Windows.Forms.Button()
+        Me.cmd_delete = New System.Windows.Forms.Button()
+        Me.cmd_update = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -105,6 +108,19 @@ Partial Class FrmPort
         Me.GroupBox2.TabIndex = 86
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ช้อมูลลูกค้า"
+        '
+        'chk_date_send
+        '
+        Me.chk_date_send.AutoSize = True
+        Me.chk_date_send.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_date_send.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_date_send.Location = New System.Drawing.Point(28, 77)
+        Me.chk_date_send.Name = "chk_date_send"
+        Me.chk_date_send.Size = New System.Drawing.Size(75, 22)
+        Me.chk_date_send.TabIndex = 106
+        Me.chk_date_send.Text = "วันที่ส่งคัด"
+        Me.chk_date_send.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_date_send.UseVisualStyleBackColor = True
         '
         'cbo_status
         '
@@ -354,7 +370,7 @@ Partial Class FrmPort
         '
         'txt_find
         '
-        Me.txt_find.ForeColor = System.Drawing.Color.Blue
+        Me.txt_find.ForeColor = System.Drawing.Color.DarkOrange
         Me.txt_find.Location = New System.Drawing.Point(350, 23)
         Me.txt_find.Name = "txt_find"
         Me.txt_find.Size = New System.Drawing.Size(170, 22)
@@ -390,24 +406,16 @@ Partial Class FrmPort
         Me.Label2.BackColor = System.Drawing.SystemColors.Window
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(11, 59)
+        Me.Label2.Location = New System.Drawing.Point(32, 28)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 20)
+        Me.Label2.Size = New System.Drawing.Size(104, 20)
         Me.Label2.TabIndex = 97
-        Me.Label2.Text = "COLLECTOR อนุมัติ"
-        '
-        'txt_collec_review
-        '
-        Me.txt_collec_review.ForeColor = System.Drawing.Color.Blue
-        Me.txt_collec_review.Location = New System.Drawing.Point(142, 57)
-        Me.txt_collec_review.Name = "txt_collec_review"
-        Me.txt_collec_review.Size = New System.Drawing.Size(170, 22)
-        Me.txt_collec_review.TabIndex = 13
+        Me.Label2.Text = "ผล อนุมัติ/ไม่อนุมัติ"
         '
         'dtp_date_review
         '
         Me.dtp_date_review.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_date_review.Location = New System.Drawing.Point(142, 141)
+        Me.dtp_date_review.Location = New System.Drawing.Point(142, 113)
         Me.dtp_date_review.Name = "dtp_date_review"
         Me.dtp_date_review.Size = New System.Drawing.Size(116, 22)
         Me.dtp_date_review.TabIndex = 16
@@ -417,38 +425,26 @@ Partial Class FrmPort
         Me.chk_review.AutoSize = True
         Me.chk_review.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chk_review.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_review.Location = New System.Drawing.Point(58, 141)
+        Me.chk_review.Location = New System.Drawing.Point(58, 113)
         Me.chk_review.Name = "chk_review"
         Me.chk_review.Size = New System.Drawing.Size(78, 22)
         Me.chk_review.TabIndex = 98
         Me.chk_review.Text = "วันที่อนุมัติ"
         Me.chk_review.UseVisualStyleBackColor = True
         '
-        'cbo_type
+        'cbo_type_result
         '
-        Me.cbo_type.ForeColor = System.Drawing.Color.Blue
-        Me.cbo_type.FormattingEnabled = True
-        Me.cbo_type.Location = New System.Drawing.Point(142, 27)
-        Me.cbo_type.Name = "cbo_type"
-        Me.cbo_type.Size = New System.Drawing.Size(170, 24)
-        Me.cbo_type.TabIndex = 12
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.SystemColors.Window
-        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(90, 29)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(46, 20)
-        Me.Label9.TabIndex = 89
-        Me.Label9.Text = "ประเภท"
+        Me.cbo_type_result.ForeColor = System.Drawing.Color.Blue
+        Me.cbo_type_result.FormattingEnabled = True
+        Me.cbo_type_result.Location = New System.Drawing.Point(142, 27)
+        Me.cbo_type_result.Name = "cbo_type_result"
+        Me.cbo_type_result.Size = New System.Drawing.Size(170, 24)
+        Me.cbo_type_result.TabIndex = 12
         '
         'txt_review_description
         '
         Me.txt_review_description.ForeColor = System.Drawing.Color.Blue
-        Me.txt_review_description.Location = New System.Drawing.Point(142, 85)
+        Me.txt_review_description.Location = New System.Drawing.Point(142, 57)
         Me.txt_review_description.Name = "txt_review_description"
         Me.txt_review_description.Size = New System.Drawing.Size(170, 22)
         Me.txt_review_description.TabIndex = 14
@@ -459,7 +455,7 @@ Partial Class FrmPort
         Me.Label14.BackColor = System.Drawing.SystemColors.Window
         Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label14.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(44, 87)
+        Me.Label14.Location = New System.Drawing.Point(44, 59)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(92, 20)
         Me.Label14.TabIndex = 100
@@ -468,7 +464,7 @@ Partial Class FrmPort
         'txt_user
         '
         Me.txt_user.ForeColor = System.Drawing.Color.Blue
-        Me.txt_user.Location = New System.Drawing.Point(142, 113)
+        Me.txt_user.Location = New System.Drawing.Point(142, 85)
         Me.txt_user.Name = "txt_user"
         Me.txt_user.Size = New System.Drawing.Size(170, 22)
         Me.txt_user.TabIndex = 15
@@ -479,7 +475,7 @@ Partial Class FrmPort
         Me.Label15.BackColor = System.Drawing.SystemColors.Window
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label15.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(90, 115)
+        Me.Label15.Location = New System.Drawing.Point(90, 87)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(46, 20)
         Me.Label15.TabIndex = 102
@@ -487,15 +483,13 @@ Partial Class FrmPort
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.cbo_type)
+        Me.GroupBox5.Controls.Add(Me.cbo_type_result)
         Me.GroupBox5.Controls.Add(Me.Label2)
-        Me.GroupBox5.Controls.Add(Me.txt_collec_review)
         Me.GroupBox5.Controls.Add(Me.txt_user)
         Me.GroupBox5.Controls.Add(Me.dtp_date_review)
         Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.chk_review)
         Me.GroupBox5.Controls.Add(Me.txt_review_description)
-        Me.GroupBox5.Controls.Add(Me.Label9)
         Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Location = New System.Drawing.Point(328, 130)
         Me.GroupBox5.Name = "GroupBox5"
@@ -506,12 +500,12 @@ Partial Class FrmPort
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.CheckBox2)
+        Me.GroupBox6.Controls.Add(Me.chk_date_soc)
         Me.GroupBox6.Controls.Add(Me.txt_address)
         Me.GroupBox6.Controls.Add(Me.txt_office)
         Me.GroupBox6.Controls.Add(Me.Label19)
         Me.GroupBox6.Controls.Add(Me.Label17)
-        Me.GroupBox6.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox6.Controls.Add(Me.dtp_date_soc)
         Me.GroupBox6.Location = New System.Drawing.Point(328, 321)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(666, 113)
@@ -519,12 +513,33 @@ Partial Class FrmPort
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "ผลการคัดประกันสังคม"
         '
+        'chk_date_soc
+        '
+        Me.chk_date_soc.AutoSize = True
+        Me.chk_date_soc.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_date_soc.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_date_soc.Location = New System.Drawing.Point(21, 75)
+        Me.chk_date_soc.Name = "chk_date_soc"
+        Me.chk_date_soc.Size = New System.Drawing.Size(105, 22)
+        Me.chk_date_soc.TabIndex = 105
+        Me.chk_date_soc.Text = "วันที่รับผล ปกส."
+        Me.chk_date_soc.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_date_soc.UseVisualStyleBackColor = True
+        '
+        'txt_address
+        '
+        Me.txt_address.ForeColor = System.Drawing.Color.Blue
+        Me.txt_address.Location = New System.Drawing.Point(88, 47)
+        Me.txt_address.Name = "txt_address"
+        Me.txt_address.Size = New System.Drawing.Size(426, 22)
+        Me.txt_address.TabIndex = 95
+        '
         'txt_office
         '
         Me.txt_office.ForeColor = System.Drawing.Color.Red
         Me.txt_office.Location = New System.Drawing.Point(88, 21)
         Me.txt_office.Name = "txt_office"
-        Me.txt_office.Size = New System.Drawing.Size(432, 22)
+        Me.txt_office.Size = New System.Drawing.Size(426, 22)
         Me.txt_office.TabIndex = 94
         '
         'Label19
@@ -551,47 +566,83 @@ Partial Class FrmPort
         Me.Label17.TabIndex = 93
         Me.Label17.Text = "OFFICE"
         '
-        'DateTimePicker2
+        'dtp_date_soc
         '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(132, 75)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(116, 22)
-        Me.DateTimePicker2.TabIndex = 92
+        Me.dtp_date_soc.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_date_soc.Location = New System.Drawing.Point(132, 75)
+        Me.dtp_date_soc.Name = "dtp_date_soc"
+        Me.dtp_date_soc.Size = New System.Drawing.Size(116, 22)
+        Me.dtp_date_soc.TabIndex = 92
         '
-        'txt_address
+        'lbl_search
         '
-        Me.txt_address.ForeColor = System.Drawing.Color.Blue
-        Me.txt_address.Location = New System.Drawing.Point(88, 47)
-        Me.txt_address.Name = "txt_address"
-        Me.txt_address.Size = New System.Drawing.Size(432, 22)
-        Me.txt_address.TabIndex = 95
+        Me.lbl_search.AutoSize = True
+        Me.lbl_search.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_search.Location = New System.Drawing.Point(31, 457)
+        Me.lbl_search.Name = "lbl_search"
+        Me.lbl_search.Size = New System.Drawing.Size(121, 32)
+        Me.lbl_search.TabIndex = 107
+        Me.lbl_search.Text = "ผลการค้นหา"
         '
-        'CheckBox2
+        'cmd_edit
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(21, 75)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(105, 22)
-        Me.CheckBox2.TabIndex = 105
-        Me.CheckBox2.Text = "วันที่รับผล ปกส."
-        Me.CheckBox2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
+        Me.cmd_edit.Location = New System.Drawing.Point(579, 460)
+        Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_edit.Name = "cmd_edit"
+        Me.cmd_edit.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_edit.TabIndex = 110
+        Me.cmd_edit.Text = "แก้ไขข้อมูล"
+        Me.cmd_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_edit.UseVisualStyleBackColor = False
         '
-        'chk_date_send
+        'cmd_cancel
         '
-        Me.chk_date_send.AutoSize = True
-        Me.chk_date_send.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_date_send.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_date_send.Location = New System.Drawing.Point(28, 77)
-        Me.chk_date_send.Name = "chk_date_send"
-        Me.chk_date_send.Size = New System.Drawing.Size(75, 22)
-        Me.chk_date_send.TabIndex = 106
-        Me.chk_date_send.Text = "วันที่ส่งคัด"
-        Me.chk_date_send.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_date_send.UseVisualStyleBackColor = True
+        Me.cmd_cancel.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.arrow_redo
+        Me.cmd_cancel.Location = New System.Drawing.Point(720, 460)
+        Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_cancel.Name = "cmd_cancel"
+        Me.cmd_cancel.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_cancel.TabIndex = 109
+        Me.cmd_cancel.Text = "ยกเลิก"
+        Me.cmd_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_cancel.UseVisualStyleBackColor = False
+        '
+        'cmd_delete
+        '
+        Me.cmd_delete.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete1
+        Me.cmd_delete.Location = New System.Drawing.Point(861, 460)
+        Me.cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_delete.Name = "cmd_delete"
+        Me.cmd_delete.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_delete.TabIndex = 108
+        Me.cmd_delete.Text = "ลบข้อมูล"
+        Me.cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_delete.UseVisualStyleBackColor = False
+        '
+        'cmd_update
+        '
+        Me.cmd_update.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_update.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
+        Me.cmd_update.Location = New System.Drawing.Point(438, 460)
+        Me.cmd_update.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_update.Name = "cmd_update"
+        Me.cmd_update.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_update.TabIndex = 97
+        Me.cmd_update.Text = "บันทึกข้อมูล"
+        Me.cmd_update.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_update.UseVisualStyleBackColor = False
         '
         'FrmPort
         '
@@ -599,6 +650,11 @@ Partial Class FrmPort
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1004, 725)
+        Me.Controls.Add(Me.cmd_edit)
+        Me.Controls.Add(Me.cmd_cancel)
+        Me.Controls.Add(Me.cmd_delete)
+        Me.Controls.Add(Me.cmd_update)
+        Me.Controls.Add(Me.lbl_search)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox3)
@@ -660,11 +716,9 @@ Partial Class FrmPort
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txt_collec_review As TextBox
     Friend WithEvents dtp_date_review As DateTimePicker
     Friend WithEvents chk_review As CheckBox
-    Friend WithEvents cbo_type As ComboBox
-    Friend WithEvents Label9 As Label
+    Friend WithEvents cbo_type_result As ComboBox
     Friend WithEvents txt_review_description As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents txt_user As TextBox
@@ -674,8 +728,13 @@ Partial Class FrmPort
     Friend WithEvents txt_office As TextBox
     Friend WithEvents Label19 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents dtp_date_soc As DateTimePicker
     Friend WithEvents chk_date_send As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents chk_date_soc As CheckBox
     Friend WithEvents txt_address As TextBox
+    Friend WithEvents lbl_search As Label
+    Friend WithEvents cmd_update As Button
+    Friend WithEvents cmd_delete As Button
+    Friend WithEvents cmd_cancel As Button
+    Friend WithEvents cmd_edit As Button
 End Class

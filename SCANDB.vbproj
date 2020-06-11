@@ -617,6 +617,8 @@
     <None Include="Resources\group_go.png" />
     <None Include="Resources\textfield_add.png" />
     <None Include="Resources\lorry_error.png" />
+    <None Include="Resources\arrow_redo.png" />
+    <None Include="Resources\delete1.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>
