@@ -224,3 +224,4 @@ E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.exe.manif
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.application
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmfindExecution.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmInsolvent.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.Frmownership.resources

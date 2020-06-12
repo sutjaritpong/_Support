@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Globalization
 Imports System.Threading
 Public Class FrmEXEACC
-
+    '## Array entity_ACC() นำไปใช้เพิ่ม Columns ใน Datagridview 
     Dim entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "ค่าใช้จ่ายอื่นๆ", "เดือนที่ลงข้อมูล"}
 
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -60,6 +60,7 @@ Public Class FrmEXEACC
     End Sub
 
     Private Sub txt_totalbill_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt.KeyPress
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
 
         Select Case Asc(e.KeyChar)
             Case 48 To 57
@@ -70,8 +71,6 @@ Public Class FrmEXEACC
                 e.Handled = True
                 Msg_error("กรุณากรอกเฉพาะตัวเลข")
         End Select
-
-
 
     End Sub
 
@@ -160,8 +159,13 @@ Public Class FrmEXEACC
                 .Columns(0).Visible = False
                 .Columns(8).Visible = False
                 .Columns(9).Visible = False
+                .Columns(10).Visible = False
+                .Columns(11).Visible = False
+                .Columns(12).Visible = False
+                .Columns(13).Visible = False
 
             Next
+
 
         End With
 
@@ -206,7 +210,14 @@ Public Class FrmEXEACC
             dtp_date_receipt.Text = dtgv_exeacc.CurrentRow.Cells(7).Value.ToString
             txt_total_receipt.Text = CInt(dtgv_exeacc.CurrentRow.Cells(8).Value)
             txt_detail_receipt.Text = dtgv_exeacc.CurrentRow.Cells(9).Value.ToString
-            dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(10).Value.ToString
+
+            txt_total_receipt2.Text = CInt(dtgv_exeacc.CurrentRow.Cells(10).Value)
+            txt_detail_receipt2.Text = dtgv_exeacc.CurrentRow.Cells(11).Value.ToString
+            txt_total_receipt3.Text = CInt(dtgv_exeacc.CurrentRow.Cells(12).Value.ToString)
+            txt_detail_receipt3.Text = dtgv_exeacc.CurrentRow.Cells(13).Value.ToString
+
+            dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(14).Value.ToString
+
 
             CDbl(txt_total_receipt.Text).ToString("##,##0.00")
 
@@ -360,6 +371,10 @@ Public Class FrmEXEACC
 
         cn.Close()
         Me.Dispose()
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
 
     End Sub
 End Class

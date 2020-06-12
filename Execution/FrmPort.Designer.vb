@@ -58,6 +58,8 @@ Partial Class FrmPort
         Me.txt_user = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.dtp_date_review = New System.Windows.Forms.DateTimePicker()
+        Me.chk_review = New System.Windows.Forms.CheckBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.chk_date_soc = New System.Windows.Forms.CheckBox()
         Me.txt_address = New System.Windows.Forms.TextBox()
@@ -70,8 +72,6 @@ Partial Class FrmPort
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_delete = New System.Windows.Forms.Button()
         Me.cmd_update = New System.Windows.Forms.Button()
-        Me.chk_review = New System.Windows.Forms.CheckBox()
-        Me.dtp_date_review = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -478,6 +478,26 @@ Partial Class FrmPort
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "COLLECTOR REVIEW"
         '
+        'dtp_date_review
+        '
+        Me.dtp_date_review.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_date_review.Location = New System.Drawing.Point(142, 113)
+        Me.dtp_date_review.Name = "dtp_date_review"
+        Me.dtp_date_review.Size = New System.Drawing.Size(116, 22)
+        Me.dtp_date_review.TabIndex = 16
+        '
+        'chk_review
+        '
+        Me.chk_review.AutoSize = True
+        Me.chk_review.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_review.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_review.Location = New System.Drawing.Point(58, 113)
+        Me.chk_review.Name = "chk_review"
+        Me.chk_review.Size = New System.Drawing.Size(78, 22)
+        Me.chk_review.TabIndex = 98
+        Me.chk_review.Text = "วันที่อนุมัติ"
+        Me.chk_review.UseVisualStyleBackColor = True
+        '
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.chk_date_soc)
@@ -623,26 +643,6 @@ Partial Class FrmPort
         Me.cmd_update.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_update.UseVisualStyleBackColor = False
-        '
-        'chk_review
-        '
-        Me.chk_review.AutoSize = True
-        Me.chk_review.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_review.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_review.Location = New System.Drawing.Point(58, 113)
-        Me.chk_review.Name = "chk_review"
-        Me.chk_review.Size = New System.Drawing.Size(78, 22)
-        Me.chk_review.TabIndex = 98
-        Me.chk_review.Text = "วันที่อนุมัติ"
-        Me.chk_review.UseVisualStyleBackColor = True
-        '
-        'dtp_date_review
-        '
-        Me.dtp_date_review.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_date_review.Location = New System.Drawing.Point(142, 113)
-        Me.dtp_date_review.Name = "dtp_date_review"
-        Me.dtp_date_review.Size = New System.Drawing.Size(116, 22)
-        Me.dtp_date_review.TabIndex = 16
         '
         'FrmPort
         '

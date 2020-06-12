@@ -138,6 +138,12 @@
     <Compile Include="Execution\FrmInsolvent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Execution\Frmownership.Designer.vb">
+      <DependentUpon>Frmownership.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Frmownership.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Execution\FrmPort.Designer.vb">
       <DependentUpon>FrmPort.vb</DependentUpon>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmInsolvent.resx">
       <DependentUpon>FrmInsolvent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Frmownership.resx">
+      <DependentUpon>Frmownership.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmPort.resx">
       <DependentUpon>FrmPort.vb</DependentUpon>
