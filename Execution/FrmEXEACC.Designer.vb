@@ -25,8 +25,12 @@ Partial Class FrmEXEACC
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEXEACC))
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.chk_date_work = New System.Windows.Forms.CheckBox()
         Me.txt_red = New System.Windows.Forms.TextBox()
+        Me.dtp_datework = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.txt_status = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_cusid = New System.Windows.Forms.TextBox()
         Me.txt_cusname = New System.Windows.Forms.TextBox()
@@ -36,10 +40,6 @@ Partial Class FrmEXEACC
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbo_owner = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.chk_date_work = New System.Windows.Forms.CheckBox()
-        Me.dtp_datework = New System.Windows.Forms.DateTimePicker()
-        Me.txt_status = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_detail_receipt = New System.Windows.Forms.TextBox()
         Me.dtp_date_receipt = New System.Windows.Forms.DateTimePicker()
@@ -47,6 +47,7 @@ Partial Class FrmEXEACC
         Me.txt_total_receipt = New System.Windows.Forms.TextBox()
         Me.dtgv_exeacc = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cmd_delete = New System.Windows.Forms.Button()
         Me.cmd_send = New System.Windows.Forms.Button()
         Me.cmd_edit = New System.Windows.Forms.Button()
         Me.cmd_cancel = New System.Windows.Forms.Button()
@@ -72,11 +73,11 @@ Partial Class FrmEXEACC
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txt_total_receipt3 = New System.Windows.Forms.TextBox()
         Me.chk_date_receipt = New System.Windows.Forms.CheckBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.lbl_count_find = New System.Windows.Forms.Label()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,13 +113,34 @@ Partial Class FrmEXEACC
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
         '
+        'chk_date_work
+        '
+        Me.chk_date_work.AutoSize = True
+        Me.chk_date_work.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_date_work.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_date_work.Location = New System.Drawing.Point(19, 152)
+        Me.chk_date_work.Name = "chk_date_work"
+        Me.chk_date_work.Size = New System.Drawing.Size(94, 20)
+        Me.chk_date_work.TabIndex = 95
+        Me.chk_date_work.Text = "เดือนที่ลงข้อมูล"
+        Me.chk_date_work.ThreeState = True
+        Me.chk_date_work.UseVisualStyleBackColor = True
+        '
         'txt_red
         '
         Me.txt_red.ForeColor = System.Drawing.Color.Red
         Me.txt_red.Location = New System.Drawing.Point(119, 100)
         Me.txt_red.Name = "txt_red"
         Me.txt_red.Size = New System.Drawing.Size(178, 20)
-        Me.txt_red.TabIndex = 84
+        Me.txt_red.TabIndex = 8
+        '
+        'dtp_datework
+        '
+        Me.dtp_datework.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_datework.Location = New System.Drawing.Point(119, 152)
+        Me.dtp_datework.Name = "dtp_datework"
+        Me.dtp_datework.Size = New System.Drawing.Size(116, 20)
+        Me.dtp_datework.TabIndex = 10
         '
         'Label6
         '
@@ -131,6 +153,25 @@ Partial Class FrmEXEACC
         Me.Label6.Size = New System.Drawing.Size(55, 20)
         Me.Label6.TabIndex = 82
         Me.Label6.Text = "เลขคดีดำ"
+        '
+        'txt_status
+        '
+        Me.txt_status.Location = New System.Drawing.Point(119, 126)
+        Me.txt_status.Name = "txt_status"
+        Me.txt_status.Size = New System.Drawing.Size(178, 20)
+        Me.txt_status.TabIndex = 9
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.SystemColors.Window
+        Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label11.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(48, 126)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(65, 20)
+        Me.Label11.TabIndex = 59
+        Me.Label11.Text = "STATUS"
         '
         'Label5
         '
@@ -149,14 +190,14 @@ Partial Class FrmEXEACC
         Me.txt_cusid.Location = New System.Drawing.Point(119, 22)
         Me.txt_cusid.Name = "txt_cusid"
         Me.txt_cusid.Size = New System.Drawing.Size(178, 20)
-        Me.txt_cusid.TabIndex = 64
+        Me.txt_cusid.TabIndex = 5
         '
         'txt_cusname
         '
         Me.txt_cusname.Location = New System.Drawing.Point(119, 48)
         Me.txt_cusname.Name = "txt_cusname"
         Me.txt_cusname.Size = New System.Drawing.Size(178, 20)
-        Me.txt_cusname.TabIndex = 65
+        Me.txt_cusname.TabIndex = 6
         '
         'Label4
         '
@@ -187,7 +228,7 @@ Partial Class FrmEXEACC
         Me.txt_black.Location = New System.Drawing.Point(119, 74)
         Me.txt_black.Name = "txt_black"
         Me.txt_black.Size = New System.Drawing.Size(178, 20)
-        Me.txt_black.TabIndex = 83
+        Me.txt_black.TabIndex = 7
         '
         'GroupBox1
         '
@@ -208,7 +249,7 @@ Partial Class FrmEXEACC
         Me.cbo_owner.Location = New System.Drawing.Point(119, 23)
         Me.cbo_owner.Name = "cbo_owner"
         Me.cbo_owner.Size = New System.Drawing.Size(178, 23)
-        Me.cbo_owner.TabIndex = 76
+        Me.cbo_owner.TabIndex = 4
         '
         'Label10
         '
@@ -221,46 +262,6 @@ Partial Class FrmEXEACC
         Me.Label10.Size = New System.Drawing.Size(76, 20)
         Me.Label10.TabIndex = 58
         Me.Label10.Text = "PRODUCT"
-        '
-        'chk_date_work
-        '
-        Me.chk_date_work.AutoSize = True
-        Me.chk_date_work.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_date_work.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_date_work.Location = New System.Drawing.Point(19, 152)
-        Me.chk_date_work.Name = "chk_date_work"
-        Me.chk_date_work.Size = New System.Drawing.Size(94, 20)
-        Me.chk_date_work.TabIndex = 95
-        Me.chk_date_work.Text = "เดือนที่ลงข้อมูล"
-        Me.chk_date_work.ThreeState = True
-        Me.chk_date_work.UseVisualStyleBackColor = True
-        '
-        'dtp_datework
-        '
-        Me.dtp_datework.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_datework.Location = New System.Drawing.Point(119, 152)
-        Me.dtp_datework.Name = "dtp_datework"
-        Me.dtp_datework.Size = New System.Drawing.Size(116, 20)
-        Me.dtp_datework.TabIndex = 90
-        '
-        'txt_status
-        '
-        Me.txt_status.Location = New System.Drawing.Point(119, 126)
-        Me.txt_status.Name = "txt_status"
-        Me.txt_status.Size = New System.Drawing.Size(178, 20)
-        Me.txt_status.TabIndex = 64
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.SystemColors.Window
-        Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label11.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(48, 126)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(65, 20)
-        Me.Label11.TabIndex = 59
-        Me.Label11.Text = "STATUS"
         '
         'Label1
         '
@@ -280,7 +281,7 @@ Partial Class FrmEXEACC
         Me.txt_detail_receipt.Multiline = True
         Me.txt_detail_receipt.Name = "txt_detail_receipt"
         Me.txt_detail_receipt.Size = New System.Drawing.Size(313, 54)
-        Me.txt_detail_receipt.TabIndex = 88
+        Me.txt_detail_receipt.TabIndex = 12
         '
         'dtp_date_receipt
         '
@@ -288,7 +289,7 @@ Partial Class FrmEXEACC
         Me.dtp_date_receipt.Location = New System.Drawing.Point(128, 99)
         Me.dtp_date_receipt.Name = "dtp_date_receipt"
         Me.dtp_date_receipt.Size = New System.Drawing.Size(115, 22)
-        Me.dtp_date_receipt.TabIndex = 86
+        Me.dtp_date_receipt.TabIndex = 13
         '
         'Label9
         '
@@ -308,7 +309,7 @@ Partial Class FrmEXEACC
         Me.txt_total_receipt.Location = New System.Drawing.Point(128, 9)
         Me.txt_total_receipt.Name = "txt_total_receipt"
         Me.txt_total_receipt.Size = New System.Drawing.Size(169, 22)
-        Me.txt_total_receipt.TabIndex = 79
+        Me.txt_total_receipt.TabIndex = 11
         '
         'dtgv_exeacc
         '
@@ -323,7 +324,7 @@ Partial Class FrmEXEACC
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Controls.Add(Me.cmd_delete)
         Me.GroupBox3.Controls.Add(Me.cmd_send)
         Me.GroupBox3.Controls.Add(Me.cmd_edit)
         Me.GroupBox3.Controls.Add(Me.cmd_cancel)
@@ -336,6 +337,20 @@ Partial Class FrmEXEACC
         Me.GroupBox3.TabIndex = 88
         Me.GroupBox3.TabStop = False
         '
+        'cmd_delete
+        '
+        Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.arrow_redo
+        Me.cmd_delete.Location = New System.Drawing.Point(6, 160)
+        Me.cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_delete.Name = "cmd_delete"
+        Me.cmd_delete.Size = New System.Drawing.Size(133, 29)
+        Me.cmd_delete.TabIndex = 22
+        Me.cmd_delete.Text = "เคลียร์ข้อมูล"
+        Me.cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_delete.UseVisualStyleBackColor = True
+        '
         'cmd_send
         '
         Me.cmd_send.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -344,8 +359,8 @@ Partial Class FrmEXEACC
         Me.cmd_send.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_send.Name = "cmd_send"
         Me.cmd_send.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_send.TabIndex = 3
-        Me.cmd_send.Text = "เพิ่มข้อมูลลูกค้า"
+        Me.cmd_send.TabIndex = 18
+        Me.cmd_send.Text = "เพิ่มข้อมูล"
         Me.cmd_send.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_send.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_send.UseVisualStyleBackColor = True
@@ -354,11 +369,11 @@ Partial Class FrmEXEACC
         '
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(5, 55)
+        Me.cmd_edit.Location = New System.Drawing.Point(6, 125)
         Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_edit.TabIndex = 2
+        Me.cmd_edit.TabIndex = 19
         Me.cmd_edit.Text = "แก้ไข"
         Me.cmd_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -372,7 +387,7 @@ Partial Class FrmEXEACC
         Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_cancel.TabIndex = 1
+        Me.cmd_cancel.TabIndex = 20
         Me.cmd_cancel.Text = "ยกเลิก"
         Me.cmd_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -382,12 +397,12 @@ Partial Class FrmEXEACC
         '
         Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_save.Location = New System.Drawing.Point(5, 125)
+        Me.cmd_save.Location = New System.Drawing.Point(5, 54)
         Me.cmd_save.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_save.Name = "cmd_save"
         Me.cmd_save.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_save.TabIndex = 0
-        Me.cmd_save.Text = "บันทึก"
+        Me.cmd_save.TabIndex = 21
+        Me.cmd_save.Text = "อัพเดตข้อมูล"
         Me.cmd_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_save.UseVisualStyleBackColor = True
@@ -455,9 +470,9 @@ Partial Class FrmEXEACC
         Me.Label8.Location = New System.Drawing.Point(26, 12)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(562, 37)
+        Me.Label8.Size = New System.Drawing.Size(290, 37)
         Me.Label8.TabIndex = 6
-        Me.Label8.Text = "1py'e,.;y;ยังไม่เสร็จ/ข้อมูลบังคับคดีตั้งเรื่อง"
+        Me.Label8.Text = "ข้อมูลบังคับคดีตั้งเรื่อง"
         '
         'GroupBox5
         '
@@ -507,7 +522,7 @@ Partial Class FrmEXEACC
         Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_search.Name = "cmd_search"
         Me.cmd_search.Size = New System.Drawing.Size(133, 29)
-        Me.cmd_search.TabIndex = 4
+        Me.cmd_search.TabIndex = 3
         Me.cmd_search.Text = "ค้นหาข้อมูล"
         Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -519,7 +534,7 @@ Partial Class FrmEXEACC
         Me.cbo_search.Location = New System.Drawing.Point(89, 26)
         Me.cbo_search.Name = "cbo_search"
         Me.cbo_search.Size = New System.Drawing.Size(137, 23)
-        Me.cbo_search.TabIndex = 92
+        Me.cbo_search.TabIndex = 1
         '
         'txt_search
         '
@@ -527,7 +542,7 @@ Partial Class FrmEXEACC
         Me.txt_search.Location = New System.Drawing.Point(334, 26)
         Me.txt_search.Name = "txt_search"
         Me.txt_search.Size = New System.Drawing.Size(170, 22)
-        Me.txt_search.TabIndex = 91
+        Me.txt_search.TabIndex = 2
         '
         'Timer1
         '
@@ -551,7 +566,7 @@ Partial Class FrmEXEACC
         Me.txt_detail_receipt2.Multiline = True
         Me.txt_detail_receipt2.Name = "txt_detail_receipt2"
         Me.txt_detail_receipt2.Size = New System.Drawing.Size(313, 54)
-        Me.txt_detail_receipt2.TabIndex = 94
+        Me.txt_detail_receipt2.TabIndex = 15
         '
         'Label16
         '
@@ -571,7 +586,7 @@ Partial Class FrmEXEACC
         Me.txt_total_receipt2.Location = New System.Drawing.Point(128, 9)
         Me.txt_total_receipt2.Name = "txt_total_receipt2"
         Me.txt_total_receipt2.Size = New System.Drawing.Size(170, 22)
-        Me.txt_total_receipt2.TabIndex = 90
+        Me.txt_total_receipt2.TabIndex = 14
         '
         'Label17
         '
@@ -591,7 +606,7 @@ Partial Class FrmEXEACC
         Me.txt_detail_receipt3.Multiline = True
         Me.txt_detail_receipt3.Name = "txt_detail_receipt3"
         Me.txt_detail_receipt3.Size = New System.Drawing.Size(313, 54)
-        Me.txt_detail_receipt3.TabIndex = 100
+        Me.txt_detail_receipt3.TabIndex = 17
         '
         'Label19
         '
@@ -611,7 +626,7 @@ Partial Class FrmEXEACC
         Me.txt_total_receipt3.Location = New System.Drawing.Point(128, 9)
         Me.txt_total_receipt3.Name = "txt_total_receipt3"
         Me.txt_total_receipt3.Size = New System.Drawing.Size(170, 22)
-        Me.txt_total_receipt3.TabIndex = 96
+        Me.txt_total_receipt3.TabIndex = 16
         '
         'chk_date_receipt
         '
@@ -626,20 +641,6 @@ Partial Class FrmEXEACC
         Me.chk_date_receipt.ThreeState = True
         Me.chk_date_receipt.UseVisualStyleBackColor = True
         '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button1.Image = Global.SCANDB.My.Resources.Resources.page_delete
-        Me.Button1.Location = New System.Drawing.Point(6, 160)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(133, 29)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "ลบข้อมูล"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
@@ -650,7 +651,7 @@ Partial Class FrmEXEACC
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(470, 171)
-        Me.TabControl1.TabIndex = 92
+        Me.TabControl1.TabIndex = 140
         '
         'TabPage1
         '
@@ -696,6 +697,16 @@ Partial Class FrmEXEACC
         Me.TabPage3.Text = "ใบเสร็จ 3"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'lbl_count_find
+        '
+        Me.lbl_count_find.AutoSize = True
+        Me.lbl_count_find.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_count_find.Location = New System.Drawing.Point(27, 433)
+        Me.lbl_count_find.Name = "lbl_count_find"
+        Me.lbl_count_find.Size = New System.Drawing.Size(136, 32)
+        Me.lbl_count_find.TabIndex = 141
+        Me.lbl_count_find.Text = "ผลการค้นหา..."
+        '
         'FrmEXEACC
         '
         Me.AcceptButton = Me.cmd_search
@@ -703,6 +714,7 @@ Partial Class FrmEXEACC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.lbl_count_find)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Label8)
@@ -785,9 +797,10 @@ Partial Class FrmEXEACC
     Friend WithEvents txt_total_receipt3 As TextBox
     Friend WithEvents chk_date_work As CheckBox
     Friend WithEvents chk_date_receipt As CheckBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents cmd_delete As Button
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents lbl_count_find As Label
 End Class

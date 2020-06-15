@@ -198,6 +198,12 @@
     <Compile Include="Execution\FrmWDS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LEGALPDF\FrmAccountingKBANK.Designer.vb">
+      <DependentUpon>FrmAccountingKBANK.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LEGALPDF\FrmAccountingKBANK.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LEGALPDF\Frmimport.Designer.vb">
       <DependentUpon>Frmimport.vb</DependentUpon>
     </Compile>
@@ -349,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmWDS.resx">
       <DependentUpon>FrmWDS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEGALPDF\FrmAccountingKBANK.resx">
+      <DependentUpon>FrmAccountingKBANK.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LEGALPDF\Frmimport.resx">
       <DependentUpon>Frmimport.vb</DependentUpon>
@@ -628,6 +637,7 @@
     <None Include="Resources\lorry_error.png" />
     <None Include="Resources\arrow_redo.png" />
     <None Include="Resources\delete1.png" />
+    <None Include="Resources\building.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

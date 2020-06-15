@@ -133,7 +133,6 @@ Public Class FrmInsolvent
         chk_verify_insolvent.Enabled = False
 
         cbo_owner.Enabled = False
-
         dtgv_insolvent.Visible = False
 
         If Chk_date_request.Enabled = False Then

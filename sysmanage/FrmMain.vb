@@ -220,4 +220,15 @@ Public Class FrmMain
         End With
 
     End Sub
+
+    Private Sub Menu_ownership_Click(sender As Object, e As EventArgs) Handles Menu_ownership.Click
+
+        With Frmownership
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
+    End Sub
+
 End Class
