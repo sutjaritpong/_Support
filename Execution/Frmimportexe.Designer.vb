@@ -205,7 +205,7 @@ Partial Class Frmimportexe
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frmimportexe"
-        Me.Text = "นำข้อมูลเข้า Database"
+        Me.Text = "UPLOAD (ข้อมูลบังคับคดี)"
         CType(Me.Dtgv_Exe, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

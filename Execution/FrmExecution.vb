@@ -12,6 +12,8 @@ Public Class FrmExecution
 
         connect()
 
+
+
         'Dim dt As DateTimeFormatInfo = Thread.CurrentThread.CurrentCulture.DateTimeFormat
         'Me.dtp_dateexework.CustomFormat = "dd MMM yyyy"
         'Me.dtp_dateexework.Format = DateTimePickerFormat.Custom
@@ -113,6 +115,7 @@ Public Class FrmExecution
     Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
 
         Write()
+
         If chk_datesheet.Checked = True Then
 
             dtp_datesheet.Enabled = True
@@ -271,6 +274,34 @@ Public Class FrmExecution
 
             End If
 
+            If dtgv_search.CurrentRow.Cells(15).Value.ToString <> "" Then
+
+                chk_datesheet.Checked = True
+            Else
+
+                chk_datesheet.Checked = False
+
+            End If
+
+            If dtgv_search.CurrentRow.Cells(22).Value.ToString <> "" Then
+
+                chk_tracking_date.Checked = True
+
+            Else
+
+                chk_tracking_date.Checked = False
+
+            End If
+
+            If dtgv_search.CurrentRow.Cells(27).Value.ToString <> "" Then
+
+                chk_verify_date.Checked = True
+
+            Else
+
+                chk_verify_date.Checked = False
+
+            End If
 
         Catch ex As Exception
 
@@ -521,12 +552,14 @@ Public Class FrmExecution
 
             If dtgv_search.Rows.Count <> 0 Then
 
-                    dtgv_search.DataSource.clear()
+                _Getlogdata($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}")
+                dtgv_search.DataSource.clear()
                     loaddatagridviews()
                     cell_refresh()
 
-                    Msg_OK("บันทึกข้อมูลสำเร็จ")
-                Else
+                Msg_OK("บันทึกข้อมูลสำเร็จ")
+
+            Else
                     Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
                 End If
 

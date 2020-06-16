@@ -57,7 +57,7 @@ Public Class FrmPasschange
                 FrmMain.accms.Enabled = False                   '// เช็คสิทธิ การเข้าถึงฟอร์มต่าง ๆ
                 FrmMain.settingms.Enabled = False
                 FrmMain.Historyms.Enabled = False
-                FrmMain.Uploads.Enabled = False
+                FrmMain.MENU_Uploads_SCANPDF.Enabled = False
 
             End If
 

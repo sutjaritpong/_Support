@@ -22,16 +22,32 @@ Partial Class FrmAccountingKBANK
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAccountingKBANK))
+        Me.AxAcroPDF1 = New AxAcroPDFLib.AxAcroPDF()
+        CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'AxAcroPDF1
+        '
+        Me.AxAcroPDF1.Enabled = True
+        Me.AxAcroPDF1.Location = New System.Drawing.Point(586, 12)
+        Me.AxAcroPDF1.Name = "AxAcroPDF1"
+        Me.AxAcroPDF1.OcxState = CType(resources.GetObject("AxAcroPDF1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxAcroPDF1.Size = New System.Drawing.Size(420, 705)
+        Me.AxAcroPDF1.TabIndex = 0
         '
         'FrmAccountingKBANK
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.AxAcroPDF1)
         Me.Name = "FrmAccountingKBANK"
         Me.Text = "FrmAccountingKBANK"
+        CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
 End Class

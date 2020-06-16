@@ -114,6 +114,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounting\FrmimportAccounting.Designer.vb">
+      <DependentUpon>FrmimportAccounting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\FrmimportAccounting.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Execution\FrmCheck.designer.vb">
       <DependentUpon>FrmCheck.vb</DependentUpon>
     </Compile>
@@ -314,6 +320,9 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accounting\FrmimportAccounting.resx">
+      <DependentUpon>FrmimportAccounting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmCheck.resx">
       <DependentUpon>FrmCheck.vb</DependentUpon>
     </EmbeddedResource>
@@ -442,6 +451,14 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <COMReference Include="AxCrystal">
+      <Guid>{00025600-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="AxMSWinsockLib">
       <Guid>{248DD890-BB45-11CF-9ABC-0080C7E7B78D}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -449,6 +466,15 @@
       <Lcid>0</Lcid>
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Crystal">
+      <Guid>{00025600-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
@@ -610,8 +636,6 @@
     <None Include="Resources\Undo_24x24.png" />
     <None Include="Resources\edit-delete-icon16x16.png" />
     <None Include="Resources\edit-icon16x16.png" />
-    <None Include="Resources\Files-icon 16x16.png" />
-    <None Include="Resources\Jury-Law-icon16x16.png" />
     <None Include="Resources\Folder-Folder-Options-icon16x16.png" />
     <None Include="Resources\Places-network-server-database-icon16x16.png" />
     <None Include="Resources\system-database-add-icon16x16.png" />
@@ -638,6 +662,26 @@
     <None Include="Resources\arrow_redo.png" />
     <None Include="Resources\delete1.png" />
     <None Include="Resources\building.png" />
+    <None Include="Resources\image_add.png" />
+    <None Include="Resources\database_add.png" />
+    <None Include="Resources\database_connect.png" />
+    <None Include="Resources\link_break.png" />
+    <None Include="Resources\Untitled-41.png" />
+    <None Include="Resources\coins_delete1.png" />
+    <None Include="Resources\kbanklogo.png" />
+    <None Include="Resources\TSS01.jpg" />
+    <None Include="Resources\5462_image_th.png" />
+    <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
+    <None Include="Resources\UOB_Logo.svg.png" />
+    <None Include="Resources\UOB.jpg" />
+    <None Include="Resources\TBANK.png" />
+    <None Include="Resources\Kiatnakin_Bank_logo.png" />
+    <None Include="Resources\money_add.png" />
+    <None Include="Resources\coins.png" />
+    <None Include="Resources\database_add1.png" />
+    <None Include="Resources\database_go.png" />
+    <None Include="Resources\table_add1.png" />
+    <None Include="Resources\table_key.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

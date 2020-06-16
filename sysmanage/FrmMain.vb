@@ -145,7 +145,7 @@ Public Class FrmMain
         End If
     End Sub
 
-    Private Sub Uploads_Click(sender As Object, e As EventArgs) Handles Uploads.Click
+    Private Sub Uploads_Click(sender As Object, e As EventArgs) Handles MENU_Uploads_SCANPDF.Click
         With Frmimport
             .MdiParent = Me
             .Show()
@@ -160,15 +160,6 @@ Public Class FrmMain
             .WindowState = FormWindowState.Maximized
         End With
     End Sub
-
-    Private Sub Upload_exe_Click(sender As Object, e As EventArgs) Handles Upload_exe.Click
-        With Frmimportexe
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
-    End Sub
-
     Private Sub EXEWDS_Click(sender As Object, e As EventArgs) Handles Menu_EXEWDS.Click
         With FrmWDS
             .MdiParent = Me
@@ -231,4 +222,11 @@ Public Class FrmMain
 
     End Sub
 
+    Private Sub Menu_Upload_Execution_Click(sender As Object, e As EventArgs) Handles Menu_Upload_Execution.Click
+        With Frmimportexe
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
 End Class

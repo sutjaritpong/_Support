@@ -141,7 +141,7 @@ Public Class FrmAccount
 
         If Msg_confirm("คุณต้องการแก้ไขข้อมูลใช่หรือไม่") = vbYes Then
 
-            sql = ("UPDATE tbl_login SET USRPASSWORD='" & Password.Text & "',USRNAME='" & Fullname.Text & "',USRGROUP='" & cbo_group.Text & "',USRLOGIN=GETDATE(),USRPASSFAIL='0',USRLOCK='" & dgvaccount.CurrentRow.Cells(7).Value & "',USRPASCHANGE=GETDATE() WHERE USERID='" & Userid.Text & "'")
+            sql = ("UPDATE tbl_login SET USRPASSWORD='" & Password.Text & "',USRNAME='" & Fullname.Text & "',USRGROUP='" & cbo_group.Text & "',USRLOGIN=GETDATE(),USRPASSFAIL='0',USRLOCK='0',USRPASCHANGE=GETDATE() WHERE USERID='" & Userid.Text & "'")
 
             cmd_excuteScalar()
             MsgBox("แก้ไขข้อมูลสำเร็จ", MsgBoxStyle.Information)

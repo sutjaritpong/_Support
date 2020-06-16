@@ -126,15 +126,15 @@ Module VBcode
                 FrmMain.accms.Enabled = False
                 FrmMain.settingms.Enabled = False
                 FrmMain.Historyms.Enabled = False
-                FrmMain.Uploads.Enabled = False
-                FrmMain.Upload_exe.Enabled = False
+                FrmMain.MENU_Uploads_SCANPDF.Enabled = False
+                FrmMain.Menu_Upload_Execution.Enabled = False
                 FrmMain.tab_execution.Enabled = False
             Case "Collector"
                 FrmMain.accms.Enabled = False
                 FrmMain.settingms.Enabled = False
                 FrmMain.Historyms.Enabled = False
-                FrmMain.Uploads.Enabled = False
-                FrmMain.Upload_exe.Enabled = False
+                FrmMain.MENU_Uploads_SCANPDF.Enabled = False
+                FrmMain.Menu_Upload_Execution.Enabled = False
                 FrmMain.settingms.Enabled = False
         End Select
 

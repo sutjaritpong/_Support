@@ -125,8 +125,11 @@ Partial Class FrmAccount
         '
         'dgvaccount
         '
+        Me.dgvaccount.AllowUserToAddRows = False
+        Me.dgvaccount.AllowUserToDeleteRows = False
         Me.dgvaccount.Location = New System.Drawing.Point(12, 12)
         Me.dgvaccount.Name = "dgvaccount"
+        Me.dgvaccount.ReadOnly = True
         Me.dgvaccount.Size = New System.Drawing.Size(984, 401)
         Me.dgvaccount.TabIndex = 46
         '
