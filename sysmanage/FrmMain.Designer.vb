@@ -72,9 +72,9 @@ Partial Class FrmMain
         Me.อพโหลดToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ขอมลFileSCANToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MENU_Uploads_SCANPDF = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_list_Accounting = New System.Windows.Forms.ToolStripMenuItem()
         Me.UPLOADขอมลบงคบคดToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Upload_Execution = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_UPLOAD_Accounting = New System.Windows.Forms.ToolStripMenuItem()
         Me.รายงานToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tab_report = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
@@ -95,8 +95,6 @@ Partial Class FrmMain
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_list_Accounting = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -466,7 +464,7 @@ Partial Class FrmMain
         '
         'อพโหลดToolStripMenuItem
         '
-        Me.อพโหลดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ขอมลFileSCANToolStripMenuItem, Me.UPLOADขอมลบงคบคดToolStripMenuItem, Me.Menu_UPLOAD_Accounting})
+        Me.อพโหลดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ขอมลFileSCANToolStripMenuItem, Me.UPLOADขอมลบงคบคดToolStripMenuItem})
         Me.อพโหลดToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.อพโหลดToolStripMenuItem.Name = "อพโหลดToolStripMenuItem"
         Me.อพโหลดToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -475,10 +473,10 @@ Partial Class FrmMain
         '
         'ขอมลFileSCANToolStripMenuItem
         '
-        Me.ขอมลFileSCANToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MENU_Uploads_SCANPDF, Me.Menu_list_Accounting, Me.ToolStripMenuItem3})
+        Me.ขอมลFileSCANToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MENU_Uploads_SCANPDF, Me.Menu_list_Accounting})
         Me.ขอมลFileSCANToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.system_database_add_icon16x16
         Me.ขอมลFileSCANToolStripMenuItem.Name = "ขอมลFileSCANToolStripMenuItem"
-        Me.ขอมลFileSCANToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.ขอมลFileSCANToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.ขอมลFileSCANToolStripMenuItem.Text = "UPLOAD ข้อมูล File SCAN"
         '
         'MENU_Uploads_SCANPDF
@@ -488,12 +486,19 @@ Partial Class FrmMain
         Me.MENU_Uploads_SCANPDF.Size = New System.Drawing.Size(306, 22)
         Me.MENU_Uploads_SCANPDF.Text = "อัพโหลดข้อมูล PDF (Upload to Database) "
         '
+        'Menu_list_Accounting
+        '
+        Me.Menu_list_Accounting.Image = Global.SCANDB.My.Resources.Resources.table_key
+        Me.Menu_list_Accounting.Name = "Menu_list_Accounting"
+        Me.Menu_list_Accounting.Size = New System.Drawing.Size(306, 22)
+        Me.Menu_list_Accounting.Text = "รายละเอียดข้อมูลเบิก"
+        '
         'UPLOADขอมลบงคบคดToolStripMenuItem
         '
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Upload_Execution})
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.database_add
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.Name = "UPLOADขอมลบงคบคดToolStripMenuItem"
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.UPLOADขอมลบงคบคดToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.Text = "UPLOAD ข้อมูล บังคับคดี"
         '
         'Menu_Upload_Execution
@@ -502,13 +507,6 @@ Partial Class FrmMain
         Me.Menu_Upload_Execution.Name = "Menu_Upload_Execution"
         Me.Menu_Upload_Execution.Size = New System.Drawing.Size(300, 22)
         Me.Menu_Upload_Execution.Text = "อัพโหลดข้อมูลบังคับคดี (Upload Execution)"
-        '
-        'Menu_UPLOAD_Accounting
-        '
-        Me.Menu_UPLOAD_Accounting.Image = Global.SCANDB.My.Resources.Resources.database_go
-        Me.Menu_UPLOAD_Accounting.Name = "Menu_UPLOAD_Accounting"
-        Me.Menu_UPLOAD_Accounting.Size = New System.Drawing.Size(225, 22)
-        Me.Menu_UPLOAD_Accounting.Text = "UPLOAD ข้อมูล เบิกค่าใช้จ่าย"
         '
         'รายงานToolStripMenuItem
         '
@@ -627,20 +625,6 @@ Partial Class FrmMain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
-        'Menu_list_Accounting
-        '
-        Me.Menu_list_Accounting.Image = Global.SCANDB.My.Resources.Resources.table_key
-        Me.Menu_list_Accounting.Name = "Menu_list_Accounting"
-        Me.Menu_list_Accounting.Size = New System.Drawing.Size(306, 22)
-        Me.Menu_list_Accounting.Text = "รายละเอียดข้อมูลเบิก"
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Image = Global.SCANDB.My.Resources.Resources.table_add1
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(306, 22)
-        Me.ToolStripMenuItem3.Text = "เอกสาร/ข้อมูล INVOICE"
-        '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -734,7 +718,5 @@ Partial Class FrmMain
     Friend WithEvents Menu_Upload_Execution As ToolStripMenuItem
     Friend WithEvents Menu_Accounting As ToolStripMenuItem
     Friend WithEvents KBANKToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Menu_UPLOAD_Accounting As ToolStripMenuItem
     Friend WithEvents Menu_list_Accounting As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
 End Class

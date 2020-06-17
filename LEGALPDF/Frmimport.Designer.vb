@@ -84,7 +84,7 @@ Partial Class Frmimport
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label2.Location = New System.Drawing.Point(30, 51)
+        Me.Label2.Location = New System.Drawing.Point(30, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(89, 16)
         Me.Label2.TabIndex = 5
@@ -107,7 +107,7 @@ Partial Class Frmimport
         Me.Label3.AutoSize = True
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.Location = New System.Drawing.Point(219, 48)
+        Me.Label3.Location = New System.Drawing.Point(206, 47)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(73, 18)
         Me.Label3.TabIndex = 8
@@ -117,7 +117,7 @@ Partial Class Frmimport
         '
         Me.lbl_countimport.AutoSize = True
         Me.lbl_countimport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_countimport.Location = New System.Drawing.Point(298, 50)
+        Me.lbl_countimport.Location = New System.Drawing.Point(285, 49)
         Me.lbl_countimport.Name = "lbl_countimport"
         Me.lbl_countimport.Size = New System.Drawing.Size(44, 15)
         Me.lbl_countimport.TabIndex = 9
@@ -155,7 +155,7 @@ Partial Class Frmimport
         '
         'Main_progressbar
         '
-        Me.Main_progressbar.Location = New System.Drawing.Point(392, 44)
+        Me.Main_progressbar.Location = New System.Drawing.Point(27, 702)
         Me.Main_progressbar.Name = "Main_progressbar"
         Me.Main_progressbar.Size = New System.Drawing.Size(177, 23)
         Me.Main_progressbar.TabIndex = 10
@@ -163,7 +163,7 @@ Partial Class Frmimport
         'lbl_statusprogress
         '
         Me.lbl_statusprogress.AutoSize = True
-        Me.lbl_statusprogress.Location = New System.Drawing.Point(602, 53)
+        Me.lbl_statusprogress.Location = New System.Drawing.Point(210, 707)
         Me.lbl_statusprogress.Name = "lbl_statusprogress"
         Me.lbl_statusprogress.Size = New System.Drawing.Size(24, 13)
         Me.lbl_statusprogress.TabIndex = 11

@@ -26,79 +26,72 @@ Partial Class FrmimportAccounting
         Me.lbl_statusprogress = New System.Windows.Forms.Label()
         Me.Main_progressbar = New System.Windows.Forms.ProgressBar()
         Me.lbl_countimport = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmd_toserver = New System.Windows.Forms.Button()
+        Me.lbl_grandtotal = New System.Windows.Forms.Label()
         Me.cbo_products = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dtgv_view = New System.Windows.Forms.DataGridView()
-        Me.cmd_import = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmd_openfile = New System.Windows.Forms.Button()
         Me.txt_import = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.cmd_cut_check = New System.Windows.Forms.Button()
+        Me.cmd_toserver = New System.Windows.Forms.Button()
+        Me.cmd_import = New System.Windows.Forms.Button()
+        Me.cbo_types_Accounting = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmd_test = New System.Windows.Forms.Button()
         CType(Me.dtgv_view, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_statusprogress
         '
         Me.lbl_statusprogress.AutoSize = True
-        Me.lbl_statusprogress.Location = New System.Drawing.Point(602, 64)
+        Me.lbl_statusprogress.Location = New System.Drawing.Point(454, 674)
         Me.lbl_statusprogress.Name = "lbl_statusprogress"
         Me.lbl_statusprogress.Size = New System.Drawing.Size(24, 13)
         Me.lbl_statusprogress.TabIndex = 23
         Me.lbl_statusprogress.Text = "0 %"
+        Me.lbl_statusprogress.Visible = False
         '
         'Main_progressbar
         '
         Me.Main_progressbar.BackColor = System.Drawing.Color.GreenYellow
         Me.Main_progressbar.ForeColor = System.Drawing.Color.Red
-        Me.Main_progressbar.Location = New System.Drawing.Point(419, 57)
+        Me.Main_progressbar.Location = New System.Drawing.Point(271, 672)
         Me.Main_progressbar.Name = "Main_progressbar"
-        Me.Main_progressbar.Size = New System.Drawing.Size(177, 23)
+        Me.Main_progressbar.Size = New System.Drawing.Size(177, 18)
         Me.Main_progressbar.TabIndex = 22
+        Me.Main_progressbar.Visible = False
         '
         'lbl_countimport
         '
         Me.lbl_countimport.AutoSize = True
         Me.lbl_countimport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_countimport.Location = New System.Drawing.Point(325, 63)
+        Me.lbl_countimport.Location = New System.Drawing.Point(138, 674)
         Me.lbl_countimport.Name = "lbl_countimport"
         Me.lbl_countimport.Size = New System.Drawing.Size(44, 15)
         Me.lbl_countimport.TabIndex = 21
         Me.lbl_countimport.Text = "XXXXX"
+        Me.lbl_countimport.Visible = False
         '
-        'Label3
+        'lbl_grandtotal
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.Location = New System.Drawing.Point(246, 61)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(73, 18)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "จำนวนข้อมูล :"
-        '
-        'cmd_toserver
-        '
-        Me.cmd_toserver.BackColor = System.Drawing.Color.White
-        Me.cmd_toserver.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_toserver.Image = Global.SCANDB.My.Resources.Resources.Upload_24x24
-        Me.cmd_toserver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_toserver.Location = New System.Drawing.Point(825, 57)
-        Me.cmd_toserver.Name = "cmd_toserver"
-        Me.cmd_toserver.Size = New System.Drawing.Size(130, 31)
-        Me.cmd_toserver.TabIndex = 19
-        Me.cmd_toserver.Text = "Send to Server"
-        Me.cmd_toserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_toserver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_toserver.UseVisualStyleBackColor = False
+        Me.lbl_grandtotal.AutoSize = True
+        Me.lbl_grandtotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lbl_grandtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.lbl_grandtotal.Location = New System.Drawing.Point(59, 672)
+        Me.lbl_grandtotal.Name = "lbl_grandtotal"
+        Me.lbl_grandtotal.Size = New System.Drawing.Size(73, 18)
+        Me.lbl_grandtotal.TabIndex = 20
+        Me.lbl_grandtotal.Text = "จำนวนข้อมูล :"
+        Me.lbl_grandtotal.Visible = False
         '
         'cbo_products
         '
         Me.cbo_products.ForeColor = System.Drawing.Color.Blue
         Me.cbo_products.FormattingEnabled = True
-        Me.cbo_products.Location = New System.Drawing.Point(152, 59)
+        Me.cbo_products.Location = New System.Drawing.Point(174, 54)
         Me.cbo_products.Name = "cbo_products"
         Me.cbo_products.Size = New System.Drawing.Size(88, 21)
         Me.cbo_products.TabIndex = 18
@@ -107,7 +100,7 @@ Partial Class FrmimportAccounting
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label2.Location = New System.Drawing.Point(57, 64)
+        Me.Label2.Location = New System.Drawing.Point(79, 57)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(89, 16)
         Me.Label2.TabIndex = 17
@@ -119,33 +112,19 @@ Partial Class FrmimportAccounting
         Me.dtgv_view.AllowUserToDeleteRows = False
         Me.dtgv_view.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_view.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.dtgv_view.Location = New System.Drawing.Point(54, 101)
+        Me.dtgv_view.Location = New System.Drawing.Point(58, 88)
         Me.dtgv_view.Name = "dtgv_view"
         Me.dtgv_view.ReadOnly = True
         Me.dtgv_view.RowHeadersVisible = False
-        Me.dtgv_view.Size = New System.Drawing.Size(901, 608)
+        Me.dtgv_view.Size = New System.Drawing.Size(901, 583)
         Me.dtgv_view.TabIndex = 16
         Me.dtgv_view.Visible = False
-        '
-        'cmd_import
-        '
-        Me.cmd_import.BackColor = System.Drawing.Color.White
-        Me.cmd_import.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_import.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
-        Me.cmd_import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_import.Location = New System.Drawing.Point(845, 20)
-        Me.cmd_import.Name = "cmd_import"
-        Me.cmd_import.Size = New System.Drawing.Size(110, 31)
-        Me.cmd_import.TabIndex = 15
-        Me.cmd_import.Text = "Import Data"
-        Me.cmd_import.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_import.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label1.Location = New System.Drawing.Point(80, 28)
+        Me.Label1.Location = New System.Drawing.Point(79, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 16)
         Me.Label1.TabIndex = 14
@@ -155,7 +134,7 @@ Partial Class FrmimportAccounting
         '
         Me.cmd_openfile.BackColor = System.Drawing.Color.White
         Me.cmd_openfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_openfile.Location = New System.Drawing.Point(809, 24)
+        Me.cmd_openfile.Location = New System.Drawing.Point(808, 15)
         Me.cmd_openfile.Name = "cmd_openfile"
         Me.cmd_openfile.Size = New System.Drawing.Size(30, 23)
         Me.cmd_openfile.TabIndex = 13
@@ -165,7 +144,7 @@ Partial Class FrmimportAccounting
         'txt_import
         '
         Me.txt_import.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_import.Location = New System.Drawing.Point(152, 25)
+        Me.txt_import.Location = New System.Drawing.Point(151, 16)
         Me.txt_import.Name = "txt_import"
         Me.txt_import.Size = New System.Drawing.Size(651, 22)
         Me.txt_import.TabIndex = 12
@@ -177,16 +156,94 @@ Partial Class FrmimportAccounting
         'BackgroundWorker1
         '
         '
+        'cmd_cut_check
+        '
+        Me.cmd_cut_check.BackColor = System.Drawing.Color.White
+        Me.cmd_cut_check.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_cut_check.Image = Global.SCANDB.My.Resources.Resources.Cut_24x24
+        Me.cmd_cut_check.Location = New System.Drawing.Point(688, 48)
+        Me.cmd_cut_check.Name = "cmd_cut_check"
+        Me.cmd_cut_check.Size = New System.Drawing.Size(130, 31)
+        Me.cmd_cut_check.TabIndex = 24
+        Me.cmd_cut_check.Text = "ตัดรายการซ้ำ"
+        Me.cmd_cut_check.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_cut_check.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_cut_check.UseVisualStyleBackColor = False
+        '
+        'cmd_toserver
+        '
+        Me.cmd_toserver.BackColor = System.Drawing.Color.White
+        Me.cmd_toserver.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_toserver.Image = Global.SCANDB.My.Resources.Resources.Upload_24x24
+        Me.cmd_toserver.Location = New System.Drawing.Point(824, 48)
+        Me.cmd_toserver.Name = "cmd_toserver"
+        Me.cmd_toserver.Size = New System.Drawing.Size(130, 31)
+        Me.cmd_toserver.TabIndex = 19
+        Me.cmd_toserver.Text = "ส่งเข้าเซิฟเวอร์"
+        Me.cmd_toserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_toserver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_toserver.UseVisualStyleBackColor = False
+        '
+        'cmd_import
+        '
+        Me.cmd_import.BackColor = System.Drawing.Color.White
+        Me.cmd_import.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_import.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.cmd_import.Location = New System.Drawing.Point(844, 11)
+        Me.cmd_import.Name = "cmd_import"
+        Me.cmd_import.Size = New System.Drawing.Size(110, 31)
+        Me.cmd_import.TabIndex = 15
+        Me.cmd_import.Text = "นำเข้าข้อมูล"
+        Me.cmd_import.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_import.UseVisualStyleBackColor = False
+        '
+        'cbo_types_Accounting
+        '
+        Me.cbo_types_Accounting.ForeColor = System.Drawing.Color.Blue
+        Me.cbo_types_Accounting.FormattingEnabled = True
+        Me.cbo_types_Accounting.Location = New System.Drawing.Point(358, 54)
+        Me.cbo_types_Accounting.Name = "cbo_types_Accounting"
+        Me.cbo_types_Accounting.Size = New System.Drawing.Size(105, 21)
+        Me.cbo_types_Accounting.TabIndex = 26
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label4.Location = New System.Drawing.Point(268, 57)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(84, 16)
+        Me.Label4.TabIndex = 25
+        Me.Label4.Text = "ประเภทการเบิก :"
+        '
+        'cmd_test
+        '
+        Me.cmd_test.BackColor = System.Drawing.Color.White
+        Me.cmd_test.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_test.Image = Global.SCANDB.My.Resources.Resources.Cut_24x24
+        Me.cmd_test.Location = New System.Drawing.Point(552, 48)
+        Me.cmd_test.Name = "cmd_test"
+        Me.cmd_test.Size = New System.Drawing.Size(130, 31)
+        Me.cmd_test.TabIndex = 27
+        Me.cmd_test.Text = "TEST"
+        Me.cmd_test.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_test.UseVisualStyleBackColor = False
+        '
         'FrmimportAccounting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.cmd_test)
+        Me.Controls.Add(Me.cbo_types_Accounting)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cmd_cut_check)
         Me.Controls.Add(Me.lbl_statusprogress)
         Me.Controls.Add(Me.Main_progressbar)
         Me.Controls.Add(Me.lbl_countimport)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lbl_grandtotal)
         Me.Controls.Add(Me.cmd_toserver)
         Me.Controls.Add(Me.cbo_products)
         Me.Controls.Add(Me.Label2)
@@ -208,7 +265,7 @@ Partial Class FrmimportAccounting
     Friend WithEvents lbl_statusprogress As Label
     Friend WithEvents Main_progressbar As ProgressBar
     Friend WithEvents lbl_countimport As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_grandtotal As Label
     Friend WithEvents cmd_toserver As Button
     Friend WithEvents cbo_products As ComboBox
     Friend WithEvents Label2 As Label
@@ -219,4 +276,8 @@ Partial Class FrmimportAccounting
     Friend WithEvents txt_import As TextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents cmd_cut_check As Button
+    Friend WithEvents cbo_types_Accounting As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cmd_test As Button
 End Class

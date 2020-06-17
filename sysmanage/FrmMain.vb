@@ -223,10 +223,22 @@ Public Class FrmMain
     End Sub
 
     Private Sub Menu_Upload_Execution_Click(sender As Object, e As EventArgs) Handles Menu_Upload_Execution.Click
+
         With Frmimportexe
             .MdiParent = Me
             .Show()
             .WindowState = FormWindowState.Maximized
         End With
+
     End Sub
+
+    Private Sub Menu_list_Accounting_Click(sender As Object, e As EventArgs) Handles Menu_list_Accounting.Click
+
+        With FrmimportAccounting
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
 End Class

@@ -21,6 +21,11 @@ Public Class FrmimportAccounting
         Dim pds() As String = {"KBANK", "TBANK", "SCB", "KKB", "TMB", "UOB", "TSS"}
         cbo_products.Items.AddRange(pds)
         cbo_products.SelectedIndex = 0
+
+        Dim _cbotypes() As String = {"เบิกงวด 1", "เบิกงวด 2", "บังคับคดี", "FILE SCAN"}
+        cbo_types_Accounting.Items.AddRange(_cbotypes)
+        cbo_types_Accounting.SelectedIndex = 0
+
         dtgv_clear()
         For Each col As DataGridViewColumn In dtgv_view.Columns
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -58,6 +63,7 @@ Public Class FrmimportAccounting
         dtgv_view.Columns.Clear()
         If dtgv_view.Columns.Count = 0 Then
             With dtgv_view
+
                 .Columns.Clear()
                 .Columns.Add("เลขที่สัญญา", "เลขที่สัญญา")
                 .Columns.Add("Pathfile", "file")
@@ -94,6 +100,12 @@ Public Class FrmimportAccounting
     End Sub
 
     Private Sub cmd_toserver_Click(sender As Object, e As EventArgs) Handles cmd_toserver.Click
+
+        lbl_countimport.Visible = True
+        lbl_statusprogress.Visible = True
+        lbl_grandtotal.Visible = True
+        Main_progressbar.Visible = True
+
         If lbl_statusprogress.Text <> "0 %" Then
 
             Msg_error("มีข้อมูลที่กำลังทำงานอยู่ในขณะนี้")
@@ -103,13 +115,9 @@ Public Class FrmimportAccounting
             Msg_error("กรุณาเลือกไฟล์ที่ต้องการ UPLOAD")
             Exit Sub
         End If
-        If dtgv_view.Rows(0).Cells(2).Value.ToString <> cbo_products.Text Then
 
-            Msg_error("กรุณาเลือกโปรดักให้ตรงกับข้อมูลที่ต้องการโหลด")
-            Exit Sub
-
-        End If
         BackgroundWorker1.RunWorkerAsync()
+
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
@@ -130,13 +138,8 @@ Public Class FrmimportAccounting
         sql = " SELECT COUNT(*) AS TYPEs FROM "
 
         Select Case cbo_products.SelectedItem
-            Case "KBANK" : sql &= "KBANKscdb"
-            Case "SCB" : sql &= "SCBscdb"
-            Case "TBANK" : sql &= "TBANKscdb"
-            Case "UOB" : sql &= "UOBscdb"
-            Case "TMB" : sql &= "TMBscdb"
-            Case "TSS" : sql &= "TSSscdb"
-            Case "KKB" : sql &= "KKBscdb"
+
+            Case "KBANK" : sql &= "AccountingKBANK"
 
         End Select
 
@@ -155,34 +158,35 @@ Public Class FrmimportAccounting
         dtgv_view.DataSource = Nothing
 
     End Sub
+
+    Private Sub cmd_cut_check_Click(sender As Object, e As EventArgs) Handles cmd_cut_check.Click
+
+        _checkdata()
+
+    End Sub
     Public Sub loads()
         Dim y As Integer = dtgv_view.Rows.Count
         Dim Max As Integer = 100
-        Dim timenow As String = DateAndTime.TimeString
-        Dim datenow As String = DateAndTime.Today.ToShortDateString
+
 
         Try
             For i As Integer = 0 To dtgv_view.Rows.Count - 1 Step +1
                 Dim p As Integer = ((i / y) * Max)
 
-
-
                 connect()
-
 
                 sql = "INSERT INTO "
 
                 Select Case cbo_products.SelectedItem
 
-                    Case "KBANK" : sql &= $"Accounting_Number,Accounting_CUSCUS,Accounting_CUSACC,Accounting_Name,Accounting_black_red,Accounting_data_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "KBANK" : sql &= $"AccountingKBANK(Accounting_PK,Accounting_Number,Accounting_CUSCUS,Accounting_Name,Accounting_black_red,Accounting_date_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{dtgv_view.Rows(i).Cells(1).Value.ToString}-{dtgv_view.Rows(i).Cells(8).Value.ToString}-{dtgv_view.Rows(i).Cells(10).Value.ToString}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}','{dtgv_view.Rows(i).Cells(6).Value.ToString}','{dtgv_view.Rows(i).Cells(7).Value.ToString}','{dtgv_view.Rows(i).Cells(8).Value.ToString}','{dtgv_view.Rows(i).Cells(9).Value.ToString}','{dtgv_view.Rows(i).Cells(10).Value.ToString}','{dtgv_view.Rows(i).Cells(11).Value.ToString}')"
 
-                        timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
-                        Main_progressbar.Visible = True
-                        lbl_statusprogress.Text = p.ToString & "%"
+                        lbl_statusprogress.Text = i.ToString & "/" & dtgv_view.Rows.Count.ToString
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
-                        '--------------------------UPLOAD KBANK------------------
+                        lbl_statusprogress.Text = i + 1.ToString & "/" & dtgv_view.Rows.Count.ToString
 
+                        '--------------------------UPLOAD KBANK ACCOUNTING------------------
 
                 End Select
 
@@ -194,34 +198,100 @@ Public Class FrmimportAccounting
         Catch ex As Exception
 
             MsgBox(ex.ToString)
+        Finally
+            cn.Close()
 
         End Try
 
     End Sub
     Public Sub Excelimport()
+
         Dim conn As OleDbConnection
         'Dim dtr As OleDbDataReader
         Dim dta As OleDbDataAdapter
-        'Dim cmd As OleDbCommand
+        Dim cmd As OleDbCommand
         Dim dts As DataSet
         Dim excel As String
         Dim fi As New FileInfo(OpenFileDialog1.FileName)
 
         excel = fi.FullName
         conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excel + ";Extended Properties=Excel 12.0;")
-        dta = New OleDbDataAdapter("Select * From [Sheet1$]", conn)
+        Dim exceloledb As String = "SELECT * FROM "
+
+        Select Case cbo_types_Accounting.SelectedItem
+            Case "เบิกงวด 1" : exceloledb &= "[งวด 1$]"
+            Case "เบิกงวด 2" : exceloledb &= "[งวด 2$]"
+            Case "บังคับคดี" : exceloledb &= "[บังคับคดี$]"
+            Case "FILE SCAN" : exceloledb &= "[Sheet1$]"
+        End Select
+
+        dta = New OleDbDataAdapter(exceloledb, conn)
         dts = New DataSet
-        dta.Fill(dts, "[Sheet1$]")
+        dta.Fill(dts, "tables")
         dtgv_view.DataSource = dts
-        dtgv_view.DataMember = "[Sheet1$]"
+        dtgv_view.DataMember = "tables"
         conn.Close()
         lbl_countimport.Text = dtgv_view.Rows.Count & " " & "รายการ"
         For Each col As DataGridViewColumn In dtgv_view.Columns
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next
+        dtgv_view.Visible = True
     End Sub
     Private Sub FrmimportAccounting_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
         Me.Dispose()
         cn.Close()
+
+    End Sub
+
+    '    Private Sub _checkdata()
+
+    '        connect()
+    '        sql = $"SELECT * FROM AccountingKBANK"
+    '        cmd = New SqlCommand(sql, cn)
+    '        DA = New SqlDataAdapter(cmd)
+    '        DS = New DataSet
+    '        DA.Fill(DS, "checkdata")
+
+    '        For i = 0 To DS.Tables("checkdata").Rows.Count - 1
+    '            For y = 0 To dtgv_view.RowCount - 1
+    '                If (DS.Tables("checkdata").Rows(i)("Accounting_PK").ToString) = ($"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(9).Value.ToString}-{dtgv_view.Rows(y).Cells(11).Value.ToString}") Then
+    '                    dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
+    '                End If
+    '            Next
+    '        Next
+
+    '    End Sub
+    Private Sub _checkdata()
+
+        connect()
+        sql = $"SELECT Accounting_PK FROM AccountingKBANK"
+        cmd = New SqlCommand(sql, cn)
+        DR = cmd.ExecuteReader()
+
+        While DR.Read()
+            For y = 0 To dtgv_view.RowCount - 1
+                If DR(0).ToString = ($"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}") Then
+                    dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
+                End If
+            Next
+        End While
+        DR.Close()
+
+
+    End Sub
+
+    Private Sub cmd_test_Click(sender As Object, e As EventArgs) Handles cmd_test.Click
+
+        For u As Integer = dtgv_view.Rows.Count() - 1 To 0 Step -1
+            Dim delete As Color
+            delete = dtgv_view.Rows(u).DefaultCellStyle.BackColor
+            If delete = Color.Red Then
+                Dim row As DataGridViewRow
+                row = dtgv_view.Rows(u)
+                dtgv_view.Rows.Remove(row)
+            End If
+
+        Next
     End Sub
 End Class

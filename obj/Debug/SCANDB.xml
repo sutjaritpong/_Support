@@ -62,6 +62,16 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources._5462_image_th">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources._next">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -122,6 +132,11 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.coins">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.coins_delete">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -157,6 +172,11 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.Cut_24x24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.Database">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -167,7 +187,17 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.database_add1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.database_connect">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.database_go">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -257,7 +287,17 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.kbanklogo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.Key_32x32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -268,6 +308,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.lorry_error">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.money_add">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -357,6 +402,16 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.table_add1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.table_key">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.table_lightning">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -367,7 +422,17 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.TBANK">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.textfield_add">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.TSS01">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -413,6 +478,16 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.Untitled_7">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.UOB">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.UOB_Logo_svg">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

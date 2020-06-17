@@ -682,6 +682,7 @@
     <None Include="Resources\database_go.png" />
     <None Include="Resources\table_add1.png" />
     <None Include="Resources\table_key.png" />
+    <None Include="Resources\Cut_24x24.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

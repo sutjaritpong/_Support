@@ -30,7 +30,7 @@ Public Class Frmimport
             .WorkerReportsProgress = True
             .WorkerSupportsCancellation = True
         End With
-        '//
+
         Control.CheckForIllegalCrossThreadCalls = False
 
     End Sub
