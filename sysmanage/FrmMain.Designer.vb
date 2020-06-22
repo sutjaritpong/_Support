@@ -58,7 +58,7 @@ Partial Class FrmMain
         Me.Tbankscanpdf = New System.Windows.Forms.ToolStripMenuItem()
         Me.KKBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Accounting = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KBANKToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_accounting_search = New System.Windows.Forms.ToolStripMenuItem()
         Me.ออกจากระบบToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.accms = New System.Windows.Forms.ToolStripMenuItem()
@@ -319,65 +319,65 @@ Partial Class FrmMain
         '
         Me.KBANKscanpdf.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.KBANKscanpdf.Name = "KBANKscanpdf"
-        Me.KBANKscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.KBANKscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.KBANKscanpdf.Text = "KBANK"
         '
         'TSSscanpdf
         '
         Me.TSSscanpdf.Image = Global.SCANDB.My.Resources.Resources.TSS01
         Me.TSSscanpdf.Name = "TSSscanpdf"
-        Me.TSSscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.TSSscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.TSSscanpdf.Text = "TSS"
         '
         'TMBscanpdf
         '
         Me.TMBscanpdf.Image = Global.SCANDB.My.Resources.Resources._5462_image_th
         Me.TMBscanpdf.Name = "TMBscanpdf"
-        Me.TMBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.TMBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.TMBscanpdf.Text = "TMB"
         '
         'SCBscanpdf
         '
         Me.SCBscanpdf.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
         Me.SCBscanpdf.Name = "SCBscanpdf"
-        Me.SCBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.SCBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.SCBscanpdf.Text = "SCB"
         '
         'UOBscanpdf
         '
         Me.UOBscanpdf.Image = Global.SCANDB.My.Resources.Resources.UOB
         Me.UOBscanpdf.Name = "UOBscanpdf"
-        Me.UOBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.UOBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.UOBscanpdf.Text = "UOB"
         '
         'Tbankscanpdf
         '
         Me.Tbankscanpdf.Image = Global.SCANDB.My.Resources.Resources.TBANK
         Me.Tbankscanpdf.Name = "Tbankscanpdf"
-        Me.Tbankscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.Tbankscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.Tbankscanpdf.Text = "TBANK"
         '
         'KKBscanpdf
         '
         Me.KKBscanpdf.Image = Global.SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo
         Me.KKBscanpdf.Name = "KKBscanpdf"
-        Me.KKBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.KKBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.KKBscanpdf.Text = "KKB"
         '
         'Menu_Accounting
         '
-        Me.Menu_Accounting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KBANKToolStripMenuItem})
+        Me.Menu_Accounting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_accounting_search})
         Me.Menu_Accounting.Image = Global.SCANDB.My.Resources.Resources.coins
         Me.Menu_Accounting.Name = "Menu_Accounting"
         Me.Menu_Accounting.Size = New System.Drawing.Size(209, 22)
         Me.Menu_Accounting.Text = "ค้นหาเอกสาร/ข้อมูล เบิก"
         '
-        'KBANKToolStripMenuItem
+        'menu_accounting_search
         '
-        Me.KBANKToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
-        Me.KBANKToolStripMenuItem.Name = "KBANKToolStripMenuItem"
-        Me.KBANKToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
-        Me.KBANKToolStripMenuItem.Text = "KBANK"
+        Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
+        Me.menu_accounting_search.Name = "menu_accounting_search"
+        Me.menu_accounting_search.Size = New System.Drawing.Size(152, 22)
+        Me.menu_accounting_search.Text = "KBANK"
         '
         'ออกจากระบบToolStripMenuItem
         '
@@ -717,6 +717,6 @@ Partial Class FrmMain
     Friend WithEvents UPLOADขอมลบงคบคดToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Menu_Upload_Execution As ToolStripMenuItem
     Friend WithEvents Menu_Accounting As ToolStripMenuItem
-    Friend WithEvents KBANKToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents menu_accounting_search As ToolStripMenuItem
     Friend WithEvents Menu_list_Accounting As ToolStripMenuItem
 End Class

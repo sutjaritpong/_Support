@@ -127,6 +127,8 @@ Partial Class FrmAccount
         '
         Me.dgvaccount.AllowUserToAddRows = False
         Me.dgvaccount.AllowUserToDeleteRows = False
+        Me.dgvaccount.BackgroundColor = System.Drawing.Color.White
+        Me.dgvaccount.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dgvaccount.Location = New System.Drawing.Point(12, 12)
         Me.dgvaccount.Name = "dgvaccount"
         Me.dgvaccount.ReadOnly = True

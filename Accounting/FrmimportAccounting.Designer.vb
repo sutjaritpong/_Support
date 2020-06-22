@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmimportAccounting
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmimportAccounting
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmimportAccounting))
         Me.lbl_statusprogress = New System.Windows.Forms.Label()
@@ -40,7 +40,6 @@ Partial Class FrmimportAccounting
         Me.cmd_import = New System.Windows.Forms.Button()
         Me.cbo_types_Accounting = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmd_test = New System.Windows.Forms.Button()
         CType(Me.dtgv_view, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -216,27 +215,12 @@ Partial Class FrmimportAccounting
         Me.Label4.TabIndex = 25
         Me.Label4.Text = "ประเภทการเบิก :"
         '
-        'cmd_test
-        '
-        Me.cmd_test.BackColor = System.Drawing.Color.White
-        Me.cmd_test.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_test.Image = Global.SCANDB.My.Resources.Resources.Cut_24x24
-        Me.cmd_test.Location = New System.Drawing.Point(552, 48)
-        Me.cmd_test.Name = "cmd_test"
-        Me.cmd_test.Size = New System.Drawing.Size(130, 31)
-        Me.cmd_test.TabIndex = 27
-        Me.cmd_test.Text = "TEST"
-        Me.cmd_test.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_test.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_test.UseVisualStyleBackColor = False
-        '
         'FrmimportAccounting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.cmd_test)
         Me.Controls.Add(Me.cbo_types_Accounting)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmd_cut_check)
@@ -279,5 +263,4 @@ Partial Class FrmimportAccounting
     Friend WithEvents cmd_cut_check As Button
     Friend WithEvents cbo_types_Accounting As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents cmd_test As Button
 End Class

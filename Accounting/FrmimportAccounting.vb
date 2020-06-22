@@ -18,7 +18,7 @@ Public Class FrmimportAccounting
         Main_progressbar.Value = 0
         lbl_statusprogress.Visible = False
         connect()
-        Dim pds() As String = {"KBANK", "TBANK", "SCB", "KKB", "TMB", "UOB", "TSS"}
+        Dim pds() As String = {"KBANK", "FILESCAN KBANK"}
         cbo_products.Items.AddRange(pds)
         cbo_products.SelectedIndex = 0
 
@@ -139,15 +139,29 @@ Public Class FrmimportAccounting
 
         Select Case cbo_products.SelectedItem
 
-            Case "KBANK" : sql &= "AccountingKBANK"
-
+            Case "KBANK" : sql &= "AccountingKBANK "
+            Case "FILESCAN KBANK" : sql &= "ACCOUNTINGscdb"
         End Select
 
+        Select Case cbo_types_Accounting.SelectedItem
+            Case "เบิกงวด 1" : sql &= $"WHERE Accounting_type_legal = 'คำฟ้อง';"
+            Case "เบิกงวด 2" : sql &= $"WHERE Accounting_type_legal = 'พิพากษา' OR Accounting_type_legal ='ตามยอม' OR Accounting_type_legal = 'ตามยอม(พับ)' OR Accounting_type_legal = 'ถอนฟ้อง' OR Accounting_type_legal = 'ถอนฟ้อง(พับ)';"
+            Case "บังคับคดี" : sql &= $"WHERE Accounting_type_legal = 'ขอถอนอายัด' OR Accounting_type_legal = 'ถอนอายัด/วางเพิ่ม' OR Accounting_type_legal = 'ยึดทรัพย์'OR Accounting_type_legal = 'วางค่าใช้จ่ายเพิ่ม' OR Accounting_type_legal = 'อายัดเงินเดือน';"
+            Case "FILE SCAN" : sql &= ";"
+        End Select
         cmd.CommandText = sql
         DA.SelectCommand = cmd
         DA.Fill(DS, "CountRows")
+        If cbo_types_Accounting.SelectedItem.ToString = "เบิกงวด 1" Then
+            MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูล เบิกงวด 1 ทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Report Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ElseIf cbo_types_Accounting.SelectedItem.tostring = "เบิกงวด 2" Then
+            MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูล เบิกงวด 2 ทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Report Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ElseIf cbo_types_Accounting.SelectedItem.ToString = "บังคับคดี" Then
+            MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูล บังคับคดี ทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Report Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ElseIf cbo_types_Accounting.SelectedItem.ToString = "FILE SCAN" Then
+            MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูล FILESCAN KBANK ทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Report Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
 
-        MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูลทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Report Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
         lbl_statusprogress.Text = "0 %"
         Main_progressbar.Value = 0
         lbl_countimport.Text = dtgv_view.Rows.Count & " " & "รายการ"
@@ -180,6 +194,8 @@ Public Class FrmimportAccounting
                 Select Case cbo_products.SelectedItem
 
                     Case "KBANK" : sql &= $"AccountingKBANK(Accounting_PK,Accounting_Number,Accounting_CUSCUS,Accounting_Name,Accounting_black_red,Accounting_date_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{dtgv_view.Rows(i).Cells(1).Value.ToString}-{dtgv_view.Rows(i).Cells(8).Value.ToString}-{dtgv_view.Rows(i).Cells(10).Value.ToString}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}','{dtgv_view.Rows(i).Cells(6).Value.ToString}','{dtgv_view.Rows(i).Cells(7).Value.ToString}','{dtgv_view.Rows(i).Cells(8).Value.ToString}','{dtgv_view.Rows(i).Cells(9).Value.ToString}','{dtgv_view.Rows(i).Cells(10).Value.ToString}','{dtgv_view.Rows(i).Cells(11).Value.ToString}')"
+
+                    Case "FILESCAN KBANK" : sql &= $"ACCOUNTINGscdb(Accounting_invoice,Accounting_path,Accounting_date,Accounting_owner)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}')"
 
                         lbl_statusprogress.Text = i.ToString & "/" & dtgv_view.Rows.Count.ToString
                         Main_progressbar.Value = (i / y) * Max
@@ -243,45 +259,32 @@ Public Class FrmimportAccounting
         cn.Close()
 
     End Sub
-
-    '    Private Sub _checkdata()
-
-    '        connect()
-    '        sql = $"SELECT * FROM AccountingKBANK"
-    '        cmd = New SqlCommand(sql, cn)
-    '        DA = New SqlDataAdapter(cmd)
-    '        DS = New DataSet
-    '        DA.Fill(DS, "checkdata")
-
-    '        For i = 0 To DS.Tables("checkdata").Rows.Count - 1
-    '            For y = 0 To dtgv_view.RowCount - 1
-    '                If (DS.Tables("checkdata").Rows(i)("Accounting_PK").ToString) = ($"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(9).Value.ToString}-{dtgv_view.Rows(y).Cells(11).Value.ToString}") Then
-    '                    dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
-    '                End If
-    '            Next
-    '        Next
-
-    '    End Sub
     Private Sub _checkdata()
 
         connect()
-        sql = $"SELECT Accounting_PK FROM AccountingKBANK"
-        cmd = New SqlCommand(sql, cn)
+
+        sql = $"SELECT Accounting_PK FROM AccountingKBANK WHERE "
+
+            Select Case cbo_types_Accounting.SelectedItem
+                Case "เบิกงวด 1" : sql &= $"Accounting_type_legal = 'คำฟ้อง'"
+                Case "เบิกงวด 2" : sql &= $"Accounting_type_legal = 'พิพากษา' OR Accounting_type_legal ='ตามยอม' OR Accounting_type_legal = 'ตามยอม(พับ)' OR Accounting_type_legal = 'ถอนฟ้อง' OR Accounting_type_legal = 'ถอนฟ้อง(พับ)'"
+                Case "บังคับคดี" : sql &= $"Accounting_type_legal = 'ขอถอนอายัด' OR Accounting_type_legal = 'ถอนอายัด/วางเพิ่ม' OR Accounting_type_legal = 'ยึดทรัพย์' OR Accounting_type_legal = 'วางค่าใช้จ่ายเพิ่ม' OR Accounting_type_legal = 'อายัดเงินเดือน'"
+
+        End Select
+
+            cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
         While DR.Read()
             For y = 0 To dtgv_view.RowCount - 1
-                If DR(0).ToString = ($"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}") Then
+
+            If DR(0).ToString = ($"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}") Then
                     dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
                 End If
+
             Next
         End While
         DR.Close()
-
-
-    End Sub
-
-    Private Sub cmd_test_Click(sender As Object, e As EventArgs) Handles cmd_test.Click
 
         For u As Integer = dtgv_view.Rows.Count() - 1 To 0 Step -1
             Dim delete As Color
@@ -291,7 +294,8 @@ Public Class FrmimportAccounting
                 row = dtgv_view.Rows(u)
                 dtgv_view.Rows.Remove(row)
             End If
-
         Next
+        lbl_countimport.Text = $"{dtgv_view.RowCount.ToString} รายการ"
     End Sub
+
 End Class

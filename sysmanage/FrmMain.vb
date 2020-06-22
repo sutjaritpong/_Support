@@ -26,9 +26,10 @@ Public Class FrmMain
     Private Sub ออกจากระบบToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ออกจากระบบToolStripMenuItem.Click
         If Msg_confirm("คุณต้องการปิดโปรแกรมใช่หรือไม่") = vbYes Then
             cn.Close()
+            Me.Close()
         End If    '// ปุ่มออกจากระบบเมื่อกดจะมีข้อความแจ้งเตือน
 
-        Me.Close()
+
     End Sub
     Private Sub AccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles accms.Click
         With FrmAccount
@@ -241,4 +242,11 @@ Public Class FrmMain
         End With
     End Sub
 
+    Private Sub KBANKToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles menu_accounting_search.Click
+        With FrmAccountingKBANK
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
 End Class
