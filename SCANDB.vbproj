@@ -89,11 +89,14 @@
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -114,10 +117,21 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounting\FrmimportAccounting.Designer.vb">
+    <Compile Include="Reportviewer\FrmWDSRV.Designer.vb">
+      <DependentUpon>FrmWDSRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportviewer\FrmWDSRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCANPDFDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UPLOAD\FrmimportAccounting.Designer.vb">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
     </Compile>
-    <Compile Include="Accounting\FrmimportAccounting.vb">
+    <Compile Include="UPLOAD\FrmimportAccounting.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\FrmCheck.designer.vb">
@@ -180,10 +194,10 @@
     <Compile Include="Execution\Frmfind.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\Frmimportexe.Designer.vb">
+    <Compile Include="UPLOAD\Frmimportexe.Designer.vb">
       <DependentUpon>Frmimportexe.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Frmimportexe.vb">
+    <Compile Include="UPLOAD\Frmimportexe.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\Frmreportexe.Designer.vb">
@@ -210,10 +224,10 @@
     <Compile Include="Accounting\FrmAccountingKBANK.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEGALPDF\Frmimport.Designer.vb">
+    <Compile Include="UPLOAD\Frmimport.Designer.vb">
       <DependentUpon>Frmimport.vb</DependentUpon>
     </Compile>
-    <Compile Include="LEGALPDF\Frmimport.vb">
+    <Compile Include="UPLOAD\Frmimport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sysmanage\FrmPasschange.Designer.vb">
@@ -320,7 +334,11 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Accounting\FrmimportAccounting.resx">
+    <EmbeddedResource Include="Reportviewer\FrmWDSRV.resx">
+      <DependentUpon>FrmWDSRV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportWDS.rdlc" />
+    <EmbeddedResource Include="UPLOAD\FrmimportAccounting.resx">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\FrmCheck.resx">
@@ -353,7 +371,7 @@
     <EmbeddedResource Include="Execution\Frmfind.resx">
       <DependentUpon>Frmfind.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Frmimportexe.resx">
+    <EmbeddedResource Include="UPLOAD\Frmimportexe.resx">
       <DependentUpon>Frmimportexe.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Frmreportexe.resx">
@@ -368,7 +386,7 @@
     <EmbeddedResource Include="Accounting\FrmAccountingKBANK.resx">
       <DependentUpon>FrmAccountingKBANK.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEGALPDF\Frmimport.resx">
+    <EmbeddedResource Include="UPLOAD\Frmimport.resx">
       <DependentUpon>Frmimport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\FrmPasschange.resx">
@@ -432,6 +450,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="SCANPDFDataSet.xsc">
+      <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDFDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SCANPDFDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SCANPDFDataSet.xss">
+      <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AcroPDFLib">
@@ -494,12 +523,30 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="Microsoft.Vbe.Interop.Forms">
+      <Guid>{0D452EE1-E08F-101A-852E-02608C4D0BB4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="MSWinsockLib">
       <Guid>{248DD890-BB45-11CF-9ABC-0080C7E7B78D}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
@@ -683,6 +730,8 @@
     <None Include="Resources\table_add1.png" />
     <None Include="Resources\table_key.png" />
     <None Include="Resources\Cut_24x24.png" />
+    <None Include="Resources\clipboard-paste-document-text-icon.png" />
+    <None Include="Resources\report_go.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

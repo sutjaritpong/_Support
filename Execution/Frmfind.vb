@@ -104,7 +104,7 @@ Public Class Frmfind
             End If
 
 
-            If .dtgv_tracking.RowCount <= 0 Then
+            If (.dtgv_tracking.RowCount = 0) Or (.dtgv_tracking.ColumnCount = 0) Then
 
                 .lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
                 .lbl_tracking.ForeColor = Color.Red

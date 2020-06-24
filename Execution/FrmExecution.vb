@@ -327,7 +327,6 @@ Public Class FrmExecution
     End Sub
     Friend Sub Reader()
 
-
         dtp_tracking_date.Enabled = False
         dtp_verify_date.Enabled = False
         dtp_datesheet.Enabled = False
@@ -364,7 +363,6 @@ Public Class FrmExecution
 
     End Sub
     Friend Sub Write()
-
 
         cbo_court.Enabled = True
         cbo_department.Enabled = True
@@ -425,7 +423,7 @@ Public Class FrmExecution
             Case "กรม" : sqll &= "ES.EXEDEPARTMENT "
             Case "ศูนย์ประสานงาน" : sqll &= "ES.EXEHUB "
             Case "ชื่อพนักงาน" : sqll &= "ES.EXEFULLNAME "
-            Case "พนักงานบังคับคดี" : sqll &= "Emp.EXEEMPPLOYEES "
+            Case "พนักงานบังคับคดี" : sqll &= "Emp.EXEEMPLOYEES "
 
         End Select
 

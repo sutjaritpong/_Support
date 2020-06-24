@@ -33,8 +33,8 @@ Partial Class FrmAccountingKBANK
         Me.dtgv_invoice_list = New System.Windows.Forms.DataGridView()
         Me.lbl_search = New System.Windows.Forms.Label()
         Me.Grb_detail = New System.Windows.Forms.GroupBox()
-        Me.txt_invoice2 = New System.Windows.Forms.TextBox()
         Me.cmd_find_scan = New System.Windows.Forms.Button()
+        Me.txt_invoice2 = New System.Windows.Forms.TextBox()
         Me.txt_type_master = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cmd_clears = New System.Windows.Forms.Button()
@@ -177,8 +177,8 @@ Partial Class FrmAccountingKBANK
         '
         'Grb_detail
         '
-        Me.Grb_detail.Controls.Add(Me.txt_invoice2)
         Me.Grb_detail.Controls.Add(Me.cmd_find_scan)
+        Me.Grb_detail.Controls.Add(Me.txt_invoice2)
         Me.Grb_detail.Controls.Add(Me.txt_type_master)
         Me.Grb_detail.Controls.Add(Me.Label11)
         Me.Grb_detail.Controls.Add(Me.cmd_clears)
@@ -214,20 +214,12 @@ Partial Class FrmAccountingKBANK
         Me.Grb_detail.Text = "รายละเอียด"
         Me.Grb_detail.Visible = False
         '
-        'txt_invoice2
-        '
-        Me.txt_invoice2.ForeColor = System.Drawing.Color.Crimson
-        Me.txt_invoice2.Location = New System.Drawing.Point(203, 229)
-        Me.txt_invoice2.Name = "txt_invoice2"
-        Me.txt_invoice2.Size = New System.Drawing.Size(81, 20)
-        Me.txt_invoice2.TabIndex = 12
-        '
         'cmd_find_scan
         '
         Me.cmd_find_scan.BackColor = System.Drawing.Color.White
         Me.cmd_find_scan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_find_scan.Image = Global.SCANDB.My.Resources.Resources.folder_find1
-        Me.cmd_find_scan.Location = New System.Drawing.Point(18, 342)
+        Me.cmd_find_scan.Location = New System.Drawing.Point(12, 342)
         Me.cmd_find_scan.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_find_scan.Name = "cmd_find_scan"
         Me.cmd_find_scan.Size = New System.Drawing.Size(127, 29)
@@ -236,6 +228,14 @@ Partial Class FrmAccountingKBANK
         Me.cmd_find_scan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_find_scan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_find_scan.UseVisualStyleBackColor = False
+        '
+        'txt_invoice2
+        '
+        Me.txt_invoice2.ForeColor = System.Drawing.Color.Crimson
+        Me.txt_invoice2.Location = New System.Drawing.Point(203, 229)
+        Me.txt_invoice2.Name = "txt_invoice2"
+        Me.txt_invoice2.Size = New System.Drawing.Size(81, 20)
+        Me.txt_invoice2.TabIndex = 12
         '
         'txt_type_master
         '
@@ -508,7 +508,7 @@ Partial Class FrmAccountingKBANK
         Me.dtgv_find_scan.ReadOnly = True
         Me.dtgv_find_scan.RowHeadersVisible = False
         Me.dtgv_find_scan.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dtgv_find_scan.Size = New System.Drawing.Size(96, 134)
+        Me.dtgv_find_scan.Size = New System.Drawing.Size(110, 134)
         Me.dtgv_find_scan.TabIndex = 88
         Me.dtgv_find_scan.Visible = False
         '

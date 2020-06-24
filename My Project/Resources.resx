@@ -205,6 +205,9 @@
   <data name="table_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TBANK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TBANK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="_16x16_icon__16_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\16x16 icon (16).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -232,8 +235,8 @@
   <data name="_32x32_calendar_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\32x32 calendar_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TBANK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TBANK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="comment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="textfield_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\textfield_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,6 +265,9 @@
   <data name="page_process" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_process.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cut_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cut_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -283,11 +289,11 @@
   <data name="page_white_excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_white_excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="clipboard-paste-document-text-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clipboard-paste-document-text-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="comment" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\comment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="table_row_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_row_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -403,7 +409,7 @@
   <data name="delete_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cut_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cut_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_go.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

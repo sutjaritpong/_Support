@@ -85,14 +85,21 @@ Public Class FrmTracking
 
     ' ## Event Button Click เมื่อกดปุ่มจะทำงาน ในที่นี้ให้แสดง ข้อมูลที่ลิ้งจาก txt_cusid มาแสดงใน Datagridview และ นำไปแสดงใน Textbox ด้วย อื่น ๆ ##'
     Private Sub cmd_links_Click(sender As Object, e As EventArgs) Handles cmd_links.Click
-        Try
-            connect()
 
-            _cleardatagrid(dtgv_tracking)
+        If dtgv_invalid.RowCount = 0 Or dtgv_invalid.ColumnCount = 0 Then
 
-            sql = $"SELECT S.EXEBANK,S.EXEID,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet,TR.Tracking_other FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}' OR S.EXECUSTOMER = '{txt_cusname.Text}' ORDER BY S.EXEID "
+            dtgv_invalid.DataSource = Nothing
 
-            cmd = New SqlCommand(sql, cn)
+        End If
+        If dtgv_tracking.RowCount = 0 Or dtgv_tracking.ColumnCount = 0 Then
+            dtgv_tracking.DataSource = Nothing
+        End If
+
+        connect()
+
+        sql = $"SELECT S.EXEBANK,S.EXEID,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet,TR.Tracking_other FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}'"
+
+        cmd = New SqlCommand(sql, cn)
             DA = New SqlDataAdapter(cmd)
             DS = New DataSet
             DA.Fill(DS, "tables")
@@ -149,23 +156,20 @@ Public Class FrmTracking
 
                 Next
 
-                If dtgv_tracking.Rows.Count <= 0 Then
-
-                    lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
-                    lbl_tracking.ForeColor = Color.Red
-                Else
-                    lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_tracking.RowCount.ToString} แถว"
-                    lbl_tracking.ForeColor = Color.DarkGreen
-                End If
-
             End With
 
-        Catch ex As Exception
+        If (dtgv_tracking.RowCount = 0) Or (dtgv_tracking.ColumnCount = 0) Then
 
-        Finally
-            _readonly()
-            cn.Close()
-        End Try
+            lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
+            lbl_tracking.ForeColor = Color.Red
+        Else
+            lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_tracking.RowCount.ToString} แถว"
+                lbl_tracking.ForeColor = Color.DarkGreen
+            End If
+
+        _readonly()
+
+        cn.Close()
 
     End Sub
 

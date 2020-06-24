@@ -282,8 +282,9 @@ Public Class FrmPort
         connect()
         Dim Primarykeys As String = $"{cbo_owner.Text}-{txt_cusid.Text}"
 
-        sql = $"UPDATE Execution_port SET Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_number = @number,Customer_Name = @name,OA = @OA,Legal_Status = @status,Date_send = @send,Review_Result = @result,Review_Result_Description = @Description,Employees_User = @Employees WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text};
-               UPDATE EXESOC SET EXEKEY = @key,Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_OFFICE = @office,Customer_date_SOC = @datesoc,Customer_Address = @address WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text};"
+        sql = $"UPDATE Execution_port SET Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_number = @number,Customer_Name = @name,OA = @OA,Legal_Status = @status,Date_send = @send,Review_Result = @result,Review_Result_Description = @Description,Employees_User = @Employees WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}';
+               UPDATE EXESOC SET EXEKEY = @key,Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_OFFICE = @office,Customer_date_SOC = @datesoc,Customer_Address = @address WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}';"
+
         cmd = New SqlCommand(sql, cn)
         With cmd.Parameters
             .Clear()
@@ -322,8 +323,8 @@ Public Class FrmPort
     Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
 
         connect()
-        sql = $"DELETE FROM Execution_port WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text};
-                DELETE FROM EXESOC WHERE Customer_Owner = {cbo_owner.Text} AND Customer_Id_Card = {txt_cusid.Text}; "
+        sql = $"DELETE FROM Execution_port WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}';
+                DELETE FROM EXESOC WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}'; "
         cmd = New SqlCommand(sql, cn)
 
         If Msg_confirm("คุณต้องการ ลบ ข้อมูลนี้ใช่หรือไม่") = vbYes Then

@@ -54,9 +54,9 @@ Module VBcode
     '## Sub Clear Datagridview ใช้สำหรับลบ ข้อมูล ถ้า Datagridview นั้นมีข้อมูลค้างอยู่ ##
     '## Parameters sender As Object ในการผ่านข้อมูล Datagridview ที่ต้องการใช้เพิ่มข้อมูล ##
 
-    Friend Sub _cleardatagrid(sender As Object)
+    Friend Sub _cleardatagrid(sender As DataGridView)
 
-        If sender.rows.count > 0 Then
+        If (sender.Rows.Count > 0) Or (sender.ColumnCount > 0) Then
 
             sender.DataSource = Nothing
 
@@ -203,6 +203,7 @@ Module VBcode
         styMonthDayYeare = strYeare & "-" & strMonthDaye
         Return styMonthDayYeare & " 23:59:59"
     End Function
+
 End Module
 
 '#### เพิ่มวินาที

@@ -231,3 +231,7 @@ E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\AxInterop.Crysta
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\bin\Debug\Interop.Crystal.dll
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\bin\Debug\AxInterop.Crystal.dll
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmimportAccounting.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmWDSRV.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.cache
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.compiled

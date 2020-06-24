@@ -65,6 +65,17 @@ Namespace My
                 Me("username") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=FDSSERVER_1;Initial Catalog=SCANPDF;Persist Security Info=True;User I"& _ 
+            "D=sa;Password=1971")>  _
+        Public ReadOnly Property SCANPDFConnectionString() As String
+            Get
+                Return CType(Me("SCANPDFConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

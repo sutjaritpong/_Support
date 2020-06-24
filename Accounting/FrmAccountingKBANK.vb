@@ -153,6 +153,7 @@ Public Class FrmAccountingKBANK
         If dtgv_invoice_list.CurrentRow.Cells(11).Value.ToString = "คำฟ้อง" Then
 
             Dim str As String = txt_invoice.Text
+
             txt_invoice2.Text = "KBANK_" & str.Substring(10, 3)
 
         End If
@@ -231,4 +232,38 @@ Public Class FrmAccountingKBANK
         Me.Dispose()
 
     End Sub
+
+    'Private Sub cmd_clipboard_Click(sender As Object, e As EventArgs)
+
+
+    '    Dim _csv() As String = {$"{txt_namecus.Text}", $"{txt_cuscus.Text}", $"{txt_invoice.Text}"}
+
+    '    Clipboard.SetDataObject(_csv(1) & "," & _csv(2), True)
+
+    '    'Dim o As IDataObject = Clipboard.GetDataObject()
+    '    'If Not o Is Nothing Then
+    '    '    If (o.GetDataPresent(DataFormats.CommaSeparatedValue)) Then
+    '    '        Dim sr As New StreamReader(CType(o.GetData(DataFormats.CommaSeparatedValue), Stream))
+    '    '        Dim s As String = sr.ReadToEnd()
+    '    '        sr.Close()
+    '    '        Console.WriteLine(s)
+    '    '    End If
+    '    'End If
+
+    'End Sub
+
+    'Private Sub cmd_test_Click(sender As Object, e As EventArgs)
+
+    '    Dim csv As String = $"{txt_cuscus.Text},{txt_namecus.Text.ToString},{txt_blackred.Text.ToString},{txt_court.Text.ToString},{txt_invoice.Text.ToString}"
+
+    '    Dim blob As Byte() = System.Text.Encoding.UTF8.GetBytes(csv)
+
+    '    Dim s As New MemoryStream
+    '    Dim data As New DataObject()
+
+    '    data.SetData(DataFormats.CommaSeparatedValue, s)
+    '    Clipboard.SetDataObject(data, True)
+
+    'End Sub
+
 End Class

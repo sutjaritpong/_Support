@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmWDS
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmWDS
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWDS))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -29,7 +29,6 @@ Partial Class FrmWDS
         Me.cbo_owner = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cmd_checkview = New System.Windows.Forms.Button()
         Me.chk_datecheck = New System.Windows.Forms.CheckBox()
         Me.chk_datepayment = New System.Windows.Forms.CheckBox()
         Me.chk_datewds = New System.Windows.Forms.CheckBox()
@@ -45,7 +44,6 @@ Partial Class FrmWDS
         Me.dtp_daterefund = New System.Windows.Forms.DateTimePicker()
         Me.txt_status = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cbo_empexe = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cbo_empadmin = New System.Windows.Forms.ComboBox()
@@ -85,14 +83,16 @@ Partial Class FrmWDS
         Me.cmd_find = New System.Windows.Forms.Button()
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_save = New System.Windows.Forms.Button()
+        Me.cmd_checkview = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.dtgv_data, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -176,21 +176,6 @@ Partial Class FrmWDS
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "รายละเอียด"
-        '
-        'cmd_checkview
-        '
-        Me.cmd_checkview.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_checkview.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmd_checkview.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_checkview.Image = Global.SCANDB.My.Resources.Resources.script_go
-        Me.cmd_checkview.Location = New System.Drawing.Point(8, 202)
-        Me.cmd_checkview.Name = "cmd_checkview"
-        Me.cmd_checkview.Size = New System.Drawing.Size(107, 32)
-        Me.cmd_checkview.TabIndex = 102
-        Me.cmd_checkview.Text = "ข้อมูลเช็ค"
-        Me.cmd_checkview.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_checkview.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_checkview.UseVisualStyleBackColor = False
         '
         'chk_datecheck
         '
@@ -351,15 +336,6 @@ Partial Class FrmWDS
         Me.GroupBox3.TabIndex = 1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Execution"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon32x32
-        Me.PictureBox1.Location = New System.Drawing.Point(19, 19)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 93
-        Me.PictureBox1.TabStop = False
         '
         'cbo_empexe
         '
@@ -813,6 +789,30 @@ Partial Class FrmWDS
         Me.cmd_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_save.UseVisualStyleBackColor = False
         '
+        'cmd_checkview
+        '
+        Me.cmd_checkview.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_checkview.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmd_checkview.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_checkview.Image = Global.SCANDB.My.Resources.Resources.script_go
+        Me.cmd_checkview.Location = New System.Drawing.Point(8, 202)
+        Me.cmd_checkview.Name = "cmd_checkview"
+        Me.cmd_checkview.Size = New System.Drawing.Size(107, 32)
+        Me.cmd_checkview.TabIndex = 102
+        Me.cmd_checkview.Text = "ข้อมูลเช็ค"
+        Me.cmd_checkview.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_checkview.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_checkview.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon32x32
+        Me.PictureBox1.Location = New System.Drawing.Point(19, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.TabIndex = 93
+        Me.PictureBox1.TabStop = False
+        '
         'FrmWDS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -853,13 +853,13 @@ Partial Class FrmWDS
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.dtgv_data, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

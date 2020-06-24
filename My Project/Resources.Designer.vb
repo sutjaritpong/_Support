@@ -273,6 +273,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property clipboard_paste_document_text_icon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("clipboard-paste-document-text-icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property clock() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("clock", resourceCulture)
@@ -756,6 +766,16 @@ Namespace My.Resources
         Public ReadOnly Property refresh() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("refresh", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property report_go() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("report_go", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
