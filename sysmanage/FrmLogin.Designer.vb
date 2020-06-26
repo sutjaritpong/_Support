@@ -48,7 +48,7 @@ Partial Class FrmLogin
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label3.Location = New System.Drawing.Point(60, 30)
+        Me.Label3.Location = New System.Drawing.Point(59, 29)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(237, 73)
         Me.Label3.TabIndex = 5
@@ -157,7 +157,7 @@ Partial Class FrmLogin
         Me.lbl_version.Name = "lbl_version"
         Me.lbl_version.Size = New System.Drawing.Size(35, 15)
         Me.lbl_version.TabIndex = 28
-        Me.lbl_version.Text = "1.07"
+        Me.lbl_version.Text = "1.10"
         '
         'btnlogin
         '

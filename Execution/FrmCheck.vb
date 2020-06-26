@@ -9,7 +9,7 @@ Public Class FrmCheck
 
         cbo_cusowner.Items.AddRange(types1)
 
-        cbo_cusowner.SelectedIndex = 0
+        cbo_cusowner.SelectedItem = FrmWDS.cbo_owner.Text
 
         check_notedit()
 
@@ -201,15 +201,17 @@ Public Class FrmCheck
 
             connect()
 
-            sql = $"INSERT INTO EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}{dtp_checksend.Text}','{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}')"
+            sql = $"INSERT INTO EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKNAME,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}{dtp_checksend.Text}','{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{txt_cusname.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}');"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
 
+            cn.Close()
             Msg_OK("บันทึกข้อมูลสำเร็จ")
             cancel_edit()
 
             _Getlogdata($"เพิ่มข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ")
+
 
         End If
     End Sub

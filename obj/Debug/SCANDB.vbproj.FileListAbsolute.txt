@@ -210,7 +210,6 @@ E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmKBANK.
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmKKB.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.Frmlogfile.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmLogin.resources
-E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmMain.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmPasssetting.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmSCB.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmSetting.resources
@@ -235,3 +234,5 @@ E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\bin\Debug\Microsoft.Report
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmWDSRV.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.cache
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.compiled
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmmanageIP.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmMastermain.resources

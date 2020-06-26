@@ -13,7 +13,7 @@ Imports Microsoft.Office.Interop
 Imports System.Xml.XPath
 Imports System.Data
 Imports System.Xml
-Public Class FrmMain
+Public Class FrmMastermain
     Dim ip As IPAddress()
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -252,6 +252,14 @@ Public Class FrmMain
 
     Private Sub Menu_ReportWDS_Click(sender As Object, e As EventArgs) Handles Menu_ReportWDS.Click
         With FrmWDSRV
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub IPManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IPManagement.Click
+        With FrmmanageIP
             .MdiParent = Me
             .Show()
             .WindowState = FormWindowState.Maximized

@@ -167,6 +167,26 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.Connection_icon16x16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.Connection_icon24x24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.Connection_icon32x32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.Customer_service_icon16x16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.Customer_service_icon24x24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -322,6 +342,11 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.network_connection_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.new_page">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -398,6 +423,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.search_page">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.support_icon24x24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -508,6 +538,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.users">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.Wi_Fi_icon24x24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

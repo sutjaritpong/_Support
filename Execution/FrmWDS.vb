@@ -88,23 +88,23 @@ Public Class FrmWDS
         sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC "
 
         Select Case cbo_product.SelectedItem
-            Case "ALL PRODUCT" : sql &= $"ORDER BY EXEDATECOLLEC"
-            Case "KBANK" : sql &= $"WHERE EXEWDS.EXECUSOWN = 'KBANK' ORDER BY EXEDATECOLLEC"
-            Case "SCB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'SCB' ORDER BY EXEDATECOLLEC"
-            Case "TMB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'TMB' ORDER BY EXEDATECOLLEC"
-            Case "TSS" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'TSS' ORDER BY EXEDATECOLLEC"
-            Case "TBANK" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'TBANK' ORDER BY EXEDATECOLLEC"
-            Case "KKB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'KKB' ORDER BY EXEDATECOLLEC"
-            Case "UOB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'UOB' ORDER BY EXEDATECOLLEC"
+            Case "ALL PRODUCT" : sql &= $"ORDER BY EXEDATECOLLEC;"
+            Case "KBANK" : sql &= $"WHERE EXEWDS.EXECUSOWN = 'KBANK' ORDER BY EXEDATECOLLEC;"
+            Case "SCB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'SCB' ORDER BY EXEDATECOLLEC;"
+            Case "TMB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'TMB' ORDER BY EXEDATECOLLEC;"
+            Case "TSS" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'TSS' ORDER BY EXEDATECOLLEC;"
+            Case "TBANK" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'TBANK' ORDER BY EXEDATECOLLEC;"
+            Case "KKB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'KKB' ORDER BY EXEDATECOLLEC;"
+            Case "UOB" : sql &= $"WHERE EXEWDS.EXECUSOWN =  'UOB' ORDER BY EXEDATECOLLEC;"
         End Select
 
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
         DS = New DataSet()
-        DA.Fill(DS, "table")
+        DA.Fill(DS, "tablewds")
 
 
-        dtgv_data.DataSource = DS.Tables("table")
+        dtgv_data.DataSource = DS.Tables("tablewds")
 
         For i = 0 To headers.Length - 1
 
@@ -553,11 +553,12 @@ Public Class FrmWDS
 
     Private Sub cmd_checkview_Click(sender As Object, e As EventArgs) Handles cmd_checkview.Click
 
-        sql = $"SELECT * FROM EXECHECK WHERE CHKACC = '{txt_cusacc.Text}'"
-        cmd = New SqlCommand(sql, cn)
+        _sql = $"SELECT * FROM EXECHECK WHERE CHKACC = '{txt_cusacc.Text}'"
+        cmd = New SqlCommand(_sql, cn)
         DA = New SqlDataAdapter(cmd)
         DS = New DataSet()
         DA.Fill(DS, "check")
+
         Dim c As Integer = DS.Tables("check").Rows.Count
         FrmCheck.dtgv_check.DataSource = DS.Tables("check")
 
@@ -570,7 +571,7 @@ Public Class FrmWDS
             If Msg_confirm("ไม่พบข้อมูลเช็ค คุณต้องการเพิ่มข้อมูลหรือไม่", "แจ้งเตือน") = vbYes Then
                 With FrmCheck
                     .Show()
-                    .cbo_cusowner.Text = Me.cbo_owner.Text
+                    .cbo_cusowner.Text = Me.cbo_owner.SelectedItem.ToString
                     .txt_cusname.Text = Me.txt_cusname.Text
                     .txt_cusacc.Text = Me.txt_cusacc.Text
                     .txt_cusid.Text = Me.txt_cusid.Text
@@ -607,7 +608,7 @@ Public Class FrmWDS
             dtgv_data.Columns(i).HeaderText = headers(i)
             dtgv_data.Columns(0).Visible = False
         Next
-
+        cn.Close()
     End Sub
     Public Sub _showgrid()
         With FrmCheck
@@ -655,9 +656,9 @@ Public Class FrmWDS
 
                     gridRow.DefaultCellStyle.BackColor = Color.GreenYellow
 
-                End If
 
-                If WDS = "" And check = "" Then
+
+                ElseIf WDS = "" And check = "" Then
 
                     gridRow.DefaultCellStyle.BackColor = Color.Orange
 
@@ -675,4 +676,6 @@ Public Class FrmWDS
         Me.Dispose()
 
     End Sub
+
+
 End Class

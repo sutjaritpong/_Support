@@ -117,6 +117,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITSupport\FrmmanageIP.designer.vb">
+      <DependentUpon>FrmmanageIP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageIP.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportviewer\FrmWDSRV.Designer.vb">
       <DependentUpon>FrmWDSRV.vb</DependentUpon>
     </Compile>
@@ -334,6 +340,9 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ITSupport\FrmmanageIP.resx">
+      <DependentUpon>FrmmanageIP.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportviewer\FrmWDSRV.resx">
       <DependentUpon>FrmWDSRV.vb</DependentUpon>
     </EmbeddedResource>
@@ -732,6 +741,13 @@
     <None Include="Resources\Cut_24x24.png" />
     <None Include="Resources\clipboard-paste-document-text-icon.png" />
     <None Include="Resources\report_go.png" />
+    <None Include="Resources\Connection-icon32x32.png" />
+    <None Include="Resources\network-connection-icon.png" />
+    <None Include="Resources\Customer-service-icon16x161.png" />
+    <None Include="Resources\Connection-icon16x16.png" />
+    <None Include="Resources\Connection-icon24x24.png" />
+    <None Include="Resources\support-icon24x24.png" />
+    <None Include="Resources\Wi-Fi-icon24x24.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -746,6 +762,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

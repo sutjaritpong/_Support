@@ -24,13 +24,24 @@ Partial Class FrmWDSRV
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.SCANPDFDataSet = New SCANDB.SCANPDFDataSet()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWDSRV))
         Me.EXEWDSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SCANPDFDataSet = New SCANDB.SCANPDFDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.EXEWDSTableAdapter = New SCANDB.SCANPDFDataSetTableAdapters.EXEWDSTableAdapter()
-        CType(Me.SCANPDFDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXEWDSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SCANPDFDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EXEWDSBindingSource
+        '
+        Me.EXEWDSBindingSource.DataMember = "EXEWDS"
+        Me.EXEWDSBindingSource.DataSource = Me.SCANPDFDataSet
+        '
+        'SCANPDFDataSet
+        '
+        Me.SCANPDFDataSet.DataSetName = "SCANPDFDataSet"
+        Me.SCANPDFDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -44,16 +55,6 @@ Partial Class FrmWDSRV
         Me.ReportViewer1.Size = New System.Drawing.Size(1008, 729)
         Me.ReportViewer1.TabIndex = 0
         '
-        'SCANPDFDataSet
-        '
-        Me.SCANPDFDataSet.DataSetName = "SCANPDFDataSet"
-        Me.SCANPDFDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EXEWDSBindingSource
-        '
-        Me.EXEWDSBindingSource.DataMember = "EXEWDS"
-        Me.EXEWDSBindingSource.DataSource = Me.SCANPDFDataSet
-        '
         'EXEWDSTableAdapter
         '
         Me.EXEWDSTableAdapter.ClearBeforeFill = True
@@ -64,10 +65,11 @@ Partial Class FrmWDSRV
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmWDSRV"
-        Me.Text = "FrmWDSRV"
-        CType(Me.SCANPDFDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Report (รายงานถอนอายัด/ยึด)"
         CType(Me.EXEWDSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SCANPDFDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -353,6 +353,46 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property Connection_icon16x16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Connection-icon16x16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Connection_icon24x24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Connection-icon24x24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Connection_icon32x32() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Connection-icon32x32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Customer_service_icon16x16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Customer-service-icon16x16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property Customer_service_icon24x24() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Customer_service_icon24x24", resourceCulture)
@@ -663,6 +703,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property network_connection_icon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("network-connection-icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property new_page() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("new_page", resourceCulture)
@@ -816,6 +866,16 @@ Namespace My.Resources
         Public ReadOnly Property search_page() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("search_page", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property support_icon24x24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("support-icon24x24", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -1036,6 +1096,16 @@ Namespace My.Resources
         Public ReadOnly Property users() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("users", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property Wi_Fi_icon24x24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Wi-Fi-icon24x24", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -43,7 +43,7 @@ Public Class FrmPasschange
 
             sql = ("SELECT * FROM tbl_login WHERE USERID = '" & FrmLogin.txt_idlog.Text & "'")
             Dim dts As DataTable = cmd_excuteToDataTable()              '//นำเข้ามูลต่าง ๆ ที่จำเป็นไปแสดงในหน้า Main
-            With FrmMain
+            With FrmMastermain
                 .tsl_ip.Text = FrmLogin.aws.LocalIP                  '// แสดง IP
                 .tsl_id.Text = dts.Rows(0)("USERID")        '// แสดง ID
                 .tsl_username.Text = dts.Rows(0)("USRNAME")     '// แสดง FULLNAME ชื่อเต็ม
@@ -54,16 +54,16 @@ Public Class FrmPasschange
             End With
 
             If DS.Tables("table").Rows(0)("USRGROUP") = "Admin" Or DS.Tables("table").Rows(0)("USRGROUP") = "Collector" Then
-                FrmMain.accms.Enabled = False                   '// เช็คสิทธิ การเข้าถึงฟอร์มต่าง ๆ
-                FrmMain.settingms.Enabled = False
-                FrmMain.Historyms.Enabled = False
-                FrmMain.MENU_Uploads_SCANPDF.Enabled = False
+                FrmMastermain.accms.Enabled = False                   '// เช็คสิทธิ การเข้าถึงฟอร์มต่าง ๆ
+                FrmMastermain.settingms.Enabled = False
+                FrmMastermain.Historyms.Enabled = False
+                FrmMastermain.MENU_Uploads_SCANPDF.Enabled = False
 
             End If
 
-            sql = ("UPDATE tbl_login SET USRLOGIN = '" & FrmMain.tsl_time.Text & "' WHERE USERID ='" & FrmLogin.txt_idlog.Text & "'")          '// อัพเดทเวลาล็อคอินล่าสุดเข้าฐานข้อมูล
+            sql = ("UPDATE tbl_login SET USRLOGIN = '" & FrmMastermain.tsl_time.Text & "' WHERE USERID ='" & FrmLogin.txt_idlog.Text & "'")          '// อัพเดทเวลาล็อคอินล่าสุดเข้าฐานข้อมูล
             cmd_excuteScalar()
-            FrmMain.Show()
+            FrmMastermain.Show()
             Me.Close()
             FrmLogin.Hide()
 

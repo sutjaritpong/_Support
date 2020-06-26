@@ -15,6 +15,7 @@ Public Class FrmLogin
     '## Event Load เรียกใช้เมื่อเปิด Form ให้ทำการ เช็คสถานะ Internet มีการเก็บ ค่า Username ไว้ใน Setting เพื่อให้ง่ายต่อการใช้งานระบบ ##
 
     Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         connect()
 
         internetcheck.RunWorkerAsync()
@@ -194,7 +195,7 @@ Public Class FrmLogin
 
             Msg_OK("Login สำเร็จ!")
             Me.Hide()
-            FrmMain.Show()
+            FrmMastermain.Show()
 
             '## นำเข้ามูลต่าง ๆ ที่จำเป็นไปแสดงในหน้า Main เช่น IPAddress,UserID ฯลฯ เพื่อนำไปใช้ในการเก็บ History Log ##
 
@@ -202,7 +203,7 @@ Public Class FrmLogin
 
             Dim dts As DataTable = cmd_excuteToDataTable()
 
-            With FrmMain
+            With FrmMastermain
                 .tsl_ip.Text = aws.LocalIP                  '## แสดง IP
                 .tsl_id.Text = dts.Rows(0)("USERID")        '## แสดง ID
                 .tsl_username.Text = dts.Rows(0)("USRNAME")     '## แสดง FULLNAME ชื่อเต็ม
