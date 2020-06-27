@@ -93,7 +93,7 @@ Public Class Frmlogfile
             Case "รายละเอียด" : sqll &= "LOGDETAIL "
         End Select
 
-        sqll &= $"LIKE '{txt_find.Text}%' ORDER BY LOGDATE DESC"
+        sqll &= $"LIKE '%{txt_find.Text}%' ORDER BY LOGDATE DESC"
         With cmd
             .Parameters.Clear()
             .Parameters.Add("@sdate", SqlDbType.Date).Value = DateTimestart.Value
@@ -126,6 +126,7 @@ Public Class Frmlogfile
     Private Sub cmd_text_Click(sender As Object, e As EventArgs) Handles cmd_text.Click
 
         Try
+
             lbl_statusexport.Text = "โปรดรอ..."
             cmd_text.Enabled = False
             cmd_refresh.Enabled = False

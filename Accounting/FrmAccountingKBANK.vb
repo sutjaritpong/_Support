@@ -188,6 +188,8 @@ Public Class FrmAccountingKBANK
 
         End With
 
+        _convertnum(txt_receipt)
+        _convertnum(txt_capital)
         cn.Close()
 
     End Sub

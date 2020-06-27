@@ -75,18 +75,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.Crystal.dll" size="32256">
-      <assemblyIdentity name="AxInterop.Crystal" version="5.2.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ET+fvdmHL/PY4Y7VJFZxvxU3sy8=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.MSWinsockLib.dll" size="12800">
       <assemblyIdentity name="AxInterop.MSWinsockLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -183,18 +171,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.Crystal.dll" size="33280">
-      <assemblyIdentity name="Interop.Crystal" version="5.2.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>79sljvO6G0wuTdjQ9nwT3kxLGHY=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.MSWinsockLib.dll" size="16896">
       <assemblyIdentity name="Interop.MSWinsockLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -231,14 +207,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="7845280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="8349088">
       <assemblyIdentity name="SCANDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0YJFOecc/gko+8ciBi2sc9rj3VA=</dsig:DigestValue>
+        <dsig:DigestValue>1SbvJ9NKZG3QjT4irXkgxUolick=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

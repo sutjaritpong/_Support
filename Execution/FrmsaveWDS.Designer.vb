@@ -59,8 +59,6 @@ Partial Class FrmsaveWDS
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_status = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txt_refund = New System.Windows.Forms.RichTextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -432,28 +430,6 @@ Partial Class FrmsaveWDS
         Me.txt_status.Size = New System.Drawing.Size(116, 20)
         Me.txt_status.TabIndex = 16
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.SystemColors.Window
-        Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label8.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(430, 372)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(96, 20)
-        Me.Label8.TabIndex = 122
-        Me.Label8.Text = "ค่าใช้จ่ายคืนโจทย์"
-        '
-        'txt_refund
-        '
-        Me.txt_refund.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_refund.ForeColor = System.Drawing.Color.Red
-        Me.txt_refund.Location = New System.Drawing.Point(533, 371)
-        Me.txt_refund.Name = "txt_refund"
-        Me.txt_refund.Size = New System.Drawing.Size(116, 26)
-        Me.txt_refund.TabIndex = 17
-        Me.txt_refund.Text = ""
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon32x32
@@ -472,8 +448,6 @@ Partial Class FrmsaveWDS
         Me.ClientSize = New System.Drawing.Size(686, 415)
         Me.ControlBox = False
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.txt_refund)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txt_status)
         Me.Controls.Add(Me.cbo_empexe)
@@ -558,7 +532,5 @@ Partial Class FrmsaveWDS
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents txt_status As TextBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents txt_refund As RichTextBox
     Friend WithEvents PictureBox1 As PictureBox
 End Class

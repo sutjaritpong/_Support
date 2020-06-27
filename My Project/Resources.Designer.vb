@@ -145,7 +145,7 @@ Namespace My.Resources
         '''</summary>
         Public ReadOnly Property _478a0c35f396963d0f65352b61809cb1___korat_hotels() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("478a0c35f396963d0f65352b61809cb1 - korat-hotels", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("_478a0c35f396963d0f65352b61809cb1___korat_hotels", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -155,7 +155,7 @@ Namespace My.Resources
         '''</summary>
         Public ReadOnly Property _5462_image_th() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("5462_image_th", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("_5462_image_th", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -273,16 +273,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Public ReadOnly Property clipboard_paste_document_text_icon() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("clipboard-paste-document-text-icon", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Public ReadOnly Property clock() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("clock", resourceCulture)
@@ -353,39 +343,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Public ReadOnly Property Connection_icon16x16() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Connection-icon16x16", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Public ReadOnly Property Connection_icon24x24() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Connection-icon24x24", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Public ReadOnly Property Connection_icon32x32() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Connection-icon32x32", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Public ReadOnly Property Customer_service_icon16x16() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Customer-service-icon16x16", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("Connection_icon32x32", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -703,16 +663,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Public ReadOnly Property network_connection_icon() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("network-connection-icon", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Public ReadOnly Property new_page() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("new_page", resourceCulture)
@@ -875,7 +825,7 @@ Namespace My.Resources
         '''</summary>
         Public ReadOnly Property support_icon24x24() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("support-icon24x24", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("support_icon24x24", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -1073,16 +1023,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Public ReadOnly Property UOB_Logo_svg() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("UOB_Logo.svg", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Public ReadOnly Property Upload_24x24() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Upload_24x24", resourceCulture)
@@ -1105,7 +1045,7 @@ Namespace My.Resources
         '''</summary>
         Public ReadOnly Property Wi_Fi_icon24x24() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Wi-Fi-icon24x24", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("Wi_Fi_icon24x24", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

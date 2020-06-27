@@ -55,10 +55,9 @@ Partial Class FrmmanageIP
         Me.cmd_refresh = New System.Windows.Forms.Button()
         Me.cmd_search = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cmd_clipboard = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dtp_edit = New System.Windows.Forms.DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.dtp_edit = New System.Windows.Forms.DateTimePicker()
         CType(Me.dtgvip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -418,7 +417,6 @@ Partial Class FrmmanageIP
         'GroupBox1
         '
         Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.GroupBox1.Controls.Add(Me.cmd_clipboard)
         Me.GroupBox1.Controls.Add(Me.IP)
         Me.GroupBox1.Controls.Add(Me.txt_ip)
         Me.GroupBox1.Controls.Add(Me.txt_name)
@@ -445,21 +443,6 @@ Partial Class FrmmanageIP
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detail (รายละเอียด)"
         '
-        'cmd_clipboard
-        '
-        Me.cmd_clipboard.AutoSize = True
-        Me.cmd_clipboard.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.cmd_clipboard.ForeColor = System.Drawing.Color.White
-        Me.cmd_clipboard.Image = Global.SCANDB.My.Resources.Resources.clipboard_paste_document_text_icon
-        Me.cmd_clipboard.Location = New System.Drawing.Point(17, 373)
-        Me.cmd_clipboard.Name = "cmd_clipboard"
-        Me.cmd_clipboard.Size = New System.Drawing.Size(94, 30)
-        Me.cmd_clipboard.TabIndex = 38
-        Me.cmd_clipboard.Text = "ClipBoard"
-        Me.cmd_clipboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_clipboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_clipboard.UseVisualStyleBackColor = False
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label9)
@@ -476,16 +459,6 @@ Partial Class FrmmanageIP
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Description (คำบรรยาย)"
         '
-        'dtp_edit
-        '
-        Me.dtp_edit.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark
-        Me.dtp_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.dtp_edit.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_edit.Location = New System.Drawing.Point(99, 113)
-        Me.dtp_edit.Name = "dtp_edit"
-        Me.dtp_edit.Size = New System.Drawing.Size(103, 22)
-        Me.dtp_edit.TabIndex = 35
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -497,6 +470,16 @@ Partial Class FrmmanageIP
         Me.Label9.Size = New System.Drawing.Size(79, 16)
         Me.Label9.TabIndex = 39
         Me.Label9.Text = "วันที่แก้ไขข้อมูล"
+        '
+        'dtp_edit
+        '
+        Me.dtp_edit.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark
+        Me.dtp_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.dtp_edit.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_edit.Location = New System.Drawing.Point(99, 113)
+        Me.dtp_edit.Name = "dtp_edit"
+        Me.dtp_edit.Size = New System.Drawing.Size(103, 22)
+        Me.dtp_edit.TabIndex = 35
         '
         'FrmmanageIP
         '
@@ -562,7 +545,6 @@ Partial Class FrmmanageIP
     Friend WithEvents btn_filter As Button
     Friend WithEvents chk_filter As CheckBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents cmd_clipboard As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dtp_edit As DateTimePicker
     Friend WithEvents Label9 As Label

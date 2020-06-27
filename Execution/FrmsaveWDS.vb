@@ -1,6 +1,57 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class FrmsaveWDS
+
+    Private Sub FrmsaveWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        connect()
+
+
+
+        cbo_owner.Items.Clear()
+        Dim Owner() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
+        cbo_owner.Items.AddRange(Owner)
+        cbo_owner.SelectedItem = 0
+
+        cbo_empadmin.Items.Clear()
+        sql = "SELECT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '01-SUPPORT'"
+        cmd = New SqlCommand(sql, cn)
+        DR = cmd.ExecuteReader()
+        While DR.Read()
+            cbo_empadmin.Items.Add($"{DR("EXEEMPLOYEES")}")
+        End While
+        DR.Close()
+        cbo_empadmin.SelectedItem = 0
+
+
+        cbo_empexe.Items.Clear()
+        sql = "SELECT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
+        cmd.CommandText = sql
+        DR = cmd.ExecuteReader()
+        While DR.Read()
+            cbo_empexe.Items.Add($"{DR("EXEEMPLOYEES")}")
+        End While
+        DR.Close()
+        cbo_empexe.SelectedItem = 0
+
+
+        cbo_hub.Items.Clear()
+        sql = "SELECT HUBS FROM HUBS"
+        cmd.CommandText = sql
+        DR = cmd.ExecuteReader()
+        While DR.Read()
+            cbo_hub.Items.Add($"{DR("HUBS")}")
+        End While
+        DR.Close()
+        cbo_hub.SelectedItem = 0
+
+        dtp_datecollector.Enabled = False
+        dtp_datewds.Enabled = False
+        dtp_payment.Enabled = False
+
+        cn.Close()
+
+    End Sub
     Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles btn_save.Click
 
         connect()
@@ -26,7 +77,7 @@ Public Class FrmsaveWDS
 
                 End If
 
-                sql = $"INSERT INTO EXEWDS(EXEKEY,EXECUSOWN,EXEHUBS,EXEDATECOLLEC,EXECUSIDC,EXECUSCUS,EXECUSACC,EXECUSNAM,EXECUSBLACK,EXECUSRED,EXEDATEPAY,EXETOTAL,EXECUSPHONE,EXESTATUS,EXEADMIN,EXEEMPLOYEE,EXEDATEWDS,EXEDETAILWDS,EXEREFUND)VALUES('{cbo_owner.Text}-{txt_cusacc.Text}','{cbo_owner.Text}','{cbo_hub.Text}'"
+                sql = $"INSERT INTO EXEWDS(EXEKEY,EXECUSOWN,EXEHUBS,EXEDATECOLLEC,EXECUSIDC,EXECUSCUS,EXECUSACC,EXECUSNAM,EXECUSBLACK,EXECUSRED,EXEDATEPAY,EXETOTAL,EXECUSPHONE,EXESTATUS,EXEADMIN,EXEEMPLOYEE,EXEDATEWDS,EXEDETAILWDS)VALUES('{cbo_owner.Text}-{txt_cusacc.Text}','{cbo_owner.Text}','{cbo_hub.Text}'"
                 If chk_datecollector.Checked = True Then
                     sql &= $",'{dtp_datecollector.Text}'"
                 Else
@@ -40,9 +91,9 @@ Public Class FrmsaveWDS
                 End If
                 sql &= $",'{txt_payment.Text}','{txt_cusphone.Text}','{txt_status.Text}','{cbo_empadmin.Text}','{cbo_empexe.Text}',"
                 If chk_datewds.Checked = True Then
-                    sql &= $"'{dtp_datewds.Text}','{txt_detail.Text}','{txt_refund.Text}')"
+                    sql &= $"'{dtp_datewds.Text}','{txt_detail.Text}')"
                 Else
-                    sql &= $"NULL,'{txt_detail.Text}','{txt_refund.Text}')"
+                    sql &= $"NULL,'{txt_detail.Text}')"
                 End If
 
                 cmd = New SqlCommand(sql, cn)
@@ -88,49 +139,6 @@ Public Class FrmsaveWDS
 
     End Sub
 
-    Private Sub FrmsaveWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        connect()
-
-        Dim Owner() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
-        cbo_owner.Items.AddRange(Owner)
-        cbo_owner.SelectedItem = 0
-
-        sql = "SELECT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '01-SUPPORT'"
-        cmd = New SqlCommand(sql, cn)
-        DR = cmd.ExecuteReader()
-        While DR.Read()
-            cbo_empadmin.Items.Add($"{DR("EXEEMPLOYEES")}")
-        End While
-        DR.Close()
-        cbo_empadmin.SelectedItem = 0
-
-        sql = "SELECT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
-        cmd.CommandText = sql
-        DR = cmd.ExecuteReader()
-        While DR.Read()
-            cbo_empexe.Items.Add($"{DR("EXEEMPLOYEES")}")
-        End While
-        DR.Close()
-        cbo_empexe.SelectedItem = 0
-
-        sql = "SELECT HUBS FROM HUBS"
-        cmd.CommandText = sql
-        DR = cmd.ExecuteReader()
-        While DR.Read()
-            cbo_hub.Items.Add($"{DR("HUBS")}")
-        End While
-        DR.Close()
-        cbo_hub.SelectedItem = 0
-
-        dtp_datecollector.Enabled = False
-        dtp_datewds.Enabled = False
-        dtp_payment.Enabled = False
-
-        cn.Close()
-
-    End Sub
-
     Private Sub txt_payment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_payment.KeyPress
         Select Case Asc(e.KeyChar)
 
@@ -146,7 +154,7 @@ Public Class FrmsaveWDS
 
     End Sub
 
-    Private Sub txt_refund_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_refund.KeyPress
+    Private Sub txt_refund_KeyPress(sender As Object, e As KeyPressEventArgs)
 
         Select Case Asc(e.KeyChar)
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
@@ -218,7 +226,6 @@ Public Class FrmsaveWDS
         txt_red.Text = ""
         txt_status.Text = ""
         dtp_datewds.Text = ""
-        txt_refund.Text = ""
         txt_detail.Text = ""
         dtp_datecollector.Text = ""
         chk_datecollector.Checked = False
@@ -242,7 +249,6 @@ Public Class FrmsaveWDS
             dtp_payment.Enabled = False
 
         End If
-
 
     End Sub
 

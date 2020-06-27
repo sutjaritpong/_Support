@@ -129,6 +129,11 @@
     <Compile Include="Reportviewer\FrmWDSRV.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SCANPDF.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SCANPDFDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -459,6 +464,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="SCANPDF.xsc">
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SCANPDF.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SCANPDF.xss">
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </None>
     <None Include="SCANPDFDataSet.xsc">
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </None>
@@ -489,14 +505,6 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-    <COMReference Include="AxCrystal">
-      <Guid>{00025600-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>2</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="AxMSWinsockLib">
       <Guid>{248DD890-BB45-11CF-9ABC-0080C7E7B78D}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -504,15 +512,6 @@
       <Lcid>0</Lcid>
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="Crystal">
-      <Guid>{00025600-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>2</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
@@ -726,8 +725,6 @@
     <None Include="Resources\coins_delete1.png" />
     <None Include="Resources\kbanklogo.png" />
     <None Include="Resources\TSS01.jpg" />
-    <None Include="Resources\5462_image_th.png" />
-    <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
     <None Include="Resources\UOB_Logo.svg.png" />
     <None Include="Resources\UOB.jpg" />
     <None Include="Resources\TBANK.png" />
@@ -741,13 +738,15 @@
     <None Include="Resources\Cut_24x24.png" />
     <None Include="Resources\clipboard-paste-document-text-icon.png" />
     <None Include="Resources\report_go.png" />
-    <None Include="Resources\Connection-icon32x32.png" />
     <None Include="Resources\network-connection-icon.png" />
     <None Include="Resources\Customer-service-icon16x161.png" />
     <None Include="Resources\Connection-icon16x16.png" />
     <None Include="Resources\Connection-icon24x24.png" />
+    <None Include="Resources\Connection-icon32x32.png" />
     <None Include="Resources\support-icon24x24.png" />
     <None Include="Resources\Wi-Fi-icon24x24.png" />
+    <None Include="Resources\5462_image_th.png" />
+    <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

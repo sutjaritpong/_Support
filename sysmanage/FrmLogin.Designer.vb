@@ -23,7 +23,7 @@ Partial Class FrmLogin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogin))
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_loginlogo = New System.Windows.Forms.Label()
         Me.chk_rememuser = New System.Windows.Forms.CheckBox()
         Me.chk_Password = New System.Windows.Forms.CheckBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,19 +40,19 @@ Partial Class FrmLogin
         CType(Me.aws, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label3
+        'lbl_loginlogo
         '
-        Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lbl_loginlogo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label3.Location = New System.Drawing.Point(59, 29)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(237, 73)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "LOGIN"
+        Me.lbl_loginlogo.AutoSize = True
+        Me.lbl_loginlogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.lbl_loginlogo.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lbl_loginlogo.Location = New System.Drawing.Point(60, 28)
+        Me.lbl_loginlogo.Name = "lbl_loginlogo"
+        Me.lbl_loginlogo.Size = New System.Drawing.Size(237, 73)
+        Me.lbl_loginlogo.TabIndex = 5
+        Me.lbl_loginlogo.Text = "LOGIN"
         '
         'chk_rememuser
         '
@@ -208,7 +208,7 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.btnlogin)
         Me.Controls.Add(Me.txt_passlog)
         Me.Controls.Add(Me.txt_idlog)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lbl_loginlogo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
@@ -219,7 +219,7 @@ Partial Class FrmLogin
 
     End Sub
 
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_loginlogo As Label
     Friend WithEvents chk_rememuser As CheckBox
     Friend WithEvents chk_Password As CheckBox
     Friend WithEvents Label2 As Label

@@ -105,6 +105,20 @@ Module VBcode
     End Sub
 
     '## Descriptions ##
+    '## Sub _convertnum ใช้เปลี่ยนตัวเลขเป็นจำนวนเงินมีจุดทศนิยม 2 ตำแหน่ง
+
+    Friend Sub _convertnum(_current As Object)
+
+        If (_current.text <> "") AndAlso (Not IsNumeric(_current.text)) Then
+
+
+        Else
+
+            _current.text = CDbl(_current.text).ToString("##,##0.00")
+
+        End If
+    End Sub
+    '## Descriptions ##
     '## Sub Permissions ใช้กำหนดสิทธิในการเข้าถึง Object หรือ ฟอร์ม ต่างๆ โดยการดึง สิทธิข้อมูลผู้ใช้จากฐานข้อมูล แล้วกำหนดการใช้งานข้อมูล ของสิทธินั้น ๆ  ##
     '## Parameters _userid As String ใช้ในการกำหนด Username ในการอ้างถึง สิทธิ ในการใช้ข้อมูล ##
     '## Parameters _userpass As String ใช้ในการกำหนด Password ในการอ้างถึง สิทธิ ในการใช้ข้อมูล ##

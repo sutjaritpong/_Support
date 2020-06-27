@@ -6,6 +6,7 @@ Public Class FrmWDS
 
 
     Private Sub FrmWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         connect()
 
         Dim types() As String = {"ALL PRODUCT", "KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
@@ -78,14 +79,16 @@ Public Class FrmWDS
         loaddata()
         cn.Close()
     End Sub
-    Public Sub loaddata()
+    Private Sub loaddata()
+
+        _cleardatagrid(dtgv_data)
 
         connect()
 
+
         Dim headers() As String = {"KEY", "ธนาคาร", "ศูนย์ประสานงาน", "Collecแจ้งถอนอายัด", "เลขบัตรประชาชน", "เลขที่ลูกหนี้", "เลขที่สัญญา", "ชื่อ-นามสกุล", "คดีดำ", "เลขคดีแดง", "วันที่ชำระ", "ยอดชำระ", "เบอร์ติดต่อลูกค้า", "สถานะ", "Admin-รับงาน", "พนักงานภาคสนาม", "วันที่ถอนอายัด/ยึด", "รายละเอียดการถอน", "จำนวนเงินคืน", "วันที่ส่งเช็ค", "รายละเอียดเช็ค"}
 
-
-        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC "
+        sql = $"SELECT EXEWDS.*,EXECHECK.CHKTOTALEXERE,EXECHECK.CHKDATESEND,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC "
 
         Select Case cbo_product.SelectedItem
             Case "ALL PRODUCT" : sql &= $"ORDER BY EXEDATECOLLEC;"
@@ -116,7 +119,7 @@ Public Class FrmWDS
         cn.Close()
 
     End Sub
-    Public Sub notedit()
+    Private Sub notedit()
 
         cbo_owner.Enabled = False
         txt_cusid.ReadOnly = True
@@ -290,7 +293,14 @@ Public Class FrmWDS
 
             End If
 
+
+            _convertnum(txt_refund)
+
+            _convertnum(txt_payment)
+
+
             notedit()
+
         Catch ex As Exception
 
         End Try
@@ -370,10 +380,12 @@ Public Class FrmWDS
 
     Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
+        _cleardatagrid(dtgv_data)
         connect()
 
+
         If txt_cusid.ReadOnly = False Then
-            sql = $"UPDATE EXEWDS SET EXEKEY = '{cbo_owner.Text}-{txt_cusacc.Text}',EXECUSOWN = '{cbo_owner.Text}',EXEHUBS = '{cbo_hub.Text}',EXECUSIDC = '{txt_cusid.Text}',EXECUSCUS = '{txt_cuscus.Text}',EXECUSACC = '{txt_cusacc.Text}',EXECUSNAM = '{txt_cusname.Text}',EXECUSBLACK = '{txt_black.Text}',EXECUSRED = '{txt_red.Text}',EXETOTAL = '{txt_payment.Text}',EXECUSPHONE = '{txt_cusphone.Text}',EXESTATUS = '{txt_status.Text}',EXEADMIN = '{cbo_empadmin.Text}',EXEEMPLOYEE = '{cbo_empexe.Text}',EXEDETAILWDS = '{txt_detail1.Text}',EXEREFUND = '{txt_refund.Text}'"
+            sql = $"UPDATE EXEWDS SET EXEKEY = '{cbo_owner.Text}-{txt_cusacc.Text}',EXECUSOWN = '{cbo_owner.Text}',EXEHUBS = '{cbo_hub.Text}',EXECUSIDC = '{txt_cusid.Text}',EXECUSCUS = '{txt_cuscus.Text}',EXECUSACC = '{txt_cusacc.Text}',EXECUSNAM = '{txt_cusname.Text}',EXECUSBLACK = '{txt_black.Text}',EXECUSRED = '{txt_red.Text}',EXETOTAL = '{txt_payment.Text}',EXECUSPHONE = '{txt_cusphone.Text}',EXESTATUS = '{txt_status.Text}',EXEADMIN = '{cbo_empadmin.Text}',EXEEMPLOYEE = '{cbo_empexe.Text}',EXEDETAILWDS = '{txt_detail1.Text}'"
 
             If chk_datecollector.Checked = True Then
                 sql &= $",EXEDATECOLLEC = '{dtp_datecollector.Text}'"
@@ -391,7 +403,7 @@ Public Class FrmWDS
                 sql &= $",EXEDATEPAY = NULL"
             End If
 
-            sql &= $" WHERE EXEKEY = '{cbo_owner.Text}-{txt_cusacc.Text}'"
+            sql &= $" WHERE EXEKEY = '{cbo_owner.Text}-{txt_cusacc.Text}';"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
@@ -439,6 +451,8 @@ Public Class FrmWDS
 
     Private Sub cmd_searchdate_Click(sender As Object, e As EventArgs) Handles cmd_searchdate.Click
 
+        _cleardatagrid(dtgv_data)
+
         connect()
 
         If cbo_product.SelectedItem = "ALL PRODUCT" Then
@@ -446,13 +460,13 @@ Public Class FrmWDS
         Else
             sql = $"SELECT * FROM EXEWDS WHERE EXEDATEWDS BETWEEN  '{datetimestart.Text}' and '{datetimefinish.Text}' AND EXECUSOWN = "
             Select Case cbo_product.SelectedItem
-                Case "KBANK" : sql &= $"'KBANK'"
-                Case "SCB" : sql &= $"'SCB'"
-                Case "TMB" : sql &= $"'TMB'"
-                Case "TSS" : sql &= $"'TSS'"
-                Case "TBANK" : sql &= $"'TBANK'"
-                Case "KKB" : sql &= $"'KKB'"
-                Case "UOB" : sql &= $"'UOB'"
+                Case "KBANK" : sql &= $"'KBANK';"
+                Case "SCB" : sql &= $"'SCB';"
+                Case "TMB" : sql &= $"'TMB';"
+                Case "TSS" : sql &= $"'TSS';"
+                Case "TBANK" : sql &= $"'TBANK';"
+                Case "KKB" : sql &= $"'KKB';"
+                Case "UOB" : sql &= $"'UOB';"
             End Select
         End If
 
@@ -553,6 +567,8 @@ Public Class FrmWDS
 
     Private Sub cmd_checkview_Click(sender As Object, e As EventArgs) Handles cmd_checkview.Click
 
+        _cleardatagrid(FrmCheck.dtgv_check)
+
         _sql = $"SELECT * FROM EXECHECK WHERE CHKACC = '{txt_cusacc.Text}'"
         cmd = New SqlCommand(_sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -580,6 +596,8 @@ Public Class FrmWDS
             End If
         Else
             _showgrid()
+            _convertnum(FrmCheck.txt_total)
+            _convertnum(FrmCheck.txt_refund)
 
             If Application.OpenForms().OfType(Of FrmCheck).Any Then
 
@@ -593,8 +611,12 @@ Public Class FrmWDS
     End Sub
 
     Private Sub cmd_datediff_Click(sender As Object, e As EventArgs) Handles cmd_datediff.Click
+
+        _cleardatagrid(dtgv_data)
+
         connect()
-        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS"
+
+        sql = $"SELECT EXEWDS.*,EXECHECK.CHKTOTALEXERE,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS;"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
         DS = New DataSet
@@ -610,7 +632,8 @@ Public Class FrmWDS
         Next
         cn.Close()
     End Sub
-    Public Sub _showgrid()
+    Private Sub _showgrid()
+
         With FrmCheck
 
             .cbo_cusowner.Text = .dtgv_check.Rows(0).Cells(1).Value.ToString
@@ -647,7 +670,10 @@ Public Class FrmWDS
     End Sub
     Private Sub dtgv_data_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dtgv_data.DataBindingComplete
         Try
+
             For Each gridRow As DataGridViewRow In dtgv_data.Rows
+
+
 
                 Dim WDS As String = (gridRow.Cells(16).Value.ToString())
                 Dim check As String = (gridRow.Cells(19).Value.ToString())
@@ -665,6 +691,7 @@ Public Class FrmWDS
                 End If
 
             Next
+
         Catch ex As Exception
 
         End Try

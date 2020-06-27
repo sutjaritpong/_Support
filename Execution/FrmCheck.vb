@@ -61,7 +61,23 @@ Public Class FrmCheck
 
             End If
 
+            If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
 
+
+            Else
+
+                txt_total.Text = CDbl(txt_total.Text).ToString("##,##0.00")
+
+            End If
+
+            If (txt_refund.Text <> "") AndAlso (Not IsNumeric(txt_refund.Text)) Then
+
+
+            Else
+
+                txt_refund.Text = CDbl(txt_refund.Text).ToString("##,##0.00")
+
+            End If
 
         Catch ex As Exception
 
@@ -179,7 +195,7 @@ Public Class FrmCheck
 
         If txt_cusid.ReadOnly = False Then
 
-            sql = $"UPDATE EXECHECK SET CHKKEY='{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}-{dtp_checksend.Text}',CHKOWN = '{cbo_cusowner.Text}',CHKBANK = '{txt_checkbank.Text}',CHKHUB = '{txt_hub.Text}',CHKNUM = '{txt_numcheck.Text}',CHKDATE = '{dtp_datecheck.Text}',CHKTOTAL = '{txt_totalcheck.Text}',CHKIDC = '{txt_cusid.Text}',CHKACC = '{txt_cusacc.Text}',CHKACCNO = '{txt_cusaccno.Text}',CHKNAME = '{txt_cusname.Text}',CHKDATESEND = '{dtp_checksend.Text}',CHKTOTALEXE = '{txt_total.Text}',CHKTOTALEXERE = '{txt_refund.Text}',CHKDETAIL1 = '{txt_note.Text}' WHERE (CHKACC = '{FrmWDS.txt_cusacc.Text}' AND CHKNAME = '{FrmWDS.txt_cusname.Text}') OR (CHKACCNO = '{txt_cusaccno.Text}' AND CHKNAME = '{txt_cusname.Text}')"
+            sql = $"UPDATE EXECHECK SET CHKKEY='{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}-{dtp_checksend.Text}',CHKOWN = '{cbo_cusowner.Text}',CHKBANK = '{txt_checkbank.Text}',CHKHUB = '{txt_hub.Text}',CHKNUM = '{txt_numcheck.Text}',CHKDATE = '{dtp_datecheck.Text}',CHKTOTAL = '{txt_totalcheck.Text}',CHKIDC = '{txt_cusid.Text}',CHKACC = '{txt_cusacc.Text}',CHKACCNO = '{txt_cusaccno.Text}',CHKNAME = '{txt_cusname.Text}',CHKDATESEND = '{dtp_checksend.Text}',CHKTOTALEXE = '{txt_total.Text}',CHKTOTALEXERE = '{txt_refund.Text}',CHKDETAIL1 = '{txt_note.Text}' WHERE CHKACC = '{txt_cusacc.Text}' AND CHKNAME = '{txt_cusname.Text}';"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()

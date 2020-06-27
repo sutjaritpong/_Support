@@ -148,9 +148,6 @@
   <data name="Undo_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Undo_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="5462_image_th" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\5462_image_th.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="database_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,9 +193,6 @@
   <data name="_32x32accept" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\32x32accept.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Connection-icon24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Connection-icon24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="script_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\script_go.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,9 +214,6 @@
   <data name="accept_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\accept_page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Connection-icon32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Connection-icon32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="calendar_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -231,9 +222,6 @@
   </data>
   <data name="image_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Connection-icon16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Connection-icon16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_32x32_calendar_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\32x32 calendar_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,9 +298,6 @@
   <data name="TSS01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TSS01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UOB_Logo.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UOB_Logo.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="building" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\building.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -358,9 +343,6 @@
   <data name="page_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="network-connection-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\network-connection-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="accept" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\accept.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -394,9 +376,6 @@
   <data name="page_excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="478a0c35f396963d0f65352b61809cb1 - korat-hotels" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="search_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search_page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -405,15 +384,6 @@
   </data>
   <data name="_next" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Customer-service-icon16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Customer-service-icon16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="support-icon24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\support-icon24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clipboard-paste-document-text-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clipboard-paste-document-text-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder_find1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_find1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -430,7 +400,19 @@
   <data name="delete_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wi-Fi-icon24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Connection_icon32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Connection-icon32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="support_icon24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\support-icon24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wi_Fi_icon24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wi-Fi-icon24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_478a0c35f396963d0f65352b61809cb1___korat_hotels" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_5462_image_th" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5462_image_th.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

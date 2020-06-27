@@ -127,11 +127,6 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:SCANDB.My.Resources.Resources.clipboard_paste_document_text_icon">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
 <member name="P:SCANDB.My.Resources.Resources.clock">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -167,22 +162,7 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:SCANDB.My.Resources.Resources.Connection_icon16x16">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:SCANDB.My.Resources.Resources.Connection_icon24x24">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
 <member name="P:SCANDB.My.Resources.Resources.Connection_icon32x32">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:SCANDB.My.Resources.Resources.Customer_service_icon16x16">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -338,11 +318,6 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.money_add">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:SCANDB.My.Resources.Resources.network_connection_icon">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -527,11 +502,6 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:SCANDB.My.Resources.Resources.UOB_Logo_svg">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
 <member name="P:SCANDB.My.Resources.Resources.Upload_24x24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -545,6 +515,571 @@ SCANDB
 <member name="P:SCANDB.My.Resources.Resources.Wi_Fi_icon24x24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.AccountingKBANKDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.ACCOUNTINGscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEACCDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXECHECKDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_OwnershipDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_Ownership_ResultDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_PortDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_verifyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEEMPLOYEEDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEINSOLVENTDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXESMDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXESOCDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXETRACKINGDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEWDSDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.HUBSDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.KBANKscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.KKBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.SCBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TBANKscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_fdspcDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_logfilesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_loginDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_settingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TMBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TSSscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.UOBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.AccountingKBANKRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.ACCOUNTINGscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEACCRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXECHECKRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_OwnershipRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_Ownership_ResultRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_PortRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_verifyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEEMPLOYEERow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEINSOLVENTRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXESMRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXESOCRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXETRACKINGRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEWDSRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.HUBSRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.KBANKscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.KKBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.SCBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TBANKscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_fdspcRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_logfilesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_loginRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_settingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TMBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TSSscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.UOBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.AccountingKBANKRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.ACCOUNTINGscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEACCRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXECHECKRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_OwnershipRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_Ownership_ResultRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_PortRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.Execution_verifyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEEMPLOYEERowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEINSOLVENTRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXESMRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXESOCRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXETRACKINGRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.EXEWDSRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.HUBSRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.KBANKscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.KKBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.SCBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TBANKscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_fdspcRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_logfilesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_loginRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.tbl_settingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TMBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.TSSscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDF.UOBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.AccountingKBANKTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.ACCOUNTINGscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXEACCTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXECHECKTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.Execution_OwnershipTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.Execution_Ownership_ResultTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.Execution_PortTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.Execution_verifyTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXEEMPLOYEETableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXEINSOLVENTTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXESMTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXESOCTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXETRACKINGTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.EXEWDSTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.HUBSTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.KBANKscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.KKBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.SCBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.TBANKscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.tbl_fdspcTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.tbl_logfilesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.tbl_loginTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.tbl_settingTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.TMBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.TSSscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.UOBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:SCANDB.SCANPDFTableAdapters.TableAdapterManager.UpdateUpdatedRows(SCANDB.SCANPDF,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:SCANDB.SCANPDFTableAdapters.TableAdapterManager.UpdateInsertedRows(SCANDB.SCANPDF,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:SCANDB.SCANPDFTableAdapters.TableAdapterManager.UpdateDeletedRows(SCANDB.SCANPDF,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:SCANDB.SCANPDFTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:SCANDB.SCANPDFTableAdapters.TableAdapterManager.UpdateAll(SCANDB.SCANPDF)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:SCANDB.SCANPDFTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
 </summary>
 </member>
 <member name="T:SCANDB.SCANPDFDataSet">

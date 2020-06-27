@@ -6,7 +6,7 @@ Public Class FrmsearchIDWDS
             Msg_error("กรุณากรอกเลขบัตรประชาชนที่ต้องการค้นหา")
             Return
         End If
-        sql = $"SELECT EXEWDS.*,EXECHECK.CHKDATESEND,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC 
+        sql = $"SELECT EXEWDS.*,EXECHECK.CHKTOTALEXERE,EXECHECK.CHKDATESEND,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC 
             WHERE EXEWDS.EXECUSACC = '{txt_searchacc.Text}'"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -27,4 +27,7 @@ Public Class FrmsearchIDWDS
         cn.Close()
     End Sub
 
+    Private Sub FrmsearchIDWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
