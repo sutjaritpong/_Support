@@ -104,6 +104,7 @@ Partial Class FrmMastermain
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.White
         Me.StatusStrip1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslip, Me.tsl_ip, Me.tslid, Me.tsl_id, Me.tslusername, Me.tsl_username, Me.tslgroup, Me.tsl_group, Me.tsltime, Me.tsl_time, Me.tslpcname, Me.tsl_pcname, Me.tslversion, Me.tsl_version})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 960)
@@ -124,7 +125,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_ip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_ip.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_ip.ForeColor = System.Drawing.Color.Green
+        Me.tsl_ip.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_ip.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.tsl_ip.Name = "tsl_ip"
         Me.tsl_ip.Size = New System.Drawing.Size(28, 20)
@@ -142,7 +143,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_id.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_id.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_id.ForeColor = System.Drawing.Color.DarkGreen
+        Me.tsl_id.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_id.Name = "tsl_id"
         Me.tsl_id.Size = New System.Drawing.Size(28, 20)
         Me.tsl_id.Text = "xxx"
@@ -158,7 +159,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_username.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_username.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_username.ForeColor = System.Drawing.Color.Green
+        Me.tsl_username.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_username.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.tsl_username.Name = "tsl_username"
         Me.tsl_username.Size = New System.Drawing.Size(28, 20)
@@ -176,7 +177,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_group.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_group.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_group.ForeColor = System.Drawing.Color.Green
+        Me.tsl_group.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_group.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.tsl_group.Name = "tsl_group"
         Me.tsl_group.Size = New System.Drawing.Size(28, 20)
@@ -194,7 +195,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_time.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_time.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_time.ForeColor = System.Drawing.Color.Green
+        Me.tsl_time.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_time.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.tsl_time.Name = "tsl_time"
         Me.tsl_time.Size = New System.Drawing.Size(28, 20)
@@ -212,7 +213,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_pcname.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_pcname.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_pcname.ForeColor = System.Drawing.Color.Green
+        Me.tsl_pcname.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_pcname.Name = "tsl_pcname"
         Me.tsl_pcname.Size = New System.Drawing.Size(28, 20)
         Me.tsl_pcname.Text = "xxx"
@@ -229,7 +230,7 @@ Partial Class FrmMastermain
         '
         Me.tsl_version.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsl_version.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsl_version.ForeColor = System.Drawing.Color.Green
+        Me.tsl_version.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tsl_version.Name = "tsl_version"
         Me.tsl_version.Size = New System.Drawing.Size(28, 20)
         Me.tsl_version.Text = "xxx"
@@ -237,6 +238,7 @@ Partial Class FrmMastermain
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DbPDFToolStripMenuItem, Me.SettingToolStripMenuItem, Me.txt_timer, Me.ToolStripMenuItem1, Me.txt_datetoday, Me.ToolStripMenuItem2, Me.อพโหลดToolStripMenuItem, Me.รายงานToolStripMenuItem, Me.ITToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -248,6 +250,7 @@ Partial Class FrmMastermain
         'DbPDFToolStripMenuItem
         '
         Me.DbPDFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_execution, Me.tab_scanpdf, Me.Menu_Accounting, Me.ออกจากระบบToolStripMenuItem})
+        Me.DbPDFToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.DbPDFToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.accept
         Me.DbPDFToolStripMenuItem.Name = "DbPDFToolStripMenuItem"
         Me.DbPDFToolStripMenuItem.Size = New System.Drawing.Size(54, 28)
@@ -255,7 +258,9 @@ Partial Class FrmMastermain
         '
         'tab_execution
         '
+        Me.tab_execution.BackColor = System.Drawing.Color.White
         Me.tab_execution.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_EXEverify, Me.Menu_EXEStatement, Me.Menu_EXEWDS, Me.Menu_EXEACC, Me.Menu_exeport, Me.Menu_ownership, Me.Menu_insolvent})
+        Me.tab_execution.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tab_execution.Image = Global.SCANDB.My.Resources.Resources.link_break
         Me.tab_execution.Name = "tab_execution"
         Me.tab_execution.Size = New System.Drawing.Size(209, 22)
@@ -263,6 +268,8 @@ Partial Class FrmMastermain
         '
         'Menu_EXEverify
         '
+        Me.Menu_EXEverify.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEverify.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEverify.Image = Global.SCANDB.My.Resources.Resources.textfield_add
         Me.Menu_EXEverify.Name = "Menu_EXEverify"
         Me.Menu_EXEverify.Size = New System.Drawing.Size(185, 22)
@@ -270,6 +277,8 @@ Partial Class FrmMastermain
         '
         'Menu_EXEStatement
         '
+        Me.Menu_EXEStatement.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEStatement.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEStatement.Image = Global.SCANDB.My.Resources.Resources.Properties_16x16
         Me.Menu_EXEStatement.Name = "Menu_EXEStatement"
         Me.Menu_EXEStatement.Size = New System.Drawing.Size(185, 22)
@@ -277,6 +286,8 @@ Partial Class FrmMastermain
         '
         'Menu_EXEWDS
         '
+        Me.Menu_EXEWDS.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEWDS.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEWDS.Image = Global.SCANDB.My.Resources.Resources.coins_delete1
         Me.Menu_EXEWDS.Name = "Menu_EXEWDS"
         Me.Menu_EXEWDS.Size = New System.Drawing.Size(185, 22)
@@ -284,6 +295,8 @@ Partial Class FrmMastermain
         '
         'Menu_EXEACC
         '
+        Me.Menu_EXEACC.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEACC.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEACC.Image = Global.SCANDB.My.Resources.Resources.application_form_edit
         Me.Menu_EXEACC.Name = "Menu_EXEACC"
         Me.Menu_EXEACC.Size = New System.Drawing.Size(185, 22)
@@ -291,6 +304,8 @@ Partial Class FrmMastermain
         '
         'Menu_exeport
         '
+        Me.Menu_exeport.BackColor = System.Drawing.Color.White
+        Me.Menu_exeport.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_exeport.Image = Global.SCANDB.My.Resources.Resources.group_go
         Me.Menu_exeport.Name = "Menu_exeport"
         Me.Menu_exeport.Size = New System.Drawing.Size(185, 22)
@@ -298,6 +313,8 @@ Partial Class FrmMastermain
         '
         'Menu_ownership
         '
+        Me.Menu_ownership.BackColor = System.Drawing.Color.White
+        Me.Menu_ownership.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_ownership.Image = Global.SCANDB.My.Resources.Resources.building
         Me.Menu_ownership.Name = "Menu_ownership"
         Me.Menu_ownership.Size = New System.Drawing.Size(185, 22)
@@ -305,6 +322,8 @@ Partial Class FrmMastermain
         '
         'Menu_insolvent
         '
+        Me.Menu_insolvent.BackColor = System.Drawing.Color.White
+        Me.Menu_insolvent.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_insolvent.Image = Global.SCANDB.My.Resources.Resources.lorry_error
         Me.Menu_insolvent.Name = "Menu_insolvent"
         Me.Menu_insolvent.Size = New System.Drawing.Size(185, 22)
@@ -312,7 +331,9 @@ Partial Class FrmMastermain
         '
         'tab_scanpdf
         '
+        Me.tab_scanpdf.BackColor = System.Drawing.Color.White
         Me.tab_scanpdf.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KBANKscanpdf, Me.TSSscanpdf, Me.TMBscanpdf, Me.SCBscanpdf, Me.UOBscanpdf, Me.Tbankscanpdf, Me.KKBscanpdf})
+        Me.tab_scanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tab_scanpdf.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.tab_scanpdf.Name = "tab_scanpdf"
         Me.tab_scanpdf.Size = New System.Drawing.Size(209, 22)
@@ -320,56 +341,72 @@ Partial Class FrmMastermain
         '
         'KBANKscanpdf
         '
+        Me.KBANKscanpdf.BackColor = System.Drawing.Color.White
+        Me.KBANKscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.KBANKscanpdf.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.KBANKscanpdf.Name = "KBANKscanpdf"
-        Me.KBANKscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.KBANKscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.KBANKscanpdf.Text = "KBANK"
         '
         'TSSscanpdf
         '
+        Me.TSSscanpdf.BackColor = System.Drawing.Color.White
+        Me.TSSscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TSSscanpdf.Image = Global.SCANDB.My.Resources.Resources.TSS01
         Me.TSSscanpdf.Name = "TSSscanpdf"
-        Me.TSSscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.TSSscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.TSSscanpdf.Text = "TSS"
         '
         'TMBscanpdf
         '
+        Me.TMBscanpdf.BackColor = System.Drawing.Color.White
+        Me.TMBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TMBscanpdf.Image = Global.SCANDB.My.Resources.Resources._5462_image_th
         Me.TMBscanpdf.Name = "TMBscanpdf"
-        Me.TMBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.TMBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.TMBscanpdf.Text = "TMB"
         '
         'SCBscanpdf
         '
+        Me.SCBscanpdf.BackColor = System.Drawing.Color.White
+        Me.SCBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.SCBscanpdf.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
         Me.SCBscanpdf.Name = "SCBscanpdf"
-        Me.SCBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.SCBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.SCBscanpdf.Text = "SCB"
         '
         'UOBscanpdf
         '
+        Me.UOBscanpdf.BackColor = System.Drawing.Color.White
+        Me.UOBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.UOBscanpdf.Image = Global.SCANDB.My.Resources.Resources.UOB
         Me.UOBscanpdf.Name = "UOBscanpdf"
-        Me.UOBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.UOBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.UOBscanpdf.Text = "UOB"
         '
         'Tbankscanpdf
         '
+        Me.Tbankscanpdf.BackColor = System.Drawing.Color.White
+        Me.Tbankscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Tbankscanpdf.Image = Global.SCANDB.My.Resources.Resources.TBANK
         Me.Tbankscanpdf.Name = "Tbankscanpdf"
-        Me.Tbankscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.Tbankscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.Tbankscanpdf.Text = "TBANK"
         '
         'KKBscanpdf
         '
+        Me.KKBscanpdf.BackColor = System.Drawing.Color.White
+        Me.KKBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.KKBscanpdf.Image = Global.SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo
         Me.KKBscanpdf.Name = "KKBscanpdf"
-        Me.KKBscanpdf.Size = New System.Drawing.Size(117, 22)
+        Me.KKBscanpdf.Size = New System.Drawing.Size(152, 22)
         Me.KKBscanpdf.Text = "KKB"
         '
         'Menu_Accounting
         '
+        Me.Menu_Accounting.BackColor = System.Drawing.Color.White
         Me.Menu_Accounting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_accounting_search})
+        Me.Menu_Accounting.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_Accounting.Image = Global.SCANDB.My.Resources.Resources.coins
         Me.Menu_Accounting.Name = "Menu_Accounting"
         Me.Menu_Accounting.Size = New System.Drawing.Size(209, 22)
@@ -377,13 +414,17 @@ Partial Class FrmMastermain
         '
         'menu_accounting_search
         '
+        Me.menu_accounting_search.BackColor = System.Drawing.Color.White
+        Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.menu_accounting_search.Name = "menu_accounting_search"
-        Me.menu_accounting_search.Size = New System.Drawing.Size(117, 22)
+        Me.menu_accounting_search.Size = New System.Drawing.Size(152, 22)
         Me.menu_accounting_search.Text = "KBANK"
         '
         'ออกจากระบบToolStripMenuItem
         '
+        Me.ออกจากระบบToolStripMenuItem.BackColor = System.Drawing.Color.White
+        Me.ออกจากระบบToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.ออกจากระบบToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.delete
         Me.ออกจากระบบToolStripMenuItem.Name = "ออกจากระบบToolStripMenuItem"
         Me.ออกจากระบบToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
@@ -394,6 +435,7 @@ Partial Class FrmMastermain
         'SettingToolStripMenuItem
         '
         Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.accms, Me.settingms, Me.Historyms, Me.changespassword})
+        Me.SettingToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.SettingToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.process
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
         Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(61, 28)
@@ -401,6 +443,8 @@ Partial Class FrmMastermain
         '
         'accms
         '
+        Me.accms.BackColor = System.Drawing.Color.White
+        Me.accms.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.accms.Image = Global.SCANDB.My.Resources.Resources.users
         Me.accms.Name = "accms"
         Me.accms.Size = New System.Drawing.Size(294, 22)
@@ -408,6 +452,8 @@ Partial Class FrmMastermain
         '
         'settingms
         '
+        Me.settingms.BackColor = System.Drawing.Color.White
+        Me.settingms.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.settingms.Image = Global.SCANDB.My.Resources.Resources.page_process
         Me.settingms.Name = "settingms"
         Me.settingms.Size = New System.Drawing.Size(294, 22)
@@ -415,6 +461,8 @@ Partial Class FrmMastermain
         '
         'Historyms
         '
+        Me.Historyms.BackColor = System.Drawing.Color.White
+        Me.Historyms.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Historyms.Image = Global.SCANDB.My.Resources.Resources.full_page
         Me.Historyms.Name = "Historyms"
         Me.Historyms.Size = New System.Drawing.Size(294, 22)
@@ -422,6 +470,8 @@ Partial Class FrmMastermain
         '
         'changespassword
         '
+        Me.changespassword.BackColor = System.Drawing.Color.White
+        Me.changespassword.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.changespassword.Image = Global.SCANDB.My.Resources.Resources.Actions_edit_rename_icon24x24
         Me.changespassword.Name = "changespassword"
         Me.changespassword.Size = New System.Drawing.Size(294, 22)
@@ -432,6 +482,7 @@ Partial Class FrmMastermain
         Me.txt_timer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.txt_timer.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.txt_timer.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_timer.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txt_timer.Name = "txt_timer"
         Me.txt_timer.ReadOnly = True
         Me.txt_timer.Size = New System.Drawing.Size(100, 28)
@@ -451,6 +502,7 @@ Partial Class FrmMastermain
         Me.txt_datetoday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.txt_datetoday.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.txt_datetoday.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_datetoday.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txt_datetoday.Name = "txt_datetoday"
         Me.txt_datetoday.ReadOnly = True
         Me.txt_datetoday.Size = New System.Drawing.Size(100, 28)
@@ -468,6 +520,7 @@ Partial Class FrmMastermain
         'อพโหลดToolStripMenuItem
         '
         Me.อพโหลดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ขอมลFileSCANToolStripMenuItem, Me.UPLOADขอมลบงคบคดToolStripMenuItem})
+        Me.อพโหลดToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.อพโหลดToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.อพโหลดToolStripMenuItem.Name = "อพโหลดToolStripMenuItem"
         Me.อพโหลดToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -476,7 +529,9 @@ Partial Class FrmMastermain
         '
         'ขอมลFileSCANToolStripMenuItem
         '
+        Me.ขอมลFileSCANToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ขอมลFileSCANToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MENU_Uploads_SCANPDF, Me.Menu_list_Accounting})
+        Me.ขอมลFileSCANToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.ขอมลFileSCANToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.system_database_add_icon16x16
         Me.ขอมลFileSCANToolStripMenuItem.Name = "ขอมลFileSCANToolStripMenuItem"
         Me.ขอมลFileSCANToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
@@ -484,6 +539,8 @@ Partial Class FrmMastermain
         '
         'MENU_Uploads_SCANPDF
         '
+        Me.MENU_Uploads_SCANPDF.BackColor = System.Drawing.Color.White
+        Me.MENU_Uploads_SCANPDF.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.MENU_Uploads_SCANPDF.Image = Global.SCANDB.My.Resources.Resources.image_add
         Me.MENU_Uploads_SCANPDF.Name = "MENU_Uploads_SCANPDF"
         Me.MENU_Uploads_SCANPDF.Size = New System.Drawing.Size(306, 22)
@@ -491,6 +548,8 @@ Partial Class FrmMastermain
         '
         'Menu_list_Accounting
         '
+        Me.Menu_list_Accounting.BackColor = System.Drawing.Color.White
+        Me.Menu_list_Accounting.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_list_Accounting.Image = Global.SCANDB.My.Resources.Resources.table_key
         Me.Menu_list_Accounting.Name = "Menu_list_Accounting"
         Me.Menu_list_Accounting.Size = New System.Drawing.Size(306, 22)
@@ -498,7 +557,9 @@ Partial Class FrmMastermain
         '
         'UPLOADขอมลบงคบคดToolStripMenuItem
         '
+        Me.UPLOADขอมลบงคบคดToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Upload_Execution})
+        Me.UPLOADขอมลบงคบคดToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.database_add
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.Name = "UPLOADขอมลบงคบคดToolStripMenuItem"
         Me.UPLOADขอมลบงคบคดToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
@@ -506,6 +567,8 @@ Partial Class FrmMastermain
         '
         'Menu_Upload_Execution
         '
+        Me.Menu_Upload_Execution.BackColor = System.Drawing.Color.White
+        Me.Menu_Upload_Execution.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_Upload_Execution.Image = Global.SCANDB.My.Resources.Resources.database_connect
         Me.Menu_Upload_Execution.Name = "Menu_Upload_Execution"
         Me.Menu_Upload_Execution.Size = New System.Drawing.Size(300, 22)
@@ -514,6 +577,7 @@ Partial Class FrmMastermain
         'รายงานToolStripMenuItem
         '
         Me.รายงานToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_report, Me.Menu_ReportWDS})
+        Me.รายงานToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.รายงานToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
         Me.รายงานToolStripMenuItem.Name = "รายงานToolStripMenuItem"
         Me.รายงานToolStripMenuItem.Size = New System.Drawing.Size(74, 28)
@@ -521,6 +585,8 @@ Partial Class FrmMastermain
         '
         'tab_report
         '
+        Me.tab_report.BackColor = System.Drawing.Color.White
+        Me.tab_report.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.tab_report.Image = Global.SCANDB.My.Resources.Resources.table_lightning
         Me.tab_report.Name = "tab_report"
         Me.tab_report.Size = New System.Drawing.Size(273, 22)
@@ -528,6 +594,8 @@ Partial Class FrmMastermain
         '
         'Menu_ReportWDS
         '
+        Me.Menu_ReportWDS.BackColor = System.Drawing.Color.White
+        Me.Menu_ReportWDS.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_ReportWDS.Image = Global.SCANDB.My.Resources.Resources.report_go
         Me.Menu_ReportWDS.Name = "Menu_ReportWDS"
         Me.Menu_ReportWDS.Size = New System.Drawing.Size(273, 22)
@@ -536,6 +604,7 @@ Partial Class FrmMastermain
         'ITToolStripMenuItem
         '
         Me.ITToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IPManagement})
+        Me.ITToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.ITToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.support_icon24x24
         Me.ITToolStripMenuItem.Name = "ITToolStripMenuItem"
         Me.ITToolStripMenuItem.Size = New System.Drawing.Size(97, 28)
@@ -543,6 +612,8 @@ Partial Class FrmMastermain
         '
         'IPManagement
         '
+        Me.IPManagement.BackColor = System.Drawing.Color.White
+        Me.IPManagement.ForeColor = System.Drawing.SystemColors.Highlight
         Me.IPManagement.Image = Global.SCANDB.My.Resources.Resources.Wi_Fi_icon24x24
         Me.IPManagement.Name = "IPManagement"
         Me.IPManagement.Size = New System.Drawing.Size(167, 22)
@@ -654,10 +725,12 @@ Partial Class FrmMastermain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1264, 985)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.ForeColor = System.Drawing.SystemColors.Highlight
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.KeyPreview = True

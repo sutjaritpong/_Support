@@ -4,7 +4,6 @@ Imports System.Data.SqlClient
 Imports System.Net
 Imports Microsoft.Win32
 Imports System.Globalization
-
 '## ip As IPAddress() ตัวแปรสำหรับเก็บค่า IP Computer Client ที่เข้ามาใช้งาน ##
 '## internetstatus As Boolean ตัวแปรใช้เช็คค่า True False ในการเชื่อมต่อ Network ##
 Public Class FrmLogin
@@ -283,10 +282,11 @@ Public Class FrmLogin
 
         If internetstatus = True Then
 
-            lblnetstatus.Text = "Connection Status : Available"
+            'lblnetstatus.Text = "Connection Status : Available"
+            Ptb_connection.Image = My.Resources.server_connect
         Else
-
-            lblnetstatus.Text = "Connection Status : Not Available"
+            'lblnetstatus.Text = "Connection Status : Not Available"
+            Ptb_connection.Image = My.Resources.server_error
         End If
 
         internetcheck.RunWorkerAsync()

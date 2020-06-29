@@ -203,6 +203,7 @@ Partial Class Frmimportexe
         Me.Controls.Add(Me.cbo_products)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frmimportexe"
         Me.Text = "UPLOAD (ข้อมูลบังคับคดี)"

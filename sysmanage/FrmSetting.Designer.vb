@@ -103,6 +103,7 @@ Partial Class FrmSetting
         '
         'cmd_editsetting
         '
+        Me.cmd_editsetting.BackColor = System.Drawing.Color.White
         Me.cmd_editsetting.Image = Global.SCANDB.My.Resources.Resources.refresh
         Me.cmd_editsetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_editsetting.Location = New System.Drawing.Point(137, 122)
@@ -111,7 +112,7 @@ Partial Class FrmSetting
         Me.cmd_editsetting.TabIndex = 9
         Me.cmd_editsetting.Text = "เปลี่ยนแปลงข้อมูล"
         Me.cmd_editsetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_editsetting.UseVisualStyleBackColor = True
+        Me.cmd_editsetting.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -145,6 +146,7 @@ Partial Class FrmSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(308, 157)
         Me.Controls.Add(Me.txt_changepass)
         Me.Controls.Add(Me.Label6)
@@ -157,6 +159,7 @@ Partial Class FrmSetting
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Lable2)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmSetting"

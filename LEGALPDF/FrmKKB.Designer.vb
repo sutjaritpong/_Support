@@ -126,6 +126,7 @@ Partial Class FrmKKB
         '
         'cmd_clear
         '
+        Me.cmd_clear.BackColor = System.Drawing.Color.White
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_clear.Location = New System.Drawing.Point(409, 4)
@@ -133,13 +134,15 @@ Partial Class FrmKKB
         Me.cmd_clear.Size = New System.Drawing.Size(75, 23)
         Me.cmd_clear.TabIndex = 3
         Me.cmd_clear.Text = "เคลีย"
-        Me.cmd_clear.UseVisualStyleBackColor = True
+        Me.cmd_clear.UseVisualStyleBackColor = False
         '
         'dtgvshowkkb
         '
         Me.dtgvshowkkb.AllowUserToAddRows = False
         Me.dtgvshowkkb.AllowUserToDeleteRows = False
+        Me.dtgvshowkkb.BackgroundColor = System.Drawing.Color.White
         Me.dtgvshowkkb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dtgvshowkkb.GridColor = System.Drawing.Color.Black
         Me.dtgvshowkkb.Location = New System.Drawing.Point(13, 33)
         Me.dtgvshowkkb.Name = "dtgvshowkkb"
         Me.dtgvshowkkb.ReadOnly = True
@@ -148,6 +151,7 @@ Partial Class FrmKKB
         '
         'cmd_selectkkb
         '
+        Me.cmd_selectkkb.BackColor = System.Drawing.Color.White
         Me.cmd_selectkkb.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.cmd_selectkkb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_selectkkb.Location = New System.Drawing.Point(319, 4)
@@ -155,7 +159,7 @@ Partial Class FrmKKB
         Me.cmd_selectkkb.Size = New System.Drawing.Size(84, 23)
         Me.cmd_selectkkb.TabIndex = 2
         Me.cmd_selectkkb.Text = "ค้นหา"
-        Me.cmd_selectkkb.UseVisualStyleBackColor = True
+        Me.cmd_selectkkb.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -190,6 +194,7 @@ Partial Class FrmKKB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_bankselkkb)
         Me.Controls.Add(Me.Label1)
@@ -206,6 +211,7 @@ Partial Class FrmKKB
         Me.Controls.Add(Me.cmd_clear)
         Me.Controls.Add(Me.dtgvshowkkb)
         Me.Controls.Add(Me.cmd_selectkkb)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmKKB"
         Me.Text = "ค้นหาเอกสาร KKB"

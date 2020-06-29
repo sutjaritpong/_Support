@@ -232,3 +232,4 @@ E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.cache
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.compiled
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmmanageIP.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmMastermain.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.Frmfillter.resources

@@ -178,7 +178,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5+ezrmU5LswCI0KFJTIyhyNm/s4=</dsig:DigestValue>
+        <dsig:DigestValue>ZBD8rCNIZ07J060q1Jrglcw+I/Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -207,14 +207,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="8349088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="8466848">
       <assemblyIdentity name="SCANDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>1SbvJ9NKZG3QjT4irXkgxUolick=</dsig:DigestValue>
+        <dsig:DigestValue>ABnhQOAomvR8GEO86/3RWaPeLYA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

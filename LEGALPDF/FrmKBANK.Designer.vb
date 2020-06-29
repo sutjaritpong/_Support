@@ -116,6 +116,7 @@ Partial Class FrmKBANK
         '
         'cmd_clear
         '
+        Me.cmd_clear.BackColor = System.Drawing.Color.White
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_clear.Location = New System.Drawing.Point(409, 4)
@@ -123,13 +124,15 @@ Partial Class FrmKBANK
         Me.cmd_clear.Size = New System.Drawing.Size(75, 23)
         Me.cmd_clear.TabIndex = 3
         Me.cmd_clear.Text = "เคลีย"
-        Me.cmd_clear.UseVisualStyleBackColor = True
+        Me.cmd_clear.UseVisualStyleBackColor = False
         '
         'dtgvshowkbank
         '
         Me.dtgvshowkbank.AllowUserToAddRows = False
         Me.dtgvshowkbank.AllowUserToDeleteRows = False
+        Me.dtgvshowkbank.BackgroundColor = System.Drawing.Color.White
         Me.dtgvshowkbank.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dtgvshowkbank.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dtgvshowkbank.Location = New System.Drawing.Point(13, 33)
         Me.dtgvshowkbank.Name = "dtgvshowkbank"
         Me.dtgvshowkbank.ReadOnly = True
@@ -138,6 +141,7 @@ Partial Class FrmKBANK
         '
         'cmd_selectkbank
         '
+        Me.cmd_selectkbank.BackColor = System.Drawing.Color.White
         Me.cmd_selectkbank.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.cmd_selectkbank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_selectkbank.Location = New System.Drawing.Point(319, 4)
@@ -145,7 +149,7 @@ Partial Class FrmKBANK
         Me.cmd_selectkbank.Size = New System.Drawing.Size(84, 23)
         Me.cmd_selectkbank.TabIndex = 2
         Me.cmd_selectkbank.Text = "ค้นหา"
-        Me.cmd_selectkbank.UseVisualStyleBackColor = True
+        Me.cmd_selectkbank.UseVisualStyleBackColor = False
         '
         'AxAcroPDFkbank
         '
@@ -191,6 +195,7 @@ Partial Class FrmKBANK
         Me.AcceptButton = Me.cmd_selectkbank
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_bankselkbank)
         Me.Controls.Add(Me.Label1)
@@ -207,6 +212,7 @@ Partial Class FrmKBANK
         Me.Controls.Add(Me.cmd_clear)
         Me.Controls.Add(Me.dtgvshowkbank)
         Me.Controls.Add(Me.cmd_selectkbank)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmKBANK"
         Me.Text = "ค้นหาเอกสาร KBANK"

@@ -217,6 +217,7 @@ Partial Class FrmAccount
         Me.Controls.Add(Me.Userid)
         Me.Controls.Add(Me.dgvaccount)
         Me.Controls.Add(Me.cmd_register)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmAccount"
         Me.Text = "ตั้งค่าบัญชี"

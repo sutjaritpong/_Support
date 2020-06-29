@@ -108,9 +108,9 @@ Module VBcode
     '## Sub _convertnum ใช้เปลี่ยนตัวเลขเป็นจำนวนเงินมีจุดทศนิยม 2 ตำแหน่ง
 
     Friend Sub _convertnum(_current As Object)
+        If (Str(_current.text) <> "") AndAlso (Not IsNumeric(_current.text)) Then
 
-        If (_current.text <> "") AndAlso (Not IsNumeric(_current.text)) Then
-
+            Exit Sub
 
         Else
 

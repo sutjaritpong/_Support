@@ -126,6 +126,7 @@ Partial Class FrmTSS
         '
         'cmd_clear
         '
+        Me.cmd_clear.BackColor = System.Drawing.Color.White
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_clear.Location = New System.Drawing.Point(409, 4)
@@ -133,13 +134,15 @@ Partial Class FrmTSS
         Me.cmd_clear.Size = New System.Drawing.Size(75, 23)
         Me.cmd_clear.TabIndex = 3
         Me.cmd_clear.Text = "เคลีย"
-        Me.cmd_clear.UseVisualStyleBackColor = True
+        Me.cmd_clear.UseVisualStyleBackColor = False
         '
         'dtgvshowtss
         '
         Me.dtgvshowtss.AllowUserToAddRows = False
         Me.dtgvshowtss.AllowUserToDeleteRows = False
+        Me.dtgvshowtss.BackgroundColor = System.Drawing.Color.White
         Me.dtgvshowtss.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dtgvshowtss.GridColor = System.Drawing.Color.Black
         Me.dtgvshowtss.Location = New System.Drawing.Point(13, 33)
         Me.dtgvshowtss.Name = "dtgvshowtss"
         Me.dtgvshowtss.ReadOnly = True
@@ -148,6 +151,7 @@ Partial Class FrmTSS
         '
         'cmd_selecttss
         '
+        Me.cmd_selecttss.BackColor = System.Drawing.Color.White
         Me.cmd_selecttss.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.cmd_selecttss.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_selecttss.Location = New System.Drawing.Point(319, 4)
@@ -155,7 +159,7 @@ Partial Class FrmTSS
         Me.cmd_selecttss.Size = New System.Drawing.Size(84, 23)
         Me.cmd_selecttss.TabIndex = 2
         Me.cmd_selecttss.Text = "ค้นหา"
-        Me.cmd_selecttss.UseVisualStyleBackColor = True
+        Me.cmd_selecttss.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -190,6 +194,7 @@ Partial Class FrmTSS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_bankseltss)
         Me.Controls.Add(Me.Label1)
@@ -206,6 +211,7 @@ Partial Class FrmTSS
         Me.Controls.Add(Me.cmd_clear)
         Me.Controls.Add(Me.dtgvshowtss)
         Me.Controls.Add(Me.cmd_selecttss)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmTSS"
         Me.Text = "ค้นหาเอกสาร TSS"

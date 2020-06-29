@@ -50,13 +50,14 @@ Partial Class Frmimport
         '
         'cmd_openfile
         '
+        Me.cmd_openfile.BackColor = System.Drawing.Color.White
         Me.cmd_openfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_openfile.Location = New System.Drawing.Point(782, 11)
         Me.cmd_openfile.Name = "cmd_openfile"
         Me.cmd_openfile.Size = New System.Drawing.Size(30, 23)
         Me.cmd_openfile.TabIndex = 1
         Me.cmd_openfile.Text = "..."
-        Me.cmd_openfile.UseVisualStyleBackColor = True
+        Me.cmd_openfile.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -72,7 +73,8 @@ Partial Class Frmimport
         '
         Me.dtgv_view.AllowUserToAddRows = False
         Me.dtgv_view.AllowUserToDeleteRows = False
-        Me.dtgv_view.BackgroundColor = System.Drawing.SystemColors.MenuBar
+        Me.dtgv_view.BackgroundColor = System.Drawing.Color.White
+        Me.dtgv_view.GridColor = System.Drawing.Color.Black
         Me.dtgv_view.Location = New System.Drawing.Point(27, 88)
         Me.dtgv_view.Name = "dtgv_view"
         Me.dtgv_view.ReadOnly = True
@@ -105,21 +107,19 @@ Partial Class Frmimport
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Label3.Location = New System.Drawing.Point(206, 47)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(73, 18)
+        Me.Label3.Size = New System.Drawing.Size(71, 16)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "จำนวนข้อมูล :"
         '
         'lbl_countimport
         '
         Me.lbl_countimport.AutoSize = True
-        Me.lbl_countimport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_countimport.Location = New System.Drawing.Point(285, 49)
         Me.lbl_countimport.Name = "lbl_countimport"
-        Me.lbl_countimport.Size = New System.Drawing.Size(44, 15)
+        Me.lbl_countimport.Size = New System.Drawing.Size(42, 13)
         Me.lbl_countimport.TabIndex = 9
         Me.lbl_countimport.Text = "XXXXX"
         '
@@ -128,6 +128,7 @@ Partial Class Frmimport
         '
         'cmd_toserver
         '
+        Me.cmd_toserver.BackColor = System.Drawing.Color.White
         Me.cmd_toserver.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_toserver.Image = Global.SCANDB.My.Resources.Resources.Upload_24x24
         Me.cmd_toserver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -138,10 +139,11 @@ Partial Class Frmimport
         Me.cmd_toserver.Text = "Send to Server"
         Me.cmd_toserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cmd_toserver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_toserver.UseVisualStyleBackColor = True
+        Me.cmd_toserver.UseVisualStyleBackColor = False
         '
         'cmd_import
         '
+        Me.cmd_import.BackColor = System.Drawing.Color.White
         Me.cmd_import.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_import.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.cmd_import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -151,7 +153,7 @@ Partial Class Frmimport
         Me.cmd_import.TabIndex = 3
         Me.cmd_import.Text = "Import Data"
         Me.cmd_import.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_import.UseVisualStyleBackColor = True
+        Me.cmd_import.UseVisualStyleBackColor = False
         '
         'Main_progressbar
         '
@@ -173,6 +175,7 @@ Partial Class Frmimport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1009, 729)
         Me.Controls.Add(Me.lbl_statusprogress)
         Me.Controls.Add(Me.Main_progressbar)
@@ -186,6 +189,7 @@ Partial Class Frmimport
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmd_openfile)
         Me.Controls.Add(Me.txt_import)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frmimport"
         Me.Text = "โหลดข้อมูลเข้าระบบ"
