@@ -27,7 +27,6 @@ Partial Class FrmInsolvent
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbo_owner = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.txt_company = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -92,7 +91,7 @@ Partial Class FrmInsolvent
         '
         Me.GroupBox1.Controls.Add(Me.cbo_owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 51)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
@@ -121,17 +120,6 @@ Partial Class FrmInsolvent
         Me.Label10.TabIndex = 58
         Me.Label10.Text = "PRODUCT"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label8.Location = New System.Drawing.Point(13, 9)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(270, 37)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "ข้อมูลลูกค้าล้มละลาย"
-        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.txt_company)
@@ -146,7 +134,7 @@ Partial Class FrmInsolvent
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.txt_black)
-        Me.GroupBox4.Location = New System.Drawing.Point(20, 131)
+        Me.GroupBox4.Location = New System.Drawing.Point(14, 92)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
@@ -280,7 +268,7 @@ Partial Class FrmInsolvent
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txt_court_isolvent)
         Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Location = New System.Drawing.Point(341, 131)
+        Me.GroupBox2.Location = New System.Drawing.Point(335, 92)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
@@ -400,7 +388,7 @@ Partial Class FrmInsolvent
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.txt_total)
         Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Location = New System.Drawing.Point(20, 343)
+        Me.GroupBox3.Location = New System.Drawing.Point(14, 304)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(5)
@@ -620,7 +608,7 @@ Partial Class FrmInsolvent
         Me.dtgv_insolvent.AllowUserToDeleteRows = False
         Me.dtgv_insolvent.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgv_insolvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgv_insolvent.Location = New System.Drawing.Point(20, 567)
+        Me.dtgv_insolvent.Location = New System.Drawing.Point(14, 528)
         Me.dtgv_insolvent.Name = "dtgv_insolvent"
         Me.dtgv_insolvent.ReadOnly = True
         Me.dtgv_insolvent.RowHeadersVisible = False
@@ -635,7 +623,7 @@ Partial Class FrmInsolvent
         Me.GroupBox6.Controls.Add(Me.cmd_finds)
         Me.GroupBox6.Controls.Add(Me.cbo_finds)
         Me.GroupBox6.Controls.Add(Me.txt_search)
-        Me.GroupBox6.Location = New System.Drawing.Point(20, 505)
+        Me.GroupBox6.Location = New System.Drawing.Point(14, 466)
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Padding = New System.Windows.Forms.Padding(5)
@@ -713,7 +701,6 @@ Partial Class FrmInsolvent
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -733,14 +720,12 @@ Partial Class FrmInsolvent
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cbo_owner As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents txt_company As TextBox
     Friend WithEvents Label1 As Label

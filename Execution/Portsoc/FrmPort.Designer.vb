@@ -23,7 +23,6 @@ Partial Class FrmPort
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPort))
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.chk_date_send = New System.Windows.Forms.CheckBox()
         Me.cbo_status = New System.Windows.Forms.ComboBox()
@@ -81,17 +80,6 @@ Partial Class FrmPort
         Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Bookman Old Style", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(6, 9)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(419, 44)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "ข้อมูลส่งคัด ประกันสังคม ฟ้องเอง"
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.chk_date_send)
@@ -100,7 +88,7 @@ Partial Class FrmPort
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.dtp_datesend)
         Me.GroupBox2.Controls.Add(Me.Label11)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 321)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 277)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
@@ -173,7 +161,7 @@ Partial Class FrmPort
         '
         Me.GroupBox1.Controls.Add(Me.cbo_owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 58)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 14)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
@@ -213,7 +201,7 @@ Partial Class FrmPort
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.txt_cuscus)
-        Me.GroupBox4.Location = New System.Drawing.Point(14, 130)
+        Me.GroupBox4.Location = New System.Drawing.Point(14, 86)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
@@ -314,7 +302,7 @@ Partial Class FrmPort
         Me.dtgv_exeport.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dtgv_exeport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_exeport.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.dtgv_exeport.Location = New System.Drawing.Point(14, 511)
+        Me.dtgv_exeport.Location = New System.Drawing.Point(14, 467)
         Me.dtgv_exeport.Name = "dtgv_exeport"
         Me.dtgv_exeport.ReadOnly = True
         Me.dtgv_exeport.Size = New System.Drawing.Size(982, 159)
@@ -328,7 +316,7 @@ Partial Class FrmPort
         Me.GroupBox3.Controls.Add(Me.txt_find)
         Me.GroupBox3.Controls.Add(Me.cbo_type_find)
         Me.GroupBox3.Controls.Add(Me.cmd_search)
-        Me.GroupBox3.Location = New System.Drawing.Point(328, 58)
+        Me.GroupBox3.Location = New System.Drawing.Point(328, 14)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(5)
@@ -459,7 +447,7 @@ Partial Class FrmPort
         Me.GroupBox5.Controls.Add(Me.chk_review)
         Me.GroupBox5.Controls.Add(Me.txt_review_description)
         Me.GroupBox5.Controls.Add(Me.Label14)
-        Me.GroupBox5.Location = New System.Drawing.Point(328, 130)
+        Me.GroupBox5.Location = New System.Drawing.Point(328, 86)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(666, 181)
         Me.GroupBox5.TabIndex = 105
@@ -494,7 +482,7 @@ Partial Class FrmPort
         Me.GroupBox6.Controls.Add(Me.Label19)
         Me.GroupBox6.Controls.Add(Me.Label17)
         Me.GroupBox6.Controls.Add(Me.dtp_date_soc)
-        Me.GroupBox6.Location = New System.Drawing.Point(328, 321)
+        Me.GroupBox6.Location = New System.Drawing.Point(328, 277)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(666, 113)
         Me.GroupBox6.TabIndex = 106
@@ -564,7 +552,7 @@ Partial Class FrmPort
         '
         Me.lbl_search.AutoSize = True
         Me.lbl_search.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_search.Location = New System.Drawing.Point(31, 457)
+        Me.lbl_search.Location = New System.Drawing.Point(31, 413)
         Me.lbl_search.Name = "lbl_search"
         Me.lbl_search.Size = New System.Drawing.Size(136, 32)
         Me.lbl_search.TabIndex = 107
@@ -575,7 +563,7 @@ Partial Class FrmPort
         Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(579, 460)
+        Me.cmd_edit.Location = New System.Drawing.Point(579, 416)
         Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(133, 29)
@@ -590,7 +578,7 @@ Partial Class FrmPort
         Me.cmd_cancel.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.arrow_redo
-        Me.cmd_cancel.Location = New System.Drawing.Point(720, 460)
+        Me.cmd_cancel.Location = New System.Drawing.Point(720, 416)
         Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(133, 29)
@@ -605,7 +593,7 @@ Partial Class FrmPort
         Me.cmd_delete.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete1
-        Me.cmd_delete.Location = New System.Drawing.Point(861, 460)
+        Me.cmd_delete.Location = New System.Drawing.Point(861, 416)
         Me.cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_delete.Name = "cmd_delete"
         Me.cmd_delete.Size = New System.Drawing.Size(133, 29)
@@ -620,7 +608,7 @@ Partial Class FrmPort
         Me.cmd_update.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_update.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_update.Location = New System.Drawing.Point(438, 460)
+        Me.cmd_update.Location = New System.Drawing.Point(438, 416)
         Me.cmd_update.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_update.Name = "cmd_update"
         Me.cmd_update.Size = New System.Drawing.Size(133, 29)
@@ -648,7 +636,6 @@ Partial Class FrmPort
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Label8)
         Me.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.Blue
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -673,8 +660,6 @@ Partial Class FrmPort
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dtp_datesend As DateTimePicker
     Friend WithEvents Label11 As Label

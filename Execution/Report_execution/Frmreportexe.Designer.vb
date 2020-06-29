@@ -71,7 +71,7 @@ Partial Class Frmreportexe
         Me.dtgv_reportsm.Name = "dtgv_reportsm"
         Me.dtgv_reportsm.ReadOnly = True
         Me.dtgv_reportsm.RowHeadersVisible = False
-        Me.dtgv_reportsm.Size = New System.Drawing.Size(984, 424)
+        Me.dtgv_reportsm.Size = New System.Drawing.Size(984, 381)
         Me.dtgv_reportsm.TabIndex = 2
         '
         'Label2

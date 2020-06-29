@@ -65,7 +65,6 @@ Partial Class FrmWDS
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_black = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_detail1 = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -101,7 +100,7 @@ Partial Class FrmWDS
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.cbo_owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 77)
+        Me.GroupBox1.Location = New System.Drawing.Point(13, 3)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
@@ -166,7 +165,7 @@ Partial Class FrmWDS
         Me.GroupBox2.Controls.Add(Me.txt_refund)
         Me.GroupBox2.Controls.Add(Me.dtp_daterefund)
         Me.GroupBox2.Controls.Add(Me.txt_status)
-        Me.GroupBox2.Location = New System.Drawing.Point(288, 187)
+        Me.GroupBox2.Location = New System.Drawing.Point(288, 113)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
@@ -338,7 +337,7 @@ Partial Class FrmWDS
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.cbo_empadmin)
         Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Location = New System.Drawing.Point(288, 77)
+        Me.GroupBox3.Location = New System.Drawing.Point(288, 3)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
@@ -410,7 +409,7 @@ Partial Class FrmWDS
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.txt_black)
-        Me.GroupBox4.Location = New System.Drawing.Point(13, 187)
+        Me.GroupBox4.Location = New System.Drawing.Point(13, 113)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
@@ -546,17 +545,6 @@ Partial Class FrmWDS
         Me.txt_black.Size = New System.Drawing.Size(145, 22)
         Me.txt_black.TabIndex = 83
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(360, 9)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(262, 56)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "ถอนอายัด/ยึด"
-        '
         'txt_detail1
         '
         Me.txt_detail1.Location = New System.Drawing.Point(0, 0)
@@ -568,7 +556,7 @@ Partial Class FrmWDS
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Location = New System.Drawing.Point(13, 438)
+        Me.TabControl1.Location = New System.Drawing.Point(13, 364)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(316, 140)
@@ -593,17 +581,17 @@ Partial Class FrmWDS
         Me.dtgv_data.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dtgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_data.GridColor = System.Drawing.SystemColors.MenuText
-        Me.dtgv_data.Location = New System.Drawing.Point(624, 187)
+        Me.dtgv_data.Location = New System.Drawing.Point(624, 113)
         Me.dtgv_data.Name = "dtgv_data"
         Me.dtgv_data.ReadOnly = True
         Me.dtgv_data.RowHeadersVisible = False
-        Me.dtgv_data.Size = New System.Drawing.Size(359, 492)
+        Me.dtgv_data.Size = New System.Drawing.Size(372, 492)
         Me.dtgv_data.TabIndex = 95
         '
         'datetimestart
         '
         Me.datetimestart.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.datetimestart.Location = New System.Drawing.Point(712, 130)
+        Me.datetimestart.Location = New System.Drawing.Point(712, 56)
         Me.datetimestart.Name = "datetimestart"
         Me.datetimestart.Size = New System.Drawing.Size(116, 22)
         Me.datetimestart.TabIndex = 98
@@ -611,7 +599,7 @@ Partial Class FrmWDS
         'datetimefinish
         '
         Me.datetimefinish.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.datetimefinish.Location = New System.Drawing.Point(712, 158)
+        Me.datetimefinish.Location = New System.Drawing.Point(712, 84)
         Me.datetimefinish.Name = "datetimefinish"
         Me.datetimefinish.Size = New System.Drawing.Size(116, 22)
         Me.datetimefinish.TabIndex = 97
@@ -622,7 +610,7 @@ Partial Class FrmWDS
         Me.Label7.BackColor = System.Drawing.SystemColors.Window
         Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Blue
-        Me.Label7.Location = New System.Drawing.Point(654, 132)
+        Me.Label7.Location = New System.Drawing.Point(654, 58)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(50, 18)
         Me.Label7.TabIndex = 94
@@ -634,7 +622,7 @@ Partial Class FrmWDS
         Me.Label9.BackColor = System.Drawing.SystemColors.Window
         Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Blue
-        Me.Label9.Location = New System.Drawing.Point(647, 159)
+        Me.Label9.Location = New System.Drawing.Point(647, 85)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(57, 18)
         Me.Label9.TabIndex = 99
@@ -644,7 +632,7 @@ Partial Class FrmWDS
         '
         Me.cbo_product.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_product.FormattingEnabled = True
-        Me.cbo_product.Location = New System.Drawing.Point(712, 98)
+        Me.cbo_product.Location = New System.Drawing.Point(712, 24)
         Me.cbo_product.Name = "cbo_product"
         Me.cbo_product.Size = New System.Drawing.Size(116, 24)
         Me.cbo_product.TabIndex = 95
@@ -655,7 +643,7 @@ Partial Class FrmWDS
         Me.Label11.BackColor = System.Drawing.SystemColors.Window
         Me.Label11.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Blue
-        Me.Label11.Location = New System.Drawing.Point(628, 100)
+        Me.Label11.Location = New System.Drawing.Point(628, 26)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(76, 16)
         Me.Label11.TabIndex = 94
@@ -667,7 +655,7 @@ Partial Class FrmWDS
         Me.cmd_datediff.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_datediff.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_datediff.Image = Global.SCANDB.My.Resources.Resources.coins_delete
-        Me.cmd_datediff.Location = New System.Drawing.Point(288, 631)
+        Me.cmd_datediff.Location = New System.Drawing.Point(288, 557)
         Me.cmd_datediff.Name = "cmd_datediff"
         Me.cmd_datediff.Size = New System.Drawing.Size(194, 29)
         Me.cmd_datediff.TabIndex = 104
@@ -682,7 +670,7 @@ Partial Class FrmWDS
         Me.cmd_detele.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_detele.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_detele.Image = Global.SCANDB.My.Resources.Resources.page_delete
-        Me.cmd_detele.Location = New System.Drawing.Point(152, 631)
+        Me.cmd_detele.Location = New System.Drawing.Point(152, 557)
         Me.cmd_detele.Name = "cmd_detele"
         Me.cmd_detele.Size = New System.Drawing.Size(133, 29)
         Me.cmd_detele.TabIndex = 103
@@ -697,7 +685,7 @@ Partial Class FrmWDS
         Me.cmd_addnew.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_addnew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_addnew.Image = Global.SCANDB.My.Resources.Resources.page_add
-        Me.cmd_addnew.Location = New System.Drawing.Point(12, 631)
+        Me.cmd_addnew.Location = New System.Drawing.Point(12, 557)
         Me.cmd_addnew.Name = "cmd_addnew"
         Me.cmd_addnew.Size = New System.Drawing.Size(133, 29)
         Me.cmd_addnew.TabIndex = 102
@@ -712,7 +700,7 @@ Partial Class FrmWDS
         Me.cmd_searchdate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_searchdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_searchdate.Image = Global.SCANDB.My.Resources.Resources.calendar_empty
-        Me.cmd_searchdate.Location = New System.Drawing.Point(847, 137)
+        Me.cmd_searchdate.Location = New System.Drawing.Point(847, 63)
         Me.cmd_searchdate.Name = "cmd_searchdate"
         Me.cmd_searchdate.Size = New System.Drawing.Size(116, 35)
         Me.cmd_searchdate.TabIndex = 101
@@ -727,7 +715,7 @@ Partial Class FrmWDS
         Me.cmd_search.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.folder_find1
-        Me.cmd_search.Location = New System.Drawing.Point(847, 98)
+        Me.cmd_search.Location = New System.Drawing.Point(847, 24)
         Me.cmd_search.Name = "cmd_search"
         Me.cmd_search.Size = New System.Drawing.Size(116, 26)
         Me.cmd_search.TabIndex = 100
@@ -742,7 +730,7 @@ Partial Class FrmWDS
         Me.cmd_edit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(152, 596)
+        Me.cmd_edit.Location = New System.Drawing.Point(152, 522)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(133, 29)
         Me.cmd_edit.TabIndex = 94
@@ -757,7 +745,7 @@ Partial Class FrmWDS
         Me.cmd_find.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_find.Image = Global.SCANDB.My.Resources.Resources.folder_explore
-        Me.cmd_find.Location = New System.Drawing.Point(427, 596)
+        Me.cmd_find.Location = New System.Drawing.Point(427, 522)
         Me.cmd_find.Name = "cmd_find"
         Me.cmd_find.Size = New System.Drawing.Size(133, 29)
         Me.cmd_find.TabIndex = 93
@@ -772,7 +760,7 @@ Partial Class FrmWDS
         Me.cmd_cancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.refresh
-        Me.cmd_cancel.Location = New System.Drawing.Point(288, 596)
+        Me.cmd_cancel.Location = New System.Drawing.Point(288, 522)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(133, 29)
         Me.cmd_cancel.TabIndex = 75
@@ -787,7 +775,7 @@ Partial Class FrmWDS
         Me.cmd_save.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_save.Location = New System.Drawing.Point(13, 596)
+        Me.cmd_save.Location = New System.Drawing.Point(13, 522)
         Me.cmd_save.Name = "cmd_save"
         Me.cmd_save.Size = New System.Drawing.Size(133, 29)
         Me.cmd_save.TabIndex = 74
@@ -819,7 +807,6 @@ Partial Class FrmWDS
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.cmd_cancel)
         Me.Controls.Add(Me.cmd_save)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox4)
@@ -852,7 +839,6 @@ Partial Class FrmWDS
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents txt_cusacc As TextBox
     Friend WithEvents lbl_cusacc As Label
     Friend WithEvents txt_cuscus As TextBox

@@ -56,7 +56,6 @@ Partial Class FrmEXEACC
         Me.lbl_count = New System.Windows.Forms.Label()
         Me.lbl_datetoday = New System.Windows.Forms.Label()
         Me.lbl_timer = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -104,7 +103,7 @@ Partial Class FrmEXEACC
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.txt_black)
-        Me.GroupBox4.Location = New System.Drawing.Point(33, 135)
+        Me.GroupBox4.Location = New System.Drawing.Point(14, 91)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
@@ -229,7 +228,7 @@ Partial Class FrmEXEACC
         '
         Me.GroupBox1.Controls.Add(Me.cbo_owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(33, 58)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 14)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
@@ -307,11 +306,13 @@ Partial Class FrmEXEACC
         '
         Me.dtgv_exeacc.AllowUserToAddRows = False
         Me.dtgv_exeacc.AllowUserToDeleteRows = False
+        Me.dtgv_exeacc.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_exeacc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgv_exeacc.Location = New System.Drawing.Point(33, 547)
+        Me.dtgv_exeacc.GridColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.dtgv_exeacc.Location = New System.Drawing.Point(14, 509)
         Me.dtgv_exeacc.Name = "dtgv_exeacc"
         Me.dtgv_exeacc.ReadOnly = True
-        Me.dtgv_exeacc.Size = New System.Drawing.Size(941, 138)
+        Me.dtgv_exeacc.Size = New System.Drawing.Size(789, 138)
         Me.dtgv_exeacc.TabIndex = 86
         '
         'GroupBox3
@@ -321,7 +322,7 @@ Partial Class FrmEXEACC
         Me.GroupBox3.Controls.Add(Me.cmd_edit)
         Me.GroupBox3.Controls.Add(Me.cmd_cancel)
         Me.GroupBox3.Controls.Add(Me.cmd_save)
-        Me.GroupBox3.Location = New System.Drawing.Point(829, 134)
+        Me.GroupBox3.Location = New System.Drawing.Point(858, 124)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -410,7 +411,7 @@ Partial Class FrmEXEACC
         Me.Group_detail.Controls.Add(Me.lbl_count)
         Me.Group_detail.Controls.Add(Me.lbl_datetoday)
         Me.Group_detail.Controls.Add(Me.lbl_timer)
-        Me.Group_detail.Location = New System.Drawing.Point(829, 12)
+        Me.Group_detail.Location = New System.Drawing.Point(858, 2)
         Me.Group_detail.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Group_detail.Name = "Group_detail"
         Me.Group_detail.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -460,17 +461,6 @@ Partial Class FrmEXEACC
         Me.lbl_timer.Text = "Time"
         Me.lbl_timer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label8.Location = New System.Drawing.Point(26, 12)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(290, 37)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "ข้อมูลบังคับคดีตั้งเรื่อง"
-        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.Label13)
@@ -478,7 +468,7 @@ Partial Class FrmEXEACC
         Me.GroupBox5.Controls.Add(Me.cmd_search)
         Me.GroupBox5.Controls.Add(Me.cbo_search)
         Me.GroupBox5.Controls.Add(Me.txt_search)
-        Me.GroupBox5.Location = New System.Drawing.Point(33, 480)
+        Me.GroupBox5.Location = New System.Drawing.Point(14, 436)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(5)
@@ -639,7 +629,7 @@ Partial Class FrmEXEACC
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(352, 58)
+        Me.TabControl1.Location = New System.Drawing.Point(333, 14)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(470, 171)
@@ -693,7 +683,7 @@ Partial Class FrmEXEACC
         '
         Me.lbl_count_find.AutoSize = True
         Me.lbl_count_find.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_count_find.Location = New System.Drawing.Point(27, 433)
+        Me.lbl_count_find.Location = New System.Drawing.Point(19, 386)
         Me.lbl_count_find.Name = "lbl_count_find"
         Me.lbl_count_find.Size = New System.Drawing.Size(136, 32)
         Me.lbl_count_find.TabIndex = 141
@@ -709,7 +699,6 @@ Partial Class FrmEXEACC
         Me.Controls.Add(Me.lbl_count_find)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox5)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Group_detail)
         Me.Controls.Add(Me.dtgv_exeacc)
@@ -771,7 +760,6 @@ Partial Class FrmEXEACC
     Friend WithEvents lbl_count As Label
     Friend WithEvents lbl_datetoday As Label
     Friend WithEvents lbl_timer As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label

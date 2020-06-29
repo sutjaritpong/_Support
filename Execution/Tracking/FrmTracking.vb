@@ -388,10 +388,23 @@ Public Class FrmTracking
 
     End Sub
 
+
     Private Sub FrmTracking_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         cn.Close()
         Me.Dispose()
 
+    End Sub
+
+    Private Sub cmd_filter_Click(sender As Object, e As EventArgs) Handles cmd_filter.Click
+
+        If Application.OpenForms().OfType(Of Frmfilter).Any Then
+
+            Frmfilter.Focus()
+        Else
+            Frmfilter.ShowDialog()
+            Frmfilter.StartPosition = FormStartPosition.CenterScreen
+
+        End If
     End Sub
 End Class

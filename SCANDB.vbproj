@@ -117,10 +117,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Execution\Tracking\Frmfillter.Designer.vb">
-      <DependentUpon>Frmfillter.vb</DependentUpon>
+    <Compile Include="Execution\Tracking\Frmfilter.Designer.vb">
+      <DependentUpon>Frmfilter.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Tracking\Frmfillter.vb">
+    <Compile Include="Execution\Tracking\Frmfilter.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ITSupport\FrmmanageIP.designer.vb">
@@ -351,8 +351,8 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Execution\Tracking\Frmfillter.resx">
-      <DependentUpon>Frmfillter.vb</DependentUpon>
+    <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
+      <DependentUpon>Frmfilter.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ITSupport\FrmmanageIP.resx">
       <DependentUpon>FrmmanageIP.vb</DependentUpon>
@@ -758,6 +758,7 @@
     <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
     <None Include="Resources\server_error.png" />
     <None Include="Resources\server_connect.png" />
+    <None Include="Resources\filter-icon16x16.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,6 @@ Partial Class FrmAccountingKBANK
         Me.cbo_search = New System.Windows.Forms.ComboBox()
         Me.txt_search = New System.Windows.Forms.TextBox()
         Me.dtgv_invoice_list = New System.Windows.Forms.DataGridView()
-        Me.lbl_search = New System.Windows.Forms.Label()
         Me.Grb_detail = New System.Windows.Forms.GroupBox()
         Me.cmd_find_scan = New System.Windows.Forms.Button()
         Me.txt_invoice2 = New System.Windows.Forms.TextBox()
@@ -61,6 +60,7 @@ Partial Class FrmAccountingKBANK
         Me.txt_order = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgv_find_scan = New System.Windows.Forms.DataGridView()
+        Me.lbl_search = New System.Windows.Forms.Label()
         CType(Me.Ax_pdf_invoice, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dtgv_invoice_list, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +74,7 @@ Partial Class FrmAccountingKBANK
         Me.Ax_pdf_invoice.Location = New System.Drawing.Point(406, 52)
         Me.Ax_pdf_invoice.Name = "Ax_pdf_invoice"
         Me.Ax_pdf_invoice.OcxState = CType(resources.GetObject("Ax_pdf_invoice.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.Ax_pdf_invoice.Size = New System.Drawing.Size(602, 676)
+        Me.Ax_pdf_invoice.Size = New System.Drawing.Size(602, 652)
         Me.Ax_pdf_invoice.TabIndex = 0
         Me.Ax_pdf_invoice.Visible = False
         '
@@ -154,24 +154,13 @@ Partial Class FrmAccountingKBANK
         Me.dtgv_invoice_list.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_invoice_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_invoice_list.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.dtgv_invoice_list.Location = New System.Drawing.Point(1, 52)
+        Me.dtgv_invoice_list.Location = New System.Drawing.Point(0, 52)
         Me.dtgv_invoice_list.Name = "dtgv_invoice_list"
         Me.dtgv_invoice_list.ReadOnly = True
         Me.dtgv_invoice_list.RowHeadersVisible = False
         Me.dtgv_invoice_list.Size = New System.Drawing.Size(295, 134)
         Me.dtgv_invoice_list.TabIndex = 79
         Me.dtgv_invoice_list.Visible = False
-        '
-        'lbl_search
-        '
-        Me.lbl_search.AutoSize = True
-        Me.lbl_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lbl_search.Location = New System.Drawing.Point(13, 12)
-        Me.lbl_search.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_search.Name = "lbl_search"
-        Me.lbl_search.Size = New System.Drawing.Size(356, 31)
-        Me.lbl_search.TabIndex = 80
-        Me.lbl_search.Text = "ค้นหาเอกสารเบิก-จ่าย KBANK"
         '
         'Grb_detail
         '
@@ -202,7 +191,7 @@ Partial Class FrmAccountingKBANK
         Me.Grb_detail.Controls.Add(Me.Label7)
         Me.Grb_detail.Controls.Add(Me.txt_order)
         Me.Grb_detail.Controls.Add(Me.Label1)
-        Me.Grb_detail.Location = New System.Drawing.Point(1, 194)
+        Me.Grb_detail.Location = New System.Drawing.Point(0, 194)
         Me.Grb_detail.Margin = New System.Windows.Forms.Padding(5)
         Me.Grb_detail.Name = "Grb_detail"
         Me.Grb_detail.Padding = New System.Windows.Forms.Padding(5)
@@ -491,7 +480,7 @@ Partial Class FrmAccountingKBANK
         Me.dtgv_find_scan.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_find_scan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_find_scan.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.dtgv_find_scan.Location = New System.Drawing.Point(296, 52)
+        Me.dtgv_find_scan.Location = New System.Drawing.Point(295, 52)
         Me.dtgv_find_scan.Name = "dtgv_find_scan"
         Me.dtgv_find_scan.ReadOnly = True
         Me.dtgv_find_scan.RowHeadersVisible = False
@@ -499,6 +488,17 @@ Partial Class FrmAccountingKBANK
         Me.dtgv_find_scan.Size = New System.Drawing.Size(110, 134)
         Me.dtgv_find_scan.TabIndex = 88
         Me.dtgv_find_scan.Visible = False
+        '
+        'lbl_search
+        '
+        Me.lbl_search.AutoSize = True
+        Me.lbl_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.lbl_search.Location = New System.Drawing.Point(12, 14)
+        Me.lbl_search.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_search.Name = "lbl_search"
+        Me.lbl_search.Size = New System.Drawing.Size(283, 25)
+        Me.lbl_search.TabIndex = 80
+        Me.lbl_search.Text = "ค้นหาเอกสารเบิก-จ่าย KBANK"
         '
         'FrmAccountingKBANK
         '
@@ -537,7 +537,6 @@ Partial Class FrmAccountingKBANK
     Friend WithEvents cbo_search As ComboBox
     Friend WithEvents txt_search As TextBox
     Friend WithEvents dtgv_invoice_list As DataGridView
-    Friend WithEvents lbl_search As Label
     Friend WithEvents Grb_detail As GroupBox
     Friend WithEvents txt_type_master As TextBox
     Friend WithEvents Label11 As Label
@@ -567,4 +566,5 @@ Partial Class FrmAccountingKBANK
     Friend WithEvents cmd_find_scan As Button
     Friend WithEvents dtgv_find_scan As DataGridView
     Friend WithEvents txt_invoice2 As TextBox
+    Friend WithEvents lbl_search As Label
 End Class

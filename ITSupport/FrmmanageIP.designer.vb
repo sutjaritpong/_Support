@@ -68,7 +68,7 @@ Partial Class FrmmanageIP
         '
         Me.dtgvip.AllowUserToAddRows = False
         Me.dtgvip.AllowUserToDeleteRows = False
-        Me.dtgvip.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.dtgvip.BackgroundColor = System.Drawing.Color.Black
         Me.dtgvip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dtgvip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -485,7 +485,7 @@ Partial Class FrmmanageIP
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.WindowText
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1136, 825)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)

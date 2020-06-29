@@ -31,7 +31,6 @@ Partial Class FrmExecution
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbo_type = New System.Windows.Forms.ComboBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.dtgv_search = New System.Windows.Forms.DataGridView()
         Me.Group_detail = New System.Windows.Forms.GroupBox()
         Me.lbl_count = New System.Windows.Forms.Label()
@@ -123,7 +122,7 @@ Partial Class FrmExecution
         Me.Group_search.Controls.Add(Me.Label2)
         Me.Group_search.Controls.Add(Me.cbo_type)
         Me.Group_search.Controls.Add(Me.Label1)
-        Me.Group_search.Location = New System.Drawing.Point(5, 42)
+        Me.Group_search.Location = New System.Drawing.Point(3, 3)
         Me.Group_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Group_search.Name = "Group_search"
         Me.Group_search.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
@@ -180,17 +179,6 @@ Partial Class FrmExecution
         '
         Me.Timer1.Enabled = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.Location = New System.Drawing.Point(7, 4)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(345, 37)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "ข้อมูลแถลงทำบัญชี-รับจ่าย"
-        '
         'dtgv_search
         '
         Me.dtgv_search.AllowUserToAddRows = False
@@ -198,7 +186,7 @@ Partial Class FrmExecution
         Me.dtgv_search.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dtgv_search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_search.GridColor = System.Drawing.Color.Black
-        Me.dtgv_search.Location = New System.Drawing.Point(5, 88)
+        Me.dtgv_search.Location = New System.Drawing.Point(3, 49)
         Me.dtgv_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.dtgv_search.Name = "dtgv_search"
         Me.dtgv_search.ReadOnly = True
@@ -211,7 +199,7 @@ Partial Class FrmExecution
         Me.Group_detail.Controls.Add(Me.lbl_count)
         Me.Group_detail.Controls.Add(Me.lbl_datetoday)
         Me.Group_detail.Controls.Add(Me.lbl_timer)
-        Me.Group_detail.Location = New System.Drawing.Point(834, 42)
+        Me.Group_detail.Location = New System.Drawing.Point(832, 3)
         Me.Group_detail.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Group_detail.Name = "Group_detail"
         Me.Group_detail.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
@@ -267,7 +255,7 @@ Partial Class FrmExecution
         Me.GroupBox2.Controls.Add(Me.cmd_edit)
         Me.GroupBox2.Controls.Add(Me.cmd_cancel)
         Me.GroupBox2.Controls.Add(Me.cmd_save)
-        Me.GroupBox2.Location = New System.Drawing.Point(834, 174)
+        Me.GroupBox2.Location = New System.Drawing.Point(832, 135)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5, 3, 5, 3)
@@ -395,7 +383,7 @@ Partial Class FrmExecution
         Me.GroupBox1.Controls.Add(Me.Label23)
         Me.GroupBox1.Controls.Add(Me.dtp_tracking_date)
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox1.Location = New System.Drawing.Point(5, 207)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 168)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(819, 506)
         Me.GroupBox1.TabIndex = 9
@@ -784,7 +772,7 @@ Partial Class FrmExecution
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.SystemColors.Window
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label5.Location = New System.Drawing.Point(486, 22)
+        Me.Label5.Location = New System.Drawing.Point(486, 21)
         Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(73, 16)
@@ -796,7 +784,7 @@ Partial Class FrmExecution
         Me.Label24.AutoSize = True
         Me.Label24.BackColor = System.Drawing.SystemColors.Window
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label24.Location = New System.Drawing.Point(439, 437)
+        Me.Label24.Location = New System.Drawing.Point(433, 397)
         Me.Label24.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(126, 16)
@@ -834,7 +822,7 @@ Partial Class FrmExecution
         Me.txt_verify_comment.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_verify_comment.Multiline = True
         Me.txt_verify_comment.Name = "txt_verify_comment"
-        Me.txt_verify_comment.Size = New System.Drawing.Size(238, 72)
+        Me.txt_verify_comment.Size = New System.Drawing.Size(237, 40)
         Me.txt_verify_comment.TabIndex = 32
         '
         'Label19
@@ -898,11 +886,11 @@ Partial Class FrmExecution
         '
         Me.txt_detail1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txt_detail1.ForeColor = System.Drawing.Color.Blue
-        Me.txt_detail1.Location = New System.Drawing.Point(571, 437)
+        Me.txt_detail1.Location = New System.Drawing.Point(571, 397)
         Me.txt_detail1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_detail1.Multiline = True
         Me.txt_detail1.Name = "txt_detail1"
-        Me.txt_detail1.Size = New System.Drawing.Size(237, 54)
+        Me.txt_detail1.Size = New System.Drawing.Size(237, 30)
         Me.txt_detail1.TabIndex = 21
         '
         'Label8
@@ -931,7 +919,7 @@ Partial Class FrmExecution
         '
         Me.txt_employee.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txt_employee.ForeColor = System.Drawing.Color.Blue
-        Me.txt_employee.Location = New System.Drawing.Point(142, 464)
+        Me.txt_employee.Location = New System.Drawing.Point(142, 461)
         Me.txt_employee.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.txt_employee.Name = "txt_employee"
         Me.txt_employee.Size = New System.Drawing.Size(230, 22)
@@ -1030,7 +1018,6 @@ Partial Class FrmExecution
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Group_detail)
         Me.Controls.Add(Me.dtgv_search)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Group_search)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.ForeColor = System.Drawing.Color.Blue
@@ -1046,7 +1033,6 @@ Partial Class FrmExecution
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -1057,7 +1043,6 @@ Partial Class FrmExecution
     Friend WithEvents Label2 As Label
     Friend WithEvents cbo_type As ComboBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label3 As Label
     Friend WithEvents dtgv_search As DataGridView
     Friend WithEvents Group_detail As GroupBox
     Friend WithEvents lbl_datetoday As Label

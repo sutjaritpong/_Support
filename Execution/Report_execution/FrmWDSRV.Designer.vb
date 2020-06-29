@@ -26,16 +26,31 @@ Partial Class FrmWDSRV
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWDSRV))
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.SCANPDF = New SCANDB.SCANPDF()
         Me.EXECHECKBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EXECHECKTableAdapter = New SCANDB.SCANPDFTableAdapters.EXECHECKTableAdapter()
+        Me.SCANPDF = New SCANDB.SCANPDF()
         Me.EXEWDSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.EXECHECKTableAdapter = New SCANDB.SCANPDFTableAdapters.EXECHECKTableAdapter()
         Me.EXEWDSTableAdapter = New SCANDB.SCANPDFTableAdapters.EXEWDSTableAdapter()
-        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXECHECKBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXEWDSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EXECHECKBindingSource
+        '
+        Me.EXECHECKBindingSource.DataMember = "EXECHECK"
+        Me.EXECHECKBindingSource.DataSource = Me.SCANPDF
+        '
+        'SCANPDF
+        '
+        Me.SCANPDF.DataSetName = "SCANPDF"
+        Me.SCANPDF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EXEWDSBindingSource
+        '
+        Me.EXEWDSBindingSource.DataMember = "EXEWDS"
+        Me.EXEWDSBindingSource.DataSource = Me.SCANPDF
         '
         'ReportViewer1
         '
@@ -48,27 +63,12 @@ Partial Class FrmWDSRV
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SCANDB.ReportWDS.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(1, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1007, 729)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1007, 701)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'SCANPDF
-        '
-        Me.SCANPDF.DataSetName = "SCANPDF"
-        Me.SCANPDF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EXECHECKBindingSource
-        '
-        Me.EXECHECKBindingSource.DataMember = "EXECHECK"
-        Me.EXECHECKBindingSource.DataSource = Me.SCANPDF
         '
         'EXECHECKTableAdapter
         '
         Me.EXECHECKTableAdapter.ClearBeforeFill = True
-        '
-        'EXEWDSBindingSource
-        '
-        Me.EXEWDSBindingSource.DataMember = "EXEWDS"
-        Me.EXEWDSBindingSource.DataSource = Me.SCANPDF
         '
         'EXEWDSTableAdapter
         '
@@ -83,8 +83,8 @@ Partial Class FrmWDSRV
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmWDSRV"
         Me.Text = "Report (รายงานถอนอายัด/ยึด)"
-        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EXECHECKBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EXEWDSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

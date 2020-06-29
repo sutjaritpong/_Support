@@ -34,7 +34,6 @@ Partial Class Frmownership
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbo_owner = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -77,7 +76,7 @@ Partial Class Frmownership
         Me.GroupBox4.Controls.Add(Me.txt_cusname)
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Location = New System.Drawing.Point(14, 152)
+        Me.GroupBox4.Location = New System.Drawing.Point(14, 91)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
@@ -149,7 +148,7 @@ Partial Class Frmownership
         '
         Me.GroupBox1.Controls.Add(Me.cbo_owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 75)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 14)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
@@ -178,17 +177,6 @@ Partial Class Frmownership
         Me.Label10.TabIndex = 58
         Me.Label10.Text = "PRODUCT"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label8.Location = New System.Drawing.Point(11, 20)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(248, 37)
-        Me.Label8.TabIndex = 77
-        Me.Label8.Text = "ข้อมูลสืบกรรมสิทธิ์"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Label13)
@@ -196,7 +184,7 @@ Partial Class Frmownership
         Me.GroupBox3.Controls.Add(Me.txt_find)
         Me.GroupBox3.Controls.Add(Me.cbo_type_find)
         Me.GroupBox3.Controls.Add(Me.cmd_search)
-        Me.GroupBox3.Location = New System.Drawing.Point(335, 75)
+        Me.GroupBox3.Location = New System.Drawing.Point(335, 14)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(5)
@@ -265,7 +253,7 @@ Partial Class Frmownership
         Me.GroupBox2.Controls.Add(Me.txt_result)
         Me.GroupBox2.Controls.Add(Me.dtp_date_review)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(335, 152)
+        Me.GroupBox2.Location = New System.Drawing.Point(335, 91)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
@@ -328,7 +316,7 @@ Partial Class Frmownership
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.cbo_deed)
         Me.GroupBox5.Controls.Add(Me.Label2)
-        Me.GroupBox5.Location = New System.Drawing.Point(14, 281)
+        Me.GroupBox5.Location = New System.Drawing.Point(14, 220)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(5)
@@ -462,7 +450,7 @@ Partial Class Frmownership
         Me.dtgv_search.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dtgv_search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_search.GridColor = System.Drawing.Color.Black
-        Me.dtgv_search.Location = New System.Drawing.Point(14, 554)
+        Me.dtgv_search.Location = New System.Drawing.Point(14, 493)
         Me.dtgv_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.dtgv_search.Name = "dtgv_search"
         Me.dtgv_search.ReadOnly = True
@@ -482,7 +470,7 @@ Partial Class Frmownership
         '
         Me.lbl_count_find.AutoSize = True
         Me.lbl_count_find.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_count_find.Location = New System.Drawing.Point(12, 519)
+        Me.lbl_count_find.Location = New System.Drawing.Point(12, 458)
         Me.lbl_count_find.Name = "lbl_count_find"
         Me.lbl_count_find.Size = New System.Drawing.Size(136, 32)
         Me.lbl_count_find.TabIndex = 142
@@ -499,7 +487,6 @@ Partial Class Frmownership
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox1)
         Me.ForeColor = System.Drawing.Color.Blue
@@ -532,7 +519,6 @@ Partial Class Frmownership
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cbo_owner As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
