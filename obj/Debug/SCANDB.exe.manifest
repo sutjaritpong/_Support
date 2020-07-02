@@ -70,7 +70,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>t7OT9WEOCcqKuwebueFi3ey/am0=</dsig:DigestValue>
+        <dsig:DigestValue>AJDgyQwdIWiuH49lF3LJr39E+Ks=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -82,7 +82,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>PUNVgFqY0BMcvQCugSY/g5hFa3M=</dsig:DigestValue>
+        <dsig:DigestValue>v/hi8Xsp9/OQUHPuORAtF9QKGD0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -166,7 +166,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>fjVKYzWGR+JpT4QFJzz+0EuWECY=</dsig:DigestValue>
+        <dsig:DigestValue>q6N2w8IpCBrZgiWyAf7w8Mxs5nY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -178,7 +178,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZBD8rCNIZ07J060q1Jrglcw+I/Q=</dsig:DigestValue>
+        <dsig:DigestValue>QH+dDfacu5puQ0coO92s7HI2Z/Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -207,14 +207,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="9291680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SCANDB.exe" size="9288608">
       <assemblyIdentity name="SCANDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>CKJs5QGKzFVsaBIYJfup1wq9Vjc=</dsig:DigestValue>
+        <dsig:DigestValue>MVTBx09OOtOxqKdAKPDB7G1ctVI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -227,13 +227,13 @@
       <dsig:DigestValue>/CcMsbbCnHv4C7QQ8fYhW788Sng=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SCANDB.exe.config" size="1182">
+  <file name="SCANDB.exe.config" size="1160">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>sLHSNHKBAcQROXK2g+uJelfcSRk=</dsig:DigestValue>
+      <dsig:DigestValue>Or5H6yNA1R2LEh9yJJmnvGdLXt8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="search_page.ico" size="67646">
