@@ -18,6 +18,7 @@ Public Class FrmMastermain
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
         connect()
         _Getlogdata("LOGIN")
         Me.WindowState = FormWindowState.Maximized              '// ทำให้ Form หลักมีขนาดเต็มจอ
@@ -94,6 +95,7 @@ Public Class FrmMastermain
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         txt_timer.Text = DateAndTime.TimeString                     '//ตั้งเวลาโปรแกรม
+
         txt_datetoday.Text = DateAndTime.Today.ToShortDateString        '//ตั้งเวลาวันที่ 
     End Sub
 
@@ -260,6 +262,22 @@ Public Class FrmMastermain
 
     Private Sub IPManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IPManagement.Click
         With FrmmanageIP
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub Menu_Reportracking_Click(sender As Object, e As EventArgs) Handles Menu_Reportracking.Click
+        With FrmTrackRV
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub Menu_ReportAccounting_Click(sender As Object, e As EventArgs) Handles Menu_ReportAccounting.Click
+        With FrmAccountingRV
             .MdiParent = Me
             .Show()
             .WindowState = FormWindowState.Maximized

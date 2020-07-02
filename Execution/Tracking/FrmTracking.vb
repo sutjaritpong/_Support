@@ -3,6 +3,13 @@ Public Class FrmTracking
     '## Sub Load นำข้อมูลจาก Array เพิ่มไปใน Sub _cboArray ใช้เพิ่มข้อมูล ใน Combobox' 
     Private Sub FrmTracking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_date_send)
+        _Datetimeformatshort(dtp_date_verify)
+        _Datetimeformatshort(dtp_date_work)
+
+
+
         '## เพิ่มข้อมูลลงใน Combobox โดยใช้ Array และ Method .items.addrange() นำมาสร้างเป็น Sub _cboArray และ ใช้การเพิ่มข้อมูลจาก Columns โดยดึงข้อมูลจาก Database มาแล้วใช้ Method command.ExecuteReader() อ่านข้อมูลใน คอลัมน์ ที่ Query มา แล้วนำมาแสดงโดยการใช้ While Loop ##'
 
         _cleardatagrid(dtgv_tracking)
@@ -182,7 +189,7 @@ Public Class FrmTracking
 
         connect()
 
-        Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ"}
+        Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ", "วันที่ลงข้อมูล"}
 
         Dim _datetime As DateTime = dtp_date_verify.Text
         Dim acckey As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime}"
@@ -206,7 +213,7 @@ Public Class FrmTracking
         DA.Fill(DS, "_emp")
 
 
-        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend,@other)"
+        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend,@other,@datework)"
 
         With cmd
             .CommandText = sql
@@ -223,7 +230,7 @@ Public Class FrmTracking
             .Parameters.AddWithValue("nodoc", cbo_document.Text)
             .Parameters.AddWithValue("nosend", cbo_waning.Text)
             .Parameters.AddWithValue("other", txt_detail.Text)
-
+            .Parameters.AddWithValue("datework", dtp_date_work.Text)
             Dim _query As Integer = .ExecuteNonQuery()
 
             If _query = -1 Then

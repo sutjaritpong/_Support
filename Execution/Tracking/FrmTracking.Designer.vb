@@ -59,6 +59,8 @@ Partial Class FrmTracking
         Me.lbl_invalid = New System.Windows.Forms.Label()
         Me.lbl_tracking = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.dtp_date_work = New System.Windows.Forms.DateTimePicker()
         Me.cmd_filter = New System.Windows.Forms.Button()
         CType(Me.dtgv_tracking, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgv_invalid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,7 +141,7 @@ Partial Class FrmTracking
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.SystemColors.Window
         Me.Label16.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(77, 127)
+        Me.Label16.Location = New System.Drawing.Point(77, 130)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(28, 18)
         Me.Label16.TabIndex = 116
@@ -251,18 +253,18 @@ Partial Class FrmTracking
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.Window
         Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(321, 104)
+        Me.Label2.Location = New System.Drawing.Point(340, 104)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(109, 18)
+        Me.Label2.Size = New System.Drawing.Size(90, 18)
         Me.Label2.TabIndex = 128
-        Me.Label2.Text = "ไม่มีใบงานแถลงบัญชี"
+        Me.Label2.Text = "ใบงานแถลงบัญชี"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.SystemColors.Window
         Me.Label4.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(368, 132)
+        Me.Label4.Location = New System.Drawing.Point(207, 251)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 18)
         Me.Label4.TabIndex = 130
@@ -303,9 +305,9 @@ Partial Class FrmTracking
         'cbo_detail
         '
         Me.cbo_detail.FormattingEnabled = True
-        Me.cbo_detail.Location = New System.Drawing.Point(436, 127)
+        Me.cbo_detail.Location = New System.Drawing.Point(277, 248)
         Me.cbo_detail.Name = "cbo_detail"
-        Me.cbo_detail.Size = New System.Drawing.Size(232, 26)
+        Me.cbo_detail.Size = New System.Drawing.Size(391, 26)
         Me.cbo_detail.TabIndex = 12
         '
         'cbo_waning
@@ -320,10 +322,10 @@ Partial Class FrmTracking
         'txt_detail
         '
         Me.txt_detail.ForeColor = System.Drawing.Color.Red
-        Me.txt_detail.Location = New System.Drawing.Point(434, 158)
+        Me.txt_detail.Location = New System.Drawing.Point(434, 132)
         Me.txt_detail.Multiline = True
         Me.txt_detail.Name = "txt_detail"
-        Me.txt_detail.Size = New System.Drawing.Size(234, 111)
+        Me.txt_detail.Size = New System.Drawing.Size(234, 110)
         Me.txt_detail.TabIndex = 134
         '
         'Label1
@@ -331,7 +333,7 @@ Partial Class FrmTracking
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.Window
         Me.Label1.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(376, 158)
+        Me.Label1.Location = New System.Drawing.Point(376, 130)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 18)
         Me.Label1.TabIndex = 135
@@ -395,6 +397,7 @@ Partial Class FrmTracking
         '
         'dtp_date_verify
         '
+        Me.dtp_date_verify.CustomFormat = ""
         Me.dtp_date_verify.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtp_date_verify.Location = New System.Drawing.Point(436, 49)
         Me.dtp_date_verify.Name = "dtp_date_verify"
@@ -427,7 +430,7 @@ Partial Class FrmTracking
         '
         Me.lbl_invalid.AutoSize = True
         Me.lbl_invalid.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_invalid.Location = New System.Drawing.Point(104, 292)
+        Me.lbl_invalid.Location = New System.Drawing.Point(102, 292)
         Me.lbl_invalid.Name = "lbl_invalid"
         Me.lbl_invalid.Size = New System.Drawing.Size(94, 18)
         Me.lbl_invalid.TabIndex = 145
@@ -437,7 +440,7 @@ Partial Class FrmTracking
         '
         Me.lbl_tracking.AutoSize = True
         Me.lbl_tracking.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_tracking.Location = New System.Drawing.Point(126, 436)
+        Me.lbl_tracking.Location = New System.Drawing.Point(124, 436)
         Me.lbl_tracking.Name = "lbl_tracking"
         Me.lbl_tracking.Size = New System.Drawing.Size(94, 18)
         Me.lbl_tracking.TabIndex = 146
@@ -445,6 +448,8 @@ Partial Class FrmTracking
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.dtp_date_work)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Label14)
@@ -475,6 +480,25 @@ Partial Class FrmTracking
         Me.GroupBox1.TabIndex = 147
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ข้อมูลตรวจสำนวน"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.SystemColors.Window
+        Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(23, 158)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(82, 18)
+        Me.Label7.TabIndex = 144
+        Me.Label7.Text = "เดือนที่ลงข้อมูล"
+        '
+        'dtp_date_work
+        '
+        Me.dtp_date_work.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_date_work.Location = New System.Drawing.Point(114, 154)
+        Me.dtp_date_work.Name = "dtp_date_work"
+        Me.dtp_date_work.Size = New System.Drawing.Size(116, 23)
+        Me.dtp_date_work.TabIndex = 143
         '
         'cmd_filter
         '
@@ -563,4 +587,6 @@ Partial Class FrmTracking
     Friend WithEvents lbl_tracking As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmd_filter As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents dtp_date_work As DateTimePicker
 End Class

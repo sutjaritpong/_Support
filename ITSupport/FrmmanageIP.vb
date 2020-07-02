@@ -2,7 +2,8 @@
 Imports System.Data.SqlClient
 Imports System.Data
 Public Class FrmmanageIP
-    Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmmanageIP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         dtgvip.DefaultCellStyle.BackColor = Color.Black
         dtgvip.DefaultCellStyle.ForeColor = Color.White
         dtgvip.RowHeadersDefaultCellStyle.BackColor = Color.Black
@@ -111,12 +112,10 @@ Public Class FrmmanageIP
         End Select
     End Sub
 
-    Private Sub Frmmain_closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub FrmmanageIP_closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         cn.Close()
-        End
+        Me.Dispose()
     End Sub
-
-
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
         If Msg_confirm("คุณต้องการลบข้อมูลใช่หรือไม่") = vbYes Then

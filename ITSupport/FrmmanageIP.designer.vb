@@ -311,6 +311,7 @@ Partial Class FrmmanageIP
         '
         Me.txt_detail.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.txt_detail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txt_detail.ForeColor = System.Drawing.Color.Red
         Me.txt_detail.Location = New System.Drawing.Point(15, 21)
         Me.txt_detail.Multiline = True
         Me.txt_detail.Name = "txt_detail"

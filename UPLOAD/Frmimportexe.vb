@@ -16,6 +16,8 @@ Public Class Frmimportexe
 
     Private Sub Frmimportexe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
+
         Dtgv_Exe.Visible = False
         Main_progressbar.Visible = False
         Main_progressbar.Value = 0
@@ -203,7 +205,7 @@ Public Class Frmimportexe
 
                     '---------------------- UPLOAD เบิกบังคับคดีที่ไปตั้งเรื่อง -----------------------------------'
 
-                    Case "ตรวจสำนวนตามใบงาน" : sql &= $"EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(8).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(9).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(10).Value.ToString}')"
+                    Case "ตรวจสำนวนตามใบงาน" : sql &= $"EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(8).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(9).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(10).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(11).Value.ToString}')"
 
                     '----------------------- UPLOAD TRACKING ------------------'
 

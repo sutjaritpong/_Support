@@ -78,7 +78,12 @@ Module VBcode
         _combobox.SelectedIndex = 0
 
     End Sub
+    Friend Sub _Datetimeformatshort(_time As DateTimePicker)
 
+        _time.Format = DateTimePickerFormat.Custom
+        _time.CustomFormat = "dd-MMM-yy"
+
+    End Sub
     '## Descriptions ##
     '## Sub ใช้ในการเพิ่มข้อมูล Combobox ในการดึงข้อมูลจาก Database หรือ SQLSERVER ทำการเชื่อมต่อ ฐานข้อมูล จากนั้นใช้ เคลียข้อมูลใน Combobox แล้ว Query ข้อมูลคอลัมน์ ที่ต้องการนำมาแสดง โดยใช้ Loop While ในการอ่านข้อมูลในคอลัมน์ที่ Query มาแล้วเพิ่มเข้า ##
     '## Parameters _combobox As Object ใช้เพิ่ม Combobox เข้าไปใน

@@ -22,12 +22,12 @@ Public Class FrmEXEACC
         cbo_search.Items.AddRange(header)
         cbo_search.SelectedIndex = 0
 
-        sql = "SELECT DISTINCT ACCBANK FROM EXEACC"
+        sql = "SELECT DISTINCT Customer_Owner FROM EXEACC"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
         While DR.Read()
-            cbo_owner.Items.Add($"{DR("ACCBANK")}")
+            cbo_owner.Items.Add($"{DR("Customer_Owner")}")
         End While
 
         DR.Close()
@@ -184,11 +184,11 @@ Public Class FrmEXEACC
 
         Select Case cbo_search.SelectedItem
 
-            Case "ธนาคาร" : sql &= $"WHERE ACCBANK"
-            Case "เลขบัตรประชาชน" : sql &= $"WHERE ACCIDC"
-            Case "ชื่อ-นามสกุล" : sql &= $"WHERE ACCCUSNAM"
-            Case "เลขที่คดีดำ" : sql &= $"WHERE ACCBLACK"
-            Case "เลขที่คดีแดง" : sql &= $"WHERE ACCRED"
+            Case "ธนาคาร" : sql &= $"WHERE Customer_Owner"
+            Case "เลขบัตรประชาชน" : sql &= $"WHERE Customer_id_card"
+            Case "ชื่อ-นามสกุล" : sql &= $"WHERE Customer_fullname"
+            Case "เลขที่คดีดำ" : sql &= $"WHERE Legal_BLACK"
+            Case "เลขที่คดีแดง" : sql &= $"WHERE Legal_RED"
             Case "Status" : sql &= $"WHERE ACCSTATUS"
 
         End Select
@@ -325,7 +325,7 @@ Public Class FrmEXEACC
         If Msg_confirm("ต้องการอัพเดตข้อมูล ใช่ หรือ ไม่", "แจ้งเตือน") = vbYes Then
 
 
-            sql = $"UPDATE EXEACC SET ACCBLACK = @black,ACCRED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send WHERE ACCBANK = @bank AND ACCIDC = @idc AND ACCCUSNAM = @cusname"
+            sql = $"UPDATE EXEACC SET Legal_BLACK = @black,Legal_RED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send WHERE Customer_owner = @bank AND Customer_id_card = @idc AND Customer_fullname = @cusname"
 
             cmd.CommandText = sql
             cmd.Parameters.Clear()
@@ -402,7 +402,7 @@ Public Class FrmEXEACC
 
         If Msg_confirm("คุณต้องการเพิ่มข้อมูลใหม่หรือไม่", "แจ้งเตือน") = vbYes Then
 
-            sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
+            sql = "INSERT INTO EXEACC(ACCKEY,Customer_Owner,Customer_id_card,Customer_fullname,Legal_BLACK,Legal_RED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
 
             cmd.CommandText = sql
                 cmd.Parameters.Clear()

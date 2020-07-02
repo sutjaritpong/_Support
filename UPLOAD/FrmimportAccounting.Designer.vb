@@ -34,12 +34,13 @@ Partial Class FrmimportAccounting
         Me.cmd_openfile = New System.Windows.Forms.Button()
         Me.txt_import = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.import_upload = New System.ComponentModel.BackgroundWorker()
         Me.cmd_cut_check = New System.Windows.Forms.Button()
         Me.cmd_toserver = New System.Windows.Forms.Button()
         Me.cmd_import = New System.Windows.Forms.Button()
         Me.cbo_types_Accounting = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         CType(Me.dtgv_view, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -152,7 +153,7 @@ Partial Class FrmimportAccounting
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'BackgroundWorker1
+        'import_upload
         '
         '
         'cmd_cut_check
@@ -215,6 +216,9 @@ Partial Class FrmimportAccounting
         Me.Label4.TabIndex = 25
         Me.Label4.Text = "ประเภทการเบิก :"
         '
+        'BackgroundWorker2
+        '
+        '
         'FrmimportAccounting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -259,8 +263,9 @@ Partial Class FrmimportAccounting
     Friend WithEvents cmd_openfile As Button
     Friend WithEvents txt_import As TextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents import_upload As System.ComponentModel.BackgroundWorker
     Friend WithEvents cmd_cut_check As Button
     Friend WithEvents cbo_types_Accounting As ComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
 End Class

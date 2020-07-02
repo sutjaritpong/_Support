@@ -233,3 +233,5 @@ E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\RdlCompile.compi
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmmanageIP.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmMastermain.resources
 E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.Frmfilter.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmTrackRV.resources
+E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\obj\Debug\SCANDB.FrmAccountingRV.resources
