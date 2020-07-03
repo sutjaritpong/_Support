@@ -2,8 +2,8 @@
 Module VBdatabase
     'ช่วยให้การ เพิ่ม ลบ แก้ไข แสดง ข้อมูลจาก Database เป็นเรื่องสะดวกรวดเร็วยิ่งขึ้น
 #Region "ประกาศตัวแปร"
-    'Friend cn As New SqlConnection("Data Source=FDS061;Initial Catalog=ScanPDF;Integrated Security=True")
-    Friend cn As New SqlConnection("SERVER=FDSSERVER_1;Initial Catalog=ScanPDF;Persist Security Info=True;User ID=sa;Password=1971;")
+    Friend cn As New SqlConnection("Data Source=FDS061;Initial Catalog=ScanPDF;Integrated Security=True")
+    'Friend cn As New SqlConnection("SERVER=FDSSERVER_1;Initial Catalog=ScanPDF;Persist Security Info=True;User ID=sa;Password=1971;")
     Friend cmd As New SqlCommand
     Friend DA As New SqlDataAdapter
     Friend DS As New DataSet
