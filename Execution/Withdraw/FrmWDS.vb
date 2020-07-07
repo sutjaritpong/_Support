@@ -8,6 +8,11 @@ Public Class FrmWDS
     Private Sub FrmWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
+        _Datetimeformatshort(dtp_datecollector)
+        _Datetimeformatshort(dtp_daterefund)
+        _Datetimeformatshort(dtp_datewds)
+        _Datetimeformatshort(dtp_payment)
+
 
         Dim types() As String = {"ALL PRODUCT", "KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
         cbo_product.Items.AddRange(types)
