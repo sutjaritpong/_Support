@@ -50,10 +50,10 @@ Partial Class Frmlogfile
         '
         Me.dtgvlogfile.AllowUserToAddRows = False
         Me.dtgvlogfile.AllowUserToDeleteRows = False
-        Me.dtgvlogfile.BackgroundColor = System.Drawing.SystemColors.ScrollBar
+        Me.dtgvlogfile.BackgroundColor = System.Drawing.Color.White
         Me.dtgvlogfile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dtgvlogfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgvlogfile.GridColor = System.Drawing.SystemColors.MenuHighlight
+        Me.dtgvlogfile.GridColor = System.Drawing.Color.Black
         Me.dtgvlogfile.Location = New System.Drawing.Point(15, 74)
         Me.dtgvlogfile.Name = "dtgvlogfile"
         Me.dtgvlogfile.ReadOnly = True
@@ -101,24 +101,27 @@ Partial Class Frmlogfile
         '
         'cmd_text
         '
+        Me.cmd_text.BackColor = System.Drawing.Color.White
         Me.cmd_text.Image = Global.SCANDB.My.Resources.Resources.Excel_icon
         Me.cmd_text.Location = New System.Drawing.Point(329, 40)
         Me.cmd_text.Name = "cmd_text"
         Me.cmd_text.Size = New System.Drawing.Size(36, 28)
         Me.cmd_text.TabIndex = 7
-        Me.cmd_text.UseVisualStyleBackColor = True
+        Me.cmd_text.UseVisualStyleBackColor = False
         '
         'cmd_find
         '
+        Me.cmd_find.BackColor = System.Drawing.Color.White
         Me.cmd_find.Image = Global.SCANDB.My.Resources.Resources.search
         Me.cmd_find.Location = New System.Drawing.Point(525, 6)
         Me.cmd_find.Name = "cmd_find"
         Me.cmd_find.Size = New System.Drawing.Size(36, 28)
         Me.cmd_find.TabIndex = 2
-        Me.cmd_find.UseVisualStyleBackColor = True
+        Me.cmd_find.UseVisualStyleBackColor = False
         '
         'cmd_refresh
         '
+        Me.cmd_refresh.BackColor = System.Drawing.Color.White
         Me.cmd_refresh.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_refresh.Location = New System.Drawing.Point(567, 6)
@@ -126,7 +129,7 @@ Partial Class Frmlogfile
         Me.cmd_refresh.Size = New System.Drawing.Size(101, 28)
         Me.cmd_refresh.TabIndex = 1
         Me.cmd_refresh.Text = "รีเฟรช"
-        Me.cmd_refresh.UseVisualStyleBackColor = True
+        Me.cmd_refresh.UseVisualStyleBackColor = False
         '
         'DateTimestart
         '
@@ -219,7 +222,7 @@ Partial Class Frmlogfile
         'txt_detaillog
         '
         Me.txt_detaillog.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_detaillog.ForeColor = System.Drawing.Color.Red
+        Me.txt_detaillog.ForeColor = System.Drawing.Color.Black
         Me.txt_detaillog.Location = New System.Drawing.Point(766, 104)
         Me.txt_detaillog.Multiline = True
         Me.txt_detaillog.Name = "txt_detaillog"
@@ -243,6 +246,7 @@ Partial Class Frmlogfile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txt_detaillog)
@@ -263,6 +267,7 @@ Partial Class Frmlogfile
         Me.Controls.Add(Me.cmd_find)
         Me.Controls.Add(Me.cmd_refresh)
         Me.Controls.Add(Me.dtgvlogfile)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frmlogfile"
         Me.Text = "ประวัติการใช้งานระบบ"

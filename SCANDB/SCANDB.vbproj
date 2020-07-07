@@ -89,21 +89,19 @@
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http">
-      <Private>True</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -119,76 +117,154 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Execution\FrmCheck.designer.vb">
+    <Compile Include="Execution\Report_execution\FrmAccountingRV.Designer.vb">
+      <DependentUpon>FrmAccountingRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmAccountingRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmTrackRV.Designer.vb">
+      <DependentUpon>FrmTrackRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmTrackRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Tracking\Frmfilter.Designer.vb">
+      <DependentUpon>Frmfilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Tracking\Frmfilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageIP.designer.vb">
+      <DependentUpon>FrmmanageIP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageIP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmWDSRV.Designer.vb">
+      <DependentUpon>FrmWDSRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmWDSRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCANPDF.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SCANPDF.vb">
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SCANPDFDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SCANPDFDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UPLOAD\FrmimportAccounting.Designer.vb">
+      <DependentUpon>FrmimportAccounting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UPLOAD\FrmimportAccounting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Withdraw\FrmCheck.designer.vb">
       <DependentUpon>FrmCheck.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmCheck.vb">
+    <Compile Include="Execution\Withdraw\FrmCheck.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmEXEACC.Designer.vb">
+    <Compile Include="Execution\Accounting\FrmEXEACC.Designer.vb">
       <DependentUpon>FrmEXEACC.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmEXEACC.vb">
+    <Compile Include="Execution\Accounting\FrmEXEACC.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmPort.Designer.vb">
+    <Compile Include="Execution\Statement\FrmfindExecution.Designer.vb">
+      <DependentUpon>FrmfindExecution.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Statement\FrmfindExecution.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Accounting\FrmInsolvent.Designer.vb">
+      <DependentUpon>FrmInsolvent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Accounting\FrmInsolvent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Portsoc\Frmownership.Designer.vb">
+      <DependentUpon>Frmownership.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Portsoc\Frmownership.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Portsoc\FrmPort.Designer.vb">
       <DependentUpon>FrmPort.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmPort.vb">
+    <Compile Include="Execution\Portsoc\FrmPort.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmsaveWDS.Designer.vb">
+    <Compile Include="Execution\Withdraw\FrmsaveWDS.Designer.vb">
       <DependentUpon>FrmsaveWDS.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmsaveWDS.vb">
+    <Compile Include="Execution\Withdraw\FrmsaveWDS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmsearchIDWDS.Designer.vb">
+    <Compile Include="Execution\Withdraw\FrmsearchIDWDS.Designer.vb">
       <DependentUpon>FrmsearchIDWDS.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmsearchIDWDS.vb">
+    <Compile Include="Execution\Withdraw\FrmsearchIDWDS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmExecution.designer.vb">
+    <Compile Include="Execution\Statement\FrmExecution.designer.vb">
       <DependentUpon>FrmExecution.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmExecution.vb">
+    <Compile Include="Execution\Statement\FrmExecution.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\Frmfind.designer.vb">
+    <Compile Include="Execution\Tracking\Frmfind.designer.vb">
       <DependentUpon>Frmfind.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Frmfind.vb">
+    <Compile Include="Execution\Tracking\Frmfind.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\Frmimportexe.Designer.vb">
+    <Compile Include="UPLOAD\Frmimportexe.Designer.vb">
       <DependentUpon>Frmimportexe.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Frmimportexe.vb">
+    <Compile Include="UPLOAD\Frmimportexe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\Frmreportexe.Designer.vb">
+    <Compile Include="Execution\Report_execution\Frmreportexe.Designer.vb">
       <DependentUpon>Frmreportexe.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Frmreportexe.vb">
+    <Compile Include="Execution\Report_execution\Frmreportexe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmTracking.Designer.vb">
+    <Compile Include="Execution\Tracking\FrmTracking.Designer.vb">
       <DependentUpon>FrmTracking.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmTracking.vb">
+    <Compile Include="Execution\Tracking\FrmTracking.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Execution\FrmWDS.Designer.vb">
+    <Compile Include="Execution\Withdraw\FrmWDS.Designer.vb">
       <DependentUpon>FrmWDS.vb</DependentUpon>
     </Compile>
-    <Compile Include="Execution\FrmWDS.vb">
+    <Compile Include="Execution\Withdraw\FrmWDS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEGALPDF\Frmimport.Designer.vb">
+    <Compile Include="Invoice_Accounting\FrmAccountingKBANK.Designer.vb">
+      <DependentUpon>FrmAccountingKBANK.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice_Accounting\FrmAccountingKBANK.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPLOAD\Frmimport.Designer.vb">
       <DependentUpon>Frmimport.vb</DependentUpon>
     </Compile>
-    <Compile Include="LEGALPDF\Frmimport.vb">
+    <Compile Include="UPLOAD\Frmimport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sysmanage\FrmPasschange.Designer.vb">
@@ -295,40 +371,73 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Execution\FrmCheck.resx">
+    <EmbeddedResource Include="Execution\Report_execution\FrmAccountingRV.resx">
+      <DependentUpon>FrmAccountingRV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\FrmTrackRV.resx">
+      <DependentUpon>FrmTrackRV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\ReportAccounting.rdlc" />
+    <EmbeddedResource Include="Execution\Report_execution\Reporttracking.rdlc" />
+    <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
+      <DependentUpon>Frmfilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmmanageIP.resx">
+      <DependentUpon>FrmmanageIP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\FrmWDSRV.resx">
+      <DependentUpon>FrmWDSRV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\ReportWDS.rdlc" />
+    <EmbeddedResource Include="UPLOAD\FrmimportAccounting.resx">
+      <DependentUpon>FrmimportAccounting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Withdraw\FrmCheck.resx">
       <DependentUpon>FrmCheck.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmEXEACC.resx">
+    <EmbeddedResource Include="Execution\Accounting\FrmEXEACC.resx">
       <DependentUpon>FrmEXEACC.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmPort.resx">
+    <EmbeddedResource Include="Execution\Statement\FrmfindExecution.resx">
+      <DependentUpon>FrmfindExecution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Accounting\FrmInsolvent.resx">
+      <DependentUpon>FrmInsolvent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Portsoc\Frmownership.resx">
+      <DependentUpon>Frmownership.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Portsoc\FrmPort.resx">
       <DependentUpon>FrmPort.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmsaveWDS.resx">
+    <EmbeddedResource Include="Execution\Withdraw\FrmsaveWDS.resx">
       <DependentUpon>FrmsaveWDS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmsearchIDWDS.resx">
+    <EmbeddedResource Include="Execution\Withdraw\FrmsearchIDWDS.resx">
       <DependentUpon>FrmsearchIDWDS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmExecution.resx">
+    <EmbeddedResource Include="Execution\Statement\FrmExecution.resx">
       <DependentUpon>FrmExecution.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Frmfind.resx">
+    <EmbeddedResource Include="Execution\Tracking\Frmfind.resx">
       <DependentUpon>Frmfind.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Frmimportexe.resx">
+    <EmbeddedResource Include="UPLOAD\Frmimportexe.resx">
       <DependentUpon>Frmimportexe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Frmreportexe.resx">
+    <EmbeddedResource Include="Execution\Report_execution\Frmreportexe.resx">
       <DependentUpon>Frmreportexe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmTracking.resx">
+    <EmbeddedResource Include="Execution\Tracking\FrmTracking.resx">
       <DependentUpon>FrmTracking.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\FrmWDS.resx">
+    <EmbeddedResource Include="Execution\Withdraw\FrmWDS.resx">
       <DependentUpon>FrmWDS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEGALPDF\Frmimport.resx">
+    <EmbeddedResource Include="Invoice_Accounting\FrmAccountingKBANK.resx">
+      <DependentUpon>FrmAccountingKBANK.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPLOAD\Frmimport.resx">
       <DependentUpon>Frmimport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\FrmPasschange.resx">
@@ -392,7 +501,39 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="SCANDB_TemporaryKey.pfx" />
+    <None Include="SCANPDF.xsc">
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SCANPDF.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SCANPDF.xss">
+      <DependentUpon>SCANPDF.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDFDataSet.xsc">
+      <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDFDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SCANPDFDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SCANPDFDataSet.xss">
+      <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDFDataSet1.xsc">
+      <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SCANPDFDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SCANPDFDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SCANPDFDataSet1.xss">
+      <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AcroPDFLib">
@@ -438,12 +579,30 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="Microsoft.Vbe.Interop.Forms">
+      <Guid>{0D452EE1-E08F-101A-852E-02608C4D0BB4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="MSWinsockLib">
       <Guid>{248DD890-BB45-11CF-9ABC-0080C7E7B78D}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
@@ -580,8 +739,6 @@
     <None Include="Resources\Undo_24x24.png" />
     <None Include="Resources\edit-delete-icon16x16.png" />
     <None Include="Resources\edit-icon16x16.png" />
-    <None Include="Resources\Files-icon 16x16.png" />
-    <None Include="Resources\Jury-Law-icon16x16.png" />
     <None Include="Resources\Folder-Folder-Options-icon16x16.png" />
     <None Include="Resources\Places-network-server-database-icon16x16.png" />
     <None Include="Resources\system-database-add-icon16x16.png" />
@@ -598,13 +755,49 @@
     <None Include="Resources\Customer-service-icon16x16.png" />
     <None Include="Resources\Customer-service-icon32x32.png" />
     <None Include="Resources\Customer-service-icon24x24.png" />
-    <None Include="Resources\edit-validated-icon24x24.png" />
     <None Include="Resources\page_add.png" />
     <None Include="Resources\page_delete.png" />
     <None Include="Resources\application_form_edit.png" />
     <None Include="Resources\coins_delete.png" />
     <None Include="Resources\group_go.png" />
     <None Include="Resources\textfield_add.png" />
+    <None Include="Resources\lorry_error.png" />
+    <None Include="Resources\arrow_redo.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\building.png" />
+    <None Include="Resources\image_add.png" />
+    <None Include="Resources\database_add.png" />
+    <None Include="Resources\database_connect.png" />
+    <None Include="Resources\link_break.png" />
+    <None Include="Resources\Untitled-41.png" />
+    <None Include="Resources\coins_delete1.png" />
+    <None Include="Resources\kbanklogo.png" />
+    <None Include="Resources\TSS01.jpg" />
+    <None Include="Resources\UOB_Logo.svg.png" />
+    <None Include="Resources\UOB.jpg" />
+    <None Include="Resources\TBANK.png" />
+    <None Include="Resources\Kiatnakin_Bank_logo.png" />
+    <None Include="Resources\money_add.png" />
+    <None Include="Resources\coins.png" />
+    <None Include="Resources\database_add1.png" />
+    <None Include="Resources\database_go.png" />
+    <None Include="Resources\table_add1.png" />
+    <None Include="Resources\table_key.png" />
+    <None Include="Resources\Cut_24x24.png" />
+    <None Include="Resources\clipboard-paste-document-text-icon.png" />
+    <None Include="Resources\report_go.png" />
+    <None Include="Resources\network-connection-icon.png" />
+    <None Include="Resources\Customer-service-icon16x161.png" />
+    <None Include="Resources\Connection-icon16x16.png" />
+    <None Include="Resources\Connection-icon24x24.png" />
+    <None Include="Resources\Connection-icon32x32.png" />
+    <None Include="Resources\support-icon24x24.png" />
+    <None Include="Resources\Wi-Fi-icon24x24.png" />
+    <None Include="Resources\5462_image_th.png" />
+    <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
+    <None Include="Resources\server_error.png" />
+    <None Include="Resources\server_connect.png" />
+    <None Include="Resources\filter-icon16x16.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

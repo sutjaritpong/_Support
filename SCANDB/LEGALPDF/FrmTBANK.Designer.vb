@@ -47,10 +47,10 @@ Partial Class FrmTBANK
         '
         Me.AxAcroPDFtbank.Dock = System.Windows.Forms.DockStyle.Right
         Me.AxAcroPDFtbank.Enabled = True
-        Me.AxAcroPDFtbank.Location = New System.Drawing.Point(747, 0)
+        Me.AxAcroPDFtbank.Location = New System.Drawing.Point(491, 0)
         Me.AxAcroPDFtbank.Name = "AxAcroPDFtbank"
         Me.AxAcroPDFtbank.OcxState = CType(resources.GetObject("AxAcroPDFtbank.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFtbank.Size = New System.Drawing.Size(517, 985)
+        Me.AxAcroPDFtbank.Size = New System.Drawing.Size(517, 729)
         Me.AxAcroPDFtbank.TabIndex = 67
         '
         'txt_searchtbank
@@ -126,6 +126,7 @@ Partial Class FrmTBANK
         '
         'cmd_clear
         '
+        Me.cmd_clear.BackColor = System.Drawing.Color.White
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_clear.Location = New System.Drawing.Point(409, 4)
@@ -133,13 +134,15 @@ Partial Class FrmTBANK
         Me.cmd_clear.Size = New System.Drawing.Size(75, 23)
         Me.cmd_clear.TabIndex = 3
         Me.cmd_clear.Text = "เคลีย"
-        Me.cmd_clear.UseVisualStyleBackColor = True
+        Me.cmd_clear.UseVisualStyleBackColor = False
         '
         'dtgvshowtbank
         '
         Me.dtgvshowtbank.AllowUserToAddRows = False
         Me.dtgvshowtbank.AllowUserToDeleteRows = False
+        Me.dtgvshowtbank.BackgroundColor = System.Drawing.Color.White
         Me.dtgvshowtbank.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dtgvshowtbank.GridColor = System.Drawing.Color.Black
         Me.dtgvshowtbank.Location = New System.Drawing.Point(13, 33)
         Me.dtgvshowtbank.Name = "dtgvshowtbank"
         Me.dtgvshowtbank.ReadOnly = True
@@ -148,6 +151,7 @@ Partial Class FrmTBANK
         '
         'cmd_selectkbank
         '
+        Me.cmd_selectkbank.BackColor = System.Drawing.Color.White
         Me.cmd_selectkbank.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.cmd_selectkbank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_selectkbank.Location = New System.Drawing.Point(319, 4)
@@ -155,7 +159,7 @@ Partial Class FrmTBANK
         Me.cmd_selectkbank.Size = New System.Drawing.Size(84, 23)
         Me.cmd_selectkbank.TabIndex = 2
         Me.cmd_selectkbank.Text = "ค้นหา"
-        Me.cmd_selectkbank.UseVisualStyleBackColor = True
+        Me.cmd_selectkbank.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -190,7 +194,8 @@ Partial Class FrmTBANK
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 985)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_Prodseltbank)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -206,6 +211,7 @@ Partial Class FrmTBANK
         Me.Controls.Add(Me.cmd_clear)
         Me.Controls.Add(Me.dtgvshowtbank)
         Me.Controls.Add(Me.cmd_selectkbank)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmTBANK"
         Me.Text = "ค้นหาเอกสาร TBANK"

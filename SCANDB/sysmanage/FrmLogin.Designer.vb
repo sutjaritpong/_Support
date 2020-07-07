@@ -23,7 +23,7 @@ Partial Class FrmLogin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogin))
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_loginlogo = New System.Windows.Forms.Label()
         Me.chk_rememuser = New System.Windows.Forms.CheckBox()
         Me.chk_Password = New System.Windows.Forms.CheckBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -37,22 +37,24 @@ Partial Class FrmLogin
         Me.lbl_version = New System.Windows.Forms.Label()
         Me.btnlogin = New System.Windows.Forms.Button()
         Me.btncancel = New System.Windows.Forms.Button()
+        Me.Ptb_connection = New System.Windows.Forms.PictureBox()
         CType(Me.aws, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ptb_connection, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label3
+        'lbl_loginlogo
         '
-        Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lbl_loginlogo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label3.Location = New System.Drawing.Point(60, 30)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(237, 73)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "LOGIN"
+        Me.lbl_loginlogo.AutoSize = True
+        Me.lbl_loginlogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.lbl_loginlogo.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lbl_loginlogo.Location = New System.Drawing.Point(60, 28)
+        Me.lbl_loginlogo.Name = "lbl_loginlogo"
+        Me.lbl_loginlogo.Size = New System.Drawing.Size(237, 73)
+        Me.lbl_loginlogo.TabIndex = 5
+        Me.lbl_loginlogo.Text = "LOGIN"
         '
         'chk_rememuser
         '
@@ -121,11 +123,12 @@ Partial Class FrmLogin
         '
         Me.lblnetstatus.AutoSize = True
         Me.lblnetstatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lblnetstatus.Location = New System.Drawing.Point(123, 443)
+        Me.lblnetstatus.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.lblnetstatus.Location = New System.Drawing.Point(156, 444)
         Me.lblnetstatus.Name = "lblnetstatus"
-        Me.lblnetstatus.Size = New System.Drawing.Size(220, 16)
+        Me.lblnetstatus.Size = New System.Drawing.Size(140, 16)
         Me.lblnetstatus.TabIndex = 25
-        Me.lblnetstatus.Text = "Connection Status : Checking..."
+        Me.lblnetstatus.Text = "Connection Status :"
         '
         'internetcheck
         '
@@ -143,6 +146,7 @@ Partial Class FrmLogin
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.Highlight
         Me.Label4.Location = New System.Drawing.Point(9, 443)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(55, 15)
@@ -153,15 +157,16 @@ Partial Class FrmLogin
         '
         Me.lbl_version.AutoSize = True
         Me.lbl_version.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.lbl_version.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.lbl_version.Location = New System.Drawing.Point(70, 444)
         Me.lbl_version.Name = "lbl_version"
         Me.lbl_version.Size = New System.Drawing.Size(35, 15)
         Me.lbl_version.TabIndex = 28
-        Me.lbl_version.Text = "1.07"
+        Me.lbl_version.Text = "1.10"
         '
         'btnlogin
         '
-        Me.btnlogin.BackColor = System.Drawing.SystemColors.Menu
+        Me.btnlogin.BackColor = System.Drawing.Color.White
         Me.btnlogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.btnlogin.ForeColor = System.Drawing.SystemColors.Highlight
         Me.btnlogin.Image = Global.SCANDB.My.Resources.Resources._32x32accept
@@ -175,7 +180,7 @@ Partial Class FrmLogin
         '
         'btncancel
         '
-        Me.btncancel.BackColor = System.Drawing.SystemColors.Menu
+        Me.btncancel.BackColor = System.Drawing.Color.White
         Me.btncancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btncancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.btncancel.ForeColor = System.Drawing.SystemColors.Highlight
@@ -189,13 +194,23 @@ Partial Class FrmLogin
         Me.btncancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btncancel.UseVisualStyleBackColor = False
         '
+        'Ptb_connection
+        '
+        Me.Ptb_connection.Location = New System.Drawing.Point(302, 428)
+        Me.Ptb_connection.Name = "Ptb_connection"
+        Me.Ptb_connection.Size = New System.Drawing.Size(32, 32)
+        Me.Ptb_connection.TabIndex = 29
+        Me.Ptb_connection.TabStop = False
+        '
         'FrmLogin
         '
         Me.AcceptButton = Me.btnlogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btncancel
         Me.ClientSize = New System.Drawing.Size(346, 468)
+        Me.Controls.Add(Me.Ptb_connection)
         Me.Controls.Add(Me.lbl_version)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.aws)
@@ -208,18 +223,19 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.btnlogin)
         Me.Controls.Add(Me.txt_passlog)
         Me.Controls.Add(Me.txt_idlog)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lbl_loginlogo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.aws, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ptb_connection, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_loginlogo As Label
     Friend WithEvents chk_rememuser As CheckBox
     Friend WithEvents chk_Password As CheckBox
     Friend WithEvents Label2 As Label
@@ -233,4 +249,5 @@ Partial Class FrmLogin
     Friend WithEvents aws As AxMSWinsockLib.AxWinsock
     Friend WithEvents Label4 As Label
     Friend WithEvents lbl_version As Label
+    Friend WithEvents Ptb_connection As PictureBox
 End Class

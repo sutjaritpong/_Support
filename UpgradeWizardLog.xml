@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\SCANDB.vbproj" />
+  <event action="Analyze" type="Success" name="FrmAccountingKBANK.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Accounting\FrmAccountingKBANK.resx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="App.config" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\App.config" />
+  <event action="Analyze" type="Success" name="FrmCheck.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmCheck.resx" />
+  <event action="Analyze" type="Success" name="FrmEXEACC.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmEXEACC.resx" />
+  <event action="Analyze" type="Success" name="FrmExecution.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmExecution.resx" />
+  <event action="Analyze" type="Success" name="Frmfind.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\Frmfind.resx" />
+  <event action="Analyze" type="Success" name="FrmfindExecution.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmfindExecution.resx" />
+  <event action="Analyze" type="Success" name="FrmInsolvent.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmInsolvent.resx" />
+  <event action="Analyze" type="Success" name="Frmownership.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\Frmownership.resx" />
+  <event action="Analyze" type="Success" name="FrmPort.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmPort.resx" />
+  <event action="Analyze" type="Success" name="Frmreportexe.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\Frmreportexe.resx" />
+  <event action="Analyze" type="Success" name="FrmsaveWDS.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmsaveWDS.resx" />
+  <event action="Analyze" type="Success" name="FrmsearchIDWDS.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmsearchIDWDS.resx" />
+  <event action="Analyze" type="Success" name="FrmTracking.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmTracking.resx" />
+  <event action="Analyze" type="Success" name="FrmWDS.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\Execution\FrmWDS.resx" />
+  <event action="Analyze" type="Success" name="FrmKBANK.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmKBANK.resx" />
+  <event action="Analyze" type="Success" name="FrmKKB.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmKKB.resx" />
+  <event action="Analyze" type="Success" name="FrmSCB.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmSCB.resx" />
+  <event action="Analyze" type="Success" name="FrmTBANK.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmTBANK.resx" />
+  <event action="Analyze" type="Success" name="FrmTMB.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmTMB.resx" />
+  <event action="Analyze" type="Success" name="FrmTSS.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmTSS.resx" />
+  <event action="Analyze" type="Success" name="FrmUOB.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\LEGALPDF\FrmUOB.resx" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\My Project\Resources.resx" />
+  <event action="Analyze" type="Success" name="FrmAccount.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\FrmAccount.resx" />
+  <event action="Analyze" type="Success" name="Frmlogfile.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\Frmlogfile.resx" />
+  <event action="Analyze" type="Success" name="FrmLogin.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\FrmLogin.resx" />
+  <event action="Analyze" type="Success" name="FrmMain.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\FrmMain.resx" />
+  <event action="Analyze" type="Success" name="FrmPasschange.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\FrmPasschange.resx" />
+  <event action="Analyze" type="Success" name="FrmPasssetting.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\FrmPasssetting.resx" />
+  <event action="Analyze" type="Success" name="FrmSetting.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\sysmanage\FrmSetting.resx" />
+  <event action="Analyze" type="Success" name="Frmimport.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\UPLOAD\Frmimport.resx" />
+  <event action="Analyze" type="Success" name="FrmimportAccounting.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\UPLOAD\FrmimportAccounting.resx" />
+  <event action="Analyze" type="Success" name="Frmimportexe.resx" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\UPLOAD\Frmimportexe.resx" />
+  <event action="Analyze" type="Success" name="SCANDB" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB\SCANDB.vbproj" />
+  <event action="Analyze" type="Success" name="SCANDB" path="E:\GITHUB\LABVB\LABVB\LABVB\Lab.Scanpdf\SCANDB\SCANDB.sln" />
+</log>

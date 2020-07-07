@@ -13,10 +13,11 @@ Imports Microsoft.Office.Interop
 Imports System.Xml.XPath
 Imports System.Data
 Imports System.Xml
-Public Class FrmMain
+Public Class FrmMastermain
     Dim ip As IPAddress()
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 
         connect()
         _Getlogdata("LOGIN")
@@ -26,9 +27,10 @@ Public Class FrmMain
     Private Sub ออกจากระบบToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ออกจากระบบToolStripMenuItem.Click
         If Msg_confirm("คุณต้องการปิดโปรแกรมใช่หรือไม่") = vbYes Then
             cn.Close()
+            Me.Close()
         End If    '// ปุ่มออกจากระบบเมื่อกดจะมีข้อความแจ้งเตือน
 
-        Me.Close()
+
     End Sub
     Private Sub AccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles accms.Click
         With FrmAccount
@@ -93,13 +95,22 @@ Public Class FrmMain
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         txt_timer.Text = DateAndTime.TimeString                     '//ตั้งเวลาโปรแกรม
+
         txt_datetoday.Text = DateAndTime.Today.ToShortDateString        '//ตั้งเวลาวันที่ 
     End Sub
 
     Private Sub settingms_Click(sender As Object, e As EventArgs) Handles settingms.Click
-        With FrmSetting
-            .Show()
-        End With
+
+        If Application.OpenForms.OfType(Of FrmSetting).Any Then
+
+            FrmSetting.Focus()
+        Else
+            With FrmSetting
+                .ShowDialog()
+            End With
+
+        End If
+
     End Sub
 
     Private Sub FrmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -125,13 +136,19 @@ Public Class FrmMain
 
 
     Private Sub changespassword_Click(sender As Object, e As EventArgs) Handles changespassword.Click
-        With FrmPasssetting
-            .MdiParent = Me
-            .Show()
-        End With
+
+        If Application.OpenForms().OfType(Of FrmPasssetting).Any Then
+
+            FrmPasssetting.Focus()
+        Else
+            With FrmPasssetting
+                .MdiParent = Me
+                .Show()
+            End With
+        End If
     End Sub
 
-    Private Sub Uploads_Click(sender As Object, e As EventArgs) Handles Uploads.Click
+    Private Sub Uploads_Click(sender As Object, e As EventArgs) Handles MENU_Uploads_SCANPDF.Click
         With Frmimport
             .MdiParent = Me
             .Show()
@@ -146,15 +163,6 @@ Public Class FrmMain
             .WindowState = FormWindowState.Maximized
         End With
     End Sub
-
-    Private Sub Upload_exe_Click(sender As Object, e As EventArgs) Handles Upload_exe.Click
-        With Frmimportexe
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
-    End Sub
-
     Private Sub EXEWDS_Click(sender As Object, e As EventArgs) Handles Menu_EXEWDS.Click
         With FrmWDS
             .MdiParent = Me
@@ -195,5 +203,84 @@ Public Class FrmMain
             .WindowState = FormWindowState.Maximized
         End With
 
+    End Sub
+
+    Private Sub Menu_insolvent_Click(sender As Object, e As EventArgs) Handles Menu_insolvent.Click
+
+        With FrmInsolvent
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
+    End Sub
+
+    Private Sub Menu_ownership_Click(sender As Object, e As EventArgs) Handles Menu_ownership.Click
+
+        With Frmownership
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
+    End Sub
+
+    Private Sub Menu_Upload_Execution_Click(sender As Object, e As EventArgs) Handles Menu_Upload_Execution.Click
+
+        With Frmimportexe
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
+    End Sub
+
+    Private Sub Menu_list_Accounting_Click(sender As Object, e As EventArgs) Handles Menu_list_Accounting.Click
+
+        With FrmimportAccounting
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub KBANKToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles menu_accounting_search.Click
+        With FrmAccountingKBANK
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub Menu_ReportWDS_Click(sender As Object, e As EventArgs) Handles Menu_ReportWDS.Click
+        With FrmWDSRV
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub IPManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IPManagement.Click
+        With FrmmanageIP
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub Menu_Reportracking_Click(sender As Object, e As EventArgs) Handles Menu_Reportracking.Click
+        With FrmTrackRV
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub Menu_ReportAccounting_Click(sender As Object, e As EventArgs) Handles Menu_ReportAccounting.Click
+        With FrmAccountingRV
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
     End Sub
 End Class

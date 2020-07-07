@@ -16,7 +16,7 @@ Public Class FrmPasssetting
     End Sub
 
     Private Sub cmd_ok_Click(sender As Object, e As EventArgs) Handles cmd_ok.Click
-
+        connect()
         sql = $"SELECT USRPASSWORD FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -43,7 +43,7 @@ Public Class FrmPasssetting
             Msg_OK("เปลี่ยนรหัสผ่านสำเร็จ")
 
             _Getlogdata($"ผู้ใช้ {FrmLogin.txt_idlog.Text} ได้เปลี่ยนแปลงรหัสผ่าน")
-
+            cn.Close()
         End If
     End Sub
 
@@ -57,6 +57,8 @@ Public Class FrmPasssetting
     End Sub
 
     Private Sub FrmPasssetting_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
         Me.Dispose()
+
     End Sub
 End Class

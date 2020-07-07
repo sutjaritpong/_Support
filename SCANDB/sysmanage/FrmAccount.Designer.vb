@@ -44,140 +44,163 @@ Partial Class FrmAccount
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(324, 489)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label14.Location = New System.Drawing.Point(344, 501)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 13)
+        Me.Label14.Size = New System.Drawing.Size(51, 16)
         Me.Label14.TabIndex = 58
         Me.Label14.Text = "Group :"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(324, 460)
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label13.Location = New System.Drawing.Point(344, 466)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(60, 13)
+        Me.Label13.Size = New System.Drawing.Size(75, 16)
         Me.Label13.TabIndex = 57
         Me.Label13.Text = "Full Name :"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(12, 486)
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label11.Location = New System.Drawing.Point(19, 498)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 13)
+        Me.Label11.Size = New System.Drawing.Size(74, 16)
         Me.Label11.TabIndex = 56
         Me.Label11.Text = "Password :"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(12, 460)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label12.Location = New System.Drawing.Point(19, 466)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(43, 13)
+        Me.Label12.Size = New System.Drawing.Size(52, 16)
         Me.Label12.TabIndex = 55
         Me.Label12.Text = "USER :"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(293, 489)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label6.Location = New System.Drawing.Point(316, 501)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(0, 13)
+        Me.Label6.Size = New System.Drawing.Size(0, 16)
         Me.Label6.TabIndex = 52
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(261, 460)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label7.Location = New System.Drawing.Point(284, 466)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(0, 13)
+        Me.Label7.Size = New System.Drawing.Size(0, 16)
         Me.Label7.TabIndex = 51
         '
         'Fullname
         '
-        Me.Fullname.Location = New System.Drawing.Point(385, 457)
+        Me.Fullname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Fullname.Location = New System.Drawing.Point(425, 463)
         Me.Fullname.Name = "Fullname"
-        Me.Fullname.Size = New System.Drawing.Size(238, 20)
+        Me.Fullname.Size = New System.Drawing.Size(238, 22)
         Me.Fullname.TabIndex = 3
         '
         'Password
         '
-        Me.Password.Location = New System.Drawing.Point(77, 483)
+        Me.Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Password.Location = New System.Drawing.Point(100, 495)
         Me.Password.Name = "Password"
-        Me.Password.Size = New System.Drawing.Size(238, 20)
+        Me.Password.Size = New System.Drawing.Size(238, 22)
         Me.Password.TabIndex = 2
         '
         'Userid
         '
-        Me.Userid.Location = New System.Drawing.Point(77, 457)
+        Me.Userid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Userid.Location = New System.Drawing.Point(100, 463)
         Me.Userid.Name = "Userid"
-        Me.Userid.Size = New System.Drawing.Size(238, 20)
+        Me.Userid.Size = New System.Drawing.Size(238, 22)
         Me.Userid.TabIndex = 1
         '
         'dgvaccount
         '
+        Me.dgvaccount.AllowUserToAddRows = False
+        Me.dgvaccount.AllowUserToDeleteRows = False
+        Me.dgvaccount.BackgroundColor = System.Drawing.Color.White
+        Me.dgvaccount.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dgvaccount.Location = New System.Drawing.Point(12, 12)
         Me.dgvaccount.Name = "dgvaccount"
+        Me.dgvaccount.ReadOnly = True
         Me.dgvaccount.Size = New System.Drawing.Size(984, 401)
         Me.dgvaccount.TabIndex = 46
         '
         'cbo_group
         '
+        Me.cbo_group.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cbo_group.FormattingEnabled = True
-        Me.cbo_group.Location = New System.Drawing.Point(385, 483)
+        Me.cbo_group.Location = New System.Drawing.Point(425, 495)
         Me.cbo_group.Name = "cbo_group"
-        Me.cbo_group.Size = New System.Drawing.Size(238, 21)
+        Me.cbo_group.Size = New System.Drawing.Size(238, 24)
         Me.cbo_group.TabIndex = 4
         '
         'cmd_edit
         '
-        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
+        Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.refresh
         Me.cmd_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_edit.Location = New System.Drawing.Point(876, 418)
+        Me.cmd_edit.Location = New System.Drawing.Point(854, 419)
         Me.cmd_edit.Name = "cmd_edit"
-        Me.cmd_edit.Size = New System.Drawing.Size(119, 23)
+        Me.cmd_edit.Size = New System.Drawing.Size(144, 33)
         Me.cmd_edit.TabIndex = 7
         Me.cmd_edit.Text = "แก้ไข"
-        Me.cmd_edit.UseVisualStyleBackColor = True
+        Me.cmd_edit.UseVisualStyleBackColor = False
         '
         'cmd_delete
         '
-        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__16_
+        Me.cmd_delete.BackColor = System.Drawing.Color.GhostWhite
+        Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete
         Me.cmd_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_delete.Location = New System.Drawing.Point(751, 418)
+        Me.cmd_delete.Location = New System.Drawing.Point(704, 419)
         Me.cmd_delete.Name = "cmd_delete"
-        Me.cmd_delete.Size = New System.Drawing.Size(119, 23)
+        Me.cmd_delete.Size = New System.Drawing.Size(144, 33)
         Me.cmd_delete.TabIndex = 6
         Me.cmd_delete.Text = "ลบ"
-        Me.cmd_delete.UseVisualStyleBackColor = True
+        Me.cmd_delete.UseVisualStyleBackColor = False
         '
         'cmd_register
         '
-        Me.cmd_register.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__1_
+        Me.cmd_register.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_register.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_register.Image = Global.SCANDB.My.Resources.Resources.add
         Me.cmd_register.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_register.Location = New System.Drawing.Point(629, 418)
+        Me.cmd_register.Location = New System.Drawing.Point(554, 419)
         Me.cmd_register.Name = "cmd_register"
-        Me.cmd_register.Size = New System.Drawing.Size(116, 23)
+        Me.cmd_register.Size = New System.Drawing.Size(144, 33)
         Me.cmd_register.TabIndex = 5
         Me.cmd_register.Text = "เพิ่ม"
-        Me.cmd_register.UseVisualStyleBackColor = True
+        Me.cmd_register.UseVisualStyleBackColor = False
         '
         'cmd_unlockall
         '
+        Me.cmd_unlockall.BackColor = System.Drawing.Color.GhostWhite
         Me.cmd_unlockall.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_unlockall.Image = Global.SCANDB.My.Resources.Resources.Key_32x32
         Me.cmd_unlockall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_unlockall.Location = New System.Drawing.Point(15, 518)
+        Me.cmd_unlockall.Location = New System.Drawing.Point(22, 530)
         Me.cmd_unlockall.Name = "cmd_unlockall"
-        Me.cmd_unlockall.Size = New System.Drawing.Size(210, 38)
+        Me.cmd_unlockall.Size = New System.Drawing.Size(210, 37)
         Me.cmd_unlockall.TabIndex = 59
         Me.cmd_unlockall.Text = "   ปลดล็อคผู้ใช้ทั้งหมด"
-        Me.cmd_unlockall.UseVisualStyleBackColor = True
+        Me.cmd_unlockall.UseVisualStyleBackColor = False
         '
         'FrmAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.cmd_unlockall)
         Me.Controls.Add(Me.cbo_group)
@@ -194,6 +217,7 @@ Partial Class FrmAccount
         Me.Controls.Add(Me.Userid)
         Me.Controls.Add(Me.dgvaccount)
         Me.Controls.Add(Me.cmd_register)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmAccount"
         Me.Text = "ตั้งค่าบัญชี"

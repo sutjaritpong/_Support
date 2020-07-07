@@ -47,10 +47,10 @@ Partial Class FrmTMB
         '
         Me.AxAcroPDFtmb.Dock = System.Windows.Forms.DockStyle.Right
         Me.AxAcroPDFtmb.Enabled = True
-        Me.AxAcroPDFtmb.Location = New System.Drawing.Point(747, 0)
+        Me.AxAcroPDFtmb.Location = New System.Drawing.Point(491, 0)
         Me.AxAcroPDFtmb.Name = "AxAcroPDFtmb"
         Me.AxAcroPDFtmb.OcxState = CType(resources.GetObject("AxAcroPDFtmb.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFtmb.Size = New System.Drawing.Size(517, 985)
+        Me.AxAcroPDFtmb.Size = New System.Drawing.Size(517, 729)
         Me.AxAcroPDFtmb.TabIndex = 103
         '
         'txt_searchtmb
@@ -126,6 +126,7 @@ Partial Class FrmTMB
         '
         'cmd_clear
         '
+        Me.cmd_clear.BackColor = System.Drawing.Color.White
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_clear.Location = New System.Drawing.Point(409, 4)
@@ -133,13 +134,15 @@ Partial Class FrmTMB
         Me.cmd_clear.Size = New System.Drawing.Size(75, 23)
         Me.cmd_clear.TabIndex = 3
         Me.cmd_clear.Text = "เคลีย"
-        Me.cmd_clear.UseVisualStyleBackColor = True
+        Me.cmd_clear.UseVisualStyleBackColor = False
         '
         'dtgvshowtmb
         '
         Me.dtgvshowtmb.AllowUserToAddRows = False
         Me.dtgvshowtmb.AllowUserToDeleteRows = False
+        Me.dtgvshowtmb.BackgroundColor = System.Drawing.Color.White
         Me.dtgvshowtmb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dtgvshowtmb.GridColor = System.Drawing.Color.Black
         Me.dtgvshowtmb.Location = New System.Drawing.Point(13, 33)
         Me.dtgvshowtmb.Name = "dtgvshowtmb"
         Me.dtgvshowtmb.ReadOnly = True
@@ -148,6 +151,8 @@ Partial Class FrmTMB
         '
         'cmd_selecttmb
         '
+        Me.cmd_selecttmb.BackColor = System.Drawing.Color.White
+        Me.cmd_selecttmb.ForeColor = System.Drawing.Color.Blue
         Me.cmd_selecttmb.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.cmd_selecttmb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_selecttmb.Location = New System.Drawing.Point(319, 4)
@@ -155,7 +160,7 @@ Partial Class FrmTMB
         Me.cmd_selecttmb.Size = New System.Drawing.Size(84, 23)
         Me.cmd_selecttmb.TabIndex = 2
         Me.cmd_selecttmb.Text = "ค้นหา"
-        Me.cmd_selecttmb.UseVisualStyleBackColor = True
+        Me.cmd_selecttmb.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -190,7 +195,8 @@ Partial Class FrmTMB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 985)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_prodseltmb)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -206,6 +212,7 @@ Partial Class FrmTMB
         Me.Controls.Add(Me.cmd_clear)
         Me.Controls.Add(Me.dtgvshowtmb)
         Me.Controls.Add(Me.cmd_selecttmb)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmTMB"
         Me.Text = "ค้นหาเอกสาร TMB"

@@ -38,7 +38,7 @@ Partial Class FrmPasssetting
         '
         Me.chk_Password.AutoSize = True
         Me.chk_Password.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.chk_Password.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.chk_Password.ForeColor = System.Drawing.Color.Blue
         Me.chk_Password.Location = New System.Drawing.Point(168, 91)
         Me.chk_Password.Name = "chk_Password"
         Me.chk_Password.Size = New System.Drawing.Size(93, 20)
@@ -105,28 +105,31 @@ Partial Class FrmPasssetting
         '
         'cmd_no
         '
+        Me.cmd_no.BackColor = System.Drawing.Color.White
         Me.cmd_no.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_no.Location = New System.Drawing.Point(322, 210)
         Me.cmd_no.Name = "cmd_no"
         Me.cmd_no.Size = New System.Drawing.Size(92, 32)
         Me.cmd_no.TabIndex = 29
         Me.cmd_no.Text = "ยกเลิก"
-        Me.cmd_no.UseVisualStyleBackColor = True
+        Me.cmd_no.UseVisualStyleBackColor = False
         '
         'cmd_ok
         '
+        Me.cmd_ok.BackColor = System.Drawing.Color.White
         Me.cmd_ok.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_ok.Location = New System.Drawing.Point(224, 210)
         Me.cmd_ok.Name = "cmd_ok"
         Me.cmd_ok.Size = New System.Drawing.Size(92, 32)
         Me.cmd_ok.TabIndex = 28
         Me.cmd_ok.Text = "ยืนยัน"
-        Me.cmd_ok.UseVisualStyleBackColor = True
+        Me.cmd_ok.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Label1.Location = New System.Drawing.Point(23, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(204, 20)
@@ -137,6 +140,7 @@ Partial Class FrmPasssetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(455, 258)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmd_no)
@@ -148,6 +152,7 @@ Partial Class FrmPasssetting
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FrmPasssetting"
         Me.Text = "ตั้งค่ารหัสผ่าน"

@@ -47,10 +47,10 @@ Partial Class FrmUOB
         '
         Me.AxAcroPDFuob.Dock = System.Windows.Forms.DockStyle.Right
         Me.AxAcroPDFuob.Enabled = True
-        Me.AxAcroPDFuob.Location = New System.Drawing.Point(747, 0)
+        Me.AxAcroPDFuob.Location = New System.Drawing.Point(491, 0)
         Me.AxAcroPDFuob.Name = "AxAcroPDFuob"
         Me.AxAcroPDFuob.OcxState = CType(resources.GetObject("AxAcroPDFuob.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFuob.Size = New System.Drawing.Size(517, 985)
+        Me.AxAcroPDFuob.Size = New System.Drawing.Size(517, 729)
         Me.AxAcroPDFuob.TabIndex = 115
         '
         'txt_searchuob
@@ -128,7 +128,9 @@ Partial Class FrmUOB
         '
         Me.dtgvshowuob.AllowUserToAddRows = False
         Me.dtgvshowuob.AllowUserToDeleteRows = False
+        Me.dtgvshowuob.BackgroundColor = System.Drawing.Color.White
         Me.dtgvshowuob.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.dtgvshowuob.GridColor = System.Drawing.Color.Black
         Me.dtgvshowuob.Location = New System.Drawing.Point(13, 33)
         Me.dtgvshowuob.Name = "dtgvshowuob"
         Me.dtgvshowuob.ReadOnly = True
@@ -148,6 +150,7 @@ Partial Class FrmUOB
         '
         'cmd_clear
         '
+        Me.cmd_clear.BackColor = System.Drawing.Color.White
         Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_clear.Location = New System.Drawing.Point(409, 4)
@@ -155,10 +158,11 @@ Partial Class FrmUOB
         Me.cmd_clear.Size = New System.Drawing.Size(75, 23)
         Me.cmd_clear.TabIndex = 1
         Me.cmd_clear.Text = "เคลีย"
-        Me.cmd_clear.UseVisualStyleBackColor = True
+        Me.cmd_clear.UseVisualStyleBackColor = False
         '
         'cmd_selectuob
         '
+        Me.cmd_selectuob.BackColor = System.Drawing.Color.White
         Me.cmd_selectuob.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
         Me.cmd_selectuob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmd_selectuob.Location = New System.Drawing.Point(319, 4)
@@ -166,7 +170,7 @@ Partial Class FrmUOB
         Me.cmd_selectuob.Size = New System.Drawing.Size(84, 23)
         Me.cmd_selectuob.TabIndex = 1
         Me.cmd_selectuob.Text = "ค้นหา"
-        Me.cmd_selectuob.UseVisualStyleBackColor = True
+        Me.cmd_selectuob.UseVisualStyleBackColor = False
         '
         'txt_bankseluob
         '
@@ -190,7 +194,8 @@ Partial Class FrmUOB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 985)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.txt_bankseluob)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -206,6 +211,7 @@ Partial Class FrmUOB
         Me.Controls.Add(Me.cmd_clear)
         Me.Controls.Add(Me.dtgvshowuob)
         Me.Controls.Add(Me.cmd_selectuob)
+        Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmUOB"
         Me.Text = "ค้นหาเอกสาร UOB"

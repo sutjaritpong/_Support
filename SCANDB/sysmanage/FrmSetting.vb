@@ -4,6 +4,8 @@ Public Class FrmSetting
         SELECTdayPass()
     End Sub
     Private Sub cmd_editsetting_Click(sender As Object, e As EventArgs) Handles cmd_editsetting.Click
+        connect()
+
         If txt_passlimit.Text = "" OrElse txt_daylimit.Text = "" Then
             Msg_error("กรุณาเพิ่มข้อมูลในช่องว่าง")
             Return
@@ -28,9 +30,12 @@ Public Class FrmSetting
             End If
         End If
         SELECTdayPass()
+        cn.Close()
+
     End Sub
 
     Sub SELECTdayPass()
+        connect()
         sql = "SELECT * FROM tbl_setting"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -39,6 +44,7 @@ Public Class FrmSetting
         txt_passlimit.Text = DS.Tables("table").Rows(0)("faillimit")
         txt_daylimit.Text = DS.Tables("table").Rows(0)("daylimit")
         txt_changepass.Text = DS.Tables("table").Rows(0)("changelimit")
+        cn.Close()
     End Sub
 
     Private Sub txt_daylimit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_daylimit.KeyPress
