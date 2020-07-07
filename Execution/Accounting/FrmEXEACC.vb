@@ -9,7 +9,9 @@ Public Class FrmEXEACC
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datework)
+        _Datetimeformatshort(dtp_date_receipt)
 
         _cleardatagrid(dtgv_exeacc)
 

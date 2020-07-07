@@ -11,8 +11,12 @@ Public Class FrmAccountingKBANK
         Dim _comadd() As String = {"เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "เลขที่คดี", "เลขที่ชุด"}
         _cboArray(cbo_search, _comadd)
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_date_legal)
+        _Datetimeformatshort(dtp_send_invoice)
 
         connect()
+
 
         sql = "SELECT DISTINCT Accounting_CUSCUS,Accounting_invoice,Accounting_Name,Accounting_black_red  FROM AccountingKBANK"
 

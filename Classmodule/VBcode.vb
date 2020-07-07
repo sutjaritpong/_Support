@@ -79,7 +79,7 @@ Module VBcode
 
     End Sub
     Friend Sub _Datetimeformatshort(_time As DateTimePicker)
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _time.Format = DateTimePickerFormat.Custom
         _time.CustomFormat = "dd-MMM-yy"
 

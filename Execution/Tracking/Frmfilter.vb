@@ -11,6 +11,10 @@ Public Class Frmfilter
 
         connect()
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_date_end)
+        _Datetimeformatshort(dtp_date_start)
+
         sql = $"SELECT DISTINCT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()

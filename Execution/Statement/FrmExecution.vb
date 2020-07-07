@@ -12,7 +12,10 @@ Public Class FrmExecution
 
         connect()
 
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datesheet)
+        _Datetimeformatshort(dtp_tracking_date)
+        _Datetimeformatshort(dtp_verify_date)
 
         'Dim dt As DateTimeFormatInfo = Thread.CurrentThread.CurrentCulture.DateTimeFormat
         'Me.dtp_dateexework.CustomFormat = "dd MMM yyyy"

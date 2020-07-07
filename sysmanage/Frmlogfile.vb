@@ -14,6 +14,11 @@ Imports System.Linq
 
 Public Class Frmlogfile
     Private Sub Frmlogfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(DateTimestart)
+        _Datetimeformatshort(DateTimeend)
+
         connect()
         Dim itms() As String = {"ชื่อเข้าระบบ", "ชื่อพนักงาน", "IP", "PC", "รายละเอียด"}
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox

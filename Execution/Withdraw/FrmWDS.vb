@@ -9,6 +9,15 @@ Public Class FrmWDS
 
         connect()
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datecollector)
+        _Datetimeformatshort(dtp_daterefund)
+        _Datetimeformatshort(dtp_datewds)
+        _Datetimeformatshort(dtp_payment)
+        _Datetimeformatshort(datetimestart)
+        _Datetimeformatshort(datetimefinish)
+
+
         Dim types() As String = {"ALL PRODUCT", "KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
         cbo_product.Items.AddRange(types)
         cbo_product.SelectedIndex = 0

@@ -6,7 +6,10 @@ Public Class FrmsaveWDS
 
         connect()
 
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datecollector)
+        _Datetimeformatshort(dtp_datewds)
+        _Datetimeformatshort(dtp_payment)
 
         cbo_owner.Items.Clear()
         Dim Owner() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}

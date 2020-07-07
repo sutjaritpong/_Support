@@ -4,6 +4,10 @@ Public Class FrmPort
 
 
     Private Sub FrmPort_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datesend)
+        _Datetimeformatshort(dtp_date_review)
+        _Datetimeformatshort(dtp_date_soc)
 
         _comboboxadd(cbo_owner, "Customer_Owner", "Execution_Port")
 
@@ -373,6 +377,5 @@ Public Class FrmPort
         End If
 
     End Sub
-
 
 End Class

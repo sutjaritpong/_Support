@@ -9,6 +9,10 @@ Public Class Frmownership
 
         connect()
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datework)
+        _Datetimeformatshort(dtp_date_review)
+
         _cleardatagrid(dtgv_search)
 
 
@@ -201,5 +205,6 @@ Public Class Frmownership
         End If
         cn.Close()
     End Sub
+
 
 End Class
