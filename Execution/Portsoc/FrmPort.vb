@@ -84,6 +84,9 @@ Public Class FrmPort
 
             End With
 
+            _datagrid_format_dateshort(dtgv_exeport, 7)
+            _datagrid_format_dateshort(dtgv_exeport, 12)
+
             dtgv_exeport.Visible = True
             lbl_search.Text = $"พบข้อมูล {dtgv_exeport.RowCount.ToString} รายการ.."
             lbl_search.ForeColor = Color.Green

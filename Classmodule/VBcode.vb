@@ -78,6 +78,13 @@ Module VBcode
         _combobox.SelectedIndex = 0
 
     End Sub
+    '## sub _datagrid_format_dateshort มี Parameter 2 ตัว _mydatagrid รับค่า Datagridview ที่่ต้องการใช้งาน และ _index รับค่า ลำดับ Columns ที่จะแสดงผล 
+    Friend Sub _datagrid_format_dateshort(_mydatagrid As DataGridView, _index As Integer)
+
+        _mydatagrid.Columns(_index).DefaultCellStyle.Format = "dd-MMM-yy"
+
+    End Sub
+
     Friend Sub _Datetimeformatshort(_time As DateTimePicker)
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _time.Format = DateTimePickerFormat.Custom
@@ -118,7 +125,6 @@ Module VBcode
             Exit Sub
 
         Else
-
             _current.text = CDbl(_current.text).ToString("##,##0.00")
 
         End If

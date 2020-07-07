@@ -89,6 +89,7 @@ Public Class Frmfilter
             Next
 
         End With
+        _datagrid_format_dateshort(dtgv_filter, 5)
         '## Method visible สั่งให้แสดง Datagird โดย ผลลัพย์ในการกำหนดเป็น Boolean
         dtgv_filter.Visible = True
 

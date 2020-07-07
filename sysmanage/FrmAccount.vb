@@ -34,7 +34,7 @@ Public Class FrmAccount
 
         connect()
 
-        Dim header() As String = {"ชื่อผู้ใช้", "รหัสผ่าน", "ชื่อนามสกุล", "กลุ่ม", "เวลาเข้าใช้", "เวลาที่ลงทะเบียน", "จำนวนที่ใส่รหัสผิด", "สถานะ"}
+        Dim header() As String = {"ชื่อผู้ใช้", "รหัสผ่าน", "ชื่อนามสกุล", "กลุ่ม", "เวลาเข้าใช้", "เวลาที่ลงทะเบียน", "จำนวนที่ใส่รหัสผิด", "สถานะ", "เปลี่ยนรหัสผ่านล่าสุด"}
         sql = ("SELECT * FROM tbl_login") '// ประกาศตัวแปรเป็น LOADDATA เพื่อนำมาใช้กับคำสั่ง SELECT เพื่อแสดงข้อมูล
         connect()
         DA = New SqlDataAdapter(sql, cn)
@@ -49,6 +49,9 @@ Public Class FrmAccount
                     col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 Next
             Next
+            .Columns(4).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
+            .Columns(5).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
+            .Columns(8).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
 
         End With
 

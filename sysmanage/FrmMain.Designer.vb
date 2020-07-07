@@ -80,6 +80,7 @@ Partial Class FrmMastermain
         Me.Menu_ReportWDS = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Reportracking = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_ReportAccounting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Reportstatement = New System.Windows.Forms.ToolStripMenuItem()
         Me.ITToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IPManagement = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
@@ -578,7 +579,7 @@ Partial Class FrmMastermain
         '
         'รายงานToolStripMenuItem
         '
-        Me.รายงานToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_report, Me.Menu_ReportWDS, Me.Menu_Reportracking, Me.Menu_ReportAccounting})
+        Me.รายงานToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_report, Me.Menu_ReportWDS, Me.Menu_Reportracking, Me.Menu_ReportAccounting, Me.Menu_Reportstatement})
         Me.รายงานToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.รายงานToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
         Me.รายงานToolStripMenuItem.Name = "รายงานToolStripMenuItem"
@@ -620,6 +621,14 @@ Partial Class FrmMastermain
         Me.Menu_ReportAccounting.Name = "Menu_ReportAccounting"
         Me.Menu_ReportAccounting.Size = New System.Drawing.Size(381, 22)
         Me.Menu_ReportAccounting.Text = "รายงานบังคับคดีตั้งเรื่อง/ใบเสร็จวางค่าใช้จ่าย (ReportViewer)"
+        '
+        'Menu_Reportstatement
+        '
+        Me.Menu_Reportstatement.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_Reportstatement.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_Reportstatement.Name = "Menu_Reportstatement"
+        Me.Menu_Reportstatement.Size = New System.Drawing.Size(381, 22)
+        Me.Menu_Reportstatement.Text = "รายงานใบงานแถลงบัญชีรับ-จ่าย (ReportViewer)"
         '
         'ITToolStripMenuItem
         '
@@ -842,4 +851,5 @@ Partial Class FrmMastermain
     Friend WithEvents IPManagement As ToolStripMenuItem
     Friend WithEvents Menu_Reportracking As ToolStripMenuItem
     Friend WithEvents Menu_ReportAccounting As ToolStripMenuItem
+    Friend WithEvents Menu_Reportstatement As ToolStripMenuItem
 End Class

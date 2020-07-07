@@ -78,6 +78,9 @@ Public Class Frmlogfile
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
         Next
+
+        dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
+
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
         dtgvlogfile.DataSource.clear()
@@ -124,6 +127,8 @@ Public Class Frmlogfile
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
         Next
+
+        dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
 
     End Sub
 

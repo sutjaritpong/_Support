@@ -4,7 +4,7 @@ Imports System.Globalization
 Imports System.Threading
 Public Class FrmEXEACC
     '## Array entity_ACC() นำไปใช้เพิ่ม Columns ใน Datagridview 
-    Dim entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "ค่าใช้จ่ายอื่นๆ", "เดือนที่ลงข้อมูล"}
+    Dim entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล"}
 
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -230,6 +230,8 @@ Public Class FrmEXEACC
             End With
 
             dtgv_exeacc.Visible = True
+            _datagrid_format_dateshort(dtgv_exeacc, 7)
+            _datagrid_format_dateshort(dtgv_exeacc, 14)
             lbl_count_find.Text = $"พบข้อมูล {dtgv_exeacc.RowCount.ToString} รายการ.."
             lbl_count_find.ForeColor = Color.Green
 

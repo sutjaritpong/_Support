@@ -103,6 +103,8 @@ Public Class FrmAccountingKBANK
                 .Columns(10).Visible = False
                 .Columns(12).Visible = False
 
+                _datagrid_format_dateshort(dtgv_invoice_list, 5)
+                _datagrid_format_dateshort(dtgv_invoice_list, 10)
             End With
 
         End If
@@ -189,6 +191,8 @@ Public Class FrmAccountingKBANK
             .Columns(1).HeaderText = "Path"
             .Columns(2).HeaderText = "เดือนที่เบิก"
             .Columns(3).HeaderText = "Product"
+
+            _datagrid_format_dateshort(dtgv_find_scan, 2)
 
         End With
 

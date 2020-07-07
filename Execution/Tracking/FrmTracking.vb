@@ -175,8 +175,11 @@ Public Class FrmTracking
             lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
             lbl_tracking.ForeColor = Color.Red
         Else
+            _datagrid_format_dateshort(dtgv_tracking, 5)
+            _datagrid_format_dateshort(dtgv_tracking, 6)
+
             lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_tracking.RowCount.ToString} แถว"
-                lbl_tracking.ForeColor = Color.DarkGreen
+            lbl_tracking.ForeColor = Color.DarkGreen
             End If
 
         _readonly()
@@ -253,6 +256,9 @@ Public Class FrmTracking
 
                     dtgv_invalid.Columns(i).HeaderText = _headertext(i)
                 Next
+
+                _datagrid_format_dateshort(dtgv_invalid, 6)
+                _datagrid_format_dateshort(dtgv_invalid, 12)
 
                 _Getlogdata($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")

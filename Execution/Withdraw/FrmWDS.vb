@@ -124,6 +124,10 @@ Public Class FrmWDS
             dtgv_data.Columns(0).Visible = False
 
         Next
+        _datagrid_format_dateshort(dtgv_data, 3)
+        _datagrid_format_dateshort(dtgv_data, 10)
+        _datagrid_format_dateshort(dtgv_data, 16)
+        _datagrid_format_dateshort(dtgv_data, 19)
 
         cn.Close()
 
@@ -487,6 +491,10 @@ Public Class FrmWDS
         dtgv_data.DataSource = DS.Tables("table")
         dtgv_data.Columns(0).Visible = False
 
+        _datagrid_format_dateshort(dtgv_data, 3)
+        _datagrid_format_dateshort(dtgv_data, 10)
+        _datagrid_format_dateshort(dtgv_data, 16)
+
         cn.Close()
 
     End Sub
@@ -592,6 +600,10 @@ Public Class FrmWDS
             FrmCheck.dtgv_check.Columns(i).HeaderText = headers(i)
             FrmCheck.dtgv_check.Columns(0).Visible = False
         Next
+
+        _datagrid_format_dateshort(FrmCheck.dtgv_check, 5)
+        _datagrid_format_dateshort(FrmCheck.dtgv_check, 12)
+
         If c <= 0 Then
             If Msg_confirm("ไม่พบข้อมูลเช็ค คุณต้องการเพิ่มข้อมูลหรือไม่", "แจ้งเตือน") = vbYes Then
                 With FrmCheck
@@ -639,7 +651,13 @@ Public Class FrmWDS
             dtgv_data.Columns(i).HeaderText = headers(i)
             dtgv_data.Columns(0).Visible = False
         Next
+
+        _datagrid_format_dateshort(dtgv_data, 3)
+        _datagrid_format_dateshort(dtgv_data, 10)
+        _datagrid_format_dateshort(dtgv_data, 16)
+        _datagrid_format_dateshort(dtgv_data, 19)
         cn.Close()
+
     End Sub
     Private Sub _showgrid()
 

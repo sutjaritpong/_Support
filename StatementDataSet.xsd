@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StatementDataSet" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SCANPDFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SCANPDFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SCANDB.My.MySettings.GlobalReference.Default.SCANPDFConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EXESMTableAdapter" GeneratorDataComponentClassName="EXESMTableAdapter" Name="EXESM" UserDataComponentName="EXESMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SCANPDFConnectionString (MySettings)" DbObjectName="SCANPDF.dbo.EXESM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EXEBANK, EXEID, EXECUSTOMER, EXEACC1, EXEACC2, EXEACC3, EXECOURT, EXEBLACK, EXERED, EXENUMBER, EXEDEPARTMENT, EXETOTAL, EXEEMPLOYEE, EXEPHONE, EXEHUB, EXEDATEWORK, EXEFULLNAME, 
+                         EXEDETAIL, EXEHUBS, EXEDATERESULT
+FROM            EXESM
+ORDER BY EXEDATEWORK</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EXEBANK" DataSetColumn="EXEBANK" />
+              <Mapping SourceColumn="EXEID" DataSetColumn="EXEID" />
+              <Mapping SourceColumn="EXECUSTOMER" DataSetColumn="EXECUSTOMER" />
+              <Mapping SourceColumn="EXEACC1" DataSetColumn="EXEACC1" />
+              <Mapping SourceColumn="EXEACC2" DataSetColumn="EXEACC2" />
+              <Mapping SourceColumn="EXEACC3" DataSetColumn="EXEACC3" />
+              <Mapping SourceColumn="EXECOURT" DataSetColumn="EXECOURT" />
+              <Mapping SourceColumn="EXEBLACK" DataSetColumn="EXEBLACK" />
+              <Mapping SourceColumn="EXERED" DataSetColumn="EXERED" />
+              <Mapping SourceColumn="EXENUMBER" DataSetColumn="EXENUMBER" />
+              <Mapping SourceColumn="EXEDEPARTMENT" DataSetColumn="EXEDEPARTMENT" />
+              <Mapping SourceColumn="EXETOTAL" DataSetColumn="EXETOTAL" />
+              <Mapping SourceColumn="EXEEMPLOYEE" DataSetColumn="EXEEMPLOYEE" />
+              <Mapping SourceColumn="EXEPHONE" DataSetColumn="EXEPHONE" />
+              <Mapping SourceColumn="EXEHUB" DataSetColumn="EXEHUB" />
+              <Mapping SourceColumn="EXEDATEWORK" DataSetColumn="EXEDATEWORK" />
+              <Mapping SourceColumn="EXEFULLNAME" DataSetColumn="EXEFULLNAME" />
+              <Mapping SourceColumn="EXEDETAIL" DataSetColumn="EXEDETAIL" />
+              <Mapping SourceColumn="EXEHUBS" DataSetColumn="EXEHUBS" />
+              <Mapping SourceColumn="EXEDATERESULT" DataSetColumn="EXEDATERESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StatementDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StatementDataSet" msprop:Generator_UserDSName="StatementDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EXESM" msprop:Generator_TableClassName="EXESMDataTable" msprop:Generator_TableVarName="tableEXESM" msprop:Generator_TablePropName="EXESM" msprop:Generator_RowDeletingName="EXESMRowDeleting" msprop:Generator_RowChangingName="EXESMRowChanging" msprop:Generator_RowEvHandlerName="EXESMRowChangeEventHandler" msprop:Generator_RowDeletedName="EXESMRowDeleted" msprop:Generator_UserTableName="EXESM" msprop:Generator_RowChangedName="EXESMRowChanged" msprop:Generator_RowEvArgName="EXESMRowChangeEvent" msprop:Generator_RowClassName="EXESMRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EXEBANK" msprop:Generator_ColumnVarNameInTable="columnEXEBANK" msprop:Generator_ColumnPropNameInRow="EXEBANK" msprop:Generator_ColumnPropNameInTable="EXEBANKColumn" msprop:Generator_UserColumnName="EXEBANK">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEID" msprop:Generator_ColumnVarNameInTable="columnEXEID" msprop:Generator_ColumnPropNameInRow="EXEID" msprop:Generator_ColumnPropNameInTable="EXEIDColumn" msprop:Generator_UserColumnName="EXEID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXECUSTOMER" msprop:Generator_ColumnVarNameInTable="columnEXECUSTOMER" msprop:Generator_ColumnPropNameInRow="EXECUSTOMER" msprop:Generator_ColumnPropNameInTable="EXECUSTOMERColumn" msprop:Generator_UserColumnName="EXECUSTOMER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEACC1" msprop:Generator_ColumnVarNameInTable="columnEXEACC1" msprop:Generator_ColumnPropNameInRow="EXEACC1" msprop:Generator_ColumnPropNameInTable="EXEACC1Column" msprop:Generator_UserColumnName="EXEACC1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEACC2" msprop:Generator_ColumnVarNameInTable="columnEXEACC2" msprop:Generator_ColumnPropNameInRow="EXEACC2" msprop:Generator_ColumnPropNameInTable="EXEACC2Column" msprop:Generator_UserColumnName="EXEACC2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEACC3" msprop:Generator_ColumnVarNameInTable="columnEXEACC3" msprop:Generator_ColumnPropNameInRow="EXEACC3" msprop:Generator_ColumnPropNameInTable="EXEACC3Column" msprop:Generator_UserColumnName="EXEACC3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXECOURT" msprop:Generator_ColumnVarNameInTable="columnEXECOURT" msprop:Generator_ColumnPropNameInRow="EXECOURT" msprop:Generator_ColumnPropNameInTable="EXECOURTColumn" msprop:Generator_UserColumnName="EXECOURT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEBLACK" msprop:Generator_ColumnVarNameInTable="columnEXEBLACK" msprop:Generator_ColumnPropNameInRow="EXEBLACK" msprop:Generator_ColumnPropNameInTable="EXEBLACKColumn" msprop:Generator_UserColumnName="EXEBLACK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXERED" msprop:Generator_ColumnVarNameInTable="columnEXERED" msprop:Generator_ColumnPropNameInRow="EXERED" msprop:Generator_ColumnPropNameInTable="EXEREDColumn" msprop:Generator_UserColumnName="EXERED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXENUMBER" msprop:Generator_ColumnVarNameInTable="columnEXENUMBER" msprop:Generator_ColumnPropNameInRow="EXENUMBER" msprop:Generator_ColumnPropNameInTable="EXENUMBERColumn" msprop:Generator_UserColumnName="EXENUMBER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEDEPARTMENT" msprop:Generator_ColumnVarNameInTable="columnEXEDEPARTMENT" msprop:Generator_ColumnPropNameInRow="EXEDEPARTMENT" msprop:Generator_ColumnPropNameInTable="EXEDEPARTMENTColumn" msprop:Generator_UserColumnName="EXEDEPARTMENT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXETOTAL" msprop:Generator_ColumnVarNameInTable="columnEXETOTAL" msprop:Generator_ColumnPropNameInRow="EXETOTAL" msprop:Generator_ColumnPropNameInTable="EXETOTALColumn" msprop:Generator_UserColumnName="EXETOTAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EXEEMPLOYEE" msprop:Generator_ColumnVarNameInTable="columnEXEEMPLOYEE" msprop:Generator_ColumnPropNameInRow="EXEEMPLOYEE" msprop:Generator_ColumnPropNameInTable="EXEEMPLOYEEColumn" msprop:Generator_UserColumnName="EXEEMPLOYEE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEPHONE" msprop:Generator_ColumnVarNameInTable="columnEXEPHONE" msprop:Generator_ColumnPropNameInRow="EXEPHONE" msprop:Generator_ColumnPropNameInTable="EXEPHONEColumn" msprop:Generator_UserColumnName="EXEPHONE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEHUB" msprop:Generator_ColumnVarNameInTable="columnEXEHUB" msprop:Generator_ColumnPropNameInRow="EXEHUB" msprop:Generator_ColumnPropNameInTable="EXEHUBColumn" msprop:Generator_UserColumnName="EXEHUB" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEDATEWORK" msprop:Generator_ColumnVarNameInTable="columnEXEDATEWORK" msprop:Generator_ColumnPropNameInRow="EXEDATEWORK" msprop:Generator_ColumnPropNameInTable="EXEDATEWORKColumn" msprop:Generator_UserColumnName="EXEDATEWORK" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EXEFULLNAME" msprop:Generator_ColumnVarNameInTable="columnEXEFULLNAME" msprop:Generator_ColumnPropNameInRow="EXEFULLNAME" msprop:Generator_ColumnPropNameInTable="EXEFULLNAMEColumn" msprop:Generator_UserColumnName="EXEFULLNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEDETAIL" msprop:Generator_ColumnVarNameInTable="columnEXEDETAIL" msprop:Generator_ColumnPropNameInRow="EXEDETAIL" msprop:Generator_ColumnPropNameInTable="EXEDETAILColumn" msprop:Generator_UserColumnName="EXEDETAIL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEHUBS" msprop:Generator_ColumnVarNameInTable="columnEXEHUBS" msprop:Generator_ColumnPropNameInRow="EXEHUBS" msprop:Generator_ColumnPropNameInTable="EXEHUBSColumn" msprop:Generator_UserColumnName="EXEHUBS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXEDATERESULT" msprop:Generator_ColumnVarNameInTable="columnEXEDATERESULT" msprop:Generator_ColumnPropNameInRow="EXEDATERESULT" msprop:Generator_ColumnPropNameInTable="EXEDATERESULTColumn" msprop:Generator_UserColumnName="EXEDATERESULT" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

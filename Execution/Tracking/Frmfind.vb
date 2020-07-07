@@ -74,6 +74,8 @@ Public Class Frmfind
             Else
                 .lbl_invalid.Text = $"จำนวนผลลัพธ์ที่พบ = { .dtgv_invalid.RowCount.ToString} แถว"
                 .lbl_invalid.ForeColor = Color.DarkGreen
+                _datagrid_format_dateshort(FrmTracking.dtgv_invalid, 6)
+                _datagrid_format_dateshort(FrmTracking.dtgv_invalid, 12)
             End If
 
         End With
@@ -111,6 +113,7 @@ Public Class Frmfind
             Else
                 .lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = { .dtgv_tracking.RowCount.ToString} แถว"
                 .lbl_tracking.ForeColor = Color.DarkGreen
+                _datagrid_format_dateshort(FrmTracking.dtgv_tracking, 5)
             End If
 
 

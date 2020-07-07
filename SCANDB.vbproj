@@ -117,6 +117,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Report_execution\FrmStatementRV.Designer.vb">
+      <DependentUpon>FrmStatementRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmStatementRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatementDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatementDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Execution\Report_execution\FrmAccountingRV.Designer.vb">
       <DependentUpon>FrmAccountingRV.vb</DependentUpon>
     </Compile>
@@ -374,10 +385,14 @@
     <EmbeddedResource Include="Execution\Report_execution\FrmAccountingRV.resx">
       <DependentUpon>FrmAccountingRV.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\FrmStatementRV.resx">
+      <DependentUpon>FrmStatementRV.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\FrmTrackRV.resx">
       <DependentUpon>FrmTrackRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportAccounting.rdlc" />
+    <EmbeddedResource Include="Execution\Report_execution\ReportStatement.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\Reporttracking.rdlc" />
     <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
       <DependentUpon>Frmfilter.vb</DependentUpon>
@@ -490,6 +505,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="StatementDataSet.xsc">
+      <DependentUpon>StatementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StatementDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatementDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="StatementDataSet.xss">
+      <DependentUpon>StatementDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

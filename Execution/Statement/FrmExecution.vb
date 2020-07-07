@@ -25,7 +25,7 @@ Public Class FrmExecution
         'Me.dtp_tracking.CustomFormat = "dd MMM yyyy"
         'Me.dtp_tracking.Format = DateTimePickerFormat.Custom
 
-        sql = "SELECT  EMPLOYEES_KEY,EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
+        sql = "SELECT EMPLOYEES_KEY,EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
@@ -457,7 +457,7 @@ Public Class FrmExecution
 
             Next
         Next
-
+        _datagrid_format_dateshort(dtgv_search, 15)
         cn.Close()
 
     End Sub

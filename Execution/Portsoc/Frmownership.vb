@@ -158,7 +158,7 @@ Public Class Frmownership
 
         _cleardatagrid(dtgv_search)
 
-        sql = "Select EO.Customer_owner, EO.Customer_id_card, EO.Customer_name, EO.Date_send, EO.Result, EOR.Ownership_deed, EOR.Ownership_surveypage, EOR.Ownership_district, EOR.Ownership_location, EOR.Ownership_land_office, EOR.Ownership_address, EOR.Date_review FROM Execution_Ownership AS EO LEFT JOIN Execution_Ownership_Result AS EOR ON EO.Customer_id_card = EOR.Customer_id_card WHERE "
+        sql = "SELECT EO.Customer_owner, EO.Customer_id_card, EO.Customer_name, EO.Date_send, EO.Result, EOR.Ownership_deed, EOR.Ownership_surveypage, EOR.Ownership_district, EOR.Ownership_location, EOR.Ownership_land_office, EOR.Ownership_address, EOR.Date_review FROM Execution_Ownership AS EO LEFT JOIN Execution_Ownership_Result AS EOR ON EO.Customer_id_card = EOR.Customer_id_card WHERE "
 
         Select Case cbo_type_find.SelectedItem
             Case "ธนาคาร" : sql &= $"EO.Customer_owner "
@@ -198,6 +198,9 @@ Public Class Frmownership
                 Next
 
             End With
+
+            _datagrid_format_dateshort(dtgv_search, 3)
+            _datagrid_format_dateshort(dtgv_search, 11)
 
             lbl_count_find.Text = $"พบข้อมูล {dtgv_search.RowCount.ToString} รายการ.."
             lbl_count_find.ForeColor = Color.Green
