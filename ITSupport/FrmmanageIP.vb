@@ -4,8 +4,6 @@ Imports System.Data
 Public Class FrmmanageIP
     Private Sub FrmmanageIP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_edit)
-
         dtgvip.DefaultCellStyle.BackColor = Color.Black
         dtgvip.DefaultCellStyle.ForeColor = Color.White
         dtgvip.RowHeadersDefaultCellStyle.BackColor = Color.Black

@@ -3,9 +3,6 @@ Imports System.Data.SqlClient
 Public Class FrmCheck
     Private Sub FrmCheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_checksend)
-        _Datetimeformatshort(dtp_datecheck)
-
         cbo_cusowner.Items.Clear()
 
         Dim types1() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}

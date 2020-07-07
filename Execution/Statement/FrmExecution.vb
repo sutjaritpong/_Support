@@ -12,9 +12,7 @@ Public Class FrmExecution
 
         connect()
 
-        _Datetimeformatshort(dtp_datesheet)
-        _Datetimeformatshort(dtp_tracking_date)
-        _Datetimeformatshort(dtp_verify_date)
+
 
         'Dim dt As DateTimeFormatInfo = Thread.CurrentThread.CurrentCulture.DateTimeFormat
         'Me.dtp_dateexework.CustomFormat = "dd MMM yyyy"

@@ -10,8 +10,6 @@ Public Class FrmEXEACC
 
         connect()
 
-        _Datetimeformatshort(dtp_datework)
-        _Datetimeformatshort(dtp_date_receipt)
 
         _cleardatagrid(dtgv_exeacc)
 
@@ -24,12 +22,12 @@ Public Class FrmEXEACC
         cbo_search.Items.AddRange(header)
         cbo_search.SelectedIndex = 0
 
-        sql = "SELECT DISTINCT ACCBANK FROM EXEACC"
+        sql = "SELECT DISTINCT Customer_Owner FROM EXEACC"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
         While DR.Read()
-            cbo_owner.Items.Add($"{DR("ACCBANK")}")
+            cbo_owner.Items.Add($"{DR("Customer_Owner")}")
         End While
 
         DR.Close()
@@ -186,11 +184,11 @@ Public Class FrmEXEACC
 
         Select Case cbo_search.SelectedItem
 
-            Case "ธนาคาร" : sql &= $"WHERE ACCBANK"
-            Case "เลขบัตรประชาชน" : sql &= $"WHERE ACCIDC"
-            Case "ชื่อ-นามสกุล" : sql &= $"WHERE ACCCUSNAM"
-            Case "เลขที่คดีดำ" : sql &= $"WHERE ACCBLACK"
-            Case "เลขที่คดีแดง" : sql &= $"WHERE ACCRED"
+            Case "ธนาคาร" : sql &= $"WHERE Customer_Owner"
+            Case "เลขบัตรประชาชน" : sql &= $"WHERE Customer_id_card"
+            Case "ชื่อ-นามสกุล" : sql &= $"WHERE Customer_fullname"
+            Case "เลขที่คดีดำ" : sql &= $"WHERE Legal_BLACK"
+            Case "เลขที่คดีแดง" : sql &= $"WHERE Legal_RED"
             Case "Status" : sql &= $"WHERE ACCSTATUS"
 
         End Select
@@ -327,7 +325,7 @@ Public Class FrmEXEACC
         If Msg_confirm("ต้องการอัพเดตข้อมูล ใช่ หรือ ไม่", "แจ้งเตือน") = vbYes Then
 
 
-            sql = $"UPDATE EXEACC SET ACCBLACK = @black,ACCRED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send WHERE ACCBANK = @bank AND ACCIDC = @idc AND ACCCUSNAM = @cusname"
+            sql = $"UPDATE EXEACC SET Legal_BLACK = @black,Legal_RED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send WHERE Customer_owner = @bank AND Customer_id_card = @idc AND Customer_fullname = @cusname"
 
             cmd.CommandText = sql
             cmd.Parameters.Clear()
@@ -379,17 +377,17 @@ Public Class FrmEXEACC
 
         If txt_cusid.Text = "" Then
 
-            Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
-            Return
+                Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
+                Return
 
-        End If
+            End If
 
-        If txt_cusname.Text = "" Then
+            If txt_cusname.Text = "" Then
 
-            Msg_error("กรุณากรอกชื่อ-นามสกุลของลูกค้า")
-            Return
+                Msg_error("กรุณากรอกชื่อ-นามสกุลของลูกค้า")
+                Return
 
-        End If
+            End If
 
         sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{acckey}'"
 
@@ -404,45 +402,45 @@ Public Class FrmEXEACC
 
         If Msg_confirm("คุณต้องการเพิ่มข้อมูลใหม่หรือไม่", "แจ้งเตือน") = vbYes Then
 
-            sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
+            sql = "INSERT INTO EXEACC(ACCKEY,Customer_Owner,Customer_id_card,Customer_fullname,Legal_BLACK,Legal_RED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
 
             cmd.CommandText = sql
-            cmd.Parameters.Clear()
+                cmd.Parameters.Clear()
 
             cmd.Parameters.AddWithValue("KEY", acckey)
-            cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
-            cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
-            cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
-            cmd.Parameters.AddWithValue("black", txt_black.Text)
-            cmd.Parameters.AddWithValue("red", txt_red.Text)
-            cmd.Parameters.AddWithValue("status", txt_status.Text)
-            cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
-            cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
-            cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
-            cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)
-            cmd.Parameters.AddWithValue("detail2", txt_detail_receipt2.Text)
-            cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
-            cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
-            cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
+                cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
+                cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
+                cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
+                cmd.Parameters.AddWithValue("black", txt_black.Text)
+                cmd.Parameters.AddWithValue("red", txt_red.Text)
+                cmd.Parameters.AddWithValue("status", txt_status.Text)
+                cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
+                cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
+                cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
+                cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)
+                cmd.Parameters.AddWithValue("detail2", txt_detail_receipt2.Text)
+                cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
+                cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
+                cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
 
-            Dim r As Integer = cmd.ExecuteNonQuery()
-            If r = -1 Then
+                Dim r As Integer = cmd.ExecuteNonQuery()
+                If r = -1 Then
 
-                Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
-                cn.Close()
-            Else
+                    Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
+                    cn.Close()
+                Else
 
-                Msg_OK("บันทึกข้อมูลสำเร็จ")
-                _Getlogdata($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}")
+                    Msg_OK("บันทึกข้อมูลสำเร็จ")
+                    _Getlogdata($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}")
 
-                _Cleartext()
-                _countdata()
-                _cleardatagrid(dtgv_exeacc)
+                    _Cleartext()
+                    _countdata()
+                    _cleardatagrid(dtgv_exeacc)
                 cn.Close()
 
             End If
 
-        End If
+            End If
 
     End Sub
     '## Event Closing ใช้สำหรับกดปิดหรือสั่งปิดฟอร์มให้ ปิดการเชื่อมต่อของฐานข้อมูลด้วย

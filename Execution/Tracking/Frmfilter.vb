@@ -6,9 +6,6 @@ Public Class Frmfilter
     'คือ(ชื่อCombobox,ชื่อColumns,ชื่อTable)
     Private Sub Frmfillter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_date_end)
-        _Datetimeformatshort(dtp_date_start)
-
         dtgv_filter.Visible = False
         cbo_empexe.Enabled = False
 

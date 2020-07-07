@@ -14,12 +14,7 @@ Imports System.Linq
 
 Public Class Frmlogfile
     Private Sub Frmlogfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         connect()
-
-        _Datetimeformatshort(DateTimestart)
-        _Datetimeformatshort(DateTimeend)
-
         Dim itms() As String = {"ชื่อเข้าระบบ", "ชื่อพนักงาน", "IP", "PC", "รายละเอียด"}
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0

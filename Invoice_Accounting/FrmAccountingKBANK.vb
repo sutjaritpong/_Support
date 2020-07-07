@@ -8,9 +8,6 @@ Public Class FrmAccountingKBANK
     Dim _header() As String = {"key", "ลำดับ", "เลขที่ลูกหนี้", "ชื่อนามสกุล", "เลขที่คดี", "วันที่ฟ้อง", "ศาล", "ทุนทรัพย์", "ค่าธรรมเนียม", "เลขที่ชุดเบิก", "วันที่ส่งเบิก", "ประเภทเอกสาร", "Type"}
     Private Sub FrmAccountingKBANK_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_date_legal)
-        _Datetimeformatshort(dtp_send_invoice)
-
         Dim _comadd() As String = {"เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "เลขที่คดี", "เลขที่ชุด"}
         _cboArray(cbo_search, _comadd)
 
