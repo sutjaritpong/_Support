@@ -12,6 +12,7 @@ Public Class FrmExecution
 
         connect()
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(dtp_datesheet)
         _Datetimeformatshort(dtp_tracking_date)
         _Datetimeformatshort(dtp_verify_date)
@@ -24,7 +25,7 @@ Public Class FrmExecution
         'Me.dtp_tracking.CustomFormat = "dd MMM yyyy"
         'Me.dtp_tracking.Format = DateTimePickerFormat.Custom
 
-        sql = "SELECT  EMPLOYEES_KEY,EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
+        sql = "SELECT EMPLOYEES_KEY,EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
@@ -456,7 +457,7 @@ Public Class FrmExecution
 
             Next
         Next
-
+        _datagrid_format_dateshort(dtgv_search, 15)
         cn.Close()
 
     End Sub
@@ -552,7 +553,7 @@ Public Class FrmExecution
 
             If dtgv_search.Rows.Count <> 0 Then
 
-                _Getlogdata($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}")
+                _Getlogdataexe($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}", $"'{txt_idcus.Text}'", $"'{cbo_acc.Text}'")
                 dtgv_search.DataSource.clear()
                     loaddatagridviews()
                     cell_refresh()

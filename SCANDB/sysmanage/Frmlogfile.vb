@@ -15,11 +15,11 @@ Imports System.Linq
 Public Class Frmlogfile
     Private Sub Frmlogfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        connect()
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(DateTimestart)
         _Datetimeformatshort(DateTimeend)
 
+        connect()
         Dim itms() As String = {"ชื่อเข้าระบบ", "ชื่อพนักงาน", "IP", "PC", "รายละเอียด"}
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0
@@ -78,6 +78,9 @@ Public Class Frmlogfile
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
         Next
+
+        dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
+
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
         dtgvlogfile.DataSource.clear()
@@ -87,7 +90,7 @@ Public Class Frmlogfile
 
         dtgvlogfile.DataSource.clear()
 
-        Dim headerdgv() As String = {"วันที่", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
+        Dim headerdgv() As String = {"วันที่", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
         Dim sqll As String = "SELECT * FROM tbl_logfiles WHERE LOGDATE BETWEEN @sdate AND @edate AND "
 
         Select Case cbo_where.SelectedItem
@@ -124,6 +127,8 @@ Public Class Frmlogfile
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
         Next
+
+        dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
 
     End Sub
 

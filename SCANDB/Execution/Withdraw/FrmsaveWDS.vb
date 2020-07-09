@@ -6,10 +6,10 @@ Public Class FrmsaveWDS
 
         connect()
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(dtp_datecollector)
         _Datetimeformatshort(dtp_datewds)
         _Datetimeformatshort(dtp_payment)
-
 
         cbo_owner.Items.Clear()
         Dim Owner() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
@@ -102,15 +102,7 @@ Public Class FrmsaveWDS
                 cmd = New SqlCommand(sql, cn)
                 cmd.ExecuteNonQuery()
 
-                _sql = $"Select * FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
-                cmd = New SqlCommand(_sql, cn)
-                DA = New SqlDataAdapter(cmd)
-                DA.Fill(DS, "Fullname")
-
-                sql = ($"INSERT INTO tbl_logfiles(LOGDATE,LOGUSER,LOGNAME,LOGIP,LOGPCNAME,LOGDETAIL)VALUES(GETDATE(),'{FrmLogin.txt_idlog.Text}','{DS.Tables("Fullname").Rows(0)("USRNAME")}','{FrmLogin.aws.LocalIP}','{pc}','เพิ่มข้อมูลลูกค้า ธนาคาร {cbo_owner.Text} เลขที่สัญญา {txt_cusacc.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}')")
-
-                cmd.CommandText = sql
-                cmd.ExecuteNonQuery()
+                _Getlogdataexe($"เพิ่มข้อมูล ถอนอายัดยึด IDCARD {txt_cusid.Text} ชื่อลูกค้า {txt_cusname.Text} ธนาคาร {cbo_owner.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
                 FrmWDS.refrom()
 

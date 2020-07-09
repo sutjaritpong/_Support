@@ -8,10 +8,14 @@ Public Class FrmWDS
     Private Sub FrmWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
+
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(dtp_datecollector)
         _Datetimeformatshort(dtp_daterefund)
         _Datetimeformatshort(dtp_datewds)
         _Datetimeformatshort(dtp_payment)
+        _Datetimeformatshort(datetimestart)
+        _Datetimeformatshort(datetimefinish)
 
 
         Dim types() As String = {"ALL PRODUCT", "KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
@@ -120,6 +124,10 @@ Public Class FrmWDS
             dtgv_data.Columns(0).Visible = False
 
         Next
+        _datagrid_format_dateshort(dtgv_data, 3)
+        _datagrid_format_dateshort(dtgv_data, 10)
+        _datagrid_format_dateshort(dtgv_data, 16)
+        _datagrid_format_dateshort(dtgv_data, 19)
 
         cn.Close()
 
@@ -416,7 +424,7 @@ Public Class FrmWDS
             loaddata()
             notedit()
 
-            _Getlogdata($"เพิ่มข้อมูลลูกค้า ธนาคาร {cbo_owner.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}")
+            _Getlogdataexe($"เพิ่มข้อมูลลูกค้า ถอนอายัด/ยึด ธนาคาร {cbo_owner.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
         Else
             Msg_error("ไม่สามารถแก้ไขข้อมูลได้")
@@ -482,6 +490,10 @@ Public Class FrmWDS
 
         dtgv_data.DataSource = DS.Tables("table")
         dtgv_data.Columns(0).Visible = False
+
+        _datagrid_format_dateshort(dtgv_data, 3)
+        _datagrid_format_dateshort(dtgv_data, 10)
+        _datagrid_format_dateshort(dtgv_data, 16)
 
         cn.Close()
 
@@ -588,6 +600,10 @@ Public Class FrmWDS
             FrmCheck.dtgv_check.Columns(i).HeaderText = headers(i)
             FrmCheck.dtgv_check.Columns(0).Visible = False
         Next
+
+        _datagrid_format_dateshort(FrmCheck.dtgv_check, 5)
+        _datagrid_format_dateshort(FrmCheck.dtgv_check, 12)
+
         If c <= 0 Then
             If Msg_confirm("ไม่พบข้อมูลเช็ค คุณต้องการเพิ่มข้อมูลหรือไม่", "แจ้งเตือน") = vbYes Then
                 With FrmCheck
@@ -635,7 +651,13 @@ Public Class FrmWDS
             dtgv_data.Columns(i).HeaderText = headers(i)
             dtgv_data.Columns(0).Visible = False
         Next
+
+        _datagrid_format_dateshort(dtgv_data, 3)
+        _datagrid_format_dateshort(dtgv_data, 10)
+        _datagrid_format_dateshort(dtgv_data, 16)
+        _datagrid_format_dateshort(dtgv_data, 19)
         cn.Close()
+
     End Sub
     Private Sub _showgrid()
 

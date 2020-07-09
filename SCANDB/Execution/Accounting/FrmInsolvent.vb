@@ -13,9 +13,10 @@ Public Class FrmInsolvent
 
     Private Sub FrmInsolvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
         _cleartext()
         connect()
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(dtp_date_request)
         _Datetimeformatshort(dtp_date_send)
         _Datetimeformatshort(dtp_verify_insolvent)
@@ -195,6 +196,7 @@ Public Class FrmInsolvent
         End If
 
         sql = "INSERT INTO EXEINSOLVENT(insolvent_pk,insolvent_owner,insolvent_idc,insolvent_company,insolvent_fullname,insolvent_department,insolvent_number,insolvent_black,insolvent_red,insolvent_court,insolvent_description,insolvent_date_request,insolvent_date_verify,insolvent_receipt,insolvent_receipt_description,insolvent_total,insolvent_send)VALUES(@insolventkey,@owner,@idc,@company,@fullname,@Department,@number,@black,@red,@court,@description,"
+
         If Chk_date_request.Checked = True Then
             sql &= $"@daterequest,"
         Else
@@ -235,11 +237,14 @@ Public Class FrmInsolvent
         cmd.Parameters.AddWithValue("datesend", dtp_date_send.Text)
 
         Dim comple As Integer = cmd.ExecuteNonQuery()
+
         If comple > 0 Then
+            _Getlogdataexe($"เพิ่มข้อมูล ลูกค้าล้มละลาย ธนาคาร{cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
             Msg_OK("เพิ่มข้อมูลสำเร็จ")
             _cleartext()
             cn.Close()
         Else
+
             Msg_error("เพิ่มข้อมูลล้มเหลว")
             cn.Close()
         End If

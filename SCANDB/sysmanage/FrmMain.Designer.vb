@@ -40,6 +40,26 @@ Partial Class FrmMastermain
         Me.tslversion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsl_version = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.txt_timer = New System.Windows.Forms.ToolStripTextBox()
+        Me.txt_datetoday = New System.Windows.Forms.ToolStripTextBox()
+        Me.Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RedoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.toolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DbPDFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tab_execution = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_EXEverify = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,9 +85,8 @@ Partial Class FrmMastermain
         Me.settingms = New System.Windows.Forms.ToolStripMenuItem()
         Me.Historyms = New System.Windows.Forms.ToolStripMenuItem()
         Me.changespassword = New System.Windows.Forms.ToolStripMenuItem()
-        Me.txt_timer = New System.Windows.Forms.ToolStripTextBox()
+        Me.Menu_logexe = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.txt_datetoday = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.อพโหลดToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ขอมลFileSCANToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -80,26 +99,9 @@ Partial Class FrmMastermain
         Me.Menu_ReportWDS = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Reportracking = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_ReportAccounting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Reportstatement = New System.Windows.Forms.ToolStripMenuItem()
         Me.ITToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IPManagement = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CustomizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RedoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.toolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -248,6 +250,132 @@ Partial Class FrmMastermain
         Me.MenuStrip1.Size = New System.Drawing.Size(1264, 32)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'txt_timer
+        '
+        Me.txt_timer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.txt_timer.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.txt_timer.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_timer.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.txt_timer.Name = "txt_timer"
+        Me.txt_timer.ReadOnly = True
+        Me.txt_timer.Size = New System.Drawing.Size(100, 28)
+        Me.txt_timer.Text = "Timer"
+        Me.txt_timer.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txt_datetoday
+        '
+        Me.txt_datetoday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.txt_datetoday.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.txt_datetoday.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_datetoday.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.txt_datetoday.Name = "txt_datetoday"
+        Me.txt_datetoday.ReadOnly = True
+        Me.txt_datetoday.Size = New System.Drawing.Size(100, 28)
+        Me.txt_datetoday.Text = "Date"
+        Me.txt_datetoday.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Timer
+        '
+        Me.Timer.Enabled = True
+        '
+        'ContentsToolStripMenuItem
+        '
+        Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ContentsToolStripMenuItem.Text = "&Contents"
+        '
+        'IndexToolStripMenuItem
+        '
+        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IndexToolStripMenuItem.Text = "&Index"
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SearchToolStripMenuItem.Text = "&Search"
+        '
+        'toolStripSeparator5
+        '
+        Me.toolStripSeparator5.Name = "toolStripSeparator5"
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(149, 6)
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "&About..."
+        '
+        'CustomizeToolStripMenuItem
+        '
+        Me.CustomizeToolStripMenuItem.Name = "CustomizeToolStripMenuItem"
+        Me.CustomizeToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.CustomizeToolStripMenuItem.Text = "&Customize"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.OptionsToolStripMenuItem.Text = "&Options"
+        '
+        'UndoToolStripMenuItem
+        '
+        Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
+        Me.UndoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
+        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.UndoToolStripMenuItem.Text = "&Undo"
+        '
+        'RedoToolStripMenuItem
+        '
+        Me.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem"
+        Me.RedoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
+        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RedoToolStripMenuItem.Text = "&Redo"
+        '
+        'toolStripSeparator3
+        '
+        Me.toolStripSeparator3.Name = "toolStripSeparator3"
+        Me.toolStripSeparator3.Size = New System.Drawing.Size(141, 6)
+        '
+        'toolStripSeparator4
+        '
+        Me.toolStripSeparator4.Name = "toolStripSeparator4"
+        Me.toolStripSeparator4.Size = New System.Drawing.Size(141, 6)
+        '
+        'SelectAllToolStripMenuItem
+        '
+        Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.SelectAllToolStripMenuItem.Text = "Select &All"
+        '
+        'toolStripSeparator
+        '
+        Me.toolStripSeparator.Name = "toolStripSeparator"
+        Me.toolStripSeparator.Size = New System.Drawing.Size(143, 6)
+        '
+        'SaveAsToolStripMenuItem
+        '
+        Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
+        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.SaveAsToolStripMenuItem.Text = "Save &As"
+        '
+        'toolStripSeparator1
+        '
+        Me.toolStripSeparator1.Name = "toolStripSeparator1"
+        Me.toolStripSeparator1.Size = New System.Drawing.Size(143, 6)
+        '
+        'toolStripSeparator2
+        '
+        Me.toolStripSeparator2.Name = "toolStripSeparator2"
+        Me.toolStripSeparator2.Size = New System.Drawing.Size(143, 6)
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'DbPDFToolStripMenuItem
         '
@@ -436,7 +564,7 @@ Partial Class FrmMastermain
         '
         'SettingToolStripMenuItem
         '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.accms, Me.settingms, Me.Historyms, Me.changespassword})
+        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.accms, Me.settingms, Me.Historyms, Me.changespassword, Me.Menu_logexe})
         Me.SettingToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.SettingToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.process
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
@@ -479,17 +607,14 @@ Partial Class FrmMastermain
         Me.changespassword.Size = New System.Drawing.Size(294, 22)
         Me.changespassword.Text = "เปลี่ยนรหัสผ่านผู้ใช้ (Changes Password)"
         '
-        'txt_timer
+        'Menu_logexe
         '
-        Me.txt_timer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.txt_timer.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.txt_timer.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_timer.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txt_timer.Name = "txt_timer"
-        Me.txt_timer.ReadOnly = True
-        Me.txt_timer.Size = New System.Drawing.Size(100, 28)
-        Me.txt_timer.Text = "Timer"
-        Me.txt_timer.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Menu_logexe.BackColor = System.Drawing.Color.White
+        Me.Menu_logexe.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_logexe.Image = Global.SCANDB.My.Resources.Resources.monitor_lightning
+        Me.Menu_logexe.Name = "Menu_logexe"
+        Me.Menu_logexe.Size = New System.Drawing.Size(294, 22)
+        Me.Menu_logexe.Text = "ประวัติการแก้ไขข้อมูล (Log file execution)"
         '
         'ToolStripMenuItem1
         '
@@ -498,18 +623,6 @@ Partial Class FrmMastermain
         Me.ToolStripMenuItem1.Image = Global.SCANDB.My.Resources.Resources._32x32_clock
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(28, 28)
-        '
-        'txt_datetoday
-        '
-        Me.txt_datetoday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.txt_datetoday.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.txt_datetoday.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_datetoday.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txt_datetoday.Name = "txt_datetoday"
-        Me.txt_datetoday.ReadOnly = True
-        Me.txt_datetoday.Size = New System.Drawing.Size(100, 28)
-        Me.txt_datetoday.Text = "Date"
-        Me.txt_datetoday.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ToolStripMenuItem2
         '
@@ -578,7 +691,7 @@ Partial Class FrmMastermain
         '
         'รายงานToolStripMenuItem
         '
-        Me.รายงานToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_report, Me.Menu_ReportWDS, Me.Menu_Reportracking, Me.Menu_ReportAccounting})
+        Me.รายงานToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_report, Me.Menu_ReportWDS, Me.Menu_Reportracking, Me.Menu_ReportAccounting, Me.Menu_Reportstatement})
         Me.รายงานToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.รายงานToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
         Me.รายงานToolStripMenuItem.Name = "รายงานToolStripMenuItem"
@@ -621,6 +734,14 @@ Partial Class FrmMastermain
         Me.Menu_ReportAccounting.Size = New System.Drawing.Size(381, 22)
         Me.Menu_ReportAccounting.Text = "รายงานบังคับคดีตั้งเรื่อง/ใบเสร็จวางค่าใช้จ่าย (ReportViewer)"
         '
+        'Menu_Reportstatement
+        '
+        Me.Menu_Reportstatement.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_Reportstatement.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_Reportstatement.Name = "Menu_Reportstatement"
+        Me.Menu_Reportstatement.Size = New System.Drawing.Size(381, 22)
+        Me.Menu_Reportstatement.Text = "รายงานใบงานแถลงบัญชีรับ-จ่าย (ReportViewer)"
+        '
         'ITToolStripMenuItem
         '
         Me.ITToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IPManagement})
@@ -638,108 +759,6 @@ Partial Class FrmMastermain
         Me.IPManagement.Name = "IPManagement"
         Me.IPManagement.Size = New System.Drawing.Size(167, 22)
         Me.IPManagement.Text = "IP Management"
-        '
-        'Timer
-        '
-        Me.Timer.Enabled = True
-        '
-        'ContentsToolStripMenuItem
-        '
-        Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ContentsToolStripMenuItem.Text = "&Contents"
-        '
-        'IndexToolStripMenuItem
-        '
-        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.IndexToolStripMenuItem.Text = "&Index"
-        '
-        'SearchToolStripMenuItem
-        '
-        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SearchToolStripMenuItem.Text = "&Search"
-        '
-        'toolStripSeparator5
-        '
-        Me.toolStripSeparator5.Name = "toolStripSeparator5"
-        Me.toolStripSeparator5.Size = New System.Drawing.Size(149, 6)
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AboutToolStripMenuItem.Text = "&About..."
-        '
-        'CustomizeToolStripMenuItem
-        '
-        Me.CustomizeToolStripMenuItem.Name = "CustomizeToolStripMenuItem"
-        Me.CustomizeToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
-        Me.CustomizeToolStripMenuItem.Text = "&Customize"
-        '
-        'OptionsToolStripMenuItem
-        '
-        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
-        Me.OptionsToolStripMenuItem.Text = "&Options"
-        '
-        'UndoToolStripMenuItem
-        '
-        Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
-        Me.UndoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.UndoToolStripMenuItem.Text = "&Undo"
-        '
-        'RedoToolStripMenuItem
-        '
-        Me.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem"
-        Me.RedoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
-        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.RedoToolStripMenuItem.Text = "&Redo"
-        '
-        'toolStripSeparator3
-        '
-        Me.toolStripSeparator3.Name = "toolStripSeparator3"
-        Me.toolStripSeparator3.Size = New System.Drawing.Size(141, 6)
-        '
-        'toolStripSeparator4
-        '
-        Me.toolStripSeparator4.Name = "toolStripSeparator4"
-        Me.toolStripSeparator4.Size = New System.Drawing.Size(141, 6)
-        '
-        'SelectAllToolStripMenuItem
-        '
-        Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.SelectAllToolStripMenuItem.Text = "Select &All"
-        '
-        'toolStripSeparator
-        '
-        Me.toolStripSeparator.Name = "toolStripSeparator"
-        Me.toolStripSeparator.Size = New System.Drawing.Size(143, 6)
-        '
-        'SaveAsToolStripMenuItem
-        '
-        Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.SaveAsToolStripMenuItem.Text = "Save &As"
-        '
-        'toolStripSeparator1
-        '
-        Me.toolStripSeparator1.Name = "toolStripSeparator1"
-        Me.toolStripSeparator1.Size = New System.Drawing.Size(143, 6)
-        '
-        'toolStripSeparator2
-        '
-        Me.toolStripSeparator2.Name = "toolStripSeparator2"
-        Me.toolStripSeparator2.Size = New System.Drawing.Size(143, 6)
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'FrmMastermain
         '
@@ -842,4 +861,6 @@ Partial Class FrmMastermain
     Friend WithEvents IPManagement As ToolStripMenuItem
     Friend WithEvents Menu_Reportracking As ToolStripMenuItem
     Friend WithEvents Menu_ReportAccounting As ToolStripMenuItem
+    Friend WithEvents Menu_Reportstatement As ToolStripMenuItem
+    Friend WithEvents Menu_logexe As ToolStripMenuItem
 End Class

@@ -283,4 +283,20 @@ Public Class FrmMastermain
             .WindowState = FormWindowState.Maximized
         End With
     End Sub
+
+    Private Sub Menu_Reportstatement_Click(sender As Object, e As EventArgs) Handles Menu_Reportstatement.Click
+        With FrmStatementRV
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
+
+    Private Sub Menu_logexe_Click(sender As Object, e As EventArgs) Handles Menu_logexe.Click
+        With frmlogfileexe
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+    End Sub
 End Class

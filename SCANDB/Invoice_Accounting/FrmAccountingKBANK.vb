@@ -8,14 +8,15 @@ Public Class FrmAccountingKBANK
     Dim _header() As String = {"key", "ลำดับ", "เลขที่ลูกหนี้", "ชื่อนามสกุล", "เลขที่คดี", "วันที่ฟ้อง", "ศาล", "ทุนทรัพย์", "ค่าธรรมเนียม", "เลขที่ชุดเบิก", "วันที่ส่งเบิก", "ประเภทเอกสาร", "Type"}
     Private Sub FrmAccountingKBANK_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_date_legal)
-        _Datetimeformatshort(dtp_send_invoice)
-
         Dim _comadd() As String = {"เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "เลขที่คดี", "เลขที่ชุด"}
         _cboArray(cbo_search, _comadd)
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_date_legal)
+        _Datetimeformatshort(dtp_send_invoice)
 
         connect()
+
 
         sql = "SELECT DISTINCT Accounting_CUSCUS,Accounting_invoice,Accounting_Name,Accounting_black_red  FROM AccountingKBANK"
 
@@ -102,6 +103,8 @@ Public Class FrmAccountingKBANK
                 .Columns(10).Visible = False
                 .Columns(12).Visible = False
 
+                _datagrid_format_dateshort(dtgv_invoice_list, 5)
+                _datagrid_format_dateshort(dtgv_invoice_list, 10)
             End With
 
         End If
@@ -188,6 +191,8 @@ Public Class FrmAccountingKBANK
             .Columns(1).HeaderText = "Path"
             .Columns(2).HeaderText = "เดือนที่เบิก"
             .Columns(3).HeaderText = "Product"
+
+            _datagrid_format_dateshort(dtgv_find_scan, 2)
 
         End With
 

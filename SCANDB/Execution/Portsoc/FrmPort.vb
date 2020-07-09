@@ -4,6 +4,10 @@ Public Class FrmPort
 
 
     Private Sub FrmPort_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_datesend)
+        _Datetimeformatshort(dtp_date_review)
+        _Datetimeformatshort(dtp_date_soc)
 
         _comboboxadd(cbo_owner, "Customer_Owner", "Execution_Port")
 
@@ -79,6 +83,9 @@ Public Class FrmPort
                 .Columns(13).HeaderText = "ที่ตั้ง"
 
             End With
+
+            _datagrid_format_dateshort(dtgv_exeport, 7)
+            _datagrid_format_dateshort(dtgv_exeport, 12)
 
             dtgv_exeport.Visible = True
             lbl_search.Text = $"พบข้อมูล {dtgv_exeport.RowCount.ToString} รายการ.."
@@ -309,7 +316,7 @@ Public Class FrmPort
             If i > 0 Then
 
                 Msg_OK("อัพเดตข้อมูลสำเร็จ")
-                _Getlogdata($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ")
+                _Getlogdataexe($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
                 cn.Close()
             Else
                 Msg_error("อัพเดตข้อมูลล้มเหลว")
@@ -331,7 +338,7 @@ Public Class FrmPort
             Dim x As Integer = cmd.ExecuteNonQuery()
             If x > 0 Then
                 Msg_OK("ลบข้อมูลสำเร็จ")
-                _Getlogdata($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text}  ")
+                _Getlogdataexe($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
                 cn.Close()
             Else
                 Msg_error("ลบข้อมูลล้มเหลว")
@@ -373,6 +380,5 @@ Public Class FrmPort
         End If
 
     End Sub
-
 
 End Class

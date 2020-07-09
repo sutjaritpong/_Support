@@ -117,6 +117,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Report_execution\FrmlogexeRV.Designer.vb">
+      <DependentUpon>FrmlogexeRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmlogexeRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmStatementRV.Designer.vb">
+      <DependentUpon>FrmStatementRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmStatementRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logexe_dataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatementDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatementDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Execution\Report_execution\FrmAccountingRV.Designer.vb">
       <DependentUpon>FrmAccountingRV.vb</DependentUpon>
     </Compile>
@@ -164,6 +186,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sysmanage\Frmlogfileexe.Designer.vb">
+      <DependentUpon>Frmlogfileexe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sysmanage\Frmlogfileexe.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UPLOAD\FrmimportAccounting.Designer.vb">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
@@ -374,10 +402,18 @@
     <EmbeddedResource Include="Execution\Report_execution\FrmAccountingRV.resx">
       <DependentUpon>FrmAccountingRV.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\FrmlogexeRV.resx">
+      <DependentUpon>FrmlogexeRV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\FrmStatementRV.resx">
+      <DependentUpon>FrmStatementRV.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\FrmTrackRV.resx">
       <DependentUpon>FrmTrackRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportAccounting.rdlc" />
+    <EmbeddedResource Include="Execution\Report_execution\Reportlogexe.rdlc" />
+    <EmbeddedResource Include="Execution\Report_execution\ReportStatement.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\Reporttracking.rdlc" />
     <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
       <DependentUpon>Frmfilter.vb</DependentUpon>
@@ -389,6 +425,9 @@
       <DependentUpon>FrmWDSRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportWDS.rdlc" />
+    <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
+      <DependentUpon>Frmlogfileexe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPLOAD\FrmimportAccounting.resx">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
     </EmbeddedResource>
@@ -490,6 +529,28 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="logexe_dataset.xsc">
+      <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="logexe_dataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>logexe_dataset.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="logexe_dataset.xss">
+      <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="StatementDataSet.xsc">
+      <DependentUpon>StatementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StatementDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatementDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="StatementDataSet.xss">
+      <DependentUpon>StatementDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -797,6 +858,8 @@
     <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
     <None Include="Resources\server_error.png" />
     <None Include="Resources\server_connect.png" />
+    <None Include="Resources\monitor_lightning.png" />
+    <None Include="Resources\arrow_switch.png" />
     <None Include="Resources\filter-icon16x16.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>

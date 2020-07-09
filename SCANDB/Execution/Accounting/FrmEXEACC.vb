@@ -4,12 +4,12 @@ Imports System.Globalization
 Imports System.Threading
 Public Class FrmEXEACC
     '## Array entity_ACC() นำไปใช้เพิ่ม Columns ใน Datagridview 
-    Dim entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "ค่าใช้จ่ายอื่นๆ", "เดือนที่ลงข้อมูล"}
+    Dim entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล"}
 
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
-
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(dtp_datework)
         _Datetimeformatshort(dtp_date_receipt)
 
@@ -230,6 +230,8 @@ Public Class FrmEXEACC
             End With
 
             dtgv_exeacc.Visible = True
+            _datagrid_format_dateshort(dtgv_exeacc, 7)
+            _datagrid_format_dateshort(dtgv_exeacc, 14)
             lbl_count_find.Text = $"พบข้อมูล {dtgv_exeacc.RowCount.ToString} รายการ.."
             lbl_count_find.ForeColor = Color.Green
 
@@ -355,7 +357,7 @@ Public Class FrmEXEACC
             Else
 
                 Msg_OK("แก้ไขข้อมูล สำเร็จ")
-                _Getlogdata($"อัพเดทข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}")
+                _Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
 
             End If
 
@@ -379,17 +381,17 @@ Public Class FrmEXEACC
 
         If txt_cusid.Text = "" Then
 
-            Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
-            Return
+                Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
+                Return
 
-        End If
+            End If
 
-        If txt_cusname.Text = "" Then
+            If txt_cusname.Text = "" Then
 
-            Msg_error("กรุณากรอกชื่อ-นามสกุลของลูกค้า")
-            Return
+                Msg_error("กรุณากรอกชื่อ-นามสกุลของลูกค้า")
+                Return
 
-        End If
+            End If
 
         sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{acckey}'"
 
@@ -407,42 +409,42 @@ Public Class FrmEXEACC
             sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
 
             cmd.CommandText = sql
-            cmd.Parameters.Clear()
+                cmd.Parameters.Clear()
 
             cmd.Parameters.AddWithValue("KEY", acckey)
-            cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
-            cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
-            cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
-            cmd.Parameters.AddWithValue("black", txt_black.Text)
-            cmd.Parameters.AddWithValue("red", txt_red.Text)
-            cmd.Parameters.AddWithValue("status", txt_status.Text)
-            cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
-            cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
-            cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
-            cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)
-            cmd.Parameters.AddWithValue("detail2", txt_detail_receipt2.Text)
-            cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
-            cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
-            cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
+                cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
+                cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
+                cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
+                cmd.Parameters.AddWithValue("black", txt_black.Text)
+                cmd.Parameters.AddWithValue("red", txt_red.Text)
+                cmd.Parameters.AddWithValue("status", txt_status.Text)
+                cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
+                cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
+                cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
+                cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)
+                cmd.Parameters.AddWithValue("detail2", txt_detail_receipt2.Text)
+                cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
+                cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
+                cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
 
-            Dim r As Integer = cmd.ExecuteNonQuery()
-            If r = -1 Then
+                Dim r As Integer = cmd.ExecuteNonQuery()
+                If r = -1 Then
 
-                Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
-                cn.Close()
-            Else
+                    Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
+                    cn.Close()
+                Else
 
-                Msg_OK("บันทึกข้อมูลสำเร็จ")
-                _Getlogdata($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}")
+                    Msg_OK("บันทึกข้อมูลสำเร็จ")
+                _Getlogdataexe($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}", txt_cusid.Text, "NULL")
 
                 _Cleartext()
-                _countdata()
-                _cleardatagrid(dtgv_exeacc)
+                    _countdata()
+                    _cleardatagrid(dtgv_exeacc)
                 cn.Close()
 
             End If
 
-        End If
+            End If
 
     End Sub
     '## Event Closing ใช้สำหรับกดปิดหรือสั่งปิดฟอร์มให้ ปิดการเชื่อมต่อของฐานข้อมูลด้วย

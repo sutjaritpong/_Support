@@ -48,20 +48,23 @@ Partial Class FrmmanageIP
         Me.txt_detail = New System.Windows.Forms.TextBox()
         Me.cbo_filter = New System.Windows.Forms.ComboBox()
         Me.chk_filter = New System.Windows.Forms.CheckBox()
-        Me.btn_filter = New System.Windows.Forms.Button()
-        Me.cmd_delete = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.cmd_edit = New System.Windows.Forms.Button()
-        Me.cmd_refresh = New System.Windows.Forms.Button()
-        Me.cmd_search = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.txt_migrate_ip = New System.Windows.Forms.TextBox()
         Me.dtp_edit = New System.Windows.Forms.DateTimePicker()
+        Me.cmd_migrate_ip = New System.Windows.Forms.Button()
+        Me.cmd_delete = New System.Windows.Forms.Button()
+        Me.cmd_edit = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btn_filter = New System.Windows.Forms.Button()
+        Me.cmd_refresh = New System.Windows.Forms.Button()
+        Me.cmd_search = New System.Windows.Forms.Button()
         CType(Me.dtgvip, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtgvip
@@ -80,11 +83,11 @@ Partial Class FrmmanageIP
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dtgvip.DefaultCellStyle = DataGridViewCellStyle1
         Me.dtgvip.GridColor = System.Drawing.Color.Red
-        Me.dtgvip.Location = New System.Drawing.Point(15, 41)
+        Me.dtgvip.Location = New System.Drawing.Point(15, 43)
         Me.dtgvip.Name = "dtgvip"
         Me.dtgvip.ReadOnly = True
         Me.dtgvip.RowHeadersVisible = False
-        Me.dtgvip.Size = New System.Drawing.Size(812, 772)
+        Me.dtgvip.Size = New System.Drawing.Size(812, 763)
         Me.dtgvip.TabIndex = 0
         '
         'cbo_type
@@ -341,80 +344,6 @@ Partial Class FrmmanageIP
         Me.chk_filter.Text = "ตัวกรอง :"
         Me.chk_filter.UseVisualStyleBackColor = True
         '
-        'btn_filter
-        '
-        Me.btn_filter.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.btn_filter.ForeColor = System.Drawing.Color.White
-        Me.btn_filter.Image = Global.SCANDB.My.Resources.Resources.folder_find1
-        Me.btn_filter.Location = New System.Drawing.Point(570, 7)
-        Me.btn_filter.Name = "btn_filter"
-        Me.btn_filter.Size = New System.Drawing.Size(33, 30)
-        Me.btn_filter.TabIndex = 31
-        Me.btn_filter.UseVisualStyleBackColor = False
-        '
-        'cmd_delete
-        '
-        Me.cmd_delete.AutoSize = True
-        Me.cmd_delete.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.cmd_delete.ForeColor = System.Drawing.Color.White
-        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete1
-        Me.cmd_delete.Location = New System.Drawing.Point(115, 141)
-        Me.cmd_delete.Name = "cmd_delete"
-        Me.cmd_delete.Size = New System.Drawing.Size(87, 30)
-        Me.cmd_delete.TabIndex = 28
-        Me.cmd_delete.Text = "DELETE"
-        Me.cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_delete.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Connection_icon32x32
-        Me.PictureBox1.Location = New System.Drawing.Point(201, 19)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 27
-        Me.PictureBox1.TabStop = False
-        '
-        'cmd_edit
-        '
-        Me.cmd_edit.AutoSize = True
-        Me.cmd_edit.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.cmd_edit.ForeColor = System.Drawing.Color.White
-        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_edit.Location = New System.Drawing.Point(15, 141)
-        Me.cmd_edit.Name = "cmd_edit"
-        Me.cmd_edit.Size = New System.Drawing.Size(90, 30)
-        Me.cmd_edit.TabIndex = 15
-        Me.cmd_edit.Text = "       EDIT"
-        Me.cmd_edit.UseVisualStyleBackColor = False
-        '
-        'cmd_refresh
-        '
-        Me.cmd_refresh.AutoSize = True
-        Me.cmd_refresh.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.cmd_refresh.ForeColor = System.Drawing.Color.White
-        Me.cmd_refresh.Image = Global.SCANDB.My.Resources.Resources.refresh
-        Me.cmd_refresh.Location = New System.Drawing.Point(989, 7)
-        Me.cmd_refresh.Name = "cmd_refresh"
-        Me.cmd_refresh.Size = New System.Drawing.Size(33, 30)
-        Me.cmd_refresh.TabIndex = 4
-        Me.cmd_refresh.UseVisualStyleBackColor = False
-        '
-        'cmd_search
-        '
-        Me.cmd_search.AutoSize = True
-        Me.cmd_search.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.search
-        Me.cmd_search.Location = New System.Drawing.Point(950, 7)
-        Me.cmd_search.Name = "cmd_search"
-        Me.cmd_search.Size = New System.Drawing.Size(33, 30)
-        Me.cmd_search.TabIndex = 3
-        Me.cmd_search.UseVisualStyleBackColor = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
@@ -446,7 +375,10 @@ Partial Class FrmmanageIP
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.cmd_migrate_ip)
+        Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Controls.Add(Me.txt_migrate_ip)
         Me.GroupBox2.Controls.Add(Me.dtp_edit)
         Me.GroupBox2.Controls.Add(Me.txt_detail)
         Me.GroupBox2.Controls.Add(Me.cmd_delete)
@@ -455,10 +387,22 @@ Partial Class FrmmanageIP
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(836, 454)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(253, 195)
+        Me.GroupBox2.Size = New System.Drawing.Size(253, 352)
         Me.GroupBox2.TabIndex = 34
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Description (คำบรรยาย)"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(15, 183)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(68, 16)
+        Me.Label10.TabIndex = 29
+        Me.Label10.Text = "Migrate IP"
         '
         'Label9
         '
@@ -472,6 +416,16 @@ Partial Class FrmmanageIP
         Me.Label9.TabIndex = 39
         Me.Label9.Text = "วันที่แก้ไขข้อมูล"
         '
+        'txt_migrate_ip
+        '
+        Me.txt_migrate_ip.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.txt_migrate_ip.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txt_migrate_ip.ForeColor = System.Drawing.Color.Lime
+        Me.txt_migrate_ip.Location = New System.Drawing.Point(17, 202)
+        Me.txt_migrate_ip.Name = "txt_migrate_ip"
+        Me.txt_migrate_ip.Size = New System.Drawing.Size(168, 22)
+        Me.txt_migrate_ip.TabIndex = 28
+        '
         'dtp_edit
         '
         Me.dtp_edit.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlDark
@@ -481,6 +435,93 @@ Partial Class FrmmanageIP
         Me.dtp_edit.Name = "dtp_edit"
         Me.dtp_edit.Size = New System.Drawing.Size(103, 22)
         Me.dtp_edit.TabIndex = 35
+        '
+        'cmd_migrate_ip
+        '
+        Me.cmd_migrate_ip.AutoSize = True
+        Me.cmd_migrate_ip.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.cmd_migrate_ip.ForeColor = System.Drawing.Color.White
+        Me.cmd_migrate_ip.Image = Global.SCANDB.My.Resources.Resources.arrow_switch
+        Me.cmd_migrate_ip.Location = New System.Drawing.Point(191, 198)
+        Me.cmd_migrate_ip.Name = "cmd_migrate_ip"
+        Me.cmd_migrate_ip.Size = New System.Drawing.Size(42, 30)
+        Me.cmd_migrate_ip.TabIndex = 40
+        Me.cmd_migrate_ip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_migrate_ip.UseVisualStyleBackColor = False
+        '
+        'cmd_delete
+        '
+        Me.cmd_delete.AutoSize = True
+        Me.cmd_delete.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.cmd_delete.ForeColor = System.Drawing.Color.White
+        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete1
+        Me.cmd_delete.Location = New System.Drawing.Point(115, 141)
+        Me.cmd_delete.Name = "cmd_delete"
+        Me.cmd_delete.Size = New System.Drawing.Size(87, 30)
+        Me.cmd_delete.TabIndex = 28
+        Me.cmd_delete.Text = "DELETE"
+        Me.cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_delete.UseVisualStyleBackColor = False
+        '
+        'cmd_edit
+        '
+        Me.cmd_edit.AutoSize = True
+        Me.cmd_edit.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.cmd_edit.ForeColor = System.Drawing.Color.White
+        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
+        Me.cmd_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmd_edit.Location = New System.Drawing.Point(15, 141)
+        Me.cmd_edit.Name = "cmd_edit"
+        Me.cmd_edit.Size = New System.Drawing.Size(90, 30)
+        Me.cmd_edit.TabIndex = 15
+        Me.cmd_edit.Text = "       EDIT"
+        Me.cmd_edit.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Connection_icon32x32
+        Me.PictureBox1.Location = New System.Drawing.Point(201, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 27
+        Me.PictureBox1.TabStop = False
+        '
+        'btn_filter
+        '
+        Me.btn_filter.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.btn_filter.ForeColor = System.Drawing.Color.White
+        Me.btn_filter.Image = Global.SCANDB.My.Resources.Resources.folder_find1
+        Me.btn_filter.Location = New System.Drawing.Point(570, 7)
+        Me.btn_filter.Name = "btn_filter"
+        Me.btn_filter.Size = New System.Drawing.Size(33, 30)
+        Me.btn_filter.TabIndex = 31
+        Me.btn_filter.UseVisualStyleBackColor = False
+        '
+        'cmd_refresh
+        '
+        Me.cmd_refresh.AutoSize = True
+        Me.cmd_refresh.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.cmd_refresh.ForeColor = System.Drawing.Color.White
+        Me.cmd_refresh.Image = Global.SCANDB.My.Resources.Resources.refresh
+        Me.cmd_refresh.Location = New System.Drawing.Point(989, 7)
+        Me.cmd_refresh.Name = "cmd_refresh"
+        Me.cmd_refresh.Size = New System.Drawing.Size(33, 30)
+        Me.cmd_refresh.TabIndex = 4
+        Me.cmd_refresh.UseVisualStyleBackColor = False
+        '
+        'cmd_search
+        '
+        Me.cmd_search.AutoSize = True
+        Me.cmd_search.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.search
+        Me.cmd_search.Location = New System.Drawing.Point(950, 7)
+        Me.cmd_search.Name = "cmd_search"
+        Me.cmd_search.Size = New System.Drawing.Size(33, 30)
+        Me.cmd_search.TabIndex = 3
+        Me.cmd_search.UseVisualStyleBackColor = False
         '
         'FrmmanageIP
         '
@@ -505,11 +546,11 @@ Partial Class FrmmanageIP
         Me.Name = "FrmmanageIP"
         Me.Text = "MANAGEMENTIP"
         CType(Me.dtgvip, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -549,4 +590,7 @@ Partial Class FrmmanageIP
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dtp_edit As DateTimePicker
     Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txt_migrate_ip As TextBox
+    Friend WithEvents cmd_migrate_ip As Button
 End Class

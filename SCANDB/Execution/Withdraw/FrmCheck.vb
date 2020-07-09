@@ -3,8 +3,10 @@ Imports System.Data.SqlClient
 Public Class FrmCheck
     Private Sub FrmCheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _Datetimeformatshort(dtp_checksend)
         _Datetimeformatshort(dtp_datecheck)
+
 
         cbo_cusowner.Items.Clear()
 
@@ -204,6 +206,9 @@ Public Class FrmCheck
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
             Msg_OK("แก้ไขข้อมูลสำเร็จ")
+
+            _Getlogdataexe($"แก้ไขข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
+
             cancel_edit()
         Else
 
@@ -230,7 +235,7 @@ Public Class FrmCheck
             Msg_OK("บันทึกข้อมูลสำเร็จ")
             cancel_edit()
 
-            _Getlogdata($"เพิ่มข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ")
+            _Getlogdataexe($"เพิ่มข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
 
         End If

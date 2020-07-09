@@ -54,7 +54,7 @@ Partial Class Frmlogfile
         Me.dtgvlogfile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dtgvlogfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgvlogfile.GridColor = System.Drawing.Color.Black
-        Me.dtgvlogfile.Location = New System.Drawing.Point(15, 74)
+        Me.dtgvlogfile.Location = New System.Drawing.Point(12, 74)
         Me.dtgvlogfile.Name = "dtgvlogfile"
         Me.dtgvlogfile.ReadOnly = True
         Me.dtgvlogfile.RowHeadersVisible = False
@@ -66,7 +66,7 @@ Partial Class Frmlogfile
         Me.txt_find.BackColor = System.Drawing.SystemColors.Window
         Me.txt_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txt_find.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.txt_find.Location = New System.Drawing.Point(315, 8)
+        Me.txt_find.Location = New System.Drawing.Point(312, 8)
         Me.txt_find.Name = "txt_find"
         Me.txt_find.Size = New System.Drawing.Size(204, 22)
         Me.txt_find.TabIndex = 3
@@ -75,7 +75,7 @@ Partial Class Frmlogfile
         '
         Me.lbl_find.AutoSize = True
         Me.lbl_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lbl_find.Location = New System.Drawing.Point(218, 12)
+        Me.lbl_find.Location = New System.Drawing.Point(215, 12)
         Me.lbl_find.Name = "lbl_find"
         Me.lbl_find.Size = New System.Drawing.Size(92, 16)
         Me.lbl_find.TabIndex = 4
@@ -85,7 +85,7 @@ Partial Class Frmlogfile
         '
         Me.lbl_check.AutoSize = True
         Me.lbl_check.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lbl_check.Location = New System.Drawing.Point(12, 11)
+        Me.lbl_check.Location = New System.Drawing.Point(9, 11)
         Me.lbl_check.Name = "lbl_check"
         Me.lbl_check.Size = New System.Drawing.Size(76, 16)
         Me.lbl_check.TabIndex = 5
@@ -94,7 +94,7 @@ Partial Class Frmlogfile
         'cbo_where
         '
         Me.cbo_where.FormattingEnabled = True
-        Me.cbo_where.Location = New System.Drawing.Point(91, 9)
+        Me.cbo_where.Location = New System.Drawing.Point(88, 9)
         Me.cbo_where.Name = "cbo_where"
         Me.cbo_where.Size = New System.Drawing.Size(121, 21)
         Me.cbo_where.TabIndex = 6
@@ -103,7 +103,7 @@ Partial Class Frmlogfile
         '
         Me.cmd_text.BackColor = System.Drawing.Color.White
         Me.cmd_text.Image = Global.SCANDB.My.Resources.Resources.Excel_icon
-        Me.cmd_text.Location = New System.Drawing.Point(329, 40)
+        Me.cmd_text.Location = New System.Drawing.Point(326, 40)
         Me.cmd_text.Name = "cmd_text"
         Me.cmd_text.Size = New System.Drawing.Size(36, 28)
         Me.cmd_text.TabIndex = 7
@@ -113,7 +113,7 @@ Partial Class Frmlogfile
         '
         Me.cmd_find.BackColor = System.Drawing.Color.White
         Me.cmd_find.Image = Global.SCANDB.My.Resources.Resources.search
-        Me.cmd_find.Location = New System.Drawing.Point(525, 6)
+        Me.cmd_find.Location = New System.Drawing.Point(522, 6)
         Me.cmd_find.Name = "cmd_find"
         Me.cmd_find.Size = New System.Drawing.Size(36, 28)
         Me.cmd_find.TabIndex = 2
@@ -124,7 +124,7 @@ Partial Class Frmlogfile
         Me.cmd_refresh.BackColor = System.Drawing.Color.White
         Me.cmd_refresh.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__40_
         Me.cmd_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_refresh.Location = New System.Drawing.Point(567, 6)
+        Me.cmd_refresh.Location = New System.Drawing.Point(564, 6)
         Me.cmd_refresh.Name = "cmd_refresh"
         Me.cmd_refresh.Size = New System.Drawing.Size(101, 28)
         Me.cmd_refresh.TabIndex = 1
@@ -134,7 +134,7 @@ Partial Class Frmlogfile
         'DateTimestart
         '
         Me.DateTimestart.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimestart.Location = New System.Drawing.Point(71, 45)
+        Me.DateTimestart.Location = New System.Drawing.Point(68, 45)
         Me.DateTimestart.Name = "DateTimestart"
         Me.DateTimestart.Size = New System.Drawing.Size(96, 20)
         Me.DateTimestart.TabIndex = 8
@@ -142,7 +142,7 @@ Partial Class Frmlogfile
         'DateTimeend
         '
         Me.DateTimeend.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimeend.Location = New System.Drawing.Point(221, 45)
+        Me.DateTimeend.Location = New System.Drawing.Point(218, 45)
         Me.DateTimeend.Name = "DateTimeend"
         Me.DateTimeend.Size = New System.Drawing.Size(102, 20)
         Me.DateTimeend.TabIndex = 9
@@ -151,7 +151,7 @@ Partial Class Frmlogfile
         '
         Me.Labeltime.AutoSize = True
         Me.Labeltime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Labeltime.Location = New System.Drawing.Point(13, 45)
+        Me.Labeltime.Location = New System.Drawing.Point(10, 45)
         Me.Labeltime.Name = "Labeltime"
         Me.Labeltime.Size = New System.Drawing.Size(52, 16)
         Me.Labeltime.TabIndex = 10
@@ -161,7 +161,7 @@ Partial Class Frmlogfile
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label1.Location = New System.Drawing.Point(173, 46)
+        Me.Label1.Location = New System.Drawing.Point(170, 46)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 16)
         Me.Label1.TabIndex = 11
@@ -171,7 +171,7 @@ Partial Class Frmlogfile
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label2.Location = New System.Drawing.Point(371, 45)
+        Me.Label2.Location = New System.Drawing.Point(368, 45)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 16)
         Me.Label2.TabIndex = 12
@@ -181,7 +181,7 @@ Partial Class Frmlogfile
         '
         Me.lbl_statusexport.AutoSize = True
         Me.lbl_statusexport.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lbl_statusexport.Location = New System.Drawing.Point(463, 44)
+        Me.lbl_statusexport.Location = New System.Drawing.Point(460, 44)
         Me.lbl_statusexport.Name = "lbl_statusexport"
         Me.lbl_statusexport.Size = New System.Drawing.Size(90, 18)
         Me.lbl_statusexport.TabIndex = 13
@@ -192,7 +192,7 @@ Partial Class Frmlogfile
         Me.lbl_countdtgv.AutoSize = True
         Me.lbl_countdtgv.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.lbl_countdtgv.ForeColor = System.Drawing.Color.Blue
-        Me.lbl_countdtgv.Location = New System.Drawing.Point(649, 45)
+        Me.lbl_countdtgv.Location = New System.Drawing.Point(646, 45)
         Me.lbl_countdtgv.Name = "lbl_countdtgv"
         Me.lbl_countdtgv.Size = New System.Drawing.Size(44, 20)
         Me.lbl_countdtgv.TabIndex = 14
@@ -202,7 +202,7 @@ Partial Class Frmlogfile
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.Location = New System.Drawing.Point(692, 45)
+        Me.Label3.Location = New System.Drawing.Point(689, 45)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(13, 20)
         Me.Label3.TabIndex = 15
@@ -213,7 +213,7 @@ Partial Class Frmlogfile
         Me.lbl_countdata.AutoSize = True
         Me.lbl_countdata.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.lbl_countdata.ForeColor = System.Drawing.Color.Blue
-        Me.lbl_countdata.Location = New System.Drawing.Point(711, 44)
+        Me.lbl_countdata.Location = New System.Drawing.Point(708, 44)
         Me.lbl_countdata.Name = "lbl_countdata"
         Me.lbl_countdata.Size = New System.Drawing.Size(44, 20)
         Me.lbl_countdata.TabIndex = 16

@@ -6,13 +6,14 @@ Public Class Frmfilter
     'คือ(ชื่อCombobox,ชื่อColumns,ชื่อTable)
     Private Sub Frmfillter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_date_end)
-        _Datetimeformatshort(dtp_date_start)
-
         dtgv_filter.Visible = False
         cbo_empexe.Enabled = False
 
         connect()
+
+        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        _Datetimeformatshort(dtp_date_end)
+        _Datetimeformatshort(dtp_date_start)
 
         sql = $"SELECT DISTINCT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
@@ -88,6 +89,7 @@ Public Class Frmfilter
             Next
 
         End With
+        _datagrid_format_dateshort(dtgv_filter, 5)
         '## Method visible สั่งให้แสดง Datagird โดย ผลลัพย์ในการกำหนดเป็น Boolean
         dtgv_filter.Visible = True
 
