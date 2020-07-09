@@ -8,7 +8,8 @@ Public Class Frmownership
     Private Sub Frmownership_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
-
+        _Datetimeformatshort(dtp_datework)
+        _Datetimeformatshort(dtp_date_review)
         _cleardatagrid(dtgv_search)
 
 

@@ -12,8 +12,13 @@ Public Class FrmInsolvent
     '## นำข้อมูลจากตาราง EXESM คอลัมน์ EXEBANK มาแสดงใน Combobox โดยใช้ Sub _comboboxadd() มี Parameters สองตัว จากนั้นให้ Query จำนวนข้อมูลในตาราง EXEINSOLVENT มาแสดงโดยใช้คำสั่ง SELECT COUNT 
 
     Private Sub FrmInsolvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         _cleartext()
         connect()
+
+        _Datetimeformatshort(dtp_date_request)
+        _Datetimeformatshort(dtp_date_send)
+        _Datetimeformatshort(dtp_verify_insolvent)
 
         _cboArray(cbo_finds, _headertext)
 

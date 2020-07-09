@@ -6,6 +6,9 @@ Public Class FrmsaveWDS
 
         connect()
 
+        _Datetimeformatshort(dtp_datecollector)
+        _Datetimeformatshort(dtp_datewds)
+        _Datetimeformatshort(dtp_payment)
 
 
         cbo_owner.Items.Clear()

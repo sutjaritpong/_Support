@@ -225,7 +225,7 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
-		<row><td>DOTNETVERSION45FULL</td><td>DotNet45Full</td></row>
+		<row><td>DOTNETVERSION40CLIENT</td><td>DotNet40Client</td></row>
 		<row><td>MSOFFICE2007</td><td>OFFICE2007</td></row>
 	</table>
 
@@ -342,7 +342,7 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td>{F2541CF5-0C58-48B2-A669-A081DF6D9D8E}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SCANDB.Primary_output</td><td>{4A908541-3A3E-46CD-901C-CFBAB7BA7A21}</td><td>INSTALLDIR</td><td>2</td><td/><td>scandb.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SCANDB.Primary_output</td><td>{DF3D7FB7-81E3-4297-8023-B966C3FB260C}</td><td>INSTALLDIR</td><td>2</td><td/><td>scandb.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -2027,7 +2027,7 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_3EEBF888_4615_4F5F_9BEF_4164DCC10FEB_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SCANDB.Primary_output</td><td/><td/><td>_1BDD3B64_74D9_4A6C_87B4_8A8DF378B9AE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SCANDB.Primary_output</td><td/><td/><td>_E6F9387C_D55F_4FBB_98CF_331788F127F3_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2619,7 +2619,8 @@
 		<row><td>COMPANY_NAME</td><td>1033</td><td>FDS</td><td>0</td><td/><td>-752317935</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-752317935</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-752317935</td></row>
-		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-752334287</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40CLIENT</td><td>1033</td><td>Microsoft .NET Framework 4.0 Client Package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>464024209</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>464026257</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_MSOFFICE2003</td><td>1033</td><td>Microsoft Office 2003 or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-752329583</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_MSOFFICE2007</td><td>1033</td><td>Microsoft Office 2007 or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-752329583</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_MSOFFICE2010</td><td>1033</td><td>Microsoft Office 2010 or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-752342479</td></row>
@@ -3724,6 +3725,7 @@
 		<row><td>ID_STRING1</td><td>1033</td><td>-</td><td>0</td><td/><td>-752295407</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>FDS</td><td>0</td><td/><td>-752317935</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>LegalPDF</td><td>0</td><td/><td>-752326031</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td/><td>0</td><td/><td>464003761</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-752317935</td></row>
 	</table>
 
@@ -3839,6 +3841,7 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
 		<row><td>UNINST_Uninstall_L_7037B65C1AEC4479868FA062247B089B.exe</td><td/><td>C:\Program Files\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>UNINST_Uninstall_L_E62DF679ABB64AB78CF4553ACC62CC08.exe</td><td/><td>C:\Program Files\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4029,7 +4032,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 	<table name="LaunchCondition">
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
-		<row><td>DOTNETVERSION45FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL##</td></row>
+		<row><td>DOTNETVERSION40CLIENT&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40CLIENT##</td></row>
 		<row><td>MSOFFICE2007</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_MSOFFICE2007##</td></row>
 	</table>
 
@@ -4359,7 +4362,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
 		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;MSOFFICE2007</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;MSOFFICE2007;DOTNETVERSION40CLIENT</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{67736DBA-97E5-4394-A891-65B79B3F82AF}</td><td/></row>
@@ -4404,7 +4407,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
-		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
+		<row><td>DotNet40Client</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client</td><td>Install</td><td>2</td></row>
 		<row><td>OFFICE2007</td><td>2</td><td>SOFTWARE\Microsoft\Office\12.0\Common\InstallRoot</td><td>Path</td><td>2</td></row>
 	</table>
 
@@ -4511,6 +4514,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>UNINST_Uninstall_LegalPDF</td><td>legalpdf</td><td>UNINST|Uninstall LegalPDF</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {1C4C1FA5-A416-4AFE-BDC5-AC870B0366EE}</td><td/><td/><td>UNINST_Uninstall_L_7037B65C1AEC4479868FA062247B089B.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>UNINST_Uninstall_LegalPDF1</td><td>DesktopFolder</td><td>UNINST|Uninstall LegalPDF</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {1C4C1FA5-A416-4AFE-BDC5-AC870B0366EE}</td><td/><td/><td>UNINST_Uninstall_L_E62DF679ABB64AB78CF4553ACC62CC08.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
