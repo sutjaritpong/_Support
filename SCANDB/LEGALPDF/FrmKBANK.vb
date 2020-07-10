@@ -1,8 +1,11 @@
 ﻿Option Explicit On
 Imports System.IO
 Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
 Public Class FrmKBANK
+
     Private Sub FrmKBANK_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         sql = "SELECT * FROM KBANKscdb"
         connect()
         Dim cmd As New SqlCommand(sql, cn)
@@ -15,6 +18,7 @@ Public Class FrmKBANK
         txt_searchkbank.AutoCompleteMode = AutoCompleteMode.Suggest
         txt_searchkbank.AutoCompleteSource = AutoCompleteSource.CustomSource
         txt_searchkbank.AutoCompleteCustomSource = autocomp
+
     End Sub
     Private Sub FrmKBANK_FormClosing() Handles MyBase.FormClosing
         Me.Dispose()

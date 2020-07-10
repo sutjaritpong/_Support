@@ -65,7 +65,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Loading.ico</ApplicationIcon>
+    <ApplicationIcon>Goodstuff-No-Nonsense-Free-Space-Astronaut.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>CAF555F8F4CFA1E80485AB42E542BD8C8A852AA5</ManifestCertificateThumbprint>
@@ -785,6 +785,7 @@
     <None Include="Resources\16x16 icon %2842%29.png" />
     <None Include="Resources\32x32accept.png" />
     <None Include="Resources\32x32delete.png" />
+    <Content Include="Goodstuff-No-Nonsense-Free-Space-Astronaut.ico" />
     <Content Include="Loading.ico" />
     <None Include="Resources\Excel-icon.png" />
     <None Include="Resources\Download_24x24.png" />

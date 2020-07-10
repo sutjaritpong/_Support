@@ -2,7 +2,7 @@
 <Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<!-- Select a Product Configuration -->
-		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<InstallShieldProductConfiguration>Media</InstallShieldProductConfiguration>
 		<!-- Select a Visual Studio Configuration / InstallShield Release -->
 		<Configuration>Debug</Configuration>
 		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
@@ -28,6 +28,7 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
+	<ItemGroup/>
 	<ItemGroup>
 		<ProjectReference Include="..\SCANDB\SCANDB.vbproj">
 			<Name>SCANDB</Name>

@@ -171,6 +171,7 @@ Module VBcode
                 FrmMastermain.Menu_Upload_Execution.Enabled = False
                 FrmMastermain.tab_execution.Enabled = False
                 FrmMastermain.IPManagement.Enabled = False
+                FrmMastermain.Menu_logexe.Enabled = False
             Case "Collector"
                 FrmMastermain.accms.Enabled = False
                 FrmMastermain.settingms.Enabled = False
@@ -180,7 +181,7 @@ Module VBcode
                 FrmMastermain.settingms.Enabled = False
                 FrmMastermain.IPManagement.Enabled = False
                 FrmMastermain.menu_accounting_search.Enabled = False
-
+                FrmMastermain.Menu_logexe.Enabled = False
         End Select
 
         cn.Close()
