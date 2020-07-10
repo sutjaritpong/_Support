@@ -36,14 +36,6 @@ Public Class FrmExecution
         DR.Close()
         cbo_employees_exe.SelectedItem = 0
 
-        sql = "SELECT COUNT(*) AS COUNTS FROM EXESM "
-        cmd = New SqlCommand(sql, cn)
-        DA = New SqlDataAdapter(cmd)
-        DS = New DataSet
-        DA.Fill(DS, "countrow")
-
-        lbl_count.Text = DS.Tables("countrow").Rows(0)("COUNTS") & "" & "ราย"
-
         Dim types() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "เลขที่สัญญา", "ชื่อ-นามสกุล", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรม", "ศูนย์ประสานงาน", "ชื่อพนักงาน", "พนักงานบังคับคดี"}
 
         cbo_type.Items.AddRange(types)
@@ -90,16 +82,6 @@ Public Class FrmExecution
             loaddatagridviews()
             Return
         End If
-
-    End Sub
-
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Dim dt As DateTimeFormatInfo = Thread.CurrentThread.CurrentCulture.DateTimeFormat
-
-        lbl_timer.Text = DateAndTime.TimeString             '//ตั้งเวลาโปรแกรม
-
-        lbl_datetoday.Text = DateAndTime.Today.ToShortDateString        '//ตั้งเวลาวันที่ 
 
     End Sub
 
@@ -611,6 +593,14 @@ Public Class FrmExecution
     End Sub
 
 
+    Private Sub FrmExecution_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+
+        cn.Close()
+        Me.Dispose()
+
+    End Sub
+
     Private Sub dtgv_search_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_search.CellMouseUp
 
         clear_text()
@@ -710,14 +700,6 @@ Public Class FrmExecution
         End If
 
         Reader()
-
-    End Sub
-
-    Private Sub FrmExecution_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
-
-        cn.Close()
-        Me.Dispose()
 
     End Sub
 End Class
