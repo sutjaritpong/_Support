@@ -11,7 +11,7 @@ Public Class FrmAccount
             .Items.Add("Admin")                     '//เพิ่มข้อมูล ใน ComboBox ให้ผู้ใช้เลือกใช้งาน 
             .Items.Add("Collector")
             .Items.Add("Supervisor")
-
+            .Items.Add("Execution")
         End With
 
         dgvaccount.Columns(1).Visible = False

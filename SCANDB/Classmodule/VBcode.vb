@@ -163,25 +163,75 @@ Module VBcode
         Dim _Group As String = DS.Tables("table").Rows(0)("USRGROUP")
 
         Select Case _Group
+            Case "Execution"
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_execution.Enabled = False
+            FrmMastermain.Menu_tab_Accounting.Enabled = False
+            FrmMastermain.Menu_tab_scanpdf.Enabled = True
+            'Main_menu_setting
+            FrmMastermain.menu_accms.Enabled = False
+            FrmMastermain.menu_settingms.Enabled = False
+            FrmMastermain.menu_Historyms.Enabled = False
+            FrmMastermain.menu_changespassword.Enabled = True
+            FrmMastermain.Menu_logexe.Enabled = False
+            'Main_menu_UpLoad
+            FrmMastermain.Menu_upload_exe.Enabled = False
+            FrmMastermain.Menu_upload_scan.Enabled = False
+            'Main_menu_report
+            FrmMastermain.menu_tab_report.Enabled = False
+            FrmMastermain.Menu_ReportAccounting.Enabled = True
+            FrmMastermain.Menu_Reportstatement.Enabled = True
+            FrmMastermain.Menu_Reporttracking.Enabled = True
+            FrmMastermain.Menu_ReportWDS.Enabled = True
+                'Main_menu_ITManagement
+                FrmMastermain.Menu_IPManagement.Enabled = False
+
             Case "Admin"
-                FrmMastermain.accms.Enabled = False
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.Historyms.Enabled = False
-                FrmMastermain.MENU_Uploads_SCANPDF.Enabled = False
-                FrmMastermain.Menu_Upload_Execution.Enabled = False
-                FrmMastermain.tab_execution.Enabled = False
-                FrmMastermain.IPManagement.Enabled = False
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_execution.Enabled = False
+                FrmMastermain.Menu_tab_Accounting.Enabled = False
+                FrmMastermain.Menu_tab_scanpdf.Enabled = True
+                'Main_menu_setting
+                FrmMastermain.menu_accms.Enabled = False
+                FrmMastermain.menu_settingms.Enabled = False
+                FrmMastermain.menu_Historyms.Enabled = False
+                FrmMastermain.menu_changespassword.Enabled = True
                 FrmMastermain.Menu_logexe.Enabled = False
+                'Main_menu_UpLoad
+                FrmMastermain.Menu_upload_exe.Enabled = False
+                FrmMastermain.Menu_upload_scan.Enabled = False
+                'Main_menu_report
+                FrmMastermain.menu_tab_report.Enabled = False
+                FrmMastermain.Menu_ReportAccounting.Enabled = True
+                FrmMastermain.Menu_Reportstatement.Enabled = True
+                FrmMastermain.Menu_Reporttracking.Enabled = True
+                FrmMastermain.Menu_ReportWDS.Enabled = True
+                'Main_menu_ITManagement
+                FrmMastermain.Menu_IPManagement.Enabled = False
+
+
             Case "Collector"
-                FrmMastermain.accms.Enabled = False
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.Historyms.Enabled = False
-                FrmMastermain.MENU_Uploads_SCANPDF.Enabled = False
-                FrmMastermain.Menu_Upload_Execution.Enabled = False
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.IPManagement.Enabled = False
-                FrmMastermain.menu_accounting_search.Enabled = False
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_execution.Enabled = False
+                FrmMastermain.Menu_tab_Accounting.Enabled = False
+                FrmMastermain.Menu_tab_scanpdf.Enabled = True
+                'Main_menu_setting
+                FrmMastermain.menu_accms.Enabled = False
+                FrmMastermain.menu_settingms.Enabled = False
+                FrmMastermain.menu_Historyms.Enabled = False
+                FrmMastermain.menu_changespassword.Enabled = True
                 FrmMastermain.Menu_logexe.Enabled = False
+                'Main_menu_UpLoad
+                FrmMastermain.Menu_upload_exe.Enabled = False
+                FrmMastermain.Menu_upload_scan.Enabled = False
+                'Main_menu_report
+                FrmMastermain.menu_tab_report.Enabled = False
+                FrmMastermain.Menu_ReportAccounting.Enabled = False
+                FrmMastermain.Menu_Reportstatement.Enabled = False
+                FrmMastermain.Menu_Reporttracking.Enabled = False
+                FrmMastermain.Menu_ReportWDS.Enabled = False
+                'Main_menu_ITManagement
+                FrmMastermain.Menu_IPManagement.Enabled = False
         End Select
 
         cn.Close()

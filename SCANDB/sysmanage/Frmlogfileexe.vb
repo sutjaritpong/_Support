@@ -153,6 +153,13 @@ Public Class frmlogfileexe
     End Sub
 
     Private Sub dtgvlogfile_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvlogfile.CellClick
-
+        dtp_log_date.Text = dtgvlogfile.CurrentRow.Cells(0).Value.ToString
+        txt_log_idcard.Text = dtgvlogfile.CurrentRow.Cells(1).Value.ToString
+        txt_log_account.Text = dtgvlogfile.CurrentRow.Cells(2).Value.ToString
+        txt_customer_user.Text = dtgvlogfile.CurrentRow.Cells(3).Value.ToString
+        txt_log_fullname.Text = dtgvlogfile.CurrentRow.Cells(4).Value.ToString
+        txt_log_ip.Text = dtgvlogfile.CurrentRow.Cells(5).Value.ToString
+        txt_log_pcname.Text = dtgvlogfile.CurrentRow.Cells(6).Value.ToString
+        txt_log_detail.Text = dtgvlogfile.CurrentRow.Cells(7).Value.ToString
     End Sub
 End Class

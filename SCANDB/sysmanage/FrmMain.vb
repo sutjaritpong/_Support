@@ -24,15 +24,17 @@ Public Class FrmMastermain
         Me.WindowState = FormWindowState.Maximized              '// ทำให้ Form หลักมีขนาดเต็มจอ
 
     End Sub
-    Private Sub ออกจากระบบToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ออกจากระบบToolStripMenuItem.Click
+    Private Sub ออกจากระบบToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles menu_tap_logout.Click
+
         If Msg_confirm("คุณต้องการปิดโปรแกรมใช่หรือไม่") = vbYes Then
+
             cn.Close()
             Me.Close()
         End If    '// ปุ่มออกจากระบบเมื่อกดจะมีข้อความแจ้งเตือน
 
 
     End Sub
-    Private Sub AccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles accms.Click
+    Private Sub AccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles menu_accms.Click
         With FrmAccount
             .MdiParent = Me                             '// แสดง Form ตั้งค่า USER & PASSWORD
             .Show()
@@ -99,7 +101,7 @@ Public Class FrmMastermain
         txt_datetoday.Text = DateAndTime.Today.ToShortDateString        '//ตั้งเวลาวันที่ 
     End Sub
 
-    Private Sub settingms_Click(sender As Object, e As EventArgs) Handles settingms.Click
+    Private Sub settingms_Click(sender As Object, e As EventArgs) Handles menu_settingms.Click
 
         If Application.OpenForms.OfType(Of FrmSetting).Any Then
 
@@ -120,13 +122,15 @@ Public Class FrmMastermain
         With FrmLogin
             .StartPosition = FormStartPosition.CenterScreen
             .Show()
+            FrmLogin.txt_idlog.Enabled = True
+            FrmLogin.txt_passlog.Enabled = True
             .txt_passlog.Text = ""
             .txt_passlog.Select()
         End With
         '// Event ปิดโปรแกรมเมื่อปิดฟอร์ม Main
     End Sub
 
-    Private Sub ประวตการเขาใชโปรแกรมLogFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Historyms.Click
+    Private Sub ประวตการเขาใชโปรแกรมLogFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
         With Frmlogfile
             .MdiParent = Me
             .Show()
@@ -135,7 +139,7 @@ Public Class FrmMastermain
     End Sub
 
 
-    Private Sub changespassword_Click(sender As Object, e As EventArgs) Handles changespassword.Click
+    Private Sub changespassword_Click(sender As Object, e As EventArgs) Handles menu_changespassword.Click
 
         If Application.OpenForms().OfType(Of FrmPasssetting).Any Then
 
@@ -171,7 +175,7 @@ Public Class FrmMastermain
         End With
     End Sub
 
-    Private Sub tab_report_Click(sender As Object, e As EventArgs) Handles tab_report.Click
+    Private Sub tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
         With Frmreportexe
             .MdiParent = Me
             .Show()
@@ -260,7 +264,7 @@ Public Class FrmMastermain
         End With
     End Sub
 
-    Private Sub IPManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IPManagement.Click
+    Private Sub IPManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Menu_IPManagement.Click
         With FrmmanageIP
             .MdiParent = Me
             .Show()
@@ -268,7 +272,7 @@ Public Class FrmMastermain
         End With
     End Sub
 
-    Private Sub Menu_Reportracking_Click(sender As Object, e As EventArgs) Handles Menu_Reportracking.Click
+    Private Sub Menu_Reportracking_Click(sender As Object, e As EventArgs) Handles Menu_Reporttracking.Click
         With FrmTrackRV
             .MdiParent = Me
             .Show()

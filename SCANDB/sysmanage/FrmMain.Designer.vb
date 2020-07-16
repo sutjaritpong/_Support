@@ -40,8 +40,50 @@ Partial Class FrmMastermain
         Me.tslversion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsl_version = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.Main_menu_working = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_tab_execution = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_EXEverify = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_EXEStatement = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_EXEWDS = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_EXEACC = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_exeport = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_ownership = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_insolvent = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_tab_scanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KBANKscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSSscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TMBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SCBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UOBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Tbankscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KKBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_tab_Accounting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_accounting_search = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_tap_logout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Main_menu_setting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_accms = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_settingms = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_Historyms = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_changespassword = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_logexe = New System.Windows.Forms.ToolStripMenuItem()
         Me.txt_timer = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.txt_datetoday = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Main_Menu_upload = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_upload_scan = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MENU_Uploads_SCANPDF = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_list_Accounting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_upload_exe = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Upload_Execution = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Main_Menu_report = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_tab_report = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_ReportWDS = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Reporttracking = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_ReportAccounting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Reportstatement = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Main_menu_it = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_IPManagement = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,48 +102,6 @@ Partial Class FrmMastermain
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DbPDFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tab_execution = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_EXEverify = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_EXEStatement = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_EXEWDS = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_EXEACC = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_exeport = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_ownership = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_insolvent = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tab_scanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KBANKscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSSscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TMBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SCBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UOBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Tbankscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KKBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_Accounting = New System.Windows.Forms.ToolStripMenuItem()
-        Me.menu_accounting_search = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ออกจากระบบToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.accms = New System.Windows.Forms.ToolStripMenuItem()
-        Me.settingms = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Historyms = New System.Windows.Forms.ToolStripMenuItem()
-        Me.changespassword = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_logexe = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.อพโหลดToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ขอมลFileSCANToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MENU_Uploads_SCANPDF = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_list_Accounting = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_Upload_Execution = New System.Windows.Forms.ToolStripMenuItem()
-        Me.รายงานToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tab_report = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_ReportWDS = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_Reportracking = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_ReportAccounting = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_Reportstatement = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ITToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IPManagement = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -244,12 +244,251 @@ Partial Class FrmMastermain
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DbPDFToolStripMenuItem, Me.SettingToolStripMenuItem, Me.txt_timer, Me.ToolStripMenuItem1, Me.txt_datetoday, Me.ToolStripMenuItem2, Me.อพโหลดToolStripMenuItem, Me.รายงานToolStripMenuItem, Me.ITToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Main_menu_working, Me.Main_menu_setting, Me.txt_timer, Me.ToolStripMenuItem1, Me.txt_datetoday, Me.ToolStripMenuItem2, Me.Main_Menu_upload, Me.Main_Menu_report, Me.Main_menu_it})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1264, 32)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'Main_menu_working
+        '
+        Me.Main_menu_working.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_tab_execution, Me.Menu_tab_scanpdf, Me.Menu_tab_Accounting, Me.menu_tap_logout})
+        Me.Main_menu_working.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Main_menu_working.Image = Global.SCANDB.My.Resources.Resources.accept
+        Me.Main_menu_working.Name = "Main_menu_working"
+        Me.Main_menu_working.Size = New System.Drawing.Size(54, 28)
+        Me.Main_menu_working.Text = "เมนู"
+        '
+        'Menu_tab_execution
+        '
+        Me.Menu_tab_execution.BackColor = System.Drawing.Color.White
+        Me.Menu_tab_execution.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_EXEverify, Me.Menu_EXEStatement, Me.Menu_EXEWDS, Me.Menu_EXEACC, Me.Menu_exeport, Me.Menu_ownership, Me.Menu_insolvent})
+        Me.Menu_tab_execution.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_tab_execution.Image = Global.SCANDB.My.Resources.Resources.link_break
+        Me.Menu_tab_execution.Name = "Menu_tab_execution"
+        Me.Menu_tab_execution.Size = New System.Drawing.Size(209, 22)
+        Me.Menu_tab_execution.Text = "บังคับคดี (Execution)"
+        '
+        'Menu_EXEverify
+        '
+        Me.Menu_EXEverify.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEverify.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_EXEverify.Image = Global.SCANDB.My.Resources.Resources.textfield_add
+        Me.Menu_EXEverify.Name = "Menu_EXEverify"
+        Me.Menu_EXEverify.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_EXEverify.Text = "ลงข้อมูลตรวจสำนวน"
+        '
+        'Menu_EXEStatement
+        '
+        Me.Menu_EXEStatement.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEStatement.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_EXEStatement.Image = Global.SCANDB.My.Resources.Resources.Properties_16x16
+        Me.Menu_EXEStatement.Name = "Menu_EXEStatement"
+        Me.Menu_EXEStatement.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_EXEStatement.Text = "แถลงบัญชีบังคับคดี"
+        '
+        'Menu_EXEWDS
+        '
+        Me.Menu_EXEWDS.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEWDS.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_EXEWDS.Image = Global.SCANDB.My.Resources.Resources.coins_delete1
+        Me.Menu_EXEWDS.Name = "Menu_EXEWDS"
+        Me.Menu_EXEWDS.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_EXEWDS.Text = "ถอนอายัด/ยึด"
+        '
+        'Menu_EXEACC
+        '
+        Me.Menu_EXEACC.BackColor = System.Drawing.Color.White
+        Me.Menu_EXEACC.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_EXEACC.Image = Global.SCANDB.My.Resources.Resources.application_form_edit
+        Me.Menu_EXEACC.Name = "Menu_EXEACC"
+        Me.Menu_EXEACC.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_EXEACC.Text = "บังคับคดีตั้งเรื่อง"
+        '
+        'Menu_exeport
+        '
+        Me.Menu_exeport.BackColor = System.Drawing.Color.White
+        Me.Menu_exeport.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_exeport.Image = Global.SCANDB.My.Resources.Resources.group_go
+        Me.Menu_exeport.Name = "Menu_exeport"
+        Me.Menu_exeport.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_exeport.Text = "งานฟ้องเองส่งคัด ปกส."
+        '
+        'Menu_ownership
+        '
+        Me.Menu_ownership.BackColor = System.Drawing.Color.White
+        Me.Menu_ownership.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_ownership.Image = Global.SCANDB.My.Resources.Resources.building
+        Me.Menu_ownership.Name = "Menu_ownership"
+        Me.Menu_ownership.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_ownership.Text = "ข้อมูล กรรมสิทธิ์ลูกค้า"
+        '
+        'Menu_insolvent
+        '
+        Me.Menu_insolvent.BackColor = System.Drawing.Color.White
+        Me.Menu_insolvent.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_insolvent.Image = Global.SCANDB.My.Resources.Resources.lorry_error
+        Me.Menu_insolvent.Name = "Menu_insolvent"
+        Me.Menu_insolvent.Size = New System.Drawing.Size(185, 22)
+        Me.Menu_insolvent.Text = "ข้อมูลลูกค้าล้มละลาย"
+        '
+        'Menu_tab_scanpdf
+        '
+        Me.Menu_tab_scanpdf.BackColor = System.Drawing.Color.White
+        Me.Menu_tab_scanpdf.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KBANKscanpdf, Me.TSSscanpdf, Me.TMBscanpdf, Me.SCBscanpdf, Me.UOBscanpdf, Me.Tbankscanpdf, Me.KKBscanpdf})
+        Me.Menu_tab_scanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_tab_scanpdf.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
+        Me.Menu_tab_scanpdf.Name = "Menu_tab_scanpdf"
+        Me.Menu_tab_scanpdf.Size = New System.Drawing.Size(209, 22)
+        Me.Menu_tab_scanpdf.Text = "ค้นหาเอกสาร PDF"
+        '
+        'KBANKscanpdf
+        '
+        Me.KBANKscanpdf.BackColor = System.Drawing.Color.White
+        Me.KBANKscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.KBANKscanpdf.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
+        Me.KBANKscanpdf.Name = "KBANKscanpdf"
+        Me.KBANKscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.KBANKscanpdf.Text = "KBANK"
+        '
+        'TSSscanpdf
+        '
+        Me.TSSscanpdf.BackColor = System.Drawing.Color.White
+        Me.TSSscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.TSSscanpdf.Image = Global.SCANDB.My.Resources.Resources.TSS01
+        Me.TSSscanpdf.Name = "TSSscanpdf"
+        Me.TSSscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.TSSscanpdf.Text = "TSS"
+        '
+        'TMBscanpdf
+        '
+        Me.TMBscanpdf.BackColor = System.Drawing.Color.White
+        Me.TMBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.TMBscanpdf.Image = Global.SCANDB.My.Resources.Resources._5462_image_th
+        Me.TMBscanpdf.Name = "TMBscanpdf"
+        Me.TMBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.TMBscanpdf.Text = "TMB"
+        '
+        'SCBscanpdf
+        '
+        Me.SCBscanpdf.BackColor = System.Drawing.Color.White
+        Me.SCBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.SCBscanpdf.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
+        Me.SCBscanpdf.Name = "SCBscanpdf"
+        Me.SCBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.SCBscanpdf.Text = "SCB"
+        '
+        'UOBscanpdf
+        '
+        Me.UOBscanpdf.BackColor = System.Drawing.Color.White
+        Me.UOBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.UOBscanpdf.Image = Global.SCANDB.My.Resources.Resources.UOB
+        Me.UOBscanpdf.Name = "UOBscanpdf"
+        Me.UOBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.UOBscanpdf.Text = "UOB"
+        '
+        'Tbankscanpdf
+        '
+        Me.Tbankscanpdf.BackColor = System.Drawing.Color.White
+        Me.Tbankscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Tbankscanpdf.Image = Global.SCANDB.My.Resources.Resources.TBANK
+        Me.Tbankscanpdf.Name = "Tbankscanpdf"
+        Me.Tbankscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.Tbankscanpdf.Text = "TBANK"
+        '
+        'KKBscanpdf
+        '
+        Me.KKBscanpdf.BackColor = System.Drawing.Color.White
+        Me.KKBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.KKBscanpdf.Image = Global.SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo
+        Me.KKBscanpdf.Name = "KKBscanpdf"
+        Me.KKBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.KKBscanpdf.Text = "KKB"
+        '
+        'Menu_tab_Accounting
+        '
+        Me.Menu_tab_Accounting.BackColor = System.Drawing.Color.White
+        Me.Menu_tab_Accounting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_accounting_search})
+        Me.Menu_tab_Accounting.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_tab_Accounting.Image = Global.SCANDB.My.Resources.Resources.coins
+        Me.Menu_tab_Accounting.Name = "Menu_tab_Accounting"
+        Me.Menu_tab_Accounting.Size = New System.Drawing.Size(209, 22)
+        Me.Menu_tab_Accounting.Text = "ค้นหาเอกสาร/ข้อมูล เบิก"
+        '
+        'menu_accounting_search
+        '
+        Me.menu_accounting_search.BackColor = System.Drawing.Color.White
+        Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
+        Me.menu_accounting_search.Name = "menu_accounting_search"
+        Me.menu_accounting_search.Size = New System.Drawing.Size(180, 22)
+        Me.menu_accounting_search.Text = "KBANK"
+        '
+        'menu_tap_logout
+        '
+        Me.menu_tap_logout.BackColor = System.Drawing.Color.White
+        Me.menu_tap_logout.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_tap_logout.Image = Global.SCANDB.My.Resources.Resources.delete
+        Me.menu_tap_logout.Name = "menu_tap_logout"
+        Me.menu_tap_logout.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
+            Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
+        Me.menu_tap_logout.Size = New System.Drawing.Size(209, 22)
+        Me.menu_tap_logout.Text = "ออกจากระบบ"
+        '
+        'Main_menu_setting
+        '
+        Me.Main_menu_setting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_accms, Me.menu_settingms, Me.menu_Historyms, Me.menu_changespassword, Me.Menu_logexe})
+        Me.Main_menu_setting.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Main_menu_setting.Image = Global.SCANDB.My.Resources.Resources.process
+        Me.Main_menu_setting.Name = "Main_menu_setting"
+        Me.Main_menu_setting.Size = New System.Drawing.Size(61, 28)
+        Me.Main_menu_setting.Text = "ตั้งค่า"
+        '
+        'menu_accms
+        '
+        Me.menu_accms.BackColor = System.Drawing.Color.White
+        Me.menu_accms.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_accms.Image = Global.SCANDB.My.Resources.Resources.users
+        Me.menu_accms.Name = "menu_accms"
+        Me.menu_accms.Size = New System.Drawing.Size(294, 22)
+        Me.menu_accms.Text = "ตั้งค่าบัญชีผู้ใช้ (Account)"
+        '
+        'menu_settingms
+        '
+        Me.menu_settingms.BackColor = System.Drawing.Color.White
+        Me.menu_settingms.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_settingms.Image = Global.SCANDB.My.Resources.Resources.page_process
+        Me.menu_settingms.Name = "menu_settingms"
+        Me.menu_settingms.Size = New System.Drawing.Size(294, 22)
+        Me.menu_settingms.Text = "กำหนดค่าการใช้งานโปรแกรม (Setting)"
+        '
+        'menu_Historyms
+        '
+        Me.menu_Historyms.BackColor = System.Drawing.Color.White
+        Me.menu_Historyms.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_Historyms.Image = Global.SCANDB.My.Resources.Resources.full_page
+        Me.menu_Historyms.Name = "menu_Historyms"
+        Me.menu_Historyms.Size = New System.Drawing.Size(294, 22)
+        Me.menu_Historyms.Text = "ประวัติการเข้าใช้โปรแกรม (Log file)"
+        '
+        'menu_changespassword
+        '
+        Me.menu_changespassword.BackColor = System.Drawing.Color.White
+        Me.menu_changespassword.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_changespassword.Image = Global.SCANDB.My.Resources.Resources.Actions_edit_rename_icon24x24
+        Me.menu_changespassword.Name = "menu_changespassword"
+        Me.menu_changespassword.Size = New System.Drawing.Size(294, 22)
+        Me.menu_changespassword.Text = "เปลี่ยนรหัสผ่านผู้ใช้ (Changes Password)"
+        '
+        'Menu_logexe
+        '
+        Me.Menu_logexe.BackColor = System.Drawing.Color.White
+        Me.Menu_logexe.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_logexe.Image = Global.SCANDB.My.Resources.Resources.monitor_lightning
+        Me.Menu_logexe.Name = "Menu_logexe"
+        Me.Menu_logexe.Size = New System.Drawing.Size(294, 22)
+        Me.Menu_logexe.Text = "ประวัติการแก้ไขข้อมูล (Log file execution)"
         '
         'txt_timer
         '
@@ -263,6 +502,14 @@ Partial Class FrmMastermain
         Me.txt_timer.Text = "Timer"
         Me.txt_timer.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripMenuItem1.AutoSize = False
+        Me.ToolStripMenuItem1.Image = Global.SCANDB.My.Resources.Resources._32x32_clock
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(28, 28)
+        '
         'txt_datetoday
         '
         Me.txt_datetoday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -274,6 +521,142 @@ Partial Class FrmMastermain
         Me.txt_datetoday.Size = New System.Drawing.Size(100, 28)
         Me.txt_datetoday.Text = "Date"
         Me.txt_datetoday.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripMenuItem2.AutoSize = False
+        Me.ToolStripMenuItem2.Image = Global.SCANDB.My.Resources.Resources._32x32_calendar_empty
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(28, 28)
+        '
+        'Main_Menu_upload
+        '
+        Me.Main_Menu_upload.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_upload_scan, Me.Menu_upload_exe})
+        Me.Main_Menu_upload.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Main_Menu_upload.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Main_Menu_upload.Name = "Main_Menu_upload"
+        Me.Main_Menu_upload.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Main_Menu_upload.Size = New System.Drawing.Size(96, 28)
+        Me.Main_Menu_upload.Text = "นำเข้าข้อมูล"
+        '
+        'Menu_upload_scan
+        '
+        Me.Menu_upload_scan.BackColor = System.Drawing.Color.White
+        Me.Menu_upload_scan.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MENU_Uploads_SCANPDF, Me.Menu_list_Accounting})
+        Me.Menu_upload_scan.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_upload_scan.Image = Global.SCANDB.My.Resources.Resources.system_database_add_icon16x16
+        Me.Menu_upload_scan.Name = "Menu_upload_scan"
+        Me.Menu_upload_scan.Size = New System.Drawing.Size(218, 22)
+        Me.Menu_upload_scan.Text = "UPLOAD ข้อมูล File SCAN"
+        '
+        'MENU_Uploads_SCANPDF
+        '
+        Me.MENU_Uploads_SCANPDF.BackColor = System.Drawing.Color.White
+        Me.MENU_Uploads_SCANPDF.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.MENU_Uploads_SCANPDF.Image = Global.SCANDB.My.Resources.Resources.image_add
+        Me.MENU_Uploads_SCANPDF.Name = "MENU_Uploads_SCANPDF"
+        Me.MENU_Uploads_SCANPDF.Size = New System.Drawing.Size(306, 22)
+        Me.MENU_Uploads_SCANPDF.Text = "อัพโหลดข้อมูล PDF (Upload to Database) "
+        '
+        'Menu_list_Accounting
+        '
+        Me.Menu_list_Accounting.BackColor = System.Drawing.Color.White
+        Me.Menu_list_Accounting.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_list_Accounting.Image = Global.SCANDB.My.Resources.Resources.table_key
+        Me.Menu_list_Accounting.Name = "Menu_list_Accounting"
+        Me.Menu_list_Accounting.Size = New System.Drawing.Size(306, 22)
+        Me.Menu_list_Accounting.Text = "รายละเอียดข้อมูลเบิก"
+        '
+        'Menu_upload_exe
+        '
+        Me.Menu_upload_exe.BackColor = System.Drawing.Color.White
+        Me.Menu_upload_exe.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Upload_Execution})
+        Me.Menu_upload_exe.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_upload_exe.Image = Global.SCANDB.My.Resources.Resources.database_add
+        Me.Menu_upload_exe.Name = "Menu_upload_exe"
+        Me.Menu_upload_exe.Size = New System.Drawing.Size(218, 22)
+        Me.Menu_upload_exe.Text = "UPLOAD ข้อมูล บังคับคดี"
+        '
+        'Menu_Upload_Execution
+        '
+        Me.Menu_Upload_Execution.BackColor = System.Drawing.Color.White
+        Me.Menu_Upload_Execution.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_Upload_Execution.Image = Global.SCANDB.My.Resources.Resources.database_connect
+        Me.Menu_Upload_Execution.Name = "Menu_Upload_Execution"
+        Me.Menu_Upload_Execution.Size = New System.Drawing.Size(300, 22)
+        Me.Menu_Upload_Execution.Text = "อัพโหลดข้อมูลบังคับคดี (Upload Execution)"
+        '
+        'Main_Menu_report
+        '
+        Me.Main_Menu_report.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_tab_report, Me.Menu_ReportWDS, Me.Menu_Reporttracking, Me.Menu_ReportAccounting, Me.Menu_Reportstatement})
+        Me.Main_Menu_report.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Main_Menu_report.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
+        Me.Main_Menu_report.Name = "Main_Menu_report"
+        Me.Main_Menu_report.Size = New System.Drawing.Size(74, 28)
+        Me.Main_Menu_report.Text = "รายงาน"
+        '
+        'menu_tab_report
+        '
+        Me.menu_tab_report.BackColor = System.Drawing.Color.White
+        Me.menu_tab_report.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.menu_tab_report.Image = Global.SCANDB.My.Resources.Resources.table_lightning
+        Me.menu_tab_report.Name = "menu_tab_report"
+        Me.menu_tab_report.Size = New System.Drawing.Size(381, 22)
+        Me.menu_tab_report.Text = "รายงานส่งแถลงทำบัญชี-รับจ่าย"
+        '
+        'Menu_ReportWDS
+        '
+        Me.Menu_ReportWDS.BackColor = System.Drawing.Color.White
+        Me.Menu_ReportWDS.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_ReportWDS.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_ReportWDS.Name = "Menu_ReportWDS"
+        Me.Menu_ReportWDS.Size = New System.Drawing.Size(381, 22)
+        Me.Menu_ReportWDS.Text = "รายงานถอนอายัด/ยึด (ReportViewer)"
+        '
+        'Menu_Reporttracking
+        '
+        Me.Menu_Reporttracking.BackColor = System.Drawing.Color.White
+        Me.Menu_Reporttracking.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_Reporttracking.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_Reporttracking.Name = "Menu_Reporttracking"
+        Me.Menu_Reporttracking.Size = New System.Drawing.Size(381, 22)
+        Me.Menu_Reporttracking.Text = "รายงานตรวจสำนวนแถลงบัญชี (ReportViewer)"
+        '
+        'Menu_ReportAccounting
+        '
+        Me.Menu_ReportAccounting.BackColor = System.Drawing.Color.White
+        Me.Menu_ReportAccounting.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_ReportAccounting.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_ReportAccounting.Name = "Menu_ReportAccounting"
+        Me.Menu_ReportAccounting.Size = New System.Drawing.Size(381, 22)
+        Me.Menu_ReportAccounting.Text = "รายงานบังคับคดีตั้งเรื่อง/ใบเสร็จวางค่าใช้จ่าย (ReportViewer)"
+        '
+        'Menu_Reportstatement
+        '
+        Me.Menu_Reportstatement.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_Reportstatement.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_Reportstatement.Name = "Menu_Reportstatement"
+        Me.Menu_Reportstatement.Size = New System.Drawing.Size(381, 22)
+        Me.Menu_Reportstatement.Text = "รายงานใบงานแถลงบัญชีรับ-จ่าย (ReportViewer)"
+        '
+        'Main_menu_it
+        '
+        Me.Main_menu_it.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_IPManagement})
+        Me.Main_menu_it.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Main_menu_it.Image = Global.SCANDB.My.Resources.Resources.support_icon24x24
+        Me.Main_menu_it.Name = "Main_menu_it"
+        Me.Main_menu_it.Size = New System.Drawing.Size(97, 28)
+        Me.Main_menu_it.Text = "IT Support"
+        '
+        'Menu_IPManagement
+        '
+        Me.Menu_IPManagement.BackColor = System.Drawing.Color.White
+        Me.Menu_IPManagement.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Menu_IPManagement.Image = Global.SCANDB.My.Resources.Resources.Wi_Fi_icon24x24
+        Me.Menu_IPManagement.Name = "Menu_IPManagement"
+        Me.Menu_IPManagement.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_IPManagement.Text = "IP Management"
         '
         'Timer
         '
@@ -377,389 +760,6 @@ Partial Class FrmMastermain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
-        'DbPDFToolStripMenuItem
-        '
-        Me.DbPDFToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_execution, Me.tab_scanpdf, Me.Menu_Accounting, Me.ออกจากระบบToolStripMenuItem})
-        Me.DbPDFToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.DbPDFToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.accept
-        Me.DbPDFToolStripMenuItem.Name = "DbPDFToolStripMenuItem"
-        Me.DbPDFToolStripMenuItem.Size = New System.Drawing.Size(54, 28)
-        Me.DbPDFToolStripMenuItem.Text = "เมนู"
-        '
-        'tab_execution
-        '
-        Me.tab_execution.BackColor = System.Drawing.Color.White
-        Me.tab_execution.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_EXEverify, Me.Menu_EXEStatement, Me.Menu_EXEWDS, Me.Menu_EXEACC, Me.Menu_exeport, Me.Menu_ownership, Me.Menu_insolvent})
-        Me.tab_execution.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.tab_execution.Image = Global.SCANDB.My.Resources.Resources.link_break
-        Me.tab_execution.Name = "tab_execution"
-        Me.tab_execution.Size = New System.Drawing.Size(209, 22)
-        Me.tab_execution.Text = "บังคับคดี (Execution)"
-        '
-        'Menu_EXEverify
-        '
-        Me.Menu_EXEverify.BackColor = System.Drawing.Color.White
-        Me.Menu_EXEverify.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_EXEverify.Image = Global.SCANDB.My.Resources.Resources.textfield_add
-        Me.Menu_EXEverify.Name = "Menu_EXEverify"
-        Me.Menu_EXEverify.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_EXEverify.Text = "ลงข้อมูลตรวจสำนวน"
-        '
-        'Menu_EXEStatement
-        '
-        Me.Menu_EXEStatement.BackColor = System.Drawing.Color.White
-        Me.Menu_EXEStatement.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_EXEStatement.Image = Global.SCANDB.My.Resources.Resources.Properties_16x16
-        Me.Menu_EXEStatement.Name = "Menu_EXEStatement"
-        Me.Menu_EXEStatement.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_EXEStatement.Text = "แถลงบัญชีบังคับคดี"
-        '
-        'Menu_EXEWDS
-        '
-        Me.Menu_EXEWDS.BackColor = System.Drawing.Color.White
-        Me.Menu_EXEWDS.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_EXEWDS.Image = Global.SCANDB.My.Resources.Resources.coins_delete1
-        Me.Menu_EXEWDS.Name = "Menu_EXEWDS"
-        Me.Menu_EXEWDS.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_EXEWDS.Text = "ถอนอายัด/ยึด"
-        '
-        'Menu_EXEACC
-        '
-        Me.Menu_EXEACC.BackColor = System.Drawing.Color.White
-        Me.Menu_EXEACC.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_EXEACC.Image = Global.SCANDB.My.Resources.Resources.application_form_edit
-        Me.Menu_EXEACC.Name = "Menu_EXEACC"
-        Me.Menu_EXEACC.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_EXEACC.Text = "บังคับคดีตั้งเรื่อง"
-        '
-        'Menu_exeport
-        '
-        Me.Menu_exeport.BackColor = System.Drawing.Color.White
-        Me.Menu_exeport.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_exeport.Image = Global.SCANDB.My.Resources.Resources.group_go
-        Me.Menu_exeport.Name = "Menu_exeport"
-        Me.Menu_exeport.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_exeport.Text = "งานฟ้องเองส่งคัด ปกส."
-        '
-        'Menu_ownership
-        '
-        Me.Menu_ownership.BackColor = System.Drawing.Color.White
-        Me.Menu_ownership.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_ownership.Image = Global.SCANDB.My.Resources.Resources.building
-        Me.Menu_ownership.Name = "Menu_ownership"
-        Me.Menu_ownership.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_ownership.Text = "ข้อมูล กรรมสิทธิ์ลูกค้า"
-        '
-        'Menu_insolvent
-        '
-        Me.Menu_insolvent.BackColor = System.Drawing.Color.White
-        Me.Menu_insolvent.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_insolvent.Image = Global.SCANDB.My.Resources.Resources.lorry_error
-        Me.Menu_insolvent.Name = "Menu_insolvent"
-        Me.Menu_insolvent.Size = New System.Drawing.Size(185, 22)
-        Me.Menu_insolvent.Text = "ข้อมูลลูกค้าล้มละลาย"
-        '
-        'tab_scanpdf
-        '
-        Me.tab_scanpdf.BackColor = System.Drawing.Color.White
-        Me.tab_scanpdf.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KBANKscanpdf, Me.TSSscanpdf, Me.TMBscanpdf, Me.SCBscanpdf, Me.UOBscanpdf, Me.Tbankscanpdf, Me.KKBscanpdf})
-        Me.tab_scanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.tab_scanpdf.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__42_
-        Me.tab_scanpdf.Name = "tab_scanpdf"
-        Me.tab_scanpdf.Size = New System.Drawing.Size(209, 22)
-        Me.tab_scanpdf.Text = "ค้นหาเอกสาร PDF"
-        '
-        'KBANKscanpdf
-        '
-        Me.KBANKscanpdf.BackColor = System.Drawing.Color.White
-        Me.KBANKscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.KBANKscanpdf.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
-        Me.KBANKscanpdf.Name = "KBANKscanpdf"
-        Me.KBANKscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.KBANKscanpdf.Text = "KBANK"
-        '
-        'TSSscanpdf
-        '
-        Me.TSSscanpdf.BackColor = System.Drawing.Color.White
-        Me.TSSscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.TSSscanpdf.Image = Global.SCANDB.My.Resources.Resources.TSS01
-        Me.TSSscanpdf.Name = "TSSscanpdf"
-        Me.TSSscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.TSSscanpdf.Text = "TSS"
-        '
-        'TMBscanpdf
-        '
-        Me.TMBscanpdf.BackColor = System.Drawing.Color.White
-        Me.TMBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.TMBscanpdf.Image = Global.SCANDB.My.Resources.Resources._5462_image_th
-        Me.TMBscanpdf.Name = "TMBscanpdf"
-        Me.TMBscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.TMBscanpdf.Text = "TMB"
-        '
-        'SCBscanpdf
-        '
-        Me.SCBscanpdf.BackColor = System.Drawing.Color.White
-        Me.SCBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.SCBscanpdf.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
-        Me.SCBscanpdf.Name = "SCBscanpdf"
-        Me.SCBscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.SCBscanpdf.Text = "SCB"
-        '
-        'UOBscanpdf
-        '
-        Me.UOBscanpdf.BackColor = System.Drawing.Color.White
-        Me.UOBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.UOBscanpdf.Image = Global.SCANDB.My.Resources.Resources.UOB
-        Me.UOBscanpdf.Name = "UOBscanpdf"
-        Me.UOBscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.UOBscanpdf.Text = "UOB"
-        '
-        'Tbankscanpdf
-        '
-        Me.Tbankscanpdf.BackColor = System.Drawing.Color.White
-        Me.Tbankscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Tbankscanpdf.Image = Global.SCANDB.My.Resources.Resources.TBANK
-        Me.Tbankscanpdf.Name = "Tbankscanpdf"
-        Me.Tbankscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.Tbankscanpdf.Text = "TBANK"
-        '
-        'KKBscanpdf
-        '
-        Me.KKBscanpdf.BackColor = System.Drawing.Color.White
-        Me.KKBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.KKBscanpdf.Image = Global.SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo
-        Me.KKBscanpdf.Name = "KKBscanpdf"
-        Me.KKBscanpdf.Size = New System.Drawing.Size(117, 22)
-        Me.KKBscanpdf.Text = "KKB"
-        '
-        'Menu_Accounting
-        '
-        Me.Menu_Accounting.BackColor = System.Drawing.Color.White
-        Me.Menu_Accounting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_accounting_search})
-        Me.Menu_Accounting.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_Accounting.Image = Global.SCANDB.My.Resources.Resources.coins
-        Me.Menu_Accounting.Name = "Menu_Accounting"
-        Me.Menu_Accounting.Size = New System.Drawing.Size(209, 22)
-        Me.Menu_Accounting.Text = "ค้นหาเอกสาร/ข้อมูล เบิก"
-        '
-        'menu_accounting_search
-        '
-        Me.menu_accounting_search.BackColor = System.Drawing.Color.White
-        Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
-        Me.menu_accounting_search.Name = "menu_accounting_search"
-        Me.menu_accounting_search.Size = New System.Drawing.Size(117, 22)
-        Me.menu_accounting_search.Text = "KBANK"
-        '
-        'ออกจากระบบToolStripMenuItem
-        '
-        Me.ออกจากระบบToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.ออกจากระบบToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.ออกจากระบบToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.delete
-        Me.ออกจากระบบToolStripMenuItem.Name = "ออกจากระบบToolStripMenuItem"
-        Me.ออกจากระบบToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
-            Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.ออกจากระบบToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
-        Me.ออกจากระบบToolStripMenuItem.Text = "ออกจากระบบ"
-        '
-        'SettingToolStripMenuItem
-        '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.accms, Me.settingms, Me.Historyms, Me.changespassword, Me.Menu_logexe})
-        Me.SettingToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.SettingToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.process
-        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
-        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(61, 28)
-        Me.SettingToolStripMenuItem.Text = "ตั้งค่า"
-        '
-        'accms
-        '
-        Me.accms.BackColor = System.Drawing.Color.White
-        Me.accms.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.accms.Image = Global.SCANDB.My.Resources.Resources.users
-        Me.accms.Name = "accms"
-        Me.accms.Size = New System.Drawing.Size(294, 22)
-        Me.accms.Text = "ตั้งค่าบัญชีผู้ใช้ (Account)"
-        '
-        'settingms
-        '
-        Me.settingms.BackColor = System.Drawing.Color.White
-        Me.settingms.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.settingms.Image = Global.SCANDB.My.Resources.Resources.page_process
-        Me.settingms.Name = "settingms"
-        Me.settingms.Size = New System.Drawing.Size(294, 22)
-        Me.settingms.Text = "กำหนดค่าการใช้งานโปรแกรม (Setting)"
-        '
-        'Historyms
-        '
-        Me.Historyms.BackColor = System.Drawing.Color.White
-        Me.Historyms.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Historyms.Image = Global.SCANDB.My.Resources.Resources.full_page
-        Me.Historyms.Name = "Historyms"
-        Me.Historyms.Size = New System.Drawing.Size(294, 22)
-        Me.Historyms.Text = "ประวัติการเข้าใช้โปรแกรม (Log file)"
-        '
-        'changespassword
-        '
-        Me.changespassword.BackColor = System.Drawing.Color.White
-        Me.changespassword.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.changespassword.Image = Global.SCANDB.My.Resources.Resources.Actions_edit_rename_icon24x24
-        Me.changespassword.Name = "changespassword"
-        Me.changespassword.Size = New System.Drawing.Size(294, 22)
-        Me.changespassword.Text = "เปลี่ยนรหัสผ่านผู้ใช้ (Changes Password)"
-        '
-        'Menu_logexe
-        '
-        Me.Menu_logexe.BackColor = System.Drawing.Color.White
-        Me.Menu_logexe.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_logexe.Image = Global.SCANDB.My.Resources.Resources.monitor_lightning
-        Me.Menu_logexe.Name = "Menu_logexe"
-        Me.Menu_logexe.Size = New System.Drawing.Size(294, 22)
-        Me.Menu_logexe.Text = "ประวัติการแก้ไขข้อมูล (Log file execution)"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripMenuItem1.AutoSize = False
-        Me.ToolStripMenuItem1.Image = Global.SCANDB.My.Resources.Resources._32x32_clock
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(28, 28)
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripMenuItem2.AutoSize = False
-        Me.ToolStripMenuItem2.Image = Global.SCANDB.My.Resources.Resources._32x32_calendar_empty
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(28, 28)
-        '
-        'อพโหลดToolStripMenuItem
-        '
-        Me.อพโหลดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ขอมลFileSCANToolStripMenuItem, Me.UPLOADขอมลบงคบคดToolStripMenuItem})
-        Me.อพโหลดToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.อพโหลดToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
-        Me.อพโหลดToolStripMenuItem.Name = "อพโหลดToolStripMenuItem"
-        Me.อพโหลดToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.อพโหลดToolStripMenuItem.Size = New System.Drawing.Size(96, 28)
-        Me.อพโหลดToolStripMenuItem.Text = "นำเข้าข้อมูล"
-        '
-        'ขอมลFileSCANToolStripMenuItem
-        '
-        Me.ขอมลFileSCANToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.ขอมลFileSCANToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MENU_Uploads_SCANPDF, Me.Menu_list_Accounting})
-        Me.ขอมลFileSCANToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.ขอมลFileSCANToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.system_database_add_icon16x16
-        Me.ขอมลFileSCANToolStripMenuItem.Name = "ขอมลFileSCANToolStripMenuItem"
-        Me.ขอมลFileSCANToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.ขอมลFileSCANToolStripMenuItem.Text = "UPLOAD ข้อมูล File SCAN"
-        '
-        'MENU_Uploads_SCANPDF
-        '
-        Me.MENU_Uploads_SCANPDF.BackColor = System.Drawing.Color.White
-        Me.MENU_Uploads_SCANPDF.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.MENU_Uploads_SCANPDF.Image = Global.SCANDB.My.Resources.Resources.image_add
-        Me.MENU_Uploads_SCANPDF.Name = "MENU_Uploads_SCANPDF"
-        Me.MENU_Uploads_SCANPDF.Size = New System.Drawing.Size(306, 22)
-        Me.MENU_Uploads_SCANPDF.Text = "อัพโหลดข้อมูล PDF (Upload to Database) "
-        '
-        'Menu_list_Accounting
-        '
-        Me.Menu_list_Accounting.BackColor = System.Drawing.Color.White
-        Me.Menu_list_Accounting.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_list_Accounting.Image = Global.SCANDB.My.Resources.Resources.table_key
-        Me.Menu_list_Accounting.Name = "Menu_list_Accounting"
-        Me.Menu_list_Accounting.Size = New System.Drawing.Size(306, 22)
-        Me.Menu_list_Accounting.Text = "รายละเอียดข้อมูลเบิก"
-        '
-        'UPLOADขอมลบงคบคดToolStripMenuItem
-        '
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Upload_Execution})
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.database_add
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.Name = "UPLOADขอมลบงคบคดToolStripMenuItem"
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.UPLOADขอมลบงคบคดToolStripMenuItem.Text = "UPLOAD ข้อมูล บังคับคดี"
-        '
-        'Menu_Upload_Execution
-        '
-        Me.Menu_Upload_Execution.BackColor = System.Drawing.Color.White
-        Me.Menu_Upload_Execution.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_Upload_Execution.Image = Global.SCANDB.My.Resources.Resources.database_connect
-        Me.Menu_Upload_Execution.Name = "Menu_Upload_Execution"
-        Me.Menu_Upload_Execution.Size = New System.Drawing.Size(300, 22)
-        Me.Menu_Upload_Execution.Text = "อัพโหลดข้อมูลบังคับคดี (Upload Execution)"
-        '
-        'รายงานToolStripMenuItem
-        '
-        Me.รายงานToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tab_report, Me.Menu_ReportWDS, Me.Menu_Reportracking, Me.Menu_ReportAccounting, Me.Menu_Reportstatement})
-        Me.รายงานToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.รายงานToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
-        Me.รายงานToolStripMenuItem.Name = "รายงานToolStripMenuItem"
-        Me.รายงานToolStripMenuItem.Size = New System.Drawing.Size(74, 28)
-        Me.รายงานToolStripMenuItem.Text = "รายงาน"
-        '
-        'tab_report
-        '
-        Me.tab_report.BackColor = System.Drawing.Color.White
-        Me.tab_report.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.tab_report.Image = Global.SCANDB.My.Resources.Resources.table_lightning
-        Me.tab_report.Name = "tab_report"
-        Me.tab_report.Size = New System.Drawing.Size(381, 22)
-        Me.tab_report.Text = "รายงานส่งแถลงทำบัญชี-รับจ่าย"
-        '
-        'Menu_ReportWDS
-        '
-        Me.Menu_ReportWDS.BackColor = System.Drawing.Color.White
-        Me.Menu_ReportWDS.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_ReportWDS.Image = Global.SCANDB.My.Resources.Resources.report_go
-        Me.Menu_ReportWDS.Name = "Menu_ReportWDS"
-        Me.Menu_ReportWDS.Size = New System.Drawing.Size(381, 22)
-        Me.Menu_ReportWDS.Text = "รายงานถอนอายัด/ยึด (ReportViewer)"
-        '
-        'Menu_Reportracking
-        '
-        Me.Menu_Reportracking.BackColor = System.Drawing.Color.White
-        Me.Menu_Reportracking.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_Reportracking.Image = Global.SCANDB.My.Resources.Resources.report_go
-        Me.Menu_Reportracking.Name = "Menu_Reportracking"
-        Me.Menu_Reportracking.Size = New System.Drawing.Size(381, 22)
-        Me.Menu_Reportracking.Text = "รายงานตรวจสำนวนแถลงบัญชี (ReportViewer)"
-        '
-        'Menu_ReportAccounting
-        '
-        Me.Menu_ReportAccounting.BackColor = System.Drawing.Color.White
-        Me.Menu_ReportAccounting.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_ReportAccounting.Image = Global.SCANDB.My.Resources.Resources.report_go
-        Me.Menu_ReportAccounting.Name = "Menu_ReportAccounting"
-        Me.Menu_ReportAccounting.Size = New System.Drawing.Size(381, 22)
-        Me.Menu_ReportAccounting.Text = "รายงานบังคับคดีตั้งเรื่อง/ใบเสร็จวางค่าใช้จ่าย (ReportViewer)"
-        '
-        'Menu_Reportstatement
-        '
-        Me.Menu_Reportstatement.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Menu_Reportstatement.Image = Global.SCANDB.My.Resources.Resources.report_go
-        Me.Menu_Reportstatement.Name = "Menu_Reportstatement"
-        Me.Menu_Reportstatement.Size = New System.Drawing.Size(381, 22)
-        Me.Menu_Reportstatement.Text = "รายงานใบงานแถลงบัญชีรับ-จ่าย (ReportViewer)"
-        '
-        'ITToolStripMenuItem
-        '
-        Me.ITToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IPManagement})
-        Me.ITToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.ITToolStripMenuItem.Image = Global.SCANDB.My.Resources.Resources.support_icon24x24
-        Me.ITToolStripMenuItem.Name = "ITToolStripMenuItem"
-        Me.ITToolStripMenuItem.Size = New System.Drawing.Size(97, 28)
-        Me.ITToolStripMenuItem.Text = "IT Support"
-        '
-        'IPManagement
-        '
-        Me.IPManagement.BackColor = System.Drawing.Color.White
-        Me.IPManagement.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.IPManagement.Image = Global.SCANDB.My.Resources.Resources.Wi_Fi_icon24x24
-        Me.IPManagement.Name = "IPManagement"
-        Me.IPManagement.Size = New System.Drawing.Size(167, 22)
-        Me.IPManagement.Text = "IP Management"
-        '
         'FrmMastermain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -787,8 +787,8 @@ Partial Class FrmMastermain
 
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents DbPDFToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents tab_scanpdf As ToolStripMenuItem
+    Friend WithEvents Main_menu_working As ToolStripMenuItem
+    Friend WithEvents Menu_tab_scanpdf As ToolStripMenuItem
     Friend WithEvents KBANKscanpdf As ToolStripMenuItem
     Friend WithEvents TSSscanpdf As ToolStripMenuItem
     Friend WithEvents TMBscanpdf As ToolStripMenuItem
@@ -796,9 +796,9 @@ Partial Class FrmMastermain
     Friend WithEvents UOBscanpdf As ToolStripMenuItem
     Friend WithEvents Tbankscanpdf As ToolStripMenuItem
     Friend WithEvents KKBscanpdf As ToolStripMenuItem
-    Friend WithEvents ออกจากระบบToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents accms As ToolStripMenuItem
+    Friend WithEvents menu_tap_logout As ToolStripMenuItem
+    Friend WithEvents Main_menu_setting As ToolStripMenuItem
+    Friend WithEvents menu_accms As ToolStripMenuItem
     Friend WithEvents tslip As ToolStripStatusLabel
     Friend WithEvents tsl_ip As ToolStripStatusLabel
     Friend WithEvents tslusername As ToolStripStatusLabel
@@ -831,35 +831,35 @@ Partial Class FrmMastermain
     Friend WithEvents txt_datetoday As ToolStripTextBox
     Friend WithEvents tslversion As ToolStripStatusLabel
     Friend WithEvents tsl_version As ToolStripStatusLabel
-    Friend WithEvents settingms As ToolStripMenuItem
+    Friend WithEvents menu_settingms As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents tslpcname As ToolStripStatusLabel
     Friend WithEvents tsl_pcname As ToolStripStatusLabel
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents Historyms As ToolStripMenuItem
-    Friend WithEvents changespassword As ToolStripMenuItem
-    Friend WithEvents อพโหลดToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents tab_execution As ToolStripMenuItem
+    Friend WithEvents menu_Historyms As ToolStripMenuItem
+    Friend WithEvents menu_changespassword As ToolStripMenuItem
+    Friend WithEvents Main_Menu_upload As ToolStripMenuItem
+    Friend WithEvents Menu_tab_execution As ToolStripMenuItem
     Friend WithEvents Menu_EXEStatement As ToolStripMenuItem
     Friend WithEvents Menu_EXEWDS As ToolStripMenuItem
-    Friend WithEvents รายงานToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents tab_report As ToolStripMenuItem
+    Friend WithEvents Main_Menu_report As ToolStripMenuItem
+    Friend WithEvents menu_tab_report As ToolStripMenuItem
     Friend WithEvents Menu_EXEACC As ToolStripMenuItem
     Friend WithEvents Menu_exeport As ToolStripMenuItem
     Friend WithEvents Menu_EXEverify As ToolStripMenuItem
     Friend WithEvents Menu_insolvent As ToolStripMenuItem
     Friend WithEvents Menu_ownership As ToolStripMenuItem
-    Friend WithEvents ขอมลFileSCANToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Menu_upload_scan As ToolStripMenuItem
     Friend WithEvents MENU_Uploads_SCANPDF As ToolStripMenuItem
-    Friend WithEvents UPLOADขอมลบงคบคดToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Menu_upload_exe As ToolStripMenuItem
     Friend WithEvents Menu_Upload_Execution As ToolStripMenuItem
-    Friend WithEvents Menu_Accounting As ToolStripMenuItem
+    Friend WithEvents Menu_tab_Accounting As ToolStripMenuItem
     Friend WithEvents menu_accounting_search As ToolStripMenuItem
     Friend WithEvents Menu_list_Accounting As ToolStripMenuItem
     Friend WithEvents Menu_ReportWDS As ToolStripMenuItem
-    Friend WithEvents ITToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents IPManagement As ToolStripMenuItem
-    Friend WithEvents Menu_Reportracking As ToolStripMenuItem
+    Friend WithEvents Main_menu_it As ToolStripMenuItem
+    Friend WithEvents Menu_IPManagement As ToolStripMenuItem
+    Friend WithEvents Menu_Reporttracking As ToolStripMenuItem
     Friend WithEvents Menu_ReportAccounting As ToolStripMenuItem
     Friend WithEvents Menu_Reportstatement As ToolStripMenuItem
     Friend WithEvents Menu_logexe As ToolStripMenuItem
