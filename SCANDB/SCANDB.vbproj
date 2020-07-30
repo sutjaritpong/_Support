@@ -129,12 +129,48 @@
     <Compile Include="Execution\Report_execution\FrmStatementRV.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="logexe_dataset.Designer.vb">
+    <Compile Include="ITSupport\FrmDomainServer.Designer.vb">
+      <DependentUpon>FrmDomainServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmDomainServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\Frmhistorylog.Designer.vb">
+      <DependentUpon>Frmhistorylog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\Frmhistorylog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageCCTV.Designer.vb">
+      <DependentUpon>FrmmanageCCTV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageCCTV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanagePC.Designer.vb">
+      <DependentUpon>FrmmanagePC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanagePC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageRouter.Designer.vb">
+      <DependentUpon>FrmmanageRouter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageRouter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmITSupport.Designer.vb">
+      <DependentUpon>FrmITSupport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmITSupport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dataset\logexe_dataset.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>logexe_dataset.xsd</DependentUpon>
     </Compile>
-    <Compile Include="StatementDataSet.Designer.vb">
+    <Compile Include="Dataset\StatementDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
@@ -169,20 +205,20 @@
     <Compile Include="Execution\Report_execution\FrmWDSRV.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCANPDF.Designer.vb">
+    <Compile Include="Dataset\SCANPDF.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SCANPDF.vb">
+    <Compile Include="Dataset\SCANPDF.vb">
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SCANPDFDataSet.Designer.vb">
+    <Compile Include="Dataset\SCANPDFDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SCANPDFDataSet1.Designer.vb">
+    <Compile Include="Dataset\SCANPDFDataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
@@ -418,6 +454,15 @@
     <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
       <DependentUpon>Frmfilter.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmDomainServer.resx">
+      <DependentUpon>FrmDomainServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\Frmhistorylog.resx">
+      <DependentUpon>Frmhistorylog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmmanageCCTV.resx">
+      <DependentUpon>FrmmanageCCTV.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ITSupport\FrmmanageIP.resx">
       <DependentUpon>FrmmanageIP.vb</DependentUpon>
     </EmbeddedResource>
@@ -425,6 +470,15 @@
       <DependentUpon>FrmWDSRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportWDS.rdlc" />
+    <EmbeddedResource Include="ITSupport\FrmmanagePC.resx">
+      <DependentUpon>FrmmanagePC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmmanageRouter.resx">
+      <DependentUpon>FrmmanageRouter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmITSupport.resx">
+      <DependentUpon>FrmITSupport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
       <DependentUpon>Frmlogfileexe.vb</DependentUpon>
     </EmbeddedResource>
@@ -529,26 +583,26 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="logexe_dataset.xsc">
+    <None Include="Dataset\logexe_dataset.xsc">
       <DependentUpon>logexe_dataset.xsd</DependentUpon>
     </None>
-    <None Include="logexe_dataset.xsd">
+    <None Include="Dataset\logexe_dataset.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>logexe_dataset.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="logexe_dataset.xss">
+    <None Include="Dataset\logexe_dataset.xss">
       <DependentUpon>logexe_dataset.xsd</DependentUpon>
     </None>
-    <None Include="StatementDataSet.xsc">
+    <None Include="Dataset\StatementDataSet.xsc">
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
     </None>
-    <None Include="StatementDataSet.xsd">
+    <None Include="Dataset\StatementDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>StatementDataSet.Designer.vb</LastGenOutput>
     </None>
-    <None Include="StatementDataSet.xss">
+    <None Include="Dataset\StatementDataSet.xss">
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
     </None>
     <None Include="My Project\app.manifest" />
@@ -562,37 +616,37 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="SCANPDF.xsc">
+    <None Include="Dataset\SCANPDF.xsc">
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDF.xsd">
+    <None Include="Dataset\SCANPDF.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SCANPDF.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SCANPDF.xss">
+    <None Include="Dataset\SCANPDF.xss">
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet.xsc">
+    <None Include="Dataset\SCANPDFDataSet.xsc">
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet.xsd">
+    <None Include="Dataset\SCANPDFDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SCANPDFDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SCANPDFDataSet.xss">
+    <None Include="Dataset\SCANPDFDataSet.xss">
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet1.xsc">
+    <None Include="Dataset\SCANPDFDataSet1.xsc">
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet1.xsd">
+    <None Include="Dataset\SCANPDFDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SCANPDFDataSet1.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SCANPDFDataSet1.xss">
+    <None Include="Dataset\SCANPDFDataSet1.xss">
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
@@ -862,6 +916,14 @@
     <None Include="Resources\monitor_lightning.png" />
     <None Include="Resources\arrow_switch.png" />
     <None Include="Resources\filter-icon16x16.png" />
+    <None Include="Resources\download1.png" />
+    <None Include="Resources\connection.png" />
+    <None Include="Resources\download2.png" />
+    <None Include="Resources\200725114849-v6bA.png" />
+    <None Include="Resources\4aff9db9936e04513fde6a461fa1ee4a.png" />
+    <None Include="Resources\wifi-sticker.png" />
+    <None Include="Resources\logo ip.png" />
+    <None Include="Resources\LOGLOGO.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

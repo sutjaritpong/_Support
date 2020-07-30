@@ -24,11 +24,6 @@ Public Class Frmlogfile
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0
 
-        sql = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"            '// นับจำนวน ROWS ข้อมูลใน Table SQL
-        cmd.CommandText = sql
-        DA.SelectCommand = cmd
-        DA.Fill(DS, "countdata")
-        lbl_countdata.Text = DS.Tables("countdata").Rows(0)("countdatas")
 
         loaddatagrid()
         lbl_countdtgv.Text = dtgvlogfile.Rows.Count                        '// นับจำนวนแถวใน Datagridview
@@ -38,36 +33,40 @@ Public Class Frmlogfile
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
         Next
+        cn.Close()
     End Sub
     '## Sql command ในการ ค้นหาข้อมูล โดยกำหนดเงื่อนไข การค้นหา ด้วยคำสั่ง BETWEEN AND 
     Private Sub loaddatagrid()
-
+        connect()
         DateTimestart.Value = DateTime.Now.AddDays(0)
         DateTimeend.Value = DateTime.Now.AddDays(1)
 
         Dim header() As String = {"วันที่เข้าใช้", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
         sql = "SELECT * FROM tbl_logfiles  WHERE LOGDATE BETWEEN @sdate AND @edate ORDER BY LOGDATE DESC"
+        cmd = New SqlCommand(sql, cn)
         With cmd
             .Parameters.Clear()
             .Parameters.Add("@sdate", SqlDbType.Date).Value = DateTimestart.Value
             .Parameters.Add("@edate", SqlDbType.Date).Value = DateTimeend.Value
-            .Connection = cn
-            .CommandText = sql
-            .CommandType = CommandType.Text
+            '.Connection = cn
+            '.CommandText = sql
+            '.CommandType = CommandType.Text
         End With
-        DA.SelectCommand = cmd
-        DA.Fill(DS, "refresh")
+
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "tables")
         With dtgvlogfile
             For i = 0 To header.Length - 1            'ใช้ loop For อ่านและแสดงข้อมูล 
-                .DataSource = DS.Tables("refresh")
+                .DataSource = DS.Tables("tables")
                 .Columns(i).HeaderText = header(i)
 
             Next
         End With
 
         sql = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"
-        cmd.CommandText = sql
-        DA.SelectCommand = cmd
+        cmd = New SqlCommand(sql, cn)
+        DA = New SqlDataAdapter(cmd)
         DA.Fill(DS, "countdata")
 
         lbl_countdata.Text = DS.Tables("countdata").Rows(0)("countdatas")
@@ -80,17 +79,17 @@ Public Class Frmlogfile
         Next
 
         dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
-
+        cn.Close()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
         dtgvlogfile.DataSource.clear()
         loaddatagrid()
     End Sub
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
-
+        connect()
         dtgvlogfile.DataSource.clear()
 
-        Dim headerdgv() As String = {"วันที่", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
+        Dim headerdgv() As String = {"วันที่", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
         Dim sqll As String = "SELECT * FROM tbl_logfiles WHERE LOGDATE BETWEEN @sdate AND @edate AND "
 
         Select Case cbo_where.SelectedItem
@@ -109,11 +108,11 @@ Public Class Frmlogfile
             .CommandText = sqll
         End With
         DA.SelectCommand = cmd
-        DA.Fill(DS, "find")
+        DA.Fill(DS, "findlog")
 
         With dtgvlogfile
             For i = 0 To headerdgv.Length - 1
-                .DataSource = DS.Tables("find")
+                .DataSource = DS.Tables("findlog")
                 .Columns(i).HeaderText = headerdgv(i)
 
             Next
@@ -129,7 +128,7 @@ Public Class Frmlogfile
         Next
 
         dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
-
+        cn.Close()
     End Sub
 
     '## ปุ่มสำหรับดึงข้อมูล log มา เป็นรูปแบบ Excel อ่่านค่าจาก datagridview แล้วดึงข้อมูล มาใส่ใน ไฟล์ Excel

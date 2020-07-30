@@ -88,6 +88,7 @@ Public Class FrmmanageIP
     End Sub
 
     Private Sub dtgvip_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvip.CellClick
+
         txt_ip.Text = dtgvip.CurrentRow.Cells(0).Value
         txt_name.Text = dtgvip.CurrentRow.Cells(1).Value
         txt_fullname.Text = dtgvip.CurrentRow.Cells(2).Value
@@ -115,6 +116,7 @@ Public Class FrmmanageIP
             Msg_OK("คุณอัพเดท ข้อมูลสำเร็จ !")
             _Getlogdata($"แก้ไขข้อมูล IP {txt_ip.Text} ชื่อ {txt_fullname.Text} ตำแหน่ง {txt_position.Text} Product {txt_product.Text}")
             refreshIP()
+
             Return
 
         Else
@@ -136,7 +138,7 @@ Public Class FrmmanageIP
                 e.Handled = False
             Case Else
                 e.Handled = True
-                Msg_error("กรุณากรอกตัวเลข")
+                ' Msg_error("กรุณากรอกตัวเลข")
         End Select
     End Sub
 
@@ -199,6 +201,7 @@ Public Class FrmmanageIP
             dtgvip.DataSource = DS.Tables("find")
             dtgvip.Columns(i).HeaderText = search(i)
         Next
+
 
         cn.Close()
 
@@ -281,34 +284,35 @@ Public Class FrmmanageIP
                     Else
 
                         sql = $"UPDATE tbl_fdspc SET FDSNAME = '{txt_name.Text}',FDSFULLNAME = '{txt_fullname.Text}',FDSPOSITION = '{txt_position.Text}',FDSPRODUCT = '{txt_product.Text}',FDSFLOOR = '{txt_floor.Text}',FDSSERVER ='{txt_server.Text}',FDSDOMAIN ='{txt_domain.Text}',FDSDETAIL = '{txt_detail.Text}',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_migrate_ip.Text}';"
-                        sql &= $"Update tbl_fdspc SET FDSNAME = '',FDSFULLNAME = '',FDSPOSITION = '',FDSPRODUCT = '',FDSFLOOR = '',FDSSERVER ='',FDSDOMAIN ='',FDSDETAIL = '',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_ip.Text}'"
-                        cmd = New SqlCommand(sql, cn)
+                    sql &= $"Update tbl_fdspc SET FDSNAME = '',FDSFULLNAME = '',FDSPOSITION = '',FDSPRODUCT = '',FDSFLOOR = '',FDSSERVER ='',FDSDOMAIN ='',FDSDETAIL = '',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_ip.Text}';"
+                    cmd = New SqlCommand(sql, cn)
                         Dim _execute As Integer = cmd.ExecuteNonQuery()
 
-                        If _execute > 0 Then
+                    If _execute > 0 Then
 
-                            Msg_OK("แก้ไขข้อมูลสำเร็จ")
-                            _Getlogdata($"ย้ายข้อมูล IP {txt_ip.Text} ไปยัง IP {txt_migrate_ip.Text} ชื่อ {txt_name.Text}")
-                            cn.Close()
-                            refreshIP()
-                            _cleartext()
-                        Else
+                        Msg_OK("แก้ไขข้อมูลสำเร็จ")
+                        _Getlogdata($"ย้ายข้อมูล IP {txt_ip.Text} ไปยัง IP {txt_migrate_ip.Text} ชื่อ {txt_name.Text}")
 
-                            Msg_error("เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง")
-                            _cleartext()
-                            cn.Close()
-                            refreshIP()
-                        End If
+                    Else
+
+                        Msg_error("เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง")
 
                     End If
 
                 End If
 
+                End If
+
             End If
+
+        _cleartext()
+        cn.Close()
+        refreshIP()
 
     End Sub
 
     Private Sub _cleartext()
+
         txt_name.Text = ""
         txt_fullname.Text = ""
         txt_position.Text = ""

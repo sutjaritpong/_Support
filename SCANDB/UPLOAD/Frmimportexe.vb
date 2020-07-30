@@ -157,11 +157,11 @@ Public Class Frmimportexe
     Friend Sub loadsexe()
 
         connect()
-            Dim y As Integer = Dtgv_Exe.Rows.Count
-            Dim Max As Integer = 100
+        Dim y As Integer = Dtgv_Exe.Rows.Count
+        Dim Max As Integer = 100
 
-            Dim timenow As String = (DateAndTime.TimeString)
-            Dim datenow As String = DateAndTime.Today.ToShortDateString
+        Dim timenow As String = (DateAndTime.TimeString)
+        Dim datenow As String = DateAndTime.Today.ToShortDateString
         Try
             For i As Integer = 0 To Dtgv_Exe.Rows.Count - 1 Step +1
                 Dim p As Integer = (((i + 1) / y) * Max)
@@ -175,7 +175,7 @@ Public Class Frmimportexe
                     Case "ส่งเช็คถอนอายัด/ยึด" : sql &= $"COUNT(*) AS verify FROM EXECHECK WHERE CHKKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(11).Value.ToString}'"
                     Case "ส่งคัดประกันสังคมฟ้องเอง" : sql &= $"COUNT(*) AS verify FROM Execution_Port WHERE Serial_Account = '{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}'"
                     Case "ตรวจสำนวนตามใบงาน" : sql &= $"COUNT(*) AS verify FROM EXETRACKING WHERE Tracking_pk = '{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}'"
-                    Case "ตรวจสำนวนจากบังคับดคี" : sql &= $"COUNT(*) AS verify FROM dbo.Execution_verify WHERE Execution_verify_PK = '{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}'"
+                    Case "ตรวจสำนวนจากบังคับดคี" : sql &= $"COUNT(*) AS verify FROM dbo.Execution_verify WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}'"
                     Case "ผลคัดประกันสังคม" : sql &= $"COUNT(*) AS verify FROM EXESOC WHERE EXEKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}'"
                     Case "ส่งสืบกรรมสิทธิ์ฟ้องเอง" : sql &= $"COUNT(*) AS verify FROM Execution_ownership WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}'"
                     Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"COUNT(*) AS verify FROM Execution_ownership_result WHERE Ownership_deed = '{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}'"
@@ -213,7 +213,7 @@ Public Class Frmimportexe
 
                     '------------------------------ UPLOAD WITHDRAWSEIZE ---------------------'
 
-                    Case "ตรวจสำนวนจากบังคับดคี" : sql &= $"Execution_verify(Execution_verify_PK,Customer_owner,Customer_id_card,Customer_account,Customer_fullname,EMPLOYEES_KEY,Execution_verify_date,Execution_verify_result,Execution_verify_comment)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}-{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}')"
+                    Case "ตรวจสำนวนจากบังคับดคี" : sql &= $"Execution_verify(Customer_owner,Customer_id_card,Customer_account,Customer_fullname,EMPLOYEES_KEY,Execution_verify_date,Execution_verify_result,Execution_verify_comment)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(1).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(2).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(3).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(4).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(5).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(6).Value.ToString}','{Dtgv_Exe.Rows(i).Cells(7).Value.ToString}')"
 
                     '--------------------- UPLOAD EXEVERIFY ---------------------------'
 

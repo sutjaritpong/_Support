@@ -35,7 +35,6 @@ Public Class FrmLogin
     End Sub
 
     '## ปุ่มล็อคอิน มีเงื่อนไขในการเช็คข้อมูลต่าง ๆ ในการดึงข้อมูลจาก Database เงื่อนไขได้แก่ เช็คข้อมูลว่ากรอก Username Password หรือไม่, ดึงข้อมูล ID จากฐานข้อมูลเช็ค Username ถ้าไม่มีให้แจ้งเตือนผู้ใช้ หรือ กรณีใส่ข้อมูลผิด หลังจากข้อมุลถูกต้องให้ตรวจสอบว่า พบรหัสผ่าน ที่ตรงกับ UserID นี้หรือไม่ เช็ค Password ถ้าผิด ให้แจ้งเตือน ถ้าใส่รหัสผ่านผิดให้นับจำนวนครั้ง ที่ใส่ผิดถ้าเกินจำนวนที่กำหนด ให้ ระงับสิทธิการเข้าใช้งานโปรแกรม เงื่อนไขเกี่ยวกับวันที่เข้าใช้งาน วันที่สร้างรหัส วันที่เปลี่ยนรหัส โดยกำหนด เงื่อนไขถ้าเกินเวลา ที่กำหนดไว้ในตาราง tbl_setting ให้ระงับการใช้งาน หรือถ้าเกินเวลาหมดอายุของรหัสผ่าน ให้ User ทำการเปลี่ยนรหัส ##
-
     Private Sub btnlogin_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
 
         connect()
@@ -76,44 +75,51 @@ Public Class FrmLogin
             txt_idlog.Select()
 
             '## เช็คจำนวนครั้งที่ใส่รหัสผิดให้เพิ่มขึ้นทีละ 1 และเพิ่มลงไปในฐานข้อมูล จากตาราง Tbl_login คอลัมน์ USRPASSFAIL  ##
-
-            _sql = ($"UPDATE tbl_login SET USRPASSFAIL = USRPASSFAIL+1 WHERE USERID = '{txt_idlog.Text}'")
-            cmd.CommandText = _sql
-            cmd.ExecuteScalar()
-
-
-            _sql = ($"SELECT * FROM tbl_login WHERE USERID = '{txt_idlog.Text}'")
-            cmd.CommandText = _sql
-            DA.SelectCommand = cmd
-            DA.Fill(DS, "FAIL")
-
-            '## เรียกการตั้งค่าจำนวนครั้งในการใส่รหัสผิดจากฐานข้อมุล ตาราง tbl_setting
-
-            _sql = ("SELECT * FROM tbl_setting")
-            cmd.CommandText = _sql
-            DA.SelectCommand = cmd
-            DA.Fill(DS, "checkpass")
-
-            '## อัพเดทสถานะผู่้ใช้ให้ ล็อค กรณีที่ใส่รหัสผิดเกินจำนวนครั้งที่กำหนด โดยการนำ ข้อมูลจำนวนครั้งจากตาราง tbl_login มาเทียบค่า กับข้อกำหนดจาก ตาราง tbl_setting ถ้า เกินจำนวนครั้งให้ ระงับการใช้งานโปรแกรม
-
-            If DS.Tables("FAIL").Rows(0)("USRPASSFAIL") > DS.Tables("checkpass").Rows(0)("Faillimit") Then
-                _sql = ($"UPDATE tbl_login SET USRLOCK = '1' WHERE USERID = '{txt_idlog.Text}'")
+            If txt_idlog.Text <> "administrator" Then
+                _sql = ($"UPDATE tbl_login SET USRPASSFAIL = USRPASSFAIL+1 WHERE USERID = '{txt_idlog.Text}'")
                 cmd.CommandText = _sql
                 cmd.ExecuteScalar()
 
-                Msg_error("คุณใส่รหัสผ่านผิดเกินจำนวนที่กำหนดกรุณาแจ้งผู้ดูแล")
 
-                cn.Close()
+                _sql = ($"SELECT * FROM tbl_login WHERE USERID = '{txt_idlog.Text}'")
+                cmd.CommandText = _sql
+                DA.SelectCommand = cmd
+                DA.Fill(DS, "FAIL")
 
-                Exit Sub
+                '## เรียกการตั้งค่าจำนวนครั้งในการใส่รหัสผิดจากฐานข้อมุล ตาราง tbl_setting
+
+                _sql = ("SELECT * FROM tbl_setting")
+                cmd.CommandText = _sql
+                DA.SelectCommand = cmd
+                DA.Fill(DS, "checkpass")
+
+
+                '## อัพเดทสถานะผู่้ใช้ให้ ล็อค กรณีที่ใส่รหัสผิดเกินจำนวนครั้งที่กำหนด โดยการนำ ข้อมูลจำนวนครั้งจากตาราง tbl_login มาเทียบค่า กับข้อกำหนดจาก ตาราง tbl_setting ถ้า เกินจำนวนครั้งให้ ระงับการใช้งานโปรแกรม
+
+                If DS.Tables("FAIL").Rows(0)("USRPASSFAIL") > DS.Tables("checkpass").Rows(0)("Faillimit") Then
+                    _sql = ($"UPDATE tbl_login SET USRLOCK = '1' WHERE USERID = '{txt_idlog.Text}'")
+                    cmd.CommandText = _sql
+                    cmd.ExecuteScalar()
+
+                    Msg_error("คุณใส่รหัสผ่านผิดเกินจำนวนที่กำหนดกรุณาแจ้งผู้ดูแล")
+
+                    cn.Close()
+
+                    Exit Sub
+
+                End If
 
             End If
 
-        Else
+        End If
+        '## เงื่อนไขเกี่ยวกับวันที่เข้าใช้งาน วันที่สร้างรหัส วันที่เปลี่ยนรหัส โดยกำหนด เงื่อนไขถ้าเกินเวลา ที่กำหนดไว้ในตาราง tbl_setting ให้ระงับการใช้งาน หรือถ้าเกินเวลาหมดอายุของรหัสผ่าน ให้ User ทำการเปลี่ยนรหัส ##
 
-            '## เงื่อนไขเกี่ยวกับวันที่เข้าใช้งาน วันที่สร้างรหัส วันที่เปลี่ยนรหัส โดยกำหนด เงื่อนไขถ้าเกินเวลา ที่กำหนดไว้ในตาราง tbl_setting ให้ระงับการใช้งาน หรือถ้าเกินเวลาหมดอายุของรหัสผ่าน ให้ User ทำการเปลี่ยนรหัส ##
-
-            '## เช็ควันที่ล็อคอินล่าสุดจาก ในตาราง tbl_login คอลัมน์ USRPASCHANGE ถ้าลบกับวันที่ปัจจุบันได้ มากกว่าหรือเท่ากับ วันที่กำหนดให้ ในตาราง tbl_setting แสดงหน้าเปลี่ยนรหัสผ่าน ##
+        '## เช็ควันที่ล็อคอินล่าสุดจาก ในตาราง tbl_login คอลัมน์ USRPASCHANGE ถ้าลบกับวันที่ปัจจุบันได้ มากกว่าหรือเท่ากับ วันที่กำหนดให้ ในตาราง tbl_setting แสดงหน้าเปลี่ยนรหัสผ่าน ##
+        connect()
+        sql = $"SELECT COUNT(*) FROM tbl_login WHERE USERID = '{txt_idlog.Text}' AND USRPASSWORD = '{txt_passlog.Text}'"
+        cmd = New SqlCommand(sql, cn)
+        Dim checks As Integer = cmd.ExecuteScalar()
+        If checks > 0 Then
 
             sql = $"SELECT *,DATEDIFF(DAY,USRPASCHANGE,GETDATE()) as Changepass  FROM tbl_login WHERE USERID = '{txt_idlog.Text}' AND USRPASSWORD = '{txt_passlog.Text}'"
             cmd.CommandText = sql
@@ -171,7 +177,7 @@ Public Class FrmLogin
 
             '## เช็ค USERID จากตาราง tbl_login ที่ทำการ กรอกข้อมูลเข้ามาใน TextBox ว่าสถานะ USRLOCK เป็น True หรือ False ถ้า เป็น True ให้แจ้งเตือนการระงับการใช้งานของ USER ถ้าเป็น False ให้ USER เข้าสู่หน้าหลักของโปรแกรม ##
 
-            sql = $"Select * FROM tbl_login WHERE USERID = '{txt_idlog.Text}'and USRPASSWORD = '{txt_passlog.Text}'"
+            sql = $"SELECT * FROM tbl_login WHERE USERID = '{txt_idlog.Text}'and USRPASSWORD = '{txt_passlog.Text}'"
             cmd.CommandText = sql
             DA.SelectCommand = cmd
             DA.Fill(DS, "Lock")
@@ -192,7 +198,6 @@ Public Class FrmLogin
             sql = ("UPDATE tbl_login SET USRLOGIN = GETDATE() WHERE USERID ='" & txt_idlog.Text & "' AND USRPASSWORD = '" & txt_passlog.Text & "' ")
             cmd_excuteScalar()
 
-            Msg_OK("Login สำเร็จ!")
             Me.Hide()
             FrmMastermain.Show()
 

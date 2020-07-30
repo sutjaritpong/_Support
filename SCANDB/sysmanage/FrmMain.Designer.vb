@@ -83,7 +83,6 @@ Partial Class FrmMastermain
         Me.Menu_ReportAccounting = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Reportstatement = New System.Windows.Forms.ToolStripMenuItem()
         Me.Main_menu_it = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_IPManagement = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -349,7 +348,7 @@ Partial Class FrmMastermain
         Me.KBANKscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.KBANKscanpdf.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.KBANKscanpdf.Name = "KBANKscanpdf"
-        Me.KBANKscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.KBANKscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.KBANKscanpdf.Text = "KBANK"
         '
         'TSSscanpdf
@@ -358,7 +357,7 @@ Partial Class FrmMastermain
         Me.TSSscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TSSscanpdf.Image = Global.SCANDB.My.Resources.Resources.TSS01
         Me.TSSscanpdf.Name = "TSSscanpdf"
-        Me.TSSscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.TSSscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.TSSscanpdf.Text = "TSS"
         '
         'TMBscanpdf
@@ -367,7 +366,7 @@ Partial Class FrmMastermain
         Me.TMBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TMBscanpdf.Image = Global.SCANDB.My.Resources.Resources._5462_image_th
         Me.TMBscanpdf.Name = "TMBscanpdf"
-        Me.TMBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.TMBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.TMBscanpdf.Text = "TMB"
         '
         'SCBscanpdf
@@ -376,7 +375,7 @@ Partial Class FrmMastermain
         Me.SCBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.SCBscanpdf.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
         Me.SCBscanpdf.Name = "SCBscanpdf"
-        Me.SCBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.SCBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.SCBscanpdf.Text = "SCB"
         '
         'UOBscanpdf
@@ -385,7 +384,7 @@ Partial Class FrmMastermain
         Me.UOBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.UOBscanpdf.Image = Global.SCANDB.My.Resources.Resources.UOB
         Me.UOBscanpdf.Name = "UOBscanpdf"
-        Me.UOBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.UOBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.UOBscanpdf.Text = "UOB"
         '
         'Tbankscanpdf
@@ -394,7 +393,7 @@ Partial Class FrmMastermain
         Me.Tbankscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Tbankscanpdf.Image = Global.SCANDB.My.Resources.Resources.TBANK
         Me.Tbankscanpdf.Name = "Tbankscanpdf"
-        Me.Tbankscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.Tbankscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.Tbankscanpdf.Text = "TBANK"
         '
         'KKBscanpdf
@@ -403,7 +402,7 @@ Partial Class FrmMastermain
         Me.KKBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.KKBscanpdf.Image = Global.SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo
         Me.KKBscanpdf.Name = "KKBscanpdf"
-        Me.KKBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.KKBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.KKBscanpdf.Text = "KKB"
         '
         'Menu_tab_Accounting
@@ -422,7 +421,7 @@ Partial Class FrmMastermain
         Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.menu_accounting_search.Name = "menu_accounting_search"
-        Me.menu_accounting_search.Size = New System.Drawing.Size(180, 22)
+        Me.menu_accounting_search.Size = New System.Drawing.Size(117, 22)
         Me.menu_accounting_search.Text = "KBANK"
         '
         'menu_tap_logout
@@ -642,21 +641,11 @@ Partial Class FrmMastermain
         '
         'Main_menu_it
         '
-        Me.Main_menu_it.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_IPManagement})
         Me.Main_menu_it.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Main_menu_it.Image = Global.SCANDB.My.Resources.Resources.support_icon24x24
         Me.Main_menu_it.Name = "Main_menu_it"
         Me.Main_menu_it.Size = New System.Drawing.Size(97, 28)
         Me.Main_menu_it.Text = "IT Support"
-        '
-        'Menu_IPManagement
-        '
-        Me.Menu_IPManagement.BackColor = System.Drawing.Color.White
-        Me.Menu_IPManagement.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Menu_IPManagement.Image = Global.SCANDB.My.Resources.Resources.Wi_Fi_icon24x24
-        Me.Menu_IPManagement.Name = "Menu_IPManagement"
-        Me.Menu_IPManagement.Size = New System.Drawing.Size(180, 22)
-        Me.Menu_IPManagement.Text = "IP Management"
         '
         'Timer
         '
@@ -858,7 +847,6 @@ Partial Class FrmMastermain
     Friend WithEvents Menu_list_Accounting As ToolStripMenuItem
     Friend WithEvents Menu_ReportWDS As ToolStripMenuItem
     Friend WithEvents Main_menu_it As ToolStripMenuItem
-    Friend WithEvents Menu_IPManagement As ToolStripMenuItem
     Friend WithEvents Menu_Reporttracking As ToolStripMenuItem
     Friend WithEvents Menu_ReportAccounting As ToolStripMenuItem
     Friend WithEvents Menu_Reportstatement As ToolStripMenuItem

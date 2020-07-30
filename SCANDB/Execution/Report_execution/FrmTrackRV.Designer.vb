@@ -27,29 +27,39 @@ Partial Class FrmTrackRV
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTrackRV))
-        Me.JOINTRACKEMPBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EXETRACKINGBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SCANPDF = New SCANDB.SCANPDF()
+        Me.EXEEMPLOYEEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.JOINTRACKEMPBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.JOINTRACKEMPTableAdapter = New SCANDB.SCANPDFTableAdapters.JOINTRACKEMPTableAdapter()
-        Me.EXETRACKINGBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EXETRACKINGTableAdapter = New SCANDB.SCANPDFTableAdapters.EXETRACKINGTableAdapter()
-        Me.EXEEMPLOYEEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EXEEMPLOYEETableAdapter = New SCANDB.SCANPDFTableAdapters.EXEEMPLOYEETableAdapter()
-        CType(Me.JOINTRACKEMPBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXETRACKINGBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXEEMPLOYEEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.JOINTRACKEMPBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'JOINTRACKEMPBindingSource
+        'EXETRACKINGBindingSource
         '
-        Me.JOINTRACKEMPBindingSource.DataMember = "JOINTRACKEMP"
-        Me.JOINTRACKEMPBindingSource.DataSource = Me.SCANPDF
+        Me.EXETRACKINGBindingSource.DataMember = "EXETRACKING"
+        Me.EXETRACKINGBindingSource.DataSource = Me.SCANPDF
         '
         'SCANPDF
         '
         Me.SCANPDF.DataSetName = "SCANPDF"
         Me.SCANPDF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EXEEMPLOYEEBindingSource
+        '
+        Me.EXEEMPLOYEEBindingSource.DataMember = "EXEEMPLOYEE"
+        Me.EXEEMPLOYEEBindingSource.DataSource = Me.SCANPDF
+        '
+        'JOINTRACKEMPBindingSource
+        '
+        Me.JOINTRACKEMPBindingSource.DataMember = "JOINTRACKEMP"
+        Me.JOINTRACKEMPBindingSource.DataSource = Me.SCANPDF
         '
         'ReportViewer1
         '
@@ -72,19 +82,9 @@ Partial Class FrmTrackRV
         '
         Me.JOINTRACKEMPTableAdapter.ClearBeforeFill = True
         '
-        'EXETRACKINGBindingSource
-        '
-        Me.EXETRACKINGBindingSource.DataMember = "EXETRACKING"
-        Me.EXETRACKINGBindingSource.DataSource = Me.SCANPDF
-        '
         'EXETRACKINGTableAdapter
         '
         Me.EXETRACKINGTableAdapter.ClearBeforeFill = True
-        '
-        'EXEEMPLOYEEBindingSource
-        '
-        Me.EXEEMPLOYEEBindingSource.DataMember = "EXEEMPLOYEE"
-        Me.EXEEMPLOYEEBindingSource.DataSource = Me.SCANPDF
         '
         'EXEEMPLOYEETableAdapter
         '
@@ -99,10 +99,10 @@ Partial Class FrmTrackRV
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmTrackRV"
         Me.Text = "FrmTrackRV"
-        CType(Me.JOINTRACKEMPBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EXETRACKINGBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EXEEMPLOYEEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.JOINTRACKEMPBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -40,25 +40,23 @@ Partial Class FrmimportAccounting
         Me.cmd_import = New System.Windows.Forms.Button()
         Me.cbo_types_Accounting = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         CType(Me.dtgv_view, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_statusprogress
         '
         Me.lbl_statusprogress.AutoSize = True
-        Me.lbl_statusprogress.Location = New System.Drawing.Point(454, 674)
+        Me.lbl_statusprogress.Location = New System.Drawing.Point(453, 676)
         Me.lbl_statusprogress.Name = "lbl_statusprogress"
         Me.lbl_statusprogress.Size = New System.Drawing.Size(24, 13)
         Me.lbl_statusprogress.TabIndex = 23
         Me.lbl_statusprogress.Text = "0 %"
-        Me.lbl_statusprogress.Visible = False
         '
         'Main_progressbar
         '
         Me.Main_progressbar.BackColor = System.Drawing.Color.GreenYellow
         Me.Main_progressbar.ForeColor = System.Drawing.Color.Red
-        Me.Main_progressbar.Location = New System.Drawing.Point(271, 672)
+        Me.Main_progressbar.Location = New System.Drawing.Point(270, 674)
         Me.Main_progressbar.Name = "Main_progressbar"
         Me.Main_progressbar.Size = New System.Drawing.Size(177, 18)
         Me.Main_progressbar.TabIndex = 22
@@ -68,24 +66,22 @@ Partial Class FrmimportAccounting
         '
         Me.lbl_countimport.AutoSize = True
         Me.lbl_countimport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_countimport.Location = New System.Drawing.Point(138, 674)
+        Me.lbl_countimport.Location = New System.Drawing.Point(137, 676)
         Me.lbl_countimport.Name = "lbl_countimport"
         Me.lbl_countimport.Size = New System.Drawing.Size(44, 15)
         Me.lbl_countimport.TabIndex = 21
         Me.lbl_countimport.Text = "XXXXX"
-        Me.lbl_countimport.Visible = False
         '
         'lbl_grandtotal
         '
         Me.lbl_grandtotal.AutoSize = True
         Me.lbl_grandtotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lbl_grandtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lbl_grandtotal.Location = New System.Drawing.Point(59, 672)
+        Me.lbl_grandtotal.Location = New System.Drawing.Point(58, 674)
         Me.lbl_grandtotal.Name = "lbl_grandtotal"
         Me.lbl_grandtotal.Size = New System.Drawing.Size(73, 18)
         Me.lbl_grandtotal.TabIndex = 20
         Me.lbl_grandtotal.Text = "จำนวนข้อมูล :"
-        Me.lbl_grandtotal.Visible = False
         '
         'cbo_products
         '
@@ -216,9 +212,6 @@ Partial Class FrmimportAccounting
         Me.Label4.TabIndex = 25
         Me.Label4.Text = "ประเภทการเบิก :"
         '
-        'BackgroundWorker2
-        '
-        '
         'FrmimportAccounting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -267,5 +260,4 @@ Partial Class FrmimportAccounting
     Friend WithEvents cmd_cut_check As Button
     Friend WithEvents cbo_types_Accounting As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
 End Class

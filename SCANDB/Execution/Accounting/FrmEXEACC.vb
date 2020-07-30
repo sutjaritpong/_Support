@@ -15,9 +15,13 @@ Public Class FrmEXEACC
 
         _cleardatagrid(dtgv_exeacc)
 
+
+        cbo_status.Items.Clear()
         cbo_owner.Items.Clear()
         cbo_search.Items.Clear()
 
+        _comboboxadd(cbo_status, "ACCSTATUS", "EXEACC")
+        cbo_status.SelectedIndex = -1
 
         Dim header() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status"}
 
@@ -97,13 +101,13 @@ Public Class FrmEXEACC
         txt_cusname.Text = ""
         txt_detail_receipt.Text = ""
         txt_red.Text = ""
-        txt_status.Text = ""
+        cbo_status.Text = ""
         txt_total_receipt.Text = ""
         txt_detail_receipt.Text = ""
         txt_total_receipt2.Text = ""
         txt_detail_receipt2.Text = ""
         txt_total_receipt3.Text = ""
-        txt_total_receipt3.Text = ""
+        txt_detail_receipt3.Text = ""
         dtp_datework.Text = ""
         dtp_date_receipt.Text = ""
         cbo_owner.Text = ""
@@ -121,12 +125,13 @@ Public Class FrmEXEACC
     Private Sub _readonly()
 
         cbo_owner.Enabled = False  'enable = false if readonly = true
+        cbo_status.Enabled = False
 
         txt_cusid.ReadOnly = True
         txt_cusname.ReadOnly = True
         txt_black.ReadOnly = True
         txt_red.ReadOnly = True
-        txt_status.ReadOnly = True
+
 
         txt_total_receipt.ReadOnly = True
         txt_total_receipt2.ReadOnly = True
@@ -150,14 +155,13 @@ Public Class FrmEXEACC
     Private Sub _write()
 
         cbo_owner.Enabled = True  '#enable = true if readonly = false
-        dtp_date_receipt.Enabled = True
-        dtp_datework.Enabled = True
+        cbo_status.Enabled = True
 
         txt_cusid.ReadOnly = False
         txt_cusname.ReadOnly = False
         txt_black.ReadOnly = False
         txt_red.ReadOnly = False
-        txt_status.ReadOnly = False
+
         txt_total_receipt.ReadOnly = False
         txt_total_receipt2.ReadOnly = False
         txt_total_receipt3.ReadOnly = False
@@ -168,6 +172,7 @@ Public Class FrmEXEACC
 
         chk_date_work.Enabled = True
         chk_date_receipt.Enabled = True
+
 
     End Sub
     Private Sub _datagrid()
@@ -259,7 +264,7 @@ Public Class FrmEXEACC
             txt_cusname.Text = dtgv_exeacc.CurrentRow.Cells(3).Value.ToString
             txt_black.Text = dtgv_exeacc.CurrentRow.Cells(4).Value.ToString
             txt_red.Text = dtgv_exeacc.CurrentRow.Cells(5).Value.ToString
-            txt_status.Text = dtgv_exeacc.CurrentRow.Cells(6).Value.ToString
+            cbo_status.Text = dtgv_exeacc.CurrentRow.Cells(6).Value.ToString
             dtp_date_receipt.Text = dtgv_exeacc.CurrentRow.Cells(7).Value.ToString
             txt_total_receipt.Text = CInt(dtgv_exeacc.CurrentRow.Cells(8).Value)
             txt_detail_receipt.Text = dtgv_exeacc.CurrentRow.Cells(9).Value.ToString
@@ -339,7 +344,7 @@ Public Class FrmEXEACC
             cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
             cmd.Parameters.AddWithValue("black", txt_black.Text)
             cmd.Parameters.AddWithValue("red", txt_red.Text)
-            cmd.Parameters.AddWithValue("status", txt_status.Text)
+            cmd.Parameters.AddWithValue("status", cbo_status.Text)
             cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
             cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
             cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
@@ -417,8 +422,8 @@ Public Class FrmEXEACC
                 cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
                 cmd.Parameters.AddWithValue("black", txt_black.Text)
                 cmd.Parameters.AddWithValue("red", txt_red.Text)
-                cmd.Parameters.AddWithValue("status", txt_status.Text)
-                cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
+            cmd.Parameters.AddWithValue("status", cbo_status.Text)
+            cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
                 cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
                 cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
                 cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)

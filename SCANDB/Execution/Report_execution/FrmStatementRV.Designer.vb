@@ -25,13 +25,23 @@ Partial Class FrmStatementRV
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmStatementRV))
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.StatementDataSet = New SCANDB.StatementDataSet()
         Me.EXESMBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StatementDataSet = New SCANDB.StatementDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.EXESMTableAdapter = New SCANDB.StatementDataSetTableAdapters.EXESMTableAdapter()
-        CType(Me.StatementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXESMBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EXESMBindingSource
+        '
+        Me.EXESMBindingSource.DataMember = "EXESM"
+        Me.EXESMBindingSource.DataSource = Me.StatementDataSet
+        '
+        'StatementDataSet
+        '
+        Me.StatementDataSet.DataSetName = "StatementDataSet"
+        Me.StatementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -43,16 +53,6 @@ Partial Class FrmStatementRV
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(1006, 718)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'StatementDataSet
-        '
-        Me.StatementDataSet.DataSetName = "StatementDataSet"
-        Me.StatementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EXESMBindingSource
-        '
-        Me.EXESMBindingSource.DataMember = "EXESM"
-        Me.EXESMBindingSource.DataSource = Me.StatementDataSet
         '
         'EXESMTableAdapter
         '
@@ -66,9 +66,9 @@ Partial Class FrmStatementRV
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmStatementRV"
-        Me.Text = "FrmStatementRV"
-        CType(Me.StatementDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "รายงานแถลงบัญชี-รับจ่าย"
         CType(Me.EXESMBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatementDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

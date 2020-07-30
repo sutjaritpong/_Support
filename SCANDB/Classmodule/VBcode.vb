@@ -184,7 +184,9 @@ Module VBcode
             FrmMastermain.Menu_Reporttracking.Enabled = True
             FrmMastermain.Menu_ReportWDS.Enabled = True
                 'Main_menu_ITManagement
-                FrmMastermain.Menu_IPManagement.Enabled = False
+                FrmMastermain.Main_menu_it.Enabled = False
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
 
             Case "Admin"
                 ' Main_menu_working
@@ -207,8 +209,9 @@ Module VBcode
                 FrmMastermain.Menu_Reporttracking.Enabled = True
                 FrmMastermain.Menu_ReportWDS.Enabled = True
                 'Main_menu_ITManagement
-                FrmMastermain.Menu_IPManagement.Enabled = False
-
+                FrmMastermain.Main_menu_it.Enabled = False
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
 
             Case "Collector"
                 ' Main_menu_working
@@ -231,7 +234,13 @@ Module VBcode
                 FrmMastermain.Menu_Reporttracking.Enabled = False
                 FrmMastermain.Menu_ReportWDS.Enabled = False
                 'Main_menu_ITManagement
-                FrmMastermain.Menu_IPManagement.Enabled = False
+                FrmMastermain.Main_menu_it.Enabled = False
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
+            Case "Supervisor"
+                'Main_menu_ITManagement
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
         End Select
 
         cn.Close()

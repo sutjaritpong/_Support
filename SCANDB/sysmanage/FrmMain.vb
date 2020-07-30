@@ -264,14 +264,6 @@ Public Class FrmMastermain
         End With
     End Sub
 
-    Private Sub IPManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Menu_IPManagement.Click
-        With FrmmanageIP
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
-    End Sub
-
     Private Sub Menu_Reportracking_Click(sender As Object, e As EventArgs) Handles Menu_Reporttracking.Click
         With FrmTrackRV
             .MdiParent = Me
@@ -302,5 +294,15 @@ Public Class FrmMastermain
             .Show()
             .WindowState = FormWindowState.Maximized
         End With
+    End Sub
+
+    Private Sub Main_menu_it_Click(sender As Object, e As EventArgs) Handles Main_menu_it.Click
+
+        With FrmITSupport
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
     End Sub
 End Class

@@ -24,6 +24,7 @@ Partial Class FrmlogexeRV
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmlogexeRV))
         Me.Execution_logfilesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.logexe_dataset = New SCANDB.logexe_dataset()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -61,10 +62,12 @@ Partial Class FrmlogexeRV
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmlogexeRV"
-        Me.Text = "FrmlogexeRV"
+        Me.Text = "รายงานการใช้งานข้อมูล"
         CType(Me.Execution_logfilesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.logexe_dataset, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

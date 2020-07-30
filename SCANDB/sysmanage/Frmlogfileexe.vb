@@ -24,11 +24,9 @@ Public Class frmlogfileexe
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0
 
-        sql = "SELECT COUNT(*) As countdatas FROM Execution_logfiles"            '// นับจำนวน ROWS ข้อมูลใน Table SQL
-        cmd.CommandText = sql
-        DA.SelectCommand = cmd
-        DA.Fill(DS, "countdata")
-        lbl_countdata.Text = DS.Tables("countdata").Rows(0)("countdatas")
+        sql = "SELECT COUNT(*) As countdatas FROM Execution_logfiles;"            '// นับจำนวน ROWS ข้อมูลใน Table SQL
+        cmd = New SqlCommand(sql, cn)
+        lbl_countdata.Text = cmd.ExecuteScalar()
 
         loaddatagrid()
         lbl_countdtgv.Text = dtgvlogfile.Rows.Count                        '// นับจำนวนแถวใน Datagridview
@@ -38,25 +36,30 @@ Public Class frmlogfileexe
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
         Next
-
+        cn.Close()
     End Sub
 
     Private Sub loaddatagrid()
+        connect()
+
+        _cleardatagrid(dtgvlogfile)
 
         DateTimestart.Value = DateTime.Now.AddDays(0)
         DateTimeend.Value = DateTime.Now.AddDays(1)
 
         Dim header() As String = {"วันที่เข้าใช้", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
-        sql = "SELECT * FROM Execution_logfiles  WHERE LOGDATE BETWEEN @sdate AND @edate ORDER BY LOGDATE DESC"
+        sql = "SELECT * FROM Execution_logfiles  WHERE LOGDATE BETWEEN @sdate AND @edate ORDER BY LOGDATE DESC;"
+        cmd = New SqlCommand(sql, cn)
         With cmd
             .Parameters.Clear()
             .Parameters.Add("@sdate", SqlDbType.Date).Value = DateTimestart.Value
             .Parameters.Add("@edate", SqlDbType.Date).Value = DateTimeend.Value
-            .Connection = cn
-            .CommandText = sql
-            .CommandType = CommandType.Text
+            '.Connection = cn
+            '.CommandText = sql
+            '.CommandType = CommandType.Text
         End With
-        DA.SelectCommand = cmd
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
         DA.Fill(DS, "refresh")
         With dtgvlogfile
             For i = 0 To header.Length - 1            'ใช้ loop For อ่านและแสดงข้อมูล 
@@ -66,12 +69,10 @@ Public Class frmlogfileexe
             Next
         End With
 
-        sql = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"
-        cmd.CommandText = sql
-        DA.SelectCommand = cmd
-        DA.Fill(DS, "countdata")
+        sqll = "SELECT COUNT(*) As countdatas FROM tbl_logfiles"
+        cmd = New SqlCommand(sqll, cn)
 
-        lbl_countdata.Text = DS.Tables("countdata").Rows(0)("countdatas")
+        lbl_countdata.Text = cmd.ExecuteScalar()
         lbl_countdtgv.Text = dtgvlogfile.Rows.Count
 
         For Each col As DataGridViewColumn In dtgvlogfile.Columns
@@ -81,7 +82,7 @@ Public Class frmlogfileexe
         Next
 
         dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
-
+        cn.Close()
     End Sub
 
     Private Sub cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
@@ -90,6 +91,7 @@ Public Class frmlogfileexe
     End Sub
 
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+        connect()
         dtgvlogfile.DataSource.clear()
 
         Dim headerdgv() As String = {"วันที่", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
@@ -133,13 +135,13 @@ Public Class frmlogfileexe
         Next
 
         dtgvlogfile.Columns(0).DefaultCellStyle.Format = "dd-MMM-yy HH:mm:ss"
-
+        cn.Close()
     End Sub
 
     Private Sub cmd_report_Click(sender As Object, e As EventArgs) Handles cmd_report.Click
 
         With FrmlogexeRV
-            .MdiParent = Me                             '// แสดง Form ตั้งค่า USER & PASSWORD
+            '// แสดง Form ตั้งค่า USER & PASSWORD
             .Show()
             .WindowState = FormWindowState.Maximized
         End With

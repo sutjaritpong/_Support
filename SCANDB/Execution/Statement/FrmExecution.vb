@@ -17,14 +17,6 @@ Public Class FrmExecution
         _Datetimeformatshort(dtp_tracking_date)
         _Datetimeformatshort(dtp_verify_date)
 
-        'Dim dt As DateTimeFormatInfo = Thread.CurrentThread.CurrentCulture.DateTimeFormat
-        'Me.dtp_dateexework.CustomFormat = "dd MMM yyyy"
-        'Me.dtp_dateexework.Format = DateTimePickerFormat.Custom
-        'Me.dtp_datesheet.CustomFormat = "dd MMM yyyy"
-        'Me.dtp_datesheet.Format = DateTimePickerFormat.Custom
-        'Me.dtp_tracking.CustomFormat = "dd MMM yyyy"
-        'Me.dtp_tracking.Format = DateTimePickerFormat.Custom
-
         sql = "SELECT EMPLOYEES_KEY,EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
@@ -72,9 +64,9 @@ Public Class FrmExecution
 
     Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        If dtgv_search.Rows.Count <> 0 Then
+        If dtgv_statement_search.Rows.Count <> 0 Then
 
-            dtgv_search.DataSource.clear()
+            dtgv_statement_search.DataSource.clear()
             loaddatagridviews()
             Return
         Else
@@ -201,14 +193,14 @@ Public Class FrmExecution
 
         Reader()
         clear_text()
-
+        connect()
         Try
 
-            Dim addacc() = {dtgv_search.CurrentRow.Cells(3).Value.ToString, dtgv_search.CurrentRow.Cells(4).Value.ToString, dtgv_search.CurrentRow.Cells(5).Value.ToString}
+            Dim addacc() = {dtgv_statement_search.CurrentRow.Cells(3).Value.ToString, dtgv_statement_search.CurrentRow.Cells(4).Value.ToString, dtgv_statement_search.CurrentRow.Cells(5).Value.ToString}
 
-            txt_product.Text = dtgv_search.CurrentRow.Cells(0).Value.ToString
-            txt_idcus.Text = dtgv_search.CurrentRow.Cells(1).Value.ToString
-            txt_namecus.Text = dtgv_search.CurrentRow.Cells(2).Value.ToString
+            txt_product.Text = dtgv_statement_search.CurrentRow.Cells(0).Value.ToString
+            txt_idcus.Text = dtgv_statement_search.CurrentRow.Cells(1).Value.ToString
+            txt_namecus.Text = dtgv_statement_search.CurrentRow.Cells(2).Value.ToString
 
             cbo_acc.Items.Clear()
 
@@ -226,29 +218,74 @@ Public Class FrmExecution
 
             txt_count_acc.Text = cbo_acc.Items.Count
 
-            cbo_court.Text = dtgv_search.CurrentRow.Cells(6).Value.ToString
-            txt_black.Text = dtgv_search.CurrentRow.Cells(7).Value.ToString
-            txt_red.Text = dtgv_search.CurrentRow.Cells(8).Value.ToString
-            txt_number.Text = dtgv_search.CurrentRow.Cells(9).Value.ToString
-            cbo_department.Text = dtgv_search.CurrentRow.Cells(10).Value.ToString
-            txt_total.Text = CDbl(dtgv_search.CurrentRow.Cells(11).Value)
-            txt_nameem.Text = dtgv_search.CurrentRow.Cells(12).Value.ToString
-            txt_phone.Text = dtgv_search.CurrentRow.Cells(13).Value.ToString
-            txt_hub.Text = dtgv_search.CurrentRow.Cells(14).Value.ToString
-            dtp_datesheet.Text = dtgv_search.CurrentRow.Cells(15).Value.ToString
-            txt_employee.Text = dtgv_search.CurrentRow.Cells(16).Value.ToString
-            txt_detail1.Text = dtgv_search.CurrentRow.Cells(17).Value.ToString
-            txt_performance.Text = dtgv_search.CurrentRow.Cells(18).Value.ToString
-            txt_hubs.Text = dtgv_search.CurrentRow.Cells(19).Value.ToString
-            txt_result.Text = dtgv_search.CurrentRow.Cells(20).Value.ToString
-            cbo_employees_exe.Text = dtgv_search.CurrentRow.Cells(21).Value.ToString
-            dtp_tracking_date.Text = dtgv_search.CurrentRow.Cells(22).Value.ToString
-            txt_tracking_nosheet.Text = dtgv_search.CurrentRow.Cells(23).Value.ToString
-            txt_collec_nosend.Text = dtgv_search.CurrentRow.Cells(24).Value.ToString
-            txt_tracking_detail.Text = dtgv_search.CurrentRow.Cells(25).Value.ToString
-            dtp_verify_date.Text = dtgv_search.CurrentRow.Cells(26).Value.ToString
-            txt_verify_result.Text = dtgv_search.CurrentRow.Cells(27).Value.ToString
-            txt_verify_comment.Text = dtgv_search.CurrentRow.Cells(28).Value.ToString
+            With dtgv_statement_search
+
+                If .RowCount <> 0 Then
+                    cbo_court.Text = .CurrentRow.Cells(6).Value.ToString
+                    txt_black.Text = .CurrentRow.Cells(7).Value.ToString
+                    txt_red.Text = .CurrentRow.Cells(8).Value.ToString
+                    txt_number.Text = .CurrentRow.Cells(9).Value.ToString
+                    cbo_department.Text = .CurrentRow.Cells(10).Value.ToString
+                    txt_total.Text = CDbl(.CurrentRow.Cells(11).Value)
+                    txt_nameem.Text = .CurrentRow.Cells(12).Value.ToString
+                    txt_phone.Text = .CurrentRow.Cells(13).Value.ToString
+                    txt_hub.Text = .CurrentRow.Cells(14).Value.ToString
+                    dtp_datesheet.Text = .CurrentRow.Cells(15).Value.ToString
+                    txt_employee.Text = .CurrentRow.Cells(16).Value.ToString
+                    txt_detail1.Text = .CurrentRow.Cells(17).Value.ToString
+                    txt_performance.Text = .CurrentRow.Cells(18).Value.ToString
+                    txt_hubs.Text = .CurrentRow.Cells(19).Value.ToString
+                    txt_result.Text = .CurrentRow.Cells(20).Value.ToString
+
+                    If .CurrentRow.Cells(15).Value.ToString <> "" Then
+                        chk_datesheet.Checked = True
+                    Else
+                        chk_datesheet.Checked = False
+                    End If
+
+                End If
+
+            End With
+
+            With dtgv_tracking_statement
+
+                If .RowCount <> 0 Then
+                    dtp_tracking_date.Text = .CurrentRow.Cells(0).Value.ToString
+                    txt_tracking_detail.Text = .CurrentRow.Cells(1).Value.ToString
+                    txt_collec_nosend.Text = .CurrentRow.Cells(2).Value.ToString
+                    cbo_employees_exe.Text = .CurrentRow.Cells(3).Value.ToString
+                    txt_tracking_nosheet.Text = .CurrentRow.Cells(4).Value.ToString
+
+                    If .CurrentRow.Cells(0).Value.ToString <> "" Then
+                        chk_tracking_date.Checked = True
+                    Else
+                        chk_tracking_date.Checked = False
+
+                    End If
+
+                End If
+
+            End With
+
+
+            With dtgv_verify_statement
+
+                If .RowCount <> 0 Then
+
+                    dtp_verify_date.Text = .CurrentRow.Cells(0).Value.ToString
+                    txt_verify_result.Text = .CurrentRow.Cells(1).Value.ToString
+                    txt_verify_comment.Text = .CurrentRow.Cells(2).Value.ToString
+
+                    If .CurrentRow.Cells(1).Value.ToString <> "" Then
+
+                        chk_verify_date.Checked = True
+                    Else
+                        chk_verify_date.Checked = True
+                    End If
+
+                End If
+
+            End With
 
             If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
 
@@ -259,32 +296,12 @@ Public Class FrmExecution
 
             End If
 
-            If dtgv_search.CurrentRow.Cells(15).Value.ToString <> "" Then
+            If dtgv_statement_search.CurrentRow.Cells(15).Value.ToString <> "" Then
 
                 chk_datesheet.Checked = True
             Else
 
                 chk_datesheet.Checked = False
-
-            End If
-
-            If dtgv_search.CurrentRow.Cells(22).Value.ToString <> "" Then
-
-                chk_tracking_date.Checked = True
-
-            Else
-
-                chk_tracking_date.Checked = False
-
-            End If
-
-            If dtgv_search.CurrentRow.Cells(27).Value.ToString <> "" Then
-
-                chk_verify_date.Checked = True
-
-            Else
-
-                chk_verify_date.Checked = False
 
             End If
 
@@ -297,6 +314,7 @@ Public Class FrmExecution
     End Sub
 
     Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+
         If Application.OpenForms().OfType(Of FrmfindExecution).Any Then
             With FrmfindExecution
                 .Focus()
@@ -383,8 +401,9 @@ Public Class FrmExecution
     Public Sub loaddatagridviews()
 
         connect()
+        Dim header() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อลูกค้า", "เลขที่สัญญา1", "เลขที่สัญญา2", "เลขที่สัญญา3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรมบังคับคดี", "จำนวนเงิน", "ชื่อพนักงานตามใบงาน", "เบอร์โทรศัพท์", "ศูนย์ประสานงาน", "วันที่ส่งใบงาน", "ชื่อสกุล-พนักงาน", "หมายเหตุ", "ผลปฎิบัติงาน", "HUB", "Result"}
 
-        Dim header() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อลูกค้า", "เลขที่สัญญา1", "เลขที่สัญญา2", "เลขที่สัญญา3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรมบังคับคดี", "จำนวนเงิน", "ชื่อพนักงานตามใบงาน", "เบอร์โทรศัพท์", "ศูนย์ประสานงาน", "วันที่ส่งใบงาน", "ชื่อสกุล-พนักงาน", "หมายเหตุ", "ผลปฎิบัติงาน", "HUB", "Result", "เจ้าหน้าที่บังคับคดี", "วันที่ใบคำร้อง", "ใบงานที่ทาง MIS ออก", "Collectorส่งมาออกใบงาน", "รายละเอียดตามคำร้อง", "วันที่บังคับคดีไปตรวจสำนวน", "สถานะ", "รายละเอียด"}
+
         Dim p As Integer = header.Length
 
         If txt_search.Text = "" Then
@@ -392,8 +411,7 @@ Public Class FrmExecution
             Return
         End If
 
-        Dim sqll As String = "SELECT ES.EXEBANK, ES.EXEID,ES.EXECUSTOMER,ES.EXEACC1,ES.EXEACC2,ES.EXEACC3,ES.EXECOURT,ES.EXEBLACK,ES.EXERED,ES.EXENUMBER,ES.EXEDEPARTMENT,ES.EXETOTAL,ES.EXEEMPLOYEE,ES.EXEPHONE,ES.EXEHUB,ES.EXEDATEWORK,ES.EXEFULLNAME,ES.EXEDETAIL,ES.EXEPERFORMANCE,ES.EXEHUBS,ES.EXERESULT,Emp.EXEEMPLOYEES,ET.Tracking_date_sheet,ET.Tracking_nosheet,ET.Tracking_Collector_nosend,ET.Tracking_detail,EV.Execution_verify_date,Ev.Execution_verify_result,Ev.Execution_verify_comment
-    FROM EXESM As ES LEFT JOIN Execution_verify AS EV On EV.Customer_id_card = ES.EXEID LEFT JOIN EXEEMPLOYEE AS Emp ON EV.EMPLOYEES_KEY = Emp.EMPLOYEES_KEY LEFT JOIN EXETRACKING AS ET ON ES.EXEID = ET.Customer_idc WHERE "
+        Dim sqll As String = "SELECT ES.EXEBANK, ES.EXEID,ES.EXECUSTOMER,ES.EXEACC1,ES.EXEACC2,ES.EXEACC3,ES.EXECOURT,ES.EXEBLACK,ES.EXERED,ES.EXENUMBER,ES.EXEDEPARTMENT,ES.EXETOTAL,ES.EXEEMPLOYEE,ES.EXEPHONE,ES.EXEHUB,ES.EXEDATEWORK,ES.EXEFULLNAME,ES.EXEDETAIL,ES.EXEPERFORMANCE,ES.EXEHUBS,ES.EXERESULT FROM EXESM AS ES WHERE "
 
         Select Case cbo_type.SelectedItem
 
@@ -408,7 +426,7 @@ Public Class FrmExecution
             Case "กรม" : sqll &= "ES.EXEDEPARTMENT "
             Case "ศูนย์ประสานงาน" : sqll &= "ES.EXEHUB "
             Case "ชื่อพนักงาน" : sqll &= "ES.EXEFULLNAME "
-            Case "พนักงานบังคับคดี" : sqll &= "Emp.EXEEMPLOYEES "
+                'Case "พนักงานบังคับคดี" : sqll &= "Emp.EXEEMPLOYEES "
 
         End Select
 
@@ -428,127 +446,13 @@ Public Class FrmExecution
 
         For i = 0 To header.Length - 1
 
-            dtgv_search.DataSource = DS.Tables("find")
-            dtgv_search.Columns(i).HeaderText = header(i)
+            dtgv_statement_search.DataSource = DS.Tables("find")
+            dtgv_statement_search.Columns(i).HeaderText = header(i)
 
-            For x = 9 To 28 Step +1
-                If x = 15 Then
-                    Continue For
-                End If
-                dtgv_search.Columns(x).Visible = False
-
-            Next
         Next
-        _datagrid_format_dateshort(dtgv_search, 15)
+
+        _datagrid_format_dateshort(dtgv_statement_search, 15)
         cn.Close()
-
-    End Sub
-
-
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
-
-        connect()
-        Dim _datetime_sheet As DateTime = dtp_datesheet.Text
-        Dim _datetime_verify As DateTime = dtp_verify_date.Text
-        Dim _datetime_tracking As DateTime = dtp_tracking_date.Text
-        Dim _pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_sheet}-{txt_hubs.Text}"
-        Dim _verify_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_verify}"
-        Dim _tracking_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_tracking}"
-
-        If txt_idcus.Text = "" Or txt_namecus.Text = "" Or txt_nameem.Text = "" Then
-            Msg_error("กรุณาตรวจสอบ ชื่อลูกค้า เลขประจำตัวประชาชน หรือชื่อผู้ส่งใบงาน")
-            Return
-        Else
-
-            sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = @emp"
-            cmd.CommandText = sql
-            cmd.Parameters.Clear()
-            cmd.Parameters.AddWithValue("emp", cbo_employees_exe.Text)
-            DA.SelectCommand = cmd
-            DS = New DataSet
-            DA.Fill(DS, "_emp")
-
-            sql = $"UPDATE EXESM SET EXEKEY= @exesm_key,EXEBANK= @owner,EXEID= @idcus,EXECUSTOMER= @namecus"
-
-            If txt_count_acc.Text = 1 Then
-                sql &= $",EXEACC1 = @acc1"
-            ElseIf txt_count_acc.Text = 2 Then
-                sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2"
-            ElseIf txt_count_acc.Text = 3 Then
-                sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2,EXEACC3 = @acc3"
-            End If
-
-            sql &= $",EXECOURT= @court,EXEBLACK= @black,EXERED= @red,EXENUMBER= @number,EXETOTAL= @total,EXEEMPLOYEE= @nameemp,EXEPHONE= @phone,EXEHUB= @hub,EXEDATEWORK= @dtsheet,EXEFULLNAME= @empfull,EXEDETAIL= @detail,EXEPERFORMANCE = @performance,EXERESULT= @result WHERE EXEKEY = @exesm_key;"
-
-            sql &= $"UPDATE Execution_verify SET Execution_verify_pk = @vrpk,Customer_owner = @owner,Customer_id_card = @idcus,Customer_account = @acc1,Customer_fullname = @namecus,EMPLOYEES_KEY = @idemp,Execution_verify_date = @vrdate,Execution_verify_result = @vrresult,Execution_verify_comment = @vrcomment WHERE Execution_verify_pk = @vrpk;"
-
-            sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp WHERE Tracking_pk = @tkpk;"
-
-            cmd = New SqlCommand(sql, cn)
-
-            With cmd
-
-                .Parameters.Clear()
-                .Parameters.AddWithValue("exesm_key", _pk)
-                .Parameters.AddWithValue("owner", txt_product.Text)
-                .Parameters.AddWithValue("idcus", txt_idcus.Text)
-
-                If txt_count_acc.Text = 1 Then
-                    .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
-                ElseIf txt_count_acc.Text = 2 Then
-                    .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
-                    .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
-                ElseIf txt_count_acc.Text = 3 Then
-                    .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
-                    .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
-                    .Parameters.AddWithValue("acc3", cbo_acc.Items(2))
-                End If
-
-                .Parameters.AddWithValue("namecus", txt_namecus.Text)
-                .Parameters.AddWithValue("court", cbo_court.Text)
-                .Parameters.AddWithValue("black", txt_black.Text)
-                .Parameters.AddWithValue("red", txt_red.Text)
-                .Parameters.AddWithValue("number", txt_number.Text)
-                .Parameters.AddWithValue("total", CInt(txt_total.Text))
-                .Parameters.AddWithValue("nameemp", txt_nameem.Text)
-                .Parameters.AddWithValue("phone", txt_phone.Text)
-                .Parameters.AddWithValue("hub", txt_hub.Text)
-                .Parameters.AddWithValue("dtsheet", dtp_datesheet.Text)
-                .Parameters.AddWithValue("empfull", txt_employee.Text)
-                .Parameters.AddWithValue("Detail", txt_detail1.Text)
-                .Parameters.AddWithValue("performance", txt_performance.Text)
-                .Parameters.AddWithValue("result", txt_result.Text)
-                .Parameters.AddWithValue("vrpk", _verify_pk)
-                .Parameters.AddWithValue("idemp", CInt(DS.Tables("_emp").Rows(0)("EMPLOYEES_KEY")))
-                .Parameters.AddWithValue("vrdate", dtp_verify_date.Text)
-                .Parameters.AddWithValue("vrresult", txt_verify_result.Text)
-                .Parameters.AddWithValue("vrcomment", txt_verify_comment.Text)
-                .Parameters.AddWithValue("tkpk", _tracking_pk)
-                .Parameters.AddWithValue("tkdate", dtp_tracking_date.Text)
-                .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
-                .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
-                .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
-                .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
-                .ExecuteNonQuery()
-
-            End With
-
-            If dtgv_search.Rows.Count <> 0 Then
-
-                _Getlogdataexe($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}", $"'{txt_idcus.Text}'", $"'{cbo_acc.Text}'")
-                dtgv_search.DataSource.clear()
-                    loaddatagridviews()
-                    cell_refresh()
-
-                Msg_OK("บันทึกข้อมูลสำเร็จ")
-
-            Else
-                    Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
-                End If
-
-            End If
-
-            cn.Close()
 
     End Sub
 
@@ -591,25 +495,143 @@ Public Class FrmExecution
         End If
 
     End Sub
+    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
+        connect()
+        Dim _datetime_sheet As DateTime = dtp_datesheet.Text
+        Dim _datetime_verify As DateTime = dtp_verify_date.Text
+        Dim _datetime_tracking As DateTime = dtp_tracking_date.Text
+        Dim _pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_sheet}-{txt_hubs.Text}"
+        Dim _verify_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_verify}"
+        Dim _tracking_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_tracking}"
+
+        If txt_idcus.Text = "" Or txt_namecus.Text = "" Or txt_nameem.Text = "" Then
+            Msg_error("กรุณาตรวจสอบ ชื่อลูกค้า เลขประจำตัวประชาชน หรือชื่อผู้ส่งใบงาน")
+            Return
+        Else
+
+            If chk_datesheet.Checked <> False Then
+
+                sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = @emp"
+                cmd.CommandText = sql
+                cmd.Parameters.Clear()
+                cmd.Parameters.AddWithValue("emp", cbo_employees_exe.Text)
+                DA.SelectCommand = cmd
+                DS = New DataSet
+                DA.Fill(DS, "_emp")
+
+
+
+                sql = $"UPDATE EXESM SET EXEKEY= @exesm_key,EXEBANK= @owner,EXEID= @idcus,EXECUSTOMER= @namecus"
+
+                If txt_count_acc.Text = 1 Then
+                    sql &= $",EXEACC1 = @acc1"
+                ElseIf txt_count_acc.Text = 2 Then
+                    sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2"
+                ElseIf txt_count_acc.Text = 3 Then
+                    sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2,EXEACC3 = @acc3"
+                End If
+
+                sql &= $",EXECOURT= @court,EXEBLACK= @black,EXERED= @red,EXENUMBER= @number,EXETOTAL= @total,EXEEMPLOYEE= @nameemp,EXEPHONE= @phone,EXEHUB= @hub,EXEDATEWORK= @dtsheet,EXEFULLNAME= @empfull,EXEDETAIL= @detail,EXEPERFORMANCE = @performance,EXERESULT= @result WHERE EXEKEY = @exesm_key;"
+
+                If chk_verify_date.Checked <> False Then
+
+                    sql &= $"UPDATE Execution_verify SET Customer_owner = @owner,Customer_id_card = @idcus,Customer_account = @acc1,Customer_fullname = @namecus,EMPLOYEES_KEY = @idemp,Execution_verify_date = @vrdate,Execution_verify_result = @vrresult,Execution_verify_comment = @vrcomment WHERE Customer_owner = @owner And Customer_id_card = @idcus And Execution_verify_date = @vrdate ;"
+
+                    If chk_tracking_date.Checked <> False Then
+
+                        sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp WHERE Tracking_pk = @tkpk;"
+
+                    End If
+                End If
+            End If
+            cmd = New SqlCommand(sql, cn)
+
+                With cmd
+
+                    .Parameters.Clear()
+                    .Parameters.AddWithValue("exesm_key", _pk)
+                    .Parameters.AddWithValue("owner", txt_product.Text)
+                    .Parameters.AddWithValue("idcus", txt_idcus.Text)
+
+                    If txt_count_acc.Text = 1 Then
+                        .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+                    ElseIf txt_count_acc.Text = 2 Then
+                        .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+                        .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
+                    ElseIf txt_count_acc.Text = 3 Then
+                        .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+                        .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
+                        .Parameters.AddWithValue("acc3", cbo_acc.Items(2))
+                    End If
+
+                    .Parameters.AddWithValue("namecus", txt_namecus.Text)
+                    .Parameters.AddWithValue("court", cbo_court.Text)
+                    .Parameters.AddWithValue("black", txt_black.Text)
+                    .Parameters.AddWithValue("red", txt_red.Text)
+                    .Parameters.AddWithValue("number", txt_number.Text)
+                    .Parameters.AddWithValue("total", CInt(txt_total.Text))
+                    .Parameters.AddWithValue("nameemp", txt_nameem.Text)
+                    .Parameters.AddWithValue("phone", txt_phone.Text)
+                    .Parameters.AddWithValue("hub", txt_hub.Text)
+                    .Parameters.AddWithValue("dtsheet", dtp_datesheet.Text)
+                    .Parameters.AddWithValue("empfull", txt_employee.Text)
+                    .Parameters.AddWithValue("Detail", txt_detail1.Text)
+                    .Parameters.AddWithValue("performance", txt_performance.Text)
+                    .Parameters.AddWithValue("result", txt_result.Text)
+                    .Parameters.AddWithValue("idemp", CInt(DS.Tables("_emp").Rows(0)("EMPLOYEES_KEY")))
+                    .Parameters.AddWithValue("vrdate", dtp_verify_date.Text)
+                    .Parameters.AddWithValue("vrresult", txt_verify_result.Text)
+                    .Parameters.AddWithValue("vrcomment", txt_verify_comment.Text)
+                    .Parameters.AddWithValue("tkpk", _tracking_pk)
+                    .Parameters.AddWithValue("tkdate", dtp_tracking_date.Text)
+                    .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
+                    .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
+                    .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
+                    .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
+                    .ExecuteNonQuery()
+
+                End With
+
+                If dtgv_statement_search.Rows.Count <> 0 Then
+
+                    _Getlogdataexe($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}", $"'{txt_idcus.Text}'", $"'{cbo_acc.Text}'")
+                    dtgv_statement_search.DataSource.clear()
+                    loaddatagridviews()
+                'cell_refresh()
+
+                Msg_OK("บันทึกข้อมูลสำเร็จ")
+
+                Else
+                    Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
+                End If
+
+            End If
+
+            cn.Close()
+
+    End Sub
 
     Private Sub FrmExecution_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
 
         cn.Close()
         Me.Dispose()
 
     End Sub
 
-    Private Sub dtgv_search_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_search.CellMouseUp
+    Private Sub dtgv_search_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_statement_search.CellMouseUp
+
+        _cleardatagrid(dtgv_tracking_statement)
+        _cleardatagrid(dtgv_verify_statement)
 
         clear_text()
 
+
         If e.RowIndex = -1 Then Exit Sub
 
-        With dtgv_search
+        With dtgv_statement_search
 
-            Dim dtgvrows_acc() As String = {CStr(dtgv_search.Rows.Item(e.RowIndex).Cells(3).Value.ToString), CStr(dtgv_search.Rows.Item(e.RowIndex).Cells(4).Value.ToString), CStr(dtgv_search.Rows.Item(e.RowIndex).Cells(5).Value.ToString)}
+            Dim dtgvrows_acc() As String = {CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(3).Value.ToString), CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(4).Value.ToString), CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(5).Value.ToString)}
 
             txt_product.Text = CStr(.Rows.Item(e.RowIndex).Cells(0).Value.ToString)
             txt_idcus.Text = CStr(.Rows.Item(e.RowIndex).Cells(1).Value.ToString)
@@ -648,20 +670,92 @@ Public Class FrmExecution
             txt_hubs.Text = CStr(.Rows.Item(e.RowIndex).Cells(19).Value.ToString)
             txt_result.Text = CStr(.Rows.Item(e.RowIndex).Cells(20).Value.ToString)
 
-            cbo_employees_exe.Text = CStr(.Rows.Item(e.RowIndex).Cells(21).Value.ToString)
-
-            dtp_tracking_date.Text = CStr(.Rows.Item(e.RowIndex).Cells(22).Value.ToString)
-            txt_tracking_nosheet.Text = CStr(.Rows.Item(e.RowIndex).Cells(23).Value.ToString)
-            txt_collec_nosend.Text = CStr(.Rows.Item(e.RowIndex).Cells(24).Value.ToString)
-            txt_tracking_detail.Text = CStr(.Rows.Item(e.RowIndex).Cells(25).Value.ToString)
-
-            dtp_verify_date.Text = CStr(.Rows.Item(e.RowIndex).Cells(26).Value.ToString)
-            txt_verify_result.Text = CStr(.Rows.Item(e.RowIndex).Cells(27).Value.ToString)
-            txt_verify_comment.Text = CStr(.Rows.Item(e.RowIndex).Cells(28).Value.ToString)
 
         End With
 
-        If dtgv_search.Rows.Item(e.RowIndex).Cells(15).Value.ToString <> "" Then
+
+        sql = $"SELECT EV.Execution_verify_date,EV.Execution_verify_result,EV.Execution_verify_comment,EMP.EXEEMPLOYEES FROM Execution_verify AS EV
+                INNER JOIN EXEEMPLOYEE AS EMP
+                ON EV.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY
+                WHERE Customer_id_card = '{CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(1).Value.ToString)}' ORDER BY EV.Execution_verify_date DESC"
+
+        cmd = New SqlCommand(sql, cn)
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "tables")
+
+        With dtgv_verify_statement
+
+
+            .DataSource = DS.Tables("tables")
+            .Columns(0).HeaderText = "วันที่ตรวจสำนวน"
+            .Columns(1).HeaderText = "สถานะ"
+            .Columns(2).HeaderText = "รายละเอียด"
+            .Columns(3).HeaderText = "พนักงานบังคับคดี"
+
+            If .Rows.Count <> 0 Then
+                dtp_verify_date.Text = .Rows(0).Cells(0).Value.ToString
+                txt_verify_result.Text = .Rows(0).Cells(1).Value.ToString
+                txt_verify_comment.Text = .Rows(0).Cells(2).Value.ToString
+
+                If dtgv_verify_statement.Rows(0).Cells(0).Value.ToString <> "" Then
+
+                    chk_verify_date.Checked = True
+                Else
+                    chk_verify_date.Checked = False
+
+                End If
+
+            End If
+
+        End With
+
+        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,ET.Tracking_other,Tracking_date_work FROM EXETRACKING AS ET
+                INNER JOIN EXEEMPLOYEE AS EMP
+                ON ET.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY
+                WHERE Customer_idc = '{CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(1).Value.ToString)}' ORDER BY ET.Tracking_date_sheet DESC"
+
+        cmd = New SqlCommand(sqll, cn)
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "tracktables")
+
+        With dtgv_tracking_statement
+
+
+            .DataSource = DS.Tables("tracktables")
+            .Columns(0).HeaderText = "วันที่ในใบคำร้อง"
+            .Columns(1).HeaderText = "รายละเอียด"
+            .Columns(2).HeaderText = "การส่งมาออกใบงาน"
+            .Columns(3).HeaderText = "พนักงานบังคับคดี"
+
+
+            If .Rows.Count <> 0 Then
+                For i = 4 To dtgv_tracking_statement.ColumnCount - 1
+                    .Columns(i).Visible = False
+                Next
+
+                dtp_tracking_date.Text = .Rows(0).Cells(0).Value.ToString
+                txt_tracking_detail.Text = .Rows(0).Cells(1).Value.ToString
+                txt_collec_nosend.Text = .Rows(0).Cells(2).Value.ToString
+                cbo_employees_exe.Text = .Rows(0).Cells(3).Value.ToString
+                txt_tracking_nosheet.Text = .Rows(0).Cells(4).Value.ToString
+
+                If dtgv_tracking_statement.Rows(0).Cells(0).Value.ToString <> "" Then
+
+                    chk_tracking_date.Checked = True
+
+                Else
+
+                    chk_tracking_date.Checked = False
+
+                End If
+
+            End If
+
+        End With
+
+        If dtgv_statement_search.Rows.Item(e.RowIndex).Cells(15).Value.ToString <> "" Then
 
             chk_datesheet.Checked = True
         Else
@@ -670,25 +764,6 @@ Public Class FrmExecution
 
         End If
 
-        If dtgv_search.Rows.Item(e.RowIndex).Cells(22).Value.ToString <> "" Then
-
-            chk_tracking_date.Checked = True
-
-        Else
-
-            chk_tracking_date.Checked = False
-
-        End If
-
-        If dtgv_search.Rows.Item(e.RowIndex).Cells(27).Value.ToString <> "" Then
-
-            chk_verify_date.Checked = True
-
-        Else
-
-            chk_verify_date.Checked = False
-
-        End If
 
         If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
 
@@ -699,9 +774,245 @@ Public Class FrmExecution
 
         End If
 
+        _datagrid_format_dateshort(dtgv_tracking_statement, 0)
+        _datagrid_format_dateshort(dtgv_verify_statement, 0)
+
         Reader()
 
     End Sub
+
+    Private Sub dtgv_tracking_statement_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_tracking_statement.CellMouseUp
+
+        With dtgv_tracking_statement
+
+            dtp_tracking_date.Text = .Rows.Item(e.RowIndex).Cells(0).Value.ToString
+            txt_tracking_detail.Text = .Rows.Item(e.RowIndex).Cells(1).Value.ToString
+            txt_collec_nosend.Text = .Rows.Item(e.RowIndex).Cells(2).Value.ToString
+            cbo_employees_exe.Text = .Rows.Item(e.RowIndex).Cells(3).Value.ToString
+            txt_tracking_nosheet.Text = .Rows.Item(e.RowIndex).Cells(4).Value.ToString
+
+            If .Rows(0).Cells(0).Value.ToString <> "" Then
+
+                chk_tracking_date.Checked = True
+            Else
+                chk_tracking_date.Checked = False
+
+            End If
+
+        End With
+
+    End Sub
+
+    Private Sub dtgv_verify_statement_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_verify_statement.CellMouseUp
+
+        With dtgv_verify_statement
+
+            dtp_verify_date.Text = .Rows.Item(e.RowIndex).Cells(0).Value.ToString
+            txt_verify_result.Text = .Rows.Item(e.RowIndex).Cells(1).Value.ToString
+            txt_verify_comment.Text = .Rows.Item(e.RowIndex).Cells(2).Value.ToString
+
+            If .Rows(0).Cells(0).Value.ToString <> "" Then
+
+                chk_verify_date.Checked = True
+            Else
+                chk_verify_date.Checked = False
+
+            End If
+
+        End With
+
+    End Sub
+
 End Class
+
+'Dim dt As DateTimeFormatInfo = Thread.CurrentThread.CurrentCulture.DateTimeFormat
+'Me.dtp_dateexework.CustomFormat = "dd MMM yyyy"
+'Me.dtp_dateexework.Format = DateTimePickerFormat.Custom
+'Me.dtp_datesheet.CustomFormat = "dd MMM yyyy"
+'Me.dtp_datesheet.Format = DateTimePickerFormat.Custom
+'Me.dtp_tracking.CustomFormat = "dd MMM yyyy"
+'Me.dtp_tracking.Format = DateTimePickerFormat.Custom
+
+
+
+'If dtgv_statement_search.CurrentRow.Cells(22).Value.ToString <> "" Then
+
+'    chk_tracking_date.Checked = True
+
+'Else
+
+'    chk_tracking_date.Checked = False
+
+'End If
+
+'If dtgv_statement_search.CurrentRow.Cells(27).Value.ToString <> "" Then
+
+'    chk_verify_date.Checked = True
+
+'Else
+
+'    chk_verify_date.Checked = False
+
+'End If
+
+
+'Dim header() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อลูกค้า", "เลขที่สัญญา1", "เลขที่สัญญา2", "เลขที่สัญญา3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรมบังคับคดี", "จำนวนเงิน", "ชื่อพนักงานตามใบงาน", "เบอร์โทรศัพท์", "ศูนย์ประสานงาน", "วันที่ส่งใบงาน", "ชื่อสกุล-พนักงาน", "หมายเหตุ", "ผลปฎิบัติงาน", "HUB", "Result", "เจ้าหน้าที่บังคับคดี", "วันที่ใบคำร้อง", "ใบงานที่ทาง MIS ออก", "Collectorส่งมาออกใบงาน", "รายละเอียดตามคำร้อง", "วันที่บังคับคดีไปตรวจสำนวน", "สถานะ", "รายละเอียด"}
+
+'Dim sqll As String = "SELECT ES.EXEBANK, ES.EXEID,ES.EXECUSTOMER,ES.EXEACC1,ES.EXEACC2,ES.EXEACC3,ES.EXECOURT,ES.EXEBLACK,ES.EXERED,ES.EXENUMBER,ES.EXEDEPARTMENT,ES.EXETOTAL,ES.EXEEMPLOYEE,ES.EXEPHONE,ES.EXEHUB,ES.EXEDATEWORK,ES.EXEFULLNAME,ES.EXEDETAIL,ES.EXEPERFORMANCE,ES.EXEHUBS,ES.EXERESULT,Emp.EXEEMPLOYEES,ET.Tracking_date_sheet,ET.Tracking_nosheet,ET.Tracking_Collector_nosend,ET.Tracking_detail,EV.Execution_verify_date,Ev.Execution_verify_result,Ev.Execution_verify_comment
+'    FROM EXESM As ES 
+'    INNER JOIN Execution_verify AS EV 
+'    On EV.Customer_id_card = ES.EXEID 
+'    INNER JOIN EXEEMPLOYEE AS Emp 
+'    ON EV.EMPLOYEES_KEY = Emp.EMPLOYEES_KEY 
+'    INNER JOIN EXETRACKING AS ET 
+'    ON ES.EXEID = ET.Customer_idc WHERE "
+
+'For x = 9 To 28 Step +1
+'    If x = 15 Then
+'        Continue For
+'    End If
+'    dtgv_statement_search.Columns(x).Visible = False
+
+'Next
+
+'Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
+
+'    connect()
+'    Dim _datetime_sheet As DateTime = dtp_datesheet.Text
+'    Dim _datetime_verify As DateTime = dtp_verify_date.Text
+'    Dim _datetime_tracking As DateTime = dtp_tracking_date.Text
+'    Dim _pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_sheet}-{txt_hubs.Text}"
+'    Dim _verify_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_verify}"
+'    Dim _tracking_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_tracking}"
+
+'    If txt_idcus.Text = "" Or txt_namecus.Text = "" Or txt_nameem.Text = "" Then
+'        Msg_error("กรุณาตรวจสอบ ชื่อลูกค้า เลขประจำตัวประชาชน หรือชื่อผู้ส่งใบงาน")
+'        Return
+'    Else
+
+'        sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = @emp"
+'        cmd.CommandText = sql
+'        cmd.Parameters.Clear()
+'        cmd.Parameters.AddWithValue("emp", cbo_employees_exe.Text)
+'        DA.SelectCommand = cmd
+'        DS = New DataSet
+'        DA.Fill(DS, "_emp")
+
+'        sql = $"UPDATE EXESM SET EXEKEY= @exesm_key,EXEBANK= @owner,EXEID= @idcus,EXECUSTOMER= @namecus"
+
+'        If txt_count_acc.Text = 1 Then
+'            sql &= $",EXEACC1 = @acc1"
+'        ElseIf txt_count_acc.Text = 2 Then
+'            sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2"
+'        ElseIf txt_count_acc.Text = 3 Then
+'            sql &= $",EXEACC1 = @acc1,EXEACC2 = @acc2,EXEACC3 = @acc3"
+'        End If
+
+'        sql &= $",EXECOURT= @court,EXEBLACK= @black,EXERED= @red,EXENUMBER= @number,EXETOTAL= @total,EXEEMPLOYEE= @nameemp,EXEPHONE= @phone,EXEHUB= @hub,EXEDATEWORK= @dtsheet,EXEFULLNAME= @empfull,EXEDETAIL= @detail,EXEPERFORMANCE = @performance,EXERESULT= @result WHERE EXEKEY = @exesm_key;"
+
+'        sql &= $"UPDATE Execution_verify SET Execution_verify_pk = @vrpk,Customer_owner = @owner,Customer_id_card = @idcus,Customer_account = @acc1,Customer_fullname = @namecus,EMPLOYEES_KEY = @idemp,Execution_verify_date = @vrdate,Execution_verify_result = @vrresult,Execution_verify_comment = @vrcomment WHERE Execution_verify_pk = @vrpk;"
+
+'        sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp WHERE Tracking_pk = @tkpk;"
+
+'        cmd = New SqlCommand(sql, cn)
+
+'        With cmd
+
+'            .Parameters.Clear()
+'            .Parameters.AddWithValue("exesm_key", _pk)
+'            .Parameters.AddWithValue("owner", txt_product.Text)
+'            .Parameters.AddWithValue("idcus", txt_idcus.Text)
+
+'            If txt_count_acc.Text = 1 Then
+'                .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+'            ElseIf txt_count_acc.Text = 2 Then
+'                .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+'                .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
+'            ElseIf txt_count_acc.Text = 3 Then
+'                .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+'                .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
+'                .Parameters.AddWithValue("acc3", cbo_acc.Items(2))
+'            End If
+
+'            .Parameters.AddWithValue("namecus", txt_namecus.Text)
+'            .Parameters.AddWithValue("court", cbo_court.Text)
+'            .Parameters.AddWithValue("black", txt_black.Text)
+'            .Parameters.AddWithValue("red", txt_red.Text)
+'            .Parameters.AddWithValue("number", txt_number.Text)
+'            .Parameters.AddWithValue("total", CInt(txt_total.Text))
+'            .Parameters.AddWithValue("nameemp", txt_nameem.Text)
+'            .Parameters.AddWithValue("phone", txt_phone.Text)
+'            .Parameters.AddWithValue("hub", txt_hub.Text)
+'            .Parameters.AddWithValue("dtsheet", dtp_datesheet.Text)
+'            .Parameters.AddWithValue("empfull", txt_employee.Text)
+'            .Parameters.AddWithValue("Detail", txt_detail1.Text)
+'            .Parameters.AddWithValue("performance", txt_performance.Text)
+'            .Parameters.AddWithValue("result", txt_result.Text)
+'            .Parameters.AddWithValue("vrpk", _verify_pk)
+'            .Parameters.AddWithValue("idemp", CInt(DS.Tables("_emp").Rows(0)("EMPLOYEES_KEY")))
+'            .Parameters.AddWithValue("vrdate", dtp_verify_date.Text)
+'            .Parameters.AddWithValue("vrresult", txt_verify_result.Text)
+'            .Parameters.AddWithValue("vrcomment", txt_verify_comment.Text)
+'            .Parameters.AddWithValue("tkpk", _tracking_pk)
+'            .Parameters.AddWithValue("tkdate", dtp_tracking_date.Text)
+'            .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
+'            .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
+'            .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
+'            .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
+'            .ExecuteNonQuery()
+
+'        End With
+
+'        If dtgv_statement_search.Rows.Count <> 0 Then
+
+'            _Getlogdataexe($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}", $"'{txt_idcus.Text}'", $"'{cbo_acc.Text}'")
+'            dtgv_statement_search.DataSource.clear()
+'            loaddatagridviews()
+'            cell_refresh()
+
+'            Msg_OK("บันทึกข้อมูลสำเร็จ")
+
+'        Else
+'            Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
+'        End If
+
+'    End If
+
+'    cn.Close()
+
+'End Sub
+
+'If (dtgv_verify_statement.RowCount <> Nothing) Or (dtgv_verify_statement.ColumnCount <> Nothing) Then
+
+'End If
+
+'cbo_employees_exe.Text = CStr(.Rows.Item(e.RowIndex).Cells(21).Value.ToString)
+
+'dtp_tracking_date.Text = CStr(.Rows.Item(e.RowIndex).Cells(22).Value.ToString)
+'txt_tracking_nosheet.Text = CStr(.Rows.Item(e.RowIndex).Cells(23).Value.ToString)
+'txt_collec_nosend.Text = CStr(.Rows.Item(e.RowIndex).Cells(24).Value.ToString)
+'txt_tracking_detail.Text = CStr(.Rows.Item(e.RowIndex).Cells(25).Value.ToString)
+
+'dtp_verify_date.Text = CStr(.Rows.Item(e.RowIndex).Cells(26).Value.ToString)
+'txt_verify_result.Text = CStr(.Rows.Item(e.RowIndex).Cells(27).Value.ToString)
+'txt_verify_comment.Text = CStr(.Rows.Item(e.RowIndex).Cells(28).Value.ToString)
+
+
+'If dtgv_statement_search.Rows.Item(e.RowIndex).Cells(27).Value.ToString <> "" Then
+
+'    chk_verify_date.Checked = True
+
+'Else
+
+'    chk_verify_date.Checked = False
+
+'End If
+
+'If (dtgv_tracking_statement.RowCount <> Nothing) Or (dtgv_tracking_statement.ColumnCount <> Nothing) Then
+
+'End If
+
+
+
 
 
