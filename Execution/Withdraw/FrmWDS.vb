@@ -424,7 +424,7 @@ Public Class FrmWDS
             loaddata()
             notedit()
 
-            _Getlogdata($"เพิ่มข้อมูลลูกค้า ธนาคาร {cbo_owner.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}")
+            _Getlogdataexe($"เพิ่มข้อมูลลูกค้า ถอนอายัด/ยึด ธนาคาร {cbo_owner.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
         Else
             Msg_error("ไม่สามารถแก้ไขข้อมูลได้")

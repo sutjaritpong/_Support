@@ -316,7 +316,7 @@ Public Class FrmPort
             If i > 0 Then
 
                 Msg_OK("อัพเดตข้อมูลสำเร็จ")
-                _Getlogdata($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ")
+                _Getlogdataexe($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
                 cn.Close()
             Else
                 Msg_error("อัพเดตข้อมูลล้มเหลว")
@@ -338,7 +338,7 @@ Public Class FrmPort
             Dim x As Integer = cmd.ExecuteNonQuery()
             If x > 0 Then
                 Msg_OK("ลบข้อมูลสำเร็จ")
-                _Getlogdata($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text}  ")
+                _Getlogdataexe($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
                 cn.Close()
             Else
                 Msg_error("ลบข้อมูลล้มเหลว")

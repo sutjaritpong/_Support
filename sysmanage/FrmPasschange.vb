@@ -54,9 +54,9 @@ Public Class FrmPasschange
             End With
 
             If DS.Tables("table").Rows(0)("USRGROUP") = "Admin" Or DS.Tables("table").Rows(0)("USRGROUP") = "Collector" Then
-                FrmMastermain.accms.Enabled = False                   '// เช็คสิทธิ การเข้าถึงฟอร์มต่าง ๆ
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.Historyms.Enabled = False
+                FrmMastermain.menu_accms.Enabled = False                   '// เช็คสิทธิ การเข้าถึงฟอร์มต่าง ๆ
+                FrmMastermain.menu_settingms.Enabled = False
+                FrmMastermain.menu_Historyms.Enabled = False
                 FrmMastermain.MENU_Uploads_SCANPDF.Enabled = False
 
             End If

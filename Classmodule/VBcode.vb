@@ -50,6 +50,22 @@ Module VBcode
         cn.Close()
 
     End Sub
+
+    Friend Sub _Getlogdataexe(_status As String, _customer_id As Object, _Account As Object)
+        connect()
+        _sql = $"SELECT * FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
+        cmd = New SqlCommand(_sql, cn)
+        DA = New SqlDataAdapter(cmd)
+        DA.Fill(DS, "Fullname")
+
+        sql = ($"INSERT INTO Execution_logfiles(LOGDATE,Customer_id_card,Customer_account,LOGUSER,LOGNAME,LOGIP,LOGPCNAME,LOGDETAIL)VALUES(GETDATE(),{_customer_id},{_Account},'{FrmLogin.txt_idlog.Text}','{DS.Tables("Fullname").Rows(0)("USRNAME")}','{FrmLogin.aws.LocalIP}','{pc}','{_status}')")
+        cmd.CommandText = sql
+        cmd.ExecuteNonQuery()
+
+        cn.Close()
+
+    End Sub
+
     '## Descriptions ##
     '## Sub Clear Datagridview ใช้สำหรับลบ ข้อมูล ถ้า Datagridview นั้นมีข้อมูลค้างอยู่ ##
     '## Parameters sender As Object ในการผ่านข้อมูล Datagridview ที่ต้องการใช้เพิ่มข้อมูล ##
@@ -78,7 +94,7 @@ Module VBcode
         _combobox.SelectedIndex = 0
 
     End Sub
-    '## sub _datagrid_format_dateshort มี Parameter 2 ตัว _mydatagrid รับค่า Datagridview ที่่ต้องการใช้งาน และ _index รับค่า ลำดับ Columns ที่จะแสดงผล 
+    ' sub _datagrid_format_dateshort มี Parameter 2 ตัว _mydatagrid รับค่า Datagridview ที่่ต้องการใช้งาน และ _index รับค่า ลำดับ Columns ที่จะแสดงผล 
     Friend Sub _datagrid_format_dateshort(_mydatagrid As DataGridView, _index As Integer)
 
         _mydatagrid.Columns(_index).DefaultCellStyle.Format = "dd-MMM-yy"
@@ -86,16 +102,16 @@ Module VBcode
     End Sub
 
     Friend Sub _Datetimeformatshort(_time As DateTimePicker)
-        '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
+        ' Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _time.Format = DateTimePickerFormat.Custom
         _time.CustomFormat = "dd-MMM-yy"
 
     End Sub
-    '## Descriptions ##
-    '## Sub ใช้ในการเพิ่มข้อมูล Combobox ในการดึงข้อมูลจาก Database หรือ SQLSERVER ทำการเชื่อมต่อ ฐานข้อมูล จากนั้นใช้ เคลียข้อมูลใน Combobox แล้ว Query ข้อมูลคอลัมน์ ที่ต้องการนำมาแสดง โดยใช้ Loop While ในการอ่านข้อมูลในคอลัมน์ที่ Query มาแล้วเพิ่มเข้า ##
-    '## Parameters _combobox As Object ใช้เพิ่ม Combobox เข้าไปใน
-    '## Parameters _columns As String อ้างถึงชื่อคอลัมน์ของข้อมูลที่จะนำมาแสดง
-    '## Parameters _tables As String ใช้อ้างถึงชื่อตารางที่จะนำข้อมูลมาแสดง
+    ' Descriptions ##
+    ' Sub ใช้ในการเพิ่มข้อมูล Combobox ในการดึงข้อมูลจาก Database หรือ SQLSERVER ทำการเชื่อมต่อ ฐานข้อมูล จากนั้นใช้ เคลียข้อมูลใน Combobox แล้ว Query ข้อมูลคอลัมน์ ที่ต้องการนำมาแสดง โดยใช้ Loop While ในการอ่านข้อมูลในคอลัมน์ที่ Query มาแล้วเพิ่มเข้า ##
+    ' Parameters _combobox As Object ใช้เพิ่ม Combobox เข้าไปใน
+    ' Parameters _columns As String อ้างถึงชื่อคอลัมน์ของข้อมูลที่จะนำมาแสดง
+    ' Parameters _tables As String ใช้อ้างถึงชื่อตารางที่จะนำข้อมูลมาแสดง
 
     Friend Sub _comboboxadd(_combobox As Object, _columns As String, _tables As String)
 
@@ -147,24 +163,84 @@ Module VBcode
         Dim _Group As String = DS.Tables("table").Rows(0)("USRGROUP")
 
         Select Case _Group
-            Case "Admin"
-                FrmMastermain.accms.Enabled = False
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.Historyms.Enabled = False
-                FrmMastermain.MENU_Uploads_SCANPDF.Enabled = False
-                FrmMastermain.Menu_Upload_Execution.Enabled = False
-                FrmMastermain.tab_execution.Enabled = False
-                FrmMastermain.IPManagement.Enabled = False
-            Case "Collector"
-                FrmMastermain.accms.Enabled = False
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.Historyms.Enabled = False
-                FrmMastermain.MENU_Uploads_SCANPDF.Enabled = False
-                FrmMastermain.Menu_Upload_Execution.Enabled = False
-                FrmMastermain.settingms.Enabled = False
-                FrmMastermain.IPManagement.Enabled = False
-                FrmMastermain.menu_accounting_search.Enabled = False
+            Case "Execution"
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_execution.Enabled = False
+            FrmMastermain.Menu_tab_Accounting.Enabled = False
+            FrmMastermain.Menu_tab_scanpdf.Enabled = True
+            'Main_menu_setting
+            FrmMastermain.menu_accms.Enabled = False
+            FrmMastermain.menu_settingms.Enabled = False
+            FrmMastermain.menu_Historyms.Enabled = False
+            FrmMastermain.menu_changespassword.Enabled = True
+            FrmMastermain.Menu_logexe.Enabled = False
+            'Main_menu_UpLoad
+            FrmMastermain.Menu_upload_exe.Enabled = False
+            FrmMastermain.Menu_upload_scan.Enabled = False
+            'Main_menu_report
+            FrmMastermain.menu_tab_report.Enabled = False
+            FrmMastermain.Menu_ReportAccounting.Enabled = True
+            FrmMastermain.Menu_Reportstatement.Enabled = True
+            FrmMastermain.Menu_Reporttracking.Enabled = True
+            FrmMastermain.Menu_ReportWDS.Enabled = True
+                'Main_menu_ITManagement
+                FrmMastermain.Main_menu_it.Enabled = False
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
 
+            Case "Admin"
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_execution.Enabled = False
+                FrmMastermain.Menu_tab_Accounting.Enabled = False
+                FrmMastermain.Menu_tab_scanpdf.Enabled = True
+                'Main_menu_setting
+                FrmMastermain.menu_accms.Enabled = False
+                FrmMastermain.menu_settingms.Enabled = False
+                FrmMastermain.menu_Historyms.Enabled = False
+                FrmMastermain.menu_changespassword.Enabled = True
+                FrmMastermain.Menu_logexe.Enabled = False
+                'Main_menu_UpLoad
+                FrmMastermain.Menu_upload_exe.Enabled = False
+                FrmMastermain.Menu_upload_scan.Enabled = False
+                'Main_menu_report
+                FrmMastermain.menu_tab_report.Enabled = False
+                FrmMastermain.Menu_ReportAccounting.Enabled = True
+                FrmMastermain.Menu_Reportstatement.Enabled = True
+                FrmMastermain.Menu_Reporttracking.Enabled = True
+                FrmMastermain.Menu_ReportWDS.Enabled = True
+                'Main_menu_ITManagement
+                FrmMastermain.Main_menu_it.Enabled = False
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
+
+            Case "Collector"
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_execution.Enabled = False
+                FrmMastermain.Menu_tab_Accounting.Enabled = False
+                FrmMastermain.Menu_tab_scanpdf.Enabled = True
+                'Main_menu_setting
+                FrmMastermain.menu_accms.Enabled = False
+                FrmMastermain.menu_settingms.Enabled = False
+                FrmMastermain.menu_Historyms.Enabled = False
+                FrmMastermain.menu_changespassword.Enabled = True
+                FrmMastermain.Menu_logexe.Enabled = False
+                'Main_menu_UpLoad
+                FrmMastermain.Menu_upload_exe.Enabled = False
+                FrmMastermain.Menu_upload_scan.Enabled = False
+                'Main_menu_report
+                FrmMastermain.menu_tab_report.Enabled = False
+                FrmMastermain.Menu_ReportAccounting.Enabled = False
+                FrmMastermain.Menu_Reportstatement.Enabled = False
+                FrmMastermain.Menu_Reporttracking.Enabled = False
+                FrmMastermain.Menu_ReportWDS.Enabled = False
+                'Main_menu_ITManagement
+                FrmMastermain.Main_menu_it.Enabled = False
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
+            Case "Supervisor"
+                'Main_menu_ITManagement
+                FrmITSupport.cmd_logIT.Enabled = False
+                FrmITSupport.cmd_Pcmanage.Enabled = False
         End Select
 
         cn.Close()

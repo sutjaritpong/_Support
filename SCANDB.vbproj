@@ -65,7 +65,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Loading.ico</ApplicationIcon>
+    <ApplicationIcon>Goodstuff-No-Nonsense-Free-Space-Astronaut.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>CAF555F8F4CFA1E80485AB42E542BD8C8A852AA5</ManifestCertificateThumbprint>
@@ -117,13 +117,66 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Report_execution\FrmlogexeRV.Designer.vb">
+      <DependentUpon>FrmlogexeRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Report_execution\FrmlogexeRV.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Execution\Report_execution\FrmStatementRV.Designer.vb">
       <DependentUpon>FrmStatementRV.vb</DependentUpon>
     </Compile>
     <Compile Include="Execution\Report_execution\FrmStatementRV.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatementDataSet.Designer.vb">
+    <Compile Include="Execution\Tracking\Frmincome.Designer.vb">
+      <DependentUpon>Frmincome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Tracking\Frmincome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmDomainServer.Designer.vb">
+      <DependentUpon>FrmDomainServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmDomainServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\Frmhistorylog.Designer.vb">
+      <DependentUpon>Frmhistorylog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\Frmhistorylog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageCCTV.Designer.vb">
+      <DependentUpon>FrmmanageCCTV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageCCTV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanagePC.Designer.vb">
+      <DependentUpon>FrmmanagePC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanagePC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageRouter.Designer.vb">
+      <DependentUpon>FrmmanageRouter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmmanageRouter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ITSupport\FrmITSupport.Designer.vb">
+      <DependentUpon>FrmITSupport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ITSupport\FrmITSupport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dataset\logexe_dataset.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\StatementDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
@@ -158,23 +211,29 @@
     <Compile Include="Execution\Report_execution\FrmWDSRV.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCANPDF.Designer.vb">
+    <Compile Include="Dataset\SCANPDF.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SCANPDF.vb">
+    <Compile Include="Dataset\SCANPDF.vb">
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SCANPDFDataSet.Designer.vb">
+    <Compile Include="Dataset\SCANPDFDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SCANPDFDataSet1.Designer.vb">
+    <Compile Include="Dataset\SCANPDFDataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sysmanage\Frmlogfileexe.Designer.vb">
+      <DependentUpon>Frmlogfileexe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sysmanage\Frmlogfileexe.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UPLOAD\FrmimportAccounting.Designer.vb">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
@@ -385,6 +444,9 @@
     <EmbeddedResource Include="Execution\Report_execution\FrmAccountingRV.resx">
       <DependentUpon>FrmAccountingRV.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Report_execution\FrmlogexeRV.resx">
+      <DependentUpon>FrmlogexeRV.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\FrmStatementRV.resx">
       <DependentUpon>FrmStatementRV.vb</DependentUpon>
     </EmbeddedResource>
@@ -392,10 +454,23 @@
       <DependentUpon>FrmTrackRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportAccounting.rdlc" />
+    <EmbeddedResource Include="Execution\Report_execution\Reportlogexe.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\ReportStatement.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\Reporttracking.rdlc" />
     <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
       <DependentUpon>Frmfilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\Tracking\Frmincome.resx">
+      <DependentUpon>Frmincome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmDomainServer.resx">
+      <DependentUpon>FrmDomainServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\Frmhistorylog.resx">
+      <DependentUpon>Frmhistorylog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmmanageCCTV.resx">
+      <DependentUpon>FrmmanageCCTV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ITSupport\FrmmanageIP.resx">
       <DependentUpon>FrmmanageIP.vb</DependentUpon>
@@ -404,6 +479,18 @@
       <DependentUpon>FrmWDSRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportWDS.rdlc" />
+    <EmbeddedResource Include="ITSupport\FrmmanagePC.resx">
+      <DependentUpon>FrmmanagePC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmmanageRouter.resx">
+      <DependentUpon>FrmmanageRouter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ITSupport\FrmITSupport.resx">
+      <DependentUpon>FrmITSupport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
+      <DependentUpon>Frmlogfileexe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPLOAD\FrmimportAccounting.resx">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
     </EmbeddedResource>
@@ -505,15 +592,26 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="StatementDataSet.xsc">
+    <None Include="Dataset\logexe_dataset.xsc">
+      <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\logexe_dataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>logexe_dataset.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\logexe_dataset.xss">
+      <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\StatementDataSet.xsc">
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
     </None>
-    <None Include="StatementDataSet.xsd">
+    <None Include="Dataset\StatementDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>StatementDataSet.Designer.vb</LastGenOutput>
     </None>
-    <None Include="StatementDataSet.xss">
+    <None Include="Dataset\StatementDataSet.xss">
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
     </None>
     <None Include="My Project\app.manifest" />
@@ -527,37 +625,37 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="SCANPDF.xsc">
+    <None Include="Dataset\SCANPDF.xsc">
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDF.xsd">
+    <None Include="Dataset\SCANPDF.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SCANPDF.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SCANPDF.xss">
+    <None Include="Dataset\SCANPDF.xss">
       <DependentUpon>SCANPDF.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet.xsc">
+    <None Include="Dataset\SCANPDFDataSet.xsc">
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet.xsd">
+    <None Include="Dataset\SCANPDFDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SCANPDFDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SCANPDFDataSet.xss">
+    <None Include="Dataset\SCANPDFDataSet.xss">
       <DependentUpon>SCANPDFDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet1.xsc">
+    <None Include="Dataset\SCANPDFDataSet1.xsc">
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="SCANPDFDataSet1.xsd">
+    <None Include="Dataset\SCANPDFDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SCANPDFDataSet1.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SCANPDFDataSet1.xss">
+    <None Include="Dataset\SCANPDFDataSet1.xss">
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
@@ -750,6 +848,7 @@
     <None Include="Resources\16x16 icon %2842%29.png" />
     <None Include="Resources\32x32accept.png" />
     <None Include="Resources\32x32delete.png" />
+    <Content Include="Goodstuff-No-Nonsense-Free-Space-Astronaut.ico" />
     <Content Include="Loading.ico" />
     <None Include="Resources\Excel-icon.png" />
     <None Include="Resources\Download_24x24.png" />
@@ -823,7 +922,17 @@
     <None Include="Resources\478a0c35f396963d0f65352b61809cb1 - korat-hotels.jpg" />
     <None Include="Resources\server_error.png" />
     <None Include="Resources\server_connect.png" />
+    <None Include="Resources\monitor_lightning.png" />
+    <None Include="Resources\arrow_switch.png" />
     <None Include="Resources\filter-icon16x16.png" />
+    <None Include="Resources\download1.png" />
+    <None Include="Resources\connection.png" />
+    <None Include="Resources\download2.png" />
+    <None Include="Resources\200725114849-v6bA.png" />
+    <None Include="Resources\4aff9db9936e04513fde6a461fa1ee4a.png" />
+    <None Include="Resources\wifi-sticker.png" />
+    <None Include="Resources\logo ip.png" />
+    <None Include="Resources\LOGLOGO.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -838,7 +947,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

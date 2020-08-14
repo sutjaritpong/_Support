@@ -25,11 +25,11 @@ Partial Class FrmEXEACC
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEXEACC))
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.cbo_status = New System.Windows.Forms.ComboBox()
         Me.chk_date_work = New System.Windows.Forms.CheckBox()
         Me.txt_red = New System.Windows.Forms.TextBox()
         Me.dtp_datework = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txt_status = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_cusid = New System.Windows.Forms.TextBox()
@@ -77,6 +77,12 @@ Partial Class FrmEXEACC
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.lbl_count_find = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,11 +97,17 @@ Partial Class FrmEXEACC
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Controls.Add(Me.ComboBox2)
+        Me.GroupBox4.Controls.Add(Me.TextBox1)
+        Me.GroupBox4.Controls.Add(Me.Label7)
+        Me.GroupBox4.Controls.Add(Me.Label2)
+        Me.GroupBox4.Controls.Add(Me.ComboBox1)
+        Me.GroupBox4.Controls.Add(Me.cbo_status)
         Me.GroupBox4.Controls.Add(Me.chk_date_work)
         Me.GroupBox4.Controls.Add(Me.txt_red)
         Me.GroupBox4.Controls.Add(Me.dtp_datework)
         Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Controls.Add(Me.txt_status)
         Me.GroupBox4.Controls.Add(Me.Label11)
         Me.GroupBox4.Controls.Add(Me.Label5)
         Me.GroupBox4.Controls.Add(Me.txt_cusid)
@@ -107,17 +119,25 @@ Partial Class FrmEXEACC
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox4.Size = New System.Drawing.Size(311, 201)
+        Me.GroupBox4.Size = New System.Drawing.Size(311, 267)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
+        '
+        'cbo_status
+        '
+        Me.cbo_status.FormattingEnabled = True
+        Me.cbo_status.Location = New System.Drawing.Point(119, 149)
+        Me.cbo_status.Name = "cbo_status"
+        Me.cbo_status.Size = New System.Drawing.Size(178, 23)
+        Me.cbo_status.TabIndex = 59
         '
         'chk_date_work
         '
         Me.chk_date_work.AutoSize = True
         Me.chk_date_work.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chk_date_work.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_date_work.Location = New System.Drawing.Point(19, 152)
+        Me.chk_date_work.Location = New System.Drawing.Point(17, 178)
         Me.chk_date_work.Name = "chk_date_work"
         Me.chk_date_work.Size = New System.Drawing.Size(94, 20)
         Me.chk_date_work.TabIndex = 95
@@ -128,7 +148,7 @@ Partial Class FrmEXEACC
         'txt_red
         '
         Me.txt_red.ForeColor = System.Drawing.Color.Red
-        Me.txt_red.Location = New System.Drawing.Point(119, 100)
+        Me.txt_red.Location = New System.Drawing.Point(119, 123)
         Me.txt_red.Name = "txt_red"
         Me.txt_red.Size = New System.Drawing.Size(178, 20)
         Me.txt_red.TabIndex = 8
@@ -136,7 +156,7 @@ Partial Class FrmEXEACC
         'dtp_datework
         '
         Me.dtp_datework.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_datework.Location = New System.Drawing.Point(119, 152)
+        Me.dtp_datework.Location = New System.Drawing.Point(119, 178)
         Me.dtp_datework.Name = "dtp_datework"
         Me.dtp_datework.Size = New System.Drawing.Size(116, 20)
         Me.dtp_datework.TabIndex = 10
@@ -146,25 +166,18 @@ Partial Class FrmEXEACC
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.SystemColors.Window
         Me.Label6.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(58, 74)
+        Me.Label6.Location = New System.Drawing.Point(60, 97)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(53, 18)
         Me.Label6.TabIndex = 82
         Me.Label6.Text = "เลขคดีดำ"
-        '
-        'txt_status
-        '
-        Me.txt_status.Location = New System.Drawing.Point(119, 126)
-        Me.txt_status.Name = "txt_status"
-        Me.txt_status.Size = New System.Drawing.Size(178, 20)
-        Me.txt_status.TabIndex = 9
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.SystemColors.Window
         Me.Label11.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(48, 126)
+        Me.Label11.Location = New System.Drawing.Point(50, 154)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(63, 18)
         Me.Label11.TabIndex = 59
@@ -175,7 +188,7 @@ Partial Class FrmEXEACC
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.SystemColors.Window
         Me.Label5.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(53, 100)
+        Me.Label5.Location = New System.Drawing.Point(55, 124)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 18)
         Me.Label5.TabIndex = 61
@@ -183,14 +196,14 @@ Partial Class FrmEXEACC
         '
         'txt_cusid
         '
-        Me.txt_cusid.Location = New System.Drawing.Point(119, 22)
+        Me.txt_cusid.Location = New System.Drawing.Point(119, 19)
         Me.txt_cusid.Name = "txt_cusid"
         Me.txt_cusid.Size = New System.Drawing.Size(178, 20)
         Me.txt_cusid.TabIndex = 5
         '
         'txt_cusname
         '
-        Me.txt_cusname.Location = New System.Drawing.Point(119, 48)
+        Me.txt_cusname.Location = New System.Drawing.Point(119, 71)
         Me.txt_cusname.Name = "txt_cusname"
         Me.txt_cusname.Size = New System.Drawing.Size(178, 20)
         Me.txt_cusname.TabIndex = 6
@@ -200,7 +213,7 @@ Partial Class FrmEXEACC
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.SystemColors.Window
         Me.Label4.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(18, 22)
+        Me.Label4.Location = New System.Drawing.Point(20, 20)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 18)
         Me.Label4.TabIndex = 59
@@ -211,7 +224,7 @@ Partial Class FrmEXEACC
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.SystemColors.Window
         Me.Label3.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(41, 48)
+        Me.Label3.Location = New System.Drawing.Point(43, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 18)
         Me.Label3.TabIndex = 60
@@ -219,7 +232,7 @@ Partial Class FrmEXEACC
         '
         'txt_black
         '
-        Me.txt_black.Location = New System.Drawing.Point(119, 74)
+        Me.txt_black.Location = New System.Drawing.Point(119, 97)
         Me.txt_black.Name = "txt_black"
         Me.txt_black.Size = New System.Drawing.Size(178, 20)
         Me.txt_black.TabIndex = 7
@@ -689,6 +702,62 @@ Partial Class FrmEXEACC
         Me.lbl_count_find.TabIndex = 141
         Me.lbl_count_find.Text = "ผลการค้นหา..."
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(119, 204)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(116, 23)
+        Me.ComboBox1.TabIndex = 59
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.SystemColors.Window
+        Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(72, 205)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 18)
+        Me.Label2.TabIndex = 96
+        Me.Label2.Text = "TYPE"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(119, 45)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(178, 20)
+        Me.TextBox1.TabIndex = 97
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.SystemColors.Window
+        Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(20, 45)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(93, 18)
+        Me.Label7.TabIndex = 98
+        Me.Label7.Text = "เลขบัตรประชาชน"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.SystemColors.Window
+        Me.Label8.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(67, 234)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(46, 18)
+        Me.Label8.TabIndex = 100
+        Me.Label8.Text = "CLNO"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(119, 233)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(116, 23)
+        Me.ComboBox2.TabIndex = 99
+        '
         'FrmEXEACC
         '
         Me.AcceptButton = Me.cmd_search
@@ -747,7 +816,6 @@ Partial Class FrmEXEACC
     Friend WithEvents txt_detail_receipt As TextBox
     Friend WithEvents dtp_date_receipt As DateTimePicker
     Friend WithEvents Label9 As Label
-    Friend WithEvents txt_status As TextBox
     Friend WithEvents txt_total_receipt As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents dtgv_exeacc As DataGridView
@@ -783,4 +851,11 @@ Partial Class FrmEXEACC
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents lbl_count_find As Label
+    Friend WithEvents cbo_status As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label7 As Label
 End Class

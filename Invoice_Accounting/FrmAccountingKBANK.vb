@@ -47,7 +47,7 @@ Public Class FrmAccountingKBANK
 
         connect()
         dtgv_invoice_list.Visible = True
-        Grb_detail.Visible = True
+
 
         If (dtgv_invoice_list.RowCount <> Nothing) Or (dtgv_invoice_list.ColumnCount <> Nothing) Then
             _cleardatagrid(dtgv_invoice_list)
@@ -184,8 +184,7 @@ Public Class FrmAccountingKBANK
         With dtgv_find_scan
             .DataSource = DS.Tables("scans")
             .Columns(1).Visible = False
-            .Columns(2).Visible = False
-            .Columns(3).Visible = False
+
 
             .Columns(0).HeaderText = "เลขที่ชุด"
             .Columns(1).HeaderText = "Path"
@@ -243,37 +242,37 @@ Public Class FrmAccountingKBANK
 
     End Sub
 
-    'Private Sub cmd_clipboard_Click(sender As Object, e As EventArgs)
-
-
-    '    Dim _csv() As String = {$"{txt_namecus.Text}", $"{txt_cuscus.Text}", $"{txt_invoice.Text}"}
-
-    '    Clipboard.SetDataObject(_csv(1) & "," & _csv(2), True)
-
-    '    'Dim o As IDataObject = Clipboard.GetDataObject()
-    '    'If Not o Is Nothing Then
-    '    '    If (o.GetDataPresent(DataFormats.CommaSeparatedValue)) Then
-    '    '        Dim sr As New StreamReader(CType(o.GetData(DataFormats.CommaSeparatedValue), Stream))
-    '    '        Dim s As String = sr.ReadToEnd()
-    '    '        sr.Close()
-    '    '        Console.WriteLine(s)
-    '    '    End If
-    '    'End If
-
-    'End Sub
-
-    'Private Sub cmd_test_Click(sender As Object, e As EventArgs)
-
-    '    Dim csv As String = $"{txt_cuscus.Text},{txt_namecus.Text.ToString},{txt_blackred.Text.ToString},{txt_court.Text.ToString},{txt_invoice.Text.ToString}"
-
-    '    Dim blob As Byte() = System.Text.Encoding.UTF8.GetBytes(csv)
-
-    '    Dim s As New MemoryStream
-    '    Dim data As New DataObject()
-
-    '    data.SetData(DataFormats.CommaSeparatedValue, s)
-    '    Clipboard.SetDataObject(data, True)
-
-    'End Sub
-
 End Class
+
+'Private Sub cmd_clipboard_Click(sender As Object, e As EventArgs)
+
+
+'    Dim _csv() As String = {$"{txt_namecus.Text}", $"{txt_cuscus.Text}", $"{txt_invoice.Text}"}
+
+'    Clipboard.SetDataObject(_csv(1) & "," & _csv(2), True)
+
+'    'Dim o As IDataObject = Clipboard.GetDataObject()
+'    'If Not o Is Nothing Then
+'    '    If (o.GetDataPresent(DataFormats.CommaSeparatedValue)) Then
+'    '        Dim sr As New StreamReader(CType(o.GetData(DataFormats.CommaSeparatedValue), Stream))
+'    '        Dim s As String = sr.ReadToEnd()
+'    '        sr.Close()
+'    '        Console.WriteLine(s)
+'    '    End If
+'    'End If
+
+'End Sub
+
+'Private Sub cmd_test_Click(sender As Object, e As EventArgs)
+
+'    Dim csv As String = $"{txt_cuscus.Text},{txt_namecus.Text.ToString},{txt_blackred.Text.ToString},{txt_court.Text.ToString},{txt_invoice.Text.ToString}"
+
+'    Dim blob As Byte() = System.Text.Encoding.UTF8.GetBytes(csv)
+
+'    Dim s As New MemoryStream
+'    Dim data As New DataObject()
+
+'    data.SetData(DataFormats.CommaSeparatedValue, s)
+'    Clipboard.SetDataObject(data, True)
+
+'End Sub

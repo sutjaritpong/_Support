@@ -25,13 +25,23 @@ Partial Class FrmAccountingRV
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAccountingRV))
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.SCANPDF = New SCANDB.SCANPDF()
         Me.EXEACCBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SCANPDF = New SCANDB.SCANPDF()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.EXEACCTableAdapter = New SCANDB.SCANPDFTableAdapters.EXEACCTableAdapter()
-        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EXEACCBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EXEACCBindingSource
+        '
+        Me.EXEACCBindingSource.DataMember = "EXEACC"
+        Me.EXEACCBindingSource.DataSource = Me.SCANPDF
+        '
+        'SCANPDF
+        '
+        Me.SCANPDF.DataSetName = "SCANPDF"
+        Me.SCANPDF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -44,31 +54,21 @@ Partial Class FrmAccountingRV
         Me.ReportViewer1.Size = New System.Drawing.Size(1008, 707)
         Me.ReportViewer1.TabIndex = 0
         '
-        'SCANPDF
-        '
-        Me.SCANPDF.DataSetName = "SCANPDF"
-        Me.SCANPDF.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EXEACCBindingSource
-        '
-        Me.EXEACCBindingSource.DataMember = "EXEACC"
-        Me.EXEACCBindingSource.DataSource = Me.SCANPDF
-        '
         'EXEACCTableAdapter
         '
         Me.EXEACCTableAdapter.ClearBeforeFill = True
         '
-        'FrmAccounting
+        'FrmAccountingRV
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "FrmAccounting"
+        Me.Name = "FrmAccountingRV"
         Me.Text = "FrmAccounting"
-        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EXEACCBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SCANPDF, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

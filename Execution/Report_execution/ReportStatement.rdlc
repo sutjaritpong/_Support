@@ -1088,6 +1088,7 @@
                             <TextRun>
                               <Value>=Fields!EXEDATEWORK.Value</Value>
                               <Style>
+                                <Format>dd-MMM-yy</Format>
                                 <Color>Red</Color>
                               </Style>
                             </TextRun>
@@ -1212,7 +1213,7 @@
                             <TextRun>
                               <Value>=Fields!EXEDATERESULT.Value</Value>
                               <Style>
-                                <Format>dd-MMM-yy</Format>
+                                <Format>MMM yyyy</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1231,6 +1232,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

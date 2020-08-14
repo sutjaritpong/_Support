@@ -42,6 +42,11 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources._200725114849_v6bA">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources._32x32_calendar_empty">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -63,6 +68,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources._4aff9db9936e04513fde6a461fa1ee4a">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -103,6 +113,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.arrow_redo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.arrow_switch">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -158,6 +173,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.computer_edit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.connection">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -233,6 +253,11 @@ SCANDB
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.Download_24x24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.download1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -317,12 +342,27 @@ SCANDB
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:SCANDB.My.Resources.Resources.LOGLOGO">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.logo_ip">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:SCANDB.My.Resources.Resources.lorry_error">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:SCANDB.My.Resources.Resources.money_add">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.monitor_lightning">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -530,6 +570,601 @@ SCANDB
 <member name="P:SCANDB.My.Resources.Resources.Wi_Fi_icon24x24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.wifi">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:SCANDB.My.Resources.Resources.wifi_sticker">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.AccountingKBANKDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.ACCOUNTINGscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEACCDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXECHECKDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_logfilesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_OwnershipDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_Ownership_ResultDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_PortDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_verifyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEEMPLOYEEDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEINSOLVENTDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXESMDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXESOCDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXETRACKINGDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEWDSDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.HUBSDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.KBANKscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.KKBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.SCBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TBANKscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_fdspcDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_logfilesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_loginDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_settingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TMBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TSSscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.UOBscdbDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.AccountingKBANKRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.ACCOUNTINGscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEACCRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXECHECKRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_logfilesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_OwnershipRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_Ownership_ResultRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_PortRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_verifyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEEMPLOYEERow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEINSOLVENTRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXESMRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXESOCRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXETRACKINGRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEWDSRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.HUBSRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.KBANKscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.KKBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.SCBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TBANKscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_fdspcRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_logfilesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_loginRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_settingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TMBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TSSscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.UOBscdbRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.AccountingKBANKRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.ACCOUNTINGscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEACCRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXECHECKRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_logfilesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_OwnershipRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_Ownership_ResultRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_PortRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.Execution_verifyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEEMPLOYEERowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEINSOLVENTRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXESMRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXESOCRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXETRACKINGRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.EXEWDSRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.HUBSRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.KBANKscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.KKBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.SCBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TBANKscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_fdspcRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_logfilesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_loginRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.tbl_settingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TMBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.TSSscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_dataset.UOBscdbRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.AccountingKBANKTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.ACCOUNTINGscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXEACCTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXECHECKTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.Execution_logfilesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.Execution_OwnershipTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.Execution_Ownership_ResultTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.Execution_PortTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.Execution_verifyTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXEEMPLOYEETableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXEINSOLVENTTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXESMTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXESOCTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXETRACKINGTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.EXEWDSTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.HUBSTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.KBANKscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.KKBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.SCBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.TBANKscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.tbl_fdspcTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.tbl_logfilesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.tbl_loginTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.tbl_settingTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.TMBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.TSSscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.UOBscdbTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.UpdateUpdatedRows(SCANDB.logexe_dataset,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.UpdateInsertedRows(SCANDB.logexe_dataset,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.UpdateDeletedRows(SCANDB.logexe_dataset,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.UpdateAll(SCANDB.logexe_dataset)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:SCANDB.logexe_datasetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
 </summary>
 </member>
 <member name="T:SCANDB.StatementDataSet">

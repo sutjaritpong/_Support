@@ -260,7 +260,7 @@ Public Class FrmTracking
                 _datagrid_format_dateshort(dtgv_invalid, 6)
                 _datagrid_format_dateshort(dtgv_invalid, 12)
 
-                _Getlogdata($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน")
+                _Getlogdataexe($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน", $"'{txt_cusid.Text}'", $"NULL")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
                 clear()
                 _readonly()
