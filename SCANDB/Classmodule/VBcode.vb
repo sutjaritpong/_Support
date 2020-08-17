@@ -36,7 +36,7 @@ Module VBcode
     '## ดึงข้อมูลจาก User Name ที่เข้าใช้งานระบบ ## 
     '## Parameters _status As String ใช้สำหรับใส่ข้อความรายละเอียด ##
 
-    Friend Sub _Getlogdata(_status As String)
+    Friend Sub Getlogdata(_status As String)
         connect()
         _sql = $"SELECT * FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(_sql, cn)
@@ -51,7 +51,7 @@ Module VBcode
 
     End Sub
 
-    Friend Sub _Getlogdataexe(_status As String, _customer_id As Object, _Account As Object)
+    Friend Sub Getlogdataexe(_status As String, _customer_id As Object, _Account As Object)
         connect()
         _sql = $"SELECT * FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(_sql, cn)
@@ -70,7 +70,7 @@ Module VBcode
     '## Sub Clear Datagridview ใช้สำหรับลบ ข้อมูล ถ้า Datagridview นั้นมีข้อมูลค้างอยู่ ##
     '## Parameters sender As Object ในการผ่านข้อมูล Datagridview ที่ต้องการใช้เพิ่มข้อมูล ##
 
-    Friend Sub _cleardatagrid(sender As DataGridView)
+    Friend Sub Cleardatagrid(sender As DataGridView)
 
         If (sender.Rows.Count > 0) Or (sender.ColumnCount > 0) Then
 
@@ -86,7 +86,7 @@ Module VBcode
     '## ใช้ Method SelectedIndex เพื่อเลือก Array แรก สุดมาแสดง ##
     '## Parametes _combobox As Object ใช้เพิ่ม Combobox เข้าไปใน Sub ##
     '## Parameters ar As String() ใช้เพิ่ม Array ข้อมูลที่ต้องการ ##
-    Friend Sub _cboArray(_combobox As Object, ar As String())
+    Friend Sub CboArray(_combobox As Object, ar As String())
 
         _combobox.Items.clear()
 
@@ -95,13 +95,13 @@ Module VBcode
 
     End Sub
     ' sub _datagrid_format_dateshort มี Parameter 2 ตัว _mydatagrid รับค่า Datagridview ที่่ต้องการใช้งาน และ _index รับค่า ลำดับ Columns ที่จะแสดงผล 
-    Friend Sub _datagrid_format_dateshort(_mydatagrid As DataGridView, _index As Integer)
+    Friend Sub Datagrid_format_dateshort(_mydatagrid As DataGridView, _index As Integer)
 
         _mydatagrid.Columns(_index).DefaultCellStyle.Format = "dd-MMM-yy"
 
     End Sub
 
-    Friend Sub _Datetimeformatshort(_time As DateTimePicker)
+    Friend Sub Datetimeformatshort(_time As DateTimePicker)
         ' Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _time.Format = DateTimePickerFormat.Custom
         _time.CustomFormat = "dd-MMM-yy"
@@ -113,7 +113,7 @@ Module VBcode
     ' Parameters _columns As String อ้างถึงชื่อคอลัมน์ของข้อมูลที่จะนำมาแสดง
     ' Parameters _tables As String ใช้อ้างถึงชื่อตารางที่จะนำข้อมูลมาแสดง
 
-    Friend Sub _comboboxadd(_combobox As Object, _columns As String, _tables As String)
+    Friend Sub Comboboxadd(_combobox As Object, _columns As String, _tables As String)
 
         connect()
 
@@ -135,7 +135,7 @@ Module VBcode
     '## Descriptions ##
     '## Sub _convertnum ใช้เปลี่ยนตัวเลขเป็นจำนวนเงินมีจุดทศนิยม 2 ตำแหน่ง
 
-    Friend Sub _convertnum(_current As Object)
+    Friend Sub Convertnum(_current As Object)
         If (Str(_current.text) <> "") AndAlso (Not IsNumeric(_current.text)) Then
 
             Exit Sub
@@ -253,7 +253,7 @@ Module VBcode
     '## Parameters _columns As String ใช้กำหนด คอลัมน์ ในการค้นหาข้อมูล ##
     '## Parameters _table As String ใช้กำหนด ตาราง ในการค้นหาข้อมูล ##
 
-    Public Sub _autocomplete(ByRef sender As TextBox, _columns As String, _table As String)
+    Public Sub Autocompletecombo(ByRef sender As TextBox, _columns As String, _table As String)
 
         connect()
 

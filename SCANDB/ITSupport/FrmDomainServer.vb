@@ -2,7 +2,7 @@
 
 Imports System.Data.SqlClient
 Public Class FrmDomainServer
-    Dim headercolumns() As String = {"IP", "Hostname", "Domain", "USERNAME", "Password", "SQL", "ผู้ผลิต", "Model", "Antivirus", "VesionOS", "Type", "CPU", "HardDisk", "RAM", "Detail", "DATESETUP"}
+    Friend headercolumns() As String = {"IP", "Hostname", "Domain", "USERNAME", "Password", "SQL", "ผู้ผลิต", "Model", "Antivirus", "VesionOS", "Type", "CPU", "HardDisk", "RAM", "Detail", "DATESETUP"}
     Private Sub FrmDomainServer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ReloadDatagird()
@@ -41,7 +41,7 @@ Public Class FrmDomainServer
 
     End Sub
 
-    Private Sub dtgv_Server_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_Server.CellClick
+    Private Sub Dtgv_Server_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_Server.CellClick
 
         With dtgv_Server
 
@@ -67,9 +67,9 @@ Public Class FrmDomainServer
 
     End Sub
 
-    Private Sub cmd_server_save_Click(sender As Object, e As EventArgs) Handles cmd_server_save.Click
+    Private Sub Cmd_server_save_Click(sender As Object, e As EventArgs) Handles cmd_server_save.Click
 
-        connect()
+        Connect()
 
         Dim txtbox As String = txt_server_IP.Text
         If txtbox = "" Then
@@ -112,11 +112,11 @@ Public Class FrmDomainServer
         ReloadDatagird()
     End Sub
 
-    Private Sub cmd_server_delete_Click(sender As Object, e As EventArgs) Handles cmd_server_delete.Click
+    Private Sub Cmd_server_delete_Click(sender As Object, e As EventArgs) Handles cmd_server_delete.Click
 
         If Msg_confirm("คุณต้องการลบรายการนี้หรือไม่") = vbYes Then
 
-            connect()
+            Connect()
 
             Dim txtbox As String = txt_server_IP.Text
             If txtbox = "" Then
@@ -141,8 +141,8 @@ Public Class FrmDomainServer
         End If
     End Sub
 
-    Private Sub cmd_server_edit_Click(sender As Object, e As EventArgs) Handles cmd_server_edit.Click
-        connect()
+    Private Sub Cmd_server_edit_Click(sender As Object, e As EventArgs) Handles cmd_server_edit.Click
+        Connect()
 
         Dim txtbox As String = txt_server_IP.Text
         If txtbox = "" Then
@@ -183,7 +183,7 @@ Public Class FrmDomainServer
         ReloadDatagird()
     End Sub
 
-    Private Sub cmd_server_reload_Click(sender As Object, e As EventArgs) Handles cmd_server_reload.Click
+    Private Sub Cmd_server_reload_Click(sender As Object, e As EventArgs) Handles cmd_server_reload.Click
         ReloadDatagird()
     End Sub
 End Class

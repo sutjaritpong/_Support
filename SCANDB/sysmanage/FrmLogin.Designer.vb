@@ -136,7 +136,7 @@ Partial Class FrmLogin
         'aws
         '
         Me.aws.Enabled = True
-        Me.aws.Location = New System.Drawing.Point(683, 398)
+        Me.aws.Location = New System.Drawing.Point(374, 428)
         Me.aws.Name = "aws"
         Me.aws.OcxState = CType(resources.GetObject("aws.OcxState"), System.Windows.Forms.AxHost.State)
         Me.aws.Size = New System.Drawing.Size(28, 28)
@@ -209,7 +209,7 @@ Partial Class FrmLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btncancel
-        Me.ClientSize = New System.Drawing.Size(346, 468)
+        Me.ClientSize = New System.Drawing.Size(339, 468)
         Me.Controls.Add(Me.Ptb_connection)
         Me.Controls.Add(Me.lbl_version)
         Me.Controls.Add(Me.Label4)

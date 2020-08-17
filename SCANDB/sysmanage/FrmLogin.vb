@@ -8,8 +8,8 @@ Imports System.Globalization
 '## internetstatus As Boolean ตัวแปรใช้เช็คค่า True False ในการเชื่อมต่อ Network ##
 Public Class FrmLogin
 
-    Dim ip As IPAddress()
-    Dim internetstatus As Boolean
+    Friend ip As IPAddress()
+    Friend internetstatus As Boolean
 
     '## Event Load เรียกใช้เมื่อเปิด Form ให้ทำการ เช็คสถานะ Internet มีการเก็บ ค่า Username ไว้ใน Setting เพื่อให้ง่ายต่อการใช้งานระบบ ##
 
@@ -35,7 +35,7 @@ Public Class FrmLogin
     End Sub
 
     '## ปุ่มล็อคอิน มีเงื่อนไขในการเช็คข้อมูลต่าง ๆ ในการดึงข้อมูลจาก Database เงื่อนไขได้แก่ เช็คข้อมูลว่ากรอก Username Password หรือไม่, ดึงข้อมูล ID จากฐานข้อมูลเช็ค Username ถ้าไม่มีให้แจ้งเตือนผู้ใช้ หรือ กรณีใส่ข้อมูลผิด หลังจากข้อมุลถูกต้องให้ตรวจสอบว่า พบรหัสผ่าน ที่ตรงกับ UserID นี้หรือไม่ เช็ค Password ถ้าผิด ให้แจ้งเตือน ถ้าใส่รหัสผ่านผิดให้นับจำนวนครั้ง ที่ใส่ผิดถ้าเกินจำนวนที่กำหนด ให้ ระงับสิทธิการเข้าใช้งานโปรแกรม เงื่อนไขเกี่ยวกับวันที่เข้าใช้งาน วันที่สร้างรหัส วันที่เปลี่ยนรหัส โดยกำหนด เงื่อนไขถ้าเกินเวลา ที่กำหนดไว้ในตาราง tbl_setting ให้ระงับการใช้งาน หรือถ้าเกินเวลาหมดอายุของรหัสผ่าน ให้ User ทำการเปลี่ยนรหัส ##
-    Private Sub btnlogin_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
+    Private Sub Btnlogin_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
 
         connect()
 
@@ -230,7 +230,7 @@ Public Class FrmLogin
 
     '## button สำหรับ ปิดโปรแกรม หรือ ยกเลิกการใช้งาน
 
-    Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
+    Private Sub Btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
 
         If Msg_confirm("คุณต้องการออกจากโปรแกรมหรือไม่") = vbYes Then End
 
@@ -239,7 +239,7 @@ Public Class FrmLogin
     '## PasswordChar  คือแสดงรหัสผ่านเป้นอะไร เช่นในที่นี้ใช้ "•" เพื่อปกปิดข้อมูล รหัสผ่านของ User
     '## ปุ่ม check ให้แสดงหรือซ่อน Password
 
-    Private Sub chk_Password_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Password.CheckedChanged
+    Private Sub Chk_Password_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Password.CheckedChanged
 
         If chk_Password.Checked = True Then
             txt_passlog.PasswordChar = ""
@@ -251,7 +251,7 @@ Public Class FrmLogin
 
     '## เช็คว่ามีการจำ USERID เคยล็อคอินล่าสุดไหม ถ้า Checkbox ติ๊กถูกให้เก็บข้อมูลผู้ใช้
 
-    Private Sub chk_rememuser_CheckedChanged(sender As Object, e As EventArgs) Handles chk_rememuser.CheckedChanged
+    Private Sub Chk_rememuser_CheckedChanged(sender As Object, e As EventArgs) Handles chk_rememuser.CheckedChanged
 
         If chk_rememuser.Checked = True Then
 
@@ -268,7 +268,7 @@ Public Class FrmLogin
 
     '## ฟังชั่นเช็คระบบ internet โดยใช้ toolbox winsock ##
 
-    Private Sub internetcheck_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles internetcheck.DoWork
+    Private Sub Internetcheck_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles internetcheck.DoWork
 
         If My.Computer.Network.IsAvailable Then
 
@@ -283,7 +283,7 @@ Public Class FrmLogin
 
     '## เช็คระบบ INTERNET ถ้าไม่เชื่อมต่อให้เป็น Available หรือ ถ้าไม่เชื่อมต่อให้เป็น Not Available ##
 
-    Private Sub internetcheck_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles internetcheck.RunWorkerCompleted
+    Private Sub Internetcheck_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles internetcheck.RunWorkerCompleted
 
         If internetstatus = True Then
 

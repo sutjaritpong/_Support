@@ -34,13 +34,13 @@ Partial Class FrmKBANK
         Me.cmd_clear = New System.Windows.Forms.Button()
         Me.dtgvshowkbank = New System.Windows.Forms.DataGridView()
         Me.cmd_selectkbank = New System.Windows.Forms.Button()
-        Me.AxAcroPDFkbank = New AxAcroPDFLib.AxAcroPDF()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txt_bankselkbank = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.AxAcroPDFkbank = New AxAcroPDFLib.AxAcroPDF()
         CType(Me.dtgvshowkbank, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AxAcroPDFkbank, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AxAcroPDFkbank, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_searchkbank
@@ -151,16 +151,6 @@ Partial Class FrmKBANK
         Me.cmd_selectkbank.Text = "ค้นหา"
         Me.cmd_selectkbank.UseVisualStyleBackColor = False
         '
-        'AxAcroPDFkbank
-        '
-        Me.AxAcroPDFkbank.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AxAcroPDFkbank.Enabled = True
-        Me.AxAcroPDFkbank.Location = New System.Drawing.Point(491, 0)
-        Me.AxAcroPDFkbank.Name = "AxAcroPDFkbank"
-        Me.AxAcroPDFkbank.OcxState = CType(resources.GetObject("AxAcroPDFkbank.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDFkbank.Size = New System.Drawing.Size(517, 729)
-        Me.AxAcroPDFkbank.TabIndex = 55
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Untitled_4
@@ -190,6 +180,16 @@ Partial Class FrmKBANK
         Me.Label1.TabIndex = 103
         Me.Label1.Text = "ธนาคาร :"
         '
+        'AxAcroPDFkbank
+        '
+        Me.AxAcroPDFkbank.Dock = System.Windows.Forms.DockStyle.Right
+        Me.AxAcroPDFkbank.Enabled = True
+        Me.AxAcroPDFkbank.Location = New System.Drawing.Point(491, 0)
+        Me.AxAcroPDFkbank.Name = "AxAcroPDFkbank"
+        Me.AxAcroPDFkbank.OcxState = CType(resources.GetObject("AxAcroPDFkbank.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxAcroPDFkbank.Size = New System.Drawing.Size(517, 729)
+        Me.AxAcroPDFkbank.TabIndex = 104
+        '
         'FrmKBANK
         '
         Me.AcceptButton = Me.cmd_selectkbank
@@ -197,10 +197,10 @@ Partial Class FrmKBANK
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.AxAcroPDFkbank)
         Me.Controls.Add(Me.txt_bankselkbank)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.AxAcroPDFkbank)
         Me.Controls.Add(Me.txt_searchkbank)
         Me.Controls.Add(Me.txt_typeselkbank)
         Me.Controls.Add(Me.txt_Prodselkbank)
@@ -217,8 +217,8 @@ Partial Class FrmKBANK
         Me.Name = "FrmKBANK"
         Me.Text = "ค้นหาเอกสาร KBANK"
         CType(Me.dtgvshowkbank, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AxAcroPDFkbank, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AxAcroPDFkbank, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -234,8 +234,8 @@ Partial Class FrmKBANK
     Friend WithEvents cmd_clear As Button
     Friend WithEvents dtgvshowkbank As DataGridView
     Friend WithEvents cmd_selectkbank As Button
-    Friend WithEvents AxAcroPDFkbank As AxAcroPDFLib.AxAcroPDF
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents txt_bankselkbank As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents AxAcroPDFkbank As AxAcroPDFLib.AxAcroPDF
 End Class

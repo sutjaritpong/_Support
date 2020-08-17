@@ -1,7 +1,7 @@
 ﻿Option Explicit On
 Imports System.IO
 Imports System.Data.SqlClient
-Imports System.Runtime.InteropServices
+
 Public Class FrmKBANK
 
     Private Sub FrmKBANK_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -24,7 +24,7 @@ Public Class FrmKBANK
         Me.Dispose()
         cn.Close()
     End Sub
-    Private Sub dtgvshow_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowkbank.CellClick
+    Private Sub Dtgvshow_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowkbank.CellClick
         Try
             txt_accselkbank.Text = dtgvshowkbank.CurrentRow.Cells(0).Value  '// ทำให้แสดงข้อมูลเวลา click cell ใน Datagridview
             AxAcroPDFkbank.src = dtgvshowkbank.CurrentRow.Cells(1).Value
@@ -34,8 +34,8 @@ Public Class FrmKBANK
         Catch
         End Try
     End Sub
-    Private Sub cmd_select_Click(sender As Object, e As EventArgs) Handles cmd_selectkbank.Click
-        connect()
+    Private Sub Cmd_select_Click(sender As Object, e As EventArgs) Handles cmd_selectkbank.Click
+        Connect()
         If txt_searchkbank.Text = "" Then
             Msg_error("กรุณากรอก เลขที่สัญญาหรือเลขรหัสลูกหนี้")
         Else
@@ -52,17 +52,17 @@ Public Class FrmKBANK
                 Msg_error("ไม่พบข้อมูลที่ค้นหา")
             End If
 
-            _Getlogdata($"ค้นหา เอกสาร KBANK {txt_searchkbank.Text}")
+            Getlogdata($"ค้นหา เอกสาร KBANK {txt_searchkbank.Text}")
 
             For Each col As DataGridViewColumn In dtgvshowkbank.Columns
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             Next
         End If
     End Sub
-    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+    Private Sub Cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
         Clearinformation()
     End Sub
-    Private Sub refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
+    Private Sub Refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
         Dim header() As String = {"เลขที่สัญญา", "PathFile", "Product", "ธนาคาร", "ประเภท"}
         sql = "SELECT * FROM scanlaw"
         connect()

@@ -25,6 +25,7 @@ Partial Class FrmEXEACC
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEXEACC))
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.cbo_status = New System.Windows.Forms.ComboBox()
         Me.chk_date_work = New System.Windows.Forms.CheckBox()
         Me.txt_red = New System.Windows.Forms.TextBox()
         Me.dtp_datework = New System.Windows.Forms.DateTimePicker()
@@ -76,7 +77,6 @@ Partial Class FrmEXEACC
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.lbl_count_find = New System.Windows.Forms.Label()
-        Me.cbo_status = New System.Windows.Forms.ComboBox()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,6 +111,14 @@ Partial Class FrmEXEACC
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
+        '
+        'cbo_status
+        '
+        Me.cbo_status.FormattingEnabled = True
+        Me.cbo_status.Location = New System.Drawing.Point(119, 122)
+        Me.cbo_status.Name = "cbo_status"
+        Me.cbo_status.Size = New System.Drawing.Size(178, 23)
+        Me.cbo_status.TabIndex = 59
         '
         'chk_date_work
         '
@@ -681,14 +689,6 @@ Partial Class FrmEXEACC
         Me.lbl_count_find.Size = New System.Drawing.Size(136, 32)
         Me.lbl_count_find.TabIndex = 141
         Me.lbl_count_find.Text = "ผลการค้นหา..."
-        '
-        'cbo_status
-        '
-        Me.cbo_status.FormattingEnabled = True
-        Me.cbo_status.Location = New System.Drawing.Point(119, 122)
-        Me.cbo_status.Name = "cbo_status"
-        Me.cbo_status.Size = New System.Drawing.Size(178, 23)
-        Me.cbo_status.TabIndex = 59
         '
         'FrmEXEACC
         '

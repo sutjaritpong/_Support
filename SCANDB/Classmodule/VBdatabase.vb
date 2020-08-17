@@ -18,7 +18,7 @@ Module VBdatabase
     ''' เปิดใช้งานฐานข้อมูล
     ''' </summary>
     ''' <remarks></remarks>
-    Friend Sub connect()
+    Friend Sub Connect()
         Try
             If cn.State = ConnectionState.Closed Then cn.Open()
         Catch ex As Exception
@@ -31,8 +31,8 @@ Module VBdatabase
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Friend Function cmd_excuteNonquery()
-        connect()
+    Friend Function Cmd_excuteNonquery()
+        Connect()
         cmd = New SqlCommand(sql, cn)
         Return cmd.ExecuteNonQuery
     End Function
@@ -41,8 +41,8 @@ Module VBdatabase
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Friend Function cmd_excuteScalar()
-        connect()
+    Friend Function Cmd_excuteScalar()
+        Connect()
         cmd = New SqlCommand(sql, cn)
         Return cmd.ExecuteScalar()
     End Function
@@ -51,8 +51,8 @@ Module VBdatabase
     ''' </summary>
     ''' <param name="your_datagridView">ชื่อของ DataGrid ที่จะให้แสดงข้อมูล</param>
     ''' <remarks> ให้กำหนดคำสั่ง query ข้อมูลในตัวแปร sql ก่อน</remarks>
-    Friend Sub cmd_excuteToDataGridView(your_datagridView As DataGridView)
-        connect()
+    Friend Sub Cmd_excuteToDataGridView(your_datagridView As DataGridView)
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -63,8 +63,8 @@ Module VBdatabase
     ''' </summary>
     ''' <returns>DataTable</returns>
     ''' <remarks></remarks>
-    Friend Function cmd_excuteToDataTable()
-        connect()
+    Friend Function Cmd_excuteToDataTable()
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -75,8 +75,8 @@ Module VBdatabase
     ''' </summary>
     ''' <returns>DataSet</returns>
     ''' <remarks></remarks>
-    Friend Function cmd_excuteToDataSet()
-        connect()
+    Friend Function Cmd_excuteToDataSet()
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -88,8 +88,8 @@ Module VBdatabase
     ''' </summary>
     ''' <param name="your_comboBox_or_ListBox">ชื่อ combobox หรือ listbox ที่ต้องการให้แสดงข้อมูล</param>
     ''' <remarks></remarks>
-    Friend Sub cmd_excuteComboBoxAndListBox(your_comboBox_or_ListBox As Object)
-        connect()
+    Friend Sub Cmd_excuteComboBoxAndListBox(your_comboBox_or_ListBox As Object)
+        Connect()
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
         your_comboBox_or_ListBox.Items.Clear()
@@ -104,8 +104,8 @@ Module VBdatabase
     ''' </summary>
     ''' <param name="Your_PictureBox">ชื่อของ Picture ที่คุณจะให้รูปภาพแสดง</param>
     ''' <remarks></remarks>
-    Friend Sub cmd_excuteImageToPictureBox(Your_PictureBox As PictureBox)
-        connect()
+    Friend Sub Cmd_excuteImageToPictureBox(Your_PictureBox As PictureBox)
+        Connect()
         cmd = New SqlCommand(sql, cn)
         Dim imageData() As Byte = cmd.ExecuteScalar()
         Your_PictureBox.Image = Image.FromStream(New IO.MemoryStream(CType(imageData, Byte())))
@@ -116,9 +116,9 @@ Module VBdatabase
     ''' </summary>
     ''' <returns>Image</returns>
     ''' <remarks></remarks>
-    Friend Function cmd_excuteImage() As Image
-        connect()
-        Dim imageData() As Byte = cmd_excuteScalar(sql)
+    Friend Function Cmd_excuteImage() As Image
+        Connect()
+        Dim imageData() As Byte = Cmd_excuteScalar(sql)
         Return Image.FromStream(New IO.MemoryStream(CType(imageData, Byte())))
     End Function
     ''' <summary>
@@ -127,7 +127,7 @@ Module VBdatabase
     ''' <param name="your_pictureBox">ชื่อ PictureBox ของคุณที่จะแปลงภาพ</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Friend Function convert_PictureBox_toDatabase(your_pictureBox As PictureBox)
+    Friend Function Convert_PictureBox_toDatabase(your_pictureBox As PictureBox)
         Dim memmory As New IO.MemoryStream
         your_pictureBox.Image.Save(memmory, Imaging.ImageFormat.Bmp)
         Dim pic_ready() As Byte = memmory.ToArray()

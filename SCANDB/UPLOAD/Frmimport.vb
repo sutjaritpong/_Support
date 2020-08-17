@@ -18,11 +18,11 @@ Public Class Frmimport
         Main_progressbar.Visible = False
         Main_progressbar.Value = 0
         lbl_statusprogress.Visible = False
-        connect()
+        Connect()
         Dim pds() As String = {"KBANK", "TBANK", "SCB", "KKB", "TMB", "UOB", "TSS"}
         cbo_products.Items.AddRange(pds)
         cbo_products.SelectedIndex = 0
-        dtgv_clear()
+        Dtgv_clear()
         For Each col As DataGridViewColumn In dtgv_view.Columns
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Next
@@ -35,7 +35,7 @@ Public Class Frmimport
 
     End Sub
 
-    Private Sub cmd_import_Click(sender As Object, e As EventArgs) Handles cmd_import.Click
+    Private Sub Cmd_import_Click(sender As Object, e As EventArgs) Handles cmd_import.Click
 
         If lbl_statusprogress.Text <> "0 %" Then
             Msg_error("มีข้อมูลที่กำลังทำงานอยู่ในขณะนี้")
@@ -55,7 +55,7 @@ Public Class Frmimport
         'dtgv_view.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
     End Sub
 
-    Sub dtgv_clear()
+    Sub Dtgv_clear()
 
         dtgv_view.Columns.Clear()
         If dtgv_view.Columns.Count = 0 Then
@@ -79,7 +79,7 @@ Public Class Frmimport
 
     End Sub
 
-    Private Sub cmd_openfile_Click(sender As Object, e As EventArgs) Handles cmd_openfile.Click
+    Private Sub Cmd_openfile_Click(sender As Object, e As EventArgs) Handles cmd_openfile.Click
 
         Dim FileName As String = OpenFileDialog1.FileName
         Dim OpenFileDialog As New OpenFileDialog
@@ -95,7 +95,7 @@ Public Class Frmimport
         End If
     End Sub
 
-    Private Sub cmd_toserver_Click(sender As Object, e As EventArgs) Handles cmd_toserver.Click
+    Private Sub Cmd_toserver_Click(sender As Object, e As EventArgs) Handles cmd_toserver.Click
         If lbl_statusprogress.Text <> "0 %" Then
 
             Msg_error("มีข้อมูลที่กำลังทำงานอยู่ในขณะนี้")
@@ -139,7 +139,7 @@ Public Class Frmimport
         Main_progressbar.Visible = False
         lbl_statusprogress.Visible = False
 
-        _Getlogdata($"UPLOAD {cbo_products.Text} จำนวน {dtgv_view.Rows.Count}")
+        Getlogdata($"UPLOAD {cbo_products.Text} จำนวน {dtgv_view.Rows.Count}")
         dtgv_view.DataSource = Nothing
 
     End Sub
@@ -148,7 +148,7 @@ Public Class Frmimport
 
         lbl_statusprogress.Visible = True
 
-        loads()
+        Loads()
 
     End Sub
 
@@ -157,7 +157,7 @@ Public Class Frmimport
         Main_progressbar.Value = e.ProgressPercentage
 
     End Sub
-    Public Sub loads()
+    Public Sub Loads()
         Dim y As Integer = dtgv_view.Rows.Count
         Dim Max As Integer = 100
         Dim timenow As String = DateAndTime.TimeString
@@ -169,14 +169,14 @@ Public Class Frmimport
 
 
 
-                connect()
+                Connect()
 
 
                 sql = "INSERT INTO "
 
                 Select Case cbo_products.SelectedItem
 
-                    Case "KBANK" : sql &= $"KBANKscdb(ACCKEY,ACCKBANK,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "KBANK" : sql &= $"KBANKscdb(ACCKEY,ACCKBANK,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True
@@ -184,7 +184,7 @@ Public Class Frmimport
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
                     '--------------------------UPLOAD KBANK------------------
-                    Case "SCB" : sql &= $"SCBscdb(ACCKEY,ACCSCB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "SCB" : sql &= $"SCBscdb(ACCKEY,ACCSCB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True
@@ -192,7 +192,7 @@ Public Class Frmimport
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
                     '--------------------------UPLOAD SCB------------------
-                    Case "TBANK" : sql &= $"TBANKscdb(ACCKEY,ACCTBANK,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "TBANK" : sql &= $"TBANKscdb(ACCKEY,ACCTBANK,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True
@@ -200,7 +200,7 @@ Public Class Frmimport
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
                     '--------------------------UPLOAD TBANK------------------
-                    Case "UOB" : sql &= $"UOBscdb(ACCKEY,ACCUOB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "UOB" : sql &= $"UOBscdb(ACCKEY,ACCUOB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True
@@ -208,7 +208,7 @@ Public Class Frmimport
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
                     '--------------------------UPLOAD UOB------------------
-                    Case "TMB" : sql &= $"TMBscdb(ACCKEY,ACCTMB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "TMB" : sql &= $"TMBscdb(ACCKEY,ACCTMB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True
@@ -216,7 +216,7 @@ Public Class Frmimport
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
                     '--------------------------UPLOAD TMB------------------
-                    Case "TSS" : sql &= $"TSSscdb(ACCKEY,ACCTSS,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "TSS" : sql &= $"TSSscdb(ACCKEY,ACCTSS,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True
@@ -224,7 +224,7 @@ Public Class Frmimport
                         Main_progressbar.Value = (i / y) * Max
                         Threading.Thread.Sleep(100)
                     '--------------------------UPLOAD TSS------------------
-                    Case "KKB" : sql &= $"KKBscdb(ACCKEY,ACCKKB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}-{dtgv_view.Rows(i).Cells(4).Value.ToString}-{datenow}-{timenow}','{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}')"
+                    Case "KKB" : sql &= $"KKBscdb(ACCKEY,ACCKKB,PDF,PRODUCT,BANK,[TYPE],MONTH_LOAD)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}-{datenow}-{timenow}','{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}')"
 
                         timenow = DateAndTime.TimeOfDay.AddSeconds(+1)
                         Main_progressbar.Visible = True

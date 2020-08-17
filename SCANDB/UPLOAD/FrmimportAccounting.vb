@@ -45,7 +45,7 @@ Public Class FrmimportAccounting
 
     End Sub
 
-    Private Sub cmd_import_Click(sender As Object, e As EventArgs) Handles cmd_import.Click
+    Private Sub Cmd_import_Click(sender As Object, e As EventArgs) Handles cmd_import.Click
         If lbl_statusprogress.Text <> "0 %" Then
             Msg_error("มีข้อมูลที่กำลังทำงานอยู่ในขณะนี้")
             Return
@@ -65,7 +65,7 @@ Public Class FrmimportAccounting
         'dtgv_view.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
     End Sub
 
-    Sub dtgv_clear()
+    Sub Dtgv_clear()
 
         dtgv_view.Columns.Clear()
         If dtgv_view.Columns.Count = 0 Then
@@ -90,7 +90,7 @@ Public Class FrmimportAccounting
 
     End Sub
 
-    Private Sub cmd_openfile_Click(sender As Object, e As EventArgs) Handles cmd_openfile.Click
+    Private Sub Cmd_openfile_Click(sender As Object, e As EventArgs) Handles cmd_openfile.Click
 
         Dim FileName As String = OpenFileDialog1.FileName
         Dim OpenFileDialog As New OpenFileDialog
@@ -106,7 +106,7 @@ Public Class FrmimportAccounting
         End If
     End Sub
 
-    Private Sub cmd_toserver_Click(sender As Object, e As EventArgs) Handles cmd_toserver.Click
+    Private Sub Cmd_toserver_Click(sender As Object, e As EventArgs) Handles cmd_toserver.Click
 
         lbl_statusprogress.Visible = True
 
@@ -130,7 +130,7 @@ Public Class FrmimportAccounting
 
     End Sub
 
-    Private Sub cmd_cut_check_Click(sender As Object, e As EventArgs) Handles cmd_cut_check.Click
+    Private Sub Cmd_cut_check_Click(sender As Object, e As EventArgs) Handles cmd_cut_check.Click
 
         Try
 
@@ -162,7 +162,7 @@ Public Class FrmimportAccounting
                         Case "เบิกงวด 1"
                             'Dim _pk As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}"
 
-                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}" Then
+                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(10).Value.ToString)}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -172,7 +172,7 @@ Public Class FrmimportAccounting
 
                             'Dim _path As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}"
 
-                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}" Then
+                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -182,7 +182,7 @@ Public Class FrmimportAccounting
 
                             'Dim _pk As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}"
 
-                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}" Then
+                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(10).Value.ToString)}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -192,7 +192,7 @@ Public Class FrmimportAccounting
 
                             'Dim _pk As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}"
 
-                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}" Then
+                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(10).Value.ToString)}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -219,14 +219,14 @@ Public Class FrmimportAccounting
 
         Catch ex As Exception
 
-            lbl_countimport.Text = $"{dtgv_view.RowCount.ToString} รายการ"
+            lbl_countimport.Text = $"{Str(dtgv_view.RowCount.ToString)} รายการ"
 
             cn.Close()
 
         End Try
 
     End Sub
-    Public Sub loads()
+    Public Sub Loads()
         Dim y As Integer = dtgv_view.Rows.Count
         Dim Max As Integer = 100
 
@@ -240,16 +240,16 @@ Public Class FrmimportAccounting
 
                 Select Case cbo_products.SelectedItem
 
-                    Case "KBANK" : sql &= $"AccountingKBANK(Accounting_PK,Accounting_Number,Accounting_CUSCUS,Accounting_Name,Accounting_black_red,Accounting_date_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{dtgv_view.Rows(i).Cells(1).Value.ToString}-{dtgv_view.Rows(i).Cells(8).Value.ToString}-{dtgv_view.Rows(i).Cells(10).Value.ToString}','{dtgv_view.Rows(i).Cells(0).Value}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}','{dtgv_view.Rows(i).Cells(4).Value.ToString}','{dtgv_view.Rows(i).Cells(5).Value.ToString}','{dtgv_view.Rows(i).Cells(6).Value.ToString}','{dtgv_view.Rows(i).Cells(7).Value}','{dtgv_view.Rows(i).Cells(8).Value}','{dtgv_view.Rows(i).Cells(9).Value.ToString}','{dtgv_view.Rows(i).Cells(10).Value.ToString}','{dtgv_view.Rows(i).Cells(11).Value.ToString}')"
+                    Case "KBANK" : sql &= $"AccountingKBANK(Accounting_PK,Accounting_Number,Accounting_CUSCUS,Accounting_Name,Accounting_black_red,Accounting_date_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(10).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(0).Value)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(6).Value.ToString)}','{dtgv_view.Rows(i).Cells(7).Value}','{dtgv_view.Rows(i).Cells(8).Value}','{Str(dtgv_view.Rows(i).Cells(9).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(10).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(11).Value.ToString)}')"
 
-                    Case "FILESCAN KBANK" : sql &= $"ACCOUNTINGscdb(Accounting_invoice,Accounting_path,Accounting_date,Accounting_owner)VALUES('{dtgv_view.Rows(i).Cells(0).Value.ToString}','{dtgv_view.Rows(i).Cells(1).Value.ToString}','{dtgv_view.Rows(i).Cells(2).Value.ToString}','{dtgv_view.Rows(i).Cells(3).Value.ToString}')"
+                    Case "FILESCAN KBANK" : sql &= $"ACCOUNTINGscdb(Accounting_invoice,Accounting_path,Accounting_date,Accounting_owner)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}')"
 
                 End Select
 
                 lbl_statusprogress.Text = i.ToString & "/" & dtgv_view.Rows.Count.ToString
-                        Main_progressbar.Value = (i / y) * Max
-                        Threading.Thread.Sleep(100)
-                        lbl_statusprogress.Text = i + 1.ToString & "/" & dtgv_view.Rows.Count.ToString
+                Main_progressbar.Value = (i / y) * Max
+                Threading.Thread.Sleep(100)
+                lbl_statusprogress.Text = i + 1.ToString & "/" & dtgv_view.Rows.Count.ToString
 
                 '--------------------------UPLOAD KBANK ACCOUNTING------------------
 
@@ -307,17 +307,17 @@ Public Class FrmimportAccounting
 
     End Sub
 
-    Private Sub import_upload_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles import_upload.DoWork
-        loads()
+    Private Sub Import_upload_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles import_upload.DoWork
+        Loads()
     End Sub
 
-    Private Sub import_upload_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles import_upload.ProgressChanged
+    Private Sub Import_upload_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles import_upload.ProgressChanged
 
         Main_progressbar.Value = e.ProgressPercentage
 
     End Sub
 
-    Private Sub import_upload_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles import_upload.RunWorkerCompleted
+    Private Sub Import_upload_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles import_upload.RunWorkerCompleted
 
         connect()
 
@@ -356,7 +356,7 @@ Public Class FrmimportAccounting
         Main_progressbar.Visible = False
         lbl_statusprogress.Visible = False
 
-        _Getlogdata($"UPLOAD {cbo_products.Text} จำนวน {dtgv_view.Rows.Count}")
+        Getlogdata($"UPLOAD {cbo_products.Text} จำนวน {dtgv_view.Rows.Count}")
         dtgv_view.DataSource = Nothing
 
     End Sub

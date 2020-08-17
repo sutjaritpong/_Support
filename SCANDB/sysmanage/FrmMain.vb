@@ -2,25 +2,14 @@
 Imports System.IO
 Imports System.Data.SqlClient
 Imports System.Net
-Imports System.ComponentModel
-Imports Microsoft.Win32
-Imports System.Linq
-Imports System.Data.OleDb
-Imports Microsoft.Office.Core
-Imports Excel = Microsoft.Office.Interop.Excel
-Imports ExcelAutoFormat = Microsoft.Office.Interop.Excel.XlRangeAutoFormat
-Imports Microsoft.Office.Interop
-Imports System.Xml.XPath
-Imports System.Data
-Imports System.Xml
+
 Public Class FrmMastermain
-    Dim ip As IPAddress()
+    Friend ip As IPAddress()
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
         connect()
-        _Getlogdata("LOGIN")
+        Getlogdata("LOGIN")
         Me.WindowState = FormWindowState.Maximized              '// ทำให้ Form หลักมีขนาดเต็มจอ
 
     End Sub
@@ -101,7 +90,7 @@ Public Class FrmMastermain
         txt_datetoday.Text = DateAndTime.Today.ToShortDateString        '//ตั้งเวลาวันที่ 
     End Sub
 
-    Private Sub settingms_Click(sender As Object, e As EventArgs) Handles menu_settingms.Click
+    Private Sub Settingms_Click(sender As Object, e As EventArgs) Handles menu_settingms.Click
 
         If Application.OpenForms.OfType(Of FrmSetting).Any Then
 
@@ -130,7 +119,7 @@ Public Class FrmMastermain
         '// Event ปิดโปรแกรมเมื่อปิดฟอร์ม Main
     End Sub
 
-    Private Sub ประวตการเขาใชโปรแกรมLogFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
+    Private Sub Menu_Historyms_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
         With Frmlogfile
             .MdiParent = Me
             .Show()
@@ -139,7 +128,7 @@ Public Class FrmMastermain
     End Sub
 
 
-    Private Sub changespassword_Click(sender As Object, e As EventArgs) Handles menu_changespassword.Click
+    Private Sub Hangespassword_Click(sender As Object, e As EventArgs) Handles menu_changespassword.Click
 
         If Application.OpenForms().OfType(Of FrmPasssetting).Any Then
 
@@ -175,7 +164,7 @@ Public Class FrmMastermain
         End With
     End Sub
 
-    Private Sub tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
+    Private Sub Tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
         With Frmreportexe
             .MdiParent = Me
             .Show()

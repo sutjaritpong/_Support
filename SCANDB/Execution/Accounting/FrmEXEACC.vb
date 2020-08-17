@@ -4,23 +4,23 @@ Imports System.Globalization
 Imports System.Threading
 Public Class FrmEXEACC
     '## Array entity_ACC() นำไปใช้เพิ่ม Columns ใน Datagridview 
-    Dim entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล"}
+    Friend entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล"}
 
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_datework)
-        _Datetimeformatshort(dtp_date_receipt)
+        Datetimeformatshort(dtp_datework)
+        Datetimeformatshort(dtp_date_receipt)
 
-        _cleardatagrid(dtgv_exeacc)
+        cleardatagrid(dtgv_exeacc)
 
 
         cbo_status.Items.Clear()
         cbo_owner.Items.Clear()
         cbo_search.Items.Clear()
 
-        _comboboxadd(cbo_status, "ACCSTATUS", "EXEACC")
+        Comboboxadd(cbo_status, "ACCSTATUS", "EXEACC")
         cbo_status.SelectedIndex = -1
 
         Dim header() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status"}
@@ -39,19 +39,19 @@ Public Class FrmEXEACC
         DR.Close()
         cbo_owner.SelectedIndex = -1
 
-        _countdata()
+        countdata()
 
         cn.Close()
-        _readonly()
+        Readonly_obj()
 
         dtgv_exeacc.Visible = False
 
 
     End Sub
 
-    Private Sub _countdata()
+    Private Sub Countdata()
 
-        connect()
+        Connect()
         sql = "SELECT COUNT(ACCKEY) AS count_exeacc FROM EXEACC"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -71,7 +71,7 @@ Public Class FrmEXEACC
 
     End Sub
 
-    Private Sub txt_totalbill_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt.KeyPress
+    Private Sub Txt_totalbill_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt.KeyPress
         '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
 
         Select Case Asc(e.KeyChar)
@@ -87,13 +87,13 @@ Public Class FrmEXEACC
     End Sub
 
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        _datagrid()
+        datagrid()
 
     End Sub
 
-    Sub _Cleartext()
+    Sub Cleartext()
 
         cbo_owner.Text = ""
         txt_black.Text = ""
@@ -122,7 +122,7 @@ Public Class FrmEXEACC
             dtp_datework.Enabled = False
         End If
     End Sub
-    Private Sub _readonly()
+    Private Sub Readonly_obj()
 
         cbo_owner.Enabled = False  'enable = false if readonly = true
         cbo_status.Enabled = False
@@ -152,7 +152,7 @@ Public Class FrmEXEACC
         End If
 
     End Sub
-    Private Sub _write()
+    Private Sub Write_obj()
 
         cbo_owner.Enabled = True  '#enable = true if readonly = false
         cbo_status.Enabled = True
@@ -175,12 +175,12 @@ Public Class FrmEXEACC
 
 
     End Sub
-    Private Sub _datagrid()
+    Private Sub Datagrid()
 
-        connect()
+        Connect()
 
-        _cleardatagrid(dtgv_exeacc)
-        _Cleartext()
+        Cleardatagrid(dtgv_exeacc)
+        Cleartext()
 
         If txt_search.Text = "" Then
             Msg_error("กรุณากรอกข้อมุลที่ต้องการค้นหา")
@@ -235,9 +235,9 @@ Public Class FrmEXEACC
             End With
 
             dtgv_exeacc.Visible = True
-            _datagrid_format_dateshort(dtgv_exeacc, 7)
-            _datagrid_format_dateshort(dtgv_exeacc, 14)
-            lbl_count_find.Text = $"พบข้อมูล {dtgv_exeacc.RowCount.ToString} รายการ.."
+            Datagrid_format_dateshort(dtgv_exeacc, 7)
+            Datagrid_format_dateshort(dtgv_exeacc, 14)
+            lbl_count_find.Text = $"พบข้อมูล {Str(dtgv_exeacc.RowCount)} รายการ.."
             lbl_count_find.ForeColor = Color.Green
 
         End If
@@ -246,17 +246,17 @@ Public Class FrmEXEACC
 
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
-        _write()                '# แก้ไขข้อมูล !
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+        Write_obj()                '# แก้ไขข้อมูล !
     End Sub
 
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
-        _readonly()                 '# ยกเลิกการแก้ไข !
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+        Readonly_obj()                 '# ยกเลิกการแก้ไข !
     End Sub
 
-    Private Sub dtgv_exeacc_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_exeacc.CellClick
+    Private Sub Dtgv_exeacc_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_exeacc.CellClick
 
-        _Cleartext()
+        Cleartext()
 
         Try
             cbo_owner.Text = dtgv_exeacc.CurrentRow.Cells(1).Value.ToString
@@ -276,9 +276,9 @@ Public Class FrmEXEACC
 
             dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(14).Value.ToString
 
-            _convertnum(txt_total_receipt)
-            _convertnum(txt_total_receipt2)
-            _convertnum(txt_total_receipt3)
+            convertnum(txt_total_receipt)
+            convertnum(txt_total_receipt2)
+            convertnum(txt_total_receipt3)
 
             If dtgv_exeacc.CurrentRow.Cells(7).Value.ToString = "" Then
                 chk_date_receipt.Checked = False
@@ -295,15 +295,15 @@ Public Class FrmEXEACC
         Catch ex As Exception
 
         Finally
-            _readonly()
+            Readonly_obj()
         End Try
 
 
     End Sub
 
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
+    Private Sub Cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
-        connect()
+        Connect()
 
         If txt_cusid.Text = "" Then         '# เช็คข้อมูลเลขที่บัตรประชาชน ว่าเป็นค่าว่างหรือไม่
 
@@ -319,7 +319,7 @@ Public Class FrmEXEACC
 
         End If
 
-        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_date_receipt.Text}'"
+        sql = $"Select COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_date_receipt.Text}'"
 
         cmd = New SqlCommand(sql, cn)
         Dim i As Integer = cmd.ExecuteScalar()
@@ -362,7 +362,7 @@ Public Class FrmEXEACC
             Else
 
                 Msg_OK("แก้ไขข้อมูล สำเร็จ")
-                _Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
+                Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
 
             End If
 
@@ -370,8 +370,8 @@ Public Class FrmEXEACC
 
                 dtgv_exeacc.DataSource = Nothing
 
-                _datagrid()
-                _readonly()
+                Datagrid()
+                Readonly_obj()
                 cn.Close()
             End If
 
@@ -379,24 +379,24 @@ Public Class FrmEXEACC
 
     End Sub
 
-    Private Sub cmd_send_Click(sender As Object, e As EventArgs) Handles cmd_send.Click
+    Private Sub Cmd_send_Click(sender As Object, e As EventArgs) Handles cmd_send.Click
         Dim _date As DateTime = dtp_date_receipt.Text
         Dim acckey = $"{cbo_owner.Text}-{txt_cusid.Text}-{_date}"
-        connect()
+        Connect()
 
         If txt_cusid.Text = "" Then
 
-                Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
-                Return
+            Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
+            Return
 
-            End If
+        End If
 
-            If txt_cusname.Text = "" Then
+        If txt_cusname.Text = "" Then
 
-                Msg_error("กรุณากรอกชื่อ-นามสกุลของลูกค้า")
-                Return
+            Msg_error("กรุณากรอกชื่อ-นามสกุลของลูกค้า")
+            Return
 
-            End If
+        End If
 
         sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{acckey}'"
 
@@ -414,42 +414,42 @@ Public Class FrmEXEACC
             sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
 
             cmd.CommandText = sql
-                cmd.Parameters.Clear()
+            cmd.Parameters.Clear()
 
             cmd.Parameters.AddWithValue("KEY", acckey)
-                cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
-                cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
-                cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
-                cmd.Parameters.AddWithValue("black", txt_black.Text)
-                cmd.Parameters.AddWithValue("red", txt_red.Text)
+            cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
+            cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
+            cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
+            cmd.Parameters.AddWithValue("black", txt_black.Text)
+            cmd.Parameters.AddWithValue("red", txt_red.Text)
             cmd.Parameters.AddWithValue("status", cbo_status.Text)
             cmd.Parameters.AddWithValue("date_work", dtp_date_receipt.Text)
-                cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
-                cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
-                cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)
-                cmd.Parameters.AddWithValue("detail2", txt_detail_receipt2.Text)
-                cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
-                cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
-                cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
+            cmd.Parameters.AddWithValue("total", txt_total_receipt.Text)
+            cmd.Parameters.AddWithValue("detail", txt_detail_receipt.Text)
+            cmd.Parameters.AddWithValue("total2", txt_total_receipt2.Text)
+            cmd.Parameters.AddWithValue("detail2", txt_detail_receipt2.Text)
+            cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
+            cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
+            cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
 
-                Dim r As Integer = cmd.ExecuteNonQuery()
-                If r = -1 Then
+            Dim r As Integer = cmd.ExecuteNonQuery()
+            If r = -1 Then
 
-                    Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
-                    cn.Close()
-                Else
+                Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
+                cn.Close()
+            Else
 
-                    Msg_OK("บันทึกข้อมูลสำเร็จ")
-                _Getlogdataexe($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}", txt_cusid.Text, "NULL")
+                Msg_OK("บันทึกข้อมูลสำเร็จ")
+                Getlogdataexe($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}", txt_cusid.Text, "NULL")
 
-                _Cleartext()
-                    _countdata()
-                    _cleardatagrid(dtgv_exeacc)
+                Cleartext()
+                Countdata()
+                Cleardatagrid(dtgv_exeacc)
                 cn.Close()
 
             End If
 
-            End If
+        End If
 
     End Sub
     '## Event Closing ใช้สำหรับกดปิดหรือสั่งปิดฟอร์มให้ ปิดการเชื่อมต่อของฐานข้อมูลด้วย
@@ -460,7 +460,7 @@ Public Class FrmEXEACC
 
     End Sub
     '## Method Checked ใน Event CheckedChanged ไว้สำหรับเช็คค่าในปัจจุบัน ของ Checkbox ว่าเป็น True หรือ False 
-    Private Sub chk_date_work_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_work.CheckedChanged
+    Private Sub Chk_date_work_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_work.CheckedChanged
 
         If chk_date_work.Checked = True Then
 
@@ -472,7 +472,7 @@ Public Class FrmEXEACC
 
     End Sub
     '## Method Checked ใน Event CheckedChanged ไว้สำหรับเช็คค่าในปัจจุบัน ของ Checkbox ว่าเป็น True หรือ False 
-    Private Sub chk_date_receipt_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_receipt.CheckedChanged
+    Private Sub Chk_date_receipt_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_receipt.CheckedChanged
 
         If chk_date_receipt.Checked = True Then
 
@@ -484,9 +484,9 @@ Public Class FrmEXEACC
 
     End Sub
 
-    Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
+    Private Sub Cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
 
-        _Cleartext()
+        Cleartext()
         lbl_count_find.Text = "ผลการค้นหา..."
         lbl_count_find.ForeColor = Color.Blue
         dtgv_exeacc.DataSource = Nothing
@@ -495,7 +495,7 @@ Public Class FrmEXEACC
 
     End Sub
 
-    Private Sub txt_total_receipt2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt2.KeyPress
+    Private Sub Txt_total_receipt2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt2.KeyPress
 
         '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
 
@@ -511,7 +511,7 @@ Public Class FrmEXEACC
 
     End Sub
 
-    Private Sub txt_total_receipt3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt3.KeyPress
+    Private Sub Txt_total_receipt3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_total_receipt3.KeyPress
 
         '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
 
