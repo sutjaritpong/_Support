@@ -16,10 +16,10 @@ Public Class Frmlogfile
     Private Sub Frmlogfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(DateTimestart)
-        _Datetimeformatshort(DateTimeend)
+        Datetimeformatshort(DateTimestart)
+        Datetimeformatshort(DateTimeend)
 
-        connect()
+        Connect()
         Dim itms() As String = {"ชื่อเข้าระบบ", "ชื่อพนักงาน", "IP", "PC", "รายละเอียด"}
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0
@@ -36,8 +36,8 @@ Public Class Frmlogfile
         cn.Close()
     End Sub
     '## Sql command ในการ ค้นหาข้อมูล โดยกำหนดเงื่อนไข การค้นหา ด้วยคำสั่ง BETWEEN AND 
-    Private Sub loaddatagrid()
-        connect()
+    Private Sub Loaddatagrid()
+        Connect()
         DateTimestart.Value = DateTime.Now.AddDays(0)
         DateTimeend.Value = DateTime.Now.AddDays(1)
 
@@ -85,8 +85,8 @@ Public Class Frmlogfile
         dtgvlogfile.DataSource.clear()
         loaddatagrid()
     End Sub
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
-        connect()
+    Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+        Connect()
         dtgvlogfile.DataSource.clear()
 
         Dim headerdgv() As String = {"วันที่", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
@@ -132,7 +132,7 @@ Public Class Frmlogfile
     End Sub
 
     '## ปุ่มสำหรับดึงข้อมูล log มา เป็นรูปแบบ Excel อ่่านค่าจาก datagridview แล้วดึงข้อมูล มาใส่ใน ไฟล์ Excel
-    Private Sub cmd_text_Click(sender As Object, e As EventArgs) Handles cmd_text.Click
+    Private Sub Cmd_text_Click(sender As Object, e As EventArgs) Handles cmd_text.Click
 
         Try
 
@@ -188,6 +188,7 @@ Public Class Frmlogfile
                 cmd_text.Enabled = True
                 cmd_find.Enabled = True
                 cmd_refresh.Enabled = True
+
                 Return
 
             End If
@@ -205,7 +206,7 @@ Public Class Frmlogfile
 
     End Sub
 
-    Private Sub releaseObject(ByVal obj As Object)
+    Private Sub ReleaseObject(ByVal obj As Object)
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
             obj = Nothing
@@ -216,7 +217,7 @@ Public Class Frmlogfile
         End Try
     End Sub
 
-    Private Sub dtgvlogfile_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvlogfile.CellClick
+    Private Sub Dtgvlogfile_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvlogfile.CellClick
 
         txt_detaillog.Text = "วันที่ : " & dtgvlogfile.CurrentRow.Cells(0).Value.ToString & vbNewLine & "ชื่อ-นามสกุล : " & dtgvlogfile.CurrentRow.Cells(1).Value.ToString & vbNewLine & "USER : " & dtgvlogfile.CurrentRow.Cells(2).Value.ToString & vbNewLine & "IP : " & dtgvlogfile.CurrentRow.Cells(3).Value.ToString & vbNewLine & "COMPUTER NAME : " & dtgvlogfile.CurrentRow.Cells(4).Value.ToString & vbNewLine & "รายละเอียด : " & vbNewLine & dtgvlogfile.CurrentRow.Cells(5).Value.ToString
 

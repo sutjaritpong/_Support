@@ -1,8 +1,8 @@
 ﻿Option Explicit On
 Imports System.Data.SqlClient
 Public Class FrmAccount
-    Dim time = DateAndTime.Now
-    Dim lock As Boolean = 0
+    Friend time = DateAndTime.Now
+    Friend lock As Boolean = 0
     Private Sub FrmAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Loadtabledata()
@@ -17,7 +17,7 @@ Public Class FrmAccount
         dgvaccount.Columns(1).Visible = False
 
     End Sub
-    Private Sub dgvaccount_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvaccount.CellClick
+    Private Sub Dgvaccount_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvaccount.CellClick
 
         Try
             Userid.Text = dgvaccount.CurrentRow.Cells(0).Value
@@ -59,21 +59,21 @@ Public Class FrmAccount
 
     End Sub
 
-    Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
+    Private Sub Cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
 
-        connect()
+        Connect()
 
         Try
 
             If Msg_confirm("ต้องการลบบัญชีผู้ใช้นี้หรือไม่") = vbYes Then
 
 
-                _Getlogdata($"ลบบัญชีผู้ใช้{dgvaccount.CurrentRow.Cells(0).Value}")
+                Getlogdata($"ลบบัญชีผู้ใช้{dgvaccount.CurrentRow.Cells(0).Value}")
 
-                connect()
+                Connect()
 
                 sql = ("DELETE FROM tbl_login WHERE USERID='" & dgvaccount.CurrentRow.Cells(0).Value & "'")
-                cmd_excuteScalar()
+                Cmd_excuteScalar()
                 Loadtabledata()
 
             End If
@@ -87,9 +87,9 @@ Public Class FrmAccount
         cn.Close()
 
     End Sub
-    Private Sub cmd_register_Click(sender As Object, e As EventArgs) Handles cmd_register.Click
+    Private Sub Cmd_register_Click(sender As Object, e As EventArgs) Handles cmd_register.Click
 
-        connect()
+        Connect()
 
         If Userid.Text = "" Then                           '// ปุ่มสำหรับ Register เพื่อนำข้อมูลผู้สมัครเข้าไปเก็บในฐาน ข้อมูล
             MsgBox("กรุณากรอกชื่อผู้ใช้", MsgBoxStyle.Critical)
@@ -115,7 +115,7 @@ Public Class FrmAccount
 
         sql = "SELECT COUNT(*) FROM tbl_login WHERE USERID = '" & Userid.Text & "'"
 
-        If cmd_excuteScalar() > 0 Then
+        If Cmd_excuteScalar() > 0 Then
             Msg_error(" Username นี้มีอยู่แล้วในระบบ")                 '// เช็ค ก่อนนำข้อมูลผู้ใช้เข้าระบบ ว่า มีข้อมูลอยู่ในระบบแล้วหรือไม่ (เช็คซ้ำ)
             Userid.Select()
             Return
@@ -124,13 +124,13 @@ Public Class FrmAccount
 
         sql = ("INSERT INTO tbl_login (USERID,USRPASSWORD,USRNAME,USRGROUP,USRLOGIN,USRREGIS,USRPASSFAIL,USRLOCK,USRPASCHANGE)VALUES('" & Userid.Text & "','" & Password.Text & "','" & Fullname.Text & "','" & cbo_group.Text & "','" & time & "','" & time & "','0','0',GETDATE())")
 
-        If cmd_excuteNonquery() = 0 Then        '// เพิ่ม USERID ของผู้ใช้ในระบบ คนใหม่
+        If Cmd_excuteNonquery() = 0 Then        '// เพิ่ม USERID ของผู้ใช้ในระบบ คนใหม่
             Msg_error("ลงทะเบียนล้มเหลว")
         Else
             Msg_OK("ลงทะเบียนสำเร็จ")
             Loadtabledata()
 
-            _Getlogdata($"เพิ่มบัญชีผู้ใช้{Userid.Text}")
+            Getlogdata($"เพิ่มบัญชีผู้ใช้{Userid.Text}")
 
         End If
 
@@ -138,19 +138,19 @@ Public Class FrmAccount
 
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
 
-        connect()
+        Connect()
 
         If Msg_confirm("คุณต้องการแก้ไขข้อมูลใช่หรือไม่") = vbYes Then
 
             sql = ("UPDATE tbl_login SET USRPASSWORD='" & Password.Text & "',USRNAME='" & Fullname.Text & "',USRGROUP='" & cbo_group.Text & "',USRLOGIN=GETDATE(),USRPASSFAIL='0',USRLOCK='0',USRPASCHANGE=GETDATE() WHERE USERID='" & Userid.Text & "'")
 
-            cmd_excuteScalar()
+            Cmd_excuteScalar()
             MsgBox("แก้ไขข้อมูลสำเร็จ", MsgBoxStyle.Information)
             Loadtabledata()
 
-            _Getlogdata($"แก้ไขข้อมูลบัญชีผู้ใช้{Userid.Text}")
+            Getlogdata($"แก้ไขข้อมูลบัญชีผู้ใช้{Userid.Text}")
 
             Userid.Clear()                      'แก้ไขข้อมูล โดยตรงที่ละ USER โดยใช้ Datagridview Even Cellclick ดึงข้อมูลมา
             Password.Clear()
@@ -163,13 +163,13 @@ Public Class FrmAccount
 
     End Sub
 
-    Private Sub cmd_unlockall_Click(sender As Object, e As EventArgs) Handles cmd_unlockall.Click
+    Private Sub Cmd_unlockall_Click(sender As Object, e As EventArgs) Handles cmd_unlockall.Click
 
-        connect()
+        Connect()
 
         sql = ($"UPDATE tbl_login SET USRLOGIN = '{time}',USRPASSFAIL = '{0}',USRLOCK = '{0}'")
 
-        cmd_excuteScalar()              '// ปลดล็อคทุก USER ที่ล็อคอยู่ให้ใช้งานได้ปกติ
+        Cmd_excuteScalar()              '// ปลดล็อคทุก USER ที่ล็อคอยู่ให้ใช้งานได้ปกติ
         Loadtabledata()
 
         cn.Close()

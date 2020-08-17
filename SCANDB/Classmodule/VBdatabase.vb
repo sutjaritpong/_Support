@@ -11,9 +11,30 @@ Module VBdatabase
     Friend DR As SqlDataReader
     Friend sql As String = ""
     Friend _sql As String = ""
+
+    Friend cnLegal As New SqlConnection("SERVER=FDSSERVER_1;Initial Catalog=LegaldB;Persist Security Info=True;User ID=sa;Password=1971;")
+    Friend cmdlegal As New SqlCommand
+    Friend DALegal As New SqlDataAdapter
+    Friend DSLegal As New DataSet
+    Friend DTLegal As New DataTable
+    Friend DRLegal As SqlDataReader
     Friend sqll As String = ""
 #End Region
+
 #Region "Code ที่ใช้เกี่ยวกับฐานข้อมูล"
+
+    '''' <summary>
+    '''' เปิดใช้งานฐานข้อมูล LegaldB
+    '''' </summary>
+    '''' <remarks></remarks>
+    Friend Sub Connect_legal()
+        Try
+            If cnLegal.State = ConnectionState.Closed Then cnLegal.Open()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     ''' <summary>
     ''' เปิดใช้งานฐานข้อมูล
     ''' </summary>

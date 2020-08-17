@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmEXEACC
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmEXEACC
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEXEACC))
@@ -77,6 +77,19 @@ Partial Class FrmEXEACC
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.lbl_count_find = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Txt_account = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Txt_type = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Txt_bank = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Txt_productcode = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Txt_Billcode = New System.Windows.Forms.TextBox()
+        Me.Cmd_Linkdata = New System.Windows.Forms.Button()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,7 +120,7 @@ Partial Class FrmEXEACC
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox4.Size = New System.Drawing.Size(311, 201)
+        Me.GroupBox4.Size = New System.Drawing.Size(311, 235)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
@@ -146,7 +159,7 @@ Partial Class FrmEXEACC
         Me.dtp_datework.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtp_datework.Location = New System.Drawing.Point(119, 151)
         Me.dtp_datework.Name = "dtp_datework"
-        Me.dtp_datework.Size = New System.Drawing.Size(116, 20)
+        Me.dtp_datework.Size = New System.Drawing.Size(107, 20)
         Me.dtp_datework.TabIndex = 10
         '
         'Label6
@@ -165,7 +178,7 @@ Partial Class FrmEXEACC
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.SystemColors.Window
         Me.Label11.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(50, 128)
+        Me.Label11.Location = New System.Drawing.Point(50, 123)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(63, 18)
         Me.Label11.TabIndex = 59
@@ -690,6 +703,125 @@ Partial Class FrmEXEACC
         Me.lbl_count_find.TabIndex = 141
         Me.lbl_count_find.Text = "ผลการค้นหา..."
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.SystemColors.Window
+        Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(383, 192)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(76, 18)
+        Me.Label2.TabIndex = 97
+        Me.Label2.Text = "BILLCODE"
+        '
+        'Txt_account
+        '
+        Me.Txt_account.Location = New System.Drawing.Point(465, 220)
+        Me.Txt_account.Name = "Txt_account"
+        Me.Txt_account.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_account.TabIndex = 98
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.SystemColors.Window
+        Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(388, 221)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(69, 18)
+        Me.Label7.TabIndex = 99
+        Me.Label7.Text = "เลขที่สัญญา"
+        '
+        'Txt_type
+        '
+        Me.Txt_type.Location = New System.Drawing.Point(465, 246)
+        Me.Txt_type.Name = "Txt_type"
+        Me.Txt_type.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_type.TabIndex = 100
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.SystemColors.Window
+        Me.Label8.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(416, 246)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(41, 18)
+        Me.Label8.TabIndex = 101
+        Me.Label8.Text = "TYPE"
+        '
+        'Txt_bank
+        '
+        Me.Txt_bank.Location = New System.Drawing.Point(465, 272)
+        Me.Txt_bank.Name = "Txt_bank"
+        Me.Txt_bank.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_bank.TabIndex = 142
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.SystemColors.Window
+        Me.Label15.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(409, 273)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(48, 18)
+        Me.Label15.TabIndex = 143
+        Me.Label15.Text = "ธนาคาร"
+        '
+        'Txt_productcode
+        '
+        Me.Txt_productcode.Location = New System.Drawing.Point(465, 298)
+        Me.Txt_productcode.Name = "Txt_productcode"
+        Me.Txt_productcode.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_productcode.TabIndex = 144
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.BackColor = System.Drawing.SystemColors.Window
+        Me.Label18.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(345, 300)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(112, 18)
+        Me.Label18.TabIndex = 145
+        Me.Label18.Text = "PRODUCTCODE"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(465, 272)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(178, 20)
+        Me.TextBox3.TabIndex = 142
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(465, 298)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(178, 20)
+        Me.TextBox4.TabIndex = 144
+        '
+        'Txt_Billcode
+        '
+        Me.Txt_Billcode.Location = New System.Drawing.Point(465, 191)
+        Me.Txt_Billcode.Name = "Txt_Billcode"
+        Me.Txt_Billcode.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Billcode.TabIndex = 146
+        '
+        'Cmd_Linkdata
+        '
+        Me.Cmd_Linkdata.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Linkdata.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Linkdata.Image = Global.SCANDB.My.Resources.Resources.arrow_redo
+        Me.Cmd_Linkdata.Location = New System.Drawing.Point(510, 324)
+        Me.Cmd_Linkdata.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Linkdata.Name = "Cmd_Linkdata"
+        Me.Cmd_Linkdata.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Linkdata.TabIndex = 23
+        Me.Cmd_Linkdata.Text = "ลิ้งค์ข้อมูล"
+        Me.Cmd_Linkdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Linkdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Linkdata.UseVisualStyleBackColor = False
+        '
         'FrmEXEACC
         '
         Me.AcceptButton = Me.cmd_search
@@ -697,10 +829,21 @@ Partial Class FrmEXEACC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.Cmd_Linkdata)
+        Me.Controls.Add(Me.Txt_Billcode)
+        Me.Controls.Add(Me.Txt_productcode)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Txt_bank)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Txt_type)
         Me.Controls.Add(Me.lbl_count_find)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.Txt_account)
         Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Group_detail)
         Me.Controls.Add(Me.dtgv_exeacc)
         Me.Controls.Add(Me.GroupBox4)
@@ -784,4 +927,17 @@ Partial Class FrmEXEACC
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents lbl_count_find As Label
     Friend WithEvents cbo_status As ComboBox
+    Friend WithEvents Txt_type As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Txt_account As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Txt_bank As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Txt_productcode As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Txt_Billcode As TextBox
+    Friend WithEvents Cmd_Linkdata As Button
 End Class

@@ -1,4 +1,5 @@
-﻿Public Class FrmWDSRV
+﻿Imports System.Data.SqlClient
+Public Class FrmWDSRV
     Private Sub FrmWDSRV_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'SCANPDF.EXECHECK' table. You can move, or remove it, as needed.
         Me.EXECHECKTableAdapter.Fill(Me.SCANPDF.EXECHECK)
@@ -16,6 +17,13 @@
     End Sub
 
     Private Sub ReportViewer1_Load(sender As Object, e As EventArgs) Handles ReportViewer1.Load
+
+    End Sub
+
+    Private Sub ReportViewer1_ReportExport(sender As Object, e As Microsoft.Reporting.WinForms.ReportExportEventArgs) Handles ReportViewer1.ReportExport
+
+        Connect()
+        Getlogdata("Report Export ข้อมูล ถอนอายัด/ยึด")
 
     End Sub
 End Class

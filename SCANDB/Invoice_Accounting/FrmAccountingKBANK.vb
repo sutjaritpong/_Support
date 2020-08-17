@@ -5,17 +5,17 @@ Imports System.IO
 
 Public Class FrmAccountingKBANK
 
-    Dim _header() As String = {"key", "ลำดับ", "เลขที่ลูกหนี้", "ชื่อนามสกุล", "เลขที่คดี", "วันที่ฟ้อง", "ศาล", "ทุนทรัพย์", "ค่าธรรมเนียม", "เลขที่ชุดเบิก", "วันที่ส่งเบิก", "ประเภทเอกสาร", "Type"}
+    Friend _header() As String = {"key", "ลำดับ", "เลขที่ลูกหนี้", "ชื่อนามสกุล", "เลขที่คดี", "วันที่ฟ้อง", "ศาล", "ทุนทรัพย์", "ค่าธรรมเนียม", "เลขที่ชุดเบิก", "วันที่ส่งเบิก", "ประเภทเอกสาร", "Type"}
     Private Sub FrmAccountingKBANK_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim _comadd() As String = {"เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "เลขที่คดี", "เลขที่ชุด"}
-        _cboArray(cbo_search, _comadd)
+        CboArray(cbo_search, _comadd)
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_date_legal)
-        _Datetimeformatshort(dtp_send_invoice)
+        Datetimeformatshort(dtp_date_legal)
+        Datetimeformatshort(dtp_send_invoice)
 
-        connect()
+        Connect()
 
 
         sql = "SELECT DISTINCT Accounting_CUSCUS,Accounting_invoice,Accounting_Name,Accounting_black_red  FROM AccountingKBANK"
@@ -43,14 +43,14 @@ Public Class FrmAccountingKBANK
         cn.Close()
 
     End Sub
-    Private Sub _search()
+    Private Sub Search_information()
 
-        connect()
+        Connect()
         dtgv_invoice_list.Visible = True
 
 
         If (dtgv_invoice_list.RowCount <> Nothing) Or (dtgv_invoice_list.ColumnCount <> Nothing) Then
-            _cleardatagrid(dtgv_invoice_list)
+            Cleardatagrid(dtgv_invoice_list)
         End If
 
         If txt_search.Text = "" Then
@@ -103,8 +103,8 @@ Public Class FrmAccountingKBANK
                 .Columns(10).Visible = False
                 .Columns(12).Visible = False
 
-                _datagrid_format_dateshort(dtgv_invoice_list, 5)
-                _datagrid_format_dateshort(dtgv_invoice_list, 10)
+                Datagrid_format_dateshort(dtgv_invoice_list, 5)
+                Datagrid_format_dateshort(dtgv_invoice_list, 10)
             End With
 
         End If
@@ -113,18 +113,18 @@ Public Class FrmAccountingKBANK
 
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        _search()
+        Search_information()
 
     End Sub
 
-    Private Sub dtgv_invoice_list_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_invoice_list.CellClick
+    Private Sub Dtgv_invoice_list_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_invoice_list.CellClick
 
-        _cleartext()
+        Cleartext()
 
         If (dtgv_find_scan.RowCount <> Nothing) Or (dtgv_find_scan.ColumnCount <> Nothing) Then
-            _cleardatagrid(dtgv_find_scan)
+            Cleardatagrid(dtgv_find_scan)
         End If
 
         With dtgv_invoice_list
@@ -170,7 +170,7 @@ Public Class FrmAccountingKBANK
 
         dtgv_find_scan.Visible = True
 
-        connect()
+        Connect()
 
         sql = $"SELECT * FROM ACCOUNTINGscdb WHERE Accounting_invoice LIKE '%{txt_invoice.Text}%' "
         If dtgv_invoice_list.CurrentRow.Cells(11).Value.ToString = "คำฟ้อง" Then
@@ -191,23 +191,23 @@ Public Class FrmAccountingKBANK
             .Columns(2).HeaderText = "เดือนที่เบิก"
             .Columns(3).HeaderText = "Product"
 
-            _datagrid_format_dateshort(dtgv_find_scan, 2)
+            Datagrid_format_dateshort(dtgv_find_scan, 2)
 
         End With
 
-        _convertnum(txt_receipt)
-        _convertnum(txt_capital)
+        Convertnum(txt_receipt)
+        Convertnum(txt_capital)
         cn.Close()
 
     End Sub
 
-    Private Sub dtgv_find_scan_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_find_scan.CellClick
+    Private Sub Dtgv_find_scan_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_find_scan.CellClick
 
         Ax_pdf_invoice.src = dtgv_find_scan.CurrentRow.Cells(1).Value.ToString
 
     End Sub
 
-    Sub _cleartext()
+    Private Sub Cleartext()
 
         txt_blackred.Text = ""
         txt_capital.Text = ""
@@ -229,9 +229,9 @@ Public Class FrmAccountingKBANK
 
     End Sub
 
-    Private Sub cmd_clears_Click(sender As Object, e As EventArgs) Handles cmd_clears.Click
+    Private Sub Cmd_clears_Click(sender As Object, e As EventArgs) Handles cmd_clears.Click
 
-        _cleartext()
+        Cleartext()
 
     End Sub
 

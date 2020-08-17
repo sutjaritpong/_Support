@@ -10,12 +10,12 @@ Public Class FrmWDS
         connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_datecollector)
-        _Datetimeformatshort(dtp_daterefund)
-        _Datetimeformatshort(dtp_datewds)
-        _Datetimeformatshort(dtp_payment)
-        _Datetimeformatshort(datetimestart)
-        _Datetimeformatshort(datetimefinish)
+        Datetimeformatshort(dtp_datecollector)
+        Datetimeformatshort(dtp_daterefund)
+        Datetimeformatshort(dtp_datewds)
+        Datetimeformatshort(dtp_payment)
+        Datetimeformatshort(datetimestart)
+        Datetimeformatshort(datetimefinish)
 
 
         Dim types() As String = {"ALL PRODUCT", "KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
@@ -85,14 +85,14 @@ Public Class FrmWDS
             dtp_payment.Enabled = False
 
         End If
-        loaddata()
+        Loaddata()
         cn.Close()
     End Sub
-    Private Sub loaddata()
+    Private Sub Loaddata()
 
-        _cleardatagrid(dtgv_data)
+        Cleardatagrid(dtgv_data)
 
-        connect()
+        Connect()
 
 
         Dim headers() As String = {"KEY", "ธนาคาร", "ศูนย์ประสานงาน", "Collecแจ้งถอนอายัด", "เลขบัตรประชาชน", "เลขที่ลูกหนี้", "เลขที่สัญญา", "ชื่อ-นามสกุล", "คดีดำ", "เลขคดีแดง", "วันที่ชำระ", "ยอดชำระ", "เบอร์ติดต่อลูกค้า", "สถานะ", "Admin-รับงาน", "พนักงานภาคสนาม", "วันที่ถอนอายัด/ยึด", "รายละเอียดการถอน", "จำนวนเงินคืน", "วันที่ส่งเช็ค", "รายละเอียดเช็ค"}
@@ -124,15 +124,15 @@ Public Class FrmWDS
             dtgv_data.Columns(0).Visible = False
 
         Next
-        _datagrid_format_dateshort(dtgv_data, 3)
-        _datagrid_format_dateshort(dtgv_data, 10)
-        _datagrid_format_dateshort(dtgv_data, 16)
-        _datagrid_format_dateshort(dtgv_data, 19)
+        Datagrid_format_dateshort(dtgv_data, 3)
+        Datagrid_format_dateshort(dtgv_data, 10)
+        Datagrid_format_dateshort(dtgv_data, 16)
+        Datagrid_format_dateshort(dtgv_data, 19)
 
         cn.Close()
 
     End Sub
-    Private Sub notedit()
+    Private Sub Notedit()
 
         cbo_owner.Enabled = False
         txt_cusid.ReadOnly = True
@@ -172,7 +172,7 @@ Public Class FrmWDS
         End If
 
     End Sub
-    Private Sub edit()
+    Private Sub Edit_Obj()
 
         cbo_owner.Enabled = True
         txt_cusid.ReadOnly = False
@@ -195,7 +195,7 @@ Public Class FrmWDS
         chk_datewds.Enabled = True
 
     End Sub
-    Public Sub refrom()
+    Public Sub Refrom_Obj()
 
         txt_payment.Text = ""
         txt_black.Text = ""
@@ -239,11 +239,11 @@ Public Class FrmWDS
         End If
 
         loaddata()
-        notedit()
+        Notedit()
 
     End Sub
 
-    Private Sub dtgv_data_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_data.CellMouseUp
+    Private Sub Dtgv_data_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_data.CellMouseUp
 
         If e.RowIndex = -1 Then Exit Sub
         Try
@@ -307,19 +307,19 @@ Public Class FrmWDS
             End If
 
 
-            _convertnum(txt_refund)
+            Convertnum(txt_refund)
 
-            _convertnum(txt_payment)
+            Convertnum(txt_payment)
 
 
-            notedit()
+            Notedit()
 
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+    Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
 
         If Application.OpenForms().OfType(Of FrmsearchIDWDS).Any Then
 
@@ -333,21 +333,21 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        loaddata()
-
-    End Sub
-
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
-
-        refrom()
+        Loaddata()
 
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
-        edit()
+        Refrom_Obj()
+
+    End Sub
+
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+
+        Edit_Obj()
 
         If chk_datecollector.Checked = True Then
 
@@ -391,10 +391,10 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
+    Private Sub Cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
-        _cleardatagrid(dtgv_data)
-        connect()
+        Cleardatagrid(dtgv_data)
+        Connect()
 
 
         If txt_cusid.ReadOnly = False Then
@@ -421,10 +421,10 @@ Public Class FrmWDS
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
             Msg_OK("แก้ไขข้อมูลสำเร็จ")
-            loaddata()
-            notedit()
+            Loaddata()
+            Notedit()
 
-            _Getlogdataexe($"เพิ่มข้อมูลลูกค้า ถอนอายัด/ยึด ธนาคาร {cbo_owner.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
+            Getlogdataexe($"เพิ่มข้อมูลลูกค้า ถอนอายัด/ยึด ธนาคาร {cbo_owner.Text} ชื่อ {txt_cusname.Text} สถานะ {txt_status.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
         Else
             Msg_error("ไม่สามารถแก้ไขข้อมูลได้")
@@ -434,7 +434,7 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub cmd_addnew_Click(sender As Object, e As EventArgs) Handles cmd_addnew.Click
+    Private Sub Cmd_addnew_Click(sender As Object, e As EventArgs) Handles cmd_addnew.Click
 
         If Application.OpenForms().OfType(Of FrmsaveWDS).Any Then
 
@@ -447,9 +447,9 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub cmd_detele_Click(sender As Object, e As EventArgs) Handles cmd_detele.Click
+    Private Sub Cmd_detele_Click(sender As Object, e As EventArgs) Handles cmd_detele.Click
 
-        connect()
+        Connect()
 
         If Msg_confirm("คุณต้องการลบข้อมูลใช่หรือไม่", "แจ้งเตือน") = vbYes Then
 
@@ -462,11 +462,11 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub cmd_searchdate_Click(sender As Object, e As EventArgs) Handles cmd_searchdate.Click
+    Private Sub Cmd_searchdate_Click(sender As Object, e As EventArgs) Handles cmd_searchdate.Click
 
-        _cleardatagrid(dtgv_data)
+        Cleardatagrid(dtgv_data)
 
-        connect()
+        Connect()
 
         If cbo_product.SelectedItem = "ALL PRODUCT" Then
             sql = $"SELECT * FROM EXEWDS WHERE EXEDATEWDS BETWEEN  '{datetimestart.Text}' and '{datetimefinish.Text}'"
@@ -491,15 +491,15 @@ Public Class FrmWDS
         dtgv_data.DataSource = DS.Tables("table")
         dtgv_data.Columns(0).Visible = False
 
-        _datagrid_format_dateshort(dtgv_data, 3)
-        _datagrid_format_dateshort(dtgv_data, 10)
-        _datagrid_format_dateshort(dtgv_data, 16)
+        Datagrid_format_dateshort(dtgv_data, 3)
+        Datagrid_format_dateshort(dtgv_data, 10)
+        Datagrid_format_dateshort(dtgv_data, 16)
 
         cn.Close()
 
     End Sub
 
-    Private Sub chk_datecollector_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecollector.CheckedChanged
+    Private Sub Chk_datecollector_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecollector.CheckedChanged
 
         If chk_datecollector.Checked = True Then
 
@@ -514,7 +514,7 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub chk_datewds_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datewds.CheckedChanged
+    Private Sub Chk_datewds_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datewds.CheckedChanged
 
         If chk_datewds.Checked = True Then
 
@@ -528,7 +528,7 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub chk_datepayment_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datepayment.CheckedChanged
+    Private Sub Chk_datepayment_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datepayment.CheckedChanged
 
         If chk_datepayment.Checked = True Then
 
@@ -542,7 +542,7 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub chk_datecheck_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecheck.CheckedChanged
+    Private Sub Chk_datecheck_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecheck.CheckedChanged
 
         If chk_datecheck.Checked = True Then
 
@@ -556,7 +556,7 @@ Public Class FrmWDS
 
     End Sub
 
-    Private Sub txt_payment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_payment.KeyPress
+    Private Sub Txt_payment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_payment.KeyPress
 
         Select Case Asc(e.KeyChar)
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
@@ -569,7 +569,7 @@ Public Class FrmWDS
         End Select
     End Sub
 
-    Private Sub txt_refund_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_refund.KeyPress
+    Private Sub Txt_refund_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_refund.KeyPress
 
         Select Case Asc(e.KeyChar)
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
@@ -582,9 +582,9 @@ Public Class FrmWDS
         End Select
     End Sub
 
-    Private Sub cmd_checkview_Click(sender As Object, e As EventArgs) Handles cmd_checkview.Click
+    Private Sub Cmd_checkview_Click(sender As Object, e As EventArgs) Handles cmd_checkview.Click
 
-        _cleardatagrid(FrmCheck.dtgv_check)
+        Cleardatagrid(FrmCheck.dtgv_check)
 
         _sql = $"SELECT * FROM EXECHECK WHERE CHKACC = '{txt_cusacc.Text}'"
         cmd = New SqlCommand(_sql, cn)
@@ -601,8 +601,8 @@ Public Class FrmWDS
             FrmCheck.dtgv_check.Columns(0).Visible = False
         Next
 
-        _datagrid_format_dateshort(FrmCheck.dtgv_check, 5)
-        _datagrid_format_dateshort(FrmCheck.dtgv_check, 12)
+        Datagrid_format_dateshort(FrmCheck.dtgv_check, 5)
+        Datagrid_format_dateshort(FrmCheck.dtgv_check, 12)
 
         If c <= 0 Then
             If Msg_confirm("ไม่พบข้อมูลเช็ค คุณต้องการเพิ่มข้อมูลหรือไม่", "แจ้งเตือน") = vbYes Then
@@ -616,9 +616,9 @@ Public Class FrmWDS
                 End With
             End If
         Else
-            _showgrid()
-            _convertnum(FrmCheck.txt_total)
-            _convertnum(FrmCheck.txt_refund)
+            Showgrid()
+            Convertnum(FrmCheck.txt_total)
+            Convertnum(FrmCheck.txt_refund)
 
             If Application.OpenForms().OfType(Of FrmCheck).Any Then
 
@@ -631,11 +631,11 @@ Public Class FrmWDS
         End If
     End Sub
 
-    Private Sub cmd_datediff_Click(sender As Object, e As EventArgs) Handles cmd_datediff.Click
+    Private Sub Cmd_datediff_Click(sender As Object, e As EventArgs) Handles cmd_datediff.Click
 
-        _cleardatagrid(dtgv_data)
+        Cleardatagrid(dtgv_data)
 
-        connect()
+        Connect()
 
         sql = $"SELECT EXEWDS.*,EXECHECK.CHKTOTALEXERE,EXECHECK.CHKDATESEND,DATEDIFF(DAY,EXEDATEWDS,GETDATE()) AS SEND_LATE,EXECHECK.CHKDETAIL1 FROM EXEWDS LEFT JOIN EXECHECK ON EXEWDS.EXECUSACC = EXECHECK.CHKACC WHERE EXEDATEWDS IS NOT NULL AND EXECHECK.CHKDATESEND IS NULL ORDER BY EXEDATEWDS;"
         cmd = New SqlCommand(sql, cn)
@@ -652,14 +652,14 @@ Public Class FrmWDS
             dtgv_data.Columns(0).Visible = False
         Next
 
-        _datagrid_format_dateshort(dtgv_data, 3)
-        _datagrid_format_dateshort(dtgv_data, 10)
-        _datagrid_format_dateshort(dtgv_data, 16)
-        _datagrid_format_dateshort(dtgv_data, 19)
+        Datagrid_format_dateshort(dtgv_data, 3)
+        Datagrid_format_dateshort(dtgv_data, 10)
+        Datagrid_format_dateshort(dtgv_data, 16)
+        Datagrid_format_dateshort(dtgv_data, 19)
         cn.Close()
 
     End Sub
-    Private Sub _showgrid()
+    Private Sub Showgrid()
 
         With FrmCheck
 
@@ -695,7 +695,7 @@ Public Class FrmWDS
         End With
 
     End Sub
-    Private Sub dtgv_data_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dtgv_data.DataBindingComplete
+    Private Sub Dtgv_data_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dtgv_data.DataBindingComplete
         Try
 
             For Each gridRow As DataGridViewRow In dtgv_data.Rows

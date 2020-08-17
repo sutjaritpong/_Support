@@ -7,23 +7,23 @@ Imports System.Data
 
 Public Class FrmInsolvent
     '## สร้างตัวแปร Array ชื่อ _headertext() เก็บหัวตารางเพื่อแสดงใน Datagridview และเพิ่ม Item เป็นหัวข้อในการค้นหา
-    Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขคดีดำ", "เลขคดีแดง", "ศาล"}
+    Friend Headertext_Columns() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขคดีดำ", "เลขคดีแดง", "ศาล"}
 
     '## นำข้อมูลจากตาราง EXESM คอลัมน์ EXEBANK มาแสดงใน Combobox โดยใช้ Sub _comboboxadd() มี Parameters สองตัว จากนั้นให้ Query จำนวนข้อมูลในตาราง EXEINSOLVENT มาแสดงโดยใช้คำสั่ง SELECT COUNT 
 
     Private Sub FrmInsolvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
-        _cleartext()
-        connect()
+        Cleartext()
+        Connect()
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_date_request)
-        _Datetimeformatshort(dtp_date_send)
-        _Datetimeformatshort(dtp_verify_insolvent)
+        Datetimeformatshort(dtp_date_request)
+        Datetimeformatshort(dtp_date_send)
+        Datetimeformatshort(dtp_verify_insolvent)
 
-        _cboArray(cbo_finds, _headertext)
+        CboArray(cbo_finds, Headertext_Columns)
 
-        _comboboxadd(cbo_owner, "EXEBANK", "EXESM")
+        Comboboxadd(cbo_owner, "EXEBANK", "EXESM")
         cbo_owner.SelectedIndex = -1
 
         sql = "SELECT COUNT(*) FROM EXEINSOLVENT"
@@ -32,9 +32,9 @@ Public Class FrmInsolvent
         Dim countcmd As Integer = cmd.ExecuteScalar()
         lbl_count.Text = cmd_excuteScalar() & " ราย"
 
-        _cleardatagrid(dtgv_insolvent)
+        Cleardatagrid(dtgv_insolvent)
 
-        _subreadonly()
+        Subreadonly()
 
         cn.Close()
     End Sub
@@ -50,7 +50,7 @@ Public Class FrmInsolvent
 
     End Sub
 
-    Private Sub chk_verify_insolvent_CheckedChanged(sender As Object, e As EventArgs) Handles chk_verify_insolvent.CheckedChanged
+    Private Sub Chk_verify_insolvent_CheckedChanged(sender As Object, e As EventArgs) Handles chk_verify_insolvent.CheckedChanged
 
         If chk_verify_insolvent.Checked = True Then
 
@@ -84,7 +84,7 @@ Public Class FrmInsolvent
 
     End Sub
     '## Sub สำหรับเคลียข้อมูลต่าง ๆ ใน Textbox,datetimepicker,combobox,chkbox
-    Private Sub _cleartext()
+    Private Sub Cleartext()
 
         txt_black.Text = ""
         txt_company.Text = ""
@@ -118,7 +118,7 @@ Public Class FrmInsolvent
         End If
     End Sub
     '## Sub ห้ามการแก้ไขข้อมูล Method Readonly
-    Private Sub _subreadonly()
+    Private Sub Subreadonly()
 
         txt_black.ReadOnly = True
         txt_company.ReadOnly = True
@@ -154,7 +154,7 @@ Public Class FrmInsolvent
     End Sub
 
     '## Sub ใช้สำหรับเปิดใช้งานการแก้ไขข้อมูล
-    Private Sub _Written()
+    Private Sub Written_Obj()
 
         txt_black.ReadOnly = False
         txt_company.ReadOnly = False
@@ -179,12 +179,12 @@ Public Class FrmInsolvent
     End Sub
 
     '## Sub สำหรับการ Save ข้อมูล ลงใน ฐานข้อมูล EXEINSOLVENT โดยใช้คำสั่ง INSERT 
-    Private Sub _saveinformation()
+    Private Sub Saveinformation()
 
         Dim _datetime_sheet As DateTime = dtp_date_request.Text
         Dim _keys As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime_sheet}"
 
-        connect()
+        Connect()
 
         sql = $"SELECT COUNT(*) FROM EXEINSOLVENT WHERE insolvent_pk = '{_keys}'"
         cmd.CommandText = sql
@@ -239,9 +239,9 @@ Public Class FrmInsolvent
         Dim comple As Integer = cmd.ExecuteNonQuery()
 
         If comple > 0 Then
-            _Getlogdataexe($"เพิ่มข้อมูล ลูกค้าล้มละลาย ธนาคาร{cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
+            Getlogdataexe($"เพิ่มข้อมูล ลูกค้าล้มละลาย ธนาคาร{cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
             Msg_OK("เพิ่มข้อมูลสำเร็จ")
-            _cleartext()
+            Cleartext()
             cn.Close()
         Else
 
@@ -251,12 +251,12 @@ Public Class FrmInsolvent
 
     End Sub
     '## Sub สำหรับ ลบข้อมูล จากตาราง EXEINSOLVENT โดยอิงจาก Product และ ID แล้ว
-    Private Sub _deleteinformation()
+    Private Sub Deleteinformation()
 
         '## Functions massagebox เรียกหน้าต่างยืนยันพร้อมคำเตือน ก่อนกระทำ Statement ต่อไปภายในคำสั่ง 
         If Msg_confirm("คุณต้องการลบข้อมูลหรือไม่") = vbYes Then
 
-            connect()
+            Connect()
             sql = "DELETE FROM EXEINSOLVENT WHERE insolvent_owner = @owner AND insolvent_idc = @idc"
             cmd = New SqlCommand(sql, cn)
             cmd.Parameters.Clear()
@@ -275,7 +275,7 @@ Public Class FrmInsolvent
 
     End Sub
     '## Sub สำหรับ ค้นหาข้อมูล จากตาราง EXEINSOLVENT โดยอิงคอลัมน์หรือประเภทข้อมูลการค้นหาจาก Combobox
-    Private Sub _findinformation()
+    Private Sub Findinformation()
 
         dtgv_insolvent.Visible = True
 
@@ -284,7 +284,7 @@ Public Class FrmInsolvent
 
         End If
 
-        connect()
+        Connect()
 
         _sql = "SELECT insolvent_owner,insolvent_idc,insolvent_fullname,insolvent_black,insolvent_red,insolvent_court FROM EXEINSOLVENT WHERE "
 
@@ -305,38 +305,38 @@ Public Class FrmInsolvent
 
         dtgv_insolvent.DataSource = DS.Tables("insolvents")
 
-        For i = 0 To _headertext.Length - 1
-            dtgv_insolvent.Columns(i).HeaderText = _headertext(i)
+        For i = 0 To Headertext_Columns.Length - 1
+            dtgv_insolvent.Columns(i).HeaderText = Headertext_Columns(i)
         Next
 
         cn.Close()
 
     End Sub
     '## Event ปุ่ม Save เรียก Sub _saveinformation() และ _subreadonly() มาใช้ 
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
-        _saveinformation()
-        _subreadonly()
+    Private Sub Cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
+        Saveinformation()
+        Subreadonly()
     End Sub
     '## Event ปุ่ม Cancel เรียก Sub _cleartext() และ _subreadonly() มาใช้
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
-        _cleartext()
-        _subreadonly()
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+        Cleartext()
+        Subreadonly()
     End Sub
     '## Event ปุ่ม Edit เรียก Sub _written() มาใช้
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
-        _Written()
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+        Written_Obj()
     End Sub
     '## Event ปุ่ม DELETE เรียก Sub _Deleteinformation() และ _cleartext() มาใช้
-    Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
-        _deleteinformation()
-        _cleartext()
+    Private Sub Cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
+        Deleteinformation()
+        Cleartext()
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_finds.Click
-        _findinformation()
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_finds.Click
+        Findinformation()
     End Sub
     '## Event Cellclick ของ Object datagridview ใช้สำหรับดึงข้อมูลที่ค้นหามาแสดงใน Object ต่าง ๆ 
-    Private Sub dtgv_insolvent_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_insolvent.CellClick
+    Private Sub Dtgv_insolvent_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_insolvent.CellClick
         Try
             cbo_owner.Text = dtgv_insolvent.CurrentRow.Cells(0).Value
             txt_cusid.Text = dtgv_insolvent.CurrentRow.Cells(1).Value
@@ -345,7 +345,7 @@ Public Class FrmInsolvent
             txt_red.Text = dtgv_insolvent.CurrentRow.Cells(4).Value
             txt_court.Text = dtgv_insolvent.CurrentRow.Cells(5).Value
 
-            connect()
+            Connect()
 
             sql = $"SELECT * FROM EXEINSOLVENT WHERE insolvent_owner = '{dtgv_insolvent.CurrentRow.Cells(0).Value}' And insolvent_idc = '{dtgv_insolvent.CurrentRow.Cells(1).Value}' "
             cmd = New SqlCommand(sql, cn)
@@ -370,17 +370,17 @@ Public Class FrmInsolvent
             End If
 
             txt_company.Text = DS.Tables("cellclick").Rows(0)("insolvent_company").ToString
-                txt_court_isolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_department").ToString
-                txt_number_insolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_number").ToString
-                txt_description.Text = DS.Tables("cellclick").Rows(0)("insolvent_description").ToString
-                dtp_date_request.Text = DS.Tables("cellclick").Rows(0)("insolvent_date_request").ToString
-                dtp_verify_insolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_date_verify").ToString
-                txt_receipt.Text = DS.Tables("cellclick").Rows(0)("insolvent_receipt").ToString
-                txt_receipt_description.Text = DS.Tables("cellclick").Rows(0)("insolvent_receipt_description").ToString
-                txt_total.Text = DS.Tables("cellclick").Rows(0)("insolvent_total").ToString
-                dtp_date_send.Text = DS.Tables("cellclick").Rows(0)("insolvent_send").ToString
+            txt_court_isolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_department").ToString
+            txt_number_insolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_number").ToString
+            txt_description.Text = DS.Tables("cellclick").Rows(0)("insolvent_description").ToString
+            dtp_date_request.Text = DS.Tables("cellclick").Rows(0)("insolvent_date_request").ToString
+            dtp_verify_insolvent.Text = DS.Tables("cellclick").Rows(0)("insolvent_date_verify").ToString
+            txt_receipt.Text = DS.Tables("cellclick").Rows(0)("insolvent_receipt").ToString
+            txt_receipt_description.Text = DS.Tables("cellclick").Rows(0)("insolvent_receipt_description").ToString
+            txt_total.Text = DS.Tables("cellclick").Rows(0)("insolvent_total").ToString
+            dtp_date_send.Text = DS.Tables("cellclick").Rows(0)("insolvent_send").ToString
 
-                If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
+            If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
 
             Else
 

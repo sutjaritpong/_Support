@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 Public Class FrmTMB
     Private Sub FrmTMB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         sql = "SELECT * FROM TMBscdb"
-        connect()
+        Connect()
         Dim cmd As New SqlCommand(sql, cn)
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         Dim autocomp As New AutoCompleteStringCollection()
@@ -21,8 +21,8 @@ Public Class FrmTMB
         Me.Dispose()
         cn.Close()
     End Sub
-    Private Sub cmd_selecttmb_Click(sender As Object, e As EventArgs) Handles cmd_selecttmb.Click
-        connect()
+    Private Sub Cmd_selecttmb_Click(sender As Object, e As EventArgs) Handles cmd_selecttmb.Click
+        Connect()
         If txt_searchtmb.Text = "" Then
             Msg_error("กรุณากรอก เลขที่สัญญาหรือเลขรหัสลูกหนี้")
         Else
@@ -39,7 +39,7 @@ Public Class FrmTMB
                 Msg_error("ไม่พบข้อมูลที่ค้นหา")
             End If
 
-            _Getlogdata($"ค้นหา เอกสาร TMB {txt_searchtmb.Text}")
+            Getlogdata($"ค้นหา เอกสาร TMB {txt_searchtmb.Text}")
 
             For Each col As DataGridViewColumn In dtgvshowtmb.Columns
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -48,7 +48,7 @@ Public Class FrmTMB
         End If
     End Sub
 
-    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+    Private Sub Cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
         Clearinformation()
     End Sub
     Private Sub Clearinformation() '// Function Clear ข้อมูล 
@@ -60,10 +60,10 @@ Public Class FrmTMB
         txt_searchtmb.Text = ""
         dtgvshowtmb.DataSource.clear()
     End Sub
-    Private Sub refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
+    Private Sub Refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
         Dim header() As String = {"เลขที่สัญญา", "PathFile", "Product", "ธนาคาร", "ประเภท"}
-        sql = "SELECT * FROM scanlaw"
-        connect()
+        sql = "SELECT * FROM TMBscdb"
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -75,7 +75,7 @@ Public Class FrmTMB
         End With
     End Sub
 
-    Private Sub dtgvshowtmb_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowtmb.CellClick
+    Private Sub Dtgvshowtmb_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowtmb.CellClick
         txt_accseltmb.Text = dtgvshowtmb.CurrentRow.Cells(0).Value  '// ทำให้แสดงข้อมูลเวลา click cell ใน Datagridview
         AxAcroPDFtmb.src = dtgvshowtmb.CurrentRow.Cells(1).Value
         txt_prodseltmb.Text = dtgvshowtmb.CurrentRow.Cells(2).Value

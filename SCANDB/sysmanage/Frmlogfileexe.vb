@@ -12,14 +12,14 @@ Imports System.Globalization
 Imports System.Data.OleDb
 Imports System.Linq
 Public Class frmlogfileexe
-    Private Sub frmlogfileexe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Frmlogfileexe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(DateTimestart)
-        _Datetimeformatshort(DateTimeend)
-        _Datetimeformatshort(dtp_log_date)
+        Datetimeformatshort(DateTimestart)
+        Datetimeformatshort(DateTimeend)
+        Datetimeformatshort(dtp_log_date)
 
-        connect()
+        Connect()
         Dim itms() As String = {"ชื่อเข้าระบบ", "ชื่อพนักงาน", "IP", "PC", "รายละเอียด"}
         cbo_where.Items.AddRange(itms)                                          '// เพิ่ม Dropdown ใน Combobox
         cbo_where.SelectedIndex = 0
@@ -39,10 +39,10 @@ Public Class frmlogfileexe
         cn.Close()
     End Sub
 
-    Private Sub loaddatagrid()
-        connect()
+    Private Sub Loaddatagrid()
+        Connect()
 
-        _cleardatagrid(dtgvlogfile)
+        Cleardatagrid(dtgvlogfile)
 
         DateTimestart.Value = DateTime.Now.AddDays(0)
         DateTimeend.Value = DateTime.Now.AddDays(1)
@@ -85,13 +85,13 @@ Public Class frmlogfileexe
         cn.Close()
     End Sub
 
-    Private Sub cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
+    Private Sub Cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
         dtgvlogfile.DataSource.clear()
         loaddatagrid()
     End Sub
 
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
-        connect()
+    Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+        Connect()
         dtgvlogfile.DataSource.clear()
 
         Dim headerdgv() As String = {"วันที่", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "ชื่อที่เข้าระบบ", "ชื่อผู้ใช้", "IP", "PC NAME", "รายละเอียด"}
@@ -138,7 +138,7 @@ Public Class frmlogfileexe
         cn.Close()
     End Sub
 
-    Private Sub cmd_report_Click(sender As Object, e As EventArgs) Handles cmd_report.Click
+    Private Sub Cmd_report_Click(sender As Object, e As EventArgs) Handles cmd_report.Click
 
         With FrmlogexeRV
             '// แสดง Form ตั้งค่า USER & PASSWORD
@@ -147,14 +147,14 @@ Public Class frmlogfileexe
         End With
 
     End Sub
-    Private Sub frmlogfileexe_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub Frmlogfileexe_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         cn.Close()
         Me.Dispose()
 
     End Sub
 
-    Private Sub dtgvlogfile_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvlogfile.CellClick
+    Private Sub Dtgvlogfile_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvlogfile.CellClick
         dtp_log_date.Text = dtgvlogfile.CurrentRow.Cells(0).Value.ToString
         txt_log_idcard.Text = dtgvlogfile.CurrentRow.Cells(1).Value.ToString
         txt_log_account.Text = dtgvlogfile.CurrentRow.Cells(2).Value.ToString

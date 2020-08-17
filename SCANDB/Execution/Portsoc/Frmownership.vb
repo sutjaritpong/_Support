@@ -3,17 +3,17 @@ Imports System.Data.SqlClient
 
 Public Class Frmownership
 
-    Dim _text() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "Result"}
+    Friend Text_Addcombo() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "Result"}
 
     Private Sub Frmownership_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_datework)
-        _Datetimeformatshort(dtp_date_review)
+        Datetimeformatshort(dtp_datework)
+        Datetimeformatshort(dtp_date_review)
 
-        _cleardatagrid(dtgv_search)
+        Cleardatagrid(dtgv_search)
 
 
 
@@ -22,12 +22,12 @@ Public Class Frmownership
         cbo_owner.Items.Clear()
         cbo_type_find.Items.Clear()
 
-        _cboArray(cbo_type_find, _text)
+        CboArray(cbo_type_find, Text_Addcombo)
 
-        _comboboxadd(cbo_Land_office, "Ownership_land_office", "Execution_Ownership_Result")
+        Comboboxadd(cbo_Land_office, "Ownership_land_office", "Execution_Ownership_Result")
         cbo_Land_office.SelectedIndex = -1
 
-        _comboboxadd(cbo_owner, "Customer_owner", "Execution_Ownership")
+        Comboboxadd(cbo_owner, "Customer_owner", "Execution_Ownership")
         cbo_owner.SelectedIndex = -1
 
         dtgv_search.Visible = False
@@ -36,7 +36,7 @@ Public Class Frmownership
 
     End Sub
 
-    Private Sub chk_date_work_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_work.CheckedChanged
+    Private Sub Chk_date_work_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_work.CheckedChanged
 
         If chk_date_work.Checked = True Then
 
@@ -48,7 +48,7 @@ Public Class Frmownership
 
     End Sub
 
-    Private Sub chk_date_review_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_review.CheckedChanged
+    Private Sub Chk_date_review_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_review.CheckedChanged
 
         If chk_date_review.Checked = True Then
 
@@ -60,10 +60,10 @@ Public Class Frmownership
 
     End Sub
 
-    Private Sub dtgv_search_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_search.CellClick
+    Private Sub Dtgv_search_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_search.CellClick
 
-        _cleartext()
-        connect()
+        Clear_Text()
+        Connect()
 
         Try
             cbo_owner.Text = dtgv_search.CurrentRow.Cells(0).Value.ToString
@@ -73,7 +73,7 @@ Public Class Frmownership
             txt_result.Text = dtgv_search.CurrentRow.Cells(4).Value.ToString
             cbo_deed.Text = dtgv_search.CurrentRow.Cells(5).Value.ToString
 
-            sql = $"SELECT DISTINCT Ownership_deed FROM Execution_Ownership_Result WHERE Customer_id_card = {dtgv_search.CurrentRow.Cells(1).Value.ToString}"
+            sql = $"SELECT DISTINCT Ownership_deed FROM Execution_Ownership_Result WHERE Customer_id_card = {Str(dtgv_search.CurrentRow.Cells(1).Value.ToString)}"
             cmd = New SqlCommand(sql, cn)
             DR = cmd.ExecuteReader()
 
@@ -85,7 +85,7 @@ Public Class Frmownership
 
             cbo_surveypage.Text = dtgv_search.CurrentRow.Cells(6).Value.ToString
 
-            sql = $"SELECT DISTINCT Ownership_surveypage FROM Execution_Ownership_Result WHERE Customer_id_card = {dtgv_search.CurrentRow.Cells(1).Value.ToString}"
+            sql = $"SELECT DISTINCT Ownership_surveypage FROM Execution_Ownership_Result WHERE Customer_id_card = {Str(dtgv_search.CurrentRow.Cells(1).Value.ToString)}"
             cmd = New SqlCommand(sql, cn)
             DR = cmd.ExecuteReader()
 
@@ -120,12 +120,12 @@ Public Class Frmownership
         End Try
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        _finds()
+        Finds()
 
     End Sub
-    Private Sub _cleartext()
+    Private Sub Clear_Text()
 
         cbo_owner.Text = ""
         cbo_deed.Text = ""
@@ -150,13 +150,13 @@ Public Class Frmownership
         chk_date_work.Checked = False
 
     End Sub
-    Private Sub _finds()
+    Private Sub Finds()
 
         Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "วันที่ส่งไปสืบ", "Result", "เลขโฉนด", "หน้าสำรวจ", "ตำบล/อำเภอ", "สถานที่", "สำนักงานที่ดิน", "ที่อยู่", "วันที่ส่งผลสืบ"}
 
-        connect()
+        Connect()
 
-        _cleardatagrid(dtgv_search)
+        Cleardatagrid(dtgv_search)
 
         sql = "SELECT EO.Customer_owner, EO.Customer_id_card, EO.Customer_name, EO.Date_send, EO.Result, EOR.Ownership_deed, EOR.Ownership_surveypage, EOR.Ownership_district, EOR.Ownership_location, EOR.Ownership_land_office, EOR.Ownership_address, EOR.Date_review FROM Execution_Ownership AS EO LEFT JOIN Execution_Ownership_Result AS EOR ON EO.Customer_id_card = EOR.Customer_id_card WHERE "
 
@@ -169,7 +169,7 @@ Public Class Frmownership
 
         sql &= "Like '%' + @find + '%' ORDER BY EO.Customer_id_card"
 
-            cmd = New SqlCommand(sql, cn)
+        cmd = New SqlCommand(sql, cn)
         cmd.Parameters.Clear()
         cmd.Parameters.AddWithValue("find", txt_find.Text)
         DA = New SqlDataAdapter(cmd)
@@ -199,10 +199,10 @@ Public Class Frmownership
 
             End With
 
-            _datagrid_format_dateshort(dtgv_search, 3)
-            _datagrid_format_dateshort(dtgv_search, 11)
+            Datagrid_format_dateshort(dtgv_search, 3)
+            Datagrid_format_dateshort(dtgv_search, 11)
 
-            lbl_count_find.Text = $"พบข้อมูล {dtgv_search.RowCount.ToString} รายการ.."
+            lbl_count_find.Text = $"พบข้อมูล {Str(dtgv_search.RowCount.ToString)} รายการ.."
             lbl_count_find.ForeColor = Color.Green
 
         End If

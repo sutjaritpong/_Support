@@ -4,14 +4,14 @@ Imports System.Data.SqlClient
 
 Public Class FrmmanageCCTV
 
-    Dim HeaderColumns() As String = {"HUBS", "สำนักงาน", "Username", "Password", "Serail.No", "ภูมิภาค", "Apps", "ยี่ห้อ", "Brand", "Solfware", "จำนวนกล้อง", "เพิ่มเติม", "ประเภท", "IP", "Port", "Remark"}
+    Friend HeaderColumns() As String = {"HUBS", "สำนักงาน", "Username", "Password", "Serail.No", "ภูมิภาค", "Apps", "ยี่ห้อ", "Brand", "Solfware", "จำนวนกล้อง", "เพิ่มเติม", "ประเภท", "IP", "Port", "Remark"}
 
     Private Sub FrmmanageCCTV_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         connect()
 
         '# ใช้ Sub เพิ่ม ข้อมูลจาก Database ลงใน Combobox เป็นข้อมูล ภูมิภาค เพื่อนำไปใช้ในการกรองข้อมูลสำหรับค้นหา
-        _comboboxadd(cbo_cctv_filter, "CCTV_Region", "tbl_fdscctv")
+        Comboboxadd(cbo_cctv_filter, "CCTV_Region", "tbl_fdscctv")
 
         cbo_cctv_filter.SelectedIndex = 0
 
@@ -19,7 +19,7 @@ Public Class FrmmanageCCTV
 
     End Sub
 
-    Private Sub dtgv_cctv_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_cctv.CellClick
+    Private Sub Dtgv_cctv_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_cctv.CellClick
 
         With dtgv_cctv
 
@@ -43,13 +43,13 @@ Public Class FrmmanageCCTV
 
     End Sub
     '# แก้ไขข้อมูล ใน Database โดย อ้างอิง Key จาก Location Hubs หลังจากแก้ไขให้ทำการ ReloadDatagridview 
-    Private Sub cmd_cctv_edit_Click(sender As Object, e As EventArgs) Handles cmd_cctv_edit.Click
+    Private Sub Cmd_cctv_edit_Click(sender As Object, e As EventArgs) Handles cmd_cctv_edit.Click
 
         If txt_cctv_location.Text = "" Then
             Msg_error("ไม่พบข้อมูลที่ต้องการแก้ไขกรุณาลองใหม่อีกครั้ง")
         End If
 
-        connect()
+        Connect()
 
         sql = "UPDATE tbl_fdscctv SET CCTV_location = @location,CCTV_hubs = @hubs,CCTV_User = @users,CCTV_Password = @password,CCTV_Serial = @Serial,CCTV_Region = @Region,CCTV_PhoneApp = @apps,CCTV_Brand = @Brand,CCTV_CMS = @solfware,CCTV_Camera = @Camera,CCTV_Other = @other , CCTV_Type = @types,CCTV_IP = @ip,CCTV_Port = @port,CCTV_Remark = @Remark WHERE CCTV_location = @location ;"
 
@@ -115,15 +115,15 @@ Public Class FrmmanageCCTV
         cn.Close()
 
     End Sub
-    Private Sub cleartext()
+    Private Sub Cleartext()
         Dim textalls() As TextBox = {}
     End Sub
 
     '# Filter ใช้สำหรับกรองข้อมูล โดยการเลือกข้อมูลเฉพาะภูมิภาคนั้น ๆ มาแสดงใน Datagridview
-    Private Sub cmd_cctv_filter_Click(sender As Object, e As EventArgs) Handles cmd_cctv_filter.Click
+    Private Sub Cmd_cctv_filter_Click(sender As Object, e As EventArgs) Handles cmd_cctv_filter.Click
 
-        _cleardatagrid(dtgv_cctv)
-        connect()
+        Cleardatagrid(dtgv_cctv)
+        Connect()
 
         sql = "SELECT * FROM tbl_fdscctv WHERE CCTV_Region = @Region ORDER BY CCTV_Region "
         cmd = New SqlCommand(sql, cn)
@@ -150,13 +150,13 @@ Public Class FrmmanageCCTV
 
     End Sub
 
-    Private Sub cmd_cctv_reload_Click(sender As Object, e As EventArgs) Handles cmd_cctv_reload.Click
+    Private Sub Cmd_cctv_reload_Click(sender As Object, e As EventArgs) Handles cmd_cctv_reload.Click
 
         ReloadDatagird()
 
     End Sub
 
-    Private Sub cmd_cctv_delete_Click(sender As Object, e As EventArgs) Handles cmd_cctv_delete.Click
+    Private Sub Cmd_cctv_delete_Click(sender As Object, e As EventArgs) Handles cmd_cctv_delete.Click
 
 
         If Msg_confirm("ต้องการลบข้อมูลหรือไม่") = vbYes Then
@@ -168,7 +168,7 @@ Public Class FrmmanageCCTV
 
             End If
 
-            connect()
+            Connect()
 
             sqll = "DELETE FROM tbl_fdscctv WHERE CCTV_location = @location"
 
@@ -191,9 +191,9 @@ Public Class FrmmanageCCTV
 
     End Sub
 
-    Private Sub cmd_cctv_save_Click(sender As Object, e As EventArgs) Handles cmd_cctv_save.Click
+    Private Sub Cmd_cctv_save_Click(sender As Object, e As EventArgs) Handles cmd_cctv_save.Click
 
-        connect()
+        Connect()
 
         sql = "SELECT COUNT(CCTV_location) FROM tbl_fdscctv"
         cmd = New SqlCommand(sql, cn)

@@ -12,8 +12,8 @@ Public Class Frmfilter
         connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_date_end)
-        _Datetimeformatshort(dtp_date_start)
+        Datetimeformatshort(dtp_date_end)
+        Datetimeformatshort(dtp_date_start)
 
         sql = $"SELECT DISTINCT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
@@ -28,7 +28,7 @@ Public Class Frmfilter
 
     End Sub
     '## สร้าง condition ให้ Checkbox 
-    Private Sub chk_empexe_CheckedChanged(sender As Object, e As EventArgs) Handles chk_empexe.CheckedChanged
+    Private Sub Chk_empexe_CheckedChanged(sender As Object, e As EventArgs) Handles chk_empexe.CheckedChanged
 
         If chk_empexe.Checked = True Then
 
@@ -39,11 +39,11 @@ Public Class Frmfilter
 
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
         '## เช็ค สถานะการเชื่อมต่อฐานข้อมูล ถ้าถูกปิดอยู่ให้เปิดใช้งาน
-        connect()
+        Connect()
 
-        _cleardatagrid(dtgv_filter)
+        Cleardatagrid(dtgv_filter)
 
         '## Array เพิ่ม columnsHeadertext
         Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในใบคำร้อง", "รายละเอียด", "ใบงาน", "ตรวจสอบการส่ง", "เพิ่มเติม", "ชื่อพนักงานบังคับคดี"}
@@ -89,7 +89,7 @@ Public Class Frmfilter
             Next
 
         End With
-        _datagrid_format_dateshort(dtgv_filter, 5)
+        Datagrid_format_dateshort(dtgv_filter, 5)
         '## Method visible สั่งให้แสดง Datagird โดย ผลลัพย์ในการกำหนดเป็น Boolean
         dtgv_filter.Visible = True
 

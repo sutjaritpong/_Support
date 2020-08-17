@@ -7,9 +7,9 @@ Public Class FrmsaveWDS
         connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_datecollector)
-        _Datetimeformatshort(dtp_datewds)
-        _Datetimeformatshort(dtp_payment)
+        Datetimeformatshort(dtp_datecollector)
+        Datetimeformatshort(dtp_datewds)
+        Datetimeformatshort(dtp_payment)
 
         cbo_owner.Items.Clear()
         Dim Owner() As String = {"KBANK", "TMB", "SCB", "TSS", "TBANK", "KKB", "UOB"}
@@ -55,9 +55,9 @@ Public Class FrmsaveWDS
         cn.Close()
 
     End Sub
-    Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles btn_save.Click
+    Private Sub Btn_save_Click(sender As Object, e As EventArgs) Handles btn_save.Click
 
-        connect()
+        Connect()
 
         If txt_cusid.Text = "" Or txt_cusname.Text = "" Or txt_red.Text = "" Or txt_cusacc.Text = "" Then
             Msg_error("กรุณาใส่ข้อมูลให้ครบ")
@@ -102,9 +102,9 @@ Public Class FrmsaveWDS
                 cmd = New SqlCommand(sql, cn)
                 cmd.ExecuteNonQuery()
 
-                _Getlogdataexe($"เพิ่มข้อมูล ถอนอายัดยึด IDCARD {txt_cusid.Text} ชื่อลูกค้า {txt_cusname.Text} ธนาคาร {cbo_owner.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
+                Getlogdataexe($"เพิ่มข้อมูล ถอนอายัดยึด IDCARD {txt_cusid.Text} ชื่อลูกค้า {txt_cusname.Text} ธนาคาร {cbo_owner.Text}", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
-                FrmWDS.refrom()
+                FrmWDS.Refrom_Obj()
 
                 Msg_OK("บันทึกข้อมูลสำเร็จ")
 
@@ -127,14 +127,14 @@ Public Class FrmsaveWDS
 
 
     End Sub
-    Private Sub btn_savecancel_Click(sender As Object, e As EventArgs) Handles btn_savecancel.Click
+    Private Sub Btn_savecancel_Click(sender As Object, e As EventArgs) Handles btn_savecancel.Click
 
         Me.Close()
-        FrmWDS.refrom()
+        FrmWDS.Refrom_Obj()
 
     End Sub
 
-    Private Sub txt_payment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_payment.KeyPress
+    Private Sub Txt_payment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_payment.KeyPress
         Select Case Asc(e.KeyChar)
 
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
@@ -149,7 +149,7 @@ Public Class FrmsaveWDS
 
     End Sub
 
-    Private Sub txt_refund_KeyPress(sender As Object, e As KeyPressEventArgs)
+    Private Sub Txt_refund_KeyPress(sender As Object, e As KeyPressEventArgs)
 
         Select Case Asc(e.KeyChar)
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
@@ -162,7 +162,7 @@ Public Class FrmsaveWDS
         End Select
     End Sub
 
-    Private Sub chk_datecollector_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecollector.CheckedChanged
+    Private Sub Chk_datecollector_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecollector.CheckedChanged
 
         If chk_datecollector.Checked = True Then
 
@@ -176,7 +176,7 @@ Public Class FrmsaveWDS
 
     End Sub
 
-    Private Sub chk_datewds_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datewds.CheckedChanged
+    Private Sub Chk_datewds_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datewds.CheckedChanged
 
 
         If chk_datewds.Checked = True Then
@@ -191,7 +191,7 @@ Public Class FrmsaveWDS
 
     End Sub
 
-    Private Sub chk_datepayment_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datepayment.CheckedChanged
+    Private Sub Chk_datepayment_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datepayment.CheckedChanged
 
 
         If chk_datepayment.Checked = True Then
@@ -205,7 +205,7 @@ Public Class FrmsaveWDS
         End If
 
     End Sub
-    Public Sub refroms()
+    Public Sub Refroms()
 
         txt_payment.Text = ""
         txt_black.Text = ""

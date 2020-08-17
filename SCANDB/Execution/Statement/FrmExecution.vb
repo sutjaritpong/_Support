@@ -13,9 +13,9 @@ Public Class FrmExecution
         connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_datesheet)
-        _Datetimeformatshort(dtp_tracking_date)
-        _Datetimeformatshort(dtp_verify_date)
+        Datetimeformatshort(dtp_datesheet)
+        Datetimeformatshort(dtp_tracking_date)
+        Datetimeformatshort(dtp_verify_date)
 
         sql = "SELECT EMPLOYEES_KEY,EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
@@ -62,7 +62,7 @@ Public Class FrmExecution
 
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
         If dtgv_statement_search.Rows.Count <> 0 Then
 
@@ -77,7 +77,7 @@ Public Class FrmExecution
 
     End Sub
 
-    Private Sub txt_total_KeyPress(sender As Object, e As KeyPressEventArgs)
+    Private Sub Txt_total_KeyPress(sender As Object, e As KeyPressEventArgs)
         Select Case Asc(e.KeyChar)
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
                 e.Handled = False
@@ -89,7 +89,7 @@ Public Class FrmExecution
         End Select
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
 
         Write()
 
@@ -125,13 +125,13 @@ Public Class FrmExecution
 
     End Sub
 
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
         cell_refresh()
         Refresh()
 
     End Sub
-    Public Sub clear_text()
+    Public Sub Clear_text()
 
         txt_black.Text = ""
         txt_detail1.Text = ""
@@ -189,11 +189,11 @@ Public Class FrmExecution
 
 
     End Sub
-    Sub cell_refresh()
+    Sub Cell_Refresh()
 
         Reader()
-        clear_text()
-        connect()
+        Clear_text()
+        Connect()
         Try
 
             Dim addacc() = {dtgv_statement_search.CurrentRow.Cells(3).Value.ToString, dtgv_statement_search.CurrentRow.Cells(4).Value.ToString, dtgv_statement_search.CurrentRow.Cells(5).Value.ToString}
@@ -313,14 +313,14 @@ Public Class FrmExecution
 
     End Sub
 
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+    Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
 
         If Application.OpenForms().OfType(Of FrmfindExecution).Any Then
             With FrmfindExecution
                 .Focus()
             End With
         Else
-            clear_text()
+            Clear_text()
 
             FrmfindExecution.ShowDialog()
             FrmfindExecution.StartPosition = FormStartPosition.CenterScreen
@@ -398,9 +398,9 @@ Public Class FrmExecution
         chk_verify_date.Enabled = True
 
     End Sub
-    Public Sub loaddatagridviews()
+    Public Sub Loaddatagridviews()
 
-        connect()
+        Connect()
         Dim header() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อลูกค้า", "เลขที่สัญญา1", "เลขที่สัญญา2", "เลขที่สัญญา3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรมบังคับคดี", "จำนวนเงิน", "ชื่อพนักงานตามใบงาน", "เบอร์โทรศัพท์", "ศูนย์ประสานงาน", "วันที่ส่งใบงาน", "ชื่อสกุล-พนักงาน", "หมายเหตุ", "ผลปฎิบัติงาน", "HUB", "Result"}
 
 
@@ -451,12 +451,12 @@ Public Class FrmExecution
 
         Next
 
-        _datagrid_format_dateshort(dtgv_statement_search, 15)
+        Datagrid_format_dateshort(dtgv_statement_search, 15)
         cn.Close()
 
     End Sub
 
-    Private Sub chk_tracking_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub Chk_tracking_CheckedChanged(sender As Object, e As EventArgs)
 
         If chk_tracking_date.Checked = True Then
 
@@ -469,7 +469,7 @@ Public Class FrmExecution
         End If
     End Sub
 
-    Private Sub chk_datework_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub Chk_datework_CheckedChanged(sender As Object, e As EventArgs)
 
         If chk_datesheet.Checked = True Then
 
@@ -482,7 +482,7 @@ Public Class FrmExecution
         End If
     End Sub
 
-    Private Sub chk_dateexework_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub Chk_dateexework_CheckedChanged(sender As Object, e As EventArgs)
 
         If chk_verify_date.Checked = True Then
 
@@ -495,9 +495,9 @@ Public Class FrmExecution
         End If
 
     End Sub
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
+    Private Sub Cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
-        connect()
+        Connect()
         Dim _datetime_sheet As DateTime = dtp_datesheet.Text
         Dim _datetime_verify As DateTime = dtp_verify_date.Text
         Dim _datetime_tracking As DateTime = dtp_tracking_date.Text
@@ -547,68 +547,68 @@ Public Class FrmExecution
             End If
             cmd = New SqlCommand(sql, cn)
 
-                With cmd
+            With cmd
 
-                    .Parameters.Clear()
-                    .Parameters.AddWithValue("exesm_key", _pk)
-                    .Parameters.AddWithValue("owner", txt_product.Text)
-                    .Parameters.AddWithValue("idcus", txt_idcus.Text)
+                .Parameters.Clear()
+                .Parameters.AddWithValue("exesm_key", _pk)
+                .Parameters.AddWithValue("owner", txt_product.Text)
+                .Parameters.AddWithValue("idcus", txt_idcus.Text)
 
-                    If txt_count_acc.Text = 1 Then
-                        .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
-                    ElseIf txt_count_acc.Text = 2 Then
-                        .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
-                        .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
-                    ElseIf txt_count_acc.Text = 3 Then
-                        .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
-                        .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
-                        .Parameters.AddWithValue("acc3", cbo_acc.Items(2))
-                    End If
+                If txt_count_acc.Text = 1 Then
+                    .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+                ElseIf txt_count_acc.Text = 2 Then
+                    .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+                    .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
+                ElseIf txt_count_acc.Text = 3 Then
+                    .Parameters.AddWithValue("acc1", cbo_acc.Items(0))
+                    .Parameters.AddWithValue("acc2", cbo_acc.Items(1))
+                    .Parameters.AddWithValue("acc3", cbo_acc.Items(2))
+                End If
 
-                    .Parameters.AddWithValue("namecus", txt_namecus.Text)
-                    .Parameters.AddWithValue("court", cbo_court.Text)
-                    .Parameters.AddWithValue("black", txt_black.Text)
-                    .Parameters.AddWithValue("red", txt_red.Text)
-                    .Parameters.AddWithValue("number", txt_number.Text)
-                    .Parameters.AddWithValue("total", CInt(txt_total.Text))
-                    .Parameters.AddWithValue("nameemp", txt_nameem.Text)
-                    .Parameters.AddWithValue("phone", txt_phone.Text)
-                    .Parameters.AddWithValue("hub", txt_hub.Text)
-                    .Parameters.AddWithValue("dtsheet", dtp_datesheet.Text)
-                    .Parameters.AddWithValue("empfull", txt_employee.Text)
-                    .Parameters.AddWithValue("Detail", txt_detail1.Text)
-                    .Parameters.AddWithValue("performance", txt_performance.Text)
-                    .Parameters.AddWithValue("result", txt_result.Text)
-                    .Parameters.AddWithValue("idemp", CInt(DS.Tables("_emp").Rows(0)("EMPLOYEES_KEY")))
-                    .Parameters.AddWithValue("vrdate", dtp_verify_date.Text)
-                    .Parameters.AddWithValue("vrresult", txt_verify_result.Text)
-                    .Parameters.AddWithValue("vrcomment", txt_verify_comment.Text)
-                    .Parameters.AddWithValue("tkpk", _tracking_pk)
-                    .Parameters.AddWithValue("tkdate", dtp_tracking_date.Text)
-                    .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
-                    .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
-                    .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
-                    .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
-                    .ExecuteNonQuery()
+                .Parameters.AddWithValue("namecus", txt_namecus.Text)
+                .Parameters.AddWithValue("court", cbo_court.Text)
+                .Parameters.AddWithValue("black", txt_black.Text)
+                .Parameters.AddWithValue("red", txt_red.Text)
+                .Parameters.AddWithValue("number", txt_number.Text)
+                .Parameters.AddWithValue("total", CInt(txt_total.Text))
+                .Parameters.AddWithValue("nameemp", txt_nameem.Text)
+                .Parameters.AddWithValue("phone", txt_phone.Text)
+                .Parameters.AddWithValue("hub", txt_hub.Text)
+                .Parameters.AddWithValue("dtsheet", dtp_datesheet.Text)
+                .Parameters.AddWithValue("empfull", txt_employee.Text)
+                .Parameters.AddWithValue("Detail", txt_detail1.Text)
+                .Parameters.AddWithValue("performance", txt_performance.Text)
+                .Parameters.AddWithValue("result", txt_result.Text)
+                .Parameters.AddWithValue("idemp", CInt(DS.Tables("_emp").Rows(0)("EMPLOYEES_KEY")))
+                .Parameters.AddWithValue("vrdate", dtp_verify_date.Text)
+                .Parameters.AddWithValue("vrresult", txt_verify_result.Text)
+                .Parameters.AddWithValue("vrcomment", txt_verify_comment.Text)
+                .Parameters.AddWithValue("tkpk", _tracking_pk)
+                .Parameters.AddWithValue("tkdate", dtp_tracking_date.Text)
+                .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
+                .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
+                .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
+                .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
+                .ExecuteNonQuery()
 
-                End With
+            End With
 
-                If dtgv_statement_search.Rows.Count <> 0 Then
+            If dtgv_statement_search.Rows.Count <> 0 Then
 
-                    _Getlogdataexe($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}", $"'{txt_idcus.Text}'", $"'{cbo_acc.Text}'")
-                    dtgv_statement_search.DataSource.clear()
-                    loaddatagridviews()
+                Getlogdataexe($"เลขที่บัตรประชาชน {txt_idcus.Text} {vbNewLine} ชื่อลูกค้า {txt_namecus.Text} {vbNewLine} ชื่อพนักงาน {cbo_employees_exe.Text}", $"'{txt_idcus.Text}'", $"'{cbo_acc.Text}'")
+                dtgv_statement_search.DataSource.clear()
+                Loaddatagridviews()
                 'cell_refresh()
 
                 Msg_OK("บันทึกข้อมูลสำเร็จ")
 
-                Else
-                    Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
-                End If
-
+            Else
+                Msg_error("ไม่พบข้อมูลที่ต้องการอัพเดต")
             End If
 
-            cn.Close()
+        End If
+
+        cn.Close()
 
     End Sub
 
@@ -619,12 +619,12 @@ Public Class FrmExecution
 
     End Sub
 
-    Private Sub dtgv_search_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_statement_search.CellMouseUp
+    Private Sub Dtgv_search_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_statement_search.CellMouseUp
 
-        _cleardatagrid(dtgv_tracking_statement)
-        _cleardatagrid(dtgv_verify_statement)
+        Cleardatagrid(dtgv_tracking_statement)
+        Cleardatagrid(dtgv_verify_statement)
 
-        clear_text()
+        Clear_text()
 
 
         If e.RowIndex = -1 Then Exit Sub
@@ -774,14 +774,14 @@ Public Class FrmExecution
 
         End If
 
-        _datagrid_format_dateshort(dtgv_tracking_statement, 0)
-        _datagrid_format_dateshort(dtgv_verify_statement, 0)
+        Datagrid_format_dateshort(dtgv_tracking_statement, 0)
+        Datagrid_format_dateshort(dtgv_verify_statement, 0)
 
         Reader()
 
     End Sub
 
-    Private Sub dtgv_tracking_statement_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_tracking_statement.CellMouseUp
+    Private Sub Dtgv_tracking_statement_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_tracking_statement.CellMouseUp
 
         With dtgv_tracking_statement
 
@@ -803,7 +803,7 @@ Public Class FrmExecution
 
     End Sub
 
-    Private Sub dtgv_verify_statement_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_verify_statement.CellMouseUp
+    Private Sub Dtgv_verify_statement_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_verify_statement.CellMouseUp
 
         With dtgv_verify_statement
 

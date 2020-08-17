@@ -21,8 +21,8 @@ Public Class FrmTSS
         Me.Dispose()
         cn.Close()
     End Sub
-    Private Sub cmd_selecttss_Click(sender As Object, e As EventArgs) Handles cmd_selecttss.Click
-        connect()
+    Private Sub Cmd_selecttss_Click(sender As Object, e As EventArgs) Handles cmd_selecttss.Click
+        Connect()
         If txt_searchtss.Text = "" Then
             Msg_error("กรุณากรอก เลขที่สัญญาหรือเลขรหัสลูกหนี้")
         Else
@@ -39,7 +39,7 @@ Public Class FrmTSS
                 Msg_error("ไม่พบข้อมูลที่ค้นหา")
             End If
 
-            _Getlogdata($"ค้นหา เอกสาร TSS {txt_searchtss.Text}")
+            Getlogdata($"ค้นหา เอกสาร TSS {txt_searchtss.Text}")
 
             For Each col As DataGridViewColumn In dtgvshowtss.Columns
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -48,7 +48,7 @@ Public Class FrmTSS
 
     End Sub
 
-    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+    Private Sub Cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
         Clearinformation()
     End Sub
     Private Sub Clearinformation() '// Function Clear ข้อมูล 
@@ -59,10 +59,10 @@ Public Class FrmTSS
         txt_searchtss.Text = ""
         dtgvshowtss.DataSource.clear()
     End Sub
-    Private Sub refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
+    Private Sub Refreshdtgv_Show()               '// subFunction สำหรับ datagridview
         Dim header() As String = {"เลขที่สัญญา", "PathFile", "Product", "ธนาคาร", "ประเภท"}
-        sql = "SELECT * FROM scanlaw"
-        connect()
+        sql = "SELECT * FROM TSSscdb"
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -74,7 +74,7 @@ Public Class FrmTSS
         End With
     End Sub
 
-    Private Sub dtgvshowtss_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowtss.CellClick
+    Private Sub Dtgvshowtss_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowtss.CellClick
         txt_accseltss.Text = dtgvshowtss.CurrentRow.Cells(0).Value  '// ทำให้แสดงข้อมูลเวลา click cell ใน Datagridview
         AxAcroPDFtss.src = dtgvshowtss.CurrentRow.Cells(1).Value
         txt_Prodseltss.Text = dtgvshowtss.CurrentRow.Cells(2).Value

@@ -4,7 +4,7 @@ Imports System.Data
 Public Class FrmmanageIP
     Private Sub FrmmanageIP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _Datetimeformatshort(dtp_edit)
+        Datetimeformatshort(dtp_edit)
 
         dtgvip.DefaultCellStyle.BackColor = Color.Black
         dtgvip.DefaultCellStyle.ForeColor = Color.White
@@ -19,14 +19,14 @@ Public Class FrmmanageIP
         cbo_filter.Enabled = False
     End Sub
     'Buttom Refresh 
-    Private Sub cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
+    Private Sub Cmd_refresh_Click(sender As Object, e As EventArgs) Handles cmd_refresh.Click
 
         refreshIP()
 
     End Sub
     'Sub Refresh information and cancel Sort or Filter
 
-    Sub refreshIP()
+    Sub RefreshIP()
 
         Dim Header() As String = {"IP", "ชื่อเล่น", "ชื่อพนักงาน", "ตำแหน่ง", "Product", "ตึก", "Server", "DomainName", "รายละเอียด", "เวลาที่แก้ไข"}
         sql = "SELECT * FROM tbl_fdspc ORDER BY CAST(PARSENAME(REPLACE(FDSIP, ':', '.'), 4) as int),
@@ -47,9 +47,9 @@ Public Class FrmmanageIP
         Next
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        connect()
+        Connect()
 
         Dim search() As String = {"IP", "ชื่อเล่น", "ชื่อพนักงาน", "ตำแหน่ง", "Product", "ตึก", "Server", "DomainName", "รายละเอียด", "เวลาที่แก้ไข"}
         Dim sqll As String = "SELECT * FROM tbl_fdspc WHERE "
@@ -87,7 +87,7 @@ Public Class FrmmanageIP
 
     End Sub
 
-    Private Sub dtgvip_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvip.CellClick
+    Private Sub Dtgvip_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvip.CellClick
 
         txt_ip.Text = dtgvip.CurrentRow.Cells(0).Value
         txt_name.Text = dtgvip.CurrentRow.Cells(1).Value
@@ -102,19 +102,19 @@ Public Class FrmmanageIP
 
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
-        connect()
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+        Connect()
         If txt_ip.Text = "" Then
             Msg_error("กรุณาเลือกข้อมูลจากตาราง หรือ กรอกข้อมูลช่อง IP ด้วยครับ")
             Return
         End If
         sql = $"update tbl_fdspc SET FDSNAME = '{txt_name.Text}',FDSFULLNAME = '{txt_fullname.Text}',FDSPOSITION = '{txt_position.Text}',FDSPRODUCT = '{txt_product.Text}',FDSFLOOR = '{txt_floor.Text}',FDSSERVER  = '{txt_server.Text}',FDSDOMAIN = '{txt_domain.Text}',FDSDETAIL = '{txt_detail.Text}',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_ip.Text}'"
-        connect()
+        Connect()
         cmd = New SqlCommand(sql, cn)
         Dim cq As Integer = cmd.ExecuteNonQuery()
         If cq > 0 Then
             Msg_OK("คุณอัพเดท ข้อมูลสำเร็จ !")
-            _Getlogdata($"แก้ไขข้อมูล IP {txt_ip.Text} ชื่อ {txt_fullname.Text} ตำแหน่ง {txt_position.Text} Product {txt_product.Text}")
+            Getlogdata($"แก้ไขข้อมูล IP {txt_ip.Text} ชื่อ {txt_fullname.Text} ตำแหน่ง {txt_position.Text} Product {txt_product.Text}")
             refreshIP()
 
             Return
@@ -130,7 +130,7 @@ Public Class FrmmanageIP
 
     End Sub
 
-    Private Sub txt_ip_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_ip.KeyPress
+    Private Sub Txt_ip_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_ip.KeyPress
         Select Case Asc(e.KeyChar)
             Case 48 To 57 '// key code ของตัวเลขจะอยู่ระหว่าง 48 ถึง 57 ซึ่ง 48 คือเลข 0 57 คือเลข 9 ตามลำดับ
                 e.Handled = False
@@ -151,11 +151,11 @@ Public Class FrmmanageIP
 
         If Msg_confirm("คุณต้องการลบข้อมูลใช่หรือไม่") = vbYes Then
 
-            _Getlogdata($"ลบข้อมูล IP {txt_ip.Text} ชื่อ {txt_name.Text} Product {txt_product.Text} รายละเอียด {txt_detail.Text} ")
+            Getlogdata($"ลบข้อมูล IP {txt_ip.Text} ชื่อ {txt_name.Text} Product {txt_product.Text} รายละเอียด {txt_detail.Text} ")
 
-            _cleartext()
+            Cleartext()
 
-            connect()
+            Connect()
 
             sql = $"update tbl_fdspc SET FDSNAME = '{txt_name.Text}',FDSFULLNAME = '{txt_fullname.Text}',FDSPOSITION = '{txt_position.Text}',FDSPRODUCT = '{txt_product.Text}',FDSFLOOR = '{txt_floor.Text}',FDSSERVER  = '{txt_server.Text}',FDSDOMAIN = '{txt_domain.Text}',FDSDETAIL = '{txt_detail.Text}',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_ip.Text}'"
 
@@ -173,9 +173,9 @@ Public Class FrmmanageIP
 
     End Sub
     'Preview information 
-    Private Sub btn_filter_Click(sender As Object, e As EventArgs) Handles btn_filter.Click
+    Private Sub Btn_filter_Click(sender As Object, e As EventArgs) Handles btn_filter.Click
 
-        connect()
+        Connect()
 
         Dim search() As String = {"IP", "ชื่อเล่น", "ชื่อพนักงาน", "ตำแหน่ง", "Product", "ตึก", "Server", "DomainName", "รายละเอียด", "เวลาที่แก้ไข"}
 
@@ -207,7 +207,7 @@ Public Class FrmmanageIP
 
     End Sub
     'Filter information and Sort Rows
-    Private Sub chk_filter_CheckedChanged(sender As Object, e As EventArgs) Handles chk_filter.CheckedChanged
+    Private Sub Chk_filter_CheckedChanged(sender As Object, e As EventArgs) Handles chk_filter.CheckedChanged
 
         Dim states() As String = {"T1/1", "T1/2", "T1/3", "T1/4", "T2/1", "T2/2", "T3/1", "T3/2"}
         Dim Products() As String = {"TMB", "TBANK", "Execution", "UOB", "AYCAL", "KKB", "TSS", "Legal", "SCB", "MIS", "KBANK"}
@@ -251,9 +251,9 @@ Public Class FrmmanageIP
         End If
     End Sub
     ' button  migrate IP 
-    Private Sub cmd_migrate_ip_Click(sender As Object, e As EventArgs) Handles cmd_migrate_ip.Click
+    Private Sub Cmd_migrate_ip_Click(sender As Object, e As EventArgs) Handles cmd_migrate_ip.Click
 
-        connect()
+        Connect()
 
         If Msg_confirm("คุณต้องการเปลี่ยน ย้ายข้อมูล IP Address นี้ใช่หรือไม่") = vbYes Then
 
@@ -276,22 +276,22 @@ Public Class FrmmanageIP
 
                 Dim check_ip As String = DS.Tables("tables").Rows(0)("FDSNAME").ToString
 
-                    If check_ip <> "" Then
+                If check_ip <> "" Then
 
-                        MsgBox("IP นี้มีผู้ใช้อยู่แล้ว กรุณารองอีกครั้ง")
-                        Exit Sub
+                    MsgBox("IP นี้มีผู้ใช้อยู่แล้ว กรุณารองอีกครั้ง")
+                    Exit Sub
 
-                    Else
+                Else
 
-                        sql = $"UPDATE tbl_fdspc SET FDSNAME = '{txt_name.Text}',FDSFULLNAME = '{txt_fullname.Text}',FDSPOSITION = '{txt_position.Text}',FDSPRODUCT = '{txt_product.Text}',FDSFLOOR = '{txt_floor.Text}',FDSSERVER ='{txt_server.Text}',FDSDOMAIN ='{txt_domain.Text}',FDSDETAIL = '{txt_detail.Text}',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_migrate_ip.Text}';"
+                    sql = $"UPDATE tbl_fdspc SET FDSNAME = '{txt_name.Text}',FDSFULLNAME = '{txt_fullname.Text}',FDSPOSITION = '{txt_position.Text}',FDSPRODUCT = '{txt_product.Text}',FDSFLOOR = '{txt_floor.Text}',FDSSERVER ='{txt_server.Text}',FDSDOMAIN ='{txt_domain.Text}',FDSDETAIL = '{txt_detail.Text}',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_migrate_ip.Text}';"
                     sql &= $"Update tbl_fdspc SET FDSNAME = '',FDSFULLNAME = '',FDSPOSITION = '',FDSPRODUCT = '',FDSFLOOR = '',FDSSERVER ='',FDSDOMAIN ='',FDSDETAIL = '',FDSEDIT = GETDATE() WHERE FDSIP = '{txt_ip.Text}';"
                     cmd = New SqlCommand(sql, cn)
-                        Dim _execute As Integer = cmd.ExecuteNonQuery()
+                    Dim _execute As Integer = cmd.ExecuteNonQuery()
 
                     If _execute > 0 Then
 
                         Msg_OK("แก้ไขข้อมูลสำเร็จ")
-                        _Getlogdata($"ย้ายข้อมูล IP {txt_ip.Text} ไปยัง IP {txt_migrate_ip.Text} ชื่อ {txt_name.Text}")
+                        Getlogdata($"ย้ายข้อมูล IP {txt_ip.Text} ไปยัง IP {txt_migrate_ip.Text} ชื่อ {txt_name.Text}")
 
                     Else
 
@@ -301,17 +301,17 @@ Public Class FrmmanageIP
 
                 End If
 
-                End If
-
             End If
 
-        _cleartext()
+        End If
+
+        Cleartext()
         cn.Close()
         refreshIP()
 
     End Sub
 
-    Private Sub _cleartext()
+    Private Sub Cleartext()
 
         txt_name.Text = ""
         txt_fullname.Text = ""

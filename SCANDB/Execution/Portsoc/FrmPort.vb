@@ -5,15 +5,15 @@ Public Class FrmPort
 
     Private Sub FrmPort_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_datesend)
-        _Datetimeformatshort(dtp_date_review)
-        _Datetimeformatshort(dtp_date_soc)
+        Datetimeformatshort(dtp_datesend)
+        Datetimeformatshort(dtp_date_review)
+        Datetimeformatshort(dtp_date_soc)
 
-        _comboboxadd(cbo_owner, "Customer_Owner", "Execution_Port")
+        Comboboxadd(cbo_owner, "Customer_Owner", "Execution_Port")
 
-        _comboboxadd(cbo_status, "Legal_status", "Execution_Port")
+        Comboboxadd(cbo_status, "Legal_status", "Execution_Port")
 
-        _comboboxadd(cbo_type_result, "Review_Result", "Execution_Port")
+        Comboboxadd(cbo_type_result, "Review_Result", "Execution_Port")
 
         cbo_type_result.SelectedIndex = -1
         cbo_status.SelectedIndex = -1
@@ -22,14 +22,14 @@ Public Class FrmPort
 
         Dim _type() As String = {"ธนาคาร", "เลขที่บัตรประชาชน", "เลขที่ลูกหนี้", "เลขที่สัญญา", "ชื่อ-นามสกุล"}
 
-        _cboArray(cbo_type_find, _type)
+        CboArray(cbo_type_find, _type)
 
     End Sub
-    Private Sub _find()
+    Private Sub Finds()
 
-        _cleardatagrid(dtgv_exeport)
+        Cleardatagrid(dtgv_exeport)
 
-        connect()
+        Connect()
 
         If txt_find.Text = "" Then
 
@@ -84,11 +84,11 @@ Public Class FrmPort
 
             End With
 
-            _datagrid_format_dateshort(dtgv_exeport, 7)
-            _datagrid_format_dateshort(dtgv_exeport, 12)
+            Datagrid_format_dateshort(dtgv_exeport, 7)
+            Datagrid_format_dateshort(dtgv_exeport, 12)
 
             dtgv_exeport.Visible = True
-            lbl_search.Text = $"พบข้อมูล {dtgv_exeport.RowCount.ToString} รายการ.."
+            lbl_search.Text = $"พบข้อมูล {Str(dtgv_exeport.RowCount.ToString)} รายการ.."
             lbl_search.ForeColor = Color.Green
 
         End If
@@ -97,7 +97,7 @@ Public Class FrmPort
 
     End Sub
 
-    Private Sub _write()
+    Private Sub Write_Obj()
 
         txt_address.ReadOnly = False
         txt_cuscus.ReadOnly = False
@@ -120,7 +120,7 @@ Public Class FrmPort
 
     End Sub
 
-    Private Sub _Readonly()
+    Private Sub Readonly_Obj()
 
         txt_address.ReadOnly = True
         txt_cuscus.ReadOnly = True
@@ -153,7 +153,7 @@ Public Class FrmPort
 
 
     End Sub
-    Private Sub _cleartext()
+    Private Sub Cleartext()
 
         txt_countacc.Text = ""
         txt_cuscus.Text = ""
@@ -189,16 +189,16 @@ Public Class FrmPort
         End If
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
 
-        _find()
-        _Readonly()
+        Finds()
+        Readonly_Obj()
 
     End Sub
 
-    Private Sub dtgv_exeport_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_exeport.CellClick
+    Private Sub Dtgv_exeport_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_exeport.CellClick
 
-        _cleartext()
+        Cleartext()
 
         Try
             With dtgv_exeport
@@ -243,7 +243,7 @@ Public Class FrmPort
                     chk_date_soc.Checked = True
                 End If
 
-                _Readonly()
+                Readonly_Obj()
             End With
         Catch ex As Exception
 
@@ -256,16 +256,16 @@ Public Class FrmPort
 
     End Sub
 
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
-        _Readonly()
-        _cleartext()
+        Readonly_Obj()
+        Cleartext()
 
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
 
-        _write()
+        Write_Obj()
 
         If chk_date_send.Checked = True Then
 
@@ -285,8 +285,8 @@ Public Class FrmPort
 
     End Sub
 
-    Private Sub cmd_update_Click(sender As Object, e As EventArgs) Handles cmd_update.Click
-        connect()
+    Private Sub Cmd_update_Click(sender As Object, e As EventArgs) Handles cmd_update.Click
+        Connect()
         Dim Primarykeys As String = $"{cbo_owner.Text}-{txt_cusid.Text}"
 
         sql = $"UPDATE Execution_port SET Customer_Owner = @owner,Customer_Id_Card = @Id,Customer_number = @number,Customer_Name = @name,OA = @OA,Legal_Status = @status,Date_send = @send,Review_Result = @result,Review_Result_Description = @Description,Employees_User = @Employees WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}';
@@ -316,7 +316,7 @@ Public Class FrmPort
             If i > 0 Then
 
                 Msg_OK("อัพเดตข้อมูลสำเร็จ")
-                _Getlogdataexe($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
+                Getlogdataexe($" อัพเดต ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
                 cn.Close()
             Else
                 Msg_error("อัพเดตข้อมูลล้มเหลว")
@@ -327,9 +327,9 @@ Public Class FrmPort
 
     End Sub
 
-    Private Sub cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
+    Private Sub Cmd_delete_Click(sender As Object, e As EventArgs) Handles cmd_delete.Click
 
-        connect()
+        Connect()
         sql = $"DELETE FROM Execution_port WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}';
                 DELETE FROM EXESOC WHERE Customer_Owner = '{cbo_owner.Text}' AND Customer_Id_Card = '{txt_cusid.Text}'; "
         cmd = New SqlCommand(sql, cn)
@@ -338,7 +338,7 @@ Public Class FrmPort
             Dim x As Integer = cmd.ExecuteNonQuery()
             If x > 0 Then
                 Msg_OK("ลบข้อมูลสำเร็จ")
-                _Getlogdataexe($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
+                Getlogdataexe($" ลบ ข้อมูลคัดประกันสังคม {vbNewLine} ลูกค้า {txt_cusname.Text} {vbNewLine} เลขที่บัตรประชาชน {txt_cusid.Text} ", $"'{txt_cusid.Text}'", $"'{cbo_acc.Text}'")
                 cn.Close()
             Else
                 Msg_error("ลบข้อมูลล้มเหลว")
@@ -347,7 +347,7 @@ Public Class FrmPort
         End If
     End Sub
 
-    Private Sub chk_date_soc_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_soc.CheckedChanged
+    Private Sub Chk_date_soc_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_soc.CheckedChanged
 
         If chk_date_soc.Checked = True Then
 
@@ -358,7 +358,7 @@ Public Class FrmPort
         End If
     End Sub
 
-    Private Sub chk_date_send_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_send.CheckedChanged
+    Private Sub Chk_date_send_CheckedChanged(sender As Object, e As EventArgs) Handles chk_date_send.CheckedChanged
 
         If chk_date_send.Checked = True Then
 
@@ -369,7 +369,7 @@ Public Class FrmPort
         End If
     End Sub
 
-    Private Sub chk_review_CheckedChanged(sender As Object, e As EventArgs) Handles chk_review.CheckedChanged
+    Private Sub Chk_review_CheckedChanged(sender As Object, e As EventArgs) Handles chk_review.CheckedChanged
 
         If chk_review.Checked = True Then
 

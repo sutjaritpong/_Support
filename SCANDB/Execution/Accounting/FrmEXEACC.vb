@@ -112,6 +112,14 @@ Public Class FrmEXEACC
         dtp_date_receipt.Text = ""
         cbo_owner.Text = ""
 
+        'LINK Legal data
+        Txt_account.Text = ""
+        Txt_bank.Text = ""
+        Txt_Billcode.Text = ""
+        Txt_productcode.Text = ""
+        Txt_type.Text = ""
+
+
         chk_date_work.Checked = False
         chk_date_receipt.Checked = False
 
@@ -173,6 +181,29 @@ Public Class FrmEXEACC
         chk_date_work.Enabled = True
         chk_date_receipt.Enabled = True
 
+
+    End Sub
+    Private Sub LinK_Legal()
+
+        Connect_legal()
+
+
+        sqll = $"SELECT CUSACC,CUSTOWN,CUSCLS,CUSBUC,CUSPRO FROM dbCUS WHERE CUSOWN = '{cbo_owner.Text}' AND CUSIDC = '{txt_cusid.Text}'"
+        cmdlegal = New SqlCommand(sqll, cnLegal)
+        DALegal = New SqlDataAdapter(cmdlegal)
+        DSLegal = New DataSet
+        DALegal.Fill(DSLegal, "linklegal")
+
+        If DSLegal.Tables("linklegal").Rows.Count <= 0 Then
+            Msg_error("ไม่พบข้อมูลที่ค้นหา")
+        Else
+            Txt_account.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+            Txt_bank.Text = DSLegal.Tables("linklegal").Rows(0)("CUSTOWN").ToString
+            Txt_Billcode.Text = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+            Txt_type.Text = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+            Txt_productcode.Text = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+        End If
 
     End Sub
     Private Sub Datagrid()
@@ -237,7 +268,7 @@ Public Class FrmEXEACC
             dtgv_exeacc.Visible = True
             Datagrid_format_dateshort(dtgv_exeacc, 7)
             Datagrid_format_dateshort(dtgv_exeacc, 14)
-            lbl_count_find.Text = $"พบข้อมูล {Str(dtgv_exeacc.RowCount)} รายการ.."
+            lbl_count_find.Text = $"พบข้อมูล {dtgv_exeacc.RowCount} รายการ.."
             lbl_count_find.ForeColor = Color.Green
 
         End If
@@ -378,6 +409,8 @@ Public Class FrmEXEACC
         End If
 
     End Sub
+
+
 
     Private Sub Cmd_send_Click(sender As Object, e As EventArgs) Handles cmd_send.Click
         Dim _date As DateTime = dtp_date_receipt.Text
@@ -525,6 +558,12 @@ Public Class FrmEXEACC
                 Msg_error("กรุณากรอกเฉพาะตัวเลข")
         End Select
 
+
+    End Sub
+
+    Private Sub Cmd_Linkdata_Click(sender As Object, e As EventArgs) Handles Cmd_Linkdata.Click
+
+        LinK_Legal()
 
     End Sub
 End Class

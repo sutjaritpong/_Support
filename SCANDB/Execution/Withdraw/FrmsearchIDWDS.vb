@@ -4,10 +4,10 @@ Public Class FrmsearchIDWDS
 
     Private Sub FrmsearchIDWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _autocomplete(txt_searchacc, "EXECUSACC", "EXEWDS")
+        Autocompletecombo(txt_searchacc, "EXECUSACC", "EXEWDS")
 
     End Sub
-    Private Sub btn_searchid_Click(sender As Object, e As EventArgs) Handles btn_searchid.Click
+    Private Sub Btn_searchid_Click(sender As Object, e As EventArgs) Handles btn_searchid.Click
         If txt_searchacc.Text = "" Then
             Msg_error("กรุณากรอกเลขบัตรประชาชนที่ต้องการค้นหา")
             Return
@@ -24,17 +24,17 @@ Public Class FrmsearchIDWDS
             .dtgv_data.DataSource = DS.Tables("table")
             .dtgv_data.Columns(0).Visible = False
 
-            _datagrid_format_dateshort(FrmWDS.dtgv_data, 3)
-            _datagrid_format_dateshort(FrmWDS.dtgv_data, 9)
-            _datagrid_format_dateshort(FrmWDS.dtgv_data, 15)
-            _datagrid_format_dateshort(FrmWDS.dtgv_data, 19)
+            Datagrid_format_dateshort(FrmWDS.dtgv_data, 3)
+            Datagrid_format_dateshort(FrmWDS.dtgv_data, 9)
+            Datagrid_format_dateshort(FrmWDS.dtgv_data, 15)
+            Datagrid_format_dateshort(FrmWDS.dtgv_data, 19)
 
             Me.Close()
 
         End With
         If i <= 0 Then
             Msg_error("ไม่พบข้อมูล")
-            FrmWDS.refrom()
+            FrmWDS.Refrom_Obj()
         End If
 
         cn.Close()

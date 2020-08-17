@@ -162,7 +162,7 @@ Public Class FrmimportAccounting
                         Case "เบิกงวด 1"
                             'Dim _pk As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}"
 
-                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(10).Value.ToString)}" Then
+                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value}-{dtgv_view.Rows(y).Cells(8).Value}-{dtgv_view.Rows(y).Cells(10).Value}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -172,7 +172,7 @@ Public Class FrmimportAccounting
 
                             'Dim _path As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}"
 
-                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}" Then
+                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -182,7 +182,7 @@ Public Class FrmimportAccounting
 
                             'Dim _pk As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}"
 
-                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(10).Value.ToString)}" Then
+                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value}-{dtgv_view.Rows(y).Cells(8).Value}-{dtgv_view.Rows(y).Cells(10).Value}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -192,7 +192,7 @@ Public Class FrmimportAccounting
 
                             'Dim _pk As String = $"{dtgv_view.Rows(y).Cells(1).Value.ToString}-{dtgv_view.Rows(y).Cells(8).Value.ToString}-{dtgv_view.Rows(y).Cells(10).Value.ToString}"
 
-                            If DR(0).ToString = $"{Str(dtgv_view.Rows(y).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(y).Cells(10).Value.ToString)}" Then
+                            If DR(0).ToString = $"{dtgv_view.Rows(y).Cells(1).Value}-{dtgv_view.Rows(y).Cells(8).Value}-{dtgv_view.Rows(y).Cells(10).Value}" Then
 
                                 dtgv_view.Rows(y).DefaultCellStyle.BackColor = Color.Red
 
@@ -240,9 +240,9 @@ Public Class FrmimportAccounting
 
                 Select Case cbo_products.SelectedItem
 
-                    Case "KBANK" : sql &= $"AccountingKBANK(Accounting_PK,Accounting_Number,Accounting_CUSCUS,Accounting_Name,Accounting_black_red,Accounting_date_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(8).Value.ToString)}-{Str(dtgv_view.Rows(i).Cells(10).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(0).Value)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(4).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(5).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(6).Value.ToString)}','{dtgv_view.Rows(i).Cells(7).Value}','{dtgv_view.Rows(i).Cells(8).Value}','{Str(dtgv_view.Rows(i).Cells(9).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(10).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(11).Value.ToString)}')"
+                    Case "KBANK" : sql &= $"AccountingKBANK(Accounting_PK,Accounting_Number,Accounting_CUSCUS,Accounting_Name,Accounting_black_red,Accounting_date_legal,Accounting_court,Accounting_capital,Accounting_receipt,Accounting_invoice,Accounting_date_send,Accounting_type_legal,Accounting_type_master)VALUES('{dtgv_view.Rows(i).Cells(1).Value}-{dtgv_view.Rows(i).Cells(8).Value}-{dtgv_view.Rows(i).Cells(10).Value}','{dtgv_view.Rows(i).Cells(0).Value}','{dtgv_view.Rows(i).Cells(1).Value}','{dtgv_view.Rows(i).Cells(2).Value}','{dtgv_view.Rows(i).Cells(3).Value}','{dtgv_view.Rows(i).Cells(4).Value}','{dtgv_view.Rows(i).Cells(5).Value}','{dtgv_view.Rows(i).Cells(6).Value}','{dtgv_view.Rows(i).Cells(7).Value}','{dtgv_view.Rows(i).Cells(8).Value}','{dtgv_view.Rows(i).Cells(9).Value}','{dtgv_view.Rows(i).Cells(10).Value}','{dtgv_view.Rows(i).Cells(11).Value}')"
 
-                    Case "FILESCAN KBANK" : sql &= $"ACCOUNTINGscdb(Accounting_invoice,Accounting_path,Accounting_date,Accounting_owner)VALUES('{Str(dtgv_view.Rows(i).Cells(0).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(1).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(2).Value.ToString)}','{Str(dtgv_view.Rows(i).Cells(3).Value.ToString)}')"
+                    Case "FILESCAN KBANK" : sql &= $"ACCOUNTINGscdb(Accounting_invoice,Accounting_path,Accounting_date,Accounting_owner)VALUES('{dtgv_view.Rows(i).Cells(0).Value}','{dtgv_view.Rows(i).Cells(1).Value}','{dtgv_view.Rows(i).Cells(2).Value}','{dtgv_view.Rows(i).Cells(3).Value}')"
 
                 End Select
 

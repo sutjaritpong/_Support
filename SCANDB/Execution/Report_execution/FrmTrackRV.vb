@@ -11,4 +11,8 @@
         Me.ReportViewer1.RefreshReport()
     End Sub
 
+    Private Sub ReportViewer1_ReportExport(sender As Object, e As Microsoft.Reporting.WinForms.ReportExportEventArgs) Handles ReportViewer1.ReportExport
+        Connect()
+        Getlogdata("ReportExport ผลการติดตาม ")
+    End Sub
 End Class

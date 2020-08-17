@@ -4,30 +4,30 @@ Public Class FrmTracking
     Private Sub FrmTracking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_date_send)
-        _Datetimeformatshort(dtp_date_verify)
-        _Datetimeformatshort(dtp_date_work)
+        Datetimeformatshort(dtp_date_send)
+        Datetimeformatshort(dtp_date_verify)
+        Datetimeformatshort(dtp_date_work)
 
 
 
         '## เพิ่มข้อมูลลงใน Combobox โดยใช้ Array และ Method .items.addrange() นำมาสร้างเป็น Sub _cboArray และ ใช้การเพิ่มข้อมูลจาก Columns โดยดึงข้อมูลจาก Database มาแล้วใช้ Method command.ExecuteReader() อ่านข้อมูลใน คอลัมน์ ที่ Query มา แล้วนำมาแสดงโดยการใช้ While Loop ##'
 
-        _cleardatagrid(dtgv_tracking)
+        Cleardatagrid(dtgv_tracking)
         Dim _nosend() As String = {"ไม่ได้ส่งมาออกใบงานแถลงบัญชี", "ส่งมาออกใบงาน"}
 
-        _cboArray(cbo_waning, _nosend)
+        CboArray(cbo_waning, _nosend)
         cbo_waning.SelectedIndex = -1
 
         Dim _tracking() As String = {"ไม่มีใบงานแถลงบัญชี", "มีใบงานแถลงบัญชี"}
 
-        _cboArray(cbo_document, _tracking)
+        CboArray(cbo_document, _tracking)
         cbo_document.SelectedIndex = -1
 
 
-        _comboboxadd(cbo_owner, "EXEBANK", "EXESM")
+        Comboboxadd(cbo_owner, "EXEBANK", "EXESM")
         cbo_owner.SelectedIndex = -1
 
-        connect()
+        Connect()
 
         sql = $"SELECT DISTINCT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION'"
         cmd = New SqlCommand(sql, cn)
@@ -54,17 +54,17 @@ Public Class FrmTracking
 
         '## สร้าง Autocomplete ให้กับ txt_cusid โดยดึงข้อมูล ของ Column EXEID ใน Table EXESM ##'
 
-        _autocomplete(txt_cusname, "EXECUSTOMER", "EXESM")
-        _autocomplete(txt_cusid, "EXEID", "EXESM")
+        Autocompletecombo(txt_cusname, "EXECUSTOMER", "EXESM")
+        Autocompletecombo(txt_cusid, "EXEID", "EXESM")
 
-        _readonly()
-        clear()
+        Readonly_Obj()
+        Clear_Obj()
         cn.Close()
 
     End Sub
 
     '## Event CheckedChanged ใช้ในการเช็คค่าของ Checkbox ##'
-    Private Sub chk_datetracking_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datetracking.CheckedChanged
+    Private Sub Chk_datetracking_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datetracking.CheckedChanged
 
         If chk_datetracking.Checked = True Then
 
@@ -77,7 +77,7 @@ Public Class FrmTracking
     End Sub
 
     '## Event CheckedChanged ใช้ในการเช็คค่าของ Checkbox ##'
-    Private Sub chk_datesend_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datesend.CheckedChanged
+    Private Sub Chk_datesend_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datesend.CheckedChanged
 
         If chk_datesend.Checked = True Then
 
@@ -91,7 +91,7 @@ Public Class FrmTracking
     End Sub
 
     ' ## Event Button Click เมื่อกดปุ่มจะทำงาน ในที่นี้ให้แสดง ข้อมูลที่ลิ้งจาก txt_cusid มาแสดงใน Datagridview และ นำไปแสดงใน Textbox ด้วย อื่น ๆ ##'
-    Private Sub cmd_links_Click(sender As Object, e As EventArgs) Handles cmd_links.Click
+    Private Sub Cmd_links_Click(sender As Object, e As EventArgs) Handles cmd_links.Click
 
         If dtgv_invalid.RowCount = 0 Or dtgv_invalid.ColumnCount = 0 Then
 
@@ -102,14 +102,14 @@ Public Class FrmTracking
             dtgv_tracking.DataSource = Nothing
         End If
 
-        connect()
+        Connect()
 
         sql = $"SELECT S.EXEBANK,S.EXEID,S.EXECUSTOMER,S.EXECOURT,S.EXERED,S.EXEDATEWORK,TR.Tracking_date_sheet,TR.Tracking_other FROM EXESM AS S LEFT JOIN EXETRACKING AS TR ON S.EXEID = TR.Customer_IDC  WHERE S.EXEID = '{txt_cusid.Text}'"
 
         cmd = New SqlCommand(sql, cn)
-            DA = New SqlDataAdapter(cmd)
-            DS = New DataSet
-            DA.Fill(DS, "tables")
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "tables")
 
         If DS.Tables("tables").Rows.Count = 0 Then
             lbl_tracking.Text = "ไม่พบข้อมูล"
@@ -117,80 +117,80 @@ Public Class FrmTracking
         End If
 
         txt_cusid.Text = DS.Tables("tables").Rows(0)("EXEID").ToString
-            cbo_owner.Text = DS.Tables("tables").Rows(0)("EXEBANK").ToString
-            txt_cusname.Text = DS.Tables("tables").Rows(0)("EXECUSTOMER").ToString
-            txt_red.Text = DS.Tables("tables").Rows(0)("EXERED").ToString
-            txt_court.Text = DS.Tables("tables").Rows(0)("EXECOURT").ToString
-            dtp_date_send.Text = DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString
-            dtp_date_verify.Text = DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString
-            txt_detail.Text = DS.Tables("tables").Rows(0)("Tracking_other").ToString
+        cbo_owner.Text = DS.Tables("tables").Rows(0)("EXEBANK").ToString
+        txt_cusname.Text = DS.Tables("tables").Rows(0)("EXECUSTOMER").ToString
+        txt_red.Text = DS.Tables("tables").Rows(0)("EXERED").ToString
+        txt_court.Text = DS.Tables("tables").Rows(0)("EXECOURT").ToString
+        dtp_date_send.Text = DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString
+        dtp_date_verify.Text = DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString
+        txt_detail.Text = DS.Tables("tables").Rows(0)("Tracking_other").ToString
 
-            If DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString = "" Then
+        If DS.Tables("tables").Rows(0)("EXEDATEWORK").ToString = "" Then
 
-                chk_datesend.Checked = False
+            chk_datesend.Checked = False
 
-            Else
+        Else
 
-                chk_datesend.Checked = True
+            chk_datesend.Checked = True
 
-            End If
+        End If
 
-            If DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString = "" Then
+        If DS.Tables("tables").Rows(0)("Tracking_date_sheet").ToString = "" Then
 
-                chk_datetracking.Checked = False
+            chk_datetracking.Checked = False
 
-            Else
+        Else
 
-                chk_datetracking.Checked = True
+            chk_datetracking.Checked = True
 
-            End If
+        End If
 
 
-            If chk_datesend.Checked = False Then
+        If chk_datesend.Checked = False Then
 
-                cbo_waning.Text = "ไม่ได้ส่งมาออกใบงานแถลงบัญชี"
+            cbo_waning.Text = "ไม่ได้ส่งมาออกใบงานแถลงบัญชี"
 
-            Else
+        Else
 
-                cbo_waning.Text = "ส่งมาออกใบงาน"
+            cbo_waning.Text = "ส่งมาออกใบงาน"
 
-            End If
+        End If
 
-            Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี", "วันที่ตรวจสำนวน"}
+        Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี", "วันที่ตรวจสำนวน"}
 
-            With dtgv_tracking
+        With dtgv_tracking
 
-                .DataSource = DS.Tables("tables")
+            .DataSource = DS.Tables("tables")
 
-                For i = 0 To _headers.Length - 1
+            For i = 0 To _headers.Length - 1
 
-                    .Columns(i).HeaderText = _headers(i)
+                .Columns(i).HeaderText = _headers(i)
 
-                Next
+            Next
 
-            End With
+        End With
 
         If (dtgv_tracking.RowCount = 0) Or (dtgv_tracking.ColumnCount = 0) Then
 
             lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
             lbl_tracking.ForeColor = Color.Red
         Else
-            _datagrid_format_dateshort(dtgv_tracking, 5)
-            _datagrid_format_dateshort(dtgv_tracking, 6)
+            Datagrid_format_dateshort(dtgv_tracking, 5)
+            Datagrid_format_dateshort(dtgv_tracking, 6)
 
-            lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = {dtgv_tracking.RowCount.ToString} แถว"
+            lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = {Str(dtgv_tracking.RowCount.ToString)} แถว"
             lbl_tracking.ForeColor = Color.DarkGreen
-            End If
+        End If
 
-        _readonly()
+        Readonly_Obj()
 
         cn.Close()
 
     End Sub
 
-    Private Sub cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
+    Private Sub Cmd_save_Click(sender As Object, e As EventArgs) Handles cmd_save.Click
 
-        connect()
+        Connect()
 
         Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ", "วันที่ลงข้อมูล"}
 
@@ -242,7 +242,7 @@ Public Class FrmTracking
 
             Else
 
-                _cleardatagrid(dtgv_invalid)
+                Cleardatagrid(dtgv_invalid)
 
                 sql = $"SELECT * FROM EXETRACKING WHERE Customer_idc = '{txt_cusid.Text}'"
                 cmd.CommandText = sql
@@ -257,13 +257,13 @@ Public Class FrmTracking
                     dtgv_invalid.Columns(i).HeaderText = _headertext(i)
                 Next
 
-                _datagrid_format_dateshort(dtgv_invalid, 6)
-                _datagrid_format_dateshort(dtgv_invalid, 12)
+                Datagrid_format_dateshort(dtgv_invalid, 6)
+                Datagrid_format_dateshort(dtgv_invalid, 12)
 
-                _Getlogdataexe($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน", $"'{txt_cusid.Text}'", $"NULL")
+                Getlogdataexe($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน", $"'{txt_cusid.Text}'", $"NULL")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
-                clear()
-                _readonly()
+                Clear_Obj()
+                Readonly_Obj()
                 cn.Close()
             End If
 
@@ -272,7 +272,7 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub _readonly()
+    Private Sub Readonly_Obj()
 
         txt_cusname.ReadOnly = True
         txt_red.ReadOnly = True
@@ -302,7 +302,7 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub _write()
+    Private Sub Write_obj()
 
         txt_detail.ReadOnly = False
         txt_cusname.ReadOnly = False
@@ -319,7 +319,7 @@ Public Class FrmTracking
         chk_datetracking.Enabled = True
 
     End Sub
-    Private Sub clear()
+    Private Sub Clear_Obj()
 
         txt_detail.Text = ""
         txt_court.Text = ""
@@ -350,9 +350,9 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
+    Private Sub Cmd_edit_Click(sender As Object, e As EventArgs) Handles cmd_edit.Click
 
-        _write()
+        Write_obj()
 
         If chk_datesend.Checked = True Then
 
@@ -372,13 +372,13 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
-        _readonly()
+        Readonly_Obj()
 
     End Sub
 
-    Private Sub cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
+    Private Sub Cmd_search_Click(sender As Object, e As EventArgs) Handles cmd_search.Click
         If Application.OpenForms().OfType(Of Frmfind).Any Then
 
 
@@ -394,10 +394,10 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+    Private Sub Cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
 
-        clear()
-        _cleardatagrid(dtgv_invalid)
+        Clear_Obj()
+        Cleardatagrid(dtgv_invalid)
 
     End Sub
 
@@ -409,7 +409,7 @@ Public Class FrmTracking
 
     End Sub
 
-    Private Sub cmd_filter_Click(sender As Object, e As EventArgs) Handles cmd_filter.Click
+    Private Sub Cmd_filter_Click(sender As Object, e As EventArgs) Handles cmd_filter.Click
 
         If Application.OpenForms().OfType(Of Frmfilter).Any Then
 

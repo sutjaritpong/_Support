@@ -64,8 +64,8 @@ Public Class FrmKBANK
     End Sub
     Private Sub Refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
         Dim header() As String = {"เลขที่สัญญา", "PathFile", "Product", "ธนาคาร", "ประเภท"}
-        sql = "SELECT * FROM scanlaw"
-        connect()
+        sql = "SELECT * FROM KBANKscdb"
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")

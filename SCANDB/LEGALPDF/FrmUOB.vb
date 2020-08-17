@@ -21,8 +21,8 @@ Public Class FrmUOB
         Me.Dispose()
         cn.Close()
     End Sub
-    Private Sub cmd_selectuob_Click(sender As Object, e As EventArgs) Handles cmd_selectuob.Click
-        connect()
+    Private Sub Cmd_selectuob_Click(sender As Object, e As EventArgs) Handles cmd_selectuob.Click
+        Connect()
         If txt_searchuob.Text = "" Then
             Msg_error("กรุณากรอก เลขที่สัญญาหรือเลขรหัสลูกหนี้")
         Else
@@ -38,7 +38,7 @@ Public Class FrmUOB
                 Msg_error("ไม่พบข้อมูลที่ค้นหา")
             End If
 
-            _Getlogdata($"ค้นหา เอกสาร UOB {txt_searchuob.Text}")
+            Getlogdata($"ค้นหา เอกสาร UOB {txt_searchuob.Text}")
 
             For Each col As DataGridViewColumn In dtgvshowuob.Columns
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -55,10 +55,10 @@ Public Class FrmUOB
         txt_searchuob.Text = ""
         dtgvshowuob.DataSource.clear()
     End Sub
-    Private Sub refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
+    Private Sub Refreshdtgv_Show()               '// subFunction สำหรับ datagridview
         Dim header() As String = {"เลขที่สัญญา", "PathFile", "Product", "ธนาคาร", "ประเภท"}
-        sql = "SELECT * FROM scanlaw"
-        connect()
+        sql = "SELECT * FROM UOBscdb"
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -70,14 +70,14 @@ Public Class FrmUOB
         End With
     End Sub
 
-    Private Sub dtgvshowuob_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowuob.CellClick
+    Private Sub Dtgvshowuob_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowuob.CellClick
         txt_accseluob.Text = dtgvshowuob.CurrentRow.Cells(0).Value  '// ทำให้แสดงข้อมูลเวลา click cell ใน Datagridview
         AxAcroPDFuob.src = dtgvshowuob.CurrentRow.Cells(1).Value
         txt_Prodseluob.Text = dtgvshowuob.CurrentRow.Cells(2).Value
         txt_bankseluob.Text = dtgvshowuob.CurrentRow.Cells(3).Value
         txt_typeseluob.Text = dtgvshowuob.CurrentRow.Cells(4).Value
     End Sub
-    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+    Private Sub Cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
         Clearinformation()
     End Sub
 End Class

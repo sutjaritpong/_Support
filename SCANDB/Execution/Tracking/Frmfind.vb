@@ -32,9 +32,9 @@ Public Class Frmfind
 
     End Sub
 
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+    Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
 
-        _cleardatagrid(FrmTracking.dtgv_invalid)
+        Cleardatagrid(FrmTracking.dtgv_invalid)
 
         If txt_find.Text = "" Then
 
@@ -44,7 +44,7 @@ Public Class Frmfind
 
         End If
 
-        connect()
+        Connect()
 
         Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน"}
 
@@ -72,15 +72,15 @@ Public Class Frmfind
                 .lbl_invalid.Text = "ไม่พบข้อมูลที่ค้นหา"
                 .lbl_invalid.ForeColor = Color.Red
             Else
-                .lbl_invalid.Text = $"จำนวนผลลัพธ์ที่พบ = { .dtgv_invalid.RowCount.ToString} แถว"
+                .lbl_invalid.Text = $"จำนวนผลลัพธ์ที่พบ = { Str(.dtgv_invalid.RowCount.ToString)} แถว"
                 .lbl_invalid.ForeColor = Color.DarkGreen
-                _datagrid_format_dateshort(FrmTracking.dtgv_invalid, 6)
-                _datagrid_format_dateshort(FrmTracking.dtgv_invalid, 12)
+                Datagrid_format_dateshort(FrmTracking.dtgv_invalid, 6)
+                Datagrid_format_dateshort(FrmTracking.dtgv_invalid, 12)
             End If
 
         End With
 
-        _cleardatagrid(FrmTracking.dtgv_tracking)
+        Cleardatagrid(FrmTracking.dtgv_tracking)
 
         Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี"}
 
@@ -111,9 +111,9 @@ Public Class Frmfind
                 .lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
                 .lbl_tracking.ForeColor = Color.Red
             Else
-                .lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = { .dtgv_tracking.RowCount.ToString} แถว"
+                .lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = { Str(.dtgv_tracking.RowCount.ToString)} แถว"
                 .lbl_tracking.ForeColor = Color.DarkGreen
-                _datagrid_format_dateshort(FrmTracking.dtgv_tracking, 5)
+                Datagrid_format_dateshort(FrmTracking.dtgv_tracking, 5)
             End If
 
 
@@ -125,7 +125,7 @@ Public Class Frmfind
 
     End Sub
 
-    Private Sub _clear()
+    Private Sub Clear_obj()
 
         With FrmTracking
 
@@ -148,7 +148,7 @@ Public Class Frmfind
 
     End Sub
 
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
 
         Me.Close()
 

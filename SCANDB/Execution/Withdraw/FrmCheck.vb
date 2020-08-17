@@ -4,8 +4,8 @@ Public Class FrmCheck
     Private Sub FrmCheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
-        _Datetimeformatshort(dtp_checksend)
-        _Datetimeformatshort(dtp_datecheck)
+        Datetimeformatshort(dtp_checksend)
+        Datetimeformatshort(dtp_datecheck)
 
 
         cbo_cusowner.Items.Clear()
@@ -18,13 +18,13 @@ Public Class FrmCheck
 
         check_notedit()
 
-        _convertnum(txt_total)
-        _convertnum(txt_totalcheck)
+        Convertnum(txt_total)
+        Convertnum(txt_totalcheck)
 
     End Sub
 
 
-    Private Sub dtgv_check_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_check.CellMouseUp
+    Private Sub Dtgv_check_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dtgv_check.CellMouseUp
         Try
             If e.RowIndex = -1 Then Exit Sub
 
@@ -92,7 +92,7 @@ Public Class FrmCheck
         check_notedit()
 
     End Sub
-    Private Sub check_notedit()
+    Private Sub Check_notedit()
 
         txt_checkbank.ReadOnly = True
         txt_hub.ReadOnly = True
@@ -112,7 +112,7 @@ Public Class FrmCheck
         chk_datecheck.Enabled = False
 
     End Sub
-    Private Sub check_edit()
+    Private Sub Check_edit()
 
         txt_checkbank.ReadOnly = False
         txt_hub.ReadOnly = False
@@ -131,9 +131,9 @@ Public Class FrmCheck
         chk_datecheck.Enabled = True
     End Sub
 
-    Private Sub btn_editch_Click(sender As Object, e As EventArgs) Handles btn_editch.Click
+    Private Sub Btn_editch_Click(sender As Object, e As EventArgs) Handles btn_editch.Click
 
-        check_edit()
+        Check_edit()
 
         If chk_checksend.Checked = True Then
 
@@ -158,18 +158,18 @@ Public Class FrmCheck
 
     End Sub
 
-    Private Sub btn_savech_Click(sender As Object, e As EventArgs) Handles btn_savech.Click
+    Private Sub Btn_savech_Click(sender As Object, e As EventArgs) Handles btn_savech.Click
 
         updatecheck()
 
     End Sub
 
-    Private Sub btn_cancel_Click(sender As Object, e As EventArgs) Handles btn_cancel.Click
+    Private Sub Btn_cancel_Click(sender As Object, e As EventArgs) Handles btn_cancel.Click
 
         cancel_edit()
 
     End Sub
-    Public Sub cancel_edit()
+    Public Sub Cancel_edit()
 
         cbo_cusowner.SelectedIndex = -1
         cbo_cusowner.Text = ""
@@ -190,14 +190,14 @@ Public Class FrmCheck
 
         chk_checksend.Checked = False
         chk_datecheck.Checked = False
-        check_notedit()
+        Check_notedit()
 
     End Sub
     ''' <summary>
     ''' 
     ''' </summary>
-    Private Sub updatecheck()
-        connect()
+    Private Sub Updatecheck()
+        Connect()
 
         If txt_cusid.ReadOnly = False Then
 
@@ -207,16 +207,16 @@ Public Class FrmCheck
             cmd.ExecuteNonQuery()
             Msg_OK("แก้ไขข้อมูลสำเร็จ")
 
-            _Getlogdataexe($"แก้ไขข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
+            Getlogdataexe($"แก้ไขข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
-            cancel_edit()
+            Cancel_edit()
         Else
 
             Msg_error("ไม่สามารถแก้ไขข้อมูลได้")
 
         End If
     End Sub
-    Private Sub savecheck()
+    Private Sub Savecheck()
 
         If txt_cusname.Text = "" Then
 
@@ -224,7 +224,7 @@ Public Class FrmCheck
 
         Else
 
-            connect()
+            Connect()
 
             sql = $"INSERT INTO EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKNAME,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}{dtp_checksend.Text}','{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{txt_cusname.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}');"
 
@@ -233,9 +233,9 @@ Public Class FrmCheck
 
             cn.Close()
             Msg_OK("บันทึกข้อมูลสำเร็จ")
-            cancel_edit()
+            Cancel_edit()
 
-            _Getlogdataexe($"เพิ่มข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
+            Getlogdataexe($"เพิ่มข้อมูล เช็ค ถอนอายัด/ยึด {cbo_cusowner.Text}-{txt_cusacc.Text}-{FrmWDS.txt_cusname.Text} ", $"'{txt_cusid.Text}'", $"'{txt_cusacc.Text}'")
 
 
         End If
@@ -247,7 +247,7 @@ Public Class FrmCheck
 
     End Sub
 
-    Private Sub chk_datecheck_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecheck.CheckedChanged
+    Private Sub Chk_datecheck_CheckedChanged(sender As Object, e As EventArgs) Handles chk_datecheck.CheckedChanged
 
         If chk_datecheck.Checked = True Then
             dtp_datecheck.Enabled = True
@@ -257,7 +257,7 @@ Public Class FrmCheck
 
     End Sub
 
-    Private Sub chk_checksend_CheckedChanged(sender As Object, e As EventArgs) Handles chk_checksend.CheckedChanged
+    Private Sub Chk_checksend_CheckedChanged(sender As Object, e As EventArgs) Handles chk_checksend.CheckedChanged
         If chk_checksend.Checked = True Then
             dtp_checksend.Enabled = True
         Else

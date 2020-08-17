@@ -5,7 +5,7 @@ Public Class FrmPasschange
     Private Sub FrmPasschange_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-    Private Sub chk_Password_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Password.CheckedChanged
+    Private Sub Chk_Password_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Password.CheckedChanged
         If chk_Password.Checked = True Then         '// ปุ่ม check ให้แสดงหรือซ่อน Password
             txt_passbefore.PasswordChar = ""     '// PasswordChar  คือแสดงรหัสผ่านเป้นอะไร
         Else
@@ -13,7 +13,7 @@ Public Class FrmPasschange
         End If
     End Sub
 
-    Private Sub cmd_ok_Click(sender As Object, e As EventArgs) Handles cmd_ok.Click
+    Private Sub Cmd_ok_Click(sender As Object, e As EventArgs) Handles cmd_ok.Click
 
         sql = $"SELECT USRPASSWORD FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(sql, cn)
@@ -42,7 +42,7 @@ Public Class FrmPasschange
             FrmLogin.txt_passlog.Enabled = True
 
             sql = ("SELECT * FROM tbl_login WHERE USERID = '" & FrmLogin.txt_idlog.Text & "'")
-            Dim dts As DataTable = cmd_excuteToDataTable()              '//นำเข้ามูลต่าง ๆ ที่จำเป็นไปแสดงในหน้า Main
+            Dim dts As DataTable = Cmd_excuteToDataTable()              '//นำเข้ามูลต่าง ๆ ที่จำเป็นไปแสดงในหน้า Main
             With FrmMastermain
                 .tsl_ip.Text = FrmLogin.aws.LocalIP                  '// แสดง IP
                 .tsl_id.Text = dts.Rows(0)("USERID")        '// แสดง ID
@@ -62,19 +62,19 @@ Public Class FrmPasschange
             End If
 
             sql = ("UPDATE tbl_login SET USRLOGIN = '" & FrmMastermain.tsl_time.Text & "' WHERE USERID ='" & FrmLogin.txt_idlog.Text & "'")          '// อัพเดทเวลาล็อคอินล่าสุดเข้าฐานข้อมูล
-            cmd_excuteScalar()
+            Cmd_excuteScalar()
             FrmMastermain.Show()
             Me.Close()
             FrmLogin.Hide()
 
             FrmLogin.txt_passlog.Text = ""
 
-            _Getlogdata($"ผู้ใช้ {FrmLogin.txt_idlog.Text} ได้เปลี่ยนแปลงรหัสผ่าน")
+            Getlogdata($"ผู้ใช้ {FrmLogin.txt_idlog.Text} ได้เปลี่ยนแปลงรหัสผ่าน")
 
         End If
     End Sub
 
-    Private Sub cmd_no_Click(sender As Object, e As EventArgs) Handles cmd_no.Click
+    Private Sub Cmd_no_Click(sender As Object, e As EventArgs) Handles cmd_no.Click
 
         Me.Dispose()
         txt_passnew.Clear()
@@ -85,7 +85,7 @@ Public Class FrmPasschange
         FrmLogin.txt_passlog.Enabled = True
 
     End Sub
-    Private Sub frmpasschange_closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub Frmpasschange_closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         Me.Dispose()
         FrmLogin.txt_idlog.Enabled = True

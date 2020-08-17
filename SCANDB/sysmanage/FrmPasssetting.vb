@@ -5,7 +5,7 @@ Public Class FrmPasssetting
 
     End Sub
 
-    Private Sub chk_Password_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Password.CheckedChanged
+    Private Sub Chk_Password_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Password.CheckedChanged
 
         If chk_Password.Checked = True Then         '// ปุ่ม check ให้แสดงหรือซ่อน Password
             txt_passbefores.PasswordChar = ""     '// PasswordChar  คือแสดงรหัสผ่านเป้นอะไร
@@ -15,8 +15,8 @@ Public Class FrmPasssetting
 
     End Sub
 
-    Private Sub cmd_ok_Click(sender As Object, e As EventArgs) Handles cmd_ok.Click
-        connect()
+    Private Sub Cmd_ok_Click(sender As Object, e As EventArgs) Handles cmd_ok.Click
+        Connect()
         sql = $"SELECT USRPASSWORD FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -42,12 +42,12 @@ Public Class FrmPasssetting
 
             Msg_OK("เปลี่ยนรหัสผ่านสำเร็จ")
 
-            _Getlogdata($"ผู้ใช้ {FrmLogin.txt_idlog.Text} ได้เปลี่ยนแปลงรหัสผ่าน")
+            Getlogdata($"ผู้ใช้ {FrmLogin.txt_idlog.Text} ได้เปลี่ยนแปลงรหัสผ่าน")
             cn.Close()
         End If
     End Sub
 
-    Private Sub cmd_no_Click(sender As Object, e As EventArgs) Handles cmd_no.Click
+    Private Sub Cmd_no_Click(sender As Object, e As EventArgs) Handles cmd_no.Click
 
         txt_passbefores.Clear()
         txt_passagains.Clear()

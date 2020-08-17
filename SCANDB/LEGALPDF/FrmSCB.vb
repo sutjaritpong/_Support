@@ -21,8 +21,8 @@ Public Class FrmSCB
         Me.Dispose()
         cn.Close()
     End Sub
-    Private Sub cmd_selectkscb_Click(sender As Object, e As EventArgs) Handles cmd_selectscb.Click
-        connect()
+    Private Sub Cmd_selectkscb_Click(sender As Object, e As EventArgs) Handles cmd_selectscb.Click
+        Connect()
         If txt_searchscb.Text = "" Then
             Msg_error("กรุณากรอก เลขที่สัญญาหรือเลขรหัสลูกหนี้")
         Else
@@ -38,14 +38,14 @@ Public Class FrmSCB
                 Msg_error("ไม่พบข้อมูลที่ค้นหา")
             End If
 
-            _Getlogdata($"ค้นหา เอกสาร SCB {txt_searchscb.Text}")
+            Getlogdata($"ค้นหา เอกสาร SCB {txt_searchscb.Text}")
 
             For Each col As DataGridViewColumn In dtgvshowscb.Columns
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             Next
         End If
     End Sub
-    Private Sub cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
+    Private Sub Cmd_clear_Click(sender As Object, e As EventArgs) Handles cmd_clear.Click
         Clearinformation()
     End Sub
     Private Sub Clearinformation() '// Function Clear ข้อมูล 
@@ -57,10 +57,10 @@ Public Class FrmSCB
         txt_searchscb.Text = ""
         dtgvshowscb.DataSource.clear()
     End Sub
-    Private Sub refreshdtgv_SHOW()               '// subFunction สำหรับ datagridview
+    Private Sub Refreshdtgv_Show()               '// subFunction สำหรับ datagridview
         Dim header() As String = {"เลขที่สัญญา", "PathFile", "Product", "ธนาคาร", "ประเภท"}
-        sql = "SELECT * FROM scanlaw"
-        connect()
+        sql = "SELECT * FROM SCBscdb"
+        Connect()
         DA = New SqlDataAdapter(sql, cn)
         DS = New DataSet
         DA.Fill(DS, "table")
@@ -72,7 +72,7 @@ Public Class FrmSCB
         End With
     End Sub
 
-    Private Sub dtgvshowscb_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowscb.CellClick
+    Private Sub Dtgvshowscb_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgvshowscb.CellClick
         txt_accselscb.Text = dtgvshowscb.CurrentRow.Cells(0).Value  '// ทำให้แสดงข้อมูลเวลา click cell ใน Datagridview
         AxAcroPDFscb.src = dtgvshowscb.CurrentRow.Cells(1).Value
         txt_Prodselscb.Text = dtgvshowscb.CurrentRow.Cells(2).Value
