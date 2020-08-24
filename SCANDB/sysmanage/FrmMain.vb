@@ -304,7 +304,7 @@ Public Class FrmMastermain
     End Sub
 
     Private Sub Menu_tab_ScbCollector_Click(sender As Object, e As EventArgs) Handles Menu_tab_ScbCollector.Click
-        With FrmCollectorSCB
+        With Frmcollector
             .MdiParent = Me
             .Show()
             .WindowState = FormWindowState.Maximized
