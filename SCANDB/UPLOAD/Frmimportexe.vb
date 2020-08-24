@@ -11,12 +11,11 @@ Imports System.Xml
 Imports System.Globalization
 Imports System.Data.OleDb
 Imports System.Linq
+Imports System.Net
 
 Public Class Frmimportexe
 
     Private Sub Frmimportexe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
 
         Dtgv_Exe.Visible = False
         Main_progressbar.Visible = False
@@ -94,6 +93,8 @@ Public Class Frmimportexe
         Dtgv_Exe.DefaultCellStyle.BackColor = Color.White
         conn.Close()
         lbl_countimport.Text = Dtgv_Exe.Rows.Count & " " & "รายการ"
+        lbl_flow.Text = "นำเข้าข้อมูล..."
+
         'For Each col As DataGridViewColumn In Dtgv_Exe.Columns
         '    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         'Next
@@ -116,15 +117,60 @@ Public Class Frmimportexe
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
-        loadsexe()
+        Loadsexe()
 
+        lbl_flow.Text = "กำลังโหลดข้อมูลเข้าระบบ...."
     End Sub
 
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
 
-        connect()
+        Connect()
 
-        sql = " SELECT COUNT(*) AS TYPEs FROM "
+        lbl_flow.Text = "กำลังประมวลผลข้อมูล"
+
+        For i As Integer = 0 To Dtgv_Exe.Rows.Count - 1
+
+            If chk_senddata.Checked = True Then
+
+                Dim Checkrowcolor As Color
+                Checkrowcolor = Dtgv_Exe.Rows(i).DefaultCellStyle.BackColor
+
+                If Checkrowcolor = Color.Red Then
+                    Continue For
+                End If
+
+            End If
+
+                Select Case cbo_products.SelectedItem
+                Case "ใบงานแถลงบัญชี" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(2).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(3).Value}'")
+
+                Case "บังคับคดีตั้งเรื่อง" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(2).Value} Status{Dtgv_Exe.Rows(i).Cells(5).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"NULL")
+
+                Case "ผลคัดประกันสังคม" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value}  จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"NULL")
+
+                Case "ตรวจสำนวนตามใบงาน" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value}  จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"NULL")
+
+                Case "ถอนอายัด/ยึด" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(6).Value} Status  {Dtgv_Exe.Rows(i).Cells(12).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(3).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(5).Value}'")
+
+                Case "ตรวจสำนวนจากบังคับดคี" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(3).Value} Status {Dtgv_Exe.Rows(i).Cells(6).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(2).Value}'")
+
+                Case "ส่งเช็คถอนอายัด/ยึด" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(9).Value} Status {Dtgv_Exe.Rows(i).Cells(14).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(6).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(7).Value}'")
+
+                Case "ส่งคัดประกันสังคมฟ้องเอง" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(4).Value} Status {Dtgv_Exe.Rows(i).Cells(8).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(3).Value}'")
+
+                Case "ส่งสืบกรรมสิทธิ์ฟ้องเอง" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(3).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(1).Value} Status {Dtgv_Exe.Rows(i).Cells(4).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(0).Value}'", $"NULL")
+
+                Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : Getlogdataexe($" Types {cbo_products.Text} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(0).Value}'", $"NULL")
+
+                Case "อายัดซ้ำ" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(5).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(2).Value}'")
+
+                Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(9).Value} Status {Dtgv_Exe.Rows(i).Cells(14).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(2).Value}'")
+            End Select
+
+        Next
+
+
+        sql = " Select COUNT(*) As TYPEs FROM "
 
         Select Case cbo_products.SelectedItem
             Case "ใบงานแถลงบัญชี" : sql &= $"EXESM"
@@ -148,17 +194,18 @@ Public Class Frmimportexe
         MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูลทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Import Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         lbl_statusprogress.Text = "0/0"
-
+        lbl_flow.Text = "ไม่มีข้อมูลทำงานอยู่"
         Main_progressbar.Value = 0
         lbl_countimport.Text = Dtgv_Exe.Rows.Count & " " & "รายการ"
         lbl_statusprogress.Visible = False
         Main_progressbar.Visible = False
 
         Getlogdata($"UPLOAD {cbo_products.Text} จำนวน {Dtgv_Exe.Rows.Count}")
-    End Sub
-    Friend Sub Loadsexe()
 
-        connect()
+    End Sub
+    Private Sub Loadsexe()
+
+        Connect()
         Dim y As Integer = Dtgv_Exe.Rows.Count
         Dim Max As Integer = 100
 
@@ -168,24 +215,35 @@ Public Class Frmimportexe
             For i As Integer = 0 To Dtgv_Exe.Rows.Count - 1 Step +1
                 Dim p As Integer = (((i + 1) / y) * Max)
 
-                sql = $"SELECT "
+                sql = $"Select "
 
                 Select Case cbo_products.SelectedItem
 
                     Case "ใบงานแถลงบัญชี" : sql &= $"COUNT(*) As verify FROM EXESM WHERE EXEKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(15).Value}-{Dtgv_Exe.Rows(i).Cells(20).Value}'"
+
                     Case "บังคับคดีตั้งเรื่อง" : sql &= $"COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(6).Value}'"
+
                     Case "ส่งเช็คถอนอายัด/ยึด" : sql &= $"COUNT(*) AS verify FROM EXECHECK WHERE CHKKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(3).Value}-{Dtgv_Exe.Rows(i).Cells(7).Value}-{Dtgv_Exe.Rows(i).Cells(11).Value}'"
+
                     Case "ส่งคัดประกันสังคมฟ้องเอง" : sql &= $"COUNT(*) AS verify FROM Execution_Port WHERE Serial_Account = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
                     Case "ตรวจสำนวนตามใบงาน" : sql &= $"COUNT(*) AS verify FROM EXETRACKING WHERE Tracking_pk = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
                     Case "ตรวจสำนวนจากบังคับดคี" : sql &= $"COUNT(*) AS verify FROM dbo.Execution_verify WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+
                     Case "ผลคัดประกันสังคม" : sql &= $"COUNT(*) AS verify FROM EXESOC WHERE EXEKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+
                     Case "ส่งสืบกรรมสิทธิ์ฟ้องเอง" : sql &= $"COUNT(*) AS verify FROM Execution_ownership WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(0).Value}'"
+
                     Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"COUNT(*) AS verify FROM Execution_ownership_result WHERE Ownership_deed = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
                     Case "อายัดซ้ำ" : sql &= $"COUNT(*) AS verify From Execution_Repeatfreeze WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+
                     Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : sql &= $"COUNT(*) AS verify From Execution_income WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+
                 End Select
 
-                If cmd_excuteScalar() > 0 Then
+                If Cmd_excuteScalar() > 0 Then
 
                     Dtgv_Exe.Rows(i).DefaultCellStyle.BackColor = Color.Red
 
@@ -202,53 +260,67 @@ Public Class Frmimportexe
 
                     Case "ใบงานแถลงบัญชี" : sql &= $"EXESM(EXEKEY, EXEBANK, EXEID, EXECUSTOMER, EXEACC1, EXEACC2, EXEACC3, EXECOURT, EXEBLACK, EXERED, EXENUMBER, EXEDEPARTMENT, EXETOTAL, EXEEMPLOYEE, EXEPHONE, EXEHUB, EXEDATEWORK, EXEFULLNAME, EXEDETAIL,EXEPERFORMANCE,EXEDATERESULT,EXEHUBS,EXERESULT)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(15).Value}-{Dtgv_Exe.Rows(i).Cells(20).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}','{Dtgv_Exe.Rows(i).Cells(17).Value}','{Dtgv_Exe.Rows(i).Cells(18).Value}','{Dtgv_Exe.Rows(i).Cells(19).Value}','{Dtgv_Exe.Rows(i).Cells(20).Value}','{Dtgv_Exe.Rows(i).Cells(21).Value}')"
 
+
                     '--------------------------- UPLOAD แถลงบัญชี --------------------------'
 
                     Case "บังคับคดีตั้งเรื่อง" : sql &= $"EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}')"
+
 
                     '---------------------- UPLOAD เบิกบังคับคดีที่ไปตั้งเรื่อง -----------------------------------'
 
                     Case "ตรวจสำนวนตามใบงาน" : sql &= $"EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}')"
 
+
                     '----------------------- UPLOAD TRACKING ------------------'
 
                     Case "ถอนอายัด/ยึด" : sql &= $"EXEWDS(EXEKEY,EXECUSOWN,EXEHUBS,EXEDATECOLLEC,EXECUSIDC,EXECUSCUS,EXECUSACC,EXECUSNAM,EXECUSBLACK,EXECUSRED,EXEDATEPAY,EXETOTAL,EXECUSPHONE,EXESTATUS,EXEADMIN,EXEEMPLOYEE,EXEDATEWDS,EXEDETAILWDS)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}')"
+
 
                     '------------------------------ UPLOAD WITHDRAWSEIZE ---------------------'
 
                     Case "ตรวจสำนวนจากบังคับดคี" : sql &= $"Execution_verify(Customer_owner,Customer_id_card,Customer_account,Customer_fullname,EMPLOYEES_KEY,Execution_verify_date,Execution_verify_result,Execution_verify_comment)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}')"
 
-                    '--------------------- UPLOAD EXEVERIFY ---------------------------'
+                                            '--------------------- UPLOAD EXEVERIFY ---------------------------'
 
                     Case "ส่งเช็คถอนอายัด/ยึด" : sql &= $"EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKNAME,CHKRED,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(3).Value}-{Dtgv_Exe.Rows(i).Cells(7).Value}-{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}')"
+
 
                     '-------------------- UPLOAD EXECHECK -------------------------'
 
                     Case "ส่งคัดประกันสังคมฟ้องเอง" : sql &= $"Execution_Port(Customer_Owner,Customer_Id_Card,Customer_Number,Serial_Account,Customer_Name,OA,Legal_Status,Date_send,Review_Result,Review_Result_Description,Employees_User)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}') "
 
+
                         '----------- UPLOAD EXEPORT ------------'
 
                     Case "ผลคัดประกันสังคม" : sql &= $"EXESOC(EXEKEY,Customer_Owner,Customer_Id_Card,Customer_OFFICE,Customer_date_SOC,Customer_Address)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}')"
 
-                        '------------- UPLOAD SOC-------------'
 
-                    Case "ส่งสืบกรรมสิทธิ์ฟ้องเอง" : sql &= $"Execution_Ownership(Customer_id_card,Customer_name,Date_send,Customer_owner,Result)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}')"
+                        '------------- UPLOAD EXESOC-------------'
 
-                        '------------ UPLOAD Execution_Ownership ------------'
+                    Case "ส่งสืบกรรมสิทธิ์ฟ้องเอง" : sql &= $"Execution_Ownership(Customer_id_card,Customer_name,Date_send,Customer_owner,Result,Detail)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}')"
+
+                                            '------------ UPLOAD Execution_Ownership ------------'
+
                     Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"Execution_Ownership_Result(Customer_Id_Card,Date_review,Ownership_deed,Ownership_surveypage,Ownership_district,Ownership_location,Ownership_land_office,Ownership_address)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}')"
+
+
                         '-----------------UPLOAD Execution_Ownership_Result ------------------'
+
                     Case "อายัดซ้ำ" : sql &= $"Execution_Repeatfreeze(Customer_owner,Customer_id_card,Customer_account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Int(Dtgv_Exe.Rows(i).Cells(8).Value)}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}')"
+
+
 
                         '-----------------UPLOAD Execution_RepeatFreeze ---------------------'
 
                     Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : sql &= $"Execution_income(Customer_owner,Customer_id_card,Customer_account1,Customer_account2,Customer_account3,Customer_account4,Customer_account_no,Customer_Prefix,Customer_firstname,Customer_lastname,Customer_fullname,income_court,income_red,EMPLOYEES_KEY,income_type,income_detail,income_date_sheet,income_date_work,income_total_check)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}','{Dtgv_Exe.Rows(i).Cells(17).Value}','{Dtgv_Exe.Rows(i).Cells(18).Value}')"
+
 
                         '-----------------UPLOAD Execution_income ---------------------'
 
                 End Select
 
                 cmd = New SqlCommand(sql, cn)
-                Cmd_excuteNonquery()
+                cmd.ExecuteNonQuery()
 
                 lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                 Main_progressbar.Value = (i / y) * Max
@@ -278,4 +350,5 @@ Public Class Frmimportexe
         Me.Dispose()
 
     End Sub
+
 End Class

@@ -9,8 +9,10 @@ Module VBdatabase
     Friend DS As New DataSet
     Friend DT As New DataTable
     Friend DR As SqlDataReader
+
     Friend sql As String = ""
     Friend _sql As String = ""
+    Friend sqll As String = ""
 
     Friend cnLegal As New SqlConnection("SERVER=FDSSERVER_1;Initial Catalog=LegaldB;Persist Security Info=True;User ID=sa;Password=1971;")
     Friend cmdlegal As New SqlCommand
@@ -18,11 +20,28 @@ Module VBdatabase
     Friend DSLegal As New DataSet
     Friend DTLegal As New DataTable
     Friend DRLegal As SqlDataReader
-    Friend sqll As String = ""
+
+    Friend cn_SCB As New SqlConnection("SERVER=FDS-SERVER;Initial Catalog=SCBdB;Persist Security Info=True;User ID=sa;Password=1971;")
+    Friend cmd_SCB As New SqlCommand
+    Friend DA_SCB As New SqlDataAdapter
+    Friend DS_SCB As New DataSet
+    Friend DT_SCB As New DataTable
+    Friend DR_SCB As SqlDataReader
+
 #End Region
 
 #Region "Code ที่ใช้เกี่ยวกับฐานข้อมูล"
-
+    '''' <summary>
+    '''' เปิดใช้งานฐานข้อมูล LegaldB
+    '''' </summary>
+    '''' <remarks></remarks>
+    Friend Sub Connect_SCB()
+        Try
+            If cn_SCB.State = ConnectionState.Closed Then cn_SCB.Open()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     '''' <summary>
     '''' เปิดใช้งานฐานข้อมูล LegaldB
     '''' </summary>

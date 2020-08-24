@@ -52,19 +52,18 @@ Module VBcode
     End Sub
 
     Friend Sub Getlogdataexe(_status As String, _customer_id As Object, _Account As Object)
-        connect()
+        Connect()
         _sql = $"SELECT * FROM tbl_login WHERE USERID = '{FrmLogin.txt_idlog.Text}'"
         cmd = New SqlCommand(_sql, cn)
         DA = New SqlDataAdapter(cmd)
         DA.Fill(DS, "Fullname")
 
-        sql = ($"INSERT INTO Execution_logfiles(LOGDATE,Customer_id_card,Customer_account,LOGUSER,LOGNAME,LOGIP,LOGPCNAME,LOGDETAIL)VALUES(GETDATE(),{_customer_id},{_Account},'{FrmLogin.txt_idlog.Text}','{DS.Tables("Fullname").Rows(0)("USRNAME")}','{FrmLogin.aws.LocalIP}','{pc}','{_status}')")
-        cmd.CommandText = sql
+        sqll = ($"INSERT INTO Execution_logfiles(LOGDATE,Customer_id_card,Customer_account,LOGUSER,LOGNAME,LOGIP,LOGPCNAME,LOGDETAIL)VALUES(GETDATE(),{_customer_id},{_Account},'{FrmLogin.txt_idlog.Text}','{DS.Tables("Fullname").Rows(0)("USRNAME")}','{FrmLogin.aws.LocalIP}','{pc}','{_status}')")
+        cmd = New SqlCommand(sqll, cn)
         cmd.ExecuteNonQuery()
 
-        cn.Close()
-
     End Sub
+
 
     '## Descriptions ##
     '## Sub Clear Datagridview ใช้สำหรับลบ ข้อมูล ถ้า Datagridview นั้นมีข้อมูลค้างอยู่ ##

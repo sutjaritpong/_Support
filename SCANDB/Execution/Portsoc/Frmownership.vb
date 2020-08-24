@@ -3,18 +3,19 @@ Imports System.Data.SqlClient
 
 Public Class Frmownership
 
-    Friend Text_Addcombo() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "Result"}
+    Friend Text_Addcombo() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "Result", "หมายเหตุ"}
 
     Private Sub Frmownership_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        connect()
+        Summary_ownership()
+
+        Connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         Datetimeformatshort(dtp_datework)
         Datetimeformatshort(dtp_date_review)
 
         Cleardatagrid(dtgv_search)
-
 
 
         cbo_deed.Items.Clear()
@@ -71,7 +72,10 @@ Public Class Frmownership
             txt_cusname.Text = dtgv_search.CurrentRow.Cells(2).Value.ToString
             dtp_datework.Text = dtgv_search.CurrentRow.Cells(3).Value.ToString
             txt_result.Text = dtgv_search.CurrentRow.Cells(4).Value.ToString
-            cbo_deed.Text = dtgv_search.CurrentRow.Cells(5).Value.ToString
+            Txt_detail.Text = dtgv_search.CurrentRow.Cells(5).Value.ToString
+
+            cbo_deed.Text = dtgv_search.CurrentRow.Cells(6).Value.ToString
+
 
             sql = $"SELECT DISTINCT Ownership_deed FROM Execution_Ownership_Result WHERE Customer_id_card = {Str(dtgv_search.CurrentRow.Cells(1).Value.ToString)}"
             cmd = New SqlCommand(sql, cn)
@@ -83,7 +87,7 @@ Public Class Frmownership
 
             DR.Close()
 
-            cbo_surveypage.Text = dtgv_search.CurrentRow.Cells(6).Value.ToString
+            cbo_surveypage.Text = dtgv_search.CurrentRow.Cells(7).Value.ToString
 
             sql = $"SELECT DISTINCT Ownership_surveypage FROM Execution_Ownership_Result WHERE Customer_id_card = {Str(dtgv_search.CurrentRow.Cells(1).Value.ToString)}"
             cmd = New SqlCommand(sql, cn)
@@ -95,11 +99,11 @@ Public Class Frmownership
 
             DR.Close()
 
-            txt_district.Text = dtgv_search.CurrentRow.Cells(7).Value.ToString
-            txt_location.Text = dtgv_search.CurrentRow.Cells(8).Value.ToString
-            cbo_Land_office.Text = dtgv_search.CurrentRow.Cells(9).Value.ToString
-            txt_address.Text = dtgv_search.CurrentRow.Cells(10).Value.ToString
-            dtp_date_review.Text = dtgv_search.CurrentRow.Cells(11).Value.ToString
+            txt_district.Text = dtgv_search.CurrentRow.Cells(8).Value.ToString
+            txt_location.Text = dtgv_search.CurrentRow.Cells(9).Value.ToString
+            cbo_Land_office.Text = dtgv_search.CurrentRow.Cells(10).Value.ToString
+            txt_address.Text = dtgv_search.CurrentRow.Cells(11).Value.ToString
+            dtp_date_review.Text = dtgv_search.CurrentRow.Cells(12).Value.ToString
 
             If dtgv_search.CurrentRow.Cells(3).Value.ToString <> "" Then
                 chk_date_work.Checked = True
@@ -107,7 +111,7 @@ Public Class Frmownership
                 chk_date_work.Checked = False
             End If
 
-            If dtgv_search.CurrentRow.Cells(11).Value.ToString <> "" Then
+            If dtgv_search.CurrentRow.Cells(12).Value.ToString <> "" Then
                 chk_date_review.Checked = True
             Else
                 chk_date_review.Checked = False
@@ -135,13 +139,13 @@ Public Class Frmownership
         cbo_surveypage.Items.Clear()
         cbo_deed.Items.Clear()
 
-
         txt_district.Text = ""
         txt_location.Text = ""
         txt_address.Text = ""
         txt_cusid.Text = ""
         txt_cusname.Text = ""
         txt_result.Text = ""
+        Txt_detail.Text = ""
 
         dtp_date_review.Text = ""
         dtp_datework.Text = ""
@@ -152,13 +156,13 @@ Public Class Frmownership
     End Sub
     Private Sub Finds()
 
-        Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "วันที่ส่งไปสืบ", "Result", "เลขโฉนด", "หน้าสำรวจ", "ตำบล/อำเภอ", "สถานที่", "สำนักงานที่ดิน", "ที่อยู่", "วันที่ส่งผลสืบ"}
+        Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "วันที่ส่งไปสืบ", "Result", "หมายเหตุ", "เลขโฉนด", "หน้าสำรวจ", "ตำบล/อำเภอ", "สถานที่", "สำนักงานที่ดิน", "ที่อยู่", "วันที่ส่งผลสืบ"}
 
         Connect()
 
         Cleardatagrid(dtgv_search)
 
-        sql = "SELECT EO.Customer_owner, EO.Customer_id_card, EO.Customer_name, EO.Date_send, EO.Result, EOR.Ownership_deed, EOR.Ownership_surveypage, EOR.Ownership_district, EOR.Ownership_location, EOR.Ownership_land_office, EOR.Ownership_address, EOR.Date_review FROM Execution_Ownership AS EO LEFT JOIN Execution_Ownership_Result AS EOR ON EO.Customer_id_card = EOR.Customer_id_card WHERE "
+        sql = "SELECT EO.Customer_owner, EO.Customer_id_card, EO.Customer_name, EO.Date_send, EO.Result,EO.Detail, EOR.Ownership_deed, EOR.Ownership_surveypage, EOR.Ownership_district, EOR.Ownership_location, EOR.Ownership_land_office, EOR.Ownership_address, EOR.Date_review FROM Execution_Ownership AS EO LEFT JOIN Execution_Ownership_Result AS EOR ON EO.Customer_id_card = EOR.Customer_id_card WHERE "
 
         Select Case cbo_type_find.SelectedItem
             Case "ธนาคาร" : sql &= $"EO.Customer_owner "
@@ -200,7 +204,7 @@ Public Class Frmownership
             End With
 
             Datagrid_format_dateshort(dtgv_search, 3)
-            Datagrid_format_dateshort(dtgv_search, 11)
+            Datagrid_format_dateshort(dtgv_search, 12)
 
             lbl_count_find.Text = $"พบข้อมูล {Str(dtgv_search.RowCount.ToString)} รายการ.."
             lbl_count_find.ForeColor = Color.Green
@@ -209,5 +213,36 @@ Public Class Frmownership
         cn.Close()
     End Sub
 
+    Private Sub Summary_ownership()
+
+        Dim _ColumnHeader() As String = {"Product", "จำนวน", "เดือน"}
+
+        Connect()
+
+        sql = "SELECT EO.Customer_owner As OWNER,COUNT(EO.Customer_owner) SUMMARY,DATEPART(MONTH,EA.ACCMONTH) [MONTH] 
+            FROM Execution_Ownership EO
+            INNER Join Execution_Ownership_Result ER
+            On EO.Customer_id_card = ER.Customer_id_card
+            INNER Join EXEACC EA
+            On EO.Customer_id_card = EA.ACCIDC
+            WHERE EO.Result = 'Y' AND EA.ACCSTATUS = 'ยึด'
+            GROUP BY GROUPING SETS
+            (((DATEPART(MONTH,EA.ACCMONTH)),EO.Customer_owner),())"
+
+        cmd = New SqlCommand(sql, cn)
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet
+        DA.Fill(DS, "Summary")
+
+        With Dtgv_Summary
+            .DataSource = DS.Tables("Summary")
+            'For i = 0 To _ColumnHeader.Length - 1
+
+            'Next
+        End With
+
+        cn.Close()
+
+    End Sub
 
 End Class

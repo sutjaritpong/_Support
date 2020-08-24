@@ -90,6 +90,12 @@
     <Reference Include="DevExpress.XtraGrid.v13.1">
       <HintPath>..\..\..\..\reference\DevExpress.XtraGrid.v13.1.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.MSWinsockLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -104,10 +110,13 @@
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -129,6 +138,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dataset\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Execution\Report_execution\FrmlogexeRV.Designer.vb">
       <DependentUpon>FrmlogexeRV.vb</DependentUpon>
     </Compile>
@@ -234,6 +251,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SCBZERO\Frmcollector.Designer.vb">
+      <DependentUpon>Frmcollector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SCBZERO\Frmcollector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCBZERO\FrmLegalSCB.Designer.vb">
+      <DependentUpon>FrmLegalSCB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SCBZERO\FrmLegalSCB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCBZERO\FrmReport.Designer.vb">
+      <DependentUpon>FrmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SCBZERO\FrmReport.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="sysmanage\Frmlogfileexe.Designer.vb">
       <DependentUpon>Frmlogfileexe.vb</DependentUpon>
@@ -491,6 +526,15 @@
     <EmbeddedResource Include="ITSupport\FrmITSupport.resx">
       <DependentUpon>FrmITSupport.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SCBZERO\Frmcollector.resx">
+      <DependentUpon>Frmcollector.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SCBZERO\FrmLegalSCB.resx">
+      <DependentUpon>FrmLegalSCB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SCBZERO\FrmReport.resx">
+      <DependentUpon>FrmReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
       <DependentUpon>Frmlogfileexe.vb</DependentUpon>
     </EmbeddedResource>
@@ -595,6 +639,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dataset\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Dataset\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Dataset\logexe_dataset.xsc">
       <DependentUpon>logexe_dataset.xsd</DependentUpon>
     </None>
@@ -744,6 +799,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Untitled-1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -952,6 +1008,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

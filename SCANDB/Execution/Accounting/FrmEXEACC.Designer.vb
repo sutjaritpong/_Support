@@ -90,6 +90,8 @@ Partial Class FrmEXEACC
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Txt_Billcode = New System.Windows.Forms.TextBox()
         Me.Cmd_Linkdata = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Lbl_linklegal = New System.Windows.Forms.Label()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +102,7 @@ Partial Class FrmEXEACC
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox4
@@ -120,7 +123,7 @@ Partial Class FrmEXEACC
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox4.Size = New System.Drawing.Size(311, 235)
+        Me.GroupBox4.Size = New System.Drawing.Size(311, 276)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
@@ -323,14 +326,15 @@ Partial Class FrmEXEACC
         Me.dtgv_exeacc.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_exeacc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_exeacc.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.dtgv_exeacc.Location = New System.Drawing.Point(14, 509)
+        Me.dtgv_exeacc.Location = New System.Drawing.Point(14, 488)
         Me.dtgv_exeacc.Name = "dtgv_exeacc"
         Me.dtgv_exeacc.ReadOnly = True
-        Me.dtgv_exeacc.Size = New System.Drawing.Size(789, 138)
+        Me.dtgv_exeacc.Size = New System.Drawing.Size(989, 208)
         Me.dtgv_exeacc.TabIndex = 86
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Cmd_Linkdata)
         Me.GroupBox3.Controls.Add(Me.cmd_delete)
         Me.GroupBox3.Controls.Add(Me.cmd_send)
         Me.GroupBox3.Controls.Add(Me.cmd_edit)
@@ -340,7 +344,7 @@ Partial Class FrmEXEACC
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.GroupBox3.Size = New System.Drawing.Size(145, 202)
+        Me.GroupBox3.Size = New System.Drawing.Size(145, 243)
         Me.GroupBox3.TabIndex = 88
         Me.GroupBox3.TabStop = False
         '
@@ -348,8 +352,8 @@ Partial Class FrmEXEACC
         '
         Me.cmd_delete.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_delete.Image = Global.SCANDB.My.Resources.Resources.arrow_redo
-        Me.cmd_delete.Location = New System.Drawing.Point(6, 160)
+        Me.cmd_delete.Image = CType(resources.GetObject("cmd_delete.Image"), System.Drawing.Image)
+        Me.cmd_delete.Location = New System.Drawing.Point(5, 194)
         Me.cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_delete.Name = "cmd_delete"
         Me.cmd_delete.Size = New System.Drawing.Size(133, 29)
@@ -363,7 +367,7 @@ Partial Class FrmEXEACC
         '
         Me.cmd_send.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_send.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_send.Image = Global.SCANDB.My.Resources.Resources.add
+        Me.cmd_send.Image = CType(resources.GetObject("cmd_send.Image"), System.Drawing.Image)
         Me.cmd_send.Location = New System.Drawing.Point(5, 19)
         Me.cmd_send.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_send.Name = "cmd_send"
@@ -378,8 +382,8 @@ Partial Class FrmEXEACC
         '
         Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(6, 125)
+        Me.cmd_edit.Image = CType(resources.GetObject("cmd_edit.Image"), System.Drawing.Image)
+        Me.cmd_edit.Location = New System.Drawing.Point(5, 159)
         Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(133, 29)
@@ -393,8 +397,8 @@ Partial Class FrmEXEACC
         '
         Me.cmd_cancel.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.edit_delete_icon16x16
-        Me.cmd_cancel.Location = New System.Drawing.Point(5, 90)
+        Me.cmd_cancel.Image = CType(resources.GetObject("cmd_cancel.Image"), System.Drawing.Image)
+        Me.cmd_cancel.Location = New System.Drawing.Point(5, 124)
         Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(133, 29)
@@ -408,7 +412,7 @@ Partial Class FrmEXEACC
         '
         Me.cmd_save.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
+        Me.cmd_save.Image = CType(resources.GetObject("cmd_save.Image"), System.Drawing.Image)
         Me.cmd_save.Location = New System.Drawing.Point(5, 54)
         Me.cmd_save.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_save.Name = "cmd_save"
@@ -482,7 +486,7 @@ Partial Class FrmEXEACC
         Me.GroupBox5.Controls.Add(Me.cmd_search)
         Me.GroupBox5.Controls.Add(Me.cbo_search)
         Me.GroupBox5.Controls.Add(Me.txt_search)
-        Me.GroupBox5.Location = New System.Drawing.Point(14, 436)
+        Me.GroupBox5.Location = New System.Drawing.Point(14, 415)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(5)
@@ -517,7 +521,7 @@ Partial Class FrmEXEACC
         '
         Me.cmd_search.BackColor = System.Drawing.Color.White
         Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
+        Me.cmd_search.Image = CType(resources.GetObject("cmd_search.Image"), System.Drawing.Image)
         Me.cmd_search.Location = New System.Drawing.Point(511, 23)
         Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmd_search.Name = "cmd_search"
@@ -697,7 +701,7 @@ Partial Class FrmEXEACC
         '
         Me.lbl_count_find.AutoSize = True
         Me.lbl_count_find.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_count_find.Location = New System.Drawing.Point(19, 386)
+        Me.lbl_count_find.Location = New System.Drawing.Point(12, 372)
         Me.lbl_count_find.Name = "lbl_count_find"
         Me.lbl_count_find.Size = New System.Drawing.Size(136, 32)
         Me.lbl_count_find.TabIndex = 141
@@ -708,7 +712,7 @@ Partial Class FrmEXEACC
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.Window
         Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(383, 192)
+        Me.Label2.Location = New System.Drawing.Point(43, 20)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(76, 18)
         Me.Label2.TabIndex = 97
@@ -716,7 +720,7 @@ Partial Class FrmEXEACC
         '
         'Txt_account
         '
-        Me.Txt_account.Location = New System.Drawing.Point(465, 220)
+        Me.Txt_account.Location = New System.Drawing.Point(125, 48)
         Me.Txt_account.Name = "Txt_account"
         Me.Txt_account.Size = New System.Drawing.Size(178, 20)
         Me.Txt_account.TabIndex = 98
@@ -726,7 +730,7 @@ Partial Class FrmEXEACC
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.SystemColors.Window
         Me.Label7.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(388, 221)
+        Me.Label7.Location = New System.Drawing.Point(48, 49)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 18)
         Me.Label7.TabIndex = 99
@@ -734,7 +738,7 @@ Partial Class FrmEXEACC
         '
         'Txt_type
         '
-        Me.Txt_type.Location = New System.Drawing.Point(465, 246)
+        Me.Txt_type.Location = New System.Drawing.Point(125, 74)
         Me.Txt_type.Name = "Txt_type"
         Me.Txt_type.Size = New System.Drawing.Size(178, 20)
         Me.Txt_type.TabIndex = 100
@@ -744,7 +748,7 @@ Partial Class FrmEXEACC
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.SystemColors.Window
         Me.Label8.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(416, 246)
+        Me.Label8.Location = New System.Drawing.Point(76, 74)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(41, 18)
         Me.Label8.TabIndex = 101
@@ -752,7 +756,7 @@ Partial Class FrmEXEACC
         '
         'Txt_bank
         '
-        Me.Txt_bank.Location = New System.Drawing.Point(465, 272)
+        Me.Txt_bank.Location = New System.Drawing.Point(125, 100)
         Me.Txt_bank.Name = "Txt_bank"
         Me.Txt_bank.Size = New System.Drawing.Size(178, 20)
         Me.Txt_bank.TabIndex = 142
@@ -762,7 +766,7 @@ Partial Class FrmEXEACC
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.SystemColors.Window
         Me.Label15.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(409, 273)
+        Me.Label15.Location = New System.Drawing.Point(69, 101)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(48, 18)
         Me.Label15.TabIndex = 143
@@ -770,7 +774,7 @@ Partial Class FrmEXEACC
         '
         'Txt_productcode
         '
-        Me.Txt_productcode.Location = New System.Drawing.Point(465, 298)
+        Me.Txt_productcode.Location = New System.Drawing.Point(125, 126)
         Me.Txt_productcode.Name = "Txt_productcode"
         Me.Txt_productcode.Size = New System.Drawing.Size(178, 20)
         Me.Txt_productcode.TabIndex = 144
@@ -780,7 +784,7 @@ Partial Class FrmEXEACC
         Me.Label18.AutoSize = True
         Me.Label18.BackColor = System.Drawing.SystemColors.Window
         Me.Label18.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(345, 300)
+        Me.Label18.Location = New System.Drawing.Point(5, 128)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(112, 18)
         Me.Label18.TabIndex = 145
@@ -802,7 +806,7 @@ Partial Class FrmEXEACC
         '
         'Txt_Billcode
         '
-        Me.Txt_Billcode.Location = New System.Drawing.Point(465, 191)
+        Me.Txt_Billcode.Location = New System.Drawing.Point(125, 19)
         Me.Txt_Billcode.Name = "Txt_Billcode"
         Me.Txt_Billcode.Size = New System.Drawing.Size(178, 20)
         Me.Txt_Billcode.TabIndex = 146
@@ -811,8 +815,8 @@ Partial Class FrmEXEACC
         '
         Me.Cmd_Linkdata.BackColor = System.Drawing.SystemColors.Window
         Me.Cmd_Linkdata.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_Linkdata.Image = Global.SCANDB.My.Resources.Resources.arrow_redo
-        Me.Cmd_Linkdata.Location = New System.Drawing.Point(510, 324)
+        Me.Cmd_Linkdata.Image = Global.SCANDB.My.Resources.Resources.table_lightning
+        Me.Cmd_Linkdata.Location = New System.Drawing.Point(5, 89)
         Me.Cmd_Linkdata.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Cmd_Linkdata.Name = "Cmd_Linkdata"
         Me.Cmd_Linkdata.Size = New System.Drawing.Size(133, 29)
@@ -822,6 +826,38 @@ Partial Class FrmEXEACC
         Me.Cmd_Linkdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Cmd_Linkdata.UseVisualStyleBackColor = False
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Lbl_linklegal)
+        Me.GroupBox2.Controls.Add(Me.Txt_bank)
+        Me.GroupBox2.Controls.Add(Me.Txt_Billcode)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Txt_productcode)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Label18)
+        Me.GroupBox2.Controls.Add(Me.Txt_account)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Label15)
+        Me.GroupBox2.Controls.Add(Me.Txt_type)
+        Me.GroupBox2.Location = New System.Drawing.Point(335, 189)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox2.Size = New System.Drawing.Size(468, 178)
+        Me.GroupBox2.TabIndex = 96
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "ข้อมูลที่ใช้เบิก"
+        '
+        'Lbl_linklegal
+        '
+        Me.Lbl_linklegal.AutoSize = True
+        Me.Lbl_linklegal.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_linklegal.Location = New System.Drawing.Point(380, 155)
+        Me.Lbl_linklegal.Name = "Lbl_linklegal"
+        Me.Lbl_linklegal.Size = New System.Drawing.Size(80, 18)
+        Me.Lbl_linklegal.TabIndex = 142
+        Me.Lbl_linklegal.Text = "ผลการค้นหา..."
+        '
         'FrmEXEACC
         '
         Me.AcceptButton = Me.cmd_search
@@ -829,21 +865,11 @@ Partial Class FrmEXEACC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.Cmd_Linkdata)
-        Me.Controls.Add(Me.Txt_Billcode)
-        Me.Controls.Add(Me.Txt_productcode)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Txt_bank)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Txt_type)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.lbl_count_find)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Txt_account)
         Me.Controls.Add(Me.GroupBox5)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Group_detail)
         Me.Controls.Add(Me.dtgv_exeacc)
         Me.Controls.Add(Me.GroupBox4)
@@ -869,6 +895,8 @@ Partial Class FrmEXEACC
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -940,4 +968,6 @@ Partial Class FrmEXEACC
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Txt_Billcode As TextBox
     Friend WithEvents Cmd_Linkdata As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Lbl_linklegal As Label
 End Class

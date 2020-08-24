@@ -4,11 +4,11 @@ Imports System.Globalization
 Imports System.Threading
 Public Class FrmEXEACC
     '## Array entity_ACC() นำไปใช้เพิ่ม Columns ใน Datagridview 
-    Friend entity_ACC() As String = {"KEY", "ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล"}
+    Friend entity_ACC() As String = {"KEY", "PRODUCT", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล", "เลขที่สัญญา", "ธนาคาร", "BILLCODE", "Type", "CODE"}
 
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        connect()
+        Connect()
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         Datetimeformatshort(dtp_datework)
         Datetimeformatshort(dtp_date_receipt)
@@ -181,7 +181,6 @@ Public Class FrmEXEACC
         chk_date_work.Enabled = True
         chk_date_receipt.Enabled = True
 
-
     End Sub
     Private Sub LinK_Legal()
 
@@ -195,14 +194,18 @@ Public Class FrmEXEACC
         DALegal.Fill(DSLegal, "linklegal")
 
         If DSLegal.Tables("linklegal").Rows.Count <= 0 Then
-            Msg_error("ไม่พบข้อมูลที่ค้นหา")
+            Lbl_linklegal.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+            Lbl_linklegal.ForeColor = Color.Red
         Else
+
             Txt_account.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
             Txt_bank.Text = DSLegal.Tables("linklegal").Rows(0)("CUSTOWN").ToString
             Txt_Billcode.Text = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
             Txt_type.Text = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
             Txt_productcode.Text = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
 
+            Lbl_linklegal.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+            Lbl_linklegal.ForeColor = Color.Green
         End If
 
     End Sub
@@ -307,7 +310,9 @@ Public Class FrmEXEACC
 
             dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(14).Value.ToString
 
-            convertnum(txt_total_receipt)
+            LinK_Legal()
+
+            Convertnum(txt_total_receipt)
             convertnum(txt_total_receipt2)
             convertnum(txt_total_receipt3)
 
@@ -350,7 +355,7 @@ Public Class FrmEXEACC
 
         End If
 
-        sql = $"Select COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_date_receipt.Text}'"
+        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_date_receipt.Text}'"
 
         cmd = New SqlCommand(sql, cn)
         Dim i As Integer = cmd.ExecuteScalar()
@@ -365,7 +370,7 @@ Public Class FrmEXEACC
         If Msg_confirm("ต้องการอัพเดตข้อมูล ใช่ หรือ ไม่", "แจ้งเตือน") = vbYes Then
 
 
-            sql = $"UPDATE EXEACC SET ACCBLACK = @black,ACCRED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send WHERE ACCBANK = @bank AND ACCIDC = @idc AND ACCCUSNAM = @cusname"
+            sql = $"UPDATE EXEACC SET ACCBLACK = @black,ACCRED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send ,ACCACC = @Acc ,ACCTOWN = @Town,ACCBILLCODE = @Billcode,ACCTYPE = @Type,ACCPRODUCTCODE = @Productcode WHERE ACCBANK = @bank AND ACCIDC = @idc AND ACCCUSNAM = @cusname"
 
             cmd.CommandText = sql
             cmd.Parameters.Clear()
@@ -385,6 +390,15 @@ Public Class FrmEXEACC
             cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
             cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
 
+            ' # ข้อมูลที่ใช้เบิก TSS !
+
+            cmd.Parameters.AddWithValue("Acc", Txt_account.Text)
+            cmd.Parameters.AddWithValue("Town", Txt_bank.Text)
+            cmd.Parameters.AddWithValue("Billcode", Txt_Billcode.Text)
+            cmd.Parameters.AddWithValue("Type", Txt_type.Text)
+            cmd.Parameters.AddWithValue("Productcode", Txt_productcode.Text)
+
+
             Dim r As Integer = cmd.ExecuteNonQuery()
             If r = -1 Then
 
@@ -393,7 +407,7 @@ Public Class FrmEXEACC
             Else
 
                 Msg_OK("แก้ไขข้อมูล สำเร็จ")
-                Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", "NULL")
+                Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", $"{Txt_account.Text}")
 
             End If
 
@@ -444,7 +458,7 @@ Public Class FrmEXEACC
 
         If Msg_confirm("คุณต้องการเพิ่มข้อมูลใหม่หรือไม่", "แจ้งเตือน") = vbYes Then
 
-            sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send)"
+            sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH,ACCACC,ACCTOWN,ACCBILLCODE,ACCTYPE,ACCPRODUCTCODE)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send,@Acc,@Town,@Billcode,@Types,@Productcode)"
 
             cmd.CommandText = sql
             cmd.Parameters.Clear()
@@ -464,6 +478,14 @@ Public Class FrmEXEACC
             cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
             cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
             cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
+
+            ' # ข้อมูลที่ใช้เบิก TSS !
+
+            cmd.Parameters.AddWithValue("Acc", Txt_account.Text)
+            cmd.Parameters.AddWithValue("Town", Txt_bank.Text)
+            cmd.Parameters.AddWithValue("Billcode", Txt_Billcode.Text)
+            cmd.Parameters.AddWithValue("Types", Txt_type.Text)
+            cmd.Parameters.AddWithValue("Productcode", Txt_productcode.Text)
 
             Dim r As Integer = cmd.ExecuteNonQuery()
             If r = -1 Then
@@ -488,6 +510,7 @@ Public Class FrmEXEACC
     '## Event Closing ใช้สำหรับกดปิดหรือสั่งปิดฟอร์มให้ ปิดการเชื่อมต่อของฐานข้อมูลด้วย
     Private Sub FrmEXEACC_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
+        cnLegal.Close()
         cn.Close()
         Me.Dispose()
 
@@ -566,4 +589,5 @@ Public Class FrmEXEACC
         LinK_Legal()
 
     End Sub
+
 End Class
