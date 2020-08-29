@@ -25,8 +25,6 @@ Partial Class FrmsaveWDS
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmsaveWDS))
         Me.txt_detail = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btn_savecancel = New System.Windows.Forms.Button()
-        Me.btn_save = New System.Windows.Forms.Button()
         Me.txt_red = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -59,7 +57,11 @@ Partial Class FrmsaveWDS
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_status = New System.Windows.Forms.TextBox()
+        Me.btn_save = New System.Windows.Forms.Button()
+        Me.Cmd_Link_Collector = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btn_savecancel = New System.Windows.Forms.Button()
+        Me.lbl_link = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -81,36 +83,6 @@ Partial Class FrmsaveWDS
         Me.Label11.Size = New System.Drawing.Size(120, 18)
         Me.Label11.TabIndex = 45
         Me.Label11.Text = "รายละเอียด ข้อมูลอื่น ๆ"
-        '
-        'btn_savecancel
-        '
-        Me.btn_savecancel.BackColor = System.Drawing.SystemColors.Window
-        Me.btn_savecancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_savecancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.btn_savecancel.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__16_
-        Me.btn_savecancel.Location = New System.Drawing.Point(179, 357)
-        Me.btn_savecancel.Name = "btn_savecancel"
-        Me.btn_savecancel.Size = New System.Drawing.Size(133, 29)
-        Me.btn_savecancel.TabIndex = 22
-        Me.btn_savecancel.Text = "ยกเลิก"
-        Me.btn_savecancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_savecancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_savecancel.UseVisualStyleBackColor = False
-        '
-        'btn_save
-        '
-        Me.btn_save.BackColor = System.Drawing.SystemColors.Window
-        Me.btn_save.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.btn_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.btn_save.Location = New System.Drawing.Point(40, 357)
-        Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(133, 29)
-        Me.btn_save.TabIndex = 21
-        Me.btn_save.Text = "บันทึกข้อมูล"
-        Me.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_save.UseVisualStyleBackColor = False
         '
         'txt_red
         '
@@ -416,6 +388,36 @@ Partial Class FrmsaveWDS
         Me.txt_status.Size = New System.Drawing.Size(116, 20)
         Me.txt_status.TabIndex = 16
         '
+        'btn_save
+        '
+        Me.btn_save.BackColor = System.Drawing.SystemColors.Window
+        Me.btn_save.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.btn_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
+        Me.btn_save.Location = New System.Drawing.Point(40, 357)
+        Me.btn_save.Name = "btn_save"
+        Me.btn_save.Size = New System.Drawing.Size(133, 29)
+        Me.btn_save.TabIndex = 21
+        Me.btn_save.Text = "บันทึกข้อมูล"
+        Me.btn_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_save.UseVisualStyleBackColor = False
+        '
+        'Cmd_Link_Collector
+        '
+        Me.Cmd_Link_Collector.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Link_Collector.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Cmd_Link_Collector.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Link_Collector.Image = Global.SCANDB.My.Resources.Resources.connect
+        Me.Cmd_Link_Collector.Location = New System.Drawing.Point(179, 357)
+        Me.Cmd_Link_Collector.Name = "Cmd_Link_Collector"
+        Me.Cmd_Link_Collector.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Link_Collector.TabIndex = 182
+        Me.Cmd_Link_Collector.Text = "ดึงข้อมูล"
+        Me.Cmd_Link_Collector.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Link_Collector.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Link_Collector.UseVisualStyleBackColor = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon32x32
@@ -425,6 +427,31 @@ Partial Class FrmsaveWDS
         Me.PictureBox1.TabIndex = 181
         Me.PictureBox1.TabStop = False
         '
+        'btn_savecancel
+        '
+        Me.btn_savecancel.BackColor = System.Drawing.SystemColors.Window
+        Me.btn_savecancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_savecancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.btn_savecancel.Image = Global.SCANDB.My.Resources.Resources._16x16_icon__16_
+        Me.btn_savecancel.Location = New System.Drawing.Point(318, 357)
+        Me.btn_savecancel.Name = "btn_savecancel"
+        Me.btn_savecancel.Size = New System.Drawing.Size(133, 29)
+        Me.btn_savecancel.TabIndex = 22
+        Me.btn_savecancel.Text = "ยกเลิก"
+        Me.btn_savecancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_savecancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_savecancel.UseVisualStyleBackColor = False
+        '
+        'lbl_link
+        '
+        Me.lbl_link.AutoSize = True
+        Me.lbl_link.BackColor = System.Drawing.SystemColors.Window
+        Me.lbl_link.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_link.Location = New System.Drawing.Point(293, 218)
+        Me.lbl_link.Name = "lbl_link"
+        Me.lbl_link.Size = New System.Drawing.Size(0, 18)
+        Me.lbl_link.TabIndex = 183
+        '
         'FrmsaveWDS
         '
         Me.AcceptButton = Me.btn_save
@@ -433,6 +460,8 @@ Partial Class FrmsaveWDS
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(686, 415)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lbl_link)
+        Me.Controls.Add(Me.Cmd_Link_Collector)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txt_status)
@@ -520,4 +549,6 @@ Partial Class FrmsaveWDS
     Friend WithEvents Label6 As Label
     Friend WithEvents txt_status As TextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Cmd_Link_Collector As Button
+    Friend WithEvents lbl_link As Label
 End Class

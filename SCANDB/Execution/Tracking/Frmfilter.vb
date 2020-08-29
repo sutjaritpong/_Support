@@ -46,11 +46,11 @@ Public Class Frmfilter
         Cleardatagrid(dtgv_filter)
 
         '## Array เพิ่ม columnsHeadertext
-        Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในใบคำร้อง", "รายละเอียด", "ใบงาน", "ตรวจสอบการส่ง", "เพิ่มเติม", "ชื่อพนักงานบังคับคดี"}
+        Dim _headertext() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในใบคำร้อง", "รายละเอียด", "ใบงาน", "ตรวจสอบการส่ง", "เพิ่มเติม", "ตรวจพบเงิน", "ชื่อพนักงานบังคับคดี"}
 
         '## Query ข้อมูล โดย WHERE วันที่ในใบคำร้อง แล้วใช้ Between And กำหนด ขอบเขตข้อมูล
 
-        sql = $"SELECT ET.Customer_owner,ET.Customer_idc,ET.Customer_fullname,ET.Tracking_court,ET.Tracking_red,ET.Tracking_date_sheet,ET.Tracking_detail,ET.Tracking_nosheet,ET.Tracking_Collector_nosend,ET.Tracking_other,EMP.EXEEMPLOYEES 
+        sql = $"SELECT ET.Customer_owner,ET.Customer_idc,ET.Customer_fullname,ET.Tracking_court,ET.Tracking_red,ET.Tracking_date_sheet,ET.Tracking_detail,ET.Tracking_nosheet,ET.Tracking_Collector_nosend,ET.Tracking_other,Tracking_Total,EMP.EXEEMPLOYEES
           FROM EXETRACKING AS ET 
           LEFT JOIN EXEEMPLOYEE AS EMP 
           ON ET.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY 

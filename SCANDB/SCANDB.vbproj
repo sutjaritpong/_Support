@@ -252,6 +252,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SCANPDFDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LegaldBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LegaldBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SCBZERO\Frmcollector.Designer.vb">
       <DependentUpon>Frmcollector.vb</DependentUpon>
     </Compile>
@@ -672,6 +677,17 @@
     <None Include="Dataset\StatementDataSet.xss">
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
     </None>
+    <None Include="LegaldBDataSet.xsc">
+      <DependentUpon>LegaldBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LegaldBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LegaldBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LegaldBDataSet.xss">
+      <DependentUpon>LegaldBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -992,6 +1008,7 @@
     <None Include="Resources\wifi-sticker.png" />
     <None Include="Resources\logo ip.png" />
     <None Include="Resources\LOGLOGO.png" />
+    <None Include="Resources\connect.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>

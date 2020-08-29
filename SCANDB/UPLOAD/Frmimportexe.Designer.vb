@@ -161,7 +161,7 @@ Partial Class Frmimportexe
         'lbl_statusprogress
         '
         Me.lbl_statusprogress.AutoSize = True
-        Me.lbl_statusprogress.Location = New System.Drawing.Point(367, 694)
+        Me.lbl_statusprogress.Location = New System.Drawing.Point(256, 694)
         Me.lbl_statusprogress.Name = "lbl_statusprogress"
         Me.lbl_statusprogress.Size = New System.Drawing.Size(30, 13)
         Me.lbl_statusprogress.TabIndex = 19
@@ -169,7 +169,7 @@ Partial Class Frmimportexe
         '
         'Main_progressbar
         '
-        Me.Main_progressbar.Location = New System.Drawing.Point(184, 690)
+        Me.Main_progressbar.Location = New System.Drawing.Point(73, 690)
         Me.Main_progressbar.Name = "Main_progressbar"
         Me.Main_progressbar.Size = New System.Drawing.Size(177, 23)
         Me.Main_progressbar.TabIndex = 18
@@ -189,11 +189,12 @@ Partial Class Frmimportexe
         '
         Me.lbl_flow.AutoSize = True
         Me.lbl_flow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbl_flow.Location = New System.Drawing.Point(81, 694)
+        Me.lbl_flow.Location = New System.Drawing.Point(834, 694)
         Me.lbl_flow.Name = "lbl_flow"
         Me.lbl_flow.Size = New System.Drawing.Size(97, 15)
         Me.lbl_flow.TabIndex = 22
         Me.lbl_flow.Text = "ไม่มีข้อมูลทำงานอยู่"
+        Me.lbl_flow.Visible = False
         '
         'Frmimportexe
         '

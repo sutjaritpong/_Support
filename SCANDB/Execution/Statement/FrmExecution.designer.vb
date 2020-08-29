@@ -98,6 +98,8 @@ Partial Class FrmExecution
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dtgv_tracking_statement = New System.Windows.Forms.DataGridView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Txt_Tkmoney = New System.Windows.Forms.TextBox()
         Me.Group_search.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -434,6 +436,8 @@ Partial Class FrmExecution
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label3)
+        Me.GroupBox4.Controls.Add(Me.Txt_Tkmoney)
         Me.GroupBox4.Controls.Add(Me.txt_tracking_detail)
         Me.GroupBox4.Controls.Add(Me.Label27)
         Me.GroupBox4.Controls.Add(Me.Label25)
@@ -1035,6 +1039,28 @@ Partial Class FrmExecution
         Me.TabControl1.Size = New System.Drawing.Size(383, 434)
         Me.TabControl1.TabIndex = 95
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.SystemColors.Window
+        Me.Label3.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(48, 276)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 16)
+        Me.Label3.TabIndex = 90
+        Me.Label3.Text = "จำนวนเงินที่พบ"
+        '
+        'Txt_Tkmoney
+        '
+        Me.Txt_Tkmoney.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Tkmoney.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Tkmoney.Location = New System.Drawing.Point(127, 273)
+        Me.Txt_Tkmoney.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Tkmoney.Name = "Txt_Tkmoney"
+        Me.Txt_Tkmoney.Size = New System.Drawing.Size(165, 22)
+        Me.Txt_Tkmoney.TabIndex = 89
+        '
         'FrmExecution
         '
         Me.AcceptButton = Me.cmd_search
@@ -1150,4 +1176,6 @@ Partial Class FrmExecution
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents dtgv_tracking_statement As DataGridView
     Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Txt_Tkmoney As TextBox
 End Class

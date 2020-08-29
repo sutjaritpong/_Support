@@ -22,110 +22,112 @@ Partial Class Frmcollector
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.cmd_import = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frmcollector))
+        Me.Cmd_ImportPerformance = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Dtgv_Exe = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        CType(Me.Dtgv_Exe, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Dtgv_Zero_collector = New System.Windows.Forms.DataGridView()
+        Me.Cmd_ImportPayment = New System.Windows.Forms.Button()
+        Me.Cmd_ImportHub = New System.Windows.Forms.Button()
+        Me.Cmd_Daily_Payment = New System.Windows.Forms.Button()
+        CType(Me.Dtgv_Zero_collector, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'cmd_import
+        'Cmd_ImportPerformance
         '
-        Me.cmd_import.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_import.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_import.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
-        Me.cmd_import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmd_import.Location = New System.Drawing.Point(25, 12)
-        Me.cmd_import.Name = "cmd_import"
-        Me.cmd_import.Size = New System.Drawing.Size(154, 31)
-        Me.cmd_import.TabIndex = 15
-        Me.cmd_import.Text = "Import Performance"
-        Me.cmd_import.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_import.UseVisualStyleBackColor = False
+        Me.Cmd_ImportPerformance.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_ImportPerformance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_ImportPerformance.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Cmd_ImportPerformance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_ImportPerformance.Location = New System.Drawing.Point(25, 12)
+        Me.Cmd_ImportPerformance.Name = "Cmd_ImportPerformance"
+        Me.Cmd_ImportPerformance.Size = New System.Drawing.Size(154, 31)
+        Me.Cmd_ImportPerformance.TabIndex = 15
+        Me.Cmd_ImportPerformance.Text = "Import Performance"
+        Me.Cmd_ImportPerformance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_ImportPerformance.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'Dtgv_Exe
+        'Dtgv_Zero_collector
         '
-        Me.Dtgv_Exe.AllowUserToAddRows = False
-        Me.Dtgv_Exe.AllowUserToDeleteRows = False
-        Me.Dtgv_Exe.BackgroundColor = System.Drawing.SystemColors.Window
-        Me.Dtgv_Exe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dtgv_Exe.GridColor = System.Drawing.Color.Black
-        Me.Dtgv_Exe.Location = New System.Drawing.Point(25, 49)
-        Me.Dtgv_Exe.Name = "Dtgv_Exe"
-        Me.Dtgv_Exe.ReadOnly = True
-        Me.Dtgv_Exe.RowHeadersVisible = False
-        Me.Dtgv_Exe.Size = New System.Drawing.Size(786, 404)
-        Me.Dtgv_Exe.TabIndex = 16
+        Me.Dtgv_Zero_collector.AllowUserToAddRows = False
+        Me.Dtgv_Zero_collector.AllowUserToDeleteRows = False
+        Me.Dtgv_Zero_collector.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.Dtgv_Zero_collector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dtgv_Zero_collector.GridColor = System.Drawing.Color.Black
+        Me.Dtgv_Zero_collector.Location = New System.Drawing.Point(25, 49)
+        Me.Dtgv_Zero_collector.Name = "Dtgv_Zero_collector"
+        Me.Dtgv_Zero_collector.ReadOnly = True
+        Me.Dtgv_Zero_collector.RowHeadersVisible = False
+        Me.Dtgv_Zero_collector.Size = New System.Drawing.Size(786, 404)
+        Me.Dtgv_Zero_collector.TabIndex = 16
         '
-        'Button1
+        'Cmd_ImportPayment
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Window
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button1.Image = Global.SCANDB.My.Resources.Resources.server_connect
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(672, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(139, 40)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Import Payment"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.Cmd_ImportPayment.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_ImportPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_ImportPayment.Image = Global.SCANDB.My.Resources.Resources.server_connect
+        Me.Cmd_ImportPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_ImportPayment.Location = New System.Drawing.Point(672, 3)
+        Me.Cmd_ImportPayment.Name = "Cmd_ImportPayment"
+        Me.Cmd_ImportPayment.Size = New System.Drawing.Size(139, 40)
+        Me.Cmd_ImportPayment.TabIndex = 17
+        Me.Cmd_ImportPayment.Text = "Import Payment"
+        Me.Cmd_ImportPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_ImportPayment.UseVisualStyleBackColor = False
         '
-        'Button2
+        'Cmd_ImportHub
         '
-        Me.Button2.BackColor = System.Drawing.SystemColors.Window
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button2.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(185, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(115, 31)
-        Me.Button2.TabIndex = 18
-        Me.Button2.Text = "Import HUB"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.Cmd_ImportHub.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_ImportHub.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_ImportHub.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Cmd_ImportHub.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_ImportHub.Location = New System.Drawing.Point(185, 12)
+        Me.Cmd_ImportHub.Name = "Cmd_ImportHub"
+        Me.Cmd_ImportHub.Size = New System.Drawing.Size(115, 31)
+        Me.Cmd_ImportHub.TabIndex = 18
+        Me.Cmd_ImportHub.Text = "Import HUB"
+        Me.Cmd_ImportHub.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_ImportHub.UseVisualStyleBackColor = False
         '
-        'Button3
+        'Cmd_Daily_Payment
         '
-        Me.Button3.BackColor = System.Drawing.SystemColors.Window
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button3.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(306, 12)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(129, 31)
-        Me.Button3.TabIndex = 19
-        Me.Button3.Text = "Daily_Payment"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.Cmd_Daily_Payment.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Daily_Payment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Daily_Payment.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Cmd_Daily_Payment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Cmd_Daily_Payment.Location = New System.Drawing.Point(306, 12)
+        Me.Cmd_Daily_Payment.Name = "Cmd_Daily_Payment"
+        Me.Cmd_Daily_Payment.Size = New System.Drawing.Size(129, 31)
+        Me.Cmd_Daily_Payment.TabIndex = 19
+        Me.Cmd_Daily_Payment.Text = "Daily_Payment"
+        Me.Cmd_Daily_Payment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Daily_Payment.UseVisualStyleBackColor = False
         '
         'Frmcollector
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Dtgv_Exe)
-        Me.Controls.Add(Me.cmd_import)
+        Me.Controls.Add(Me.Cmd_Daily_Payment)
+        Me.Controls.Add(Me.Cmd_ImportHub)
+        Me.Controls.Add(Me.Cmd_ImportPayment)
+        Me.Controls.Add(Me.Dtgv_Zero_collector)
+        Me.Controls.Add(Me.Cmd_ImportPerformance)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frmcollector"
         Me.Text = "Frmcollector"
-        CType(Me.Dtgv_Exe, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Dtgv_Zero_collector, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents cmd_import As Button
+    Friend WithEvents Cmd_ImportPerformance As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents Dtgv_Exe As DataGridView
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents Dtgv_Zero_collector As DataGridView
+    Friend WithEvents Cmd_ImportPayment As Button
+    Friend WithEvents Cmd_ImportHub As Button
+    Friend WithEvents Cmd_Daily_Payment As Button
 End Class

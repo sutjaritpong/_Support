@@ -205,6 +205,210 @@ Public Class FrmsaveWDS
         End If
 
     End Sub
+
+    Private Sub Cmd_Link_Collector_Click(sender As Object, e As EventArgs) Handles Cmd_Link_Collector.Click
+
+
+        If txt_cusacc.Text = "" Or cbo_owner.SelectedIndex = -1 Then
+
+            Msg_error("กรุณากรอก โปรดัก และ เลขที่สัญญาเพื่อดึงข้อมูล")
+            Exit Sub
+        Else
+            Link_Data()
+
+        End If
+
+
+
+    End Sub
+    Private Sub Link_Data()
+
+        Select Case cbo_owner.SelectedItem
+
+            Case "KKB" : Connect_(cn_KKB)
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
+                cmd_Collec = New SqlCommand(sqll, cn_KKB)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                    txt_cuscus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+                End If
+
+                cn_KKB.Close()
+
+            Case "SCB" : Connect_(cn_SCB)
+                sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}'"
+                cmd_Collec = New SqlCommand(sqll, cn_SCB)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                    txt_cuscus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString & " " & DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+                End If
+                cn_SCB.Close()
+
+            Case "TSS" : Connect_(cn_GE)
+                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
+
+                cmd_Collec = New SqlCommand(sqll, cn_GE)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString & " " & DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+                End If
+                cn_GE.Close()
+
+            Case "TMB" : Connect_(cn_TMB)
+                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
+
+                cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString & " " & DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+                End If
+                cn_TMB.Close()
+
+            Case "TMBSME" : Connect_(cn_TMBSME)
+                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
+                cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString & " " & DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+                End If
+                cn_TMBSME.Close()
+
+            Case "TBANK" : Connect_(cn_TBANK)
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
+                cmd_Collec = New SqlCommand(sqll, cn_TBANK)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                    txt_cuscus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString & " " & DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+                End If
+                cn_TBANK.Close()
+
+            Case "UOB" : Connect_(cn_UOB)
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
+
+                cmd_Collec = New SqlCommand(sqll, cn_UOB)
+                DA_Collec = New SqlDataAdapter(cmd_Collec)
+                DS_Collec = New DataSet
+                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                If DS_Collec.Tables("LINKdB").Rows.Count <= 0 Then
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Red
+                Else
+
+                    txt_cusacc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                    txt_cuscus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                    txt_cusid.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    txt_cusname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString & " " & DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    txt_black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    txt_red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                    lbl_link.Text = $"พบ {DS_Collec.Tables("LinkdB").Rows.Count} รายการ"
+                    lbl_link.ForeColor = Color.Green
+
+                End If
+                cn_UOB.Close()
+
+        End Select
+
+    End Sub
     Public Sub Refroms()
 
         txt_payment.Text = ""

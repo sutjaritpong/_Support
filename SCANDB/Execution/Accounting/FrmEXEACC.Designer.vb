@@ -47,6 +47,7 @@ Partial Class FrmEXEACC
         Me.txt_total_receipt = New System.Windows.Forms.TextBox()
         Me.dtgv_exeacc = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Cmd_Linkdata = New System.Windows.Forms.Button()
         Me.cmd_delete = New System.Windows.Forms.Button()
         Me.cmd_send = New System.Windows.Forms.Button()
         Me.cmd_edit = New System.Windows.Forms.Button()
@@ -89,9 +90,68 @@ Partial Class FrmEXEACC
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Txt_Billcode = New System.Windows.Forms.TextBox()
-        Me.Cmd_Linkdata = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Lbl_linklegal = New System.Windows.Forms.Label()
+        Me.TabControl2 = New System.Windows.Forms.TabControl()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Cmd_Repeat_Link = New System.Windows.Forms.Button()
+        Me.Cmd_Repeat_Clear = New System.Windows.Forms.Button()
+        Me.Cmd_Repeat_Add = New System.Windows.Forms.Button()
+        Me.Cmd_Repeat_Edit = New System.Windows.Forms.Button()
+        Me.Cmd_Repeat_Cancel = New System.Windows.Forms.Button()
+        Me.Cmd_Repeat_Update = New System.Windows.Forms.Button()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Lbl_Repeat_Count = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Chk_Repeat_DateSheet = New System.Windows.Forms.CheckBox()
+        Me.Txt_Repeat_Court = New System.Windows.Forms.TextBox()
+        Me.Dtp_Repeat_DateSheet = New System.Windows.Forms.DateTimePicker()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Txt_Repeat_Detail = New System.Windows.Forms.TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Cbo_Repeat_EmpExe = New System.Windows.Forms.ComboBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Lbl_Repeat_Link = New System.Windows.Forms.Label()
+        Me.Txt_Repeat_Bank = New System.Windows.Forms.TextBox()
+        Me.Txt_Repeat_Billcode = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Txt_Repeat_Type = New System.Windows.Forms.TextBox()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Cbo_Repeat_product = New System.Windows.Forms.ComboBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Txt_Repeat_LN = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Cbo_Repeat_Status = New System.Windows.Forms.ComboBox()
+        Me.Chk_Repeat_DateWork = New System.Windows.Forms.CheckBox()
+        Me.Txt_Repeat_Red = New System.Windows.Forms.TextBox()
+        Me.Dtp_Repeat_DateWork = New System.Windows.Forms.DateTimePicker()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Txt_Repeat_Acc = New System.Windows.Forms.TextBox()
+        Me.Txt_Repeat_Idc = New System.Windows.Forms.TextBox()
+        Me.Txt_Repeat_FN = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Txt_Repeat_Black = New System.Windows.Forms.TextBox()
+        Me.Lbl_Repeat_Find = New System.Windows.Forms.Label()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Cmd_Repeat_find = New System.Windows.Forms.Button()
+        Me.Cbo_Repeat_find = New System.Windows.Forms.ComboBox()
+        Me.Txt_Repeat_find = New System.Windows.Forms.TextBox()
+        Me.Dtgv_Repeat_find = New System.Windows.Forms.DataGridView()
+        Me.Txt_ACC_PK = New System.Windows.Forms.TextBox()
+        Me.lbl_Pk_key = New System.Windows.Forms.Label()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,6 +163,16 @@ Partial Class FrmEXEACC
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TabControl2.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        CType(Me.Dtgv_Repeat_find, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox4
@@ -119,7 +189,7 @@ Partial Class FrmEXEACC
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.txt_black)
-        Me.GroupBox4.Location = New System.Drawing.Point(14, 91)
+        Me.GroupBox4.Location = New System.Drawing.Point(8, 85)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(5)
@@ -245,7 +315,7 @@ Partial Class FrmEXEACC
         '
         Me.GroupBox1.Controls.Add(Me.cbo_owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 14)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 8)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
@@ -278,7 +348,7 @@ Partial Class FrmEXEACC
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.Window
         Me.Label1.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(14, 37)
+        Me.Label1.Location = New System.Drawing.Point(16, 37)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 18)
         Me.Label1.TabIndex = 87
@@ -305,7 +375,7 @@ Partial Class FrmEXEACC
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.SystemColors.Window
         Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(6, 9)
+        Me.Label9.Location = New System.Drawing.Point(8, 10)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(114, 18)
         Me.Label9.TabIndex = 78
@@ -326,10 +396,10 @@ Partial Class FrmEXEACC
         Me.dtgv_exeacc.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_exeacc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_exeacc.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.dtgv_exeacc.Location = New System.Drawing.Point(14, 488)
+        Me.dtgv_exeacc.Location = New System.Drawing.Point(8, 476)
         Me.dtgv_exeacc.Name = "dtgv_exeacc"
         Me.dtgv_exeacc.ReadOnly = True
-        Me.dtgv_exeacc.Size = New System.Drawing.Size(989, 208)
+        Me.dtgv_exeacc.Size = New System.Drawing.Size(984, 208)
         Me.dtgv_exeacc.TabIndex = 86
         '
         'GroupBox3
@@ -340,13 +410,28 @@ Partial Class FrmEXEACC
         Me.GroupBox3.Controls.Add(Me.cmd_edit)
         Me.GroupBox3.Controls.Add(Me.cmd_cancel)
         Me.GroupBox3.Controls.Add(Me.cmd_save)
-        Me.GroupBox3.Location = New System.Drawing.Point(858, 124)
+        Me.GroupBox3.Location = New System.Drawing.Point(850, 125)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.GroupBox3.Size = New System.Drawing.Size(145, 243)
         Me.GroupBox3.TabIndex = 88
         Me.GroupBox3.TabStop = False
+        '
+        'Cmd_Linkdata
+        '
+        Me.Cmd_Linkdata.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Linkdata.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Linkdata.Image = Global.SCANDB.My.Resources.Resources.table_lightning
+        Me.Cmd_Linkdata.Location = New System.Drawing.Point(5, 89)
+        Me.Cmd_Linkdata.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Linkdata.Name = "Cmd_Linkdata"
+        Me.Cmd_Linkdata.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Linkdata.TabIndex = 23
+        Me.Cmd_Linkdata.Text = "ลิ้งค์ข้อมูล"
+        Me.Cmd_Linkdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Linkdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Linkdata.UseVisualStyleBackColor = False
         '
         'cmd_delete
         '
@@ -429,7 +514,7 @@ Partial Class FrmEXEACC
         Me.Group_detail.Controls.Add(Me.lbl_count)
         Me.Group_detail.Controls.Add(Me.lbl_datetoday)
         Me.Group_detail.Controls.Add(Me.lbl_timer)
-        Me.Group_detail.Location = New System.Drawing.Point(858, 2)
+        Me.Group_detail.Location = New System.Drawing.Point(850, 3)
         Me.Group_detail.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Group_detail.Name = "Group_detail"
         Me.Group_detail.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
@@ -486,7 +571,7 @@ Partial Class FrmEXEACC
         Me.GroupBox5.Controls.Add(Me.cmd_search)
         Me.GroupBox5.Controls.Add(Me.cbo_search)
         Me.GroupBox5.Controls.Add(Me.txt_search)
-        Me.GroupBox5.Location = New System.Drawing.Point(14, 415)
+        Me.GroupBox5.Location = New System.Drawing.Point(10, 403)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(5)
@@ -557,7 +642,7 @@ Partial Class FrmEXEACC
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.SystemColors.Window
         Me.Label14.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(14, 37)
+        Me.Label14.Location = New System.Drawing.Point(16, 37)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(106, 18)
         Me.Label14.TabIndex = 93
@@ -576,7 +661,7 @@ Partial Class FrmEXEACC
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.SystemColors.Window
         Me.Label16.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(6, 9)
+        Me.Label16.Location = New System.Drawing.Point(8, 10)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(114, 18)
         Me.Label16.TabIndex = 89
@@ -595,7 +680,7 @@ Partial Class FrmEXEACC
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.SystemColors.Window
         Me.Label17.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(14, 37)
+        Me.Label17.Location = New System.Drawing.Point(16, 37)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(106, 18)
         Me.Label17.TabIndex = 99
@@ -614,7 +699,7 @@ Partial Class FrmEXEACC
         Me.Label19.AutoSize = True
         Me.Label19.BackColor = System.Drawing.SystemColors.Window
         Me.Label19.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(6, 9)
+        Me.Label19.Location = New System.Drawing.Point(8, 10)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(114, 18)
         Me.Label19.TabIndex = 95
@@ -633,7 +718,7 @@ Partial Class FrmEXEACC
         Me.chk_date_receipt.AutoSize = True
         Me.chk_date_receipt.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chk_date_receipt.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_date_receipt.Location = New System.Drawing.Point(23, 99)
+        Me.chk_date_receipt.Location = New System.Drawing.Point(16, 101)
         Me.chk_date_receipt.Name = "chk_date_receipt"
         Me.chk_date_receipt.Size = New System.Drawing.Size(99, 20)
         Me.chk_date_receipt.TabIndex = 95
@@ -647,7 +732,7 @@ Partial Class FrmEXEACC
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(333, 14)
+        Me.TabControl1.Location = New System.Drawing.Point(327, 8)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(470, 171)
@@ -701,7 +786,7 @@ Partial Class FrmEXEACC
         '
         Me.lbl_count_find.AutoSize = True
         Me.lbl_count_find.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_count_find.Location = New System.Drawing.Point(12, 372)
+        Me.lbl_count_find.Location = New System.Drawing.Point(6, 366)
         Me.lbl_count_find.Name = "lbl_count_find"
         Me.lbl_count_find.Size = New System.Drawing.Size(136, 32)
         Me.lbl_count_find.TabIndex = 141
@@ -811,21 +896,6 @@ Partial Class FrmEXEACC
         Me.Txt_Billcode.Size = New System.Drawing.Size(178, 20)
         Me.Txt_Billcode.TabIndex = 146
         '
-        'Cmd_Linkdata
-        '
-        Me.Cmd_Linkdata.BackColor = System.Drawing.SystemColors.Window
-        Me.Cmd_Linkdata.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_Linkdata.Image = Global.SCANDB.My.Resources.Resources.table_lightning
-        Me.Cmd_Linkdata.Location = New System.Drawing.Point(5, 89)
-        Me.Cmd_Linkdata.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Cmd_Linkdata.Name = "Cmd_Linkdata"
-        Me.Cmd_Linkdata.Size = New System.Drawing.Size(133, 29)
-        Me.Cmd_Linkdata.TabIndex = 23
-        Me.Cmd_Linkdata.Text = "ลิ้งค์ข้อมูล"
-        Me.Cmd_Linkdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Cmd_Linkdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Cmd_Linkdata.UseVisualStyleBackColor = False
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Lbl_linklegal)
@@ -839,7 +909,7 @@ Partial Class FrmEXEACC
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label15)
         Me.GroupBox2.Controls.Add(Me.Txt_type)
-        Me.GroupBox2.Location = New System.Drawing.Point(335, 189)
+        Me.GroupBox2.Location = New System.Drawing.Point(329, 183)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
@@ -858,6 +928,704 @@ Partial Class FrmEXEACC
         Me.Lbl_linklegal.TabIndex = 142
         Me.Lbl_linklegal.Text = "ผลการค้นหา..."
         '
+        'TabControl2
+        '
+        Me.TabControl2.Controls.Add(Me.TabPage4)
+        Me.TabControl2.Controls.Add(Me.TabPage5)
+        Me.TabControl2.Location = New System.Drawing.Point(0, 2)
+        Me.TabControl2.Name = "TabControl2"
+        Me.TabControl2.SelectedIndex = 0
+        Me.TabControl2.Size = New System.Drawing.Size(1004, 730)
+        Me.TabControl2.TabIndex = 142
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.GroupBox1)
+        Me.TabPage4.Controls.Add(Me.GroupBox3)
+        Me.TabPage4.Controls.Add(Me.GroupBox2)
+        Me.TabPage4.Controls.Add(Me.Group_detail)
+        Me.TabPage4.Controls.Add(Me.GroupBox4)
+        Me.TabPage4.Controls.Add(Me.TabControl1)
+        Me.TabPage4.Controls.Add(Me.lbl_count_find)
+        Me.TabPage4.Controls.Add(Me.GroupBox5)
+        Me.TabPage4.Controls.Add(Me.dtgv_exeacc)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(996, 702)
+        Me.TabPage4.TabIndex = 0
+        Me.TabPage4.Text = "ตั้งเรื่องอายัด/ยึด"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.GroupBox10)
+        Me.TabPage5.Controls.Add(Me.GroupBox11)
+        Me.TabPage5.Controls.Add(Me.GroupBox9)
+        Me.TabPage5.Controls.Add(Me.GroupBox7)
+        Me.TabPage5.Controls.Add(Me.GroupBox8)
+        Me.TabPage5.Controls.Add(Me.Lbl_Repeat_Find)
+        Me.TabPage5.Controls.Add(Me.GroupBox6)
+        Me.TabPage5.Controls.Add(Me.Dtgv_Repeat_find)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(996, 702)
+        Me.TabPage5.TabIndex = 1
+        Me.TabPage5.Text = "อายัดซ้ำ/ตั้งเรื่องไม่ได้"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Cmd_Repeat_Link)
+        Me.GroupBox10.Controls.Add(Me.Cmd_Repeat_Clear)
+        Me.GroupBox10.Controls.Add(Me.Cmd_Repeat_Add)
+        Me.GroupBox10.Controls.Add(Me.Cmd_Repeat_Edit)
+        Me.GroupBox10.Controls.Add(Me.Cmd_Repeat_Cancel)
+        Me.GroupBox10.Controls.Add(Me.Cmd_Repeat_Update)
+        Me.GroupBox10.Location = New System.Drawing.Point(847, 122)
+        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox10.Size = New System.Drawing.Size(145, 243)
+        Me.GroupBox10.TabIndex = 149
+        Me.GroupBox10.TabStop = False
+        '
+        'Cmd_Repeat_Link
+        '
+        Me.Cmd_Repeat_Link.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Repeat_Link.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_Link.Image = Global.SCANDB.My.Resources.Resources.table_lightning
+        Me.Cmd_Repeat_Link.Location = New System.Drawing.Point(5, 89)
+        Me.Cmd_Repeat_Link.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_Link.Name = "Cmd_Repeat_Link"
+        Me.Cmd_Repeat_Link.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_Link.TabIndex = 23
+        Me.Cmd_Repeat_Link.Text = "ลิ้งค์ข้อมูล"
+        Me.Cmd_Repeat_Link.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_Link.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_Link.UseVisualStyleBackColor = False
+        '
+        'Cmd_Repeat_Clear
+        '
+        Me.Cmd_Repeat_Clear.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Repeat_Clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_Clear.Image = CType(resources.GetObject("Cmd_Repeat_Clear.Image"), System.Drawing.Image)
+        Me.Cmd_Repeat_Clear.Location = New System.Drawing.Point(5, 194)
+        Me.Cmd_Repeat_Clear.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_Clear.Name = "Cmd_Repeat_Clear"
+        Me.Cmd_Repeat_Clear.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_Clear.TabIndex = 22
+        Me.Cmd_Repeat_Clear.Text = "เคลียร์ข้อมูล"
+        Me.Cmd_Repeat_Clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_Clear.UseVisualStyleBackColor = False
+        '
+        'Cmd_Repeat_Add
+        '
+        Me.Cmd_Repeat_Add.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Repeat_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_Add.Image = CType(resources.GetObject("Cmd_Repeat_Add.Image"), System.Drawing.Image)
+        Me.Cmd_Repeat_Add.Location = New System.Drawing.Point(5, 19)
+        Me.Cmd_Repeat_Add.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_Add.Name = "Cmd_Repeat_Add"
+        Me.Cmd_Repeat_Add.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_Add.TabIndex = 18
+        Me.Cmd_Repeat_Add.Text = "เพิ่มข้อมูล"
+        Me.Cmd_Repeat_Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_Add.UseVisualStyleBackColor = False
+        '
+        'Cmd_Repeat_Edit
+        '
+        Me.Cmd_Repeat_Edit.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Repeat_Edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_Edit.Image = CType(resources.GetObject("Cmd_Repeat_Edit.Image"), System.Drawing.Image)
+        Me.Cmd_Repeat_Edit.Location = New System.Drawing.Point(5, 159)
+        Me.Cmd_Repeat_Edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_Edit.Name = "Cmd_Repeat_Edit"
+        Me.Cmd_Repeat_Edit.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_Edit.TabIndex = 19
+        Me.Cmd_Repeat_Edit.Text = "แก้ไข"
+        Me.Cmd_Repeat_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_Edit.UseVisualStyleBackColor = False
+        '
+        'Cmd_Repeat_Cancel
+        '
+        Me.Cmd_Repeat_Cancel.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Repeat_Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_Cancel.Image = CType(resources.GetObject("Cmd_Repeat_Cancel.Image"), System.Drawing.Image)
+        Me.Cmd_Repeat_Cancel.Location = New System.Drawing.Point(5, 124)
+        Me.Cmd_Repeat_Cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_Cancel.Name = "Cmd_Repeat_Cancel"
+        Me.Cmd_Repeat_Cancel.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_Cancel.TabIndex = 20
+        Me.Cmd_Repeat_Cancel.Text = "ยกเลิก"
+        Me.Cmd_Repeat_Cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_Cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_Cancel.UseVisualStyleBackColor = False
+        '
+        'Cmd_Repeat_Update
+        '
+        Me.Cmd_Repeat_Update.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Repeat_Update.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_Update.Image = CType(resources.GetObject("Cmd_Repeat_Update.Image"), System.Drawing.Image)
+        Me.Cmd_Repeat_Update.Location = New System.Drawing.Point(5, 54)
+        Me.Cmd_Repeat_Update.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_Update.Name = "Cmd_Repeat_Update"
+        Me.Cmd_Repeat_Update.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_Update.TabIndex = 21
+        Me.Cmd_Repeat_Update.Text = "อัพเดตข้อมูล"
+        Me.Cmd_Repeat_Update.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_Update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_Update.UseVisualStyleBackColor = False
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.BackColor = System.Drawing.SystemColors.Window
+        Me.GroupBox11.Controls.Add(Me.Lbl_Repeat_Count)
+        Me.GroupBox11.Controls.Add(Me.Label39)
+        Me.GroupBox11.Controls.Add(Me.Label40)
+        Me.GroupBox11.Location = New System.Drawing.Point(847, 5)
+        Me.GroupBox11.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox11.Size = New System.Drawing.Size(145, 116)
+        Me.GroupBox11.TabIndex = 148
+        Me.GroupBox11.TabStop = False
+        '
+        'Lbl_Repeat_Count
+        '
+        Me.Lbl_Repeat_Count.BackColor = System.Drawing.SystemColors.InfoText
+        Me.Lbl_Repeat_Count.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Lbl_Repeat_Count.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_Repeat_Count.ForeColor = System.Drawing.Color.Orange
+        Me.Lbl_Repeat_Count.Location = New System.Drawing.Point(7, 72)
+        Me.Lbl_Repeat_Count.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Lbl_Repeat_Count.Name = "Lbl_Repeat_Count"
+        Me.Lbl_Repeat_Count.Size = New System.Drawing.Size(133, 27)
+        Me.Lbl_Repeat_Count.TabIndex = 9
+        Me.Lbl_Repeat_Count.Text = "ข้อมูลทั้งหมด"
+        Me.Lbl_Repeat_Count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label39
+        '
+        Me.Label39.BackColor = System.Drawing.SystemColors.InfoText
+        Me.Label39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label39.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label39.Location = New System.Drawing.Point(7, 45)
+        Me.Label39.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(133, 27)
+        Me.Label39.TabIndex = 1
+        Me.Label39.Text = "ยึด"
+        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label40
+        '
+        Me.Label40.BackColor = System.Drawing.SystemColors.InfoText
+        Me.Label40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label40.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label40.Location = New System.Drawing.Point(7, 16)
+        Me.Label40.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(133, 29)
+        Me.Label40.TabIndex = 0
+        Me.Label40.Text = "อายัด"
+        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Chk_Repeat_DateSheet)
+        Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Court)
+        Me.GroupBox9.Controls.Add(Me.Dtp_Repeat_DateSheet)
+        Me.GroupBox9.Controls.Add(Me.Label37)
+        Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Detail)
+        Me.GroupBox9.Controls.Add(Me.Label36)
+        Me.GroupBox9.Controls.Add(Me.Cbo_Repeat_EmpExe)
+        Me.GroupBox9.Controls.Add(Me.Label35)
+        Me.GroupBox9.Controls.Add(Me.Lbl_Repeat_Link)
+        Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Bank)
+        Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Billcode)
+        Me.GroupBox9.Controls.Add(Me.Label30)
+        Me.GroupBox9.Controls.Add(Me.Label33)
+        Me.GroupBox9.Controls.Add(Me.Label34)
+        Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Type)
+        Me.GroupBox9.Location = New System.Drawing.Point(327, 5)
+        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(5)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox9.Size = New System.Drawing.Size(307, 365)
+        Me.GroupBox9.TabIndex = 147
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "ข้อมูลตั้งเรื่องอายัดซ้ำ"
+        '
+        'Chk_Repeat_DateSheet
+        '
+        Me.Chk_Repeat_DateSheet.AutoSize = True
+        Me.Chk_Repeat_DateSheet.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Repeat_DateSheet.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_Repeat_DateSheet.Location = New System.Drawing.Point(27, 105)
+        Me.Chk_Repeat_DateSheet.Name = "Chk_Repeat_DateSheet"
+        Me.Chk_Repeat_DateSheet.Size = New System.Drawing.Size(85, 20)
+        Me.Chk_Repeat_DateSheet.TabIndex = 103
+        Me.Chk_Repeat_DateSheet.Text = "วันที่ในใบงาน"
+        Me.Chk_Repeat_DateSheet.ThreeState = True
+        Me.Chk_Repeat_DateSheet.UseVisualStyleBackColor = True
+        '
+        'Txt_Repeat_Court
+        '
+        Me.Txt_Repeat_Court.Location = New System.Drawing.Point(118, 53)
+        Me.Txt_Repeat_Court.Name = "Txt_Repeat_Court"
+        Me.Txt_Repeat_Court.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Court.TabIndex = 149
+        '
+        'Dtp_Repeat_DateSheet
+        '
+        Me.Dtp_Repeat_DateSheet.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Repeat_DateSheet.Location = New System.Drawing.Point(118, 105)
+        Me.Dtp_Repeat_DateSheet.Name = "Dtp_Repeat_DateSheet"
+        Me.Dtp_Repeat_DateSheet.Size = New System.Drawing.Size(107, 20)
+        Me.Dtp_Repeat_DateSheet.TabIndex = 102
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.BackColor = System.Drawing.SystemColors.Window
+        Me.Label37.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(84, 54)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(28, 18)
+        Me.Label37.TabIndex = 150
+        Me.Label37.Text = "ศาล"
+        '
+        'Txt_Repeat_Detail
+        '
+        Me.Txt_Repeat_Detail.Location = New System.Drawing.Point(118, 131)
+        Me.Txt_Repeat_Detail.Multiline = True
+        Me.Txt_Repeat_Detail.Name = "Txt_Repeat_Detail"
+        Me.Txt_Repeat_Detail.Size = New System.Drawing.Size(178, 63)
+        Me.Txt_Repeat_Detail.TabIndex = 147
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.BackColor = System.Drawing.SystemColors.Window
+        Me.Label36.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(50, 131)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(62, 18)
+        Me.Label36.TabIndex = 148
+        Me.Label36.Text = "รายละเอียด"
+        '
+        'Cbo_Repeat_EmpExe
+        '
+        Me.Cbo_Repeat_EmpExe.FormattingEnabled = True
+        Me.Cbo_Repeat_EmpExe.Location = New System.Drawing.Point(118, 24)
+        Me.Cbo_Repeat_EmpExe.Name = "Cbo_Repeat_EmpExe"
+        Me.Cbo_Repeat_EmpExe.Size = New System.Drawing.Size(178, 23)
+        Me.Cbo_Repeat_EmpExe.TabIndex = 59
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.BackColor = System.Drawing.SystemColors.Window
+        Me.Label35.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(21, 25)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(91, 18)
+        Me.Label35.TabIndex = 60
+        Me.Label35.Text = "พนักงานบังคับคดี"
+        '
+        'Lbl_Repeat_Link
+        '
+        Me.Lbl_Repeat_Link.AutoSize = True
+        Me.Lbl_Repeat_Link.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_Repeat_Link.Location = New System.Drawing.Point(8, 342)
+        Me.Lbl_Repeat_Link.Name = "Lbl_Repeat_Link"
+        Me.Lbl_Repeat_Link.Size = New System.Drawing.Size(80, 18)
+        Me.Lbl_Repeat_Link.TabIndex = 142
+        Me.Lbl_Repeat_Link.Text = "ผลการค้นหา..."
+        '
+        'Txt_Repeat_Bank
+        '
+        Me.Txt_Repeat_Bank.Location = New System.Drawing.Point(118, 79)
+        Me.Txt_Repeat_Bank.Name = "Txt_Repeat_Bank"
+        Me.Txt_Repeat_Bank.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Bank.TabIndex = 142
+        '
+        'Txt_Repeat_Billcode
+        '
+        Me.Txt_Repeat_Billcode.Location = New System.Drawing.Point(118, 200)
+        Me.Txt_Repeat_Billcode.Name = "Txt_Repeat_Billcode"
+        Me.Txt_Repeat_Billcode.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Billcode.TabIndex = 146
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.BackColor = System.Drawing.SystemColors.Window
+        Me.Label30.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(36, 201)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(76, 18)
+        Me.Label30.TabIndex = 97
+        Me.Label30.Text = "BILLCODE"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.BackColor = System.Drawing.SystemColors.Window
+        Me.Label33.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(71, 227)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(41, 18)
+        Me.Label33.TabIndex = 101
+        Me.Label33.Text = "TYPE"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.BackColor = System.Drawing.SystemColors.Window
+        Me.Label34.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(64, 80)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(48, 18)
+        Me.Label34.TabIndex = 143
+        Me.Label34.Text = "ธนาคาร"
+        '
+        'Txt_Repeat_Type
+        '
+        Me.Txt_Repeat_Type.Location = New System.Drawing.Point(118, 226)
+        Me.Txt_Repeat_Type.Name = "Txt_Repeat_Type"
+        Me.Txt_Repeat_Type.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Type.TabIndex = 100
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.Cbo_Repeat_product)
+        Me.GroupBox7.Controls.Add(Me.Label23)
+        Me.GroupBox7.Location = New System.Drawing.Point(6, 5)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(5)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox7.Size = New System.Drawing.Size(311, 70)
+        Me.GroupBox7.TabIndex = 145
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Owner"
+        '
+        'Cbo_Repeat_product
+        '
+        Me.Cbo_Repeat_product.FormattingEnabled = True
+        Me.Cbo_Repeat_product.Location = New System.Drawing.Point(119, 23)
+        Me.Cbo_Repeat_product.Name = "Cbo_Repeat_product"
+        Me.Cbo_Repeat_product.Size = New System.Drawing.Size(178, 23)
+        Me.Cbo_Repeat_product.TabIndex = 4
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.SystemColors.Window
+        Me.Label23.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(37, 24)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(74, 18)
+        Me.Label23.TabIndex = 58
+        Me.Label23.Text = "PRODUCT"
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.Txt_Repeat_LN)
+        Me.GroupBox8.Controls.Add(Me.Label32)
+        Me.GroupBox8.Controls.Add(Me.Cbo_Repeat_Status)
+        Me.GroupBox8.Controls.Add(Me.Chk_Repeat_DateWork)
+        Me.GroupBox8.Controls.Add(Me.Txt_Repeat_Red)
+        Me.GroupBox8.Controls.Add(Me.Dtp_Repeat_DateWork)
+        Me.GroupBox8.Controls.Add(Me.Label24)
+        Me.GroupBox8.Controls.Add(Me.Label25)
+        Me.GroupBox8.Controls.Add(Me.Label31)
+        Me.GroupBox8.Controls.Add(Me.Label26)
+        Me.GroupBox8.Controls.Add(Me.Txt_Repeat_Acc)
+        Me.GroupBox8.Controls.Add(Me.Txt_Repeat_Idc)
+        Me.GroupBox8.Controls.Add(Me.Txt_Repeat_FN)
+        Me.GroupBox8.Controls.Add(Me.Label27)
+        Me.GroupBox8.Controls.Add(Me.Label28)
+        Me.GroupBox8.Controls.Add(Me.Txt_Repeat_Black)
+        Me.GroupBox8.Location = New System.Drawing.Point(6, 85)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(5)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox8.Size = New System.Drawing.Size(311, 285)
+        Me.GroupBox8.TabIndex = 146
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "ข้อมูลลูกค้า"
+        '
+        'Txt_Repeat_LN
+        '
+        Me.Txt_Repeat_LN.Location = New System.Drawing.Point(119, 97)
+        Me.Txt_Repeat_LN.Name = "Txt_Repeat_LN"
+        Me.Txt_Repeat_LN.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_LN.TabIndex = 100
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.BackColor = System.Drawing.SystemColors.Window
+        Me.Label32.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(63, 97)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(50, 18)
+        Me.Label32.TabIndex = 101
+        Me.Label32.Text = "นามสกุล"
+        '
+        'Cbo_Repeat_Status
+        '
+        Me.Cbo_Repeat_Status.FormattingEnabled = True
+        Me.Cbo_Repeat_Status.Location = New System.Drawing.Point(119, 175)
+        Me.Cbo_Repeat_Status.Name = "Cbo_Repeat_Status"
+        Me.Cbo_Repeat_Status.Size = New System.Drawing.Size(178, 23)
+        Me.Cbo_Repeat_Status.TabIndex = 59
+        '
+        'Chk_Repeat_DateWork
+        '
+        Me.Chk_Repeat_DateWork.AutoSize = True
+        Me.Chk_Repeat_DateWork.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Repeat_DateWork.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_Repeat_DateWork.Location = New System.Drawing.Point(19, 204)
+        Me.Chk_Repeat_DateWork.Name = "Chk_Repeat_DateWork"
+        Me.Chk_Repeat_DateWork.Size = New System.Drawing.Size(94, 20)
+        Me.Chk_Repeat_DateWork.TabIndex = 95
+        Me.Chk_Repeat_DateWork.Text = "เดือนที่ลงข้อมูล"
+        Me.Chk_Repeat_DateWork.ThreeState = True
+        Me.Chk_Repeat_DateWork.UseVisualStyleBackColor = True
+        '
+        'Txt_Repeat_Red
+        '
+        Me.Txt_Repeat_Red.ForeColor = System.Drawing.Color.Red
+        Me.Txt_Repeat_Red.Location = New System.Drawing.Point(119, 149)
+        Me.Txt_Repeat_Red.Name = "Txt_Repeat_Red"
+        Me.Txt_Repeat_Red.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Red.TabIndex = 8
+        '
+        'Dtp_Repeat_DateWork
+        '
+        Me.Dtp_Repeat_DateWork.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Repeat_DateWork.Location = New System.Drawing.Point(119, 204)
+        Me.Dtp_Repeat_DateWork.Name = "Dtp_Repeat_DateWork"
+        Me.Dtp_Repeat_DateWork.Size = New System.Drawing.Size(107, 20)
+        Me.Dtp_Repeat_DateWork.TabIndex = 10
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.BackColor = System.Drawing.SystemColors.Window
+        Me.Label24.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(60, 124)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(53, 18)
+        Me.Label24.TabIndex = 82
+        Me.Label24.Text = "เลขคดีดำ"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.BackColor = System.Drawing.SystemColors.Window
+        Me.Label25.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(50, 176)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(63, 18)
+        Me.Label25.TabIndex = 59
+        Me.Label25.Text = "STATUS"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.BackColor = System.Drawing.SystemColors.Window
+        Me.Label31.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(44, 45)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(69, 18)
+        Me.Label31.TabIndex = 99
+        Me.Label31.Text = "เลขที่สัญญา"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.BackColor = System.Drawing.SystemColors.Window
+        Me.Label26.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(55, 151)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(58, 18)
+        Me.Label26.TabIndex = 61
+        Me.Label26.Text = "เลขคดีแดง"
+        '
+        'Txt_Repeat_Acc
+        '
+        Me.Txt_Repeat_Acc.Location = New System.Drawing.Point(119, 45)
+        Me.Txt_Repeat_Acc.Name = "Txt_Repeat_Acc"
+        Me.Txt_Repeat_Acc.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Acc.TabIndex = 98
+        '
+        'Txt_Repeat_Idc
+        '
+        Me.Txt_Repeat_Idc.Location = New System.Drawing.Point(119, 19)
+        Me.Txt_Repeat_Idc.Name = "Txt_Repeat_Idc"
+        Me.Txt_Repeat_Idc.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Idc.TabIndex = 5
+        '
+        'Txt_Repeat_FN
+        '
+        Me.Txt_Repeat_FN.Location = New System.Drawing.Point(119, 71)
+        Me.Txt_Repeat_FN.Name = "Txt_Repeat_FN"
+        Me.Txt_Repeat_FN.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_FN.TabIndex = 6
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.BackColor = System.Drawing.SystemColors.Window
+        Me.Label27.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(20, 20)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(93, 18)
+        Me.Label27.TabIndex = 59
+        Me.Label27.Text = "เลขบัตรประชาชน"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.BackColor = System.Drawing.SystemColors.Window
+        Me.Label28.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(63, 71)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(50, 18)
+        Me.Label28.TabIndex = 60
+        Me.Label28.Text = "ชื่อลูกค้า"
+        '
+        'Txt_Repeat_Black
+        '
+        Me.Txt_Repeat_Black.Location = New System.Drawing.Point(119, 123)
+        Me.Txt_Repeat_Black.Name = "Txt_Repeat_Black"
+        Me.Txt_Repeat_Black.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Black.TabIndex = 7
+        '
+        'Lbl_Repeat_Find
+        '
+        Me.Lbl_Repeat_Find.AutoSize = True
+        Me.Lbl_Repeat_Find.Font = New System.Drawing.Font("Bookman Old Style", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_Repeat_Find.Location = New System.Drawing.Point(8, 375)
+        Me.Lbl_Repeat_Find.Name = "Lbl_Repeat_Find"
+        Me.Lbl_Repeat_Find.Size = New System.Drawing.Size(136, 32)
+        Me.Lbl_Repeat_Find.TabIndex = 144
+        Me.Lbl_Repeat_Find.Text = "ผลการค้นหา..."
+        Me.Lbl_Repeat_Find.Visible = False
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Label21)
+        Me.GroupBox6.Controls.Add(Me.Label22)
+        Me.GroupBox6.Controls.Add(Me.Cmd_Repeat_find)
+        Me.GroupBox6.Controls.Add(Me.Cbo_Repeat_find)
+        Me.GroupBox6.Controls.Add(Me.Txt_Repeat_find)
+        Me.GroupBox6.Location = New System.Drawing.Point(8, 418)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(5)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox6.Size = New System.Drawing.Size(660, 65)
+        Me.GroupBox6.TabIndex = 142
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "ค้นหาข้อมูล"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.BackColor = System.Drawing.SystemColors.Window
+        Me.Label21.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(8, 27)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(73, 18)
+        Me.Label21.TabIndex = 93
+        Me.Label21.Text = "ประเภทข้อมูล"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.SystemColors.Window
+        Me.Label22.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(231, 27)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(97, 18)
+        Me.Label22.TabIndex = 91
+        Me.Label22.Text = "ข้อมูลที่ต้องการหา"
+        '
+        'Cmd_Repeat_find
+        '
+        Me.Cmd_Repeat_find.BackColor = System.Drawing.Color.White
+        Me.Cmd_Repeat_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Repeat_find.Image = CType(resources.GetObject("Cmd_Repeat_find.Image"), System.Drawing.Image)
+        Me.Cmd_Repeat_find.Location = New System.Drawing.Point(511, 23)
+        Me.Cmd_Repeat_find.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_Repeat_find.Name = "Cmd_Repeat_find"
+        Me.Cmd_Repeat_find.Size = New System.Drawing.Size(133, 29)
+        Me.Cmd_Repeat_find.TabIndex = 3
+        Me.Cmd_Repeat_find.Text = "ค้นหาข้อมูล"
+        Me.Cmd_Repeat_find.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Repeat_find.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Repeat_find.UseVisualStyleBackColor = False
+        '
+        'Cbo_Repeat_find
+        '
+        Me.Cbo_Repeat_find.FormattingEnabled = True
+        Me.Cbo_Repeat_find.Location = New System.Drawing.Point(89, 26)
+        Me.Cbo_Repeat_find.Name = "Cbo_Repeat_find"
+        Me.Cbo_Repeat_find.Size = New System.Drawing.Size(137, 23)
+        Me.Cbo_Repeat_find.TabIndex = 1
+        '
+        'Txt_Repeat_find
+        '
+        Me.Txt_Repeat_find.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Repeat_find.Location = New System.Drawing.Point(334, 26)
+        Me.Txt_Repeat_find.Name = "Txt_Repeat_find"
+        Me.Txt_Repeat_find.Size = New System.Drawing.Size(170, 22)
+        Me.Txt_Repeat_find.TabIndex = 2
+        '
+        'Dtgv_Repeat_find
+        '
+        Me.Dtgv_Repeat_find.AllowUserToAddRows = False
+        Me.Dtgv_Repeat_find.AllowUserToDeleteRows = False
+        Me.Dtgv_Repeat_find.BackgroundColor = System.Drawing.Color.White
+        Me.Dtgv_Repeat_find.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dtgv_Repeat_find.EnableHeadersVisualStyles = False
+        Me.Dtgv_Repeat_find.GridColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Dtgv_Repeat_find.Location = New System.Drawing.Point(6, 491)
+        Me.Dtgv_Repeat_find.Name = "Dtgv_Repeat_find"
+        Me.Dtgv_Repeat_find.ReadOnly = True
+        Me.Dtgv_Repeat_find.RowHeadersVisible = False
+        Me.Dtgv_Repeat_find.Size = New System.Drawing.Size(984, 208)
+        Me.Dtgv_Repeat_find.TabIndex = 143
+        '
+        'Txt_ACC_PK
+        '
+        Me.Txt_ACC_PK.Location = New System.Drawing.Point(1143, 461)
+        Me.Txt_ACC_PK.Name = "Txt_ACC_PK"
+        Me.Txt_ACC_PK.Size = New System.Drawing.Size(10, 20)
+        Me.Txt_ACC_PK.TabIndex = 148
+        Me.Txt_ACC_PK.Visible = False
+        '
+        'lbl_Pk_key
+        '
+        Me.lbl_Pk_key.AutoSize = True
+        Me.lbl_Pk_key.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Pk_key.Location = New System.Drawing.Point(1097, 440)
+        Me.lbl_Pk_key.Name = "lbl_Pk_key"
+        Me.lbl_Pk_key.Size = New System.Drawing.Size(56, 18)
+        Me.lbl_Pk_key.TabIndex = 147
+        Me.lbl_Pk_key.Text = "PK_Key"
+        Me.lbl_Pk_key.Visible = False
+        '
         'FrmEXEACC
         '
         Me.AcceptButton = Me.cmd_search
@@ -865,15 +1633,9 @@ Partial Class FrmEXEACC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.lbl_count_find)
-        Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.GroupBox5)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.Group_detail)
-        Me.Controls.Add(Me.dtgv_exeacc)
-        Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.lbl_Pk_key)
+        Me.Controls.Add(Me.Txt_ACC_PK)
+        Me.Controls.Add(Me.TabControl2)
         Me.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -897,6 +1659,22 @@ Partial Class FrmEXEACC
         Me.TabPage3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.TabControl2.ResumeLayout(False)
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        CType(Me.Dtgv_Repeat_find, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -970,4 +1748,64 @@ Partial Class FrmEXEACC
     Friend WithEvents Cmd_Linkdata As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Lbl_linklegal As Label
+    Friend WithEvents TabControl2 As TabControl
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents Chk_Repeat_DateSheet As CheckBox
+    Friend WithEvents Txt_Repeat_Court As TextBox
+    Friend WithEvents Dtp_Repeat_DateSheet As DateTimePicker
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Txt_Repeat_Detail As TextBox
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Cbo_Repeat_EmpExe As ComboBox
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Lbl_Repeat_Link As Label
+    Friend WithEvents Txt_Repeat_Bank As TextBox
+    Friend WithEvents Txt_Repeat_Billcode As TextBox
+    Friend WithEvents Label30 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label34 As Label
+    Friend WithEvents Txt_Repeat_Type As TextBox
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents Cbo_Repeat_product As ComboBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents Txt_Repeat_LN As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Cbo_Repeat_Status As ComboBox
+    Friend WithEvents Chk_Repeat_DateWork As CheckBox
+    Friend WithEvents Txt_Repeat_Red As TextBox
+    Friend WithEvents Dtp_Repeat_DateWork As DateTimePicker
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Txt_Repeat_Acc As TextBox
+    Friend WithEvents Txt_Repeat_Idc As TextBox
+    Friend WithEvents Txt_Repeat_FN As TextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Txt_Repeat_Black As TextBox
+    Friend WithEvents Lbl_Repeat_Find As Label
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Cmd_Repeat_find As Button
+    Friend WithEvents Cbo_Repeat_find As ComboBox
+    Friend WithEvents Txt_Repeat_find As TextBox
+    Friend WithEvents Dtgv_Repeat_find As DataGridView
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents Cmd_Repeat_Link As Button
+    Friend WithEvents Cmd_Repeat_Clear As Button
+    Friend WithEvents Cmd_Repeat_Add As Button
+    Friend WithEvents Cmd_Repeat_Edit As Button
+    Friend WithEvents Cmd_Repeat_Cancel As Button
+    Friend WithEvents Cmd_Repeat_Update As Button
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents Lbl_Repeat_Count As Label
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents Txt_ACC_PK As TextBox
+    Friend WithEvents lbl_Pk_key As Label
 End Class

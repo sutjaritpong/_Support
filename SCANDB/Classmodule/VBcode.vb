@@ -99,7 +99,12 @@ Module VBcode
         _mydatagrid.Columns(_index).DefaultCellStyle.Format = "dd-MMM-yy"
 
     End Sub
+    Friend Sub DatetimeformatSQL(_Datetime As DateTimePicker)
 
+        _Datetime.Format = DateTimePickerFormat.Custom
+        _Datetime.CustomFormat = "mm/dd/yyyy hh:miAM/PM"
+
+    End Sub
     Friend Sub Datetimeformatshort(_time As DateTimePicker)
         ' Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _time.Format = DateTimePickerFormat.Custom
@@ -130,7 +135,15 @@ Module VBcode
         _combobox.SelectedIndex = 0
 
     End Sub
+    Friend Sub Checkboxdatetime(_Checkbok As CheckBox, _DateTimepicker As DateTimePicker)
+        If _Checkbok.Checked = True Then
 
+            _DateTimepicker.Enabled = True
+        Else
+            _DateTimepicker.Enabled = False
+
+        End If
+    End Sub
     '## Descriptions ##
     '## Sub _convertnum ใช้เปลี่ยนตัวเลขเป็นจำนวนเงินมีจุดทศนิยม 2 ตำแหน่ง
 
@@ -143,6 +156,7 @@ Module VBcode
             _current.text = CDbl(_current.text).ToString("##,##0.00")
 
         End If
+
     End Sub
     '## Descriptions ##
     '## Sub Permissions ใช้กำหนดสิทธิในการเข้าถึง Object หรือ ฟอร์ม ต่างๆ โดยการดึง สิทธิข้อมูลผู้ใช้จากฐานข้อมูล แล้วกำหนดการใช้งานข้อมูล ของสิทธินั้น ๆ  ##
@@ -166,9 +180,10 @@ Module VBcode
                 ' Main_menu_working
                 FrmMastermain.Menu_tab_execution.Enabled = False
             FrmMastermain.Menu_tab_Accounting.Enabled = False
-            FrmMastermain.Menu_tab_scanpdf.Enabled = True
-            'Main_menu_setting
-            FrmMastermain.menu_accms.Enabled = False
+                FrmMastermain.Menu_tab_scanpdf.Enabled = True
+                FrmMastermain.Menu_Tab_Zero.Enabled = False
+                'Main_menu_setting
+                FrmMastermain.menu_accms.Enabled = False
             FrmMastermain.menu_settingms.Enabled = False
             FrmMastermain.menu_Historyms.Enabled = False
             FrmMastermain.menu_changespassword.Enabled = True
@@ -217,6 +232,7 @@ Module VBcode
                 FrmMastermain.Menu_tab_execution.Enabled = False
                 FrmMastermain.Menu_tab_Accounting.Enabled = False
                 FrmMastermain.Menu_tab_scanpdf.Enabled = True
+                FrmMastermain.Menu_Tab_Zero.Enabled = False
                 'Main_menu_setting
                 FrmMastermain.menu_accms.Enabled = False
                 FrmMastermain.menu_settingms.Enabled = False
@@ -237,9 +253,14 @@ Module VBcode
                 FrmITSupport.cmd_logIT.Enabled = False
                 FrmITSupport.cmd_Pcmanage.Enabled = False
             Case "Supervisor"
+                ' Main_menu_working
+                FrmMastermain.Menu_tab_ScbCollector.Enabled = False
+                FrmMastermain.Menu_tab_ScbReport.Enabled = False
                 'Main_menu_ITManagement
                 FrmITSupport.cmd_logIT.Enabled = False
                 FrmITSupport.cmd_Pcmanage.Enabled = False
+
+
         End Select
 
         cn.Close()

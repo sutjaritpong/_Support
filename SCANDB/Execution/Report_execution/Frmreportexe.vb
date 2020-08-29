@@ -12,7 +12,7 @@ Imports System.Globalization
 Imports Microsoft
 Public Class Frmreportexe
 
-    Dim headerdgv() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อ-นามสกุล", "เลขที่สัญญา 1", "เลขที่สัญญา 2", "เลขที่สัญญา 3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรม", "จำนวนเงิน", "ชื่อเจ้าของใบงาน", "เบอร์ติดต่อ", "ศูนย์ประสานงาน", "วันที่ออกใบงาน", "ชื่อ-นามสกุลพนักงาน", "รายละเอียด", "ผลปฎิบัติงาน", "เดือนที่ออกใบงาน", "HUBS", "ผลลัพธ์"}
+    Friend headerdgv() As String = {"ธนาคาร", "เลขประจำตัวประชาชน", "ชื่อ-นามสกุล", "เลขที่สัญญา 1", "เลขที่สัญญา 2", "เลขที่สัญญา 3", "ศาล", "คดีดำ", "คดีแดง", "เลขเก็บ", "กรม", "จำนวนเงิน", "ชื่อเจ้าของใบงาน", "เบอร์ติดต่อ", "ศูนย์ประสานงาน", "วันที่ออกใบงาน", "ชื่อ-นามสกุลพนักงาน", "รายละเอียด", "ผลปฎิบัติงาน", "เดือนที่ออกใบงาน", "HUBS", "ผลลัพธ์"}
 
     Private Sub Frmsummary_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -84,9 +84,9 @@ Public Class Frmreportexe
 
     End Sub
 
-    Private Sub cmd_alldata_Click(sender As Object, e As EventArgs) Handles cmd_alldata.Click
+    Private Sub Cmd_alldata_Click(sender As Object, e As EventArgs) Handles cmd_alldata.Click
 
-        connect()
+        Connect()
 
         Dim sql As String = $"SELECT * FROM EXESM ORDER BY EXEDATEWORK "
 
@@ -109,9 +109,9 @@ Public Class Frmreportexe
 
     End Sub
 
-    Private Sub cmd_view_Click(sender As Object, e As EventArgs) Handles cmd_view.Click
+    Private Sub Cmd_view_Click(sender As Object, e As EventArgs) Handles cmd_view.Click
 
-        connect()
+        Connect()
 
         If dtgv_reportsm.RowCount <> 0 Then
 
@@ -170,7 +170,7 @@ Public Class Frmreportexe
 
     End Sub
 
-    Private Sub chkb_date_CheckedChanged(sender As Object, e As EventArgs) Handles chkb_date.CheckedChanged
+    Private Sub Chkb_date_CheckedChanged(sender As Object, e As EventArgs) Handles chkb_date.CheckedChanged
 
         If chkb_date.Checked = True Then
 
@@ -191,7 +191,7 @@ Public Class Frmreportexe
 
     End Sub
 
-    Private Sub cmd_export_Click(sender As Object, e As EventArgs) Handles cmd_export.Click
+    Private Sub Cmd_export_Click(sender As Object, e As EventArgs) Handles cmd_export.Click
         If dtgv_reportsm.Rows.Count = 0 Or dtgv_reportsm.Columns.Count = 0 Then
 
             Msg_error("กรุณา แสดงข้อมูล ก่อน Export ทุกครั้ง")
@@ -203,7 +203,7 @@ Public Class Frmreportexe
         cn.Close()
 
     End Sub
-    Private Sub releaseObject(ByVal obj As Object)
+    Private Sub ReleaseObject(ByVal obj As Object)
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
             obj = Nothing
@@ -290,7 +290,7 @@ Public Class Frmreportexe
 
     End Sub
 
-    Sub disables()
+    Sub Disables()
 
         cbo_bank.Enabled = False
         cbo_hubs.Enabled = False
@@ -300,7 +300,7 @@ Public Class Frmreportexe
         Chkb_fullname.Enabled = False
     End Sub
 
-    Sub enables()
+    Sub Enables()
 
         cbo_bank.Enabled = True
         cbo_hubs.Enabled = True
@@ -311,14 +311,14 @@ Public Class Frmreportexe
 
     End Sub
 
-    Private Sub chkb_condition_CheckedChanged(sender As Object, e As EventArgs) Handles chkb_condition.CheckedChanged
+    Private Sub Chkb_condition_CheckedChanged(sender As Object, e As EventArgs) Handles chkb_condition.CheckedChanged
         If chkb_condition.Checked = True Then
 
-            enables()
+            Enables()
 
         ElseIf chkb_condition.Checked = False Then
 
-            disables()
+            Disables()
 
         End If
 

@@ -117,15 +117,16 @@ Public Class Frmimportexe
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
+        lbl_flow.Visible = True
         Loadsexe()
-
         lbl_flow.Text = "กำลังโหลดข้อมูลเข้าระบบ...."
+
     End Sub
 
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
 
         Connect()
-
+        lbl_flow.Visible = True
         lbl_flow.Text = "กำลังประมวลผลข้อมูล"
 
         For i As Integer = 0 To Dtgv_Exe.Rows.Count - 1
@@ -194,6 +195,7 @@ Public Class Frmimportexe
         MessageBox.Show("โหลดข้อมูลเสร็จสิ้น ข้อมูลทั้งหมด" & " " & DS.Tables("CountRows").Rows(0)("TYPEs") & " " & "แภว", "Import Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         lbl_statusprogress.Text = "0/0"
+
         lbl_flow.Text = "ไม่มีข้อมูลทำงานอยู่"
         Main_progressbar.Value = 0
         lbl_countimport.Text = Dtgv_Exe.Rows.Count & " " & "รายการ"
@@ -201,7 +203,7 @@ Public Class Frmimportexe
         Main_progressbar.Visible = False
 
         Getlogdata($"UPLOAD {cbo_products.Text} จำนวน {Dtgv_Exe.Rows.Count}")
-
+        lbl_flow.Visible = False
     End Sub
     Private Sub Loadsexe()
 
@@ -268,7 +270,7 @@ Public Class Frmimportexe
 
                     '---------------------- UPLOAD เบิกบังคับคดีที่ไปตั้งเรื่อง -----------------------------------'
 
-                    Case "ตรวจสำนวนตามใบงาน" : sql &= $"EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}')"
+                    Case "ตรวจสำนวนตามใบงาน" : sql &= $"EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work,Tracking_total)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}')"
 
 
                     '----------------------- UPLOAD TRACKING ------------------'
@@ -306,7 +308,7 @@ Public Class Frmimportexe
 
                         '-----------------UPLOAD Execution_Ownership_Result ------------------'
 
-                    Case "อายัดซ้ำ" : sql &= $"Execution_Repeatfreeze(Customer_owner,Customer_id_card,Customer_account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Int(Dtgv_Exe.Rows(i).Cells(8).Value)}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}')"
+                    Case "อายัดซ้ำ" : sql &= $"Execution_Repeatfreeze(Customer_owner,Customer_id_card,Customer_account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Int(Dtgv_Exe.Rows(i).Cells(8).Value)}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}')"
 
 
 

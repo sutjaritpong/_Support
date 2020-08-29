@@ -84,6 +84,9 @@ Partial Class FrmWDS
         Me.cmd_find = New System.Windows.Forms.Button()
         Me.cmd_cancel = New System.Windows.Forms.Button()
         Me.cmd_save = New System.Windows.Forms.Button()
+        Me.Txt_PK_Acc = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Txt_PK_Owner = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -784,12 +787,43 @@ Partial Class FrmWDS
         Me.cmd_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.cmd_save.UseVisualStyleBackColor = False
         '
+        'Txt_PK_Acc
+        '
+        Me.Txt_PK_Acc.Location = New System.Drawing.Point(1122, 676)
+        Me.Txt_PK_Acc.Name = "Txt_PK_Acc"
+        Me.Txt_PK_Acc.Size = New System.Drawing.Size(10, 22)
+        Me.Txt_PK_Acc.TabIndex = 90
+        Me.Txt_PK_Acc.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.SystemColors.Window
+        Me.Label2.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(1099, 655)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(33, 18)
+        Me.Label2.TabIndex = 90
+        Me.Label2.Text = "KEY"
+        Me.Label2.Visible = False
+        '
+        'Txt_PK_Owner
+        '
+        Me.Txt_PK_Owner.Location = New System.Drawing.Point(1122, 704)
+        Me.Txt_PK_Owner.Name = "Txt_PK_Owner"
+        Me.Txt_PK_Owner.Size = New System.Drawing.Size(10, 22)
+        Me.Txt_PK_Owner.TabIndex = 90
+        Me.Txt_PK_Owner.Visible = False
+        '
         'FrmWDS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.Txt_PK_Owner)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Txt_PK_Acc)
         Me.Controls.Add(Me.cmd_datediff)
         Me.Controls.Add(Me.cmd_detele)
         Me.Controls.Add(Me.cmd_addnew)
@@ -896,4 +930,7 @@ Partial Class FrmWDS
     Friend WithEvents cmd_addnew As Button
     Friend WithEvents cmd_detele As Button
     Friend WithEvents cmd_datediff As Button
+    Friend WithEvents Txt_PK_Acc As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Txt_PK_Owner As TextBox
 End Class

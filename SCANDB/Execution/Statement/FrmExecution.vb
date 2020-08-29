@@ -161,6 +161,7 @@ Public Class FrmExecution
         cbo_acc.Text = ""
         cbo_court.Text = ""
         cbo_department.Text = ""
+        Txt_Tkmoney.Text = ""
 
         chk_tracking_date.Checked = False
         chk_datesheet.Checked = False
@@ -255,6 +256,7 @@ Public Class FrmExecution
                     txt_collec_nosend.Text = .CurrentRow.Cells(2).Value.ToString
                     cbo_employees_exe.Text = .CurrentRow.Cells(3).Value.ToString
                     txt_tracking_nosheet.Text = .CurrentRow.Cells(4).Value.ToString
+                    Txt_Tkmoney.Text = .CurrentRow.Cells(5).Value.ToString
 
                     If .CurrentRow.Cells(0).Value.ToString <> "" Then
                         chk_tracking_date.Checked = True
@@ -293,6 +295,15 @@ Public Class FrmExecution
             Else
 
                 txt_total.Text = CDbl(txt_total.Text).ToString("##,##0.00")
+
+            End If
+
+            If (Txt_Tkmoney.Text <> "") AndAlso (Not IsNumeric(Txt_Tkmoney.Text)) Then
+
+
+            Else
+
+                Txt_Tkmoney.Text = CDbl(Txt_Tkmoney.Text).ToString("##,##0.00")
 
             End If
 
@@ -540,7 +551,7 @@ Public Class FrmExecution
 
                     If chk_tracking_date.Checked <> False Then
 
-                        sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp WHERE Tracking_pk = @tkpk;"
+                        sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp,tracking_total=@tkmoney WHERE Tracking_pk = @tkpk;"
 
                     End If
                 End If
@@ -588,6 +599,7 @@ Public Class FrmExecution
                 .Parameters.AddWithValue("tkdetail", txt_tracking_detail.Text)
                 .Parameters.AddWithValue("nosheet", txt_tracking_nosheet.Text)
                 .Parameters.AddWithValue("tksend", txt_collec_nosend.Text)
+                .Parameters.AddWithValue("tkmoney", Txt_Tkmoney.Text)
                 .Parameters.AddWithValue("empfullname", cbo_employees_exe.Text)
                 .ExecuteNonQuery()
 
@@ -710,7 +722,7 @@ Public Class FrmExecution
 
         End With
 
-        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,ET.Tracking_other,Tracking_date_work FROM EXETRACKING AS ET
+        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,ET.Tracking_other,Tracking_date_work,Tracking_total FROM EXETRACKING AS ET
                 INNER JOIN EXEEMPLOYEE AS EMP
                 ON ET.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY
                 WHERE Customer_idc = '{CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(1).Value.ToString)}' ORDER BY ET.Tracking_date_sheet DESC"
@@ -728,7 +740,7 @@ Public Class FrmExecution
             .Columns(1).HeaderText = "รายละเอียด"
             .Columns(2).HeaderText = "การส่งมาออกใบงาน"
             .Columns(3).HeaderText = "พนักงานบังคับคดี"
-
+            .Columns(4).HeaderText = "พบเงินในบัญชี"
 
             If .Rows.Count <> 0 Then
                 For i = 4 To dtgv_tracking_statement.ColumnCount - 1
@@ -740,6 +752,7 @@ Public Class FrmExecution
                 txt_collec_nosend.Text = .Rows(0).Cells(2).Value.ToString
                 cbo_employees_exe.Text = .Rows(0).Cells(3).Value.ToString
                 txt_tracking_nosheet.Text = .Rows(0).Cells(4).Value.ToString
+                Txt_Tkmoney.Text = .Rows(0).Cells(5).Value.ToString
 
                 If dtgv_tracking_statement.Rows(0).Cells(0).Value.ToString <> "" Then
 
@@ -764,8 +777,11 @@ Public Class FrmExecution
 
         End If
 
+        If Txt_Tkmoney.Text = "" Then
 
-        If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
+        Else
+
+            If (txt_total.Text <> "") AndAlso (Not IsNumeric(txt_total.Text)) Then
 
 
         Else
@@ -774,6 +790,21 @@ Public Class FrmExecution
 
         End If
 
+        End If
+        If Txt_Tkmoney.Text = "" Then
+
+
+        Else
+
+            If (Txt_Tkmoney.Text <> "") AndAlso (Not IsNumeric(Txt_Tkmoney.Text)) Then
+
+            Else
+
+            Txt_Tkmoney.Text = CDbl(Txt_Tkmoney.Text).ToString("##,##0.00")
+
+        End If
+
+        End If
         Datagrid_format_dateshort(dtgv_tracking_statement, 0)
         Datagrid_format_dateshort(dtgv_verify_statement, 0)
 
@@ -790,6 +821,7 @@ Public Class FrmExecution
             txt_collec_nosend.Text = .Rows.Item(e.RowIndex).Cells(2).Value.ToString
             cbo_employees_exe.Text = .Rows.Item(e.RowIndex).Cells(3).Value.ToString
             txt_tracking_nosheet.Text = .Rows.Item(e.RowIndex).Cells(4).Value.ToString
+            Txt_Tkmoney.Text = .Rows.Item(e.RowIndex).Cells(5).Value.ToString
 
             If .Rows(0).Cells(0).Value.ToString <> "" Then
 

@@ -269,6 +269,10 @@ Public Class FrmWDS
                 txt_refund.Text = CStr(.Rows.Item(e.RowIndex).Cells(18).Value.ToString)
                 dtp_daterefund.Text = CStr(.Rows.Item(e.RowIndex).Cells(19).Value.ToString)
 
+                Txt_PK_Owner.Text = CStr(.Rows.Item(e.RowIndex).Cells(1).Value.ToString)
+                Txt_PK_Acc.Text = CStr(.Rows.Item(e.RowIndex).Cells(6).Value.ToString)
+
+
             End With
 
             If dtgv_data.Rows.Item(e.RowIndex).Cells(3).Value.ToString = "" Then
@@ -416,7 +420,7 @@ Public Class FrmWDS
                 sql &= $",EXEDATEPAY = NULL"
             End If
 
-            sql &= $" WHERE EXEKEY = '{cbo_owner.Text}-{txt_cusacc.Text}';"
+            sql &= $" WHERE EXEKEY = '{Txt_PK_Owner.Text}-{Txt_PK_Acc.Text}';"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
@@ -691,6 +695,8 @@ Public Class FrmWDS
             .txt_total.Text = .dtgv_check.Rows(0).Cells(13).Value.ToString
             .txt_refund.Text = .dtgv_check.Rows(0).Cells(14).Value.ToString
             .txt_note.Text = .dtgv_check.Rows(0).Cells(15).Value.ToString
+
+
 
         End With
 

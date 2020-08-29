@@ -59,6 +59,10 @@ Partial Class FrmMastermain
         Me.KKBscanpdf = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_tab_Accounting = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_accounting_search = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Tab_Zero = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Tab_ScbLegal = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_tab_ScbCollector = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_tab_ScbReport = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_tap_logout = New System.Windows.Forms.ToolStripMenuItem()
         Me.Main_menu_setting = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_accms = New System.Windows.Forms.ToolStripMenuItem()
@@ -101,10 +105,6 @@ Partial Class FrmMastermain
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_Tab_ScbLegal = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_tab_ScbCollector = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_tab_ScbReport = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -256,7 +256,7 @@ Partial Class FrmMastermain
         '
         'Main_menu_working
         '
-        Me.Main_menu_working.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_tab_execution, Me.Menu_tab_scanpdf, Me.Menu_tab_Accounting, Me.ToolStripMenuItem3, Me.menu_tap_logout})
+        Me.Main_menu_working.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_tab_execution, Me.Menu_tab_scanpdf, Me.Menu_tab_Accounting, Me.Menu_Tab_Zero, Me.menu_tap_logout})
         Me.Main_menu_working.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Main_menu_working.Image = Global.SCANDB.My.Resources.Resources.accept
         Me.Main_menu_working.Name = "Main_menu_working"
@@ -425,8 +425,42 @@ Partial Class FrmMastermain
         Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.menu_accounting_search.Name = "menu_accounting_search"
-        Me.menu_accounting_search.Size = New System.Drawing.Size(117, 22)
+        Me.menu_accounting_search.Size = New System.Drawing.Size(180, 22)
         Me.menu_accounting_search.Text = "KBANK"
+        '
+        'Menu_Tab_Zero
+        '
+        Me.Menu_Tab_Zero.BackColor = System.Drawing.Color.White
+        Me.Menu_Tab_Zero.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Tab_ScbLegal, Me.Menu_tab_ScbCollector, Me.Menu_tab_ScbReport})
+        Me.Menu_Tab_Zero.ForeColor = System.Drawing.Color.Indigo
+        Me.Menu_Tab_Zero.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
+        Me.Menu_Tab_Zero.Name = "Menu_Tab_Zero"
+        Me.Menu_Tab_Zero.Size = New System.Drawing.Size(209, 22)
+        Me.Menu_Tab_Zero.Text = "ข้อมูล SCB (ZERO)"
+        '
+        'Menu_Tab_ScbLegal
+        '
+        Me.Menu_Tab_ScbLegal.ForeColor = System.Drawing.Color.Indigo
+        Me.Menu_Tab_ScbLegal.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
+        Me.Menu_Tab_ScbLegal.Name = "Menu_Tab_ScbLegal"
+        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_Tab_ScbLegal.Text = "SCB (LEGAL)"
+        '
+        'Menu_tab_ScbCollector
+        '
+        Me.Menu_tab_ScbCollector.ForeColor = System.Drawing.Color.Indigo
+        Me.Menu_tab_ScbCollector.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon24x24
+        Me.Menu_tab_ScbCollector.Name = "Menu_tab_ScbCollector"
+        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_tab_ScbCollector.Text = "SCB (COLLECTOR)"
+        '
+        'Menu_tab_ScbReport
+        '
+        Me.Menu_tab_ScbReport.ForeColor = System.Drawing.Color.Indigo
+        Me.Menu_tab_ScbReport.Image = Global.SCANDB.My.Resources.Resources.report_go
+        Me.Menu_tab_ScbReport.Name = "Menu_tab_ScbReport"
+        Me.Menu_tab_ScbReport.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_tab_ScbReport.Text = "SCB (Report)"
         '
         'menu_tap_logout
         '
@@ -753,40 +787,6 @@ Partial Class FrmMastermain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.BackColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Tab_ScbLegal, Me.Menu_tab_ScbCollector, Me.Menu_tab_ScbReport})
-        Me.ToolStripMenuItem3.ForeColor = System.Drawing.Color.Indigo
-        Me.ToolStripMenuItem3.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(209, 22)
-        Me.ToolStripMenuItem3.Text = "ข้อมูล SCB (ZERO)"
-        '
-        'Menu_Tab_ScbLegal
-        '
-        Me.Menu_Tab_ScbLegal.ForeColor = System.Drawing.Color.Indigo
-        Me.Menu_Tab_ScbLegal.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
-        Me.Menu_Tab_ScbLegal.Name = "Menu_Tab_ScbLegal"
-        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(180, 22)
-        Me.Menu_Tab_ScbLegal.Text = "SCB (LEGAL)"
-        '
-        'Menu_tab_ScbCollector
-        '
-        Me.Menu_tab_ScbCollector.ForeColor = System.Drawing.Color.Indigo
-        Me.Menu_tab_ScbCollector.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon24x24
-        Me.Menu_tab_ScbCollector.Name = "Menu_tab_ScbCollector"
-        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(180, 22)
-        Me.Menu_tab_ScbCollector.Text = "SCB (COLLECTOR)"
-        '
-        'Menu_tab_ScbReport
-        '
-        Me.Menu_tab_ScbReport.ForeColor = System.Drawing.Color.Indigo
-        Me.Menu_tab_ScbReport.Image = Global.SCANDB.My.Resources.Resources.report_go
-        Me.Menu_tab_ScbReport.Name = "Menu_tab_ScbReport"
-        Me.Menu_tab_ScbReport.Size = New System.Drawing.Size(180, 22)
-        Me.Menu_tab_ScbReport.Text = "SCB (Report)"
-        '
         'FrmMastermain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -889,7 +889,7 @@ Partial Class FrmMastermain
     Friend WithEvents Menu_ReportAccounting As ToolStripMenuItem
     Friend WithEvents Menu_Reportstatement As ToolStripMenuItem
     Friend WithEvents Menu_logexe As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents Menu_Tab_Zero As ToolStripMenuItem
     Friend WithEvents Menu_Tab_ScbLegal As ToolStripMenuItem
     Friend WithEvents Menu_tab_ScbCollector As ToolStripMenuItem
     Friend WithEvents Menu_tab_ScbReport As ToolStripMenuItem

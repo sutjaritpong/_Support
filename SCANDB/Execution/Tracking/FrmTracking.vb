@@ -156,7 +156,7 @@ Public Class FrmTracking
 
         End If
 
-        Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี", "วันที่ตรวจสำนวน"}
+        Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี", "วันที่ตรวจสำนวน", "เพิ่มเติม"}
 
         With dtgv_tracking
 
@@ -192,7 +192,7 @@ Public Class FrmTracking
 
         Connect()
 
-        Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ", "วันที่ลงข้อมูล"}
+        Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน", "อื่นๆ", "วันที่ลงข้อมูล", "ตรวจพบเงิน"}
 
         Dim _datetime As DateTime = dtp_date_verify.Text
         Dim acckey As String = $"{cbo_owner.Text}-{txt_cusid.Text}-{_datetime}"
@@ -216,7 +216,7 @@ Public Class FrmTracking
         DA.Fill(DS, "_emp")
 
 
-        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend,@other,@datework)"
+        sql = "INSERT INTO EXETRACKING(Tracking_pk,Customer_owner,Customer_idc,Customer_fullname,Tracking_court,Tracking_red,Tracking_date_sheet,EMPLOYEES_KEY,Tracking_detail,Tracking_nosheet,Tracking_Collector_nosend,Tracking_other,Tracking_date_work,Tracking_total)VALUES(@key,@bank,@id,@cusname,@court,@red,@datewds,@employee,@detail,@nodoc,@nosend,@other,@datework,@money)"
 
         With cmd
             .CommandText = sql
@@ -234,6 +234,7 @@ Public Class FrmTracking
             .Parameters.AddWithValue("nosend", cbo_waning.Text)
             .Parameters.AddWithValue("other", txt_detail.Text)
             .Parameters.AddWithValue("datework", dtp_date_work.Text)
+            .Parameters.AddWithValue("money", Txt_tkmoney.Text)
             Dim _query As Integer = .ExecuteNonQuery()
 
             If _query = -1 Then
@@ -260,7 +261,7 @@ Public Class FrmTracking
                 Datagrid_format_dateshort(dtgv_invalid, 6)
                 Datagrid_format_dateshort(dtgv_invalid, 12)
 
-                Getlogdataexe($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน", $"'{txt_cusid.Text}'", $"NULL")
+                Getlogdataexe($"เพิ่ม ข้อมูลลูกค้า {txt_cusid.Text} {vbNewLine} ชื่อ {txt_cusname.Text} {vbNewLine} พนักงานบังคับคดี {vbNewLine} {cbo_empexe.Text} {vbNewLine} ตรวจสำนวน-ทำบัญชี-รับจ่าย ตามใบงาน ตรวจพบเงิน {Txt_tkmoney.Text}", $"'{txt_cusid.Text}'", $"NULL")
                 Msg_OK("เพิ่มข้อมูลสำเร็จ")
                 Clear_Obj()
                 Readonly_Obj()
