@@ -149,6 +149,7 @@ Public Class FrmimportAccounting
 
                 Case "FILE SCAN" : sql = $"SELECT Accounting_path FROM ACCOUNTINGscdb;"
 
+                Case Else
             End Select
 
             cmd = New SqlCommand(sql, cn)
@@ -198,6 +199,8 @@ Public Class FrmimportAccounting
 
                             End If
 
+
+
                     End Select
 
                 Next
@@ -218,7 +221,7 @@ Public Class FrmimportAccounting
             Next
 
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
             lbl_countimport.Text = $"{Str(dtgv_view.RowCount.ToString)} รายการ"
 
             cn.Close()
@@ -360,4 +363,5 @@ Public Class FrmimportAccounting
         dtgv_view.DataSource = Nothing
 
     End Sub
+
 End Class

@@ -31,7 +31,6 @@ Module VBdatabase
     Friend cn_TMBSME As New SqlConnection("SERVER=FDS-SERVER;Initial Catalog=TMBSMEdB;Persist Security Info=True;User ID=sa;Password=1971;")
     Friend cn_TBANK As New SqlConnection("SERVER=FDS-SERVER;Initial Catalog=TBANKdB;Persist Security Info=True;User ID=sa;Password=1971;")
 
-
     Friend cmd_Collec As New SqlCommand
     Friend DA_Collec As New SqlDataAdapter
     Friend DS_Collec As New DataSet

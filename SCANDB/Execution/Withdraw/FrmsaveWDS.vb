@@ -278,6 +278,7 @@ Public Class FrmsaveWDS
                 cn_SCB.Close()
 
             Case "TSS" : Connect_(cn_GE)
+
                 sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{txt_cusacc.Text}' "
 
                 cmd_Collec = New SqlCommand(sqll, cn_GE)

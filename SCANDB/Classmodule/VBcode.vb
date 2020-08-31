@@ -254,7 +254,7 @@ Module VBcode
                 FrmITSupport.cmd_Pcmanage.Enabled = False
             Case "Supervisor"
                 ' Main_menu_working
-                FrmMastermain.Menu_tab_ScbCollector.Enabled = False
+                FrmMastermain.Menu_tab_ScbCollector.Enabled = True
                 FrmMastermain.Menu_tab_ScbReport.Enabled = False
                 'Main_menu_ITManagement
                 FrmITSupport.cmd_logIT.Enabled = False

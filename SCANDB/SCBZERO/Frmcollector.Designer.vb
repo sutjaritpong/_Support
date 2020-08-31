@@ -29,6 +29,8 @@ Partial Class Frmcollector
         Me.Cmd_ImportPayment = New System.Windows.Forms.Button()
         Me.Cmd_ImportHub = New System.Windows.Forms.Button()
         Me.Cmd_Daily_Payment = New System.Windows.Forms.Button()
+        Me.Dtp_Date_Payment = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.Dtgv_Zero_collector, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -36,7 +38,7 @@ Partial Class Frmcollector
         '
         Me.Cmd_ImportPerformance.BackColor = System.Drawing.SystemColors.Window
         Me.Cmd_ImportPerformance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_ImportPerformance.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Cmd_ImportPerformance.Image = Global.SCANDB.My.Resources.Resources.table_add
         Me.Cmd_ImportPerformance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Cmd_ImportPerformance.Location = New System.Drawing.Point(25, 12)
         Me.Cmd_ImportPerformance.Name = "Cmd_ImportPerformance"
@@ -68,11 +70,11 @@ Partial Class Frmcollector
         '
         Me.Cmd_ImportPayment.BackColor = System.Drawing.SystemColors.Window
         Me.Cmd_ImportPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_ImportPayment.Image = Global.SCANDB.My.Resources.Resources.server_connect
+        Me.Cmd_ImportPayment.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.Cmd_ImportPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_ImportPayment.Location = New System.Drawing.Point(672, 3)
+        Me.Cmd_ImportPayment.Location = New System.Drawing.Point(681, 12)
         Me.Cmd_ImportPayment.Name = "Cmd_ImportPayment"
-        Me.Cmd_ImportPayment.Size = New System.Drawing.Size(139, 40)
+        Me.Cmd_ImportPayment.Size = New System.Drawing.Size(130, 31)
         Me.Cmd_ImportPayment.TabIndex = 17
         Me.Cmd_ImportPayment.Text = "Import Payment"
         Me.Cmd_ImportPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -82,11 +84,11 @@ Partial Class Frmcollector
         '
         Me.Cmd_ImportHub.BackColor = System.Drawing.SystemColors.Window
         Me.Cmd_ImportHub.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_ImportHub.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Cmd_ImportHub.Image = Global.SCANDB.My.Resources.Resources.table_lightning
         Me.Cmd_ImportHub.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Cmd_ImportHub.Location = New System.Drawing.Point(185, 12)
         Me.Cmd_ImportHub.Name = "Cmd_ImportHub"
-        Me.Cmd_ImportHub.Size = New System.Drawing.Size(115, 31)
+        Me.Cmd_ImportHub.Size = New System.Drawing.Size(100, 31)
         Me.Cmd_ImportHub.TabIndex = 18
         Me.Cmd_ImportHub.Text = "Import HUB"
         Me.Cmd_ImportHub.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -96,21 +98,42 @@ Partial Class Frmcollector
         '
         Me.Cmd_Daily_Payment.BackColor = System.Drawing.SystemColors.Window
         Me.Cmd_Daily_Payment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_Daily_Payment.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
+        Me.Cmd_Daily_Payment.Image = Global.SCANDB.My.Resources.Resources.table_add
         Me.Cmd_Daily_Payment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_Daily_Payment.Location = New System.Drawing.Point(306, 12)
+        Me.Cmd_Daily_Payment.Location = New System.Drawing.Point(291, 12)
         Me.Cmd_Daily_Payment.Name = "Cmd_Daily_Payment"
-        Me.Cmd_Daily_Payment.Size = New System.Drawing.Size(129, 31)
+        Me.Cmd_Daily_Payment.Size = New System.Drawing.Size(124, 31)
         Me.Cmd_Daily_Payment.TabIndex = 19
         Me.Cmd_Daily_Payment.Text = "Daily_Payment"
         Me.Cmd_Daily_Payment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Cmd_Daily_Payment.UseVisualStyleBackColor = False
+        '
+        'Dtp_Date_Payment
+        '
+        Me.Dtp_Date_Payment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Date_Payment.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Date_Payment.Location = New System.Drawing.Point(577, 17)
+        Me.Dtp_Date_Payment.Name = "Dtp_Date_Payment"
+        Me.Dtp_Date_Payment.Size = New System.Drawing.Size(98, 22)
+        Me.Dtp_Date_Payment.TabIndex = 20
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label1.Location = New System.Drawing.Point(542, 20)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(29, 16)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "วันที่"
         '
         'Frmcollector
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Dtp_Date_Payment)
         Me.Controls.Add(Me.Cmd_Daily_Payment)
         Me.Controls.Add(Me.Cmd_ImportHub)
         Me.Controls.Add(Me.Cmd_ImportPayment)
@@ -121,6 +144,7 @@ Partial Class Frmcollector
         Me.Text = "Frmcollector"
         CType(Me.Dtgv_Zero_collector, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -130,4 +154,6 @@ Partial Class Frmcollector
     Friend WithEvents Cmd_ImportPayment As Button
     Friend WithEvents Cmd_ImportHub As Button
     Friend WithEvents Cmd_Daily_Payment As Button
+    Friend WithEvents Dtp_Date_Payment As DateTimePicker
+    Friend WithEvents Label1 As Label
 End Class

@@ -151,7 +151,9 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_find = New System.Windows.Forms.TextBox()
         Me.Dtgv_Repeat_find = New System.Windows.Forms.DataGridView()
         Me.Txt_ACC_PK = New System.Windows.Forms.TextBox()
-        Me.lbl_Pk_key = New System.Windows.Forms.Label()
+        Me.lbl_Pk_ACC = New System.Windows.Forms.Label()
+        Me.Lbl_Repeat_PK = New System.Windows.Forms.Label()
+        Me.Txt_Repeact_PK = New System.Windows.Forms.TextBox()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgv_exeacc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1181,7 +1183,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Court.Location = New System.Drawing.Point(118, 53)
         Me.Txt_Repeat_Court.Name = "Txt_Repeat_Court"
         Me.Txt_Repeat_Court.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Court.TabIndex = 149
+        Me.Txt_Repeat_Court.TabIndex = 11
         '
         'Dtp_Repeat_DateSheet
         '
@@ -1189,7 +1191,7 @@ Partial Class FrmEXEACC
         Me.Dtp_Repeat_DateSheet.Location = New System.Drawing.Point(118, 105)
         Me.Dtp_Repeat_DateSheet.Name = "Dtp_Repeat_DateSheet"
         Me.Dtp_Repeat_DateSheet.Size = New System.Drawing.Size(107, 20)
-        Me.Dtp_Repeat_DateSheet.TabIndex = 102
+        Me.Dtp_Repeat_DateSheet.TabIndex = 13
         '
         'Label37
         '
@@ -1208,7 +1210,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Detail.Multiline = True
         Me.Txt_Repeat_Detail.Name = "Txt_Repeat_Detail"
         Me.Txt_Repeat_Detail.Size = New System.Drawing.Size(178, 63)
-        Me.Txt_Repeat_Detail.TabIndex = 147
+        Me.Txt_Repeat_Detail.TabIndex = 14
         '
         'Label36
         '
@@ -1227,7 +1229,7 @@ Partial Class FrmEXEACC
         Me.Cbo_Repeat_EmpExe.Location = New System.Drawing.Point(118, 24)
         Me.Cbo_Repeat_EmpExe.Name = "Cbo_Repeat_EmpExe"
         Me.Cbo_Repeat_EmpExe.Size = New System.Drawing.Size(178, 23)
-        Me.Cbo_Repeat_EmpExe.TabIndex = 59
+        Me.Cbo_Repeat_EmpExe.TabIndex = 10
         '
         'Label35
         '
@@ -1255,14 +1257,14 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Bank.Location = New System.Drawing.Point(118, 79)
         Me.Txt_Repeat_Bank.Name = "Txt_Repeat_Bank"
         Me.Txt_Repeat_Bank.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Bank.TabIndex = 142
+        Me.Txt_Repeat_Bank.TabIndex = 12
         '
         'Txt_Repeat_Billcode
         '
         Me.Txt_Repeat_Billcode.Location = New System.Drawing.Point(118, 200)
         Me.Txt_Repeat_Billcode.Name = "Txt_Repeat_Billcode"
         Me.Txt_Repeat_Billcode.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Billcode.TabIndex = 146
+        Me.Txt_Repeat_Billcode.TabIndex = 15
         '
         'Label30
         '
@@ -1302,7 +1304,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Type.Location = New System.Drawing.Point(118, 226)
         Me.Txt_Repeat_Type.Name = "Txt_Repeat_Type"
         Me.Txt_Repeat_Type.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Type.TabIndex = 100
+        Me.Txt_Repeat_Type.TabIndex = 16
         '
         'GroupBox7
         '
@@ -1323,7 +1325,7 @@ Partial Class FrmEXEACC
         Me.Cbo_Repeat_product.Location = New System.Drawing.Point(119, 23)
         Me.Cbo_Repeat_product.Name = "Cbo_Repeat_product"
         Me.Cbo_Repeat_product.Size = New System.Drawing.Size(178, 23)
-        Me.Cbo_Repeat_product.TabIndex = 4
+        Me.Cbo_Repeat_product.TabIndex = 1
         '
         'Label23
         '
@@ -1368,7 +1370,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_LN.Location = New System.Drawing.Point(119, 97)
         Me.Txt_Repeat_LN.Name = "Txt_Repeat_LN"
         Me.Txt_Repeat_LN.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_LN.TabIndex = 100
+        Me.Txt_Repeat_LN.TabIndex = 5
         '
         'Label32
         '
@@ -1384,6 +1386,7 @@ Partial Class FrmEXEACC
         'Cbo_Repeat_Status
         '
         Me.Cbo_Repeat_Status.FormattingEnabled = True
+        Me.Cbo_Repeat_Status.ItemHeight = 15
         Me.Cbo_Repeat_Status.Location = New System.Drawing.Point(119, 175)
         Me.Cbo_Repeat_Status.Name = "Cbo_Repeat_Status"
         Me.Cbo_Repeat_Status.Size = New System.Drawing.Size(178, 23)
@@ -1408,7 +1411,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Red.Location = New System.Drawing.Point(119, 149)
         Me.Txt_Repeat_Red.Name = "Txt_Repeat_Red"
         Me.Txt_Repeat_Red.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Red.TabIndex = 8
+        Me.Txt_Repeat_Red.TabIndex = 7
         '
         'Dtp_Repeat_DateWork
         '
@@ -1416,7 +1419,7 @@ Partial Class FrmEXEACC
         Me.Dtp_Repeat_DateWork.Location = New System.Drawing.Point(119, 204)
         Me.Dtp_Repeat_DateWork.Name = "Dtp_Repeat_DateWork"
         Me.Dtp_Repeat_DateWork.Size = New System.Drawing.Size(107, 20)
-        Me.Dtp_Repeat_DateWork.TabIndex = 10
+        Me.Dtp_Repeat_DateWork.TabIndex = 9
         '
         'Label24
         '
@@ -1467,21 +1470,21 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Acc.Location = New System.Drawing.Point(119, 45)
         Me.Txt_Repeat_Acc.Name = "Txt_Repeat_Acc"
         Me.Txt_Repeat_Acc.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Acc.TabIndex = 98
+        Me.Txt_Repeat_Acc.TabIndex = 3
         '
         'Txt_Repeat_Idc
         '
         Me.Txt_Repeat_Idc.Location = New System.Drawing.Point(119, 19)
         Me.Txt_Repeat_Idc.Name = "Txt_Repeat_Idc"
         Me.Txt_Repeat_Idc.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Idc.TabIndex = 5
+        Me.Txt_Repeat_Idc.TabIndex = 2
         '
         'Txt_Repeat_FN
         '
         Me.Txt_Repeat_FN.Location = New System.Drawing.Point(119, 71)
         Me.Txt_Repeat_FN.Name = "Txt_Repeat_FN"
         Me.Txt_Repeat_FN.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_FN.TabIndex = 6
+        Me.Txt_Repeat_FN.TabIndex = 4
         '
         'Label27
         '
@@ -1510,7 +1513,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_Black.Location = New System.Drawing.Point(119, 123)
         Me.Txt_Repeat_Black.Name = "Txt_Repeat_Black"
         Me.Txt_Repeat_Black.Size = New System.Drawing.Size(178, 20)
-        Me.Txt_Repeat_Black.TabIndex = 7
+        Me.Txt_Repeat_Black.TabIndex = 6
         '
         'Lbl_Repeat_Find
         '
@@ -1570,7 +1573,7 @@ Partial Class FrmEXEACC
         Me.Cmd_Repeat_find.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Cmd_Repeat_find.Name = "Cmd_Repeat_find"
         Me.Cmd_Repeat_find.Size = New System.Drawing.Size(133, 29)
-        Me.Cmd_Repeat_find.TabIndex = 3
+        Me.Cmd_Repeat_find.TabIndex = 19
         Me.Cmd_Repeat_find.Text = "ค้นหาข้อมูล"
         Me.Cmd_Repeat_find.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Cmd_Repeat_find.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1579,10 +1582,11 @@ Partial Class FrmEXEACC
         'Cbo_Repeat_find
         '
         Me.Cbo_Repeat_find.FormattingEnabled = True
+        Me.Cbo_Repeat_find.ItemHeight = 15
         Me.Cbo_Repeat_find.Location = New System.Drawing.Point(89, 26)
         Me.Cbo_Repeat_find.Name = "Cbo_Repeat_find"
         Me.Cbo_Repeat_find.Size = New System.Drawing.Size(137, 23)
-        Me.Cbo_Repeat_find.TabIndex = 1
+        Me.Cbo_Repeat_find.TabIndex = 16
         '
         'Txt_Repeat_find
         '
@@ -1590,7 +1594,7 @@ Partial Class FrmEXEACC
         Me.Txt_Repeat_find.Location = New System.Drawing.Point(334, 26)
         Me.Txt_Repeat_find.Name = "Txt_Repeat_find"
         Me.Txt_Repeat_find.Size = New System.Drawing.Size(170, 22)
-        Me.Txt_Repeat_find.TabIndex = 2
+        Me.Txt_Repeat_find.TabIndex = 18
         '
         'Dtgv_Repeat_find
         '
@@ -1615,16 +1619,35 @@ Partial Class FrmEXEACC
         Me.Txt_ACC_PK.TabIndex = 148
         Me.Txt_ACC_PK.Visible = False
         '
-        'lbl_Pk_key
+        'lbl_Pk_ACC
         '
-        Me.lbl_Pk_key.AutoSize = True
-        Me.lbl_Pk_key.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Pk_key.Location = New System.Drawing.Point(1097, 440)
-        Me.lbl_Pk_key.Name = "lbl_Pk_key"
-        Me.lbl_Pk_key.Size = New System.Drawing.Size(56, 18)
-        Me.lbl_Pk_key.TabIndex = 147
-        Me.lbl_Pk_key.Text = "PK_Key"
-        Me.lbl_Pk_key.Visible = False
+        Me.lbl_Pk_ACC.AutoSize = True
+        Me.lbl_Pk_ACC.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Pk_ACC.Location = New System.Drawing.Point(1097, 440)
+        Me.lbl_Pk_ACC.Name = "lbl_Pk_ACC"
+        Me.lbl_Pk_ACC.Size = New System.Drawing.Size(56, 18)
+        Me.lbl_Pk_ACC.TabIndex = 147
+        Me.lbl_Pk_ACC.Text = "PK_Key"
+        Me.lbl_Pk_ACC.Visible = False
+        '
+        'Lbl_Repeat_PK
+        '
+        Me.Lbl_Repeat_PK.AutoSize = True
+        Me.Lbl_Repeat_PK.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_Repeat_PK.Location = New System.Drawing.Point(1097, 401)
+        Me.Lbl_Repeat_PK.Name = "Lbl_Repeat_PK"
+        Me.Lbl_Repeat_PK.Size = New System.Drawing.Size(56, 18)
+        Me.Lbl_Repeat_PK.TabIndex = 149
+        Me.Lbl_Repeat_PK.Text = "PK_Key"
+        Me.Lbl_Repeat_PK.Visible = False
+        '
+        'Txt_Repeact_PK
+        '
+        Me.Txt_Repeact_PK.Location = New System.Drawing.Point(1143, 422)
+        Me.Txt_Repeact_PK.Name = "Txt_Repeact_PK"
+        Me.Txt_Repeact_PK.Size = New System.Drawing.Size(10, 20)
+        Me.Txt_Repeact_PK.TabIndex = 150
+        Me.Txt_Repeact_PK.Visible = False
         '
         'FrmEXEACC
         '
@@ -1633,7 +1656,9 @@ Partial Class FrmEXEACC
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.lbl_Pk_key)
+        Me.Controls.Add(Me.Lbl_Repeat_PK)
+        Me.Controls.Add(Me.Txt_Repeact_PK)
+        Me.Controls.Add(Me.lbl_Pk_ACC)
         Me.Controls.Add(Me.Txt_ACC_PK)
         Me.Controls.Add(Me.TabControl2)
         Me.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1807,5 +1832,7 @@ Partial Class FrmEXEACC
     Friend WithEvents Label39 As Label
     Friend WithEvents Label40 As Label
     Friend WithEvents Txt_ACC_PK As TextBox
-    Friend WithEvents lbl_Pk_key As Label
+    Friend WithEvents lbl_Pk_ACC As Label
+    Friend WithEvents Lbl_Repeat_PK As Label
+    Friend WithEvents Txt_Repeact_PK As TextBox
 End Class

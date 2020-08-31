@@ -158,6 +158,12 @@
     <Compile Include="Execution\Report_execution\FrmStatementRV.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Execution\Statement\FrmIncome.Designer.vb">
+      <DependentUpon>FrmIncome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Statement\FrmIncome.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ITSupport\FrmDomainServer.Designer.vb">
       <DependentUpon>FrmDomainServer.vb</DependentUpon>
     </Compile>
@@ -279,6 +285,12 @@
       <DependentUpon>Frmlogfileexe.vb</DependentUpon>
     </Compile>
     <Compile Include="sysmanage\Frmlogfileexe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sysmanage\FrmMastermain.Designer.vb">
+      <DependentUpon>FrmMastermain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sysmanage\FrmMastermain.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UPLOAD\FrmimportAccounting.Designer.vb">
@@ -419,13 +431,6 @@
     <Compile Include="sysmanage\FrmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sysmanage\FrmMain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sysmanage\FrmMain.Designer.vb">
-      <DependentUpon>FrmMain.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="sysmanage\FrmPasssetting.Designer.vb">
       <DependentUpon>FrmPasssetting.vb</DependentUpon>
     </Compile>
@@ -503,6 +508,9 @@
     <EmbeddedResource Include="Execution\Report_execution\Reportlogexe.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\ReportStatement.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\Reporttracking.rdlc" />
+    <EmbeddedResource Include="Execution\Statement\FrmIncome.resx">
+      <DependentUpon>FrmIncome.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Tracking\Frmfilter.resx">
       <DependentUpon>Frmfilter.vb</DependentUpon>
     </EmbeddedResource>
@@ -542,6 +550,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
       <DependentUpon>Frmlogfileexe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysmanage\FrmMastermain.resx">
+      <DependentUpon>FrmMastermain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UPLOAD\FrmimportAccounting.resx">
       <DependentUpon>FrmimportAccounting.vb</DependentUpon>
@@ -611,9 +622,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sysmanage\FrmMain.resx">
-      <DependentUpon>FrmMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysmanage\FrmPasssetting.resx">
       <DependentUpon>FrmPasssetting.vb</DependentUpon>
@@ -1009,6 +1017,9 @@
     <None Include="Resources\logo ip.png" />
     <None Include="Resources\LOGLOGO.png" />
     <None Include="Resources\connect.png" />
+    <None Include="Resources\coins_add.png" />
+    <None Include="Resources\page_excel1.png" />
+    <None Include="Resources\page_white_excel1.png" />
     <Content Include="search_page.ico" />
   </ItemGroup>
   <ItemGroup>
