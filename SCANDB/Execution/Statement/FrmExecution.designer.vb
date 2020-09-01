@@ -50,6 +50,8 @@ Partial Class FrmExecution
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txt_detail1 = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Txt_Tkmoney = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dtp_tracking_date = New System.Windows.Forms.DateTimePicker()
         Me.cbo_employees_exe = New System.Windows.Forms.ComboBox()
@@ -61,7 +63,6 @@ Partial Class FrmExecution
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txt_product = New System.Windows.Forms.TextBox()
         Me.txt_nameem = New System.Windows.Forms.TextBox()
         Me.txt_count_acc = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -98,8 +99,7 @@ Partial Class FrmExecution
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dtgv_tracking_statement = New System.Windows.Forms.DataGridView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Txt_Tkmoney = New System.Windows.Forms.TextBox()
+        Me.txt_product = New System.Windows.Forms.TextBox()
         Me.Group_search.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -203,7 +203,7 @@ Partial Class FrmExecution
         Me.cmd_find.BackColor = System.Drawing.Color.White
         Me.cmd_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_find.Image = Global.SCANDB.My.Resources.Resources.search
-        Me.cmd_find.Location = New System.Drawing.Point(8, 18)
+        Me.cmd_find.Location = New System.Drawing.Point(8, 29)
         Me.cmd_find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_find.Name = "cmd_find"
         Me.cmd_find.Size = New System.Drawing.Size(155, 33)
@@ -218,7 +218,7 @@ Partial Class FrmExecution
         Me.cmd_edit.BackColor = System.Drawing.Color.White
         Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(8, 60)
+        Me.cmd_edit.Location = New System.Drawing.Point(8, 68)
         Me.cmd_edit.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_edit.Name = "cmd_edit"
         Me.cmd_edit.Size = New System.Drawing.Size(155, 33)
@@ -234,7 +234,7 @@ Partial Class FrmExecution
         Me.cmd_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.edit_delete_icon16x16
-        Me.cmd_cancel.Location = New System.Drawing.Point(8, 100)
+        Me.cmd_cancel.Location = New System.Drawing.Point(8, 107)
         Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_cancel.Name = "cmd_cancel"
         Me.cmd_cancel.Size = New System.Drawing.Size(155, 33)
@@ -249,7 +249,7 @@ Partial Class FrmExecution
         Me.cmd_save.BackColor = System.Drawing.Color.White
         Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_save.Location = New System.Drawing.Point(8, 141)
+        Me.cmd_save.Location = New System.Drawing.Point(8, 146)
         Me.cmd_save.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.cmd_save.Name = "cmd_save"
         Me.cmd_save.Size = New System.Drawing.Size(155, 33)
@@ -465,6 +465,28 @@ Partial Class FrmExecution
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ใบคำร้องขอตรวจสำนวน"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.SystemColors.Window
+        Me.Label3.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(48, 276)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 16)
+        Me.Label3.TabIndex = 90
+        Me.Label3.Text = "จำนวนเงินที่พบ"
+        '
+        'Txt_Tkmoney
+        '
+        Me.Txt_Tkmoney.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Tkmoney.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Tkmoney.Location = New System.Drawing.Point(127, 273)
+        Me.Txt_Tkmoney.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Tkmoney.Name = "Txt_Tkmoney"
+        Me.Txt_Tkmoney.Size = New System.Drawing.Size(165, 22)
+        Me.Txt_Tkmoney.TabIndex = 89
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -617,16 +639,6 @@ Partial Class FrmExecution
         Me.GroupBox3.TabIndex = 91
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ข้อมูลใบงานแถลงบัญชี"
-        '
-        'txt_product
-        '
-        Me.txt_product.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_product.ForeColor = System.Drawing.Color.Blue
-        Me.txt_product.Location = New System.Drawing.Point(130, 16)
-        Me.txt_product.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.txt_product.Name = "txt_product"
-        Me.txt_product.Size = New System.Drawing.Size(140, 21)
-        Me.txt_product.TabIndex = 5
         '
         'txt_nameem
         '
@@ -1039,27 +1051,15 @@ Partial Class FrmExecution
         Me.TabControl1.Size = New System.Drawing.Size(383, 434)
         Me.TabControl1.TabIndex = 95
         '
-        'Label3
+        'txt_product
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.SystemColors.Window
-        Me.Label3.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(48, 276)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 16)
-        Me.Label3.TabIndex = 90
-        Me.Label3.Text = "จำนวนเงินที่พบ"
-        '
-        'Txt_Tkmoney
-        '
-        Me.Txt_Tkmoney.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Tkmoney.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Tkmoney.Location = New System.Drawing.Point(127, 273)
-        Me.Txt_Tkmoney.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Tkmoney.Name = "Txt_Tkmoney"
-        Me.Txt_Tkmoney.Size = New System.Drawing.Size(165, 22)
-        Me.Txt_Tkmoney.TabIndex = 89
+        Me.txt_product.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txt_product.ForeColor = System.Drawing.Color.Blue
+        Me.txt_product.Location = New System.Drawing.Point(130, 16)
+        Me.txt_product.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.txt_product.Name = "txt_product"
+        Me.txt_product.Size = New System.Drawing.Size(140, 21)
+        Me.txt_product.TabIndex = 5
         '
         'FrmExecution
         '
@@ -1139,7 +1139,6 @@ Partial Class FrmExecution
     Friend WithEvents Label21 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents txt_product As TextBox
     Friend WithEvents txt_nameem As TextBox
     Friend WithEvents txt_count_acc As TextBox
     Friend WithEvents Label10 As Label
@@ -1178,4 +1177,5 @@ Partial Class FrmExecution
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents Label3 As Label
     Friend WithEvents Txt_Tkmoney As TextBox
+    Friend WithEvents txt_product As TextBox
 End Class

@@ -226,7 +226,7 @@ Public Class FrmMastermain
     'End SCB ZERO
 
     'Manage Menu
-    Private Sub menu_accms_Click(sender As Object, e As EventArgs) Handles menu_accms.Click
+    Private Sub Menu_accms_Click(sender As Object, e As EventArgs) Handles menu_accms.Click
 
         With FrmAccount
             .MdiParent = Me
@@ -236,7 +236,7 @@ Public Class FrmMastermain
 
     End Sub
 
-    Private Sub menu_settingms_Click(sender As Object, e As EventArgs) Handles menu_settingms.Click
+    Private Sub Menu_settingms_Click(sender As Object, e As EventArgs) Handles menu_settingms.Click
 
         With FrmSetting
             .MdiParent = Me
@@ -246,7 +246,7 @@ Public Class FrmMastermain
 
     End Sub
 
-    Private Sub menu_Historyms_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
+    Private Sub Menu_Historyms_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
 
 
         If Application.OpenForms.OfType(Of FrmSetting).Any Then
@@ -261,7 +261,7 @@ Public Class FrmMastermain
 
     End Sub
 
-    Private Sub menu_changespassword_Click(sender As Object, e As EventArgs) Handles menu_changespassword.Click
+    Private Sub Menu_changespassword_Click(sender As Object, e As EventArgs) Handles menu_changespassword.Click
 
         If Application.OpenForms().OfType(Of FrmPasssetting).Any Then
 
@@ -349,7 +349,7 @@ Public Class FrmMastermain
 
     End Sub
 
-    Private Sub menu_tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
+    Private Sub Menu_tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
 
         With Frmreportexe
             .MdiParent = Me

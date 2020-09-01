@@ -286,7 +286,7 @@ Partial Class FrmMastermain
         Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.menu_accounting_search.Name = "menu_accounting_search"
-        Me.menu_accounting_search.Size = New System.Drawing.Size(117, 22)
+        Me.menu_accounting_search.Size = New System.Drawing.Size(180, 22)
         Me.menu_accounting_search.Text = "KBANK"
         '
         'Menu_Tab_Zero
@@ -705,6 +705,7 @@ Partial Class FrmMastermain
         Me.ForeColor = System.Drawing.Color.Blue
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FrmMastermain"
         Me.Text = "FDS COLLECTIONS"
         Me.MenuStrip1.ResumeLayout(False)
