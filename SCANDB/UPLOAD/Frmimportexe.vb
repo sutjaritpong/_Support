@@ -22,7 +22,7 @@ Public Class Frmimportexe
         Main_progressbar.Value = 0
         lbl_statusprogress.Visible = False
         connect()
-        Dim type() As String = {"ใบงานแถลงบัญชี", "บังคับคดีตั้งเรื่อง", "ผลคัดประกันสังคม", "ตรวจสำนวนตามใบงาน", "ถอนอายัด/ยึด", "ตรวจสำนวนจากบังคับดคี", "ส่งเช็คถอนอายัด/ยึด", "ส่งคัดประกันสังคมฟ้องเอง", "ผลสืบกรรมสิทธิ์/ที่ดิน", "ส่งสืบกรรมสิทธิ์ฟ้องเอง", "อายัดซ้ำ", "เงินส่วนได้/ค่าใช้จ่ายคืน"}
+        Dim type() As String = {"ใบงานแถลงบัญชี", "บังคับคดีตั้งเรื่อง", "ผลคัดประกันสังคม", "ตรวจสำนวนตามใบงาน", "ถอนอายัด/ยึด", "ตรวจสำนวนจากบังคับดคี", "ส่งเช็คถอนอายัด/ยึด", "ส่งคัดประกันสังคมฟ้องเอง", "ผลสืบกรรมสิทธิ์/ที่ดิน", "ส่งสืบกรรมสิทธิ์ฟ้องเอง", "อายัดซ้ำ", "เงินส่วนได้/ค่าใช้จ่ายคืน", "รับเช็ค/บัญชีรับ-จ่าย"}
         cbo_products.Items.AddRange(type)
         cbo_products.SelectedIndex = 0
         dtgv_clear()
@@ -165,13 +165,16 @@ Public Class Frmimportexe
 
                 Case "อายัดซ้ำ" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(5).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(2).Value}'")
 
-                Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(9).Value} Status {Dtgv_Exe.Rows(i).Cells(14).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(2).Value}'")
+                Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : Getlogdataexe($" Types {cbo_products.Text} Owner {Dtgv_Exe.Rows(i).Cells(0).Value} FULLNAME {Dtgv_Exe.Rows(i).Cells(7).Value} Status {Dtgv_Exe.Rows(i).Cells(12).Value} จากการ UPLOAD ", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(2).Value}'")
+
+                Case "รับเช็ค/บัญชีรับ-จ่าย" : Getlogdataexe($"Types {cbo_products.Text} จำนวน {Dtgv_Exe.Rows(i).Cells(4).Value}", $"'{Dtgv_Exe.Rows(i).Cells(0).Value}'", $"'{Dtgv_Exe.Rows(i).Cells(1).Value}'")
+
             End Select
 
         Next
 
 
-        sql = " Select COUNT(*) As TYPEs FROM "
+        sql = " SELECT COUNT(*) As TYPEs FROM "
 
         Select Case cbo_products.SelectedItem
             Case "ใบงานแถลงบัญชี" : sql &= $"EXESM"
@@ -186,6 +189,7 @@ Public Class Frmimportexe
             Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"Execution_ownership_result"
             Case "อายัดซ้ำ" : sql &= $"Execution_RepeatFreeze"
             Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : sql &= $"Execution_income"
+            Case "รับเช็ค/บัญชีรับ-จ่าย" : sql &= $"Execution_income_Result"
         End Select
 
         cmd.CommandText = sql
@@ -217,7 +221,7 @@ Public Class Frmimportexe
             For i As Integer = 0 To Dtgv_Exe.Rows.Count - 1 Step +1
                 Dim p As Integer = (((i + 1) / y) * Max)
 
-                sql = $"Select "
+                sql = $"SELECT "
 
                 Select Case cbo_products.SelectedItem
 
@@ -242,6 +246,8 @@ Public Class Frmimportexe
                     Case "อายัดซ้ำ" : sql &= $"COUNT(*) AS verify From Execution_Repeatfreeze WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
 
                     Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : sql &= $"COUNT(*) AS verify From Execution_income WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+
+                    Case "รับเช็ค/บัญชีรับ-จ่าย" : sql &= $"COUNT(*) AS verify FROM Execution_Income_Result WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(0).Value}' "
 
                 End Select
 
@@ -303,7 +309,7 @@ Public Class Frmimportexe
 
                                             '------------ UPLOAD Execution_Ownership ------------'
 
-                    Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"Execution_Ownership_Result(Customer_Id_Card,Date_review,Ownership_deed,Ownership_surveypage,Ownership_district,Ownership_location,Ownership_land_office,Ownership_address)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}')"
+                    Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"ExecuCtion_Ownership_Result(Customer_Id_Card,Date_review,Ownership_deed,Ownership_surveypage,Ownership_district,Ownership_location,Ownership_land_office,Ownership_address)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}')"
 
 
                         '-----------------UPLOAD Execution_Ownership_Result ------------------'
@@ -314,10 +320,12 @@ Public Class Frmimportexe
 
                         '-----------------UPLOAD Execution_RepeatFreeze ---------------------'
 
-                    Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : sql &= $"Execution_income(Customer_owner,Customer_id_card,Customer_account1,Customer_account2,Customer_account3,Customer_account4,Customer_account_no,Customer_Prefix,Customer_firstname,Customer_lastname,Customer_fullname,income_court,income_red,EMPLOYEES_KEY,income_type,income_detail,income_date_sheet,income_date_work,income_total_check)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}','{Dtgv_Exe.Rows(i).Cells(17).Value}','{Dtgv_Exe.Rows(i).Cells(18).Value}')"
+                    Case "เงินส่วนได้/ค่าใช้จ่ายคืน" : sql &= $"Execution_income(Customer_owner,Customer_id_card,Customer_account,Customer_account_no,Customer_Prefix,Customer_firstname,Customer_lastname,Customer_fullname,income_court,Income_black,income_red,EMPLOYEES_KEY,income_type,income_detail,income_date_sheet,income_date_work,income_total_check)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}')"
 
 
                         '-----------------UPLOAD Execution_income ---------------------'
+
+                    Case "รับเช็ค/บัญชีรับ-จ่าย" : sql &= $"Execution_income_result(Customer_Id_Card,Customer_Account,Income_refund,Income_refund_date,Income_grandtotal,Income_statement_1,Income_refund_date1,Income_statement_2,Income_refund_date2,Income_statement_3,Income_refund_date3,income_statement_4,Income_refund_date4,Income_statement_5,Income_refund_date5,Income_statement_6,Income_refund_date6,Income_statement_7,Income_refund_date7,Income_statement_8,Income_refund_date8,Income_statement_9,Income_refund_date9,Income_statement_10,Income_refund_date10,Income_statement_11,Income_refund_date11,Income_statement_12,Income_refund_date12,Income_statement_13,Income_refund_date13,Income_statement_14,Income_refund_date14,Income_statement_15,Income_refund_date15)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}',{Dtgv_Exe.Rows(i).Cells(2).Value},'{Dtgv_Exe.Rows(i).Cells(3).Value}',{Dtgv_Exe.Rows(i).Cells(4).Value},{Dtgv_Exe.Rows(i).Cells(5).Value},'{Dtgv_Exe.Rows(i).Cells(6).Value}',{Dtgv_Exe.Rows(i).Cells(7).Value},'{Dtgv_Exe.Rows(i).Cells(8).Value}',{Dtgv_Exe.Rows(i).Cells(9).Value},'{Dtgv_Exe.Rows(i).Cells(10).Value}',{Dtgv_Exe.Rows(i).Cells(11).Value},'{Dtgv_Exe.Rows(i).Cells(12).Value}',{Dtgv_Exe.Rows(i).Cells(13).Value},'{Dtgv_Exe.Rows(i).Cells(14).Value}',{Dtgv_Exe.Rows(i).Cells(15).Value},'{Dtgv_Exe.Rows(i).Cells(16).Value}',{Dtgv_Exe.Rows(i).Cells(17).Value},'{Dtgv_Exe.Rows(i).Cells(18).Value}',{Dtgv_Exe.Rows(i).Cells(19).Value},'{Dtgv_Exe.Rows(i).Cells(20).Value}',{Dtgv_Exe.Rows(i).Cells(21).Value},'{Dtgv_Exe.Rows(i).Cells(22).Value}',{Dtgv_Exe.Rows(i).Cells(23).Value},'{Dtgv_Exe.Rows(i).Cells(24).Value}',{Dtgv_Exe.Rows(i).Cells(25).Value},'{Dtgv_Exe.Rows(i).Cells(26).Value}',{Dtgv_Exe.Rows(i).Cells(27).Value},'{Dtgv_Exe.Rows(i).Cells(28).Value}',{Dtgv_Exe.Rows(i).Cells(29).Value},'{Dtgv_Exe.Rows(i).Cells(30).Value}',{Dtgv_Exe.Rows(i).Cells(31).Value},'{Dtgv_Exe.Rows(i).Cells(32).Value}',{Dtgv_Exe.Rows(i).Cells(33).Value},'{Dtgv_Exe.Rows(i).Cells(34).Value}')"
 
                 End Select
 
@@ -333,7 +341,7 @@ Public Class Frmimportexe
 
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+        MsgBox(ex.ToString)
         End Try
 
         cn.Close()

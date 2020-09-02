@@ -39,13 +39,11 @@ Partial Class FrmIncome
         Me.Txt_Income_Acc = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.Chk_Income_DateSheet = New System.Windows.Forms.CheckBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Txt_Income_Fullname = New System.Windows.Forms.TextBox()
         Me.Txt_Income_Idcus = New System.Windows.Forms.TextBox()
         Me.Txt_Income_Black = New System.Windows.Forms.TextBox()
-        Me.Txt_Income_Money = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Dtp_Income_DateSheet = New System.Windows.Forms.DateTimePicker()
@@ -76,6 +74,8 @@ Partial Class FrmIncome
         Me.Chk_Income_Datework = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Datework = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Txt_Income_GrandTotal = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Txt_Income_Refund = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Refund = New System.Windows.Forms.CheckBox()
@@ -86,44 +86,44 @@ Partial Class FrmIncome
         Me.Dtp_Income_Pay15 = New System.Windows.Forms.DateTimePicker()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay14 = New System.Windows.Forms.TextBox()
-        Me.CheckBox14 = New System.Windows.Forms.CheckBox()
-        Me.DateTimePicker14 = New System.Windows.Forms.DateTimePicker()
+        Me.Chk_Income_Pay14 = New System.Windows.Forms.CheckBox()
+        Me.Dtp_Income_Pay14 = New System.Windows.Forms.DateTimePicker()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay13 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay13 = New System.Windows.Forms.CheckBox()
-        Me.Dtp__Income_Pay13 = New System.Windows.Forms.DateTimePicker()
+        Me.Dtp_Income_Pay13 = New System.Windows.Forms.DateTimePicker()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay12 = New System.Windows.Forms.TextBox()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
+        Me.Chk_Income_Pay12 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay12 = New System.Windows.Forms.DateTimePicker()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay11 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay11 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay11 = New System.Windows.Forms.DateTimePicker()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.Txt__Income_Pay10 = New System.Windows.Forms.TextBox()
-        Me.Chk__Income_Pay10 = New System.Windows.Forms.CheckBox()
+        Me.Txt_Income_Pay10 = New System.Windows.Forms.TextBox()
+        Me.Chk_Income_Pay10 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay10 = New System.Windows.Forms.DateTimePicker()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.Txt__Income_Pay9 = New System.Windows.Forms.TextBox()
+        Me.Txt_Income_Pay9 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay9 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay9 = New System.Windows.Forms.DateTimePicker()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Txt__Income_Pay8 = New System.Windows.Forms.TextBox()
-        Me.Chk__Income_Pay8 = New System.Windows.Forms.CheckBox()
+        Me.Txt_Income_Pay8 = New System.Windows.Forms.TextBox()
+        Me.Chk_Income_Pay8 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay8 = New System.Windows.Forms.DateTimePicker()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay7 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay7 = New System.Windows.Forms.CheckBox()
-        Me.Dtp__Income_Pay7 = New System.Windows.Forms.DateTimePicker()
+        Me.Dtp_Income_Pay7 = New System.Windows.Forms.DateTimePicker()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay6 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay6 = New System.Windows.Forms.CheckBox()
-        Me.Dtp__Income_Pay6 = New System.Windows.Forms.DateTimePicker()
+        Me.Dtp_Income_Pay6 = New System.Windows.Forms.DateTimePicker()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.Txt__Income_Pay5 = New System.Windows.Forms.TextBox()
+        Me.Txt_Income_Pay5 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay5 = New System.Windows.Forms.CheckBox()
-        Me.DateTimePicker8 = New System.Windows.Forms.DateTimePicker()
+        Me.Dtp_Income_Pay5 = New System.Windows.Forms.DateTimePicker()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Txt_Income_Pay4 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay4 = New System.Windows.Forms.CheckBox()
@@ -140,8 +140,8 @@ Partial Class FrmIncome
         Me.Txt_Income_Pay1 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay1 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Lbl_Income_Invalid = New System.Windows.Forms.Label()
+        Me.Lbl_income_result = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Group_search.SuspendLayout()
@@ -167,13 +167,11 @@ Partial Class FrmIncome
         Me.GroupBox3.Controls.Add(Me.Txt_Income_Acc)
         Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.Label22)
-        Me.GroupBox3.Controls.Add(Me.Label18)
         Me.GroupBox3.Controls.Add(Me.Chk_Income_DateSheet)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Txt_Income_Fullname)
         Me.GroupBox3.Controls.Add(Me.Txt_Income_Idcus)
         Me.GroupBox3.Controls.Add(Me.Txt_Income_Black)
-        Me.GroupBox3.Controls.Add(Me.Txt_Income_Money)
         Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.Dtp_Income_DateSheet)
@@ -292,7 +290,7 @@ Partial Class FrmIncome
         Me.Cbo_Income_Employees.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Cbo_Income_Employees.ForeColor = System.Drawing.Color.Blue
         Me.Cbo_Income_Employees.FormattingEnabled = True
-        Me.Cbo_Income_Employees.Location = New System.Drawing.Point(117, 342)
+        Me.Cbo_Income_Employees.Location = New System.Drawing.Point(114, 315)
         Me.Cbo_Income_Employees.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Cbo_Income_Employees.Name = "Cbo_Income_Employees"
         Me.Cbo_Income_Employees.Size = New System.Drawing.Size(140, 23)
@@ -335,7 +333,7 @@ Partial Class FrmIncome
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.SystemColors.Window
         Me.Label9.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(23, 346)
+        Me.Label9.Location = New System.Drawing.Point(20, 319)
         Me.Label9.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(87, 16)
@@ -354,24 +352,12 @@ Partial Class FrmIncome
         Me.Label22.TabIndex = 42
         Me.Label22.Text = "ธนาคาร"
         '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.BackColor = System.Drawing.SystemColors.Window
-        Me.Label18.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(54, 319)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(53, 16)
-        Me.Label18.TabIndex = 40
-        Me.Label18.Text = "จำนวนเงิน"
-        '
         'Chk_Income_DateSheet
         '
         Me.Chk_Income_DateSheet.AutoSize = True
         Me.Chk_Income_DateSheet.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Chk_Income_DateSheet.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Chk_Income_DateSheet.Location = New System.Drawing.Point(18, 372)
+        Me.Chk_Income_DateSheet.Location = New System.Drawing.Point(15, 345)
         Me.Chk_Income_DateSheet.Name = "Chk_Income_DateSheet"
         Me.Chk_Income_DateSheet.Size = New System.Drawing.Size(96, 20)
         Me.Chk_Income_DateSheet.TabIndex = 61
@@ -419,16 +405,6 @@ Partial Class FrmIncome
         Me.Txt_Income_Black.Size = New System.Drawing.Size(101, 21)
         Me.Txt_Income_Black.TabIndex = 11
         '
-        'Txt_Income_Money
-        '
-        Me.Txt_Income_Money.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Money.ForeColor = System.Drawing.Color.DarkOrange
-        Me.Txt_Income_Money.Location = New System.Drawing.Point(116, 315)
-        Me.Txt_Income_Money.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Money.Name = "Txt_Income_Money"
-        Me.Txt_Income_Money.Size = New System.Drawing.Size(139, 21)
-        Me.Txt_Income_Money.TabIndex = 15
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -458,7 +434,7 @@ Partial Class FrmIncome
         Me.Dtp_Income_DateSheet.CalendarForeColor = System.Drawing.Color.Blue
         Me.Dtp_Income_DateSheet.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Dtp_Income_DateSheet.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp_Income_DateSheet.Location = New System.Drawing.Point(118, 371)
+        Me.Dtp_Income_DateSheet.Location = New System.Drawing.Point(115, 344)
         Me.Dtp_Income_DateSheet.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Dtp_Income_DateSheet.Name = "Dtp_Income_DateSheet"
         Me.Dtp_Income_DateSheet.Size = New System.Drawing.Size(101, 21)
@@ -698,7 +674,7 @@ Partial Class FrmIncome
         Me.GroupBox2.Controls.Add(Me.Dtp_Income_Datework)
         Me.GroupBox2.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.GroupBox2.Location = New System.Drawing.Point(500, 231)
+        Me.GroupBox2.Location = New System.Drawing.Point(502, 231)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(231, 176)
         Me.GroupBox2.TabIndex = 96
@@ -802,8 +778,9 @@ Partial Class FrmIncome
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Lbl_income_result)
         Me.GroupBox4.Controls.Add(Me.Label31)
-        Me.GroupBox4.Controls.Add(Me.TextBox1)
+        Me.GroupBox4.Controls.Add(Me.Txt_Income_GrandTotal)
         Me.GroupBox4.Controls.Add(Me.Label34)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Refund)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Refund)
@@ -814,44 +791,44 @@ Partial Class FrmIncome
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay15)
         Me.GroupBox4.Controls.Add(Me.Label32)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay14)
-        Me.GroupBox4.Controls.Add(Me.CheckBox14)
-        Me.GroupBox4.Controls.Add(Me.DateTimePicker14)
+        Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay14)
+        Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay14)
         Me.GroupBox4.Controls.Add(Me.Label33)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay13)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay13)
-        Me.GroupBox4.Controls.Add(Me.Dtp__Income_Pay13)
+        Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay13)
         Me.GroupBox4.Controls.Add(Me.Label27)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay12)
-        Me.GroupBox4.Controls.Add(Me.CheckBox9)
+        Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay12)
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay12)
         Me.GroupBox4.Controls.Add(Me.Label28)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay11)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay11)
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay11)
         Me.GroupBox4.Controls.Add(Me.Label29)
-        Me.GroupBox4.Controls.Add(Me.Txt__Income_Pay10)
-        Me.GroupBox4.Controls.Add(Me.Chk__Income_Pay10)
+        Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay10)
+        Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay10)
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay10)
         Me.GroupBox4.Controls.Add(Me.Label30)
-        Me.GroupBox4.Controls.Add(Me.Txt__Income_Pay9)
+        Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay9)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay9)
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay9)
         Me.GroupBox4.Controls.Add(Me.Label23)
-        Me.GroupBox4.Controls.Add(Me.Txt__Income_Pay8)
-        Me.GroupBox4.Controls.Add(Me.Chk__Income_Pay8)
+        Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay8)
+        Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay8)
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay8)
         Me.GroupBox4.Controls.Add(Me.Label24)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay7)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay7)
-        Me.GroupBox4.Controls.Add(Me.Dtp__Income_Pay7)
+        Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay7)
         Me.GroupBox4.Controls.Add(Me.Label25)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay6)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay6)
-        Me.GroupBox4.Controls.Add(Me.Dtp__Income_Pay6)
+        Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay6)
         Me.GroupBox4.Controls.Add(Me.Label26)
-        Me.GroupBox4.Controls.Add(Me.Txt__Income_Pay5)
+        Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay5)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay5)
-        Me.GroupBox4.Controls.Add(Me.DateTimePicker8)
+        Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay5)
         Me.GroupBox4.Controls.Add(Me.Label17)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Pay4)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Pay4)
@@ -875,6 +852,29 @@ Partial Class FrmIncome
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "รายการบัญชี-รับจ่าย"
         '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.BackColor = System.Drawing.SystemColors.Window
+        Me.Label31.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.Blue
+        Me.Label31.Location = New System.Drawing.Point(287, 464)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(53, 16)
+        Me.Label31.TabIndex = 168
+        Me.Label31.Text = "รวมที่ชำระ"
+        '
+        'Txt_Income_GrandTotal
+        '
+        Me.Txt_Income_GrandTotal.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Income_GrandTotal.ForeColor = System.Drawing.Color.LimeGreen
+        Me.Txt_Income_GrandTotal.Location = New System.Drawing.Point(350, 461)
+        Me.Txt_Income_GrandTotal.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Income_GrandTotal.Name = "Txt_Income_GrandTotal"
+        Me.Txt_Income_GrandTotal.Size = New System.Drawing.Size(138, 22)
+        Me.Txt_Income_GrandTotal.TabIndex = 169
+        '
         'Label34
         '
         Me.Label34.AutoSize = True
@@ -891,7 +891,7 @@ Partial Class FrmIncome
         'Txt_Income_Refund
         '
         Me.Txt_Income_Refund.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Refund.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Refund.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Refund.Location = New System.Drawing.Point(350, 14)
         Me.Txt_Income_Refund.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Refund.Name = "Txt_Income_Refund"
@@ -937,7 +937,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay15
         '
         Me.Txt_Income_Pay15.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay15.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay15.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay15.Location = New System.Drawing.Point(350, 433)
         Me.Txt_Income_Pay15.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay15.Name = "Txt_Income_Pay15"
@@ -983,35 +983,35 @@ Partial Class FrmIncome
         'Txt_Income_Pay14
         '
         Me.Txt_Income_Pay14.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay14.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay14.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay14.Location = New System.Drawing.Point(350, 405)
         Me.Txt_Income_Pay14.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay14.Name = "Txt_Income_Pay14"
         Me.Txt_Income_Pay14.Size = New System.Drawing.Size(138, 22)
         Me.Txt_Income_Pay14.TabIndex = 157
         '
-        'CheckBox14
+        'Chk_Income_Pay14
         '
-        Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox14.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox14.Location = New System.Drawing.Point(5, 405)
-        Me.CheckBox14.Name = "CheckBox14"
-        Me.CheckBox14.Size = New System.Drawing.Size(112, 20)
-        Me.CheckBox14.TabIndex = 155
-        Me.CheckBox14.Text = "วันที่รับเงืนครั้งที่ 14"
-        Me.CheckBox14.UseVisualStyleBackColor = True
+        Me.Chk_Income_Pay14.AutoSize = True
+        Me.Chk_Income_Pay14.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Income_Pay14.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_Income_Pay14.Location = New System.Drawing.Point(5, 405)
+        Me.Chk_Income_Pay14.Name = "Chk_Income_Pay14"
+        Me.Chk_Income_Pay14.Size = New System.Drawing.Size(112, 20)
+        Me.Chk_Income_Pay14.TabIndex = 155
+        Me.Chk_Income_Pay14.Text = "วันที่รับเงืนครั้งที่ 14"
+        Me.Chk_Income_Pay14.UseVisualStyleBackColor = True
         '
-        'DateTimePicker14
+        'Dtp_Income_Pay14
         '
-        Me.DateTimePicker14.CalendarForeColor = System.Drawing.Color.Blue
-        Me.DateTimePicker14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.DateTimePicker14.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker14.Location = New System.Drawing.Point(124, 405)
-        Me.DateTimePicker14.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.DateTimePicker14.Name = "DateTimePicker14"
-        Me.DateTimePicker14.Size = New System.Drawing.Size(111, 21)
-        Me.DateTimePicker14.TabIndex = 154
+        Me.Dtp_Income_Pay14.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Income_Pay14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Income_Pay14.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Income_Pay14.Location = New System.Drawing.Point(124, 405)
+        Me.Dtp_Income_Pay14.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Dtp_Income_Pay14.Name = "Dtp_Income_Pay14"
+        Me.Dtp_Income_Pay14.Size = New System.Drawing.Size(111, 21)
+        Me.Dtp_Income_Pay14.TabIndex = 154
         '
         'Label33
         '
@@ -1029,7 +1029,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay13
         '
         Me.Txt_Income_Pay13.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay13.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay13.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay13.Location = New System.Drawing.Point(350, 377)
         Me.Txt_Income_Pay13.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay13.Name = "Txt_Income_Pay13"
@@ -1048,16 +1048,16 @@ Partial Class FrmIncome
         Me.Chk_Income_Pay13.Text = "วันที่รับเงืนครั้งที่ 13"
         Me.Chk_Income_Pay13.UseVisualStyleBackColor = True
         '
-        'Dtp__Income_Pay13
+        'Dtp_Income_Pay13
         '
-        Me.Dtp__Income_Pay13.CalendarForeColor = System.Drawing.Color.Blue
-        Me.Dtp__Income_Pay13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Dtp__Income_Pay13.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp__Income_Pay13.Location = New System.Drawing.Point(125, 378)
-        Me.Dtp__Income_Pay13.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Dtp__Income_Pay13.Name = "Dtp__Income_Pay13"
-        Me.Dtp__Income_Pay13.Size = New System.Drawing.Size(111, 21)
-        Me.Dtp__Income_Pay13.TabIndex = 150
+        Me.Dtp_Income_Pay13.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Income_Pay13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Income_Pay13.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Income_Pay13.Location = New System.Drawing.Point(125, 378)
+        Me.Dtp_Income_Pay13.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Dtp_Income_Pay13.Name = "Dtp_Income_Pay13"
+        Me.Dtp_Income_Pay13.Size = New System.Drawing.Size(111, 21)
+        Me.Dtp_Income_Pay13.TabIndex = 150
         '
         'Label27
         '
@@ -1075,24 +1075,24 @@ Partial Class FrmIncome
         'Txt_Income_Pay12
         '
         Me.Txt_Income_Pay12.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay12.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay12.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay12.Location = New System.Drawing.Point(350, 349)
         Me.Txt_Income_Pay12.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay12.Name = "Txt_Income_Pay12"
         Me.Txt_Income_Pay12.Size = New System.Drawing.Size(138, 22)
         Me.Txt_Income_Pay12.TabIndex = 149
         '
-        'CheckBox9
+        'Chk_Income_Pay12
         '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox9.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox9.Location = New System.Drawing.Point(5, 349)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(112, 20)
-        Me.CheckBox9.TabIndex = 147
-        Me.CheckBox9.Text = "วันที่รับเงืนครั้งที่ 12"
-        Me.CheckBox9.UseVisualStyleBackColor = True
+        Me.Chk_Income_Pay12.AutoSize = True
+        Me.Chk_Income_Pay12.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Income_Pay12.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_Income_Pay12.Location = New System.Drawing.Point(5, 349)
+        Me.Chk_Income_Pay12.Name = "Chk_Income_Pay12"
+        Me.Chk_Income_Pay12.Size = New System.Drawing.Size(112, 20)
+        Me.Chk_Income_Pay12.TabIndex = 147
+        Me.Chk_Income_Pay12.Text = "วันที่รับเงืนครั้งที่ 12"
+        Me.Chk_Income_Pay12.UseVisualStyleBackColor = True
         '
         'Dtp_Income_Pay12
         '
@@ -1121,7 +1121,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay11
         '
         Me.Txt_Income_Pay11.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay11.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay11.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay11.Location = New System.Drawing.Point(350, 321)
         Me.Txt_Income_Pay11.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay11.Name = "Txt_Income_Pay11"
@@ -1164,27 +1164,27 @@ Partial Class FrmIncome
         Me.Label29.TabIndex = 140
         Me.Label29.Text = "บัญชีรับจ่ายครั้งที่ 10"
         '
-        'Txt__Income_Pay10
+        'Txt_Income_Pay10
         '
-        Me.Txt__Income_Pay10.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt__Income_Pay10.ForeColor = System.Drawing.Color.Blue
-        Me.Txt__Income_Pay10.Location = New System.Drawing.Point(350, 293)
-        Me.Txt__Income_Pay10.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt__Income_Pay10.Name = "Txt__Income_Pay10"
-        Me.Txt__Income_Pay10.Size = New System.Drawing.Size(138, 22)
-        Me.Txt__Income_Pay10.TabIndex = 141
+        Me.Txt_Income_Pay10.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Income_Pay10.ForeColor = System.Drawing.Color.Red
+        Me.Txt_Income_Pay10.Location = New System.Drawing.Point(350, 293)
+        Me.Txt_Income_Pay10.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Income_Pay10.Name = "Txt_Income_Pay10"
+        Me.Txt_Income_Pay10.Size = New System.Drawing.Size(138, 22)
+        Me.Txt_Income_Pay10.TabIndex = 141
         '
-        'Chk__Income_Pay10
+        'Chk_Income_Pay10
         '
-        Me.Chk__Income_Pay10.AutoSize = True
-        Me.Chk__Income_Pay10.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Chk__Income_Pay10.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Chk__Income_Pay10.Location = New System.Drawing.Point(5, 295)
-        Me.Chk__Income_Pay10.Name = "Chk__Income_Pay10"
-        Me.Chk__Income_Pay10.Size = New System.Drawing.Size(112, 20)
-        Me.Chk__Income_Pay10.TabIndex = 139
-        Me.Chk__Income_Pay10.Text = "วันที่รับเงืนครั้งที่ 10"
-        Me.Chk__Income_Pay10.UseVisualStyleBackColor = True
+        Me.Chk_Income_Pay10.AutoSize = True
+        Me.Chk_Income_Pay10.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Income_Pay10.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_Income_Pay10.Location = New System.Drawing.Point(5, 295)
+        Me.Chk_Income_Pay10.Name = "Chk_Income_Pay10"
+        Me.Chk_Income_Pay10.Size = New System.Drawing.Size(112, 20)
+        Me.Chk_Income_Pay10.TabIndex = 139
+        Me.Chk_Income_Pay10.Text = "วันที่รับเงืนครั้งที่ 10"
+        Me.Chk_Income_Pay10.UseVisualStyleBackColor = True
         '
         'Dtp_Income_Pay10
         '
@@ -1210,15 +1210,15 @@ Partial Class FrmIncome
         Me.Label30.TabIndex = 136
         Me.Label30.Text = "บัญชีรับจ่ายครั้งที่ 9"
         '
-        'Txt__Income_Pay9
+        'Txt_Income_Pay9
         '
-        Me.Txt__Income_Pay9.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt__Income_Pay9.ForeColor = System.Drawing.Color.Blue
-        Me.Txt__Income_Pay9.Location = New System.Drawing.Point(350, 265)
-        Me.Txt__Income_Pay9.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt__Income_Pay9.Name = "Txt__Income_Pay9"
-        Me.Txt__Income_Pay9.Size = New System.Drawing.Size(138, 22)
-        Me.Txt__Income_Pay9.TabIndex = 137
+        Me.Txt_Income_Pay9.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Income_Pay9.ForeColor = System.Drawing.Color.Red
+        Me.Txt_Income_Pay9.Location = New System.Drawing.Point(350, 265)
+        Me.Txt_Income_Pay9.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Income_Pay9.Name = "Txt_Income_Pay9"
+        Me.Txt_Income_Pay9.Size = New System.Drawing.Size(138, 22)
+        Me.Txt_Income_Pay9.TabIndex = 137
         '
         'Chk_Income_Pay9
         '
@@ -1256,27 +1256,27 @@ Partial Class FrmIncome
         Me.Label23.TabIndex = 132
         Me.Label23.Text = "บัญชีรับจ่ายครั้งที่ 8"
         '
-        'Txt__Income_Pay8
+        'Txt_Income_Pay8
         '
-        Me.Txt__Income_Pay8.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt__Income_Pay8.ForeColor = System.Drawing.Color.Blue
-        Me.Txt__Income_Pay8.Location = New System.Drawing.Point(350, 237)
-        Me.Txt__Income_Pay8.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt__Income_Pay8.Name = "Txt__Income_Pay8"
-        Me.Txt__Income_Pay8.Size = New System.Drawing.Size(138, 22)
-        Me.Txt__Income_Pay8.TabIndex = 133
+        Me.Txt_Income_Pay8.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Income_Pay8.ForeColor = System.Drawing.Color.Red
+        Me.Txt_Income_Pay8.Location = New System.Drawing.Point(350, 237)
+        Me.Txt_Income_Pay8.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Income_Pay8.Name = "Txt_Income_Pay8"
+        Me.Txt_Income_Pay8.Size = New System.Drawing.Size(138, 22)
+        Me.Txt_Income_Pay8.TabIndex = 133
         '
-        'Chk__Income_Pay8
+        'Chk_Income_Pay8
         '
-        Me.Chk__Income_Pay8.AutoSize = True
-        Me.Chk__Income_Pay8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Chk__Income_Pay8.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Chk__Income_Pay8.Location = New System.Drawing.Point(11, 239)
-        Me.Chk__Income_Pay8.Name = "Chk__Income_Pay8"
-        Me.Chk__Income_Pay8.Size = New System.Drawing.Size(106, 20)
-        Me.Chk__Income_Pay8.TabIndex = 131
-        Me.Chk__Income_Pay8.Text = "วันที่รับเงืนครั้งที่ 8"
-        Me.Chk__Income_Pay8.UseVisualStyleBackColor = True
+        Me.Chk_Income_Pay8.AutoSize = True
+        Me.Chk_Income_Pay8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Income_Pay8.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Chk_Income_Pay8.Location = New System.Drawing.Point(11, 239)
+        Me.Chk_Income_Pay8.Name = "Chk_Income_Pay8"
+        Me.Chk_Income_Pay8.Size = New System.Drawing.Size(106, 20)
+        Me.Chk_Income_Pay8.TabIndex = 131
+        Me.Chk_Income_Pay8.Text = "วันที่รับเงืนครั้งที่ 8"
+        Me.Chk_Income_Pay8.UseVisualStyleBackColor = True
         '
         'Dtp_Income_Pay8
         '
@@ -1305,7 +1305,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay7
         '
         Me.Txt_Income_Pay7.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay7.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay7.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay7.Location = New System.Drawing.Point(350, 209)
         Me.Txt_Income_Pay7.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay7.Name = "Txt_Income_Pay7"
@@ -1324,16 +1324,16 @@ Partial Class FrmIncome
         Me.Chk_Income_Pay7.Text = "วันที่รับเงืนครั้งที่ 7"
         Me.Chk_Income_Pay7.UseVisualStyleBackColor = True
         '
-        'Dtp__Income_Pay7
+        'Dtp_Income_Pay7
         '
-        Me.Dtp__Income_Pay7.CalendarForeColor = System.Drawing.Color.Blue
-        Me.Dtp__Income_Pay7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Dtp__Income_Pay7.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp__Income_Pay7.Location = New System.Drawing.Point(125, 210)
-        Me.Dtp__Income_Pay7.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Dtp__Income_Pay7.Name = "Dtp__Income_Pay7"
-        Me.Dtp__Income_Pay7.Size = New System.Drawing.Size(111, 21)
-        Me.Dtp__Income_Pay7.TabIndex = 126
+        Me.Dtp_Income_Pay7.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Income_Pay7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Income_Pay7.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Income_Pay7.Location = New System.Drawing.Point(125, 210)
+        Me.Dtp_Income_Pay7.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Dtp_Income_Pay7.Name = "Dtp_Income_Pay7"
+        Me.Dtp_Income_Pay7.Size = New System.Drawing.Size(111, 21)
+        Me.Dtp_Income_Pay7.TabIndex = 126
         '
         'Label25
         '
@@ -1351,7 +1351,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay6
         '
         Me.Txt_Income_Pay6.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay6.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay6.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay6.Location = New System.Drawing.Point(350, 182)
         Me.Txt_Income_Pay6.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay6.Name = "Txt_Income_Pay6"
@@ -1370,16 +1370,16 @@ Partial Class FrmIncome
         Me.Chk_Income_Pay6.Text = "วันที่รับเงืนครั้งที่ 6"
         Me.Chk_Income_Pay6.UseVisualStyleBackColor = True
         '
-        'Dtp__Income_Pay6
+        'Dtp_Income_Pay6
         '
-        Me.Dtp__Income_Pay6.CalendarForeColor = System.Drawing.Color.Blue
-        Me.Dtp__Income_Pay6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Dtp__Income_Pay6.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp__Income_Pay6.Location = New System.Drawing.Point(125, 183)
-        Me.Dtp__Income_Pay6.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Dtp__Income_Pay6.Name = "Dtp__Income_Pay6"
-        Me.Dtp__Income_Pay6.Size = New System.Drawing.Size(111, 21)
-        Me.Dtp__Income_Pay6.TabIndex = 122
+        Me.Dtp_Income_Pay6.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Income_Pay6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Income_Pay6.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Income_Pay6.Location = New System.Drawing.Point(125, 183)
+        Me.Dtp_Income_Pay6.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Dtp_Income_Pay6.Name = "Dtp_Income_Pay6"
+        Me.Dtp_Income_Pay6.Size = New System.Drawing.Size(111, 21)
+        Me.Dtp_Income_Pay6.TabIndex = 122
         '
         'Label26
         '
@@ -1394,15 +1394,15 @@ Partial Class FrmIncome
         Me.Label26.TabIndex = 120
         Me.Label26.Text = "บัญชีรับจ่ายครั้งที่ 5"
         '
-        'Txt__Income_Pay5
+        'Txt_Income_Pay5
         '
-        Me.Txt__Income_Pay5.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt__Income_Pay5.ForeColor = System.Drawing.Color.Blue
-        Me.Txt__Income_Pay5.Location = New System.Drawing.Point(350, 154)
-        Me.Txt__Income_Pay5.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt__Income_Pay5.Name = "Txt__Income_Pay5"
-        Me.Txt__Income_Pay5.Size = New System.Drawing.Size(138, 22)
-        Me.Txt__Income_Pay5.TabIndex = 121
+        Me.Txt_Income_Pay5.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Income_Pay5.ForeColor = System.Drawing.Color.Red
+        Me.Txt_Income_Pay5.Location = New System.Drawing.Point(350, 154)
+        Me.Txt_Income_Pay5.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Income_Pay5.Name = "Txt_Income_Pay5"
+        Me.Txt_Income_Pay5.Size = New System.Drawing.Size(138, 22)
+        Me.Txt_Income_Pay5.TabIndex = 121
         '
         'Chk_Income_Pay5
         '
@@ -1416,16 +1416,16 @@ Partial Class FrmIncome
         Me.Chk_Income_Pay5.Text = "วันที่รับเงืนครั้งที่ 5"
         Me.Chk_Income_Pay5.UseVisualStyleBackColor = True
         '
-        'DateTimePicker8
+        'Dtp_Income_Pay5
         '
-        Me.DateTimePicker8.CalendarForeColor = System.Drawing.Color.Blue
-        Me.DateTimePicker8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.DateTimePicker8.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker8.Location = New System.Drawing.Point(125, 155)
-        Me.DateTimePicker8.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.DateTimePicker8.Name = "DateTimePicker8"
-        Me.DateTimePicker8.Size = New System.Drawing.Size(111, 21)
-        Me.DateTimePicker8.TabIndex = 118
+        Me.Dtp_Income_Pay5.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Income_Pay5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Income_Pay5.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Income_Pay5.Location = New System.Drawing.Point(125, 155)
+        Me.Dtp_Income_Pay5.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Dtp_Income_Pay5.Name = "Dtp_Income_Pay5"
+        Me.Dtp_Income_Pay5.Size = New System.Drawing.Size(111, 21)
+        Me.Dtp_Income_Pay5.TabIndex = 118
         '
         'Label17
         '
@@ -1443,7 +1443,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay4
         '
         Me.Txt_Income_Pay4.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay4.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay4.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay4.Location = New System.Drawing.Point(350, 126)
         Me.Txt_Income_Pay4.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay4.Name = "Txt_Income_Pay4"
@@ -1489,7 +1489,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay3
         '
         Me.Txt_Income_Pay3.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay3.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay3.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay3.Location = New System.Drawing.Point(350, 98)
         Me.Txt_Income_Pay3.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay3.Name = "Txt_Income_Pay3"
@@ -1535,7 +1535,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay2
         '
         Me.Txt_Income_Pay2.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay2.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay2.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay2.Location = New System.Drawing.Point(350, 70)
         Me.Txt_Income_Pay2.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay2.Name = "Txt_Income_Pay2"
@@ -1581,7 +1581,7 @@ Partial Class FrmIncome
         'Txt_Income_Pay1
         '
         Me.Txt_Income_Pay1.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_Pay1.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Income_Pay1.ForeColor = System.Drawing.Color.Red
         Me.Txt_Income_Pay1.Location = New System.Drawing.Point(350, 43)
         Me.Txt_Income_Pay1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Pay1.Name = "Txt_Income_Pay1"
@@ -1611,28 +1611,27 @@ Partial Class FrmIncome
         Me.Dtp_Income_Pay1.Size = New System.Drawing.Size(111, 21)
         Me.Dtp_Income_Pay1.TabIndex = 103
         '
-        'Label31
+        'Lbl_Income_Invalid
         '
-        Me.Label31.AutoSize = True
-        Me.Label31.BackColor = System.Drawing.SystemColors.Window
-        Me.Label31.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.Blue
-        Me.Label31.Location = New System.Drawing.Point(287, 464)
-        Me.Label31.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(53, 16)
-        Me.Label31.TabIndex = 168
-        Me.Label31.Text = "รวมที่ชำระ"
+        Me.Lbl_Income_Invalid.AutoSize = True
+        Me.Lbl_Income_Invalid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_Income_Invalid.Location = New System.Drawing.Point(962, 705)
+        Me.Lbl_Income_Invalid.Name = "Lbl_Income_Invalid"
+        Me.Lbl_Income_Invalid.Size = New System.Drawing.Size(37, 20)
+        Me.Lbl_Income_Invalid.TabIndex = 98
+        Me.Lbl_Income_Invalid.Text = "xxxx"
+        Me.Lbl_Income_Invalid.Visible = False
         '
-        'TextBox1
+        'Lbl_income_result
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.Color.Blue
-        Me.TextBox1.Location = New System.Drawing.Point(350, 461)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(138, 22)
-        Me.TextBox1.TabIndex = 169
+        Me.Lbl_income_result.AutoSize = True
+        Me.Lbl_income_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_income_result.Location = New System.Drawing.Point(6, 471)
+        Me.Lbl_income_result.Name = "Lbl_income_result"
+        Me.Lbl_income_result.Size = New System.Drawing.Size(37, 20)
+        Me.Lbl_income_result.TabIndex = 99
+        Me.Lbl_income_result.Text = "xxxx"
+        Me.Lbl_income_result.Visible = False
         '
         'FrmIncome
         '
@@ -1640,6 +1639,7 @@ Partial Class FrmIncome
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.Lbl_Income_Invalid)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Dtgv_Income)
@@ -1661,19 +1661,18 @@ Partial Class FrmIncome
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label22 As Label
-    Friend WithEvents Label18 As Label
     Friend WithEvents Chk_Income_DateSheet As CheckBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Txt_Income_Fullname As TextBox
     Friend WithEvents Txt_Income_Idcus As TextBox
     Friend WithEvents Txt_Income_Black As TextBox
-    Friend WithEvents Txt_Income_Money As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Dtp_Income_DateSheet As DateTimePicker
@@ -1727,44 +1726,44 @@ Partial Class FrmIncome
     Friend WithEvents Dtp_Income_Pay15 As DateTimePicker
     Friend WithEvents Label32 As Label
     Friend WithEvents Txt_Income_Pay14 As TextBox
-    Friend WithEvents CheckBox14 As CheckBox
-    Friend WithEvents DateTimePicker14 As DateTimePicker
+    Friend WithEvents Chk_Income_Pay14 As CheckBox
+    Friend WithEvents Dtp_Income_Pay14 As DateTimePicker
     Friend WithEvents Label33 As Label
     Friend WithEvents Txt_Income_Pay13 As TextBox
     Friend WithEvents Chk_Income_Pay13 As CheckBox
-    Friend WithEvents Dtp__Income_Pay13 As DateTimePicker
+    Friend WithEvents Dtp_Income_Pay13 As DateTimePicker
     Friend WithEvents Label27 As Label
     Friend WithEvents Txt_Income_Pay12 As TextBox
-    Friend WithEvents CheckBox9 As CheckBox
+    Friend WithEvents Chk_Income_Pay12 As CheckBox
     Friend WithEvents Dtp_Income_Pay12 As DateTimePicker
     Friend WithEvents Label28 As Label
     Friend WithEvents Txt_Income_Pay11 As TextBox
     Friend WithEvents Chk_Income_Pay11 As CheckBox
     Friend WithEvents Dtp_Income_Pay11 As DateTimePicker
     Friend WithEvents Label29 As Label
-    Friend WithEvents Txt__Income_Pay10 As TextBox
-    Friend WithEvents Chk__Income_Pay10 As CheckBox
+    Friend WithEvents Txt_Income_Pay10 As TextBox
+    Friend WithEvents Chk_Income_Pay10 As CheckBox
     Friend WithEvents Dtp_Income_Pay10 As DateTimePicker
     Friend WithEvents Label30 As Label
-    Friend WithEvents Txt__Income_Pay9 As TextBox
+    Friend WithEvents Txt_Income_Pay9 As TextBox
     Friend WithEvents Chk_Income_Pay9 As CheckBox
     Friend WithEvents Dtp_Income_Pay9 As DateTimePicker
     Friend WithEvents Label23 As Label
-    Friend WithEvents Txt__Income_Pay8 As TextBox
-    Friend WithEvents Chk__Income_Pay8 As CheckBox
+    Friend WithEvents Txt_Income_Pay8 As TextBox
+    Friend WithEvents Chk_Income_Pay8 As CheckBox
     Friend WithEvents Dtp_Income_Pay8 As DateTimePicker
     Friend WithEvents Label24 As Label
     Friend WithEvents Txt_Income_Pay7 As TextBox
     Friend WithEvents Chk_Income_Pay7 As CheckBox
-    Friend WithEvents Dtp__Income_Pay7 As DateTimePicker
+    Friend WithEvents Dtp_Income_Pay7 As DateTimePicker
     Friend WithEvents Label25 As Label
     Friend WithEvents Txt_Income_Pay6 As TextBox
     Friend WithEvents Chk_Income_Pay6 As CheckBox
-    Friend WithEvents Dtp__Income_Pay6 As DateTimePicker
+    Friend WithEvents Dtp_Income_Pay6 As DateTimePicker
     Friend WithEvents Label26 As Label
-    Friend WithEvents Txt__Income_Pay5 As TextBox
+    Friend WithEvents Txt_Income_Pay5 As TextBox
     Friend WithEvents Chk_Income_Pay5 As CheckBox
-    Friend WithEvents DateTimePicker8 As DateTimePicker
+    Friend WithEvents Dtp_Income_Pay5 As DateTimePicker
     Friend WithEvents Label17 As Label
     Friend WithEvents Txt_Income_Pay4 As TextBox
     Friend WithEvents Chk_Income_Pay4 As CheckBox
@@ -1782,5 +1781,7 @@ Partial Class FrmIncome
     Friend WithEvents Chk_Income_Pay1 As CheckBox
     Friend WithEvents Dtp_Income_Pay1 As DateTimePicker
     Friend WithEvents Label31 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Txt_Income_GrandTotal As TextBox
+    Friend WithEvents Lbl_Income_Invalid As Label
+    Friend WithEvents Lbl_income_result As Label
 End Class

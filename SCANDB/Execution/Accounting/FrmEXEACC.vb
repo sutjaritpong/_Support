@@ -1059,7 +1059,8 @@ Public Class FrmEXEACC
         cmd = New SqlCommand(sql, cn)
         Dim Query_empkey As Integer = cmd.ExecuteScalar()
 
-        sql = $"UPDATE Execution_RepeatFreeze SET Customer_OWner = @owner,Customer_id_card = @idcard,Customer_account = @account,Customer_firstname = @firstname,Customer_lastname = @lastname,Customer_fullname = @fullname,RepeatFreeze_Court = @Court,RepeatFreeze_red = @red EMPLOYEES_KEY = @EmpPK , RepeatFreeze_types = @status RepeatFreeze_Detail = @detail,RepeatFreeze_date_sheet = @datesheet , RepeatFreeze_date_work = @datework WHERE RepeatFreeze_PK = @RPK "
+        sql = $"UPDATE Execution_RepeatFreeze SET Customer_OWner = @owner,Customer_id_card = @idcard,Customer_account = @account,Customer_firstname = @firstname,Customer_lastname = @lastname,Customer_fullname = @fullname,RepeatFreeze_Court = @Court,RepeatFreeze_red = @red EMPLOYEES_KEY = @EmpPK , RepeatFreeze_types = @status RepeatFreeze_Detail = @detail,RepeatFreeze_date_sheet = @datesheet , RepeatFreeze_date_work = @datework WHERE RepeatFreeze_PK = @RPK;"
+
 
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.Clear()
@@ -1165,23 +1166,23 @@ Public Class FrmEXEACC
                     sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
 
                     cmd_Collec = New SqlCommand(sqll, cn_KKB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+                    DS_Collec = New DataSet
+                    DA_Collec.Fill(DS_Collec, "LINKdB")
 
                     Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
                     Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
-                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_Repeat_Link.ForeColor = Color.Green
 
                 End If
 
-                    cn_KKB.Close()
+                cn_KKB.Close()
 
             Case "SCB" : Connect_(cn_SCB)
                 sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Acc.Text}'"
@@ -1306,14 +1307,14 @@ Public Class FrmEXEACC
 
                     Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
                     Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
-                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+                    Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    Lbl_Repeat_Link.ForeColor = Color.Green
 
                 End If
                 cn_TMB.Close()
@@ -1472,12 +1473,12 @@ Public Class FrmEXEACC
                 Else
                     sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Repeat_Acc.Text}'"
                     cmdlegal = New SqlCommand(sqll, cnLegal)
-                DALegal = New SqlDataAdapter(cmdlegal)
-                DSLegal = New DataSet
-                DALegal.Fill(DSLegal, "linklegal")
+                    DALegal = New SqlDataAdapter(cmdlegal)
+                    DSLegal = New DataSet
+                    DALegal.Fill(DSLegal, "linklegal")
 
 
-                Txt_Repeat_FN.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                    Txt_Repeat_FN.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
                     Txt_Repeat_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
                     Txt_Repeat_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
                     Txt_Repeat_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
@@ -1495,4 +1496,7 @@ Public Class FrmEXEACC
 
     End Sub
 
+    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
+
+    End Sub
 End Class

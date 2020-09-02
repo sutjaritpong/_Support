@@ -212,7 +212,7 @@ Partial Class FrmMastermain
         Me.KBANKscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.KBANKscanpdf.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.KBANKscanpdf.Name = "KBANKscanpdf"
-        Me.KBANKscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.KBANKscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.KBANKscanpdf.Text = "KBANK"
         '
         'TSSscanpdf
@@ -221,7 +221,7 @@ Partial Class FrmMastermain
         Me.TSSscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TSSscanpdf.Image = Global.SCANDB.My.Resources.Resources.TSS01
         Me.TSSscanpdf.Name = "TSSscanpdf"
-        Me.TSSscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.TSSscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.TSSscanpdf.Text = "TSS"
         '
         'TMBscanpdf
@@ -230,7 +230,7 @@ Partial Class FrmMastermain
         Me.TMBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TMBscanpdf.Image = Global.SCANDB.My.Resources.Resources._5462_image_th
         Me.TMBscanpdf.Name = "TMBscanpdf"
-        Me.TMBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.TMBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.TMBscanpdf.Text = "TMB"
         '
         'SCBscanpdf
@@ -239,7 +239,7 @@ Partial Class FrmMastermain
         Me.SCBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.SCBscanpdf.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
         Me.SCBscanpdf.Name = "SCBscanpdf"
-        Me.SCBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.SCBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.SCBscanpdf.Text = "SCB"
         '
         'UOBscanpdf
@@ -248,7 +248,7 @@ Partial Class FrmMastermain
         Me.UOBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.UOBscanpdf.Image = Global.SCANDB.My.Resources.Resources.UOB
         Me.UOBscanpdf.Name = "UOBscanpdf"
-        Me.UOBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.UOBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.UOBscanpdf.Text = "UOB"
         '
         'Tbankscanpdf
@@ -257,7 +257,7 @@ Partial Class FrmMastermain
         Me.Tbankscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Tbankscanpdf.Image = Global.SCANDB.My.Resources.Resources.TBANK
         Me.Tbankscanpdf.Name = "Tbankscanpdf"
-        Me.Tbankscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.Tbankscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.Tbankscanpdf.Text = "TBANK"
         '
         'KKBscanpdf
@@ -266,7 +266,7 @@ Partial Class FrmMastermain
         Me.KKBscanpdf.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.KKBscanpdf.Image = Global.SCANDB.My.Resources.Resources.Kiatnakin_Bank_logo
         Me.KKBscanpdf.Name = "KKBscanpdf"
-        Me.KKBscanpdf.Size = New System.Drawing.Size(180, 22)
+        Me.KKBscanpdf.Size = New System.Drawing.Size(117, 22)
         Me.KKBscanpdf.Text = "KKB"
         '
         'Menu_tab_Accounting
@@ -286,7 +286,7 @@ Partial Class FrmMastermain
         Me.menu_accounting_search.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.menu_accounting_search.Image = Global.SCANDB.My.Resources.Resources.kbanklogo
         Me.menu_accounting_search.Name = "menu_accounting_search"
-        Me.menu_accounting_search.Size = New System.Drawing.Size(180, 22)
+        Me.menu_accounting_search.Size = New System.Drawing.Size(117, 22)
         Me.menu_accounting_search.Text = "KBANK"
         '
         'Menu_Tab_Zero
@@ -304,7 +304,7 @@ Partial Class FrmMastermain
         Me.Menu_Tab_ScbLegal.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_Tab_ScbLegal.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
         Me.Menu_Tab_ScbLegal.Name = "Menu_Tab_ScbLegal"
-        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(179, 22)
         Me.Menu_Tab_ScbLegal.Text = "SCB (LEGAL)"
         '
         'Menu_tab_ScbCollector
@@ -312,7 +312,7 @@ Partial Class FrmMastermain
         Me.Menu_tab_ScbCollector.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_tab_ScbCollector.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon24x24
         Me.Menu_tab_ScbCollector.Name = "Menu_tab_ScbCollector"
-        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(179, 22)
         Me.Menu_tab_ScbCollector.Text = "SCB (COLLECTOR)"
         '
         'Menu_tab_ScbReport
@@ -320,7 +320,7 @@ Partial Class FrmMastermain
         Me.Menu_tab_ScbReport.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_tab_ScbReport.Image = Global.SCANDB.My.Resources.Resources.report_go
         Me.Menu_tab_ScbReport.Name = "Menu_tab_ScbReport"
-        Me.Menu_tab_ScbReport.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_tab_ScbReport.Size = New System.Drawing.Size(179, 22)
         Me.Menu_tab_ScbReport.Text = "SCB (Report)"
         '
         'Menu_tap_logout
