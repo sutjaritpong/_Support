@@ -106,6 +106,7 @@ Module VBcode
 
     End Sub
     Friend Sub Datetimeformatshort(_time As DateTimePicker)
+
         ' Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         _time.Format = DateTimePickerFormat.Custom
         _time.CustomFormat = "dd-MMM-yy"
@@ -136,6 +137,7 @@ Module VBcode
 
     End Sub
     Friend Sub Checkboxdatetime(_Checkbok As CheckBox, _DateTimepicker As DateTimePicker)
+
         If _Checkbok.Checked = True Then
 
             _DateTimepicker.Enabled = True
@@ -148,6 +150,7 @@ Module VBcode
     '## Sub _convertnum ใช้เปลี่ยนตัวเลขเป็นจำนวนเงินมีจุดทศนิยม 2 ตำแหน่ง
 
     Friend Sub Convertnum(_current As Object)
+
         If (Str(_current.text) <> "") AndAlso (Not IsNumeric(_current.text)) Then
 
             Exit Sub
@@ -179,24 +182,24 @@ Module VBcode
             Case "Execution"
                 ' Main_menu_working
                 FrmMastermain.Menu_tab_execution.Enabled = False
-            FrmMastermain.Menu_tab_Accounting.Enabled = False
+                FrmMastermain.Menu_tab_Accounting.Enabled = False
                 FrmMastermain.Menu_tab_scanpdf.Enabled = True
                 FrmMastermain.Menu_Tab_Zero.Enabled = False
                 'Main_menu_setting
                 FrmMastermain.menu_accms.Enabled = False
-            FrmMastermain.menu_settingms.Enabled = False
-            FrmMastermain.menu_Historyms.Enabled = False
-            FrmMastermain.menu_changespassword.Enabled = True
-            FrmMastermain.Menu_logexe.Enabled = False
-            'Main_menu_UpLoad
-            FrmMastermain.Menu_upload_exe.Enabled = False
-            FrmMastermain.Menu_upload_scan.Enabled = False
-            'Main_menu_report
-            FrmMastermain.menu_tab_report.Enabled = False
-            FrmMastermain.Menu_ReportAccounting.Enabled = True
-            FrmMastermain.Menu_Reportstatement.Enabled = True
-            FrmMastermain.Menu_Reporttracking.Enabled = True
-            FrmMastermain.Menu_ReportWDS.Enabled = True
+                FrmMastermain.menu_settingms.Enabled = False
+                FrmMastermain.menu_Historyms.Enabled = False
+                FrmMastermain.menu_changespassword.Enabled = True
+                FrmMastermain.Menu_logexe.Enabled = False
+                'Main_menu_UpLoad
+                FrmMastermain.Menu_upload_exe.Enabled = False
+                FrmMastermain.Menu_upload_scan.Enabled = False
+                'Main_menu_report
+                FrmMastermain.menu_tab_report.Enabled = False
+                FrmMastermain.Menu_ReportAccounting.Enabled = True
+                FrmMastermain.Menu_Reportstatement.Enabled = True
+                FrmMastermain.Menu_Reporttracking.Enabled = True
+                FrmMastermain.Menu_ReportWDS.Enabled = True
                 'Main_menu_ITManagement
                 FrmMastermain.Main_menu_it.Enabled = False
                 FrmITSupport.cmd_logIT.Enabled = False
@@ -255,11 +258,10 @@ Module VBcode
             Case "Supervisor"
                 ' Main_menu_working
                 FrmMastermain.Menu_tab_ScbCollector.Enabled = True
-                FrmMastermain.Menu_tab_ScbReport.Enabled = False
+
                 'Main_menu_ITManagement
                 FrmITSupport.cmd_logIT.Enabled = False
                 FrmITSupport.cmd_Pcmanage.Enabled = False
-
 
         End Select
 

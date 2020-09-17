@@ -24,6 +24,7 @@ Partial Class FrmIncome
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmIncome))
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Lbl_Income_Invalid = New System.Windows.Forms.Label()
         Me.Cbo_Income_Owner = New System.Windows.Forms.ComboBox()
         Me.Txt_Income_prefix = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -74,6 +75,7 @@ Partial Class FrmIncome
         Me.Chk_Income_Datework = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Datework = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Lbl_income_result = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Txt_Income_GrandTotal = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
@@ -140,8 +142,6 @@ Partial Class FrmIncome
         Me.Txt_Income_Pay1 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay1 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay1 = New System.Windows.Forms.DateTimePicker()
-        Me.Lbl_Income_Invalid = New System.Windows.Forms.Label()
-        Me.Lbl_income_result = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Group_search.SuspendLayout()
@@ -152,6 +152,7 @@ Partial Class FrmIncome
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Lbl_Income_Invalid)
         Me.GroupBox3.Controls.Add(Me.Cbo_Income_Owner)
         Me.GroupBox3.Controls.Add(Me.Txt_Income_prefix)
         Me.GroupBox3.Controls.Add(Me.Label10)
@@ -181,10 +182,21 @@ Partial Class FrmIncome
         Me.GroupBox3.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(737, 231)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(262, 404)
+        Me.GroupBox3.Size = New System.Drawing.Size(262, 494)
         Me.GroupBox3.TabIndex = 92
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ข้อมูลลูกค้า"
+        '
+        'Lbl_Income_Invalid
+        '
+        Me.Lbl_Income_Invalid.AutoSize = True
+        Me.Lbl_Income_Invalid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_Income_Invalid.Location = New System.Drawing.Point(217, 471)
+        Me.Lbl_Income_Invalid.Name = "Lbl_Income_Invalid"
+        Me.Lbl_Income_Invalid.Size = New System.Drawing.Size(37, 20)
+        Me.Lbl_Income_Invalid.TabIndex = 98
+        Me.Lbl_Income_Invalid.Text = "xxxx"
+        Me.Lbl_Income_Invalid.Visible = False
         '
         'Cbo_Income_Owner
         '
@@ -653,11 +665,15 @@ Partial Class FrmIncome
         '
         'Dtgv_Income
         '
+        Me.Dtgv_Income.AllowUserToAddRows = False
+        Me.Dtgv_Income.AllowUserToDeleteRows = False
         Me.Dtgv_Income.BackgroundColor = System.Drawing.Color.White
         Me.Dtgv_Income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dtgv_Income.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Dtgv_Income.Location = New System.Drawing.Point(2, 50)
         Me.Dtgv_Income.Name = "Dtgv_Income"
+        Me.Dtgv_Income.ReadOnly = True
+        Me.Dtgv_Income.RowHeadersVisible = False
         Me.Dtgv_Income.Size = New System.Drawing.Size(843, 175)
         Me.Dtgv_Income.TabIndex = 95
         '
@@ -676,7 +692,7 @@ Partial Class FrmIncome
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.GroupBox2.Location = New System.Drawing.Point(502, 231)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(231, 176)
+        Me.GroupBox2.Size = New System.Drawing.Size(231, 200)
         Me.GroupBox2.TabIndex = 96
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ช้อมูลการรับเงินส่วนได้/ค.ช.จ. คืนโจทก์"
@@ -851,6 +867,17 @@ Partial Class FrmIncome
         Me.GroupBox4.TabIndex = 97
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "รายการบัญชี-รับจ่าย"
+        '
+        'Lbl_income_result
+        '
+        Me.Lbl_income_result.AutoSize = True
+        Me.Lbl_income_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_income_result.Location = New System.Drawing.Point(6, 471)
+        Me.Lbl_income_result.Name = "Lbl_income_result"
+        Me.Lbl_income_result.Size = New System.Drawing.Size(37, 20)
+        Me.Lbl_income_result.TabIndex = 99
+        Me.Lbl_income_result.Text = "xxxx"
+        Me.Lbl_income_result.Visible = False
         '
         'Label31
         '
@@ -1611,35 +1638,12 @@ Partial Class FrmIncome
         Me.Dtp_Income_Pay1.Size = New System.Drawing.Size(111, 21)
         Me.Dtp_Income_Pay1.TabIndex = 103
         '
-        'Lbl_Income_Invalid
-        '
-        Me.Lbl_Income_Invalid.AutoSize = True
-        Me.Lbl_Income_Invalid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Lbl_Income_Invalid.Location = New System.Drawing.Point(962, 705)
-        Me.Lbl_Income_Invalid.Name = "Lbl_Income_Invalid"
-        Me.Lbl_Income_Invalid.Size = New System.Drawing.Size(37, 20)
-        Me.Lbl_Income_Invalid.TabIndex = 98
-        Me.Lbl_Income_Invalid.Text = "xxxx"
-        Me.Lbl_Income_Invalid.Visible = False
-        '
-        'Lbl_income_result
-        '
-        Me.Lbl_income_result.AutoSize = True
-        Me.Lbl_income_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Lbl_income_result.Location = New System.Drawing.Point(6, 471)
-        Me.Lbl_income_result.Name = "Lbl_income_result"
-        Me.Lbl_income_result.Size = New System.Drawing.Size(37, 20)
-        Me.Lbl_income_result.TabIndex = 99
-        Me.Lbl_income_result.Text = "xxxx"
-        Me.Lbl_income_result.Visible = False
-        '
         'FrmIncome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.Lbl_Income_Invalid)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Dtgv_Income)
@@ -1661,7 +1665,6 @@ Partial Class FrmIncome
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 

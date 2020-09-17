@@ -214,15 +214,6 @@ Public Class FrmMastermain
 
     End Sub
 
-    Private Sub Menu_tab_ScbReport_Click(sender As Object, e As EventArgs) Handles Menu_tab_ScbReport.Click
-
-        With FrmReportSCB
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
-
-    End Sub
     'End SCB ZERO
 
     'Manage Menu

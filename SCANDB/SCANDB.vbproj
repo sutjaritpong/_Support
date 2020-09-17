@@ -138,13 +138,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dataset\DataSet1.Designer.vb">
+    <Compile Include="Dataset\SCBZERO.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>SCBZERO.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Dataset\DataSet1.vb">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <Compile Include="Dataset\SCBZERO.vb">
+      <DependentUpon>SCBZERO.xsd</DependentUpon>
     </Compile>
     <Compile Include="Execution\Report_execution\FrmlogexeRV.Designer.vb">
       <DependentUpon>FrmlogexeRV.vb</DependentUpon>
@@ -275,10 +275,10 @@
     <Compile Include="SCBZERO\FrmLegalSCB.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCBZERO\FrmReport.Designer.vb">
-      <DependentUpon>FrmReport.vb</DependentUpon>
+    <Compile Include="SCBZERO\FrmSCBZeroRV.Designer.vb">
+      <DependentUpon>FrmSCBZeroRV.vb</DependentUpon>
     </Compile>
-    <Compile Include="SCBZERO\FrmReport.vb">
+    <Compile Include="SCBZERO\FrmSCBZeroRV.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sysmanage\Frmlogfileexe.Designer.vb">
@@ -545,9 +545,10 @@
     <EmbeddedResource Include="SCBZERO\FrmLegalSCB.resx">
       <DependentUpon>FrmLegalSCB.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SCBZERO\FrmReport.resx">
-      <DependentUpon>FrmReport.vb</DependentUpon>
+    <EmbeddedResource Include="SCBZERO\FrmSCBZeroRV.resx">
+      <DependentUpon>FrmSCBZeroRV.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SCBZERO\ReportSCBZeroLAW.rdlc" />
     <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
       <DependentUpon>Frmlogfileexe.vb</DependentUpon>
     </EmbeddedResource>
@@ -652,17 +653,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Dataset\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Dataset\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="Dataset\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Dataset\logexe_dataset.xsc">
       <DependentUpon>logexe_dataset.xsd</DependentUpon>
     </None>
@@ -673,6 +663,17 @@
     </None>
     <None Include="Dataset\logexe_dataset.xss">
       <DependentUpon>logexe_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\SCBZERO.xsc">
+      <DependentUpon>SCBZERO.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\SCBZERO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SCBZERO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Dataset\SCBZERO.xss">
+      <DependentUpon>SCBZERO.xsd</DependentUpon>
     </None>
     <None Include="Dataset\StatementDataSet.xsc">
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
@@ -767,6 +768,14 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <COMReference Include="AxRDPCOMAPILib">
+      <Guid>{CC802D05-AE07-4C15-B496-DB9D22AA0A84}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -796,6 +805,15 @@
     </COMReference>
     <COMReference Include="MSWinsockLib">
       <Guid>{248DD890-BB45-11CF-9ABC-0080C7E7B78D}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="RDPCOMAPILib">
+      <Guid>{CC802D05-AE07-4C15-B496-DB9D22AA0A84}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

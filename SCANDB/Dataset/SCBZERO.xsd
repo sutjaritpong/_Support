@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SCBZERO" targetNamespace="http://tempuri.org/SCBZERO.xsd" xmlns:mstns="http://tempuri.org/SCBZERO.xsd" xmlns="http://tempuri.org/SCBZERO.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SCANPDFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SCANPDFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SCANDB.My.MySettings.GlobalReference.Default.SCANPDFConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SCANPDFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        dbCUS_1.CUSOWN, dbCUS_1.CUSACC, dbCUS_1.CUSCUS, dbCUS_1.CUSREF, dbCUS_1.CUSNAM, dbCUS_1.CUSIDC, dbCUS_1.CUSPRO, dbLAW_1.LAWSUE, dbLAW_1.LAWBLK, dbDOC_1.DOCAPP, dbDOC_1.DOCSTM, 
+                         dbCUS_1.CUSBUC, dbCUS_1.CUSCLS, '' AS Type, '' AS ทุนทรัพย์รวม, dbLAW_1.LAWSBAL, dbLAW_1.LAWSPRI, dbLAW_1.LAWSINT, dbLAW_1.LAWSFEE, dbLAW_1.LAWENF1F, dbLAW_1.LAWDMED, dbLAW_1.LAWTMED, 
+                         dbLAW_1.LAWDINV, dbLAW_1.LAWTINV, dbLAW_1.LAWRINV, dbCUS_1.CUSSTA, dbLAW_1.LAWCOU, dbLAW_1.LAWYER, dbLAW_1.LAWRED, dbLAW_1.LAWJUD, dbLAW_1.LAWWIT, dbLAW_1.LAWENF1, dbLAW_1.LAWENF2, 
+                         dbLAW_1.LAWENF3, dbLAW_1.LAWREF, dbLAW_1.LAWDREF, dbLAW_1.LAWJREF, dbLAW_1.LAWCHQ, dbLAW_1.LAWREP, dbLAW_1.LAWRDOC, dbLAW_1.LAWTYP, dbLAW_1.LAWSEN, dbLAW_1.LAWCOM, 
+                         RFCUS_1.CUSUSA
+FROM            FDSSERVER_1.LegaldB.dbo.dbCUS AS dbCUS_1 LEFT OUTER JOIN
+                         FDSSERVER_1.LegaldB.dbo.dbLAW AS dbLAW_1 ON dbCUS_1.CUSACC = dbLAW_1.LAWACC LEFT OUTER JOIN
+                         FDSSERVER_1.LegaldB.dbo.dbDOC AS dbDOC_1 ON dbCUS_1.CUSACC = dbDOC_1.DOCACC LEFT OUTER JOIN
+                         [FDS-SERVER].SCBdB.dbo.RFCUS AS RFCUS_1 ON dbCUS_1.CUSACC = RFCUS_1.CUSCNO
+WHERE        (dbCUS_1.CUSOWN = 'SCB') AND (dbCUS_1.CUSBUC = 'ZERO')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="ทุนทรัพย์รวม" DataSetColumn="ทุนทรัพย์รวม" />
+              <Mapping SourceColumn="CUSOWN" DataSetColumn="CUSOWN" />
+              <Mapping SourceColumn="CUSACC" DataSetColumn="CUSACC" />
+              <Mapping SourceColumn="CUSCUS" DataSetColumn="CUSCUS" />
+              <Mapping SourceColumn="CUSREF" DataSetColumn="CUSREF" />
+              <Mapping SourceColumn="CUSNAM" DataSetColumn="CUSNAM" />
+              <Mapping SourceColumn="CUSIDC" DataSetColumn="CUSIDC" />
+              <Mapping SourceColumn="CUSPRO" DataSetColumn="CUSPRO" />
+              <Mapping SourceColumn="LAWSUE" DataSetColumn="LAWSUE" />
+              <Mapping SourceColumn="LAWBLK" DataSetColumn="LAWBLK" />
+              <Mapping SourceColumn="DOCAPP" DataSetColumn="DOCAPP" />
+              <Mapping SourceColumn="DOCSTM" DataSetColumn="DOCSTM" />
+              <Mapping SourceColumn="CUSBUC" DataSetColumn="CUSBUC" />
+              <Mapping SourceColumn="CUSCLS" DataSetColumn="CUSCLS" />
+              <Mapping SourceColumn="LAWSBAL" DataSetColumn="LAWSBAL" />
+              <Mapping SourceColumn="LAWSPRI" DataSetColumn="LAWSPRI" />
+              <Mapping SourceColumn="LAWSINT" DataSetColumn="LAWSINT" />
+              <Mapping SourceColumn="LAWSFEE" DataSetColumn="LAWSFEE" />
+              <Mapping SourceColumn="LAWENF1F" DataSetColumn="LAWENF1F" />
+              <Mapping SourceColumn="LAWDMED" DataSetColumn="LAWDMED" />
+              <Mapping SourceColumn="LAWTMED" DataSetColumn="LAWTMED" />
+              <Mapping SourceColumn="LAWDINV" DataSetColumn="LAWDINV" />
+              <Mapping SourceColumn="LAWTINV" DataSetColumn="LAWTINV" />
+              <Mapping SourceColumn="LAWRINV" DataSetColumn="LAWRINV" />
+              <Mapping SourceColumn="LAWCOU" DataSetColumn="LAWCOU" />
+              <Mapping SourceColumn="LAWYER" DataSetColumn="LAWYER" />
+              <Mapping SourceColumn="LAWRED" DataSetColumn="LAWRED" />
+              <Mapping SourceColumn="LAWJUD" DataSetColumn="LAWJUD" />
+              <Mapping SourceColumn="LAWWIT" DataSetColumn="LAWWIT" />
+              <Mapping SourceColumn="LAWENF1" DataSetColumn="LAWENF1" />
+              <Mapping SourceColumn="LAWENF2" DataSetColumn="LAWENF2" />
+              <Mapping SourceColumn="LAWENF3" DataSetColumn="LAWENF3" />
+              <Mapping SourceColumn="LAWREF" DataSetColumn="LAWREF" />
+              <Mapping SourceColumn="LAWDREF" DataSetColumn="LAWDREF" />
+              <Mapping SourceColumn="LAWJREF" DataSetColumn="LAWJREF" />
+              <Mapping SourceColumn="LAWCHQ" DataSetColumn="LAWCHQ" />
+              <Mapping SourceColumn="LAWREP" DataSetColumn="LAWREP" />
+              <Mapping SourceColumn="LAWRDOC" DataSetColumn="LAWRDOC" />
+              <Mapping SourceColumn="LAWTYP" DataSetColumn="LAWTYP" />
+              <Mapping SourceColumn="LAWSEN" DataSetColumn="LAWSEN" />
+              <Mapping SourceColumn="LAWCOM" DataSetColumn="LAWCOM" />
+              <Mapping SourceColumn="CUSUSA" DataSetColumn="CUSUSA" />
+              <Mapping SourceColumn="CUSSTA" DataSetColumn="CUSSTA" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SCBZERO" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SCBZERO" msprop:Generator_UserDSName="SCBZERO">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Type" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ทุนทรัพย์รวม" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnทุนทรัพย์รวม" msprop:Generator_ColumnPropNameInRow="ทุนทรัพย์รวม" msprop:Generator_ColumnPropNameInTable="ทุนทรัพย์รวมColumn" msprop:Generator_UserColumnName="ทุนทรัพย์รวม" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSOWN" msprop:Generator_ColumnVarNameInTable="columnCUSOWN" msprop:Generator_ColumnPropNameInRow="CUSOWN" msprop:Generator_ColumnPropNameInTable="CUSOWNColumn" msprop:Generator_UserColumnName="CUSOWN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSACC" msprop:Generator_ColumnVarNameInTable="columnCUSACC" msprop:Generator_ColumnPropNameInRow="CUSACC" msprop:Generator_ColumnPropNameInTable="CUSACCColumn" msprop:Generator_UserColumnName="CUSACC">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSCUS" msprop:Generator_ColumnVarNameInTable="columnCUSCUS" msprop:Generator_ColumnPropNameInRow="CUSCUS" msprop:Generator_ColumnPropNameInTable="CUSCUSColumn" msprop:Generator_UserColumnName="CUSCUS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSREF" msprop:Generator_ColumnVarNameInTable="columnCUSREF" msprop:Generator_ColumnPropNameInRow="CUSREF" msprop:Generator_ColumnPropNameInTable="CUSREFColumn" msprop:Generator_UserColumnName="CUSREF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSNAM" msprop:Generator_ColumnVarNameInTable="columnCUSNAM" msprop:Generator_ColumnPropNameInRow="CUSNAM" msprop:Generator_ColumnPropNameInTable="CUSNAMColumn" msprop:Generator_UserColumnName="CUSNAM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSIDC" msprop:Generator_ColumnVarNameInTable="columnCUSIDC" msprop:Generator_ColumnPropNameInRow="CUSIDC" msprop:Generator_ColumnPropNameInTable="CUSIDCColumn" msprop:Generator_UserColumnName="CUSIDC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSPRO" msprop:Generator_ColumnVarNameInTable="columnCUSPRO" msprop:Generator_ColumnPropNameInRow="CUSPRO" msprop:Generator_ColumnPropNameInTable="CUSPROColumn" msprop:Generator_UserColumnName="CUSPRO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWSUE" msprop:Generator_ColumnVarNameInTable="columnLAWSUE" msprop:Generator_ColumnPropNameInRow="LAWSUE" msprop:Generator_ColumnPropNameInTable="LAWSUEColumn" msprop:Generator_UserColumnName="LAWSUE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWBLK" msprop:Generator_ColumnVarNameInTable="columnLAWBLK" msprop:Generator_ColumnPropNameInRow="LAWBLK" msprop:Generator_ColumnPropNameInTable="LAWBLKColumn" msprop:Generator_UserColumnName="LAWBLK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DOCAPP" msprop:Generator_ColumnVarNameInTable="columnDOCAPP" msprop:Generator_ColumnPropNameInRow="DOCAPP" msprop:Generator_ColumnPropNameInTable="DOCAPPColumn" msprop:Generator_UserColumnName="DOCAPP" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DOCSTM" msprop:Generator_ColumnVarNameInTable="columnDOCSTM" msprop:Generator_ColumnPropNameInRow="DOCSTM" msprop:Generator_ColumnPropNameInTable="DOCSTMColumn" msprop:Generator_UserColumnName="DOCSTM" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CUSBUC" msprop:Generator_ColumnVarNameInTable="columnCUSBUC" msprop:Generator_ColumnPropNameInRow="CUSBUC" msprop:Generator_ColumnPropNameInTable="CUSBUCColumn" msprop:Generator_UserColumnName="CUSBUC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSCLS" msprop:Generator_ColumnVarNameInTable="columnCUSCLS" msprop:Generator_ColumnPropNameInRow="CUSCLS" msprop:Generator_ColumnPropNameInTable="CUSCLSColumn" msprop:Generator_UserColumnName="CUSCLS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWSBAL" msprop:Generator_ColumnVarNameInTable="columnLAWSBAL" msprop:Generator_ColumnPropNameInRow="LAWSBAL" msprop:Generator_ColumnPropNameInTable="LAWSBALColumn" msprop:Generator_UserColumnName="LAWSBAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LAWSPRI" msprop:Generator_ColumnVarNameInTable="columnLAWSPRI" msprop:Generator_ColumnPropNameInRow="LAWSPRI" msprop:Generator_ColumnPropNameInTable="LAWSPRIColumn" msprop:Generator_UserColumnName="LAWSPRI" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LAWSINT" msprop:Generator_ColumnVarNameInTable="columnLAWSINT" msprop:Generator_ColumnPropNameInRow="LAWSINT" msprop:Generator_ColumnPropNameInTable="LAWSINTColumn" msprop:Generator_UserColumnName="LAWSINT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LAWSFEE" msprop:Generator_ColumnVarNameInTable="columnLAWSFEE" msprop:Generator_ColumnPropNameInRow="LAWSFEE" msprop:Generator_ColumnPropNameInTable="LAWSFEEColumn" msprop:Generator_UserColumnName="LAWSFEE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LAWENF1F" msprop:Generator_ColumnVarNameInTable="columnLAWENF1F" msprop:Generator_ColumnPropNameInRow="LAWENF1F" msprop:Generator_ColumnPropNameInTable="LAWENF1FColumn" msprop:Generator_UserColumnName="LAWENF1F" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LAWDMED" msprop:Generator_ColumnVarNameInTable="columnLAWDMED" msprop:Generator_ColumnPropNameInRow="LAWDMED" msprop:Generator_ColumnPropNameInTable="LAWDMEDColumn" msprop:Generator_UserColumnName="LAWDMED" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWTMED" msprop:Generator_ColumnVarNameInTable="columnLAWTMED" msprop:Generator_ColumnPropNameInRow="LAWTMED" msprop:Generator_ColumnPropNameInTable="LAWTMEDColumn" msprop:Generator_UserColumnName="LAWTMED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWDINV" msprop:Generator_ColumnVarNameInTable="columnLAWDINV" msprop:Generator_ColumnPropNameInRow="LAWDINV" msprop:Generator_ColumnPropNameInTable="LAWDINVColumn" msprop:Generator_UserColumnName="LAWDINV" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWTINV" msprop:Generator_ColumnVarNameInTable="columnLAWTINV" msprop:Generator_ColumnPropNameInRow="LAWTINV" msprop:Generator_ColumnPropNameInTable="LAWTINVColumn" msprop:Generator_UserColumnName="LAWTINV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWRINV" msprop:Generator_ColumnVarNameInTable="columnLAWRINV" msprop:Generator_ColumnPropNameInRow="LAWRINV" msprop:Generator_ColumnPropNameInTable="LAWRINVColumn" msprop:Generator_UserColumnName="LAWRINV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWCOU" msprop:Generator_ColumnVarNameInTable="columnLAWCOU" msprop:Generator_ColumnPropNameInRow="LAWCOU" msprop:Generator_ColumnPropNameInTable="LAWCOUColumn" msprop:Generator_UserColumnName="LAWCOU" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWYER" msprop:Generator_ColumnVarNameInTable="columnLAWYER" msprop:Generator_ColumnPropNameInRow="LAWYER" msprop:Generator_ColumnPropNameInTable="LAWYERColumn" msprop:Generator_UserColumnName="LAWYER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWRED" msprop:Generator_ColumnVarNameInTable="columnLAWRED" msprop:Generator_ColumnPropNameInRow="LAWRED" msprop:Generator_ColumnPropNameInTable="LAWREDColumn" msprop:Generator_UserColumnName="LAWRED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWJUD" msprop:Generator_ColumnVarNameInTable="columnLAWJUD" msprop:Generator_ColumnPropNameInRow="LAWJUD" msprop:Generator_ColumnPropNameInTable="LAWJUDColumn" msprop:Generator_UserColumnName="LAWJUD" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWWIT" msprop:Generator_ColumnVarNameInTable="columnLAWWIT" msprop:Generator_ColumnPropNameInRow="LAWWIT" msprop:Generator_ColumnPropNameInTable="LAWWITColumn" msprop:Generator_UserColumnName="LAWWIT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWENF1" msprop:Generator_ColumnVarNameInTable="columnLAWENF1" msprop:Generator_ColumnPropNameInRow="LAWENF1" msprop:Generator_ColumnPropNameInTable="LAWENF1Column" msprop:Generator_UserColumnName="LAWENF1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWENF2" msprop:Generator_ColumnVarNameInTable="columnLAWENF2" msprop:Generator_ColumnPropNameInRow="LAWENF2" msprop:Generator_ColumnPropNameInTable="LAWENF2Column" msprop:Generator_UserColumnName="LAWENF2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWENF3" msprop:Generator_ColumnVarNameInTable="columnLAWENF3" msprop:Generator_ColumnPropNameInRow="LAWENF3" msprop:Generator_ColumnPropNameInTable="LAWENF3Column" msprop:Generator_UserColumnName="LAWENF3" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWREF" msprop:Generator_ColumnVarNameInTable="columnLAWREF" msprop:Generator_ColumnPropNameInRow="LAWREF" msprop:Generator_ColumnPropNameInTable="LAWREFColumn" msprop:Generator_UserColumnName="LAWREF" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWDREF" msprop:Generator_ColumnVarNameInTable="columnLAWDREF" msprop:Generator_ColumnPropNameInRow="LAWDREF" msprop:Generator_ColumnPropNameInTable="LAWDREFColumn" msprop:Generator_UserColumnName="LAWDREF" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWJREF" msprop:Generator_ColumnVarNameInTable="columnLAWJREF" msprop:Generator_ColumnPropNameInRow="LAWJREF" msprop:Generator_ColumnPropNameInTable="LAWJREFColumn" msprop:Generator_UserColumnName="LAWJREF" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LAWCHQ" msprop:Generator_ColumnVarNameInTable="columnLAWCHQ" msprop:Generator_ColumnPropNameInRow="LAWCHQ" msprop:Generator_ColumnPropNameInTable="LAWCHQColumn" msprop:Generator_UserColumnName="LAWCHQ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWREP" msprop:Generator_ColumnVarNameInTable="columnLAWREP" msprop:Generator_ColumnPropNameInRow="LAWREP" msprop:Generator_ColumnPropNameInTable="LAWREPColumn" msprop:Generator_UserColumnName="LAWREP" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWRDOC" msprop:Generator_ColumnVarNameInTable="columnLAWRDOC" msprop:Generator_ColumnPropNameInRow="LAWRDOC" msprop:Generator_ColumnPropNameInTable="LAWRDOCColumn" msprop:Generator_UserColumnName="LAWRDOC" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAWTYP" msprop:Generator_ColumnVarNameInTable="columnLAWTYP" msprop:Generator_ColumnPropNameInRow="LAWTYP" msprop:Generator_ColumnPropNameInTable="LAWTYPColumn" msprop:Generator_UserColumnName="LAWTYP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWSEN" msprop:Generator_ColumnVarNameInTable="columnLAWSEN" msprop:Generator_ColumnPropNameInRow="LAWSEN" msprop:Generator_ColumnPropNameInTable="LAWSENColumn" msprop:Generator_UserColumnName="LAWSEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAWCOM" msprop:Generator_ColumnVarNameInTable="columnLAWCOM" msprop:Generator_ColumnPropNameInRow="LAWCOM" msprop:Generator_ColumnPropNameInTable="LAWCOMColumn" msprop:Generator_UserColumnName="LAWCOM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSUSA" msprop:Generator_ColumnVarNameInTable="columnCUSUSA" msprop:Generator_ColumnPropNameInRow="CUSUSA" msprop:Generator_ColumnPropNameInTable="CUSUSAColumn" msprop:Generator_UserColumnName="CUSUSA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CUSSTA" msprop:Generator_ColumnVarNameInTable="columnCUSSTA" msprop:Generator_ColumnPropNameInRow="CUSSTA" msprop:Generator_ColumnPropNameInTable="CUSSTAColumn" msprop:Generator_UserColumnName="CUSSTA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:CUSACC" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

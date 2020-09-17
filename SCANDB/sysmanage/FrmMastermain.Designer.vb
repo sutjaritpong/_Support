@@ -48,7 +48,6 @@ Partial Class FrmMastermain
         Me.Menu_Tab_Zero = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Tab_ScbLegal = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_tab_ScbCollector = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Menu_tab_ScbReport = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_tap_logout = New System.Windows.Forms.ToolStripMenuItem()
         Me.Main_menu_setting = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_accms = New System.Windows.Forms.ToolStripMenuItem()
@@ -292,7 +291,7 @@ Partial Class FrmMastermain
         'Menu_Tab_Zero
         '
         Me.Menu_Tab_Zero.BackColor = System.Drawing.Color.White
-        Me.Menu_Tab_Zero.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Tab_ScbLegal, Me.Menu_tab_ScbCollector, Me.Menu_tab_ScbReport})
+        Me.Menu_Tab_Zero.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Tab_ScbLegal, Me.Menu_tab_ScbCollector})
         Me.Menu_Tab_Zero.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_Tab_Zero.Image = Global.SCANDB.My.Resources.Resources._478a0c35f396963d0f65352b61809cb1___korat_hotels
         Me.Menu_Tab_Zero.Name = "Menu_Tab_Zero"
@@ -304,7 +303,7 @@ Partial Class FrmMastermain
         Me.Menu_Tab_ScbLegal.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_Tab_ScbLegal.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
         Me.Menu_Tab_ScbLegal.Name = "Menu_Tab_ScbLegal"
-        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(179, 22)
+        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(180, 22)
         Me.Menu_Tab_ScbLegal.Text = "SCB (LEGAL)"
         '
         'Menu_tab_ScbCollector
@@ -312,16 +311,8 @@ Partial Class FrmMastermain
         Me.Menu_tab_ScbCollector.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_tab_ScbCollector.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon24x24
         Me.Menu_tab_ScbCollector.Name = "Menu_tab_ScbCollector"
-        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(179, 22)
+        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(180, 22)
         Me.Menu_tab_ScbCollector.Text = "SCB (COLLECTOR)"
-        '
-        'Menu_tab_ScbReport
-        '
-        Me.Menu_tab_ScbReport.ForeColor = System.Drawing.Color.Indigo
-        Me.Menu_tab_ScbReport.Image = Global.SCANDB.My.Resources.Resources.report_go
-        Me.Menu_tab_ScbReport.Name = "Menu_tab_ScbReport"
-        Me.Menu_tab_ScbReport.Size = New System.Drawing.Size(179, 22)
-        Me.Menu_tab_ScbReport.Text = "SCB (Report)"
         '
         'Menu_tap_logout
         '
@@ -740,7 +731,6 @@ Partial Class FrmMastermain
     Friend WithEvents Menu_Tab_Zero As ToolStripMenuItem
     Friend WithEvents Menu_Tab_ScbLegal As ToolStripMenuItem
     Friend WithEvents Menu_tab_ScbCollector As ToolStripMenuItem
-    Friend WithEvents Menu_tab_ScbReport As ToolStripMenuItem
     Friend WithEvents Menu_tap_logout As ToolStripMenuItem
     Friend WithEvents Main_menu_setting As ToolStripMenuItem
     Friend WithEvents menu_accms As ToolStripMenuItem

@@ -1,7 +1,7 @@
 ﻿Option Explicit On
 Imports System.Data.SqlClient
 Public Class FrmmanageRouter
-    Dim headercolumns() As String = {"IP", "ยี่ห้อ", "ชื่อผู้ใช้", "รหัสผ่าน", "WIFI", "WIFIPASS", "DHCPSTART", "DHCPEND", "STATUS", "รายละเอียด", "วันที่แก้ไขล่าสุด"}
+    Friend headercolumns() As String = {"IP", "ยี่ห้อ", "ชื่อผู้ใช้", "รหัสผ่าน", "WIFI", "WIFIPASS", "DHCPSTART", "DHCPEND", "STATUS", "รายละเอียด", "วันที่แก้ไขล่าสุด"}
 
     Private Sub FrmmanageRouter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ReloadDatagird()
@@ -38,7 +38,7 @@ Public Class FrmmanageRouter
         cn.Close()
     End Sub
 
-    Private Sub dtgv_router_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_router.CellClick
+    Private Sub Dtgv_router_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgv_router.CellClick
 
         With dtgv_router
             txt_router_ip.Text = .CurrentRow.Cells(0).Value.ToString
@@ -46,19 +46,19 @@ Public Class FrmmanageRouter
             txt_router_user.Text = .CurrentRow.Cells(2).Value.ToString
             txt_router_password.Text = .CurrentRow.Cells(3).Value.ToString
             txt_router_wifiuser.Text = .CurrentRow.Cells(4).Value.ToString
-            txt_router_password.Text = .CurrentRow.Cells(5).Value.ToString
+            txt_router_wifipass.Text = .CurrentRow.Cells(5).Value.ToString
             txt_router_dhcpstart.Text = .CurrentRow.Cells(6).Value.ToString
-            txt_router_dhcpend.Text = .CurrentRow.Cells(6).Value.ToString
-            txt_router_status.Text = .CurrentRow.Cells(7).Value.ToString
-            txt_router_detail.Text = .CurrentRow.Cells(8).Value.ToString
-            Dtp_router_lastup.Text = .CurrentRow.Cells(9).Value.ToString
+            txt_router_dhcpend.Text = .CurrentRow.Cells(7).Value.ToString
+            txt_router_status.Text = .CurrentRow.Cells(8).Value.ToString
+            txt_router_detail.Text = .CurrentRow.Cells(9).Value.ToString
+            Dtp_router_lastup.Text = .CurrentRow.Cells(10).Value.ToString
         End With
 
     End Sub
 
-    Private Sub cmd_router_save_Click(sender As Object, e As EventArgs) Handles cmd_router_save.Click
+    Private Sub Cmd_router_save_Click(sender As Object, e As EventArgs) Handles cmd_router_save.Click
 
-        connect()
+        Connect()
 
         Dim txtbox As String = txt_router_ip.Text
         If txtbox = "" Then
@@ -136,11 +136,11 @@ Public Class FrmmanageRouter
 
     End Sub
 
-    Private Sub cmd_router_delete_Click(sender As Object, e As EventArgs) Handles cmd_router_delete.Click
+    Private Sub Cmd_router_delete_Click(sender As Object, e As EventArgs) Handles cmd_router_delete.Click
 
         If Msg_confirm("คุณต้องการลบรายการนี้หรือไม่") = vbYes Then
 
-            connect()
+            Connect()
 
             Dim txtbox As String = txt_router_ip.Text
             If txtbox = "" Then
@@ -166,7 +166,7 @@ Public Class FrmmanageRouter
 
     End Sub
 
-    Private Sub cmd_router_reload_Click(sender As Object, e As EventArgs) Handles cmd_router_reload.Click
+    Private Sub Cmd_router_reload_Click(sender As Object, e As EventArgs) Handles cmd_router_reload.Click
         ReloadDatagird()
     End Sub
 End Class

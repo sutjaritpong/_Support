@@ -16,24 +16,4 @@ Imports System.Net
 Public Class Frmcollector
 
 
-    Private Sub Frmcollector_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-    End Sub
-    Private Sub Cmd_import_Click(sender As Object, e As EventArgs) Handles Cmd_ImportPerformance.Click
-
-    End Sub
-
-    Private Sub Cmd_ImportHub_Click(sender As Object, e As EventArgs) Handles Cmd_ImportHub.Click
-
-    End Sub
-
-    Private Sub Cmd_Daily_Payment_Click(sender As Object, e As EventArgs) Handles Cmd_Daily_Payment.Click
-
-    End Sub
-
-    Private Sub Cmd_ImportPayment_Click(sender As Object, e As EventArgs) Handles Cmd_ImportPayment.Click
-
-    End Sub
-
 End Class

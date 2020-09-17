@@ -107,6 +107,8 @@ Partial Class FrmEXEACC
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Txt_Repeat_Block = New System.Windows.Forms.TextBox()
         Me.Chk_Repeat_DateSheet = New System.Windows.Forms.CheckBox()
         Me.Txt_Repeat_Court = New System.Windows.Forms.TextBox()
         Me.Dtp_Repeat_DateSheet = New System.Windows.Forms.DateTimePicker()
@@ -1141,6 +1143,8 @@ Partial Class FrmEXEACC
         '
         'GroupBox9
         '
+        Me.GroupBox9.Controls.Add(Me.Label20)
+        Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Block)
         Me.GroupBox9.Controls.Add(Me.Chk_Repeat_DateSheet)
         Me.GroupBox9.Controls.Add(Me.Txt_Repeat_Court)
         Me.GroupBox9.Controls.Add(Me.Dtp_Repeat_DateSheet)
@@ -1165,12 +1169,30 @@ Partial Class FrmEXEACC
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "ข้อมูลตั้งเรื่องอายัดซ้ำ"
         '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.BackColor = System.Drawing.SystemColors.Window
+        Me.Label20.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(58, 226)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(54, 18)
+        Me.Label20.TabIndex = 152
+        Me.Label20.Text = "BLOCK"
+        '
+        'Txt_Repeat_Block
+        '
+        Me.Txt_Repeat_Block.Location = New System.Drawing.Point(118, 224)
+        Me.Txt_Repeat_Block.Name = "Txt_Repeat_Block"
+        Me.Txt_Repeat_Block.Size = New System.Drawing.Size(178, 20)
+        Me.Txt_Repeat_Block.TabIndex = 151
+        '
         'Chk_Repeat_DateSheet
         '
         Me.Chk_Repeat_DateSheet.AutoSize = True
         Me.Chk_Repeat_DateSheet.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Chk_Repeat_DateSheet.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Chk_Repeat_DateSheet.Location = New System.Drawing.Point(27, 105)
+        Me.Chk_Repeat_DateSheet.Location = New System.Drawing.Point(27, 79)
         Me.Chk_Repeat_DateSheet.Name = "Chk_Repeat_DateSheet"
         Me.Chk_Repeat_DateSheet.Size = New System.Drawing.Size(85, 20)
         Me.Chk_Repeat_DateSheet.TabIndex = 103
@@ -1188,7 +1210,7 @@ Partial Class FrmEXEACC
         'Dtp_Repeat_DateSheet
         '
         Me.Dtp_Repeat_DateSheet.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp_Repeat_DateSheet.Location = New System.Drawing.Point(118, 105)
+        Me.Dtp_Repeat_DateSheet.Location = New System.Drawing.Point(118, 79)
         Me.Dtp_Repeat_DateSheet.Name = "Dtp_Repeat_DateSheet"
         Me.Dtp_Repeat_DateSheet.Size = New System.Drawing.Size(107, 20)
         Me.Dtp_Repeat_DateSheet.TabIndex = 13
@@ -1206,7 +1228,7 @@ Partial Class FrmEXEACC
         '
         'Txt_Repeat_Detail
         '
-        Me.Txt_Repeat_Detail.Location = New System.Drawing.Point(118, 131)
+        Me.Txt_Repeat_Detail.Location = New System.Drawing.Point(118, 105)
         Me.Txt_Repeat_Detail.Multiline = True
         Me.Txt_Repeat_Detail.Name = "Txt_Repeat_Detail"
         Me.Txt_Repeat_Detail.Size = New System.Drawing.Size(178, 63)
@@ -1217,7 +1239,7 @@ Partial Class FrmEXEACC
         Me.Label36.AutoSize = True
         Me.Label36.BackColor = System.Drawing.SystemColors.Window
         Me.Label36.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.Location = New System.Drawing.Point(50, 131)
+        Me.Label36.Location = New System.Drawing.Point(50, 105)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(62, 18)
         Me.Label36.TabIndex = 148
@@ -1254,14 +1276,14 @@ Partial Class FrmEXEACC
         '
         'Txt_Repeat_Bank
         '
-        Me.Txt_Repeat_Bank.Location = New System.Drawing.Point(118, 79)
+        Me.Txt_Repeat_Bank.Location = New System.Drawing.Point(118, 250)
         Me.Txt_Repeat_Bank.Name = "Txt_Repeat_Bank"
         Me.Txt_Repeat_Bank.Size = New System.Drawing.Size(178, 20)
         Me.Txt_Repeat_Bank.TabIndex = 12
         '
         'Txt_Repeat_Billcode
         '
-        Me.Txt_Repeat_Billcode.Location = New System.Drawing.Point(118, 200)
+        Me.Txt_Repeat_Billcode.Location = New System.Drawing.Point(118, 174)
         Me.Txt_Repeat_Billcode.Name = "Txt_Repeat_Billcode"
         Me.Txt_Repeat_Billcode.Size = New System.Drawing.Size(178, 20)
         Me.Txt_Repeat_Billcode.TabIndex = 15
@@ -1271,7 +1293,7 @@ Partial Class FrmEXEACC
         Me.Label30.AutoSize = True
         Me.Label30.BackColor = System.Drawing.SystemColors.Window
         Me.Label30.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(36, 201)
+        Me.Label30.Location = New System.Drawing.Point(36, 175)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(76, 18)
         Me.Label30.TabIndex = 97
@@ -1282,7 +1304,7 @@ Partial Class FrmEXEACC
         Me.Label33.AutoSize = True
         Me.Label33.BackColor = System.Drawing.SystemColors.Window
         Me.Label33.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(71, 227)
+        Me.Label33.Location = New System.Drawing.Point(71, 201)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(41, 18)
         Me.Label33.TabIndex = 101
@@ -1293,7 +1315,7 @@ Partial Class FrmEXEACC
         Me.Label34.AutoSize = True
         Me.Label34.BackColor = System.Drawing.SystemColors.Window
         Me.Label34.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(64, 80)
+        Me.Label34.Location = New System.Drawing.Point(64, 251)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(48, 18)
         Me.Label34.TabIndex = 143
@@ -1301,7 +1323,7 @@ Partial Class FrmEXEACC
         '
         'Txt_Repeat_Type
         '
-        Me.Txt_Repeat_Type.Location = New System.Drawing.Point(118, 226)
+        Me.Txt_Repeat_Type.Location = New System.Drawing.Point(118, 200)
         Me.Txt_Repeat_Type.Name = "Txt_Repeat_Type"
         Me.Txt_Repeat_Type.Size = New System.Drawing.Size(178, 20)
         Me.Txt_Repeat_Type.TabIndex = 16
@@ -1835,4 +1857,6 @@ Partial Class FrmEXEACC
     Friend WithEvents lbl_Pk_ACC As Label
     Friend WithEvents Lbl_Repeat_PK As Label
     Friend WithEvents Txt_Repeact_PK As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Txt_Repeat_Block As TextBox
 End Class

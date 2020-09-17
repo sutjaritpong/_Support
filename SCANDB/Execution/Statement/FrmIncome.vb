@@ -109,7 +109,7 @@ Public Class FrmIncome
 
         Connect()
 
-        sql = $"SELECT * FROM EXEEMPLOYEE WHERE = '{Cbo_Income_Employees.Text}'"
+        sql = $"SELECT * FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Income_Employees.Text}'"
         cmd = New SqlCommand(sql, cn)
         Dim EMPKEY As Integer = cmd.ExecuteScalar()
 
@@ -152,15 +152,16 @@ Public Class FrmIncome
         ClearText()
     End Sub
 
-    Private Sub Query_Insert_Income_Result()
-
-        Connect()
-
-        sql = "INSERT INTO Execution_Income_Result(Customer_Id_card)VALUES()"
-
-    End Sub
-
     Private Sub Cmd_Income_Insert_Click(sender As Object, e As EventArgs) Handles Cmd_Income_Insert.Click
+
+        Dim Txt_Clear() As TextBox = {Txt_Income_Total, Txt_Income_Refund, Txt_Income_Pay1, Txt_Income_Pay2, Txt_Income_Pay3, Txt_Income_Pay4, Txt_Income_Pay5, Txt_Income_Pay6, Txt_Income_Pay7, Txt_Income_Pay8, Txt_Income_Pay9, Txt_Income_Pay10, Txt_Income_Pay11, Txt_Income_Pay12, Txt_Income_Pay13, Txt_Income_Pay14, Txt_Income_Pay15, Txt_Income_GrandTotal}
+
+        For i As Integer = 0 To Txt_Clear.Length
+            Select Case Txt_Clear(i).Text
+                Case Txt_Clear(i).Text = "" : Txt_Clear(i).Text = 0
+                Case Txt_Clear(i).Text <> "" : Convertnum(Txt_Clear(i))
+            End Select
+        Next
 
         Query_Insert_Income()
 
@@ -441,7 +442,7 @@ Public Class FrmIncome
         Select Case Cbo_Income_Owner.SelectedItem
 
             Case "KBANK" : Connect_(cn_KBANK)
-                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW,LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
                 cmd_Collec = New SqlCommand(sqll, cn_KBANK)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
                 DS_Collec = New DataSet
@@ -451,38 +452,51 @@ Public Class FrmIncome
 
                     Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
                     Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                    Txt_Income_Accno.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
                     Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                     Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
                 Else
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
+                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
 
                     cmd_Collec = New SqlCommand(sqll, cn_KBANK)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Accno.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                    Lbl_income_result.ForeColor = Color.Red
+
+                End If
 
                 End If
 
                 cn_KBANK.Close()
 
             Case "KKB" : Connect_(cn_KKB)
-                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW,LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
                 cmd_Collec = New SqlCommand(sqll, cn_KKB)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
                 DS_Collec = New DataSet
@@ -497,6 +511,7 @@ Public Class FrmIncome
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
@@ -509,19 +524,27 @@ Public Class FrmIncome
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Red
+
+                    End If
                 End If
 
-                cn_KKB.Close()
+                    cn_KKB.Close()
 
             Case "SCB" : Connect_(cn_SCB)
                 sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Income_Acc.Text}'"
@@ -538,9 +561,11 @@ Public Class FrmIncome
                     Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                     Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
                     Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
@@ -553,64 +578,88 @@ Public Class FrmIncome
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Red
+
+                    End If
                 End If
 
-                cn_SCB.Close()
+                    cn_SCB.Close()
 
             Case "TSS" : Connect_(cn_GE)
+
                 sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWSAN,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
-
-                cmd_Collec = New SqlCommand(sqll, cn_GE)
-                DA_Collec = New SqlDataAdapter(cmd_Collec)
-                DS_Collec = New DataSet
-                DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
-
-                Else
-
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
 
                     cmd_Collec = New SqlCommand(sqll, cn_GE)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+                    Else
 
 
-                End If
+                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_GE)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+                            Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                            Lbl_income_result.Visible = True
+                            Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                            Lbl_income_result.ForeColor = Color.Green
+
+                        Else
+                            Lbl_income_result.Visible = True
+                            Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                            Lbl_income_result.ForeColor = Color.Red
+
+                        End If
+
+                    End If
 
                 cn_GE.Close()
 
@@ -630,9 +679,11 @@ Public Class FrmIncome
                     Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                     Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
                     Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
@@ -644,19 +695,30 @@ Public Class FrmIncome
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Red
+
+                    End If
 
                 End If
-                cn_TMB.Close()
+                    cn_TMB.Close()
 
             Case "TMB SME" : Connect_(cn_TMBSME)
                 sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
@@ -673,9 +735,11 @@ Public Class FrmIncome
                     Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                     Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
                     Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
@@ -687,24 +751,36 @@ Public Class FrmIncome
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Red
+
+                    End If
 
                 End If
 
-                cn_TMBSME.Close()
+                    cn_TMBSME.Close()
 
             Case "TBANK" : Connect_(cn_TBANK)
 
-                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.CUSCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
                 cmd_Collec = New SqlCommand(sqll, cn_TMB)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
@@ -716,37 +792,50 @@ Public Class FrmIncome
                     Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
                     Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
                     Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Fullname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                    Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
                     Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
                 Else
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =  RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
+                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
 
                     cmd_Collec = New SqlCommand(sqll, cn_TMB)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Red
+
+                    End If
                 End If
-                cn_TBANK.Close()
+                    cn_TBANK.Close()
 
             Case "UOB" : Connect_(cn_UOB)
 
-                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
+                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
                 cmd_Collec = New SqlCommand(sqll, cn_TMB)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
@@ -760,72 +849,102 @@ Public Class FrmIncome
                     Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                     Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
                     Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                    Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
                     Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
                     Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
                 Else
 
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
+                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
                     cmd_Collec = New SqlCommand(sqll, cn_TMB)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                    Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                    Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                    Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                    Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                    Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Txt_Income_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Txt_Income_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Txt_Income_Idcus.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Txt_Income_Firstname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Txt_Income_Lastname.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Txt_Income_Fullname.Text = $"{Txt_Income_Firstname.Text} {Txt_Income_Lastname.Text}"
+                        Txt_Income_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                    Else
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Red
+
+                    End If
 
                 End If
 
-                cn_UOB.Close()
+                    cn_UOB.Close()
 
             Case Else : Connect_(cnLegal)
 
-                sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
-                cmdlegal = New SqlCommand(sqll, cnLegal)
-                DALegal = New SqlDataAdapter(cmdlegal)
-                DSLegal = New DataSet
-                DALegal.Fill(DSLegal, "linklegal")
-
-                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
-
-
-                    Txt_Income_Firstname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
-                    Txt_Income_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
-                    Txt_Income_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
-                    Txt_Income_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
-                    Txt_Income_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
-                    Txt_Income_Idcus.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
-
-                    Lbl_income_result.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-                    Lbl_income_result.ForeColor = Color.Green
-
-                Else
-                    sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Income_Acc.Text}'"
+                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
                     cmdlegal = New SqlCommand(sqll, cnLegal)
                     DALegal = New SqlDataAdapter(cmdlegal)
                     DSLegal = New DataSet
                     DALegal.Fill(DSLegal, "linklegal")
 
-                    Txt_Income_Firstname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+                    Txt_Income_Firstname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                    Txt_Income_Lastname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                    Txt_Income_Fullname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                    Txt_Income_Accno.Text = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
                     Txt_Income_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
                     Txt_Income_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
                     Txt_Income_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
                     Txt_Income_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
                     Txt_Income_Idcus.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
 
+                    Lbl_income_result.Visible = True
                     Lbl_income_result.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
                     Lbl_income_result.ForeColor = Color.Green
 
-                End If
+                Else
+
+                    sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Income_Acc.Text}'"
+                        cmdlegal = New SqlCommand(sqll, cnLegal)
+                        DALegal = New SqlDataAdapter(cmdlegal)
+                        DSLegal = New DataSet
+                        DALegal.Fill(DSLegal, "linklegal")
+
+                    If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                        Txt_Income_Firstname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                        Txt_Income_Lastname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                        Txt_Income_Fullname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                        Txt_Income_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                        Txt_Income_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                        Txt_Income_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                        Txt_Income_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                        Txt_Income_Accno.Text = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                        Txt_Income_Idcus.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+
+                        Lbl_income_result.Visible = True
+                        Lbl_income_result.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+                        Lbl_income_result.ForeColor = Color.Green
+
+                    Else
+                        Lbl_income_result.Visible = True
+                            Lbl_income_result.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+                            Lbl_income_result.ForeColor = Color.Red
+
+                        End If
+
+                    End If
 
                 cnLegal.Close()
 
@@ -840,6 +959,10 @@ Public Class FrmIncome
 
         Cleardatagrid(Dtgv_Income)
 
+        If Cbo_Income_find.Text = "" Then
+            Msg_error("กรุณาเลือกประเภทข้อมูลที่ต้องการค้นหา")
+            Exit Sub
+        End If
 
         If Txt_Income_find.Text = "" Then
             Msg_error("กรุณากรอกข้อมุลที่ต้องการค้นหา")
@@ -887,12 +1010,8 @@ Public Class FrmIncome
                     .Columns(4).Visible = False
                     .Columns(5).Visible = False
                     .Columns(6).Visible = False
-                    .Columns(10).Visible = False
-                    .Columns(12).Visible = False
-                    .Columns(13).Visible = False
-                    .Columns(14).Visible = False
-                    .Columns(15).Visible = False
-                    .Columns(11).Visible = False
+                    .Columns(7).Visible = False
+
                     .Columns(12).Visible = False
                     .Columns(13).Visible = False
                     .Columns(14).Visible = False
@@ -922,6 +1041,44 @@ Public Class FrmIncome
         cn.Close()
     End Sub
 
+    Private Sub Dtgv_Income_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dtgv_Income.CellClick
+
+        '# Bug 
+
+        Dim Txt_Information() As TextBox = {Txt_Income_Refund, Txt_Income_Pay1, Txt_Income_Pay2, Txt_Income_Pay3, Txt_Income_Pay4, Txt_Income_Pay5, Txt_Income_Pay6, Txt_Income_Pay7, Txt_Income_Pay8, Txt_Income_Pay9, Txt_Income_Pay10, Txt_Income_Pay11, Txt_Income_Pay12, Txt_Income_Pay13, Txt_Income_Pay14, Txt_Income_Pay15, Txt_Income_GrandTotal}
+
+        Dim dtp_information() As DateTimePicker = {Dtp_Income_Refund, Dtp_Income_Pay1, Dtp_Income_Pay2, Dtp_Income_Pay3, Dtp_Income_Pay4, Dtp_Income_Pay5, Dtp_Income_Pay6, Dtp_Income_Pay7, Dtp_Income_Pay8, Dtp_Income_Pay9, Dtp_Income_Pay10, Dtp_Income_Pay11, Dtp_Income_Pay12, Dtp_Income_Pay13, Dtp_Income_Pay14, Dtp_Income_Pay15}
+
+        Dim Information_Customer() As Object = {Lbl_Income_Invalid, Cbo_Income_Owner, Txt_Income_Idcus, Txt_Income_Acc, Txt_Income_Accno, Txt_Income_prefix, Txt_Income_Firstname, Txt_Income_Lastname, Txt_Income_Fullname, Txt_Income_Court, Txt_Income_Black, Txt_Income_Red, Cbo_Income_Type, Txt_Income_Detail, Dtp_Income_DateSheet, Dtp_Income_Datework, Txt_Income_Total}
+
+        With Dtgv_Income
+
+            Try
+                For i As Integer = 0 To Information_Customer.Length
+
+                    If i = 12 Then
+
+                        Continue For
+
+                    End If
+
+                    If .CurrentRow.Cells(i).Value.ToString <> "" Then
+
+                        Information_Customer(i).text = .CurrentRow.Cells(i).Value.ToString
+
+                    End If
+                Next
+
+            Catch
+
+            End Try
+
+            Txt_Information(1).Text = .CurrentRow.Cells(12).Value.ToString
+
+        End With
+
+    End Sub
+
     Private Sub Cmd_Income_Find_Click(sender As Object, e As EventArgs) Handles Cmd_Income_Find.Click
 
         Connect()
@@ -929,5 +1086,276 @@ Public Class FrmIncome
 
     End Sub
 
+    Private Sub Txt_Income_Refund_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Refund.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay1.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Total_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Total.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay2.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay3.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay4.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay5_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay5.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay6_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay6.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay7_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay7.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay8_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay8.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay9_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay9.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay10_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay10.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay11_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay11.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay12_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay12.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay13_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay13.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay14_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay14.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
+
+    Private Sub Txt_Income_Pay15_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_Income_Pay15.KeyPress
+
+        '## กำหนดให้กรอกได้เฉพาะ ตัวเลข ! คือคีร์ 48 ถึง 57 ส่วน 8 , 13 , 46 ถือ ปุ่ม Backspace Enter Delete ตามลำดับ
+
+        Select Case Asc(e.KeyChar)
+            Case 48 To 57
+                e.Handled = False
+            Case 8, 13, 46
+                e.Handled = False
+            Case Else
+                e.Handled = True
+                Msg_error("กรุณากรอกเฉพาะตัวเลข")
+        End Select
+
+    End Sub
 
 End Class

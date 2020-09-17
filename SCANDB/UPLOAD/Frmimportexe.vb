@@ -40,11 +40,13 @@ Public Class Frmimportexe
 
     End Sub
     Sub Dtgv_clear()
+
         Dtgv_Exe.Columns.Clear()
         If Dtgv_Exe.Columns.Count = 0 Then
             Dtgv_Exe.Columns.Clear()
         End If
         Dtgv_Exe.DataSource = Nothing
+
     End Sub
 
     Private Sub Cmd_openfile_Click(sender As Object, e As EventArgs) Handles cmd_openfile.Click
@@ -309,12 +311,12 @@ Public Class Frmimportexe
 
                                             '------------ UPLOAD Execution_Ownership ------------'
 
-                    Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"ExecuCtion_Ownership_Result(Customer_Id_Card,Date_review,Ownership_deed,Ownership_surveypage,Ownership_district,Ownership_location,Ownership_land_office,Ownership_address)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}')"
+                    Case "ผลสืบกรรมสิทธิ์/ที่ดิน" : sql &= $"Execution_Ownership_Result(Customer_Id_Card,Date_review,Ownership_deed,Ownership_surveypage,Ownership_district,Ownership_location,Ownership_land_office,Ownership_address)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}')"
 
 
                         '-----------------UPLOAD Execution_Ownership_Result ------------------'
 
-                    Case "อายัดซ้ำ" : sql &= $"Execution_Repeatfreeze(Customer_owner,Customer_id_card,Customer_account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Int(Dtgv_Exe.Rows(i).Cells(8).Value)}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}')"
+                    Case "อายัดซ้ำ" : sql &= $"Execution_Repeatfreeze(Customer_owner,Customer_id_card,Customer_account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work,RepeatFreeze_Status)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}',{Dtgv_Exe.Rows(i).Cells(8).Value},'{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}')"
 
 
 

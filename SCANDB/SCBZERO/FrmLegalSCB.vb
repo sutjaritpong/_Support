@@ -15,8 +15,6 @@ Public Class FrmLegalSCB
 
     Private Sub FrmLegalSCB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Cmd_ExportExcel.Enabled = False
-
         Dim Clockmonth As DateTime = DateTime.Now.AddMonths(-1).AddDays(1)
         Console.WriteLine(Clockmonth)
         Dim Clockafter As DateTime = DateTime.Now.AddMonths(0)
@@ -186,7 +184,7 @@ Public Class FrmLegalSCB
     Private Sub LinkRinvDetail()
 
         sql = $"SELECT dbCUS.CUSOWN AS ธนาคาร, dbCUS.CUSNUM AS [สำนวน No], dbCUS.CUSACC AS หมายเลขบัญชี, dbCUS.CUSCUS AS [Ref No], dbCUS.CUSREF AS [เลขที่ LIS], dbCUS.CUSNAM AS [ชื่อ-นามสกุล], dbCUS.CUSIDC AS ID, dbCUS.CUSPRO AS Product, dbLAW.LAWSUE AS วันฟ้อง, dbLAW.LAWBLK AS คดีดำ, dbDOC.DOCAPP AS [วันที่รับเอกสาร app], dbDOC.DOCSTM AS [วันที่รับเอกสาร STM], dbCUS.CUSBUC AS Bucket, dbCUS.CUSCLS AS Class, '' AS Type, '' AS ทุนทรัพย์รวม, dbLAW.LAWSBAL AS ทุนทรัพย์บัตร, dbLAW.LAWSPRI AS ต้นเงิน, dbLAW.LAWSINT AS ดอกเบี้ย, dbLAW.LAWSFEE AS ค่าธรรมเนียมศาล, dbLAW.LAWENF1F AS ค่าส่งคำคู่ความ, dbLAW.LAWDMED AS วันไกล่เกลีย, dbLAW.LAWTMED AS เวลาไกล่เกลี่ย, dbLAW.LAWDINV AS วันสืบ, dbLAW.LAWTINV AS เวลา, dbLAW.LAWRINV AS ผลสืบ, dbCUS.CUSSTA AS STATUS, dbLAW.LAWCOU AS ศาล, dbLAW.LAWYER AS ทนาย, dbLAW.LAWRED AS คดีแดง, dbLAW.LAWJUD AS [วันที่พิพากษา/วันที่ทำยอม], dbLAW.LAWWIT AS ถอนฟ้อง, dbLAW.LAWENF1 AS วันที่นำคำบังคับ, dbLAW.LAWENF2 AS วันออกหมายตั้ง, dbLAW.LAWENF3 AS วันออกหมายบังคับคดี, dbLAW.LAWREF AS วันแถลงงดบังคับคดี, dbLAW.LAWDREF AS วันที่คืนค่าธรรมเนียมศาล, dbLAW.LAWJREF AS จำนวนค่าธรรมเนียมศาล, dbLAW.LAWCHQ AS เลขที่เช็ค, dbLAW.LAWREP AS วันที่รายงานคำพิพากษาให้ธนาคาร, dbLAW.LAWRDOC AS [วันที่คืนเอกสารสืบให้ admin], dbLAW.LAWTYP AS ผลพิพากษา, dbLAW.LAWSEN AS คำพิพากษา, dbLAW.LAWCOM AS สัญญายอม,RFCUS.CUSUSA 
-          FROM FDSSERVER_1.LegaldB.dbo.dbCUS LEFT JOIN FDSSERVER_1.LegaldB.dbo.dbLAW On dbCUS.CUSACC = dbLAW.LAWACC LEFT JOIN FDSSERVER_1.LegaldB.dbo.dbDOC On dbCUS.CUSACC = dbDOC.DOCACC INNER JOIN [FDS-SERVER].[SCBdB].[dbo].[RFCUS] ON dbCUS.CUSACC = RFCUS.CUSCNO WHERE (dbCUS.CUSOWN) ='SCB' AND dbCUS.CUSBUC = 'ZERO' AND RFCUS.CUSUSA = '{Dtgv_LawCollector.CurrentRow.Cells(0).Value}' ORDER BY dbLAW.LAWSUE DESC;"
+          FROM FDSSERVER_1.LegaldB.dbo.dbCUS LEFT JOIN FDSSERVER_1.LegaldB.dbo.dbLAW On dbCUS.CUSACC = dbLAW.LAWACC LEFT JOIN FDSSERVER_1.LegaldB.dbo.dbDOC On dbCUS.CUSACC = dbDOC.DOCACC LEFT JOIN [FDS-SERVER].[SCBdB].[dbo].[RFCUS] ON dbCUS.CUSACC = RFCUS.CUSCNO WHERE (dbCUS.CUSOWN) ='SCB' AND dbCUS.CUSBUC = 'ZERO' AND RFCUS.CUSUSA = '{Dtgv_LawCollector.CurrentRow.Cells(0).Value}' ORDER BY dbLAW.LAWSUE DESC;"
 
         cmd = New SqlCommand(sql, cnLegal)
         DALegal = New SqlDataAdapter(cmd)
@@ -203,6 +201,15 @@ Public Class FrmLegalSCB
     End Sub
 
     Private Sub Cmd_ExportExcel_Click(sender As Object, e As EventArgs) Handles Cmd_ExportExcel.Click
+
+        If Application.OpenForms().OfType(Of FrmSCBZeroRV).Any Then
+
+            FrmSCBZeroRV.Focus()
+        Else
+            FrmSCBZeroRV.ShowDialog()
+            FrmSCBZeroRV.StartPosition = FormStartPosition.CenterScreen
+
+        End If
 
     End Sub
     Private Sub ReleaseObject(ByVal obj As Object)
