@@ -447,6 +447,9 @@ Public Class FrmEXEACC
 
         Connect()
 
+        Check_CitizenID(txt_cusid)
+
+
         If txt_cusid.Text = "" Then         '# เช็คข้อมูลเลขที่บัตรประชาชน ว่าเป็นค่าว่างหรือไม่
 
             Msg_error("กรุณากรอกเลขบัตรประชาชนลูกค้า")
@@ -557,6 +560,8 @@ Public Class FrmEXEACC
             Return
 
         End If
+
+        Check_CitizenID(txt_cusid)
 
         sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{acckey}'"
 
@@ -1086,6 +1091,8 @@ Public Class FrmEXEACC
 
     Private Sub Cmd_Repeat_Update_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Update.Click
 
+        Check_CitizenID(Txt_Repeat_Idc)
+
         QueryUpdate_()
 
 
@@ -1093,6 +1100,8 @@ Public Class FrmEXEACC
 
 
     Private Sub Cmd_Repeat_Add_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Add.Click
+
+        Check_CitizenID(Txt_Repeat_Idc)
 
         If Txt_Repeat_Acc.Text = "" OrElse Cbo_Repeat_product.Text = "" OrElse Cbo_Repeat_EmpExe.Text = "" OrElse Cbo_Repeat_Status.Text = "" Then
 

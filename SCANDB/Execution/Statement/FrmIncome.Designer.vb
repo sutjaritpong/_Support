@@ -24,9 +24,9 @@ Partial Class FrmIncome
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmIncome))
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cbo_income_prefix = New System.Windows.Forms.ComboBox()
         Me.Lbl_Income_Invalid = New System.Windows.Forms.Label()
         Me.Cbo_Income_Owner = New System.Windows.Forms.ComboBox()
-        Me.Txt_Income_prefix = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Txt_Income_Firstname = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -142,6 +142,9 @@ Partial Class FrmIncome
         Me.Txt_Income_Pay1 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay1 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay1 = New System.Windows.Forms.DateTimePicker()
+        Me.Lbl_primarykey = New System.Windows.Forms.Label()
+        Me.Lbl_key_idc = New System.Windows.Forms.Label()
+        Me.Lbl_key_Acc = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Group_search.SuspendLayout()
@@ -152,9 +155,9 @@ Partial Class FrmIncome
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.cbo_income_prefix)
         Me.GroupBox3.Controls.Add(Me.Lbl_Income_Invalid)
         Me.GroupBox3.Controls.Add(Me.Cbo_Income_Owner)
-        Me.GroupBox3.Controls.Add(Me.Txt_Income_prefix)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Controls.Add(Me.Txt_Income_Firstname)
         Me.GroupBox3.Controls.Add(Me.Label8)
@@ -187,11 +190,22 @@ Partial Class FrmIncome
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ข้อมูลลูกค้า"
         '
+        'cbo_income_prefix
+        '
+        Me.cbo_income_prefix.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cbo_income_prefix.ForeColor = System.Drawing.Color.Blue
+        Me.cbo_income_prefix.FormattingEnabled = True
+        Me.cbo_income_prefix.Location = New System.Drawing.Point(117, 126)
+        Me.cbo_income_prefix.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.cbo_income_prefix.Name = "cbo_income_prefix"
+        Me.cbo_income_prefix.Size = New System.Drawing.Size(137, 23)
+        Me.cbo_income_prefix.TabIndex = 102
+        '
         'Lbl_Income_Invalid
         '
         Me.Lbl_Income_Invalid.AutoSize = True
         Me.Lbl_Income_Invalid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Lbl_Income_Invalid.Location = New System.Drawing.Point(217, 471)
+        Me.Lbl_Income_Invalid.Location = New System.Drawing.Point(121, 471)
         Me.Lbl_Income_Invalid.Name = "Lbl_Income_Invalid"
         Me.Lbl_Income_Invalid.Size = New System.Drawing.Size(37, 20)
         Me.Lbl_Income_Invalid.TabIndex = 98
@@ -207,24 +221,14 @@ Partial Class FrmIncome
         Me.Cbo_Income_Owner.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Cbo_Income_Owner.Name = "Cbo_Income_Owner"
         Me.Cbo_Income_Owner.Size = New System.Drawing.Size(136, 23)
-        Me.Cbo_Income_Owner.TabIndex = 102
-        '
-        'Txt_Income_prefix
-        '
-        Me.Txt_Income_prefix.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_prefix.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_prefix.Location = New System.Drawing.Point(117, 126)
-        Me.Txt_Income_prefix.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_prefix.Name = "Txt_Income_prefix"
-        Me.Txt_Income_prefix.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_prefix.TabIndex = 100
+        Me.Cbo_Income_Owner.TabIndex = 1
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.SystemColors.Window
         Me.Label10.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(56, 130)
+        Me.Label10.Location = New System.Drawing.Point(58, 130)
         Me.Label10.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(51, 16)
@@ -239,7 +243,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Firstname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Firstname.Name = "Txt_Income_Firstname"
         Me.Txt_Income_Firstname.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Firstname.TabIndex = 98
+        Me.Txt_Income_Firstname.TabIndex = 6
         '
         'Label8
         '
@@ -261,7 +265,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Lastname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Lastname.Name = "Txt_Income_Lastname"
         Me.Txt_Income_Lastname.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Lastname.TabIndex = 96
+        Me.Txt_Income_Lastname.TabIndex = 7
         '
         'Label5
         '
@@ -283,7 +287,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Accno.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Accno.Name = "Txt_Income_Accno"
         Me.Txt_Income_Accno.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Accno.TabIndex = 94
+        Me.Txt_Income_Accno.TabIndex = 3
         '
         'Label4
         '
@@ -306,7 +310,7 @@ Partial Class FrmIncome
         Me.Cbo_Income_Employees.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Cbo_Income_Employees.Name = "Cbo_Income_Employees"
         Me.Cbo_Income_Employees.Size = New System.Drawing.Size(140, 23)
-        Me.Cbo_Income_Employees.TabIndex = 93
+        Me.Cbo_Income_Employees.TabIndex = 12
         '
         'Txt_Income_Court
         '
@@ -316,7 +320,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Court.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Court.Name = "Txt_Income_Court"
         Me.Txt_Income_Court.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Court.TabIndex = 71
+        Me.Txt_Income_Court.TabIndex = 9
         '
         'Label1
         '
@@ -338,7 +342,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Acc.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Acc.Name = "Txt_Income_Acc"
         Me.Txt_Income_Acc.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Acc.TabIndex = 69
+        Me.Txt_Income_Acc.TabIndex = 2
         '
         'Label9
         '
@@ -396,7 +400,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Fullname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Fullname.Name = "Txt_Income_Fullname"
         Me.Txt_Income_Fullname.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Fullname.TabIndex = 7
+        Me.Txt_Income_Fullname.TabIndex = 8
         '
         'Txt_Income_Idcus
         '
@@ -406,7 +410,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Idcus.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Idcus.Name = "Txt_Income_Idcus"
         Me.Txt_Income_Idcus.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Idcus.TabIndex = 6
+        Me.Txt_Income_Idcus.TabIndex = 4
         '
         'Txt_Income_Black
         '
@@ -415,7 +419,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Black.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Black.Name = "Txt_Income_Black"
         Me.Txt_Income_Black.Size = New System.Drawing.Size(101, 21)
-        Me.Txt_Income_Black.TabIndex = 11
+        Me.Txt_Income_Black.TabIndex = 10
         '
         'Label16
         '
@@ -484,7 +488,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Red.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Red.Name = "Txt_Income_Red"
         Me.Txt_Income_Red.Size = New System.Drawing.Size(102, 21)
-        Me.Txt_Income_Red.TabIndex = 13
+        Me.Txt_Income_Red.TabIndex = 11
         '
         'GroupBox1
         '
@@ -692,7 +696,7 @@ Partial Class FrmIncome
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.GroupBox2.Location = New System.Drawing.Point(502, 231)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(231, 200)
+        Me.GroupBox2.Size = New System.Drawing.Size(231, 176)
         Me.GroupBox2.TabIndex = 96
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ช้อมูลการรับเงินส่วนได้/ค.ช.จ. คืนโจทก์"
@@ -718,7 +722,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Total.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Txt_Income_Total.Name = "Txt_Income_Total"
         Me.Txt_Income_Total.Size = New System.Drawing.Size(165, 22)
-        Me.Txt_Income_Total.TabIndex = 103
+        Me.Txt_Income_Total.TabIndex = 14
         '
         'Cbo_Income_Type
         '
@@ -729,7 +733,7 @@ Partial Class FrmIncome
         Me.Cbo_Income_Type.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Cbo_Income_Type.Name = "Cbo_Income_Type"
         Me.Cbo_Income_Type.Size = New System.Drawing.Size(165, 23)
-        Me.Cbo_Income_Type.TabIndex = 102
+        Me.Cbo_Income_Type.TabIndex = 13
         '
         'Label20
         '
@@ -753,7 +757,7 @@ Partial Class FrmIncome
         Me.Txt_Income_Detail.Multiline = True
         Me.Txt_Income_Detail.Name = "Txt_Income_Detail"
         Me.Txt_Income_Detail.Size = New System.Drawing.Size(165, 59)
-        Me.Txt_Income_Detail.TabIndex = 32
+        Me.Txt_Income_Detail.TabIndex = 15
         '
         'Label19
         '
@@ -1638,12 +1642,50 @@ Partial Class FrmIncome
         Me.Dtp_Income_Pay1.Size = New System.Drawing.Size(111, 21)
         Me.Dtp_Income_Pay1.TabIndex = 103
         '
+        'Lbl_primarykey
+        '
+        Me.Lbl_primarykey.AutoSize = True
+        Me.Lbl_primarykey.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_primarykey.Location = New System.Drawing.Point(1142, 702)
+        Me.Lbl_primarykey.Name = "Lbl_primarykey"
+        Me.Lbl_primarykey.Size = New System.Drawing.Size(35, 20)
+        Me.Lbl_primarykey.TabIndex = 102
+        Me.Lbl_primarykey.Text = "Key"
+        Me.Lbl_primarykey.Visible = False
+        '
+        'Lbl_key_idc
+        '
+        Me.Lbl_key_idc.AutoSize = True
+        Me.Lbl_key_idc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_key_idc.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Lbl_key_idc.Location = New System.Drawing.Point(1005, 702)
+        Me.Lbl_key_idc.Name = "Lbl_key_idc"
+        Me.Lbl_key_idc.Size = New System.Drawing.Size(63, 20)
+        Me.Lbl_key_idc.TabIndex = 103
+        Me.Lbl_key_idc.Text = "KeyIDC"
+        Me.Lbl_key_idc.Visible = False
+        '
+        'Lbl_key_Acc
+        '
+        Me.Lbl_key_Acc.AutoSize = True
+        Me.Lbl_key_Acc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_key_Acc.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Lbl_key_Acc.Location = New System.Drawing.Point(1074, 702)
+        Me.Lbl_key_Acc.Name = "Lbl_key_Acc"
+        Me.Lbl_key_Acc.Size = New System.Drawing.Size(62, 20)
+        Me.Lbl_key_Acc.TabIndex = 104
+        Me.Lbl_key_Acc.Text = "KeyAcc"
+        Me.Lbl_key_Acc.Visible = False
+        '
         'FrmIncome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.Lbl_key_Acc)
+        Me.Controls.Add(Me.Lbl_key_idc)
+        Me.Controls.Add(Me.Lbl_primarykey)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Dtgv_Income)
@@ -1665,6 +1707,7 @@ Partial Class FrmIncome
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -1706,7 +1749,6 @@ Partial Class FrmIncome
     Friend WithEvents Label8 As Label
     Friend WithEvents Txt_Income_Lastname As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Txt_Income_prefix As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label20 As Label
@@ -1787,4 +1829,8 @@ Partial Class FrmIncome
     Friend WithEvents Txt_Income_GrandTotal As TextBox
     Friend WithEvents Lbl_Income_Invalid As Label
     Friend WithEvents Lbl_income_result As Label
+    Friend WithEvents Lbl_primarykey As Label
+    Friend WithEvents Lbl_key_idc As Label
+    Friend WithEvents Lbl_key_Acc As Label
+    Friend WithEvents cbo_income_prefix As ComboBox
 End Class

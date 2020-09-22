@@ -56,6 +56,7 @@ Partial Class FrmCheck
         Me.chk_checksend = New System.Windows.Forms.CheckBox()
         Me.chk_datecheck = New System.Windows.Forms.CheckBox()
         Me.dtp_datecheck = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_primary = New System.Windows.Forms.Label()
         CType(Me.dtgv_check, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,6 +66,7 @@ Partial Class FrmCheck
         Me.dtgv_check.AllowUserToDeleteRows = False
         Me.dtgv_check.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtgv_check.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtgv_check.BackgroundColor = System.Drawing.Color.White
         Me.dtgv_check.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgv_check.Location = New System.Drawing.Point(36, 27)
         Me.dtgv_check.Name = "dtgv_check"
@@ -290,11 +292,11 @@ Partial Class FrmCheck
         Me.btn_editch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_editch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.btn_editch.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.btn_editch.Location = New System.Drawing.Point(166, 391)
+        Me.btn_editch.Location = New System.Drawing.Point(396, 391)
         Me.btn_editch.Name = "btn_editch"
         Me.btn_editch.Size = New System.Drawing.Size(133, 29)
         Me.btn_editch.TabIndex = 47
-        Me.btn_editch.Text = "แก้ไขข้อมูล"
+        Me.btn_editch.Text = "แก้ไข"
         Me.btn_editch.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_editch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_editch.UseVisualStyleBackColor = False
@@ -305,11 +307,11 @@ Partial Class FrmCheck
         Me.btn_savech.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_savech.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.btn_savech.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.btn_savech.Location = New System.Drawing.Point(29, 391)
+        Me.btn_savech.Location = New System.Drawing.Point(171, 391)
         Me.btn_savech.Name = "btn_savech"
         Me.btn_savech.Size = New System.Drawing.Size(133, 29)
         Me.btn_savech.TabIndex = 48
-        Me.btn_savech.Text = "บันทึกข้อมูล"
+        Me.btn_savech.Text = "แก้ไขข้อมูลเก่า"
         Me.btn_savech.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_savech.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_savech.UseVisualStyleBackColor = False
@@ -335,17 +337,18 @@ Partial Class FrmCheck
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Button1.Image = Global.SCANDB.My.Resources.Resources.add
-        Me.Button1.Location = New System.Drawing.Point(305, 391)
+        Me.Button1.Location = New System.Drawing.Point(32, 391)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(133, 29)
         Me.Button1.TabIndex = 50
-        Me.Button1.Text = "เพิ่มข้อมูล"
+        Me.Button1.Text = "เพิ่มข้อมูลใหม่"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = False
         '
         'cbo_cusowner
         '
+        Me.cbo_cusowner.BackColor = System.Drawing.SystemColors.Window
         Me.cbo_cusowner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_cusowner.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_cusowner.FormattingEnabled = True
@@ -396,12 +399,23 @@ Partial Class FrmCheck
         Me.dtp_datecheck.Size = New System.Drawing.Size(113, 20)
         Me.dtp_datecheck.TabIndex = 56
         '
+        'lbl_primary
+        '
+        Me.lbl_primary.AutoSize = True
+        Me.lbl_primary.Location = New System.Drawing.Point(796, 399)
+        Me.lbl_primary.Name = "lbl_primary"
+        Me.lbl_primary.Size = New System.Drawing.Size(59, 13)
+        Me.lbl_primary.TabIndex = 58
+        Me.lbl_primary.Text = "PrimaryKey"
+        Me.lbl_primary.Visible = False
+        '
         'FrmCheck
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(711, 443)
+        Me.ClientSize = New System.Drawing.Size(704, 443)
+        Me.Controls.Add(Me.lbl_primary)
         Me.Controls.Add(Me.chk_datecheck)
         Me.Controls.Add(Me.dtp_datecheck)
         Me.Controls.Add(Me.chk_checksend)
@@ -482,4 +496,5 @@ Partial Class FrmCheck
     Friend WithEvents chk_checksend As CheckBox
     Friend WithEvents chk_datecheck As CheckBox
     Friend WithEvents dtp_datecheck As DateTimePicker
+    Friend WithEvents lbl_primary As Label
 End Class

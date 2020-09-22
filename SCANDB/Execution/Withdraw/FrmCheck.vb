@@ -1,6 +1,8 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class FrmCheck
+
+
     Private Sub FrmCheck_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
@@ -16,7 +18,7 @@ Public Class FrmCheck
 
         cbo_cusowner.SelectedItem = FrmWDS.cbo_owner.Text
 
-        check_notedit()
+        Check_notedit()
 
         Convertnum(txt_total)
         Convertnum(txt_totalcheck)
@@ -30,6 +32,7 @@ Public Class FrmCheck
 
             With dtgv_check
 
+                lbl_primary.Text = CStr(.Rows.Item(e.RowIndex).Cells(0).Value.ToString)
                 cbo_cusowner.Text = CStr(.Rows.Item(e.RowIndex).Cells(1).Value.ToString)
                 txt_checkbank.Text = CStr(.Rows.Item(e.RowIndex).Cells(2).Value.ToString)
                 txt_hub.Text = CStr(.Rows.Item(e.RowIndex).Cells(3).Value.ToString)
@@ -89,7 +92,7 @@ Public Class FrmCheck
 
         End Try
 
-        check_notedit()
+        Check_notedit()
 
     End Sub
     Private Sub Check_notedit()
@@ -160,13 +163,13 @@ Public Class FrmCheck
 
     Private Sub Btn_savech_Click(sender As Object, e As EventArgs) Handles btn_savech.Click
 
-        updatecheck()
+        Updatecheck()
 
     End Sub
 
     Private Sub Btn_cancel_Click(sender As Object, e As EventArgs) Handles btn_cancel.Click
 
-        cancel_edit()
+        Cancel_edit()
 
     End Sub
     Public Sub Cancel_edit()
@@ -197,11 +200,12 @@ Public Class FrmCheck
     ''' 
     ''' </summary>
     Private Sub Updatecheck()
+
         Connect()
 
         If txt_cusid.ReadOnly = False Then
 
-            sql = $"UPDATE EXECHECK SET CHKKEY='{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}-{dtp_checksend.Text}',CHKOWN = '{cbo_cusowner.Text}',CHKBANK = '{txt_checkbank.Text}',CHKHUB = '{txt_hub.Text}',CHKNUM = '{txt_numcheck.Text}',CHKDATE = '{dtp_datecheck.Text}',CHKTOTAL = '{txt_totalcheck.Text}',CHKIDC = '{txt_cusid.Text}',CHKACC = '{txt_cusacc.Text}',CHKACCNO = '{txt_cusaccno.Text}',CHKNAME = '{txt_cusname.Text}',CHKDATESEND = '{dtp_checksend.Text}',CHKTOTALEXE = '{txt_total.Text}',CHKTOTALEXERE = '{txt_refund.Text}',CHKDETAIL1 = '{txt_note.Text}' WHERE CHKACC = '{txt_cusacc.Text}' AND CHKNAME = '{txt_cusname.Text}';"
+            sql = $"UPDATE EXECHECK SET CHKOWN = '{cbo_cusowner.Text}',CHKBANK = '{txt_checkbank.Text}',CHKHUB = '{txt_hub.Text}',CHKNUM = '{txt_numcheck.Text}',CHKDATE = '{dtp_datecheck.Text}',CHKTOTAL = '{txt_totalcheck.Text}',CHKIDC = '{txt_cusid.Text}',CHKACC = '{txt_cusacc.Text}',CHKACCNO = '{txt_cusaccno.Text}',CHKNAME = '{txt_cusname.Text}',CHKDATESEND = '{dtp_checksend.Text}',CHKTOTALEXE = '{txt_total.Text}',CHKTOTALEXERE = '{txt_refund.Text}',CHKDETAIL1 = '{txt_note.Text}' WHERE CHKKEY = '{lbl_primary.Text}' ;"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
@@ -215,6 +219,25 @@ Public Class FrmCheck
             Msg_error("ไม่สามารถแก้ไขข้อมูลได้")
 
         End If
+
+        Cleardatagrid(dtgv_check)
+
+        _sql = $"SELECT * FROM EXECHECK WHERE CHKKEY = '{lbl_primary.Text}'"
+        cmd = New SqlCommand(_sql, cn)
+        DA = New SqlDataAdapter(cmd)
+        DS = New DataSet()
+        DA.Fill(DS, "check")
+
+        Dim c As Integer = DS.Tables("check").Rows.Count
+        dtgv_check.DataSource = DS.Tables("check")
+
+        Dim headers() As String = {"KEY", "ธนาคาร", "เช็คธนาคาร", "สาขา", "เลขที่เช็ค", "ลงวันที่ในเช็ค", "จำนวนเงินตามหน้าเช็ค", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "คดีแดง", "วันที่ส่งเช็คเข้าแบงค์", "จำนวนเงินอายัด", "ค่าใช้จ่ายคืน", "หมายเหตุ"}
+        For i = 0 To headers.Length - 1
+            dtgv_check.Columns(i).HeaderText = headers(i)
+            dtgv_check.Columns(0).Visible = False
+        Next
+
+
     End Sub
     Private Sub Savecheck()
 
@@ -226,7 +249,7 @@ Public Class FrmCheck
 
             Connect()
 
-            sql = $"INSERT INTO EXECHECK(CHKKEY,CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKNAME,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}-{txt_numcheck.Text}-{txt_cusacc.Text}{dtp_checksend.Text}','{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{txt_cusname.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}');"
+            sql = $"INSERT INTO EXECHECK(CHKOWN,CHKBANK,CHKHUB,CHKNUM,CHKDATE,CHKTOTAL,CHKIDC,CHKACC,CHKACCNO,CHKNAME,CHKDATESEND,CHKTOTALEXE,CHKTOTALEXERE,CHKDETAIL1)VALUES('{cbo_cusowner.Text}','{txt_checkbank.Text}','{txt_hub.Text}','{txt_numcheck.Text}','{dtp_datecheck.Text}','{txt_totalcheck.Text}','{txt_cusid.Text}','{txt_cusacc.Text}','{txt_cusaccno.Text}','{txt_cusname.Text}','{dtp_checksend.Text}','{txt_total.Text}','{txt_refund.Text}','{txt_note.Text}');"
 
             cmd = New SqlCommand(sql, cn)
             cmd.ExecuteNonQuery()
@@ -239,11 +262,13 @@ Public Class FrmCheck
 
 
         End If
+
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        savecheck()
+        Savecheck()
 
     End Sub
 

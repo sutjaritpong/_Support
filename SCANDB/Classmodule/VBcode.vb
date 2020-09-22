@@ -30,11 +30,24 @@ Module VBcode
     '## เข้าถึงข้อมูล Environment ใช้สำหรับ ตรวจสอบ สภาพแวดล้อมของเครื่อง Computer Client ##
 
     Friend pc As String = Environment.MachineName
+    Friend Sub Check_CitizenID(_text As TextBox)
+
+        If _text.MaxLength <> 13 Then
+
+            Msg_error("กรุณาตรวจสอบ ความถูกต้องเลขบัตรประชาชนที่กรอก")
+
+            Exit Sub
+
+        End If
+
+    End Sub
     '## Descriptions ##
     '## Sub สำหรับทำ เก็บ HistoryLog ในฐานข้อมูล SCANDB สามารถกำหนด Parameters Detail ภายใน ##
     '## ข้อมูลที่เก็บคือ วันที่นำเข้าข้อมูล , ชื่อเข้าสู่ระบบ , ชื่อ-นามสกุลที่สมัคร , IP Address , ComputerName , รายละเอียดข้อมูล ##
     '## ดึงข้อมูลจาก User Name ที่เข้าใช้งานระบบ ## 
     '## Parameters _status As String ใช้สำหรับใส่ข้อความรายละเอียด ##
+
+
 
     Friend Sub Getlogdata(_status As String)
         connect()
@@ -157,6 +170,18 @@ Module VBcode
 
         Else
             _current.text = CDbl(_current.text).ToString("##,##0.00")
+
+        End If
+
+    End Sub
+    Friend Sub Convertdouble(_current As Object)
+
+        If (Str(_current.text) <> "") AndAlso (Not IsNumeric(_current.text)) Then
+
+            Exit Sub
+
+        Else
+            _current.text = CDbl(_current.text)
 
         End If
 
@@ -332,6 +357,16 @@ Module VBcode
     End Function
 
 End Module
+
+'For u As Integer = dtgv_view.Rows.Count() - 1 To 0 Step -1
+'    Dim delete As Color
+'    delete = dtgv_view.Rows(u).DefaultCellStyle.BackColor
+'    If delete = Color.Red Then
+'        Dim row As DataGridViewRow
+'        row = dtgv_view.Rows(u)
+'        dtgv_view.Rows.Remove(row)
+'    End If
+'Next
 
 '#### เพิ่มวินาที
 'timenow = DateAndTime.TimeOfDay.AddSeconds(+1)

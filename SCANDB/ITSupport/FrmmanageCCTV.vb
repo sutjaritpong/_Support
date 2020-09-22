@@ -195,7 +195,7 @@ Public Class FrmmanageCCTV
 
         Connect()
 
-        sql = "SELECT COUNT(CCTV_location) FROM tbl_fdscctv"
+        sql = $"SELECT COUNT(CCTV_Location) FROM tbl_fdscctv WHERE CCTV_Location = '{txt_cctv_location.Text}'"
         cmd = New SqlCommand(sql, cn)
         Dim check As Integer = cmd.ExecuteScalar()
         If check > 0 Then
@@ -207,6 +207,7 @@ Public Class FrmmanageCCTV
         cmd = New SqlCommand(sql, cn)
 
         With cmd
+
             .CommandText = sql
             .Parameters.Clear()
             .Parameters.AddWithValue("location", txt_cctv_location.Text)
@@ -224,7 +225,9 @@ Public Class FrmmanageCCTV
             .Parameters.AddWithValue("ip", txt_cctv_ip.Text)
             .Parameters.AddWithValue("port", txt_cctv_port.Text)
             .Parameters.AddWithValue("remark", txt_cctv_remark.Text)
+
             Dim results As Integer = .ExecuteNonQuery()
+
             If results > 0 Then
                 MsgBox("เพิ่มข้อมูลสำเร็จ")
             Else

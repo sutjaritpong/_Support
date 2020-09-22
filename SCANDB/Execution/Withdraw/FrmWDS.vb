@@ -600,9 +600,12 @@ Public Class FrmWDS
         FrmCheck.dtgv_check.DataSource = DS.Tables("check")
 
         Dim headers() As String = {"KEY", "ธนาคาร", "เช็คธนาคาร", "สาขา", "เลขที่เช็ค", "ลงวันที่ในเช็ค", "จำนวนเงินตามหน้าเช็ค", "เลขที่บัตรประชาชน", "เลขที่สัญญา", "เลขที่ลูกหนี้", "ชื่อ-นามสกุล", "คดีแดง", "วันที่ส่งเช็คเข้าแบงค์", "จำนวนเงินอายัด", "ค่าใช้จ่ายคืน", "หมายเหตุ"}
+
         For i = 0 To headers.Length - 1
+
             FrmCheck.dtgv_check.Columns(i).HeaderText = headers(i)
             FrmCheck.dtgv_check.Columns(0).Visible = False
+
         Next
 
         Datagrid_format_dateshort(FrmCheck.dtgv_check, 5)
@@ -612,11 +615,13 @@ Public Class FrmWDS
             If Msg_confirm("ไม่พบข้อมูลเช็ค คุณต้องการเพิ่มข้อมูลหรือไม่", "แจ้งเตือน") = vbYes Then
                 With FrmCheck
                     .Show()
+
                     .cbo_cusowner.Text = Me.cbo_owner.SelectedItem.ToString
                     .txt_cusname.Text = Me.txt_cusname.Text
                     .txt_cusacc.Text = Me.txt_cusacc.Text
                     .txt_cusid.Text = Me.txt_cusid.Text
                     .txt_cusaccno.Text = Me.txt_cuscus.Text
+
                 End With
             End If
         Else
