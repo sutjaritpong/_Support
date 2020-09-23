@@ -303,7 +303,7 @@ Partial Class FrmMastermain
         Me.Menu_Tab_ScbLegal.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_Tab_ScbLegal.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
         Me.Menu_Tab_ScbLegal.Name = "Menu_Tab_ScbLegal"
-        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(179, 22)
         Me.Menu_Tab_ScbLegal.Text = "SCB (LEGAL)"
         '
         'Menu_tab_ScbCollector
@@ -311,7 +311,7 @@ Partial Class FrmMastermain
         Me.Menu_tab_ScbCollector.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_tab_ScbCollector.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon24x24
         Me.Menu_tab_ScbCollector.Name = "Menu_tab_ScbCollector"
-        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(179, 22)
         Me.Menu_tab_ScbCollector.Text = "SCB (COLLECTOR)"
         '
         'Menu_tap_logout
@@ -503,6 +503,7 @@ Partial Class FrmMastermain
         Me.สงออกขอมลบงคบคดToolStripMenuItem.Name = "สงออกขอมลบงคบคดToolStripMenuItem"
         Me.สงออกขอมลบงคบคดToolStripMenuItem.Size = New System.Drawing.Size(273, 22)
         Me.สงออกขอมลบงคบคดToolStripMenuItem.Text = "ส่งออกข้อมูลบังคับคดี (Export/Report)"
+        Me.สงออกขอมลบงคบคดToolStripMenuItem.Visible = False
         '
         'Menu_ReportAccounting
         '

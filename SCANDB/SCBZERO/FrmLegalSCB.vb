@@ -200,18 +200,7 @@ Public Class FrmLegalSCB
 
     End Sub
 
-    Private Sub Cmd_ExportExcel_Click(sender As Object, e As EventArgs) Handles Cmd_ExportExcel.Click
 
-        If Application.OpenForms().OfType(Of FrmSCBZeroRV).Any Then
-
-            FrmSCBZeroRV.Focus()
-        Else
-            FrmSCBZeroRV.ShowDialog()
-            FrmSCBZeroRV.StartPosition = FormStartPosition.CenterScreen
-
-        End If
-
-    End Sub
     Private Sub ReleaseObject(ByVal obj As Object)
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
@@ -221,6 +210,10 @@ Public Class FrmLegalSCB
         Finally
             GC.Collect()
         End Try
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 
     'Private Sub CreateExcelFile()

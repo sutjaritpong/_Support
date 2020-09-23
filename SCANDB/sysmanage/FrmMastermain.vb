@@ -299,56 +299,56 @@ Public Class FrmMastermain
 
     'UPLOAD Report Execution 
 
-    Private Sub Menu_ReportAccounting_Click(sender As Object, e As EventArgs) Handles Menu_ReportAccounting.Click
+    'Private Sub Menu_ReportAccounting_Click(sender As Object, e As EventArgs) Handles Menu_ReportAccounting.Click
 
-        With FrmAccountingRV
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
+    '    With FrmAccountingRV
+    '        .MdiParent = Me
+    '        .Show()
+    '        .WindowState = FormWindowState.Maximized
+    '    End With
 
-    End Sub
+    'End Sub
 
-    Private Sub Menu_Reportstatement_Click(sender As Object, e As EventArgs) Handles Menu_Reportstatement.Click
+    'Private Sub Menu_Reportstatement_Click(sender As Object, e As EventArgs) Handles Menu_Reportstatement.Click
 
-        With FrmStatementRV
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
+    '    With FrmStatementRV
+    '        .MdiParent = Me
+    '        .Show()
+    '        .WindowState = FormWindowState.Maximized
+    '    End With
 
-    End Sub
+    'End Sub
 
-    Private Sub Menu_Reporttracking_Click(sender As Object, e As EventArgs) Handles Menu_Reporttracking.Click
+    'Private Sub Menu_Reporttracking_Click(sender As Object, e As EventArgs) Handles Menu_Reporttracking.Click
 
-        With FrmTrackRV
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
+    '    With FrmTrackRV
+    '        .MdiParent = Me
+    '        .Show()
+    '        .WindowState = FormWindowState.Maximized
+    '    End With
 
 
-    End Sub
+    'End Sub
 
-    Private Sub Menu_ReportWDS_Click(sender As Object, e As EventArgs) Handles Menu_ReportWDS.Click
+    'Private Sub Menu_ReportWDS_Click(sender As Object, e As EventArgs) Handles Menu_ReportWDS.Click
 
-        With FrmWDSRV
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
+    '    With FrmWDSRV
+    '        .MdiParent = Me
+    '        .Show()
+    '        .WindowState = FormWindowState.Maximized
+    '    End With
 
-    End Sub
+    'End Sub
 
-    Private Sub Menu_tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
+    'Private Sub Menu_tab_report_Click(sender As Object, e As EventArgs) Handles menu_tab_report.Click
 
-        With Frmreportexe
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
+    '    With Frmreportexe
+    '        .MdiParent = Me
+    '        .Show()
+    '        .WindowState = FormWindowState.Maximized
+    '    End With
 
-    End Sub
+    'End Sub
 
     ' IT MENU
 

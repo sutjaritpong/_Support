@@ -33,14 +33,16 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>SCANDB.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,7 +52,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>SCANDB.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -77,7 +81,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -101,14 +105,28 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\reference\reference\Interop.MSWinsockLib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -145,18 +163,6 @@
     </Compile>
     <Compile Include="Dataset\SCBZERO.vb">
       <DependentUpon>SCBZERO.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmlogexeRV.Designer.vb">
-      <DependentUpon>FrmlogexeRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmlogexeRV.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmStatementRV.Designer.vb">
-      <DependentUpon>FrmStatementRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmStatementRV.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\Statement\FrmIncome.Designer.vb">
       <DependentUpon>FrmIncome.vb</DependentUpon>
@@ -210,18 +216,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StatementDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Execution\Report_execution\FrmAccountingRV.Designer.vb">
-      <DependentUpon>FrmAccountingRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmAccountingRV.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmTrackRV.Designer.vb">
-      <DependentUpon>FrmTrackRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmTrackRV.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Execution\Tracking\Frmfilter.Designer.vb">
       <DependentUpon>Frmfilter.vb</DependentUpon>
     </Compile>
@@ -232,12 +226,6 @@
       <DependentUpon>FrmmanageIP.vb</DependentUpon>
     </Compile>
     <Compile Include="ITSupport\FrmmanageIP.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmWDSRV.Designer.vb">
-      <DependentUpon>FrmWDSRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\FrmWDSRV.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dataset\SCANPDF.Designer.vb">
@@ -273,12 +261,6 @@
       <DependentUpon>FrmLegalSCB.vb</DependentUpon>
     </Compile>
     <Compile Include="SCBZERO\FrmLegalSCB.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SCBZERO\FrmSCBZeroRV.Designer.vb">
-      <DependentUpon>FrmSCBZeroRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SCBZERO\FrmSCBZeroRV.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sysmanage\Frmlogfileexe.Designer.vb">
@@ -363,12 +345,6 @@
       <DependentUpon>Frmimportexe.vb</DependentUpon>
     </Compile>
     <Compile Include="UPLOAD\Frmimportexe.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Execution\Report_execution\Frmreportexe.Designer.vb">
-      <DependentUpon>Frmreportexe.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Execution\Report_execution\Frmreportexe.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\Tracking\FrmTracking.Designer.vb">
@@ -492,18 +468,6 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Execution\Report_execution\FrmAccountingRV.resx">
-      <DependentUpon>FrmAccountingRV.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Report_execution\FrmlogexeRV.resx">
-      <DependentUpon>FrmlogexeRV.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Report_execution\FrmStatementRV.resx">
-      <DependentUpon>FrmStatementRV.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Report_execution\FrmTrackRV.resx">
-      <DependentUpon>FrmTrackRV.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportAccounting.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\Reportlogexe.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\ReportStatement.rdlc" />
@@ -526,9 +490,6 @@
     <EmbeddedResource Include="ITSupport\FrmmanageIP.resx">
       <DependentUpon>FrmmanageIP.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Report_execution\FrmWDSRV.resx">
-      <DependentUpon>FrmWDSRV.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportWDS.rdlc" />
     <EmbeddedResource Include="ITSupport\FrmmanagePC.resx">
       <DependentUpon>FrmmanagePC.vb</DependentUpon>
@@ -544,9 +505,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SCBZERO\FrmLegalSCB.resx">
       <DependentUpon>FrmLegalSCB.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SCBZERO\FrmSCBZeroRV.resx">
-      <DependentUpon>FrmSCBZeroRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SCBZERO\ReportSCBZeroLAW.rdlc" />
     <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">
@@ -590,9 +548,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UPLOAD\Frmimportexe.resx">
       <DependentUpon>Frmimportexe.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Execution\Report_execution\Frmreportexe.resx">
-      <DependentUpon>Frmreportexe.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\Tracking\FrmTracking.resx">
       <DependentUpon>FrmTracking.vb</DependentUpon>
@@ -768,74 +723,12 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-    <COMReference Include="AxRDPCOMAPILib">
-      <Guid>{CC802D05-AE07-4C15-B496-DB9D22AA0A84}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>9</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Vbe.Interop.Forms">
-      <Guid>{0D452EE1-E08F-101A-852E-02608C4D0BB4}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="MSWinsockLib">
       <Guid>{248DD890-BB45-11CF-9ABC-0080C7E7B78D}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="RDPCOMAPILib">
-      <Guid>{CC802D05-AE07-4C15-B496-DB9D22AA0A84}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="stdole">
-      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>

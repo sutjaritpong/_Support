@@ -49,8 +49,11 @@ Public Class Frmimportexe
     Sub Dtgv_clear()
 
         Dtgv_Exe.Columns.Clear()
+
         If Dtgv_Exe.Columns.Count = 0 Then
+
             Dtgv_Exe.Columns.Clear()
+
         End If
         Dtgv_Exe.DataSource = Nothing
 
@@ -63,7 +66,9 @@ Public Class Frmimportexe
         OpenFileDialog1.FileName = ""
         OpenFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
         OpenFileDialog1.Filter = "All Files (*.*)|*.*|Excel files (*.xlsx)|*.xlsx|CSV Files (*.csv)|*.csv|XLS Files (*.xls)|*xls"
+
         If (OpenFileDialog1.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
+
             Dtgv_Exe.Columns.Clear()
             txt_Importfile.Text = System.IO.Path.GetFullPath(OpenFileDialog1.FileName)
 
@@ -119,13 +124,17 @@ Public Class Frmimportexe
     Private Sub Cmd_toserver_Click(sender As Object, e As EventArgs) Handles cmd_toserver.Click
 
         If Main_progressbar.Visible = False Then
+
             Main_progressbar.Visible = True
             Main_progressbar.Enabled = True
+
         End If
 
         If lbl_statusprogress.Visible = False Then
+
             lbl_statusprogress.Visible = True
             lbl_statusprogress.Enabled = True
+
         End If
 
         BackgroundWorker1.RunWorkerAsync()
@@ -143,6 +152,7 @@ Public Class Frmimportexe
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
 
         Connect()
+
         lbl_flow.Visible = True
         lbl_flow.Text = "กำลังประมวลผลข้อมูล"
 
@@ -194,6 +204,7 @@ Public Class Frmimportexe
         sql = " SELECT COUNT(*) As TYPEs FROM "
 
         Select Case cbo_products.SelectedItem
+
             Case "ใบงานแถลงบัญชี(Statement)" : sql &= $"EXESM"
             Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"EXEACC"
             Case "ผลคัดประกันสังคม(SOC)" : sql &= $"EXESOC"
@@ -207,6 +218,7 @@ Public Class Frmimportexe
             Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"Execution_RepeatFreeze"
             Case "เงินส่วนได้/ค่าใช้จ่ายคืน(Income)" : sql &= $"Execution_income"
             Case "รับเช็ค/บัญชีรับ-จ่าย(Income-Result)" : sql &= $"Execution_income_Result"
+
         End Select
 
         cmd.CommandText = sql
@@ -237,8 +249,10 @@ Public Class Frmimportexe
 
         Dim timenow As String = (DateAndTime.TimeString)
         Dim datenow As String = DateAndTime.Today.ToShortDateString
+
         Try
             For i As Integer = 0 To Dtgv_Exe.Rows.Count - 1 Step +1
+
                 Dim p As Integer = (((i + 1) / y) * Max)
 
                 sql = $"SELECT "
@@ -278,6 +292,7 @@ Public Class Frmimportexe
                     If chk_senddata.Checked = True Then
 
                         Continue For
+
                     End If
 
                 End If
@@ -382,12 +397,12 @@ Public Class Frmimportexe
 
     End Sub
 
-    Private Sub cmd_Delete_Click(sender As Object, e As EventArgs) Handles cmd_Delete.Click
+    Private Sub Cmd_Delete_Click(sender As Object, e As EventArgs) Handles Cmd_Delete.Click
 
         Connect()
 
         Dim y As Integer = Dtgv_Exe.Rows.Count
-        Dim Max As Integer = 100
+
 
         Dim timenow As String = (DateAndTime.TimeString)
         Dim datenow As String = DateAndTime.Today.ToShortDateString

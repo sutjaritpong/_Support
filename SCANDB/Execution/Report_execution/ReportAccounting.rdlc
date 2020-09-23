@@ -1030,7 +1030,7 @@
           </SortExpression>
         </SortExpressions>
         <Height>0.5in</Height>
-        <Width>13.72292in</Width>
+        <Width>13.72291in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1038,7 +1038,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.155in</Height>
     <Style />
   </Body>
   <Width>16in</Width>

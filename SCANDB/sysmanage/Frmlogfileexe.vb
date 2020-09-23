@@ -138,15 +138,7 @@ Public Class frmlogfileexe
         cn.Close()
     End Sub
 
-    Private Sub Cmd_report_Click(sender As Object, e As EventArgs) Handles cmd_report.Click
 
-        With FrmlogexeRV
-            '// แสดง Form ตั้งค่า USER & PASSWORD
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
-
-    End Sub
     Private Sub Frmlogfileexe_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         cn.Close()

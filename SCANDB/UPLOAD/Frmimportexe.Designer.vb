@@ -39,7 +39,7 @@ Partial Class Frmimportexe
         Me.Main_progressbar = New System.Windows.Forms.ProgressBar()
         Me.chk_senddata = New System.Windows.Forms.CheckBox()
         Me.lbl_flow = New System.Windows.Forms.Label()
-        Me.cmd_Delete = New System.Windows.Forms.Button()
+        Me.Cmd_Delete = New System.Windows.Forms.Button()
         CType(Me.Dtgv_Exe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -197,19 +197,19 @@ Partial Class Frmimportexe
         Me.lbl_flow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbl_flow.UseWaitCursor = True
         '
-        'cmd_Delete
+        'Cmd_Delete
         '
-        Me.cmd_Delete.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_Delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_Delete.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
-        Me.cmd_Delete.Location = New System.Drawing.Point(781, 8)
-        Me.cmd_Delete.Name = "cmd_Delete"
-        Me.cmd_Delete.Size = New System.Drawing.Size(146, 31)
-        Me.cmd_Delete.TabIndex = 23
-        Me.cmd_Delete.Text = "ลบข้อมูลซ้ำ"
-        Me.cmd_Delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_Delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_Delete.UseVisualStyleBackColor = False
+        Me.Cmd_Delete.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_Delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Delete.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
+        Me.Cmd_Delete.Location = New System.Drawing.Point(781, 8)
+        Me.Cmd_Delete.Name = "Cmd_Delete"
+        Me.Cmd_Delete.Size = New System.Drawing.Size(146, 31)
+        Me.Cmd_Delete.TabIndex = 23
+        Me.Cmd_Delete.Text = "ลบข้อมูลซ้ำ"
+        Me.Cmd_Delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Delete.UseVisualStyleBackColor = False
         '
         'Frmimportexe
         '
@@ -217,7 +217,7 @@ Partial Class Frmimportexe
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
-        Me.Controls.Add(Me.cmd_Delete)
+        Me.Controls.Add(Me.Cmd_Delete)
         Me.Controls.Add(Me.lbl_flow)
         Me.Controls.Add(Me.chk_senddata)
         Me.Controls.Add(Me.lbl_statusprogress)
@@ -258,5 +258,5 @@ Partial Class Frmimportexe
     Friend WithEvents Main_progressbar As ProgressBar
     Friend WithEvents chk_senddata As CheckBox
     Friend WithEvents lbl_flow As Label
-    Friend WithEvents cmd_Delete As Button
+    Friend WithEvents Cmd_Delete As Button
 End Class

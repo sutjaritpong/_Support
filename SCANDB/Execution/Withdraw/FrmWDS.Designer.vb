@@ -221,7 +221,7 @@ Partial Class FrmWDS
         Me.chk_datewds.AutoSize = True
         Me.chk_datewds.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chk_datewds.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chk_datewds.Location = New System.Drawing.Point(64, 56)
+        Me.chk_datewds.Location = New System.Drawing.Point(64, 57)
         Me.chk_datewds.Name = "chk_datewds"
         Me.chk_datewds.Size = New System.Drawing.Size(129, 22)
         Me.chk_datewds.TabIndex = 94
