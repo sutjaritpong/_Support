@@ -18403,11 +18403,11 @@ Namespace SCANPDFDataSet1TableAdapters
                 "r]) VALUES (@Accounting_PK, @Accounting_Number, @Accounting_CUSCUS, @Accounting_"& _ 
                 "Name, @Accounting_black_red, @Accounting_date_legal, @Accounting_court, @Account"& _ 
                 "ing_capital, @Accounting_receipt, @Accounting_invoice, @Accounting_date_send, @A"& _ 
-                "ccounting_type_legal, @Accounting_type_master);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Accounting_PK, Accounting"& _ 
-                "_Number, Accounting_CUSCUS, Accounting_Name, Accounting_black_red, Accounting_da"& _ 
-                "te_legal, Accounting_court, Accounting_capital, Accounting_receipt, Accounting_i"& _ 
-                "nvoice, Accounting_date_send, Accounting_type_legal, Accounting_type_master FROM"& _ 
-                " AccountingKBANK WHERE (Accounting_PK = @Accounting_PK)"
+                "ccounting_type_legal, @Accounting_type_master);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Accounting_PK, Accountin"& _ 
+                "g_Number, Accounting_CUSCUS, Accounting_Name, Accounting_black_red, Accounting_d"& _ 
+                "ate_legal, Accounting_court, Accounting_capital, Accounting_receipt, Accounting_"& _ 
+                "invoice, Accounting_date_send, Accounting_type_legal, Accounting_type_master FRO"& _ 
+                "M AccountingKBANK WHERE (Accounting_PK = @Accounting_PK)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_PK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_PK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_Number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -18451,12 +18451,12 @@ Namespace SCANPDFDataSet1TableAdapters
                 "iginal_Accounting_date_send)) AND ((@IsNull_Accounting_type_legal = 1 AND [Accou"& _ 
                 "nting_type_legal] IS NULL) OR ([Accounting_type_legal] = @Original_Accounting_ty"& _ 
                 "pe_legal)) AND ((@IsNull_Accounting_type_master = 1 AND [Accounting_type_master]"& _ 
-                " IS NULL) OR ([Accounting_type_master] = @Original_Accounting_type_master)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SE"& _ 
-                "LECT Accounting_PK, Accounting_Number, Accounting_CUSCUS, Accounting_Name, Accou"& _ 
-                "nting_black_red, Accounting_date_legal, Accounting_court, Accounting_capital, Ac"& _ 
-                "counting_receipt, Accounting_invoice, Accounting_date_send, Accounting_type_lega"& _ 
-                "l, Accounting_type_master FROM AccountingKBANK WHERE (Accounting_PK = @Accountin"& _ 
-                "g_PK)"
+                " IS NULL) OR ([Accounting_type_master] = @Original_Accounting_type_master)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"S"& _ 
+                "ELECT Accounting_PK, Accounting_Number, Accounting_CUSCUS, Accounting_Name, Acco"& _ 
+                "unting_black_red, Accounting_date_legal, Accounting_court, Accounting_capital, A"& _ 
+                "ccounting_receipt, Accounting_invoice, Accounting_date_send, Accounting_type_leg"& _ 
+                "al, Accounting_type_master FROM AccountingKBANK WHERE (Accounting_PK = @Accounti"& _ 
+                "ng_PK)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_PK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_PK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_Number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -19148,9 +19148,9 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ACCOUNTINGscdb] ([Accounting_invoice], [Accounting_Path], [Acc"& _ 
                 "ounting_date], [Accounting_owner]) VALUES (@Accounting_invoice, @Accounting_Path"& _ 
-                ", @Accounting_date, @Accounting_owner);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Accounting_invoice, Accounting_Pa"& _ 
-                "th, Accounting_date, Accounting_owner FROM ACCOUNTINGscdb WHERE (Accounting_Path"& _ 
-                " = @Accounting_Path)"
+                ", @Accounting_date, @Accounting_owner);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Accounting_invoice, Accounting_P"& _ 
+                "ath, Accounting_date, Accounting_owner FROM ACCOUNTINGscdb WHERE (Accounting_Pat"& _ 
+                "h = @Accounting_Path)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_invoice", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_invoice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_Path", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_Path", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -19164,9 +19164,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "ing_invoice) AND ([Accounting_Path] = @Original_Accounting_Path) AND ((@IsNull_A"& _ 
                 "ccounting_date = 1 AND [Accounting_date] IS NULL) OR ([Accounting_date] = @Origi"& _ 
                 "nal_Accounting_date)) AND ((@IsNull_Accounting_owner = 1 AND [Accounting_owner] "& _ 
-                "IS NULL) OR ([Accounting_owner] = @Original_Accounting_owner)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Accounti"& _ 
-                "ng_invoice, Accounting_Path, Accounting_date, Accounting_owner FROM ACCOUNTINGsc"& _ 
-                "db WHERE (Accounting_Path = @Accounting_Path)"
+                "IS NULL) OR ([Accounting_owner] = @Original_Accounting_owner)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Account"& _ 
+                "ing_invoice, Accounting_Path, Accounting_date, Accounting_owner FROM ACCOUNTINGs"& _ 
+                "cdb WHERE (Accounting_Path = @Accounting_Path)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_invoice", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_invoice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Accounting_Path", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Accounting_Path", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -19608,10 +19608,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "R_DETAIL3], [ACCMONTH]) VALUES (@ACCKEY, @ACCBANK, @ACCIDC, @ACCCUSNAM, @ACCBLAC"& _ 
                 "K, @ACCRED, @ACCSTATUS, @ACCDATE, @ACCRECEIPT, @ACCRECEIPT_DETAIL, @ACCRECEIPT_O"& _ 
                 "THER_2, @ACCRECEIPT_OTHER_DETAIL2, @ACCRECEIPT_OTHER_3, @ACCRECEIPT_OTHER_DETAIL"& _ 
-                "3, @ACCMONTH);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCBANK, ACCIDC, ACCCUSNAM, ACCBLACK, ACCRED, ACCS"& _ 
-                "TATUS, ACCDATE, ACCRECEIPT, ACCRECEIPT_DETAIL, ACCRECEIPT_OTHER_2, ACCRECEIPT_OT"& _ 
-                "HER_DETAIL2, ACCRECEIPT_OTHER_3, ACCRECEIPT_OTHER_DETAIL3, ACCMONTH FROM EXEACC "& _ 
-                "WHERE (ACCKEY = @ACCKEY)"
+                "3, @ACCMONTH);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCBANK, ACCIDC, ACCCUSNAM, ACCBLACK, ACCRED, ACC"& _ 
+                "STATUS, ACCDATE, ACCRECEIPT, ACCRECEIPT_DETAIL, ACCRECEIPT_OTHER_2, ACCRECEIPT_O"& _ 
+                "THER_DETAIL2, ACCRECEIPT_OTHER_3, ACCRECEIPT_OTHER_DETAIL3, ACCMONTH FROM EXEACC"& _ 
+                " WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -19654,10 +19654,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "CEIPT_OTHER_3] = @Original_ACCRECEIPT_OTHER_3)) AND ((@IsNull_ACCRECEIPT_OTHER_D"& _ 
                 "ETAIL3 = 1 AND [ACCRECEIPT_OTHER_DETAIL3] IS NULL) OR ([ACCRECEIPT_OTHER_DETAIL3"& _ 
                 "] = @Original_ACCRECEIPT_OTHER_DETAIL3)) AND ((@IsNull_ACCMONTH = 1 AND [ACCMONT"& _ 
-                "H] IS NULL) OR ([ACCMONTH] = @Original_ACCMONTH)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCBANK, ACCI"& _ 
-                "DC, ACCCUSNAM, ACCBLACK, ACCRED, ACCSTATUS, ACCDATE, ACCRECEIPT, ACCRECEIPT_DETA"& _ 
-                "IL, ACCRECEIPT_OTHER_2, ACCRECEIPT_OTHER_DETAIL2, ACCRECEIPT_OTHER_3, ACCRECEIPT"& _ 
-                "_OTHER_DETAIL3, ACCMONTH FROM EXEACC WHERE (ACCKEY = @ACCKEY)"
+                "H] IS NULL) OR ([ACCMONTH] = @Original_ACCMONTH)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCBANK, ACC"& _ 
+                "IDC, ACCCUSNAM, ACCBLACK, ACCRED, ACCSTATUS, ACCDATE, ACCRECEIPT, ACCRECEIPT_DET"& _ 
+                "AIL, ACCRECEIPT_OTHER_2, ACCRECEIPT_OTHER_DETAIL2, ACCRECEIPT_OTHER_3, ACCRECEIP"& _ 
+                "T_OTHER_DETAIL3, ACCMONTH FROM EXEACC WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -20457,10 +20457,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "[CHKDATE], [CHKTOTAL], [CHKIDC], [CHKACC], [CHKACCNO], [CHKNAME], [CHKRED], [CHK"& _ 
                 "DATESEND], [CHKTOTALEXE], [CHKTOTALEXERE], [CHKDETAIL1]) VALUES (@CHKKEY, @CHKOW"& _ 
                 "N, @CHKBANK, @CHKHUB, @CHKNUM, @CHKDATE, @CHKTOTAL, @CHKIDC, @CHKACC, @CHKACCNO,"& _ 
-                " @CHKNAME, @CHKRED, @CHKDATESEND, @CHKTOTALEXE, @CHKTOTALEXERE, @CHKDETAIL1);"&Global.Microsoft.VisualBasic.ChrW(10)&"SE"& _ 
-                "LECT CHKKEY, CHKOWN, CHKBANK, CHKHUB, CHKNUM, CHKDATE, CHKTOTAL, CHKIDC, CHKACC,"& _ 
-                " CHKACCNO, CHKNAME, CHKRED, CHKDATESEND, CHKTOTALEXE, CHKTOTALEXERE, CHKDETAIL1 "& _ 
-                "FROM EXECHECK WHERE (CHKKEY = @CHKKEY)"
+                " @CHKNAME, @CHKRED, @CHKDATESEND, @CHKTOTALEXE, @CHKTOTALEXERE, @CHKDETAIL1);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"S"& _ 
+                "ELECT CHKKEY, CHKOWN, CHKBANK, CHKHUB, CHKNUM, CHKDATE, CHKTOTAL, CHKIDC, CHKACC"& _ 
+                ", CHKACCNO, CHKNAME, CHKRED, CHKDATESEND, CHKTOTALEXE, CHKTOTALEXERE, CHKDETAIL1"& _ 
+                " FROM EXECHECK WHERE (CHKKEY = @CHKKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHKKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHKKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHKOWN", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHKOWN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -20502,9 +20502,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "[CHKTOTALEXE] = @Original_CHKTOTALEXE)) AND ((@IsNull_CHKTOTALEXERE = 1 AND [CHK"& _ 
                 "TOTALEXERE] IS NULL) OR ([CHKTOTALEXERE] = @Original_CHKTOTALEXERE)) AND ((@IsNu"& _ 
                 "ll_CHKDETAIL1 = 1 AND [CHKDETAIL1] IS NULL) OR ([CHKDETAIL1] = @Original_CHKDETA"& _ 
-                "IL1)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CHKKEY, CHKOWN, CHKBANK, CHKHUB, CHKNUM, CHKDATE, CHKTOTAL, CHKID"& _ 
-                "C, CHKACC, CHKACCNO, CHKNAME, CHKRED, CHKDATESEND, CHKTOTALEXE, CHKTOTALEXERE, C"& _ 
-                "HKDETAIL1 FROM EXECHECK WHERE (CHKKEY = @CHKKEY)"
+                "IL1)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CHKKEY, CHKOWN, CHKBANK, CHKHUB, CHKNUM, CHKDATE, CHKTOTAL, CHKI"& _ 
+                "DC, CHKACC, CHKACCNO, CHKNAME, CHKRED, CHKDATESEND, CHKTOTALEXE, CHKTOTALEXERE, "& _ 
+                "CHKDETAIL1 FROM EXECHECK WHERE (CHKKEY = @CHKKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHKKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHKKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHKOWN", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHKOWN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -21324,9 +21324,9 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Execution_Ownership] ([Customer_id_card], [Customer_name], [Da"& _ 
                 "te_send], [Customer_owner], [Result]) VALUES (@Customer_id_card, @Customer_name,"& _ 
-                " @Date_send, @Customer_owner, @Result);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_id_card, Customer_name, "& _ 
-                "Date_send, Customer_owner, Result FROM Execution_Ownership WHERE (Customer_id_ca"& _ 
-                "rd = @Customer_id_card)"
+                " @Date_send, @Customer_owner, @Result);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_id_card, Customer_name,"& _ 
+                " Date_send, Customer_owner, Result FROM Execution_Ownership WHERE (Customer_id_c"& _ 
+                "ard = @Customer_id_card)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_id_card", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_id_card", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_name", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -21342,9 +21342,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "omer_name] = @Original_Customer_name)) AND ([Date_send] = @Original_Date_send) A"& _ 
                 "ND ((@IsNull_Customer_owner = 1 AND [Customer_owner] IS NULL) OR ([Customer_owne"& _ 
                 "r] = @Original_Customer_owner)) AND ((@IsNull_Result = 1 AND [Result] IS NULL) O"& _ 
-                "R ([Result] = @Original_Result)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_id_card, Customer_name, Date_"& _ 
-                "send, Customer_owner, Result FROM Execution_Ownership WHERE (Customer_id_card = "& _ 
-                "@Customer_id_card)"
+                "R ([Result] = @Original_Result)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_id_card, Customer_name, Date"& _ 
+                "_send, Customer_owner, Result FROM Execution_Ownership WHERE (Customer_id_card ="& _ 
+                " @Customer_id_card)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_id_card", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_id_card", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_name", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -22063,10 +22063,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 ", [Review_Result], [Review_Result_Description], [Employees_User]) VALUES (@Custo"& _ 
                 "mer_Owner, @Customer_Id_Card, @Customer_Number, @Serial_Account, @Customer_Name,"& _ 
                 " @OA, @Legal_Status, @Date_Send, @Review_Result, @Review_Result_Description, @Em"& _ 
-                "ployees_User);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_Owner, Customer_Id_Card, Customer_Number, Serial_"& _ 
-                "Account, Customer_Name, OA, Legal_Status, Date_Send, Review_Result, Review_Resul"& _ 
-                "t_Description, Employees_User FROM Execution_Port WHERE (Serial_Account = @Seria"& _ 
-                "l_Account)"
+                "ployees_User);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_Owner, Customer_Id_Card, Customer_Number, Serial"& _ 
+                "_Account, Customer_Name, OA, Legal_Status, Date_Send, Review_Result, Review_Resu"& _ 
+                "lt_Description, Employees_User FROM Execution_Port WHERE (Serial_Account = @Seri"& _ 
+                "al_Account)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_Owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_Owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_Id_Card", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_Id_Card", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -22100,10 +22100,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "al_Review_Result)) AND ((@IsNull_Review_Result_Description = 1 AND [Review_Resul"& _ 
                 "t_Description] IS NULL) OR ([Review_Result_Description] = @Original_Review_Resul"& _ 
                 "t_Description)) AND ((@IsNull_Employees_User = 1 AND [Employees_User] IS NULL) O"& _ 
-                "R ([Employees_User] = @Original_Employees_User)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_Owner, Custom"& _ 
-                "er_Id_Card, Customer_Number, Serial_Account, Customer_Name, OA, Legal_Status, Da"& _ 
-                "te_Send, Review_Result, Review_Result_Description, Employees_User FROM Execution"& _ 
-                "_Port WHERE (Serial_Account = @Serial_Account)"
+                "R ([Employees_User] = @Original_Employees_User)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer_Owner, Custo"& _ 
+                "mer_Id_Card, Customer_Number, Serial_Account, Customer_Name, OA, Legal_Status, D"& _ 
+                "ate_Send, Review_Result, Review_Result_Description, Employees_User FROM Executio"& _ 
+                "n_Port WHERE (Serial_Account = @Serial_Account)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_Owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_Owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_Id_Card", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_Id_Card", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -22753,10 +22753,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "cution_verify_date], [Execution_verify_result], [Execution_verify_comment]) VALU"& _ 
                 "ES (@Execution_verify_PK, @Customer_owner, @Customer_id_card, @Customer_account,"& _ 
                 " @Customer_fullname, @EMPLOYEES_KEY, @Execution_verify_date, @Execution_verify_r"& _ 
-                "esult, @Execution_verify_comment);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Execution_verify_PK, Customer_owner, C"& _ 
-                "ustomer_id_card, Customer_account, Customer_fullname, EMPLOYEES_KEY, Execution_v"& _ 
-                "erify_date, Execution_verify_result, Execution_verify_comment FROM Execution_ver"& _ 
-                "ify WHERE (Execution_verify_PK = @Execution_verify_PK)"
+                "esult, @Execution_verify_comment);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Execution_verify_PK, Customer_owner, "& _ 
+                "Customer_id_card, Customer_account, Customer_fullname, EMPLOYEES_KEY, Execution_"& _ 
+                "verify_date, Execution_verify_result, Execution_verify_comment FROM Execution_ve"& _ 
+                "rify WHERE (Execution_verify_PK = @Execution_verify_PK)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Execution_verify_PK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Execution_verify_PK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -22784,11 +22784,11 @@ Namespace SCANPDFDataSet1TableAdapters
                 "date)) AND ((@IsNull_Execution_verify_result = 1 AND [Execution_verify_result] I"& _ 
                 "S NULL) OR ([Execution_verify_result] = @Original_Execution_verify_result)) AND "& _ 
                 "((@IsNull_Execution_verify_comment = 1 AND [Execution_verify_comment] IS NULL) O"& _ 
-                "R ([Execution_verify_comment] = @Original_Execution_verify_comment)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Ex"& _ 
-                "ecution_verify_PK, Customer_owner, Customer_id_card, Customer_account, Customer_"& _ 
-                "fullname, EMPLOYEES_KEY, Execution_verify_date, Execution_verify_result, Executi"& _ 
-                "on_verify_comment FROM Execution_verify WHERE (Execution_verify_PK = @Execution_"& _ 
-                "verify_PK)"
+                "R ([Execution_verify_comment] = @Original_Execution_verify_comment)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT E"& _ 
+                "xecution_verify_PK, Customer_owner, Customer_id_card, Customer_account, Customer"& _ 
+                "_fullname, EMPLOYEES_KEY, Execution_verify_date, Execution_verify_result, Execut"& _ 
+                "ion_verify_comment FROM Execution_verify WHERE (Execution_verify_PK = @Execution"& _ 
+                "_verify_PK)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Execution_verify_PK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Execution_verify_PK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23315,8 +23315,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[EXEEMPLOYEE] ([EXEEMPLOYEES], [EXEJOB]) VALUES (@EXEEMPLOYEES,"& _ 
-                " @EXEJOB);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EMPLOYEES_KEY, EXEEMPLOYEES, EXEJOB FROM EXEEMPLOYEE WHERE (EM"& _ 
-                "PLOYEES_KEY = SCOPE_IDENTITY())"
+                " @EXEJOB);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EMPLOYEES_KEY, EXEEMPLOYEES, EXEJOB FROM EXEEMPLOYEE WHERE (E"& _ 
+                "MPLOYEES_KEY = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEEMPLOYEES", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEEMPLOYEES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEJOB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEJOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23325,9 +23325,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[EXEEMPLOYEE] SET [EXEEMPLOYEES] = @EXEEMPLOYEES, [EXEJOB] = @EXEJOB"& _ 
                 " WHERE (([EMPLOYEES_KEY] = @Original_EMPLOYEES_KEY) AND ((@IsNull_EXEEMPLOYEES ="& _ 
                 " 1 AND [EXEEMPLOYEES] IS NULL) OR ([EXEEMPLOYEES] = @Original_EXEEMPLOYEES)) AND"& _ 
-                " ((@IsNull_EXEJOB = 1 AND [EXEJOB] IS NULL) OR ([EXEJOB] = @Original_EXEJOB)));"&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "SELECT EMPLOYEES_KEY, EXEEMPLOYEES, EXEJOB FROM EXEEMPLOYEE WHERE (EMPLOYEES_KEY"& _ 
-                " = @EMPLOYEES_KEY)"
+                " ((@IsNull_EXEJOB = 1 AND [EXEJOB] IS NULL) OR ([EXEJOB] = @Original_EXEJOB)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EMPLOYEES_KEY, EXEEMPLOYEES, EXEJOB FROM EXEEMPLOYEE WHERE (EMPLOYEES_KE"& _ 
+                "Y = @EMPLOYEES_KEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEEMPLOYEES", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEEMPLOYEES", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEJOB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEJOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23745,12 +23744,12 @@ Namespace SCANPDFDataSet1TableAdapters
                 "t_fullname, @insolvent_department, @insolvent_number, @insolvent_black, @insolve"& _ 
                 "nt_red, @insolvent_court, @insolvent_description, @insolvent_date_request, @inso"& _ 
                 "lvent_date_verify, @insolvent_receipt, @insolvent_receipt_description, @insolven"& _ 
-                "t_total, @insolvent_send);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT insolvent_pk, insolvent_owner, insolvent_idc, "& _ 
-                "insolvent_company, insolvent_fullname, insolvent_department, insolvent_number, i"& _ 
-                "nsolvent_black, insolvent_red, insolvent_court, insolvent_description, insolvent"& _ 
-                "_date_request, insolvent_date_verify, insolvent_receipt, insolvent_receipt_descr"& _ 
-                "iption, insolvent_total, insolvent_send FROM EXEINSOLVENT WHERE (insolvent_pk = "& _ 
-                "@insolvent_pk)"
+                "t_total, @insolvent_send);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT insolvent_pk, insolvent_owner, insolvent_idc,"& _ 
+                " insolvent_company, insolvent_fullname, insolvent_department, insolvent_number, "& _ 
+                "insolvent_black, insolvent_red, insolvent_court, insolvent_description, insolven"& _ 
+                "t_date_request, insolvent_date_verify, insolvent_receipt, insolvent_receipt_desc"& _ 
+                "ription, insolvent_total, insolvent_send FROM EXEINSOLVENT WHERE (insolvent_pk ="& _ 
+                " @insolvent_pk)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@insolvent_pk", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "insolvent_pk", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@insolvent_owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "insolvent_owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -23805,12 +23804,12 @@ Namespace SCANPDFDataSet1TableAdapters
                 "_receipt_description] = @Original_insolvent_receipt_description)) AND ((@IsNull_"& _ 
                 "insolvent_total = 1 AND [insolvent_total] IS NULL) OR ([insolvent_total] = @Orig"& _ 
                 "inal_insolvent_total)) AND ((@IsNull_insolvent_send = 1 AND [insolvent_send] IS "& _ 
-                "NULL) OR ([insolvent_send] = @Original_insolvent_send)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT insolvent_pk, i"& _ 
-                "nsolvent_owner, insolvent_idc, insolvent_company, insolvent_fullname, insolvent_"& _ 
-                "department, insolvent_number, insolvent_black, insolvent_red, insolvent_court, i"& _ 
-                "nsolvent_description, insolvent_date_request, insolvent_date_verify, insolvent_r"& _ 
-                "eceipt, insolvent_receipt_description, insolvent_total, insolvent_send FROM EXEI"& _ 
-                "NSOLVENT WHERE (insolvent_pk = @insolvent_pk)"
+                "NULL) OR ([insolvent_send] = @Original_insolvent_send)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT insolvent_pk, "& _ 
+                "insolvent_owner, insolvent_idc, insolvent_company, insolvent_fullname, insolvent"& _ 
+                "_department, insolvent_number, insolvent_black, insolvent_red, insolvent_court, "& _ 
+                "insolvent_description, insolvent_date_request, insolvent_date_verify, insolvent_"& _ 
+                "receipt, insolvent_receipt_description, insolvent_total, insolvent_send FROM EXE"& _ 
+                "INSOLVENT WHERE (insolvent_pk = @insolvent_pk)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@insolvent_pk", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "insolvent_pk", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@insolvent_owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "insolvent_owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -24738,11 +24737,11 @@ Namespace SCANPDFDataSet1TableAdapters
                 "ALUES (@EXEKEY, @EXEBANK, @EXEID, @EXECUSTOMER, @EXEACC1, @EXEACC2, @EXEACC3, @E"& _ 
                 "XECOURT, @EXEBLACK, @EXERED, @EXENUMBER, @EXEDEPARTMENT, @EXETOTAL, @EXEEMPLOYEE"& _ 
                 ", @EXEPHONE, @EXEHUB, @EXEDATEWORK, @EXEFULLNAME, @EXEDETAIL, @EXEPERFORMANCE, @"& _ 
-                "EXEDATERESULT, @EXEHUBS, @EXERESULT);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXEBANK, EXEID, EXECUSTOMER"& _ 
-                ", EXEACC1, EXEACC2, EXEACC3, EXECOURT, EXEBLACK, EXERED, EXENUMBER, EXEDEPARTMEN"& _ 
-                "T, EXETOTAL, EXEEMPLOYEE, EXEPHONE, EXEHUB, EXEDATEWORK, EXEFULLNAME, EXEDETAIL,"& _ 
-                " EXEPERFORMANCE, EXEDATERESULT, EXEHUBS, EXERESULT FROM EXESM WHERE (EXEKEY = @E"& _ 
-                "XEKEY)"
+                "EXEDATERESULT, @EXEHUBS, @EXERESULT);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXEBANK, EXEID, EXECUSTOME"& _ 
+                "R, EXEACC1, EXEACC2, EXEACC3, EXECOURT, EXEBLACK, EXERED, EXENUMBER, EXEDEPARTME"& _ 
+                "NT, EXETOTAL, EXEEMPLOYEE, EXEPHONE, EXEHUB, EXEDATEWORK, EXEFULLNAME, EXEDETAIL"& _ 
+                ", EXEPERFORMANCE, EXEDATERESULT, EXEHUBS, EXERESULT FROM EXESM WHERE (EXEKEY = @"& _ 
+                "EXEKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -24801,10 +24800,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "RESULT = 1 AND [EXEDATERESULT] IS NULL) OR ([EXEDATERESULT] = @Original_EXEDATER"& _ 
                 "ESULT)) AND ((@IsNull_EXEHUBS = 1 AND [EXEHUBS] IS NULL) OR ([EXEHUBS] = @Origin"& _ 
                 "al_EXEHUBS)) AND ((@IsNull_EXERESULT = 1 AND [EXERESULT] IS NULL) OR ([EXERESULT"& _ 
-                "] = @Original_EXERESULT)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXEBANK, EXEID, EXECUSTOMER, EXEACC1,"& _ 
-                " EXEACC2, EXEACC3, EXECOURT, EXEBLACK, EXERED, EXENUMBER, EXEDEPARTMENT, EXETOTA"& _ 
-                "L, EXEEMPLOYEE, EXEPHONE, EXEHUB, EXEDATEWORK, EXEFULLNAME, EXEDETAIL, EXEPERFOR"& _ 
-                "MANCE, EXEDATERESULT, EXEHUBS, EXERESULT FROM EXESM WHERE (EXEKEY = @EXEKEY)"
+                "] = @Original_EXERESULT)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXEBANK, EXEID, EXECUSTOMER, EXEACC1"& _ 
+                ", EXEACC2, EXEACC3, EXECOURT, EXEBLACK, EXERED, EXENUMBER, EXEDEPARTMENT, EXETOT"& _ 
+                "AL, EXEEMPLOYEE, EXEPHONE, EXEHUB, EXEDATEWORK, EXEFULLNAME, EXEDETAIL, EXEPERFO"& _ 
+                "RMANCE, EXEDATERESULT, EXEHUBS, EXERESULT FROM EXESM WHERE (EXEKEY = @EXEKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -25854,8 +25853,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[EXESOC] ([EXEKEY], [Customer_Owner], [Customer_Id_Card], [Cust"& _ 
                 "omer_OFFICE], [Customer_date_SOC], [Customer_Address]) VALUES (@EXEKEY, @Custome"& _ 
                 "r_Owner, @Customer_Id_Card, @Customer_OFFICE, @Customer_date_SOC, @Customer_Addr"& _ 
-                "ess);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, Customer_Owner, Customer_Id_Card, Customer_OFFICE, Customer"& _ 
-                "_date_SOC, Customer_Address FROM EXESOC WHERE (EXEKEY = @EXEKEY)"
+                "ess);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, Customer_Owner, Customer_Id_Card, Customer_OFFICE, Custome"& _ 
+                "r_date_SOC, Customer_Address FROM EXESOC WHERE (EXEKEY = @EXEKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_Owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_Owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -25875,9 +25874,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "FFICE] IS NULL) OR ([Customer_OFFICE] = @Original_Customer_OFFICE)) AND ((@IsNul"& _ 
                 "l_Customer_date_SOC = 1 AND [Customer_date_SOC] IS NULL) OR ([Customer_date_SOC]"& _ 
                 " = @Original_Customer_date_SOC)) AND ((@IsNull_Customer_Address = 1 AND [Custome"& _ 
-                "r_Address] IS NULL) OR ([Customer_Address] = @Original_Customer_Address)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELE"& _ 
-                "CT EXEKEY, Customer_Owner, Customer_Id_Card, Customer_OFFICE, Customer_date_SOC,"& _ 
-                " Customer_Address FROM EXESOC WHERE (EXEKEY = @EXEKEY)"
+                "r_Address] IS NULL) OR ([Customer_Address] = @Original_Customer_Address)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
+                "ECT EXEKEY, Customer_Owner, Customer_Id_Card, Customer_OFFICE, Customer_date_SOC"& _ 
+                ", Customer_Address FROM EXESOC WHERE (EXEKEY = @EXEKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_Owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_Owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -26372,11 +26371,11 @@ Namespace SCANPDFDataSet1TableAdapters
                 "d], [Tracking_other], [Tracking_date_work]) VALUES (@Tracking_pk, @Customer_owne"& _ 
                 "r, @Customer_idc, @Customer_fullname, @Tracking_court, @Tracking_red, @Tracking_"& _ 
                 "date_sheet, @EMPLOYEES_KEY, @Tracking_detail, @Tracking_nosheet, @Tracking_Colle"& _ 
-                "ctor_nosend, @Tracking_other, @Tracking_date_work);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Tracking_pk, Customer"& _ 
-                "_owner, Customer_idc, Customer_fullname, Tracking_court, Tracking_red, Tracking_"& _ 
-                "date_sheet, EMPLOYEES_KEY, Tracking_detail, Tracking_nosheet, Tracking_Collector"& _ 
-                "_nosend, Tracking_other, Tracking_date_work FROM EXETRACKING WHERE (Tracking_pk "& _ 
-                "= @Tracking_pk)"
+                "ctor_nosend, @Tracking_other, @Tracking_date_work);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Tracking_pk, Custome"& _ 
+                "r_owner, Customer_idc, Customer_fullname, Tracking_court, Tracking_red, Tracking"& _ 
+                "_date_sheet, EMPLOYEES_KEY, Tracking_detail, Tracking_nosheet, Tracking_Collecto"& _ 
+                "r_nosend, Tracking_other, Tracking_date_work FROM EXETRACKING WHERE (Tracking_pk"& _ 
+                " = @Tracking_pk)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tracking_pk", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tracking_pk", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -26417,11 +26416,11 @@ Namespace SCANPDFDataSet1TableAdapters
                 "Original_Tracking_Collector_nosend)) AND ((@IsNull_Tracking_other = 1 AND [Track"& _ 
                 "ing_other] IS NULL) OR ([Tracking_other] = @Original_Tracking_other)) AND ((@IsN"& _ 
                 "ull_Tracking_date_work = 1 AND [Tracking_date_work] IS NULL) OR ([Tracking_date_"& _ 
-                "work] = @Original_Tracking_date_work)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Tracking_pk, Customer_owner, Cus"& _ 
-                "tomer_idc, Customer_fullname, Tracking_court, Tracking_red, Tracking_date_sheet,"& _ 
-                " EMPLOYEES_KEY, Tracking_detail, Tracking_nosheet, Tracking_Collector_nosend, Tr"& _ 
-                "acking_other, Tracking_date_work FROM EXETRACKING WHERE (Tracking_pk = @Tracking"& _ 
-                "_pk)"
+                "work] = @Original_Tracking_date_work)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Tracking_pk, Customer_owner, Cu"& _ 
+                "stomer_idc, Customer_fullname, Tracking_court, Tracking_red, Tracking_date_sheet"& _ 
+                ", EMPLOYEES_KEY, Tracking_detail, Tracking_nosheet, Tracking_Collector_nosend, T"& _ 
+                "racking_other, Tracking_date_work FROM EXETRACKING WHERE (Tracking_pk = @Trackin"& _ 
+                "g_pk)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tracking_pk", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tracking_pk", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer_owner", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer_owner", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -27156,10 +27155,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "EXEDATEWDS], [EXEDETAILWDS]) VALUES (@EXEKEY, @EXECUSOWN, @EXEHUBS, @EXEDATECOLL"& _ 
                 "EC, @EXECUSIDC, @EXECUSCUS, @EXECUSACC, @EXECUSNAM, @EXECUSBLACK, @EXECUSRED, @E"& _ 
                 "XEDATEPAY, @EXETOTAL, @EXECUSPHONE, @EXESTATUS, @EXEADMIN, @EXEEMPLOYEE, @EXEDAT"& _ 
-                "EWDS, @EXEDETAILWDS);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXECUSOWN, EXEHUBS, EXEDATECOLLEC, EXECUSID"& _ 
-                "C, EXECUSCUS, EXECUSACC, EXECUSNAM, EXECUSBLACK, EXECUSRED, EXEDATEPAY, EXETOTAL"& _ 
-                ", EXECUSPHONE, EXESTATUS, EXEADMIN, EXEEMPLOYEE, EXEDATEWDS, EXEDETAILWDS FROM E"& _ 
-                "XEWDS WHERE (EXEKEY = @EXEKEY)"
+                "EWDS, @EXEDETAILWDS);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXECUSOWN, EXEHUBS, EXEDATECOLLEC, EXECUSI"& _ 
+                "DC, EXECUSCUS, EXECUSACC, EXECUSNAM, EXECUSBLACK, EXECUSRED, EXEDATEPAY, EXETOTA"& _ 
+                "L, EXECUSPHONE, EXESTATUS, EXEADMIN, EXEEMPLOYEE, EXEDATEWDS, EXEDETAILWDS FROM "& _ 
+                "EXEWDS WHERE (EXEKEY = @EXEKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXECUSOWN", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXECUSOWN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -27208,10 +27207,10 @@ Namespace SCANPDFDataSet1TableAdapters
                 "LL) OR ([EXEEMPLOYEE] = @Original_EXEEMPLOYEE)) AND ((@IsNull_EXEDATEWDS = 1 AND"& _ 
                 " [EXEDATEWDS] IS NULL) OR ([EXEDATEWDS] = @Original_EXEDATEWDS)) AND ((@IsNull_E"& _ 
                 "XEDETAILWDS = 1 AND [EXEDETAILWDS] IS NULL) OR ([EXEDETAILWDS] = @Original_EXEDE"& _ 
-                "TAILWDS)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXECUSOWN, EXEHUBS, EXEDATECOLLEC, EXECUSIDC, EXECUSC"& _ 
-                "US, EXECUSACC, EXECUSNAM, EXECUSBLACK, EXECUSRED, EXEDATEPAY, EXETOTAL, EXECUSPH"& _ 
-                "ONE, EXESTATUS, EXEADMIN, EXEEMPLOYEE, EXEDATEWDS, EXEDETAILWDS FROM EXEWDS WHER"& _ 
-                "E (EXEKEY = @EXEKEY)"
+                "TAILWDS)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT EXEKEY, EXECUSOWN, EXEHUBS, EXEDATECOLLEC, EXECUSIDC, EXECUS"& _ 
+                "CUS, EXECUSACC, EXECUSNAM, EXECUSBLACK, EXECUSRED, EXEDATEPAY, EXETOTAL, EXECUSP"& _ 
+                "HONE, EXESTATUS, EXEADMIN, EXEEMPLOYEE, EXEDATEWDS, EXEDETAILWDS FROM EXEWDS WHE"& _ 
+                "RE (EXEKEY = @EXEKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXEKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXEKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXECUSOWN", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXECUSOWN", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -28079,14 +28078,14 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HUBS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HUBS", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[HUBS] ([HUBS]) VALUES (@HUBS);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT HUBS FROM HUBS WHERE (HU"& _ 
-                "BS = @HUBS)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[HUBS] ([HUBS]) VALUES (@HUBS);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT HUBS FROM HUBS WHERE (H"& _ 
+                "UBS = @HUBS)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HUBS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HUBS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[HUBS] SET [HUBS] = @HUBS WHERE (([HUBS] = @Original_HUBS));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
-                "HUBS FROM HUBS WHERE (HUBS = @HUBS)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[HUBS] SET [HUBS] = @HUBS WHERE (([HUBS] = @Original_HUBS));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
+                " HUBS FROM HUBS WHERE (HUBS = @HUBS)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HUBS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HUBS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_HUBS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HUBS", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -28410,8 +28409,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[KBANKscdb] ([ACCKEY], [ACCKBANK], [PDF], [PRODUCT], [BANK], [T"& _ 
                 "YPE], [MONTH_LOAD]) VALUES (@ACCKEY, @ACCKBANK, @PDF, @PRODUCT, @BANK, @TYPE, @M"& _ 
-                "ONTH_LOAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCKBANK, PDF, PRODUCT, BANK, TYPE, MONTH_LOAD FROM K"& _ 
-                "BANKscdb WHERE (ACCKEY = @ACCKEY)"
+                "ONTH_LOAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCKBANK, PDF, PRODUCT, BANK, TYPE, MONTH_LOAD FROM "& _ 
+                "KBANKscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -28429,9 +28428,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "ND [PRODUCT] IS NULL) OR ([PRODUCT] = @Original_PRODUCT)) AND ((@IsNull_BANK = 1"& _ 
                 " AND [BANK] IS NULL) OR ([BANK] = @Original_BANK)) AND ((@IsNull_TYPE = 1 AND [T"& _ 
                 "YPE] IS NULL) OR ([TYPE] = @Original_TYPE)) AND ((@IsNull_MONTH_LOAD = 1 AND [MO"& _ 
-                "NTH_LOAD] IS NULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AC"& _ 
-                "CKBANK, PDF, PRODUCT, BANK, TYPE, MONTH_LOAD FROM KBANKscdb WHERE (ACCKEY = @ACC"& _ 
-                "KEY)"
+                "NTH_LOAD] IS NULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, A"& _ 
+                "CCKBANK, PDF, PRODUCT, BANK, TYPE, MONTH_LOAD FROM KBANKscdb WHERE (ACCKEY = @AC"& _ 
+                "CKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -28900,8 +28899,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[KKBscdb] ([ACCKEY], [AccKKB], [PDF], [Product], [Bank], [Type]"& _ 
                 ", [MONTH_LOAD]) VALUES (@ACCKEY, @AccKKB, @PDF, @Product, @Bank, @Type, @MONTH_L"& _ 
-                "OAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccKKB, PDF, Product, Bank, Type, MONTH_LOAD FROM KKBscdb W"& _ 
-                "HERE (ACCKEY = @ACCKEY)"
+                "OAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccKKB, PDF, Product, Bank, Type, MONTH_LOAD FROM KKBscdb "& _ 
+                "WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccKKB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccKKB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -28919,8 +28918,8 @@ Namespace SCANPDFDataSet1TableAdapters
                 "S NULL) OR ([Product] = @Original_Product)) AND ((@IsNull_Bank = 1 AND [Bank] IS"& _ 
                 " NULL) OR ([Bank] = @Original_Bank)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) "& _ 
                 "OR ([Type] = @Original_Type)) AND ((@IsNull_MONTH_LOAD = 1 AND [MONTH_LOAD] IS N"& _ 
-                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccKKB, PDF, Pro"& _ 
-                "duct, Bank, Type, MONTH_LOAD FROM KKBscdb WHERE (ACCKEY = @ACCKEY)"
+                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccKKB, PDF, Pr"& _ 
+                "oduct, Bank, Type, MONTH_LOAD FROM KKBscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccKKB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccKKB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -29389,8 +29388,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SCBscdb] ([ACCKEY], [AccSCB], [PDF], [Product], [Bank], [Type]"& _ 
                 ", [MONTH_LOAD]) VALUES (@ACCKEY, @AccSCB, @PDF, @Product, @Bank, @Type, @MONTH_L"& _ 
-                "OAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccSCB, PDF, Product, Bank, Type, MONTH_LOAD FROM SCBscdb W"& _ 
-                "HERE (ACCKEY = @ACCKEY)"
+                "OAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccSCB, PDF, Product, Bank, Type, MONTH_LOAD FROM SCBscdb "& _ 
+                "WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccSCB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccSCB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -29408,8 +29407,8 @@ Namespace SCANPDFDataSet1TableAdapters
                 "S NULL) OR ([Product] = @Original_Product)) AND ((@IsNull_Bank = 1 AND [Bank] IS"& _ 
                 " NULL) OR ([Bank] = @Original_Bank)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) "& _ 
                 "OR ([Type] = @Original_Type)) AND ((@IsNull_MONTH_LOAD = 1 AND [MONTH_LOAD] IS N"& _ 
-                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccSCB, PDF, Pro"& _ 
-                "duct, Bank, Type, MONTH_LOAD FROM SCBscdb WHERE (ACCKEY = @ACCKEY)"
+                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccSCB, PDF, Pr"& _ 
+                "oduct, Bank, Type, MONTH_LOAD FROM SCBscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccSCB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccSCB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -29879,8 +29878,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TBANKscdb] ([ACCKEY], [AccTBANK], [PDF], [Product], [Bank], [T"& _ 
                 "ype], [MONTH_LOAD]) VALUES (@ACCKEY, @AccTBANK, @PDF, @Product, @Bank, @Type, @M"& _ 
-                "ONTH_LOAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTBANK, PDF, Product, Bank, Type, MONTH_LOAD FROM T"& _ 
-                "BANKscdb WHERE (ACCKEY = @ACCKEY)"
+                "ONTH_LOAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTBANK, PDF, Product, Bank, Type, MONTH_LOAD FROM "& _ 
+                "TBANKscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccTBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccTBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -29898,9 +29897,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "ND [Product] IS NULL) OR ([Product] = @Original_Product)) AND ((@IsNull_Bank = 1"& _ 
                 " AND [Bank] IS NULL) OR ([Bank] = @Original_Bank)) AND ((@IsNull_Type = 1 AND [T"& _ 
                 "ype] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_MONTH_LOAD = 1 AND [MO"& _ 
-                "NTH_LOAD] IS NULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, Ac"& _ 
-                "cTBANK, PDF, Product, Bank, Type, MONTH_LOAD FROM TBANKscdb WHERE (ACCKEY = @ACC"& _ 
-                "KEY)"
+                "NTH_LOAD] IS NULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, A"& _ 
+                "ccTBANK, PDF, Product, Bank, Type, MONTH_LOAD FROM TBANKscdb WHERE (ACCKEY = @AC"& _ 
+                "CKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccTBANK", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccTBANK", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -30387,9 +30386,9 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_fdspc] ([FDSIP], [FDSNAME], [FDSFULLNAME], [FDSPOSITION], "& _ 
                 "[FDSPRODUCT], [FDSFlOOR], [FDSSERVER], [FDSDOMAIN], [FDSDETAIL], [FDSEDIT]) VALU"& _ 
                 "ES (@FDSIP, @FDSNAME, @FDSFULLNAME, @FDSPOSITION, @FDSPRODUCT, @FDSFlOOR, @FDSSE"& _ 
-                "RVER, @FDSDOMAIN, @FDSDETAIL, @FDSEDIT);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FDSIP, FDSNAME, FDSFULLNAME, FDS"& _ 
-                "POSITION, FDSPRODUCT, FDSFlOOR, FDSSERVER, FDSDOMAIN, FDSDETAIL, FDSEDIT FROM tb"& _ 
-                "l_fdspc WHERE (FDSIP = @FDSIP)"
+                "RVER, @FDSDOMAIN, @FDSDETAIL, @FDSEDIT);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FDSIP, FDSNAME, FDSFULLNAME, FD"& _ 
+                "SPOSITION, FDSPRODUCT, FDSFlOOR, FDSSERVER, FDSDOMAIN, FDSDETAIL, FDSEDIT FROM t"& _ 
+                "bl_fdspc WHERE (FDSIP = @FDSIP)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FDSIP", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FDSIP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FDSNAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FDSNAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -30417,9 +30416,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 "AND ((@IsNull_FDSDOMAIN = 1 AND [FDSDOMAIN] IS NULL) OR ([FDSDOMAIN] = @Original"& _ 
                 "_FDSDOMAIN)) AND ((@IsNull_FDSDETAIL = 1 AND [FDSDETAIL] IS NULL) OR ([FDSDETAIL"& _ 
                 "] = @Original_FDSDETAIL)) AND ((@IsNull_FDSEDIT = 1 AND [FDSEDIT] IS NULL) OR (["& _ 
-                "FDSEDIT] = @Original_FDSEDIT)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FDSIP, FDSNAME, FDSFULLNAME, FDSPOSITION"& _ 
-                ", FDSPRODUCT, FDSFlOOR, FDSSERVER, FDSDOMAIN, FDSDETAIL, FDSEDIT FROM tbl_fdspc "& _ 
-                "WHERE (FDSIP = @FDSIP)"
+                "FDSEDIT] = @Original_FDSEDIT)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FDSIP, FDSNAME, FDSFULLNAME, FDSPOSITIO"& _ 
+                "N, FDSPRODUCT, FDSFlOOR, FDSSERVER, FDSDOMAIN, FDSDETAIL, FDSEDIT FROM tbl_fdspc"& _ 
+                " WHERE (FDSIP = @FDSIP)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FDSIP", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FDSIP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FDSNAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FDSNAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -31025,8 +31024,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_logfiles] ([LOGDATE], [LOGUSER], [LOGNAME], [LOGIP], [LOGP"& _ 
                 "CNAME], [LOGDETAIL]) VALUES (@LOGDATE, @LOGUSER, @LOGNAME, @LOGIP, @LOGPCNAME, @"& _ 
-                "LOGDETAIL);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LOGDATE, LOGUSER, LOGNAME, LOGIP, LOGPCNAME, LOGDETAIL FROM t"& _ 
-                "bl_logfiles WHERE (LOGDATE = @LOGDATE)"
+                "LOGDETAIL);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LOGDATE, LOGUSER, LOGNAME, LOGIP, LOGPCNAME, LOGDETAIL FROM "& _ 
+                "tbl_logfiles WHERE (LOGDATE = @LOGDATE)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LOGDATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LOGDATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LOGUSER", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LOGUSER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -31043,9 +31042,8 @@ Namespace SCANPDFDataSet1TableAdapters
                 "[LOGNAME] IS NULL) OR ([LOGNAME] = @Original_LOGNAME)) AND ((@IsNull_LOGIP = 1 A"& _ 
                 "ND [LOGIP] IS NULL) OR ([LOGIP] = @Original_LOGIP)) AND ((@IsNull_LOGPCNAME = 1 "& _ 
                 "AND [LOGPCNAME] IS NULL) OR ([LOGPCNAME] = @Original_LOGPCNAME)) AND ((@IsNull_L"& _ 
-                "OGDETAIL = 1 AND [LOGDETAIL] IS NULL) OR ([LOGDETAIL] = @Original_LOGDETAIL)));"&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "SELECT LOGDATE, LOGUSER, LOGNAME, LOGIP, LOGPCNAME, LOGDETAIL FROM tbl_logfiles "& _ 
-                "WHERE (LOGDATE = @LOGDATE)"
+                "OGDETAIL = 1 AND [LOGDETAIL] IS NULL) OR ([LOGDETAIL] = @Original_LOGDETAIL)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT LOGDATE, LOGUSER, LOGNAME, LOGIP, LOGPCNAME, LOGDETAIL FROM tbl_logfiles"& _ 
+                " WHERE (LOGDATE = @LOGDATE)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LOGDATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LOGDATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LOGUSER", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LOGUSER", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -31498,8 +31496,9 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_login] ([USERID], [USRPASSWORD], [USRNAME], [USRGROUP], [U"& _ 
                 "SRLOGIN], [USRREGIS], [USRPASSFAIL], [USRLOCK], [USRPASCHANGE]) VALUES (@USERID,"& _ 
                 " @USRPASSWORD, @USRNAME, @USRGROUP, @USRLOGIN, @USRREGIS, @USRPASSFAIL, @USRLOCK"& _ 
-                ", @USRPASCHANGE);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT USERID, USRPASSWORD, USRNAME, USRGROUP, USRLOGIN, USRRE"& _ 
-                "GIS, USRPASSFAIL, USRLOCK, USRPASCHANGE FROM tbl_login WHERE (USERID = @USERID)"
+                ", @USRPASCHANGE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT USERID, USRPASSWORD, USRNAME, USRGROUP, USRLOGIN, USRR"& _ 
+                "EGIS, USRPASSFAIL, USRLOCK, USRPASCHANGE FROM tbl_login WHERE (USERID = @USERID)"& _ 
+                ""
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USERID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USERID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USRPASSWORD", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USRPASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -31523,9 +31522,9 @@ Namespace SCANPDFDataSet1TableAdapters
                 " IS NULL) OR ([USRREGIS] = @Original_USRREGIS)) AND ((@IsNull_USRPASSFAIL = 1 AN"& _ 
                 "D [USRPASSFAIL] IS NULL) OR ([USRPASSFAIL] = @Original_USRPASSFAIL)) AND ([USRLO"& _ 
                 "CK] = @Original_USRLOCK) AND ((@IsNull_USRPASCHANGE = 1 AND [USRPASCHANGE] IS NU"& _ 
-                "LL) OR ([USRPASCHANGE] = @Original_USRPASCHANGE)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT USERID, USRPASSWORD, "& _ 
-                "USRNAME, USRGROUP, USRLOGIN, USRREGIS, USRPASSFAIL, USRLOCK, USRPASCHANGE FROM t"& _ 
-                "bl_login WHERE (USERID = @USERID)"
+                "LL) OR ([USRPASCHANGE] = @Original_USRPASCHANGE)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT USERID, USRPASSWORD,"& _ 
+                " USRNAME, USRGROUP, USRLOGIN, USRREGIS, USRPASSFAIL, USRLOCK, USRPASCHANGE FROM "& _ 
+                "tbl_login WHERE (USERID = @USERID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USERID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USERID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USRPASSWORD", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USRPASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -32327,8 +32326,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TMBscdb] ([ACCKEY], [AccTMB], [PDF], [Product], [Bank], [Type]"& _ 
                 ", [MONTH_LOAD]) VALUES (@ACCKEY, @AccTMB, @PDF, @Product, @Bank, @Type, @MONTH_L"& _ 
-                "OAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTMB, PDF, Product, Bank, Type, MONTH_LOAD FROM TMBscdb W"& _ 
-                "HERE (ACCKEY = @ACCKEY)"
+                "OAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTMB, PDF, Product, Bank, Type, MONTH_LOAD FROM TMBscdb "& _ 
+                "WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccTMB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccTMB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -32346,8 +32345,8 @@ Namespace SCANPDFDataSet1TableAdapters
                 "S NULL) OR ([Product] = @Original_Product)) AND ((@IsNull_Bank = 1 AND [Bank] IS"& _ 
                 " NULL) OR ([Bank] = @Original_Bank)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) "& _ 
                 "OR ([Type] = @Original_Type)) AND ((@IsNull_MONTH_LOAD = 1 AND [MONTH_LOAD] IS N"& _ 
-                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTMB, PDF, Pro"& _ 
-                "duct, Bank, Type, MONTH_LOAD FROM TMBscdb WHERE (ACCKEY = @ACCKEY)"
+                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTMB, PDF, Pr"& _ 
+                "oduct, Bank, Type, MONTH_LOAD FROM TMBscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccTMB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccTMB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -32816,8 +32815,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TSSscdb] ([ACCKEY], [AccTSS], [PDF], [Product], [Bank], [Type]"& _ 
                 ", [MONTH_LOAD]) VALUES (@ACCKEY, @AccTSS, @PDF, @Product, @Bank, @Type, @MONTH_L"& _ 
-                "OAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTSS, PDF, Product, Bank, Type, MONTH_LOAD FROM TSSscdb W"& _ 
-                "HERE (ACCKEY = @ACCKEY)"
+                "OAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTSS, PDF, Product, Bank, Type, MONTH_LOAD FROM TSSscdb "& _ 
+                "WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccTSS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccTSS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -32835,8 +32834,8 @@ Namespace SCANPDFDataSet1TableAdapters
                 "S NULL) OR ([Product] = @Original_Product)) AND ((@IsNull_Bank = 1 AND [Bank] IS"& _ 
                 " NULL) OR ([Bank] = @Original_Bank)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) "& _ 
                 "OR ([Type] = @Original_Type)) AND ((@IsNull_MONTH_LOAD = 1 AND [MONTH_LOAD] IS N"& _ 
-                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTSS, PDF, Pro"& _ 
-                "duct, Bank, Type, MONTH_LOAD FROM TSSscdb WHERE (ACCKEY = @ACCKEY)"
+                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, AccTSS, PDF, Pr"& _ 
+                "oduct, Bank, Type, MONTH_LOAD FROM TSSscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AccTSS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AccTSS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33305,8 +33304,8 @@ Namespace SCANPDFDataSet1TableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[UOBscdb] ([ACCKEY], [ACCUOB], [PDF], [PRODUCT], [BANK], [TYPE]"& _ 
                 ", [MONTH_LOAD]) VALUES (@ACCKEY, @ACCUOB, @PDF, @PRODUCT, @BANK, @TYPE, @MONTH_L"& _ 
-                "OAD);"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCUOB, PDF, PRODUCT, BANK, TYPE, MONTH_LOAD FROM UOBscdb W"& _ 
-                "HERE (ACCKEY = @ACCKEY)"
+                "OAD);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCUOB, PDF, PRODUCT, BANK, TYPE, MONTH_LOAD FROM UOBscdb "& _ 
+                "WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCUOB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCUOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -33324,8 +33323,8 @@ Namespace SCANPDFDataSet1TableAdapters
                 "S NULL) OR ([PRODUCT] = @Original_PRODUCT)) AND ((@IsNull_BANK = 1 AND [BANK] IS"& _ 
                 " NULL) OR ([BANK] = @Original_BANK)) AND ((@IsNull_TYPE = 1 AND [TYPE] IS NULL) "& _ 
                 "OR ([TYPE] = @Original_TYPE)) AND ((@IsNull_MONTH_LOAD = 1 AND [MONTH_LOAD] IS N"& _ 
-                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCUOB, PDF, PRO"& _ 
-                "DUCT, BANK, TYPE, MONTH_LOAD FROM UOBscdb WHERE (ACCKEY = @ACCKEY)"
+                "ULL) OR ([MONTH_LOAD] = @Original_MONTH_LOAD)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ACCKEY, ACCUOB, PDF, PR"& _ 
+                "ODUCT, BANK, TYPE, MONTH_LOAD FROM UOBscdb WHERE (ACCKEY = @ACCKEY)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCKEY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCKEY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ACCUOB", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ACCUOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

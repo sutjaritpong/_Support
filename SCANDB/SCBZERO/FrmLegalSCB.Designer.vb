@@ -218,6 +218,7 @@ Partial Class FrmLegalSCB
         Me.Cmd_ExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Cmd_ExportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Cmd_ExportExcel.UseVisualStyleBackColor = False
+        Me.Cmd_ExportExcel.Visible = False
         '
         'Label13
         '
