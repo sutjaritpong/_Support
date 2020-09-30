@@ -1647,9 +1647,9 @@ Partial Class FrmEXEACC
         Me.lbl_Pk_ACC.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_Pk_ACC.Location = New System.Drawing.Point(1097, 440)
         Me.lbl_Pk_ACC.Name = "lbl_Pk_ACC"
-        Me.lbl_Pk_ACC.Size = New System.Drawing.Size(56, 18)
+        Me.lbl_Pk_ACC.Size = New System.Drawing.Size(85, 18)
         Me.lbl_Pk_ACC.TabIndex = 147
-        Me.lbl_Pk_ACC.Text = "PK_Key"
+        Me.lbl_Pk_ACC.Text = "ACCPK_Key"
         Me.lbl_Pk_ACC.Visible = False
         '
         'Lbl_Repeat_PK
@@ -1658,9 +1658,9 @@ Partial Class FrmEXEACC
         Me.Lbl_Repeat_PK.Font = New System.Drawing.Font("Bookman Old Style", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lbl_Repeat_PK.Location = New System.Drawing.Point(1097, 401)
         Me.Lbl_Repeat_PK.Name = "Lbl_Repeat_PK"
-        Me.Lbl_Repeat_PK.Size = New System.Drawing.Size(56, 18)
+        Me.Lbl_Repeat_PK.Size = New System.Drawing.Size(73, 18)
         Me.Lbl_Repeat_PK.TabIndex = 149
-        Me.Lbl_Repeat_PK.Text = "PK_Key"
+        Me.Lbl_Repeat_PK.Text = "RFPK_Key"
         Me.Lbl_Repeat_PK.Visible = False
         '
         'Txt_Repeact_PK

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmIncome
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmIncome
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmIncome))
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -75,9 +75,6 @@ Partial Class FrmIncome
         Me.Chk_Income_Datework = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Datework = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Lbl_income_result = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Txt_Income_GrandTotal = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Txt_Income_Refund = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Refund = New System.Windows.Forms.CheckBox()
@@ -142,6 +139,9 @@ Partial Class FrmIncome
         Me.Txt_Income_Pay1 = New System.Windows.Forms.TextBox()
         Me.Chk_Income_Pay1 = New System.Windows.Forms.CheckBox()
         Me.Dtp_Income_Pay1 = New System.Windows.Forms.DateTimePicker()
+        Me.Lbl_income_result = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Txt_Income_GrandTotal = New System.Windows.Forms.TextBox()
         Me.Lbl_primarykey = New System.Windows.Forms.Label()
         Me.Lbl_key_idc = New System.Windows.Forms.Label()
         Me.Lbl_key_Acc = New System.Windows.Forms.Label()
@@ -798,9 +798,6 @@ Partial Class FrmIncome
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Lbl_income_result)
-        Me.GroupBox4.Controls.Add(Me.Label31)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_GrandTotal)
         Me.GroupBox4.Controls.Add(Me.Label34)
         Me.GroupBox4.Controls.Add(Me.Txt_Income_Refund)
         Me.GroupBox4.Controls.Add(Me.Chk_Income_Refund)
@@ -867,44 +864,10 @@ Partial Class FrmIncome
         Me.GroupBox4.Controls.Add(Me.Dtp_Income_Pay1)
         Me.GroupBox4.Location = New System.Drawing.Point(2, 231)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(492, 494)
+        Me.GroupBox4.Size = New System.Drawing.Size(492, 466)
         Me.GroupBox4.TabIndex = 97
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "รายการบัญชี-รับจ่าย"
-        '
-        'Lbl_income_result
-        '
-        Me.Lbl_income_result.AutoSize = True
-        Me.Lbl_income_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Lbl_income_result.Location = New System.Drawing.Point(6, 471)
-        Me.Lbl_income_result.Name = "Lbl_income_result"
-        Me.Lbl_income_result.Size = New System.Drawing.Size(37, 20)
-        Me.Lbl_income_result.TabIndex = 99
-        Me.Lbl_income_result.Text = "xxxx"
-        Me.Lbl_income_result.Visible = False
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.BackColor = System.Drawing.SystemColors.Window
-        Me.Label31.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.Blue
-        Me.Label31.Location = New System.Drawing.Point(287, 464)
-        Me.Label31.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(53, 16)
-        Me.Label31.TabIndex = 168
-        Me.Label31.Text = "รวมที่ชำระ"
-        '
-        'Txt_Income_GrandTotal
-        '
-        Me.Txt_Income_GrandTotal.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Income_GrandTotal.ForeColor = System.Drawing.Color.LimeGreen
-        Me.Txt_Income_GrandTotal.Location = New System.Drawing.Point(350, 461)
-        Me.Txt_Income_GrandTotal.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_GrandTotal.Name = "Txt_Income_GrandTotal"
-        Me.Txt_Income_GrandTotal.Size = New System.Drawing.Size(138, 22)
-        Me.Txt_Income_GrandTotal.TabIndex = 169
         '
         'Label34
         '
@@ -1130,7 +1093,7 @@ Partial Class FrmIncome
         Me.Dtp_Income_Pay12.CalendarForeColor = System.Drawing.Color.Blue
         Me.Dtp_Income_Pay12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Dtp_Income_Pay12.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp_Income_Pay12.Location = New System.Drawing.Point(125, 348)
+        Me.Dtp_Income_Pay12.Location = New System.Drawing.Point(125, 350)
         Me.Dtp_Income_Pay12.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Dtp_Income_Pay12.Name = "Dtp_Income_Pay12"
         Me.Dtp_Income_Pay12.Size = New System.Drawing.Size(111, 21)
@@ -1642,6 +1605,40 @@ Partial Class FrmIncome
         Me.Dtp_Income_Pay1.Size = New System.Drawing.Size(111, 21)
         Me.Dtp_Income_Pay1.TabIndex = 103
         '
+        'Lbl_income_result
+        '
+        Me.Lbl_income_result.AutoSize = True
+        Me.Lbl_income_result.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_income_result.Location = New System.Drawing.Point(8, 700)
+        Me.Lbl_income_result.Name = "Lbl_income_result"
+        Me.Lbl_income_result.Size = New System.Drawing.Size(37, 20)
+        Me.Lbl_income_result.TabIndex = 99
+        Me.Lbl_income_result.Text = "xxxx"
+        Me.Lbl_income_result.Visible = False
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.BackColor = System.Drawing.SystemColors.Window
+        Me.Label31.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.Red
+        Me.Label31.Location = New System.Drawing.Point(289, 704)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(53, 16)
+        Me.Label31.TabIndex = 168
+        Me.Label31.Text = "รวมที่ชำระ"
+        '
+        'Txt_Income_GrandTotal
+        '
+        Me.Txt_Income_GrandTotal.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Income_GrandTotal.ForeColor = System.Drawing.Color.LimeGreen
+        Me.Txt_Income_GrandTotal.Location = New System.Drawing.Point(352, 701)
+        Me.Txt_Income_GrandTotal.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Income_GrandTotal.Name = "Txt_Income_GrandTotal"
+        Me.Txt_Income_GrandTotal.Size = New System.Drawing.Size(138, 22)
+        Me.Txt_Income_GrandTotal.TabIndex = 169
+        '
         'Lbl_primarykey
         '
         Me.Lbl_primarykey.AutoSize = True
@@ -1683,8 +1680,11 @@ Partial Class FrmIncome
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.Controls.Add(Me.Lbl_income_result)
         Me.Controls.Add(Me.Lbl_key_Acc)
+        Me.Controls.Add(Me.Label31)
         Me.Controls.Add(Me.Lbl_key_idc)
+        Me.Controls.Add(Me.Txt_Income_GrandTotal)
         Me.Controls.Add(Me.Lbl_primarykey)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
@@ -1751,7 +1751,6 @@ Partial Class FrmIncome
     Friend WithEvents Label5 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label20 As Label
     Friend WithEvents Txt_Income_Detail As TextBox
     Friend WithEvents Label19 As Label
     Friend WithEvents Chk_Income_Datework As CheckBox
@@ -1833,4 +1832,5 @@ Partial Class FrmIncome
     Friend WithEvents Lbl_key_idc As Label
     Friend WithEvents Lbl_key_Acc As Label
     Friend WithEvents cbo_income_prefix As ComboBox
+    Friend WithEvents Label20 As Label
 End Class

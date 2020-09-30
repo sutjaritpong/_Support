@@ -34,12 +34,12 @@ Partial Class FrmLogin
         Me.internetcheck = New System.ComponentModel.BackgroundWorker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_version = New System.Windows.Forms.Label()
+        Me.aws = New AxMSWinsockLib.AxWinsock()
         Me.btnlogin = New System.Windows.Forms.Button()
         Me.btncancel = New System.Windows.Forms.Button()
         Me.Ptb_connection = New System.Windows.Forms.PictureBox()
-        Me.aws = New AxMSWinsockLib.AxWinsock()
-        CType(Me.Ptb_connection, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.aws, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ptb_connection, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_loginlogo
@@ -155,6 +155,16 @@ Partial Class FrmLogin
         Me.lbl_version.TabIndex = 28
         Me.lbl_version.Text = "1.10"
         '
+        'aws
+        '
+        Me.aws.Enabled = True
+        Me.aws.Location = New System.Drawing.Point(1, 0)
+        Me.aws.Name = "aws"
+        Me.aws.OcxState = CType(resources.GetObject("aws.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.aws.Size = New System.Drawing.Size(28, 28)
+        Me.aws.TabIndex = 30
+        Me.aws.Visible = False
+        '
         'btnlogin
         '
         Me.btnlogin.BackColor = System.Drawing.Color.White
@@ -193,16 +203,6 @@ Partial Class FrmLogin
         Me.Ptb_connection.TabIndex = 29
         Me.Ptb_connection.TabStop = False
         '
-        'aws
-        '
-        Me.aws.Enabled = True
-        Me.aws.Location = New System.Drawing.Point(1, 0)
-        Me.aws.Name = "aws"
-        Me.aws.OcxState = CType(resources.GetObject("aws.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.aws.Size = New System.Drawing.Size(28, 28)
-        Me.aws.TabIndex = 30
-        Me.aws.Visible = False
-        '
         'FrmLogin
         '
         Me.AcceptButton = Me.btnlogin
@@ -210,7 +210,7 @@ Partial Class FrmLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btncancel
-        Me.ClientSize = New System.Drawing.Size(358, 468)
+        Me.ClientSize = New System.Drawing.Size(344, 468)
         Me.Controls.Add(Me.aws)
         Me.Controls.Add(Me.Ptb_connection)
         Me.Controls.Add(Me.lbl_version)
@@ -229,8 +229,8 @@ Partial Class FrmLogin
         Me.MaximizeBox = False
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        CType(Me.Ptb_connection, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.aws, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ptb_connection, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

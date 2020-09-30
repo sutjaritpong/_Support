@@ -370,6 +370,7 @@ Public Class FrmExecution
         txt_tracking_nosheet.ReadOnly = True
         txt_collec_nosend.ReadOnly = True
         txt_count_acc.ReadOnly = True
+        Txt_Tkmoney.ReadOnly = True
 
         chk_datesheet.Enabled = False
         chk_tracking_date.Enabled = False
@@ -403,6 +404,7 @@ Public Class FrmExecution
         txt_tracking_nosheet.ReadOnly = False
         txt_collec_nosend.ReadOnly = False
         txt_count_acc.ReadOnly = False
+        Txt_Tkmoney.ReadOnly = False
 
         chk_datesheet.Enabled = True
         chk_tracking_date.Enabled = True
@@ -721,8 +723,8 @@ Public Class FrmExecution
             End If
 
         End With
-
-        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,ET.Tracking_other,Tracking_date_work,Tracking_total FROM EXETRACKING AS ET
+        'ET.Tracking_other, Tracking_date_work,
+        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,Tracking_total FROM EXETRACKING AS ET
                 INNER JOIN EXEEMPLOYEE AS EMP
                 ON ET.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY
                 WHERE Customer_idc = '{CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(1).Value.ToString)}' ORDER BY ET.Tracking_date_sheet DESC"
@@ -752,6 +754,7 @@ Public Class FrmExecution
                 txt_collec_nosend.Text = .Rows(0).Cells(2).Value.ToString
                 cbo_employees_exe.Text = .Rows(0).Cells(3).Value.ToString
                 txt_tracking_nosheet.Text = .Rows(0).Cells(4).Value.ToString
+
                 Txt_Tkmoney.Text = .Rows(0).Cells(5).Value.ToString
 
                 If dtgv_tracking_statement.Rows(0).Cells(0).Value.ToString <> "" Then

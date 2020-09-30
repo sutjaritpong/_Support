@@ -229,17 +229,6 @@ Public Class FrmMastermain
 
     Private Sub Menu_settingms_Click(sender As Object, e As EventArgs) Handles menu_settingms.Click
 
-        With FrmSetting
-            .MdiParent = Me
-            .Show()
-            .WindowState = FormWindowState.Maximized
-        End With
-
-    End Sub
-
-    Private Sub Menu_Historyms_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
-
-
         If Application.OpenForms.OfType(Of FrmSetting).Any Then
 
             FrmSetting.Focus()
@@ -249,6 +238,16 @@ Public Class FrmMastermain
             End With
 
         End If
+
+    End Sub
+
+    Private Sub Menu_Historyms_Click(sender As Object, e As EventArgs) Handles menu_Historyms.Click
+
+        With Frmlogfile
+            .MdiParent = Me
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
 
     End Sub
 

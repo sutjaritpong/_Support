@@ -179,6 +179,12 @@
     <Compile Include="Dataset\SCBZERO.vb">
       <DependentUpon>SCBZERO.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Execution\Main_execution\FrmMainExecution.Designer.vb">
+      <DependentUpon>FrmMainExecution.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\Main_execution\FrmMainExecution.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Execution\Statement\FrmIncome.Designer.vb">
       <DependentUpon>FrmIncome.vb</DependentUpon>
     </Compile>
@@ -276,6 +282,12 @@
       <DependentUpon>FrmLegalSCB.vb</DependentUpon>
     </Compile>
     <Compile Include="SCBZERO\FrmLegalSCB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCBZERO\FrmLegalScbRV.Designer.vb">
+      <DependentUpon>FrmLegalScbRV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SCBZERO\FrmLegalScbRV.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sysmanage\Frmlogfileexe.Designer.vb">
@@ -484,6 +496,9 @@
     <Compile Include="Classmodule\VBdatabase.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Execution\Main_execution\FrmMainExecution.resx">
+      <DependentUpon>FrmMainExecution.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\Report_execution\ReportAccounting.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\Reportlogexe.rdlc" />
     <EmbeddedResource Include="Execution\Report_execution\ReportStatement.rdlc" />
@@ -521,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SCBZERO\FrmLegalSCB.resx">
       <DependentUpon>FrmLegalSCB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SCBZERO\FrmLegalScbRV.resx">
+      <DependentUpon>FrmLegalScbRV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SCBZERO\ReportSCBZeroLAW.rdlc" />
     <EmbeddedResource Include="sysmanage\Frmlogfileexe.resx">

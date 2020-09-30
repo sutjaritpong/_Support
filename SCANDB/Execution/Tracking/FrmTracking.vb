@@ -279,6 +279,7 @@ Public Class FrmTracking
         txt_red.ReadOnly = True
         txt_court.ReadOnly = True
         txt_detail.ReadOnly = True
+        Txt_tkmoney.ReadOnly = True
         cbo_waning.Enabled = False
         cbo_owner.Enabled = False
         cbo_empexe.Enabled = False
@@ -309,6 +310,7 @@ Public Class FrmTracking
         txt_cusname.ReadOnly = False
         txt_red.ReadOnly = False
         txt_court.ReadOnly = False
+        Txt_tkmoney.ReadOnly = False
 
         cbo_waning.Enabled = True
         cbo_owner.Enabled = True
@@ -328,6 +330,8 @@ Public Class FrmTracking
         txt_cusname.Text = ""
         txt_detail.Text = ""
         txt_red.Text = ""
+        Txt_tkmoney.Text = ""
+
         cbo_detail.Text = ""
         cbo_document.Text = ""
         cbo_empexe.Text = ""

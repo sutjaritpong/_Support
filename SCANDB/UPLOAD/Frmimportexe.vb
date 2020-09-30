@@ -76,10 +76,12 @@ Public Class Frmimportexe
     End Sub
 
     Private Sub Cmd_import_Click(sender As Object, e As EventArgs) Handles cmd_import.Click
+
         If lbl_statusprogress.Visible <> False Then
             Msg_error("มีข้อมูลที่กำลังทำงานอยู่ในขณะนี้")
             Return
         End If
+
         If txt_Importfile.Text = "" Then
             Msg_error("กรุณาเลือกไฟล์ที่ต้องการ UPLOAD")
             Return

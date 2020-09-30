@@ -6,7 +6,7 @@ Public Class FrmIncome
 
         Connect()
 
-        Dim typefind() As String = {"ธนาคาร", "เลขบัตรประชาชน", "เลขที่สัญญา", "ขื่อ", "นามสกุล", "เลขคดีดำ", "เลขคดีแดง"}
+        Dim typefind() As String = {"ธนาคาร", "เลขบัตรประชาชน", "เลขที่สัญญา", "ขื่อ", "นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง"}
         CboArray(Cbo_Income_find, typefind)
         Cbo_Income_find.SelectedIndex = 0
 
@@ -36,6 +36,27 @@ Public Class FrmIncome
 
         ClearText()
         ReadonlyText()
+
+        Datetimeformatshort(Dtp_Income_DateSheet)
+        Datetimeformatshort(Dtp_Income_Datework)
+
+        Datetimeformatshort(Dtp_Income_Pay1)
+        Datetimeformatshort(Dtp_Income_Pay2)
+        Datetimeformatshort(Dtp_Income_Pay3)
+        Datetimeformatshort(Dtp_Income_Pay4)
+        Datetimeformatshort(Dtp_Income_Pay5)
+        Datetimeformatshort(Dtp_Income_Pay6)
+        Datetimeformatshort(Dtp_Income_Pay7)
+        Datetimeformatshort(Dtp_Income_Pay8)
+        Datetimeformatshort(Dtp_Income_Pay9)
+        Datetimeformatshort(Dtp_Income_Pay10)
+        Datetimeformatshort(Dtp_Income_Pay11)
+        Datetimeformatshort(Dtp_Income_Pay12)
+        Datetimeformatshort(Dtp_Income_Pay13)
+        Datetimeformatshort(Dtp_Income_Pay14)
+        Datetimeformatshort(Dtp_Income_Pay15)
+
+
 
     End Sub
 
@@ -145,7 +166,7 @@ Public Class FrmIncome
 
             Lbl_Income_Invalid.Visible = True
             Lbl_Income_Invalid.ForeColor = Color.Green
-            Lbl_Income_Invalid.Text = $"เพิ่มล้มเหลว {Queryinsert} รายการ"
+            Lbl_Income_Invalid.Text = $"เพิ่มข้อมูล {Queryinsert} รายการ"
 
         Else
             Lbl_Income_Invalid.Visible = True
@@ -159,6 +180,7 @@ Public Class FrmIncome
 
         Connect()
 
+
         sqll = $"SELECT COUNT(Customer_id_card) FROM Execution_income_result WHERE Customer_id_card = '{Txt_Income_Idcus.Text}' And Customer_Account = '{Txt_Income_Acc.Text}';"
 
         cmd = New SqlCommand(sqll, cn)
@@ -166,164 +188,166 @@ Public Class FrmIncome
 
         If Checktables <= 0 Then
 
-            sql = $"INSERT INTO Execution_Income_Result(Customer_id_card,Customer_Account,Income_refund,Income_refund_date,Income_grandtotal,Income_statement_1,Income_refund_date1,Income_statement_2,Income_refund_date2,Income_statement_3,Income_refund_date3,Income_statement_4,Income_refund_date4,Income_statement_5,Income_refund_date5,Income_statement_6,Income_refund_date6,Income_statement_7,Income_refund_date7,Income_statement_8,Income_refund_date8,Income_statement_9,Income_refund_date9,Income_statement_10,Income_refund_date10,Income_statement_11,Income_refund_date11,Income_statement_12,Income_refund_date12,Income_statement_13,Income_refund_date13,Income_statement_14,Income_refund_date14,Income_statement_15,Income_refund_date15)VALUES('{Txt_Income_Idcus.Text}','{Txt_Income_Acc.Text}',"
+            sql = $"INSERT INTO Execution_Income_Result(Customer_id_card,Customer_Account,Income_refund,Income_refund_date,Income_grandtotal,Income_statement_1,Income_refund_date1,Income_statement_2,Income_refund_date2,Income_statement_3,Income_refund_date3,Income_statement_4,Income_refund_date4,Income_statement_5,Income_refund_date5,Income_statement_6,Income_refund_date6,Income_statement_7,Income_refund_date7,Income_statement_8,Income_refund_date8,Income_statement_9,Income_refund_date9,Income_statement_10,Income_refund_date10,Income_statement_11,Income_refund_date11,Income_statement_12,Income_refund_date12,Income_statement_13,Income_refund_date13,Income_statement_14,Income_refund_date14,Income_statement_15,Income_refund_date15)VALUES('{Txt_Income_Idcus.Text}','{Txt_Income_Acc.Text}'"
 
             If Chk_Income_Refund.Checked = False Then
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Refund.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Refund.Text},'{Dtp_Income_Refund.Text}',"
+                sql &= $",{Txt_Income_Refund.Text},'{Dtp_Income_Refund.Text}'"
+
             End If
 
-            sql &= $"{Txt_Income_GrandTotal.Text},"
+            sql &= $",{Txt_Income_GrandTotal.Text}"
 
             If Chk_Income_Pay1.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay1.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay1.Text},'{Dtp_Income_Pay1.Text}',"
+                sql &= $",{Txt_Income_Pay1.Text},'{Dtp_Income_Pay1.Text}'"
+
             End If
 
             If Chk_Income_Pay2.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay2.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay2.Text},'{Dtp_Income_Pay2.Text}',"
+                sql &= $",{Txt_Income_Pay2.Text},'{Dtp_Income_Pay2.Text}'"
 
             End If
 
             If Chk_Income_Pay3.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay3.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay3.Text},'{Dtp_Income_Pay3.Text}',"
+                sql &= $",{Txt_Income_Pay3.Text},'{Dtp_Income_Pay3.Text}'"
 
             End If
 
             If Chk_Income_Pay4.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay4.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay4.Text},'{Dtp_Income_Pay4.Text}',"
+                sql &= $",{Txt_Income_Pay4.Text},'{Dtp_Income_Pay4.Text}'"
 
             End If
 
             If Chk_Income_Pay5.Checked = False Then
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay5.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay5.Text},'{Dtp_Income_Pay5.Text}',"
+                sql &= $",{Txt_Income_Pay5.Text},'{Dtp_Income_Pay5.Text}'"
 
             End If
 
             If Chk_Income_Pay6.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay6.Checked = True Then
+            Else
 
 
-                sql &= $"{Txt_Income_Pay6.Text},'{Dtp_Income_Pay6.Text}',"
+                sql &= $",{Txt_Income_Pay6.Text},'{Dtp_Income_Pay6.Text}'"
 
             End If
 
             If Chk_Income_Pay7.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay7.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay7.Text},'{Dtp_Income_Pay7.Text}',"
+                sql &= $",{Txt_Income_Pay7.Text},'{Dtp_Income_Pay7.Text}'"
 
             End If
 
             If Chk_Income_Pay8.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay8.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay8.Text},'{Dtp_Income_Pay8.Text}',"
+                sql &= $",{Txt_Income_Pay8.Text},'{Dtp_Income_Pay8.Text}'"
 
             End If
 
             If Chk_Income_Pay9.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay9.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay9.Text},'{Dtp_Income_Pay9.Text}',"
+                sql &= $",{Txt_Income_Pay9.Text},'{Dtp_Income_Pay9.Text}'"
 
             End If
 
             If Chk_Income_Pay10.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay10.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay10.Text},'{Dtp_Income_Pay10.Text}',"
+                sql &= $",{Txt_Income_Pay10.Text},'{Dtp_Income_Pay10.Text}'"
 
             End If
 
             If Chk_Income_Pay11.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay11.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay11.Text},'{Dtp_Income_Pay11.Text}',"
+                sql &= $",{Txt_Income_Pay11.Text},'{Dtp_Income_Pay11.Text}'"
 
             End If
 
             If Chk_Income_Pay12.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay12.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay12.Text},'{Dtp_Income_Pay12.Text}',"
+                sql &= $",{Txt_Income_Pay12.Text},'{Dtp_Income_Pay12.Text}'"
 
             End If
 
             If Chk_Income_Pay13.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay13.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay13.Text},'{Dtp_Income_Pay13.Text}',"
+                sql &= $",{Txt_Income_Pay13.Text},'{Dtp_Income_Pay13.Text}'"
 
             End If
 
             If Chk_Income_Pay14.Checked = False Then
 
-                sql &= $"0,NULL,"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay14.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay14.Text},'{Dtp_Income_Pay14.Text}',"
+                sql &= $",{Txt_Income_Pay14.Text},'{Dtp_Income_Pay14.Text}'"
 
             End If
 
             If Chk_Income_Pay15.Checked = False Then
 
-                sql &= $"0,NULL"
+                sql &= $",0,NULL"
 
-            ElseIf Chk_Income_Pay15.Checked = True Then
+            Else
 
-                sql &= $"{Txt_Income_Pay15.Text},'{Dtp_Income_Pay15.Text}'"
+                sql &= $",{Txt_Income_Pay15.Text},'{Dtp_Income_Pay15.Text}'"
 
             End If
 
@@ -512,9 +536,13 @@ Public Class FrmIncome
 
         If Txt_Income_Acc.Text = "" Then
             Msg_error("กรุณากรอก เลขที่สัญญา ที่ต้องการเพิ่มในระบบ")
+            Exit Sub
         End If
 
-        Check_CitizenID(Txt_Income_Idcus)
+        If Txt_Income_GrandTotal.Text = "" Then
+            Msg_error("กรุณากรอกจำนวน รวมที่ชำระ")
+            Exit Sub
+        End If
 
         Query_Insert_Income()
 
@@ -574,6 +602,7 @@ Public Class FrmIncome
         If Chk_Income_Refund.Checked = True Then
 
             Dtp_Income_Refund.Enabled = True
+            Dtp_Income_Refund.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Refund.Enabled = False
 
@@ -586,6 +615,7 @@ Public Class FrmIncome
         If Chk_Income_Pay1.Checked = True Then
 
             Dtp_Income_Pay1.Enabled = True
+            Dtp_Income_Pay1.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay1.Enabled = False
 
@@ -598,6 +628,7 @@ Public Class FrmIncome
         If Chk_Income_Pay2.Checked = True Then
 
             Dtp_Income_Pay2.Enabled = True
+            Dtp_Income_Pay2.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay2.Enabled = False
 
@@ -610,6 +641,7 @@ Public Class FrmIncome
         If Chk_Income_Pay3.Checked = True Then
 
             Dtp_Income_Pay3.Enabled = True
+            Dtp_Income_Pay3.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay3.Enabled = False
 
@@ -622,6 +654,7 @@ Public Class FrmIncome
         If Chk_Income_Pay4.Checked = True Then
 
             Dtp_Income_Pay4.Enabled = True
+            Dtp_Income_Pay4.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay4.Enabled = False
 
@@ -634,6 +667,7 @@ Public Class FrmIncome
         If Chk_Income_Pay5.Checked = True Then
 
             Dtp_Income_Pay5.Enabled = True
+            Dtp_Income_Pay5.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay5.Enabled = False
 
@@ -646,6 +680,7 @@ Public Class FrmIncome
         If Chk_Income_Pay6.Checked = True Then
 
             Dtp_Income_Pay6.Enabled = True
+            Dtp_Income_Pay6.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay6.Enabled = False
 
@@ -658,6 +693,7 @@ Public Class FrmIncome
         If Chk_Income_Pay7.Checked = True Then
 
             Dtp_Income_Pay7.Enabled = True
+            Dtp_Income_Pay7.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay7.Enabled = False
 
@@ -670,6 +706,7 @@ Public Class FrmIncome
         If Chk_Income_Pay8.Checked = True Then
 
             Dtp_Income_Pay8.Enabled = True
+            Dtp_Income_Pay8.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay8.Enabled = False
 
@@ -682,6 +719,7 @@ Public Class FrmIncome
         If Chk_Income_Pay9.Checked = True Then
 
             Dtp_Income_Pay9.Enabled = True
+            Dtp_Income_Pay9.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay9.Enabled = False
 
@@ -694,6 +732,7 @@ Public Class FrmIncome
         If Chk_Income_Pay10.Checked = True Then
 
             Dtp_Income_Pay10.Enabled = True
+            Dtp_Income_Pay10.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay10.Enabled = False
 
@@ -706,6 +745,7 @@ Public Class FrmIncome
         If Chk_Income_Pay11.Checked = True Then
 
             Dtp_Income_Pay11.Enabled = True
+            Dtp_Income_Pay11.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay11.Enabled = False
 
@@ -718,6 +758,7 @@ Public Class FrmIncome
         If Chk_Income_Pay12.Checked = True Then
 
             Dtp_Income_Pay12.Enabled = True
+            Dtp_Income_Pay12.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay12.Enabled = False
 
@@ -730,6 +771,7 @@ Public Class FrmIncome
         If Chk_Income_Pay13.Checked = True Then
 
             Dtp_Income_Pay13.Enabled = True
+            Dtp_Income_Pay13.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay13.Enabled = False
 
@@ -742,6 +784,7 @@ Public Class FrmIncome
         If Chk_Income_Pay14.Checked = True Then
 
             Dtp_Income_Pay14.Enabled = True
+            Dtp_Income_Pay14.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay14.Enabled = False
 
@@ -754,6 +797,7 @@ Public Class FrmIncome
         If Chk_Income_Pay15.Checked = True Then
 
             Dtp_Income_Pay15.Enabled = True
+            Dtp_Income_Pay15.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay15.Enabled = False
 
@@ -762,8 +806,6 @@ Public Class FrmIncome
     End Sub
 
     Private Sub Cmd_Income_Update_Click(sender As Object, e As EventArgs) Handles Cmd_Income_Update.Click
-
-        Check_CitizenID(Txt_Income_Idcus)
 
 
         QueryupdateIncome()
@@ -796,7 +838,7 @@ Public Class FrmIncome
             Lbl_Income_Invalid.ForeColor = Color.Green
             Lbl_Income_Invalid.Text = $"อัพเดทข้อมูล {QueryIncomeUpdate} รายการ"
 
-            Getlogdataexe($"อัพเดทข้อมูล เงินส่วนได้ ธนาคาร {Cbo_Income_Owner} ลูกค้าชื่อ{Txt_Income_Fullname.Text} ประเภท {Cbo_Income_Type} จำนวนเงิน {Txt_Income_Total.Text}", $"'{Txt_Income_Idcus.Text}'", $"'{Txt_Income_Acc.Text}'")
+            Getlogdataexe($"อัพเดทข้อมูล เงินส่วนได้ ธนาคาร {Cbo_Income_Owner.Text} ลูกค้าชื่อ{Txt_Income_Fullname.Text} ประเภท {Cbo_Income_Type.Text} จำนวนเงิน {Txt_Income_Total.Text}", $"'{Txt_Income_Idcus.Text}'", $"'{Txt_Income_Acc.Text}'")
 
         Else
 
@@ -1291,7 +1333,7 @@ Public Class FrmIncome
             Case "TMB SME" : Connect_(cn_TMBSME)
                 sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
-                cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
                 DS_Collec = New DataSet
                 DA_Collec.Fill(DS_Collec, "LINKdB")
@@ -1314,7 +1356,7 @@ Public Class FrmIncome
                 Else
                     sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
 
-                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                    cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
@@ -1350,7 +1392,7 @@ Public Class FrmIncome
 
                 sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.CUSCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
-                cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                cmd_Collec = New SqlCommand(sqll, cn_TBANK)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
                 DS_Collec = New DataSet
                 DA_Collec.Fill(DS_Collec, "LINKdB")
@@ -1372,7 +1414,7 @@ Public Class FrmIncome
                 Else
                     sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
 
-                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                    cmd_Collec = New SqlCommand(sqll, cn_TBANK)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
@@ -1405,7 +1447,7 @@ Public Class FrmIncome
 
                 sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
-                cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                cmd_Collec = New SqlCommand(sqll, cn_UOB)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)
                 DS_Collec = New DataSet
                 DA_Collec.Fill(DS_Collec, "LINKdB")
@@ -1429,7 +1471,7 @@ Public Class FrmIncome
 
                     sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
-                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                    cmd_Collec = New SqlCommand(sqll, cn_UOB)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
                     DS_Collec = New DataSet
                     DA_Collec.Fill(DS_Collec, "LINKdB")
@@ -1458,8 +1500,8 @@ Public Class FrmIncome
 
             Case Else : Connect_(cnLegal)
 
-                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
-                    cmdlegal = New SqlCommand(sqll, cnLegal)
+                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Txt_Income_Idcus.Text}'"
+                cmdlegal = New SqlCommand(sqll, cnLegal)
                     DALegal = New SqlDataAdapter(cmdlegal)
                     DSLegal = New DataSet
                     DALegal.Fill(DSLegal, "linklegal")
@@ -1482,8 +1524,8 @@ Public Class FrmIncome
 
                 Else
 
-                    sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Income_Acc.Text}'"
-                        cmdlegal = New SqlCommand(sqll, cnLegal)
+                    sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Income_Acc.Text}'"
+                    cmdlegal = New SqlCommand(sqll, cnLegal)
                         DALegal = New SqlDataAdapter(cmdlegal)
                         DSLegal = New DataSet
                         DALegal.Fill(DSLegal, "linklegal")
@@ -1518,6 +1560,7 @@ Public Class FrmIncome
 
         End Select
 
+        LinkIncomeResult()
 
     End Sub
 
@@ -1544,7 +1587,7 @@ Public Class FrmIncome
             Case "ธนาคาร" : sql &= $"WHERE EI.Customer_Owner"
             Case "เลขบัตรประชาชน" : sql &= $"WHERE EI.Customer_id_card"
             Case "เลขที่สัญญา" : sql &= $"WHERE EI.Customer_Account"
-            Case "ชื่อ" : sql &= $"WHERE EI.Customer_firstname"
+            Case "ขื่อ" : sql &= $"WHERE EI.Customer_firstname"
             Case "นามสกุล" : sql &= $"WHERE EI.Customer_lastname"
             Case "เลขที่คดีดำ" : sql &= $"WHERE EI.income_black"
             Case "เลขที่คดีแดง" : sql &= $"WHERE EI.income_red"
@@ -1656,7 +1699,7 @@ Public Class FrmIncome
 
             'เปลี่ยนค่าตัวเลขใน Textbox ให้เป็นจำนวน เงิน หรือ String ("##,##0.00")
 
-            Convertnum(Txt_Income_Total)
+            Convertdouble(Txt_Income_Total)
 
             'เปลี่ยนค่าใน Datetimepicker ให้เป็น ShortDate "dd-MMM-yy"
 
@@ -1678,12 +1721,39 @@ Public Class FrmIncome
 
         Connect()
 
-        sql = $"SELECT Income_refund,Income_statement_1,Income_statement_2,Income_statement_3,Income_statement_4,Income_statement_5,Income_statement_6,Income_statement_7,Income_statement_8,Income_statement_9,Income_statement_10,Income_statement_11,Income_statement_12,Income_statement_13,Income_statement_14,Income_statement_15,Income_grandtotal,Income_refund_date,Income_refund_date1,Income_refund_date2,Income_refund_date3,Income_refund_date4,Income_refund_date5,Income_refund_date6,Income_refund_date7,Income_refund_date8,Income_refund_date9,Income_refund_date10,Income_refund_date11,Income_refund_date12,Income_refund_date13,Income_refund_date14,Income_refund_date15 FROM Execution_income_result WHERE Customer_Id_card = '{Txt_Income_Idcus.Text}' AND Customer_Account = '{Txt_Income_Acc.Text}';"
+        sql = $"SELECT Income_refund,Income_statement_1,Income_statement_2,Income_statement_3,Income_statement_4,Income_statement_5,Income_statement_6,Income_statement_7,Income_statement_8,Income_statement_9,Income_statement_10,Income_statement_11,Income_statement_12,Income_statement_13,Income_statement_14,Income_statement_15,Income_grandtotal,Income_refund_date,Income_refund_date1,Income_refund_date2,Income_refund_date3,Income_refund_date4,Income_refund_date5,Income_refund_date6,Income_refund_date7,Income_refund_date8,Income_refund_date9,Income_refund_date10,Income_refund_date11,Income_refund_date12,Income_refund_date13,Income_refund_date14,Income_refund_date15 FROM Execution_income_result "
+
+        If Txt_Income_Acc.Text <> "" And Txt_Income_Idcus.Text <> "" Then
+
+            sql &= $"WHERE Customer_Account = '{Txt_Income_Acc.Text}' AND Customer_Id_card = '{Txt_Income_Idcus.Text}' ;"
+
+        ElseIf Txt_Income_Acc.Text = "" Then
+
+            sql &= $"WHERE Customer_Id_card = '{Txt_Income_Idcus.Text}' ;"
+
+        ElseIf Txt_Income_Idcus.Text = "" Then
+
+            sql &= $"WHERE Customer_Account = '{Txt_Income_Acc.Text}' ;"
+
+        ElseIf Txt_Income_Acc.Text = "" And Txt_Income_Idcus.Text = "" Then
+
+            Lbl_income_result.Text = "ไม่พบข้อมูลบัญชีรับจ่าย ก่อนหน้า"
+            sql &= $"WHERE Customer_Account = '{Txt_Income_Acc.Text}' AND WHERE Customer_id_card = '{Txt_Income_Idcus.Text}'"
+
+
+        End If
 
         cmd = New SqlCommand(sql, cn)
-        DA = New SqlDataAdapter(cmd)
+            DA = New SqlDataAdapter(cmd)
         DS = New DataSet
         DA.Fill(DS, "income")
+
+        If DS.Tables("income").Rows.Count = 0 Then
+
+            Lbl_income_result.Text = "ไม่พบข้อมูลบัญชีรับจ่าย ก่อนหน้า"
+            Exit Sub
+
+        End If
 
         Try
 
@@ -2041,4 +2111,20 @@ Public Class FrmIncome
 
     End Sub
 
+
+    Private Sub Txt_Income_GrandTotal_DoubleClick(sender As Object, e As EventArgs) Handles Txt_Income_GrandTotal.DoubleClick
+
+        Try
+
+            Dim x As Double = Val(Txt_Income_Refund.Text) + Val(Txt_Income_Pay1.Text) + Val(Txt_Income_Pay2.Text) + Val(Txt_Income_Pay3.Text) + Val(Txt_Income_Pay4.Text) + Val(Txt_Income_Pay5.Text) + Val(Txt_Income_Pay6.Text) + Val(Txt_Income_Pay7.Text) + Val(Txt_Income_Pay8.Text) + Val(Txt_Income_Pay9.Text) + Val(Txt_Income_Pay10.Text) + Val(Txt_Income_Pay11.Text) + Val(Txt_Income_Pay12.Text) + Val(Txt_Income_Pay13.Text) + Val(Txt_Income_Pay14.Text) + Val(Txt_Income_Pay15.Text)
+
+            Txt_Income_GrandTotal.Text = x
+
+        Catch ex As Exception
+
+            MsgBox(ex.ToString)
+
+        End Try
+
+    End Sub
 End Class

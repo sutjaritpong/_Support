@@ -626,8 +626,7 @@ Public Class FrmWDS
             End If
         Else
             Showgrid()
-            Convertnum(FrmCheck.txt_total)
-            Convertnum(FrmCheck.txt_refund)
+
 
             If Application.OpenForms().OfType(Of FrmCheck).Any Then
 

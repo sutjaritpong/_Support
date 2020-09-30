@@ -33,9 +33,7 @@ Partial Class FrmLegalSCB
         Me.lbl_datetoday = New System.Windows.Forms.Label()
         Me.lbl_timer = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Cmd_ExportExcel = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.cmd_search = New System.Windows.Forms.Button()
         Me.cbo_finds = New System.Windows.Forms.ComboBox()
         Me.Dtgv_SCBLEGAL = New System.Windows.Forms.DataGridView()
         Me.Dtgv_LawCollector = New System.Windows.Forms.DataGridView()
@@ -45,6 +43,8 @@ Partial Class FrmLegalSCB
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Dtgv_LawRinv = New System.Windows.Forms.DataGridView()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Cmd_ExportExcel = New System.Windows.Forms.Button()
+        Me.cmd_search = New System.Windows.Forms.Button()
         Me.Group_detail.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.Dtgv_SCBLEGAL, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -203,23 +203,6 @@ Partial Class FrmLegalSCB
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "ค้นหาข้อมูล"
         '
-        'Cmd_ExportExcel
-        '
-        Me.Cmd_ExportExcel.BackColor = System.Drawing.Color.White
-        Me.Cmd_ExportExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_ExportExcel.ForeColor = System.Drawing.Color.Blue
-        Me.Cmd_ExportExcel.Image = Global.SCANDB.My.Resources.Resources.Excel_icon
-        Me.Cmd_ExportExcel.Location = New System.Drawing.Point(467, 19)
-        Me.Cmd_ExportExcel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Cmd_ExportExcel.Name = "Cmd_ExportExcel"
-        Me.Cmd_ExportExcel.Size = New System.Drawing.Size(143, 33)
-        Me.Cmd_ExportExcel.TabIndex = 94
-        Me.Cmd_ExportExcel.Text = "Export Excel File"
-        Me.Cmd_ExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Cmd_ExportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Cmd_ExportExcel.UseVisualStyleBackColor = False
-        Me.Cmd_ExportExcel.Visible = False
-        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -230,21 +213,6 @@ Partial Class FrmLegalSCB
         Me.Label13.Size = New System.Drawing.Size(73, 18)
         Me.Label13.TabIndex = 93
         Me.Label13.Text = "ประเภทข้อมูล"
-        '
-        'cmd_search
-        '
-        Me.cmd_search.BackColor = System.Drawing.Color.White
-        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_search.Image = CType(resources.GetObject("cmd_search.Image"), System.Drawing.Image)
-        Me.cmd_search.Location = New System.Drawing.Point(338, 19)
-        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_search.Name = "cmd_search"
-        Me.cmd_search.Size = New System.Drawing.Size(121, 33)
-        Me.cmd_search.TabIndex = 3
-        Me.cmd_search.Text = "ค้นหาข้อมูล"
-        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_search.UseVisualStyleBackColor = False
         '
         'cbo_finds
         '
@@ -340,6 +308,37 @@ Partial Class FrmLegalSCB
         Me.Dtgv_LawRinv.RowHeadersVisible = False
         Me.Dtgv_LawRinv.Size = New System.Drawing.Size(380, 252)
         Me.Dtgv_LawRinv.TabIndex = 92
+        '
+        'Cmd_ExportExcel
+        '
+        Me.Cmd_ExportExcel.BackColor = System.Drawing.Color.White
+        Me.Cmd_ExportExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_ExportExcel.ForeColor = System.Drawing.Color.Blue
+        Me.Cmd_ExportExcel.Image = Global.SCANDB.My.Resources.Resources.Excel_icon
+        Me.Cmd_ExportExcel.Location = New System.Drawing.Point(467, 19)
+        Me.Cmd_ExportExcel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_ExportExcel.Name = "Cmd_ExportExcel"
+        Me.Cmd_ExportExcel.Size = New System.Drawing.Size(143, 33)
+        Me.Cmd_ExportExcel.TabIndex = 94
+        Me.Cmd_ExportExcel.Text = "Export Excel File"
+        Me.Cmd_ExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_ExportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_ExportExcel.UseVisualStyleBackColor = False
+        '
+        'cmd_search
+        '
+        Me.cmd_search.BackColor = System.Drawing.Color.White
+        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_search.Image = CType(resources.GetObject("cmd_search.Image"), System.Drawing.Image)
+        Me.cmd_search.Location = New System.Drawing.Point(338, 19)
+        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_search.Name = "cmd_search"
+        Me.cmd_search.Size = New System.Drawing.Size(121, 33)
+        Me.cmd_search.TabIndex = 3
+        Me.cmd_search.Text = "ค้นหาข้อมูล"
+        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_search.UseVisualStyleBackColor = False
         '
         'FrmLegalSCB
         '

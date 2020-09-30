@@ -212,7 +212,17 @@ Public Class FrmLegalSCB
         End Try
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    Private Sub Cmd_ExportExcel_Click(sender As Object, e As EventArgs) Handles Cmd_ExportExcel.Click
+
+        If Application.OpenForms().OfType(Of FrmLegalScbRV).Any Then
+
+            FrmLegalScbRV.Focus()
+        Else
+            FrmLegalScbRV.ShowDialog()
+            FrmLegalScbRV.StartPosition = FormStartPosition.CenterScreen
+
+        End If
 
     End Sub
 
