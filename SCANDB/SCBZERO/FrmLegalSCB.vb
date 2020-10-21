@@ -57,8 +57,7 @@ Public Class FrmLegalSCB
         Lbl_Osbalance.Text = Sum_Balance.ToString("##,##0.00")
 
 
-
-        sqll = "SELECT COUNT(dbCUS.CUSACC) [บัญชีที่ฟ้อง/(เดือน)],SUM(dbLAW.LAWSBAL) [ทุนทรัพย์รวม/(เดือน)],DATENAME(mm,DATEADD(mm,(DATEPART(MONTH,dbLAW.LAWSUE)),0)) [วันที่ฟ้อง/(เดือน)] FROM(dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC) LEFT JOIN dbDOC On dbCUS.CUSACC = dbDOC.DOCACC WHERE CUSOWN = 'SCB' AND CUSBUC = 'ZERO' GROUP BY GROUPING SETS((DATEPART(MONTH,dbLAW.LAWSUE)),())"
+        sqll = "SELECT COUNT(dbCUS.CUSACC) [บัญชีที่ฟ้อง/(เดือน)],FORMAT(SUM(dbLAW.LAWSBAL),'##,##0.00') [ทุนทรัพย์รวม/(เดือน)],DATENAME(mm,DATEADD(mm,(DATEPART(MONTH,dbLAW.LAWSUE)),0)) [วันที่ฟ้อง/(เดือน)] FROM(dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC) LEFT JOIN dbDOC On dbCUS.CUSACC = dbDOC.DOCACC WHERE CUSOWN = 'SCB' AND CUSBUC = 'ZERO' GROUP BY GROUPING SETS((DATEPART(MONTH,dbLAW.LAWSUE)),())"
         cmdlegal = New SqlCommand(sqll, cnLegal)
         DALegal = New SqlDataAdapter(cmdlegal)
         DSLegal = New DataSet
@@ -69,19 +68,16 @@ Public Class FrmLegalSCB
             .DataSource = DSLegal.Tables("Grouping")
         End With
 
-        Dim num As Integer
+        'Dim num As Integer
 
-        For i = 0 To Dtgv_lawmonth.RowCount - 1
+        'For i = 0 To Dtgv_lawmonth.RowCount - 1
 
-            'If Integer.TryParse(Dtgv_LawMonth.Rows(i).Cells(1).Value(), num) Then
-            '    Convert.ToInt32(Dtgv_LawMonth.Rows(i).Cells(1).Value())
-            'End If
 
-            If (IsNumeric(Dtgv_lawmonth.Rows(i).Cells(1).Value)) Then
-                num = Dtgv_lawmonth.Rows(i).Cells(1).Value
-            End If
+        '    If (IsNumeric(Dtgv_lawmonth.Rows(i).Cells(1).Value)) Then
+        '        num = Dtgv_lawmonth.Rows(i).Cells(1).Value
+        '    End If
 
-        Next
+        'Next
 
         For Each col As DataGridViewColumn In Dtgv_lawmonth.Columns
             col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill

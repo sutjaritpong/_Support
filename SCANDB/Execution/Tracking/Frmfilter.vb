@@ -59,11 +59,12 @@ Public Class Frmfilter
         '## ใช้ Checkbox กำหนด เงื่อนไขข้อมูล ถ้าถูกติ๊กให้ เพิ่ม ขอบเขตของ พนักงานบังคับคดี ในการค้นหาด้วย
         If chk_empexe.Checked = True Then
 
-            sql &= $" AND EMP.EXEEMPLOYEES = @employee ;"
+            sql &= $" AND EMP.EXEEMPLOYEES = @employee ORDER BY Tracking_primary"
         Else
-            sql &= ";"
+            sql &= "ORDER BY Tracking_primary ;"
 
         End If
+
 
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.Clear()

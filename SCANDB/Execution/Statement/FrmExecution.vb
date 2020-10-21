@@ -424,7 +424,7 @@ Public Class FrmExecution
             Return
         End If
 
-        Dim sqll As String = "SELECT ES.EXEBANK, ES.EXEID,ES.EXECUSTOMER,ES.EXEACC1,ES.EXEACC2,ES.EXEACC3,ES.EXECOURT,ES.EXEBLACK,ES.EXERED,ES.EXENUMBER,ES.EXEDEPARTMENT,ES.EXETOTAL,ES.EXEEMPLOYEE,ES.EXEPHONE,ES.EXEHUB,ES.EXEDATEWORK,ES.EXEFULLNAME,ES.EXEDETAIL,ES.EXEPERFORMANCE,ES.EXEHUBS,ES.EXERESULT FROM EXESM AS ES WHERE "
+        Dim sqll As String = "SELECT ES.EXEBANK, ES.EXEID,ES.EXECUSTOMER,ES.EXEACC1,ES.EXEACC2,ES.EXEACC3,ES.EXECOURT,ES.EXEBLACK,ES.EXERED,ES.EXENUMBER,ES.EXEDEPARTMENT,FORMAT(ES.EXETOTAL,'##,##0.00'),ES.EXEEMPLOYEE,ES.EXEPHONE,ES.EXEHUB,ES.EXEDATEWORK,ES.EXEFULLNAME,ES.EXEDETAIL,ES.EXEPERFORMANCE,ES.EXEHUBS,ES.EXERESULT FROM EXESM AS ES WHERE "
 
         Select Case cbo_type.SelectedItem
 
@@ -516,7 +516,7 @@ Public Class FrmExecution
         Dim _datetime_tracking As DateTime = dtp_tracking_date.Text
         Dim _pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_sheet}-{txt_hubs.Text}"
         Dim _verify_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_verify}"
-        Dim _tracking_pk As String = $"{txt_product.Text}-{txt_idcus.Text}-{_datetime_tracking}"
+        Dim _tracking_pk As String = Lbl_PKTracking.Text
 
         If txt_idcus.Text = "" Or txt_namecus.Text = "" Or txt_nameem.Text = "" Then
             Msg_error("กรุณาตรวจสอบ ชื่อลูกค้า เลขประจำตัวประชาชน หรือชื่อผู้ส่งใบงาน")
@@ -553,7 +553,7 @@ Public Class FrmExecution
 
                     If chk_tracking_date.Checked <> False Then
 
-                        sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp,tracking_total=@tkmoney WHERE Tracking_pk = @tkpk;"
+                        sql &= $"UPDATE EXETRACKING SET Tracking_pk = @tkpk ,Customer_owner = @owner ,Customer_idc = @idcus ,Customer_account = @acc1,Customer_fullname = @namecus,tracking_court = @court,tracking_red = @red,tracking_date_sheet = @tkdate,tracking_detail = @tkdetail,tracking_nosheet = @nosheet,Tracking_collector_nosend = @tksend,EMPLOYEES_KEY = @idemp,tracking_total=@tkmoney WHERE Tracking_primary = @tkpk;"
 
                     End If
                 End If
@@ -724,7 +724,7 @@ Public Class FrmExecution
 
         End With
         'ET.Tracking_other, Tracking_date_work,
-        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,Tracking_total FROM EXETRACKING AS ET
+        sqll = $"SELECT ET.Tracking_date_sheet,ET.tracking_detail,ET.Tracking_Collector_nosend,EMP.EXEEMPLOYEES,ET.Tracking_nosheet,Format(ET.Tracking_total,'##,##0.00'),ET.Tracking_primary FROM EXETRACKING AS ET
                 INNER JOIN EXEEMPLOYEE AS EMP
                 ON ET.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY
                 WHERE Customer_idc = '{CStr(dtgv_statement_search.Rows.Item(e.RowIndex).Cells(1).Value.ToString)}' ORDER BY ET.Tracking_date_sheet DESC"
@@ -737,12 +737,16 @@ Public Class FrmExecution
         With dtgv_tracking_statement
 
 
+
             .DataSource = DS.Tables("tracktables")
             .Columns(0).HeaderText = "วันที่ในใบคำร้อง"
             .Columns(1).HeaderText = "รายละเอียด"
             .Columns(2).HeaderText = "การส่งมาออกใบงาน"
             .Columns(3).HeaderText = "พนักงานบังคับคดี"
-            .Columns(4).HeaderText = "พบเงินในบัญชี"
+            .Columns(4).HeaderText = "สถานะใบงาน"
+            .Columns(5).HeaderText = "จำนวนเงินที่พบ"
+
+            .Columns(6).Visible = False
 
             If .Rows.Count <> 0 Then
                 For i = 4 To dtgv_tracking_statement.ColumnCount - 1
@@ -756,6 +760,7 @@ Public Class FrmExecution
                 txt_tracking_nosheet.Text = .Rows(0).Cells(4).Value.ToString
 
                 Txt_Tkmoney.Text = .Rows(0).Cells(5).Value.ToString
+                Lbl_PKTracking.Text = .Rows(0).Cells(6).Value.ToString
 
                 If dtgv_tracking_statement.Rows(0).Cells(0).Value.ToString <> "" Then
 
@@ -825,6 +830,7 @@ Public Class FrmExecution
             cbo_employees_exe.Text = .Rows.Item(e.RowIndex).Cells(3).Value.ToString
             txt_tracking_nosheet.Text = .Rows.Item(e.RowIndex).Cells(4).Value.ToString
             Txt_Tkmoney.Text = .Rows.Item(e.RowIndex).Cells(5).Value.ToString
+            Lbl_PKTracking.Text = .Rows.Item(e.RowIndex).Cells(6).Value.ToString
 
             If .Rows(0).Cells(0).Value.ToString <> "" Then
 

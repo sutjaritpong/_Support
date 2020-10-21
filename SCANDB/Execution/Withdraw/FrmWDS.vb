@@ -4,10 +4,9 @@ Imports System.Data
 Imports System.DBNull
 Public Class FrmWDS
 
-
     Private Sub FrmWDS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        connect()
+        Connect()
 
         '## Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"
         Datetimeformatshort(dtp_datecollector)

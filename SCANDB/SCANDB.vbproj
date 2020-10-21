@@ -494,6 +494,12 @@
     </Compile>
     <Compile Include="Classmodule\VBcode.vb" />
     <Compile Include="Classmodule\VBdatabase.vb" />
+    <Compile Include="UPLOAD\InformationLink.Designer.vb">
+      <DependentUpon>InformationLink.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UPLOAD\InformationLink.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Execution\Main_execution\FrmMainExecution.resx">
@@ -639,6 +645,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPLOAD\InformationLink.resx">
+      <DependentUpon>InformationLink.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -377,5 +377,42 @@ Public Class FrmMastermain
 
     End Sub
 
+    Private Sub Menu_Masterexecution_Click(sender As Object, e As EventArgs) Handles Menu_Masterexecution.Click
 
+        If Application.OpenForms.OfType(Of FrmMainExecution).Any Then
+
+            FrmMainExecution.Focus()
+
+        Else
+
+            With FrmMainExecution
+                .MdiParent = Me
+                .Show()
+                .WindowState = FormWindowState.Maximized
+
+            End With
+
+        End If
+
+    End Sub
+
+    Private Sub TESTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTToolStripMenuItem.Click
+
+
+        If Application.OpenForms.OfType(Of InformationLink).Any Then
+
+            InformationLink.Focus()
+
+        Else
+
+            With InformationLink
+                .MdiParent = Me
+                .Show()
+                .WindowState = FormWindowState.Maximized
+
+            End With
+
+        End If
+
+    End Sub
 End Class

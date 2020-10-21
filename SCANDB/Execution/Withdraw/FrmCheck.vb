@@ -20,8 +20,15 @@ Public Class FrmCheck
 
         Check_notedit()
 
-        Convertnum(txt_total)
-        Convertnum(txt_totalcheck)
+        Try
+
+            Convertnum(txt_total)
+            Convertnum(txt_totalcheck)
+
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
 

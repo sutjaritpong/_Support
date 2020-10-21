@@ -106,6 +106,18 @@ Module VBcode
         _Datetime.CustomFormat = "mm/dd/yyyy hh:miAM/PM"
 
     End Sub
+    Function GetEmployeekey(_Combobox As ComboBox)
+
+        Connect()
+
+        sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{_Combobox.Text}'"
+        cmd = New SqlCommand(sql, cn)
+        Dim EMPKEY As Integer = cmd.ExecuteScalar()
+
+        Return EMPKEY
+
+    End Function
+
     Friend Sub Datetimeformatshort(_time As DateTimePicker)
 
         ' Datetimepicker เปลี่ยน Format Custom เป็น "dd-MMM-yy"

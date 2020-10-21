@@ -63,6 +63,7 @@ Partial Class FrmExecution
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txt_product = New System.Windows.Forms.TextBox()
         Me.txt_nameem = New System.Windows.Forms.TextBox()
         Me.txt_count_acc = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -99,7 +100,7 @@ Partial Class FrmExecution
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.dtgv_tracking_statement = New System.Windows.Forms.DataGridView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.txt_product = New System.Windows.Forms.TextBox()
+        Me.Lbl_PKTracking = New System.Windows.Forms.Label()
         Me.Group_search.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -640,6 +641,16 @@ Partial Class FrmExecution
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ข้อมูลใบงานแถลงบัญชี"
         '
+        'txt_product
+        '
+        Me.txt_product.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txt_product.ForeColor = System.Drawing.Color.Blue
+        Me.txt_product.Location = New System.Drawing.Point(130, 16)
+        Me.txt_product.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.txt_product.Name = "txt_product"
+        Me.txt_product.Size = New System.Drawing.Size(140, 21)
+        Me.txt_product.TabIndex = 5
+        '
         'txt_nameem
         '
         Me.txt_nameem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -1051,15 +1062,15 @@ Partial Class FrmExecution
         Me.TabControl1.Size = New System.Drawing.Size(383, 434)
         Me.TabControl1.TabIndex = 95
         '
-        'txt_product
+        'Lbl_PKTracking
         '
-        Me.txt_product.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_product.ForeColor = System.Drawing.Color.Blue
-        Me.txt_product.Location = New System.Drawing.Point(130, 16)
-        Me.txt_product.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.txt_product.Name = "txt_product"
-        Me.txt_product.Size = New System.Drawing.Size(140, 21)
-        Me.txt_product.TabIndex = 5
+        Me.Lbl_PKTracking.AutoSize = True
+        Me.Lbl_PKTracking.Location = New System.Drawing.Point(949, 644)
+        Me.Lbl_PKTracking.Name = "Lbl_PKTracking"
+        Me.Lbl_PKTracking.Size = New System.Drawing.Size(14, 15)
+        Me.Lbl_PKTracking.TabIndex = 96
+        Me.Lbl_PKTracking.Text = "?"
+        Me.Lbl_PKTracking.Visible = False
         '
         'FrmExecution
         '
@@ -1069,6 +1080,7 @@ Partial Class FrmExecution
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.CancelButton = Me.cmd_cancel
         Me.ClientSize = New System.Drawing.Size(1004, 725)
+        Me.Controls.Add(Me.Lbl_PKTracking)
         Me.Controls.Add(Me.dtgv_statement_search)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox4)
@@ -1098,6 +1110,7 @@ Partial Class FrmExecution
         CType(Me.dtgv_tracking_statement, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -1178,4 +1191,5 @@ Partial Class FrmExecution
     Friend WithEvents Label3 As Label
     Friend WithEvents Txt_Tkmoney As TextBox
     Friend WithEvents txt_product As TextBox
+    Friend WithEvents Lbl_PKTracking As Label
 End Class

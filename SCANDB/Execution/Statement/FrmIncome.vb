@@ -361,7 +361,7 @@ Public Class FrmIncome
                 Lbl_Income_Invalid.Visible = True
                 Lbl_Income_Invalid.ForeColor = Color.Green
                 Lbl_Income_Invalid.Text = $"เพิ่มข้อมูล {Queryinsertresult} รายการ"
-                Getlogdataexe($"เพิ่มข้อมูลบัญชีรับจ่าย ธนาคาร {Cbo_Income_Owner} ลูกค้าชื่อ{Txt_Income_Fullname.Text} ประเภท {Cbo_Income_Type} จำนวนเงิน {Txt_Income_Total.Text}", $"'{Txt_Income_Idcus.Text}'", $"'{Txt_Income_Acc.Text}'")
+                Getlogdataexe($"เพิ่มข้อมูลบัญชีรับจ่าย ธนาคาร {Cbo_Income_Owner.Text} ลูกค้าชื่อ{Txt_Income_Fullname.Text} ประเภท {Cbo_Income_Type.Text} จำนวนเงิน {Txt_Income_Total.Text}", $"'{Txt_Income_Idcus.Text}'", $"'{Txt_Income_Acc.Text}'")
 
             Else
 
@@ -518,7 +518,7 @@ Public Class FrmIncome
                 Lbl_Income_Invalid.ForeColor = Color.Green
                 Lbl_Income_Invalid.Text = $"อัพเดทข้อมูล {QueryUpdateresult} รายการ"
 
-                Getlogdataexe($"อัพเดทข้อมูล บัญชีรับจ่าย ธนาคาร {Cbo_Income_Owner} ลูกค้าชื่อ{Txt_Income_Fullname.Text} ประเภท {Cbo_Income_Type} จำนวนเงิน {Txt_Income_Total.Text}", $"'{Txt_Income_Idcus.Text}'", $"'{Txt_Income_Acc.Text}'")
+                Getlogdataexe($"อัพเดทข้อมูล บัญชีรับจ่าย ธนาคาร {Cbo_Income_Owner.Text} ลูกค้าชื่อ{Txt_Income_Fullname.Text} ประเภท {Cbo_Income_Type.Text} จำนวนเงิน {Txt_Income_Total.Text}", $"'{Txt_Income_Idcus.Text}'", $"'{Txt_Income_Acc.Text}'")
 
             Else
 
@@ -605,7 +605,7 @@ Public Class FrmIncome
             Dtp_Income_Refund.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Refund.Enabled = False
-
+            Dtp_Income_Refund.Text = ""
         End If
 
     End Sub
@@ -618,6 +618,7 @@ Public Class FrmIncome
             Dtp_Income_Pay1.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay1.Enabled = False
+            Dtp_Income_Pay1.Text = ""
 
         End If
 
@@ -631,7 +632,7 @@ Public Class FrmIncome
             Dtp_Income_Pay2.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay2.Enabled = False
-
+            Dtp_Income_Pay2.Text = ""
         End If
 
     End Sub
@@ -644,7 +645,7 @@ Public Class FrmIncome
             Dtp_Income_Pay3.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay3.Enabled = False
-
+            Dtp_Income_Pay3.Text = ""
         End If
 
     End Sub
@@ -657,7 +658,7 @@ Public Class FrmIncome
             Dtp_Income_Pay4.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay4.Enabled = False
-
+            Dtp_Income_Pay4.Text = ""
         End If
 
     End Sub
@@ -670,7 +671,7 @@ Public Class FrmIncome
             Dtp_Income_Pay5.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay5.Enabled = False
-
+            Dtp_Income_Pay5.Text = ""
         End If
 
     End Sub
@@ -683,7 +684,7 @@ Public Class FrmIncome
             Dtp_Income_Pay6.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay6.Enabled = False
-
+            Dtp_Income_Pay6.Text = ""
         End If
 
     End Sub
@@ -696,7 +697,7 @@ Public Class FrmIncome
             Dtp_Income_Pay7.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay7.Enabled = False
-
+            Dtp_Income_Pay7.Text = ""
         End If
 
     End Sub
@@ -709,7 +710,7 @@ Public Class FrmIncome
             Dtp_Income_Pay8.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay8.Enabled = False
-
+            Dtp_Income_Pay8.Text = ""
         End If
 
     End Sub
@@ -722,7 +723,7 @@ Public Class FrmIncome
             Dtp_Income_Pay9.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay9.Enabled = False
-
+            Dtp_Income_Pay9.Text = ""
         End If
 
     End Sub
@@ -735,7 +736,7 @@ Public Class FrmIncome
             Dtp_Income_Pay10.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay10.Enabled = False
-
+            Dtp_Income_Pay10.Text = ""
         End If
 
     End Sub
@@ -748,7 +749,7 @@ Public Class FrmIncome
             Dtp_Income_Pay11.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay11.Enabled = False
-
+            Dtp_Income_Pay11.Text = ""
         End If
 
     End Sub
@@ -761,7 +762,7 @@ Public Class FrmIncome
             Dtp_Income_Pay12.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay12.Enabled = False
-
+            Dtp_Income_Pay12.Text = ""
         End If
 
     End Sub
@@ -774,7 +775,7 @@ Public Class FrmIncome
             Dtp_Income_Pay13.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay13.Enabled = False
-
+            Dtp_Income_Pay13.Text = ""
         End If
 
     End Sub
@@ -787,7 +788,7 @@ Public Class FrmIncome
             Dtp_Income_Pay14.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay14.Enabled = False
-
+            Dtp_Income_Pay14.Text = ""
         End If
 
     End Sub
@@ -800,7 +801,7 @@ Public Class FrmIncome
             Dtp_Income_Pay15.Text = Dtp_Income_DateSheet.Text
         Else
             Dtp_Income_Pay15.Enabled = False
-
+            Dtp_Income_Pay15.Text = ""
         End If
 
     End Sub
@@ -1390,7 +1391,7 @@ Public Class FrmIncome
 
             Case "TBANK" : Connect_(cn_TBANK)
 
-                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.CUSCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
+                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Income_Acc.Text}'"
 
                 cmd_Collec = New SqlCommand(sqll, cn_TBANK)
                 DA_Collec = New SqlDataAdapter(cmd_Collec)

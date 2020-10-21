@@ -34,7 +34,7 @@ Public Class Frmfind
 
     Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
 
-        Cleardatagrid(FrmTracking.dtgv_invalid)
+        Cleardatagrid(FrmTracking.Dtgv_Tracking)
 
         If txt_find.Text = "" Then
 
@@ -46,9 +46,8 @@ Public Class Frmfind
 
         Connect()
 
-        Dim _headertext() As String = {"PK", "Product", "เลขที่บัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "คดีแดง", "วันที่ในคำร้อง", "พนักงานบังคับคดี", "รายละเอียด", "ใบงานแถลงบัญชี", "Collectorส่งเรื่องออกใบงาน"}
 
-        sql = $"SELECT * FROM EXETRACKING WHERE Customer_idc = '{txt_find.Text}' OR Customer_fullname = '{txt_find.Text}' "
+        sql = $" SELECT ETR.Tracking_Primary,ETR.Customer_Owner,ETR.Customer_idc,ETR.Customer_Account,ETR.Customer_Fullname,ETR.Tracking_court,ETR.Tracking_red,ETR.Tracking_date_sheet,ETR.Tracking_date_work,ETR.Tracking_total,EMP.EXEEMPLOYEES,ETR.Tracking_detail,ETR.Tracking_nosheet,ETR.Tracking_Collector_nosend,ETR.Tracking_other  FROM EXETRACKING AS ETR LEFT JOIN EXEEMPLOYEE AS EMP ON ETR.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY WHERE Customer_idc = '{txt_find.Text}' OR Customer_fullname = '{txt_find.Text}' "
 
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -57,30 +56,39 @@ Public Class Frmfind
 
         With FrmTracking
 
-            .dtgv_invalid.DataSource = DS.Tables("findtk")
+            .Dtgv_Tracking.DataSource = DS.Tables("findtk")
 
-            .dtgv_invalid.Columns(0).Visible = False
+            For visiblecolumns = 11 To .Dtgv_Tracking.Columns.Count - 1
 
-            For i = 0 To _headertext.Length - 1
 
-                .dtgv_invalid.Columns(i).HeaderText = _headertext(i)
+                .Dtgv_Tracking.Columns(visiblecolumns).Visible = False
+
 
             Next
 
-            If .dtgv_invalid.Rows.Count <= 0 Then
+            .Dtgv_Tracking.Columns(0).Visible = False
 
-                .lbl_invalid.Text = "ไม่พบข้อมูลที่ค้นหา"
-                .lbl_invalid.ForeColor = Color.Red
+
+            For i = 0 To FrmTracking.header.Length - 1
+
+                .Dtgv_Tracking.Columns(i).HeaderText = FrmTracking.header(i)
+
+            Next
+
+            If .Dtgv_Tracking.Rows.Count <= 0 Then
+
+                .Lbl_Tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
+                .Lbl_Tracking.ForeColor = Color.Red
             Else
-                .lbl_invalid.Text = $"จำนวนผลลัพธ์ที่พบ = { Str(.dtgv_invalid.RowCount.ToString)} แถว"
-                .lbl_invalid.ForeColor = Color.DarkGreen
-                Datagrid_format_dateshort(FrmTracking.dtgv_invalid, 6)
-                Datagrid_format_dateshort(FrmTracking.dtgv_invalid, 12)
+                .Lbl_Tracking.Text = $"จำนวนผลลัพธ์ที่พบ = { Str(.Dtgv_Tracking.RowCount.ToString)} แถว"
+                .Lbl_Tracking.ForeColor = Color.DarkGreen
+                Datagrid_format_dateshort(FrmTracking.Dtgv_Tracking, 8)
+                Datagrid_format_dateshort(FrmTracking.Dtgv_Tracking, 14)
             End If
 
         End With
 
-        Cleardatagrid(FrmTracking.dtgv_tracking)
+        Cleardatagrid(FrmTracking.Dtgv_Accounting)
 
         Dim _headers() As String = {"ธนาคาร", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "ศาล", "เลขคดีแดง", "วันที่ออกใบงานแถลงบัญชี"}
 
@@ -93,27 +101,27 @@ Public Class Frmfind
 
         With FrmTracking
 
-            If .dtgv_tracking.RowCount = 0 Or .dtgv_tracking.ColumnCount = 0 Then
+            If .Dtgv_Accounting.RowCount = 0 Or .Dtgv_Accounting.ColumnCount = 0 Then
 
-                .dtgv_tracking.DataSource = DS.Tables("findsm")
+                .Dtgv_Accounting.DataSource = DS.Tables("findsm")
 
                 For x = 0 To _headers.Length - 1
 
-                    .dtgv_tracking.Columns(x).HeaderText = _headers(x)
+                    .Dtgv_Accounting.Columns(x).HeaderText = _headers(x)
 
                 Next
 
             End If
 
 
-            If (.dtgv_tracking.RowCount = 0) Or (.dtgv_tracking.ColumnCount = 0) Then
+            If (.Dtgv_Accounting.RowCount = 0) Or (.Dtgv_Accounting.ColumnCount = 0) Then
 
-                .lbl_tracking.Text = "ไม่พบข้อมูลที่ค้นหา"
-                .lbl_tracking.ForeColor = Color.Red
+                .Lbl_Accounting.Text = "ไม่พบข้อมูลที่ค้นหา"
+                .Lbl_Accounting.ForeColor = Color.Red
             Else
-                .lbl_tracking.Text = $"จำนวนผลลัพธ์ที่พบ = { Str(.dtgv_tracking.RowCount.ToString)} แถว"
-                .lbl_tracking.ForeColor = Color.DarkGreen
-                Datagrid_format_dateshort(FrmTracking.dtgv_tracking, 5)
+                .Lbl_Accounting.Text = $"จำนวนผลลัพธ์ที่พบ = { Str(.Dtgv_Accounting.RowCount.ToString)} แถว"
+                .Lbl_Accounting.ForeColor = Color.DarkGreen
+                Datagrid_format_dateshort(FrmTracking.Dtgv_Accounting, 5)
             End If
 
 
@@ -143,6 +151,8 @@ Public Class Frmfind
             .dtp_date_verify.Text = ""
             .chk_datesend.Checked = False
             .chk_datetracking.Checked = False
+
+            .Lbl_Tracking.Text = "ผลลัพธ์การค้นหา"
 
         End With
 

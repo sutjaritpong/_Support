@@ -27,6 +27,7 @@ Partial Class FrmMastermain
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.Main_menu_working = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_tab_execution = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Masterexecution = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_exeport = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_ownership = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_EXEACC = New System.Windows.Forms.ToolStripMenuItem()
@@ -89,6 +90,7 @@ Partial Class FrmMastermain
         Me.tslversion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsl_version = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.TESTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -116,12 +118,21 @@ Partial Class FrmMastermain
         'Menu_tab_execution
         '
         Me.Menu_tab_execution.BackColor = System.Drawing.Color.White
-        Me.Menu_tab_execution.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_exeport, Me.Menu_ownership, Me.Menu_EXEACC, Me.Menu_EXEStatement, Me.Menu_EXEverify, Me.Menu_income, Me.Menu_EXEWDS, Me.Menu_insolvent})
+        Me.Menu_tab_execution.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Masterexecution, Me.Menu_exeport, Me.Menu_ownership, Me.Menu_EXEACC, Me.Menu_EXEStatement, Me.Menu_EXEverify, Me.Menu_income, Me.Menu_EXEWDS, Me.Menu_insolvent})
         Me.Menu_tab_execution.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_tab_execution.Image = Global.SCANDB.My.Resources.Resources.link_break
         Me.Menu_tab_execution.Name = "Menu_tab_execution"
         Me.Menu_tab_execution.Size = New System.Drawing.Size(209, 22)
         Me.Menu_tab_execution.Text = "บังคับคดี (Execution)"
+        '
+        'Menu_Masterexecution
+        '
+        Me.Menu_Masterexecution.BackColor = System.Drawing.Color.White
+        Me.Menu_Masterexecution.ForeColor = System.Drawing.Color.Red
+        Me.Menu_Masterexecution.Image = Global.SCANDB.My.Resources.Resources.delete1
+        Me.Menu_Masterexecution.Name = "Menu_Masterexecution"
+        Me.Menu_Masterexecution.Size = New System.Drawing.Size(222, 22)
+        Me.Menu_Masterexecution.Text = "หน้าหลัก (Comming Soon)"
         '
         'Menu_exeport
         '
@@ -129,7 +140,7 @@ Partial Class FrmMastermain
         Me.Menu_exeport.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_exeport.Image = Global.SCANDB.My.Resources.Resources.group_go
         Me.Menu_exeport.Name = "Menu_exeport"
-        Me.Menu_exeport.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_exeport.Size = New System.Drawing.Size(222, 22)
         Me.Menu_exeport.Text = "งานฟ้องเองส่งคัด ปกส."
         '
         'Menu_ownership
@@ -138,7 +149,7 @@ Partial Class FrmMastermain
         Me.Menu_ownership.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_ownership.Image = Global.SCANDB.My.Resources.Resources.building
         Me.Menu_ownership.Name = "Menu_ownership"
-        Me.Menu_ownership.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_ownership.Size = New System.Drawing.Size(222, 22)
         Me.Menu_ownership.Text = "ข้อมูล กรรมสิทธิ์ลูกค้า"
         '
         'Menu_EXEACC
@@ -147,7 +158,7 @@ Partial Class FrmMastermain
         Me.Menu_EXEACC.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEACC.Image = Global.SCANDB.My.Resources.Resources.application_form_edit
         Me.Menu_EXEACC.Name = "Menu_EXEACC"
-        Me.Menu_EXEACC.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_EXEACC.Size = New System.Drawing.Size(222, 22)
         Me.Menu_EXEACC.Text = "บังคับคดีตั้งเรื่อง"
         '
         'Menu_EXEStatement
@@ -156,7 +167,7 @@ Partial Class FrmMastermain
         Me.Menu_EXEStatement.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEStatement.Image = Global.SCANDB.My.Resources.Resources.Properties_16x16
         Me.Menu_EXEStatement.Name = "Menu_EXEStatement"
-        Me.Menu_EXEStatement.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_EXEStatement.Size = New System.Drawing.Size(222, 22)
         Me.Menu_EXEStatement.Text = "แถลงบัญชีบังคับคดี"
         '
         'Menu_EXEverify
@@ -165,7 +176,7 @@ Partial Class FrmMastermain
         Me.Menu_EXEverify.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEverify.Image = Global.SCANDB.My.Resources.Resources.textfield_add
         Me.Menu_EXEverify.Name = "Menu_EXEverify"
-        Me.Menu_EXEverify.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_EXEverify.Size = New System.Drawing.Size(222, 22)
         Me.Menu_EXEverify.Text = "ลงข้อมูลตรวจสำนวน"
         '
         'Menu_income
@@ -174,7 +185,7 @@ Partial Class FrmMastermain
         Me.Menu_income.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_income.Image = Global.SCANDB.My.Resources.Resources.coins_add
         Me.Menu_income.Name = "Menu_income"
-        Me.Menu_income.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_income.Size = New System.Drawing.Size(222, 22)
         Me.Menu_income.Text = "เงินส่วนได้/คชจ.คืนโจทก์"
         '
         'Menu_EXEWDS
@@ -183,7 +194,7 @@ Partial Class FrmMastermain
         Me.Menu_EXEWDS.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_EXEWDS.Image = Global.SCANDB.My.Resources.Resources.coins_delete1
         Me.Menu_EXEWDS.Name = "Menu_EXEWDS"
-        Me.Menu_EXEWDS.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_EXEWDS.Size = New System.Drawing.Size(222, 22)
         Me.Menu_EXEWDS.Text = "ถอนอายัด/ยึด"
         '
         'Menu_insolvent
@@ -192,7 +203,7 @@ Partial Class FrmMastermain
         Me.Menu_insolvent.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_insolvent.Image = Global.SCANDB.My.Resources.Resources.lorry_error
         Me.Menu_insolvent.Name = "Menu_insolvent"
-        Me.Menu_insolvent.Size = New System.Drawing.Size(193, 22)
+        Me.Menu_insolvent.Size = New System.Drawing.Size(222, 22)
         Me.Menu_insolvent.Text = "ข้อมูลลูกค้าล้มละลาย"
         '
         'Menu_tab_scanpdf
@@ -303,7 +314,7 @@ Partial Class FrmMastermain
         Me.Menu_Tab_ScbLegal.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_Tab_ScbLegal.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
         Me.Menu_Tab_ScbLegal.Name = "Menu_Tab_ScbLegal"
-        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_Tab_ScbLegal.Size = New System.Drawing.Size(179, 22)
         Me.Menu_Tab_ScbLegal.Text = "SCB (LEGAL)"
         '
         'Menu_tab_ScbCollector
@@ -311,7 +322,7 @@ Partial Class FrmMastermain
         Me.Menu_tab_ScbCollector.ForeColor = System.Drawing.Color.Indigo
         Me.Menu_tab_ScbCollector.Image = Global.SCANDB.My.Resources.Resources.Customer_service_icon24x24
         Me.Menu_tab_ScbCollector.Name = "Menu_tab_ScbCollector"
-        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(180, 22)
+        Me.Menu_tab_ScbCollector.Size = New System.Drawing.Size(179, 22)
         Me.Menu_tab_ScbCollector.Text = "SCB (COLLECTOR)"
         Me.Menu_tab_ScbCollector.Visible = False
         '
@@ -422,7 +433,7 @@ Partial Class FrmMastermain
         '
         'Main_Menu_upload
         '
-        Me.Main_Menu_upload.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_upload_scan, Me.Menu_upload_exe})
+        Me.Main_Menu_upload.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_upload_scan, Me.Menu_upload_exe, Me.TESTToolStripMenuItem})
         Me.Main_Menu_upload.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Main_Menu_upload.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.Main_Menu_upload.Name = "Main_Menu_upload"
@@ -687,6 +698,12 @@ Partial Class FrmMastermain
         '
         Me.Timer.Enabled = True
         '
+        'TESTToolStripMenuItem
+        '
+        Me.TESTToolStripMenuItem.Name = "TESTToolStripMenuItem"
+        Me.TESTToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.TESTToolStripMenuItem.Text = "TEST"
+        '
         'FrmMastermain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -775,4 +792,6 @@ Partial Class FrmMastermain
     Friend WithEvents Menu_Reportstatement As ToolStripMenuItem
     Friend WithEvents Menu_Reporttracking As ToolStripMenuItem
     Friend WithEvents Menu_ReportWDS As ToolStripMenuItem
+    Friend WithEvents Menu_Masterexecution As ToolStripMenuItem
+    Friend WithEvents TESTToolStripMenuItem As ToolStripMenuItem
 End Class

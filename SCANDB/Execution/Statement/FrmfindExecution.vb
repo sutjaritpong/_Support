@@ -19,11 +19,11 @@ Public Class FrmfindExecution
         txt_findid.AutoCompleteCustomSource = autocomp
 
     End Sub
-    Private Sub cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
+    Private Sub Cmd_find_Click(sender As Object, e As EventArgs) Handles cmd_find.Click
 
-        connect()
+        Connect()
 
-        _cleartext()
+        Cleartext_()
 
         If txt_findid.Text = "" Then
             Msg_error("กรุณากรอกเลขบัตรประชาชนที่ต้องการค้นหา")
@@ -151,11 +151,11 @@ Public Class FrmfindExecution
 
     End Sub
 
-    Private Sub cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
+    Private Sub Cmd_cancel_Click(sender As Object, e As EventArgs) Handles cmd_cancel.Click
         Me.Close()
     End Sub
 
-    Public Sub _cleartext()
+    Public Sub Cleartext_()
 
         With FrmExecution
 
