@@ -22,6 +22,7 @@ Partial Class InformationLink
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InformationLink))
         Me.Cmd_Delete = New System.Windows.Forms.Button()
         Me.chk_senddata = New System.Windows.Forms.CheckBox()
         Me.lbl_countimport = New System.Windows.Forms.Label()
@@ -48,7 +49,7 @@ Partial Class InformationLink
         Me.Cmd_Delete.BackColor = System.Drawing.SystemColors.Window
         Me.Cmd_Delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Cmd_Delete.Image = Global.SCANDB.My.Resources.Resources.table_row_delete
-        Me.Cmd_Delete.Location = New System.Drawing.Point(889, 43)
+        Me.Cmd_Delete.Location = New System.Drawing.Point(876, 6)
         Me.Cmd_Delete.Name = "Cmd_Delete"
         Me.Cmd_Delete.Size = New System.Drawing.Size(107, 31)
         Me.Cmd_Delete.TabIndex = 35
@@ -94,9 +95,9 @@ Partial Class InformationLink
         Me.cmd_toserver.BackColor = System.Drawing.SystemColors.Window
         Me.cmd_toserver.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.cmd_toserver.Image = Global.SCANDB.My.Resources.Resources.Upload_24x24
-        Me.cmd_toserver.Location = New System.Drawing.Point(720, 43)
+        Me.cmd_toserver.Location = New System.Drawing.Point(725, 43)
         Me.cmd_toserver.Name = "cmd_toserver"
-        Me.cmd_toserver.Size = New System.Drawing.Size(163, 31)
+        Me.cmd_toserver.Size = New System.Drawing.Size(145, 31)
         Me.cmd_toserver.TabIndex = 31
         Me.cmd_toserver.Text = "Send to Server"
         Me.cmd_toserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -139,7 +140,7 @@ Partial Class InformationLink
         Me.Dtgv_Exe.Name = "Dtgv_Exe"
         Me.Dtgv_Exe.ReadOnly = True
         Me.Dtgv_Exe.RowHeadersVisible = False
-        Me.Dtgv_Exe.Size = New System.Drawing.Size(858, 598)
+        Me.Dtgv_Exe.Size = New System.Drawing.Size(984, 598)
         Me.Dtgv_Exe.TabIndex = 28
         '
         'txt_Importfile
@@ -217,11 +218,11 @@ Partial Class InformationLink
         Me.Cmd_Link.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Cmd_Link.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.Cmd_Link.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cmd_Link.Location = New System.Drawing.Point(720, 6)
+        Me.Cmd_Link.Location = New System.Drawing.Point(725, 6)
         Me.Cmd_Link.Name = "Cmd_Link"
-        Me.Cmd_Link.Size = New System.Drawing.Size(163, 31)
+        Me.Cmd_Link.Size = New System.Drawing.Size(145, 31)
         Me.Cmd_Link.TabIndex = 39
-        Me.Cmd_Link.Text = "LINK INFORMATION"
+        Me.Cmd_Link.Text = "Import Information"
         Me.Cmd_Link.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Cmd_Link.UseVisualStyleBackColor = False
         '
@@ -229,6 +230,7 @@ Partial Class InformationLink
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.Cmd_Link)
         Me.Controls.Add(Me.lbl_flow)
@@ -247,6 +249,7 @@ Partial Class InformationLink
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.ForeColor = System.Drawing.Color.Blue
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "InformationLink"
         Me.Text = "InformationLink"
         CType(Me.Dtgv_Exe, System.ComponentModel.ISupportInitialize).EndInit()

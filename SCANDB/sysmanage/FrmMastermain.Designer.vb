@@ -66,6 +66,7 @@ Partial Class FrmMastermain
         Me.Menu_list_Accounting = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_upload_exe = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Upload_Execution = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Menu_Upload_Customer = New System.Windows.Forms.ToolStripMenuItem()
         Me.Main_Menu_report = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_tab_report = New System.Windows.Forms.ToolStripMenuItem()
         Me.สงออกขอมลบงคบคดToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,7 +91,6 @@ Partial Class FrmMastermain
         Me.tslversion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsl_version = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.TESTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -433,7 +433,7 @@ Partial Class FrmMastermain
         '
         'Main_Menu_upload
         '
-        Me.Main_Menu_upload.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_upload_scan, Me.Menu_upload_exe, Me.TESTToolStripMenuItem})
+        Me.Main_Menu_upload.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_upload_scan, Me.Menu_upload_exe})
         Me.Main_Menu_upload.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Main_Menu_upload.Image = Global.SCANDB.My.Resources.Resources.Download_24x24
         Me.Main_Menu_upload.Name = "Main_Menu_upload"
@@ -473,7 +473,7 @@ Partial Class FrmMastermain
         'Menu_upload_exe
         '
         Me.Menu_upload_exe.BackColor = System.Drawing.Color.White
-        Me.Menu_upload_exe.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Upload_Execution})
+        Me.Menu_upload_exe.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Upload_Execution, Me.Menu_Upload_Customer})
         Me.Menu_upload_exe.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.Menu_upload_exe.Image = Global.SCANDB.My.Resources.Resources.database_add
         Me.Menu_upload_exe.Name = "Menu_upload_exe"
@@ -488,6 +488,15 @@ Partial Class FrmMastermain
         Me.Menu_Upload_Execution.Name = "Menu_Upload_Execution"
         Me.Menu_Upload_Execution.Size = New System.Drawing.Size(300, 22)
         Me.Menu_Upload_Execution.Text = "อัพโหลดข้อมูลบังคับคดี (Upload Execution)"
+        '
+        'Menu_Upload_Customer
+        '
+        Me.Menu_Upload_Customer.BackColor = System.Drawing.Color.White
+        Me.Menu_Upload_Customer.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Menu_Upload_Customer.Image = Global.SCANDB.My.Resources.Resources.group_add
+        Me.Menu_Upload_Customer.Name = "Menu_Upload_Customer"
+        Me.Menu_Upload_Customer.Size = New System.Drawing.Size(300, 22)
+        Me.Menu_Upload_Customer.Text = "อัพโหลดข้อมูลลูกค้า (Upload Customer)"
         '
         'Main_Menu_report
         '
@@ -698,12 +707,6 @@ Partial Class FrmMastermain
         '
         Me.Timer.Enabled = True
         '
-        'TESTToolStripMenuItem
-        '
-        Me.TESTToolStripMenuItem.Name = "TESTToolStripMenuItem"
-        Me.TESTToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.TESTToolStripMenuItem.Text = "TEST"
-        '
         'FrmMastermain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -793,5 +796,5 @@ Partial Class FrmMastermain
     Friend WithEvents Menu_Reporttracking As ToolStripMenuItem
     Friend WithEvents Menu_ReportWDS As ToolStripMenuItem
     Friend WithEvents Menu_Masterexecution As ToolStripMenuItem
-    Friend WithEvents TESTToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Menu_Upload_Customer As ToolStripMenuItem
 End Class

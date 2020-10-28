@@ -211,7 +211,7 @@ Public Class Frmimportexe
 
             Case "ข้อมูลลูกค้า(Execution-Customer)" : sql &= $"Execution_Customer"
             Case "ใบงานแถลงบัญชี(Statement)" : sql &= $"EXESM"
-            Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"EXEACC"
+            Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"EXEACC WHERE ACCRESULT = 'Y'"
             Case "ผลคัดประกันสังคม(SOC)" : sql &= $"EXESOC"
             Case "ตรวจสำนวนตามใบงาน(Tracking)" : sql &= $"EXETRACKING"
             Case "ถอนอายัด/ยึด(Withdraw)" : sql &= $"EXEWDS"
@@ -220,7 +220,7 @@ Public Class Frmimportexe
             Case "ส่งคัดประกันสังคมฟ้องเอง(Port)" : sql &= $"Execution_Port"
             Case "ส่งสืบกรรมสิทธิ์ฟ้องเอง(OwnerShip)" : sql &= $"Execution_ownership"
             Case "ผลสืบกรรมสิทธิ์/ที่ดิน(OwnerShip-Result)" : sql &= $"Execution_ownership_result"
-            Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"Execution_RepeatFreeze"
+            Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"EXEACC WHERE ACCRESULT = 'N'"
             Case "เงินส่วนได้/ค่าใช้จ่ายคืน(Income)" : sql &= $"Execution_income"
             Case "รับเช็ค/บัญชีรับ-จ่าย(Income-Result)" : sql &= $"Execution_income_Result"
 
@@ -249,6 +249,8 @@ Public Class Frmimportexe
     Private Sub Loadsexe()
 
         Connect()
+        cmd.Connection = cn
+        cmd.Transaction = Trans
         Dim y As Integer = Dtgv_Exe.Rows.Count
         Dim Max As Integer = 100
 
@@ -267,7 +269,7 @@ Public Class Frmimportexe
 
                     Case "ใบงานแถลงบัญชี(Statement)" : sql &= $"COUNT(*) As verify FROM EXESM WHERE EXEKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(15).Value}-{Dtgv_Exe.Rows(i).Cells(20).Value}'"
 
-                    Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(6).Value}'"
+                    Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"COUNT(*) AS verify FROM EXEACC WHERE ACCACC = '{Dtgv_Exe.Rows(i).Cells(1).Value}' AND ACCRESULT = 'Y' "
 
                     Case "ส่งเช็คถอนอายัด/ยึด(Withdraw-Check)" : sql &= $"COUNT(*) AS verify FROM EXECHECK WHERE CHKNUM = {Dtgv_Exe.Rows(i).Cells(3).Value}"
 
@@ -283,7 +285,7 @@ Public Class Frmimportexe
 
                     Case "ผลสืบกรรมสิทธิ์/ที่ดิน(OwnerShip-Result)" : sql &= $"COUNT(*) AS verify FROM Execution_ownership_result WHERE Ownership_deed = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
 
-                    Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"COUNT(*) AS verify From Execution_Repeatfreeze WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+                    Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"COUNT(*) AS verify From EXEACC WHERE ACCIDC = '{Dtgv_Exe.Rows(i).Cells(2).Value}' AND ACCRESULT = 'N'"
 
                     Case "เงินส่วนได้/ค่าใช้จ่ายคืน(Income)" : sql &= $"COUNT(*) AS verify From Execution_income WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
 
@@ -317,7 +319,7 @@ Public Class Frmimportexe
 
                     '--------------------------- UPLOAD แถลงบัญชี --------------------------'
 
-                    Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}')"
+                    Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"EXEACC(ACCBANK,ACCACC,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}')"
 
 
                     '---------------------- UPLOAD เบิกบังคับคดีที่ไปตั้งเรื่อง -----------------------------------'
@@ -360,7 +362,7 @@ Public Class Frmimportexe
 
                         '-----------------UPLOAD Execution_Ownership_Result ------------------'
 
-                    Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"Execution_Repeatfreeze(Customer_owner,Customer_id_card,Customer_account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work,RepeatFreeze_Status)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}',{Dtgv_Exe.Rows(i).Cells(8).Value},'{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}')"
+                    Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"EXEACC(ACCBANK,ACCACC,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH,ACCTOWN,ACCBILLCODE,ACCTYPE,ACCPRODUCTCODE,EMPLOYEES_KEY,ACCRESULT,ACCACTION)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}',{Dtgv_Exe.Rows(i).Cells(8).Value},'{Dtgv_Exe.Rows(i).Cells(9).Value}',{Dtgv_Exe.Rows(i).Cells(10).Value},'{Dtgv_Exe.Rows(i).Cells(11).Value}',{Dtgv_Exe.Rows(i).Cells(12).Value},'{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}','{Dtgv_Exe.Rows(i).Cells(17).Value}','{Dtgv_Exe.Rows(i).Cells(18).Value}',{Dtgv_Exe.Rows(i).Cells(19).Value},'{Dtgv_Exe.Rows(i).Cells(20).Value}','{Dtgv_Exe.Rows(i).Cells(21).Value}')"
 
 
 
@@ -377,6 +379,7 @@ Public Class Frmimportexe
 
                 cmd = New SqlCommand(sql, cn)
                 cmd.ExecuteNonQuery()
+                Trans.Commit()
 
                 lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                 Main_progressbar.Value = (i / y) * Max
@@ -387,11 +390,16 @@ Public Class Frmimportexe
 
         Catch ex As Exception
 
+            Trans.Rollback()
             MsgBox(ex.ToString)
+
+        Finally
+
+            cn.Close()
 
         End Try
 
-        cn.Close()
+
 
     End Sub
 
@@ -436,7 +444,7 @@ Public Class Frmimportexe
 
                     Case "ใบงานแถลงบัญชี(Statement)" : sql &= $"COUNT(*) As verify FROM EXESM WHERE EXEKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(15).Value}-{Dtgv_Exe.Rows(i).Cells(20).Value}'"
 
-                    Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{Dtgv_Exe.Rows(i).Cells(0).Value}-{Dtgv_Exe.Rows(i).Cells(1).Value}-{Dtgv_Exe.Rows(i).Cells(6).Value}'"
+                    Case "บังคับคดีตั้งเรื่อง(Accounting)" : sql &= $"COUNT(*) AS verify FROM EXEACC WHERE ACCIDC = '{Dtgv_Exe.Rows(i).Cells(2).Value} AND ACCRESULT = 'Y' "
 
                     Case "ส่งเช็คถอนอายัด/ยึด(Withdraw-Check)" : sql &= $"COUNT(*) AS verify FROM EXECHECK WHERE CHKNUM = {Dtgv_Exe.Rows(i).Cells(3).Value}"
 
@@ -452,7 +460,7 @@ Public Class Frmimportexe
 
                     Case "ผลสืบกรรมสิทธิ์/ที่ดิน(OwnerShip-Result)" : sql &= $"COUNT(*) AS verify FROM Execution_ownership_result WHERE Ownership_deed = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
 
-                    Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"COUNT(*) AS verify From Execution_Repeatfreeze WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
+                    Case "อายัดซ้ำ(RepeatFreeze)" : sql &= $"COUNT(*) AS verify From Execution_Repeatfreeze WHERE ACCIDC = '{Dtgv_Exe.Rows(i).Cells(2).Value}' AND ACCRESULT = 'N'"
 
                     Case "เงินส่วนได้/ค่าใช้จ่ายคืน(Income)" : sql &= $"COUNT(*) AS verify From Execution_income WHERE Customer_id_card = '{Dtgv_Exe.Rows(i).Cells(1).Value}'"
 

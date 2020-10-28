@@ -22,6 +22,7 @@ Partial Class FrmMainExecution
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMainExecution))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.chk_datecheck = New System.Windows.Forms.CheckBox()
         Me.chk_datepayment = New System.Windows.Forms.CheckBox()
@@ -43,35 +44,37 @@ Partial Class FrmMainExecution
         Me.cbo_empadmin = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.cbo_income_prefix = New System.Windows.Forms.ComboBox()
+        Me.Cbo_Customer_Prefix = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Firstname = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Firstname = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Lastname = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Lastname = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Accno = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_No = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Court = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Court = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Acc = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Account = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Fullname = New System.Windows.Forms.TextBox()
-        Me.Txt_Income_Idcus = New System.Windows.Forms.TextBox()
-        Me.Txt_Income_Black = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Fullname = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Idc = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Black = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Txt_Income_Red = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Red = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Txt_bank = New System.Windows.Forms.TextBox()
-        Me.cbo_hub = New System.Windows.Forms.ComboBox()
+        Me.Txt_Customer_Bank = New System.Windows.Forms.TextBox()
+        Me.Cbo_Customer_Hub = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.cbo_owner = New System.Windows.Forms.ComboBox()
+        Me.Cbo_Customer_Owner = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Lbl_PK = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.chk_date_soc = New System.Windows.Forms.CheckBox()
@@ -83,7 +86,7 @@ Partial Class FrmMainExecution
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.chk_date_send = New System.Windows.Forms.CheckBox()
         Me.cbo_status = New System.Windows.Forms.ComboBox()
-        Me.txt_oa = New System.Windows.Forms.TextBox()
+        Me.Txt_oa = New System.Windows.Forms.TextBox()
         Me.Label58 = New System.Windows.Forms.Label()
         Me.dtp_datesend = New System.Windows.Forms.DateTimePicker()
         Me.Label59 = New System.Windows.Forms.Label()
@@ -119,33 +122,31 @@ Partial Class FrmMainExecution
         Me.dtp_date_review = New System.Windows.Forms.DateTimePicker()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Cbo_Account_Status = New System.Windows.Forms.ComboBox()
+        Me.Label113 = New System.Windows.Forms.Label()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
-        Me.chk_date_receipt = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Txt_Repeat_Detail = New System.Windows.Forms.TextBox()
+        Me.Dtp_Account_Date = New System.Windows.Forms.DateTimePicker()
+        Me.Chk_Account_Date = New System.Windows.Forms.CheckBox()
+        Me.Txt_Account_Repeat_Detail = New System.Windows.Forms.TextBox()
         Me.Label66 = New System.Windows.Forms.Label()
-        Me.Cbo_Repeat_EmpExe = New System.Windows.Forms.ComboBox()
+        Me.Cbo_Account_Employee = New System.Windows.Forms.ComboBox()
         Me.Label63 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label62 = New System.Windows.Forms.Label()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.Label67 = New System.Windows.Forms.Label()
-        Me.txt_detail_receipt = New System.Windows.Forms.TextBox()
+        Me.Txt_Receipt_Detail1 = New System.Windows.Forms.TextBox()
         Me.Label68 = New System.Windows.Forms.Label()
-        Me.txt_total_receipt = New System.Windows.Forms.TextBox()
+        Me.Txt_Account_Receipt1 = New System.Windows.Forms.TextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.Label69 = New System.Windows.Forms.Label()
-        Me.txt_total_receipt2 = New System.Windows.Forms.TextBox()
-        Me.txt_detail_receipt2 = New System.Windows.Forms.TextBox()
+        Me.Txt_Account_Receipt2 = New System.Windows.Forms.TextBox()
+        Me.Txt_Receipt_Detail2 = New System.Windows.Forms.TextBox()
         Me.Label70 = New System.Windows.Forms.Label()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
-        Me.txt_total_receipt3 = New System.Windows.Forms.TextBox()
+        Me.Txt_Account_Receipt3 = New System.Windows.Forms.TextBox()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.Label72 = New System.Windows.Forms.Label()
-        Me.txt_detail_receipt3 = New System.Windows.Forms.TextBox()
+        Me.Txt_Receipt_Detail3 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.GroupBox15 = New System.Windows.Forms.GroupBox()
         Me.txt_nameem = New System.Windows.Forms.TextBox()
@@ -295,14 +296,18 @@ Partial Class FrmMainExecution
         Me.CheckBox7 = New System.Windows.Forms.CheckBox()
         Me.DateTimePicker7 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox17 = New System.Windows.Forms.GroupBox()
-        Me.Txt_Billcode = New System.Windows.Forms.TextBox()
+        Me.Chk_Customer_Date_Add = New System.Windows.Forms.CheckBox()
+        Me.Label110 = New System.Windows.Forms.Label()
+        Me.Dtp_Customer_Date_Add = New System.Windows.Forms.DateTimePicker()
+        Me.Txt_Collector_User = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Billcode = New System.Windows.Forms.TextBox()
         Me.Label64 = New System.Windows.Forms.Label()
-        Me.Txt_productcode = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Productcode = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Txt_Repeat_Block = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Block = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Txt_type = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Type = New System.Windows.Forms.TextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.dtp_date_send = New System.Windows.Forms.DateTimePicker()
@@ -313,25 +318,37 @@ Partial Class FrmMainExecution
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label92 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Txt_Insolvent_Officer = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
-        Me.chk_verify_insolvent = New System.Windows.Forms.CheckBox()
+        Me.Chk_Insolvent_Verify = New System.Windows.Forms.CheckBox()
         Me.Chk_date_request = New System.Windows.Forms.CheckBox()
-        Me.dtp_verify_insolvent = New System.Windows.Forms.DateTimePicker()
-        Me.dtp_date_request = New System.Windows.Forms.DateTimePicker()
-        Me.txt_description = New System.Windows.Forms.TextBox()
+        Me.Dtp_Insolvent_verify = New System.Windows.Forms.DateTimePicker()
+        Me.Dtp_Insolvent_Request = New System.Windows.Forms.DateTimePicker()
+        Me.Txt_Insolvent_Description = New System.Windows.Forms.TextBox()
         Me.Label94 = New System.Windows.Forms.Label()
-        Me.txt_number_insolvent = New System.Windows.Forms.TextBox()
+        Me.Txt_Insolvent_Number = New System.Windows.Forms.TextBox()
         Me.Label95 = New System.Windows.Forms.Label()
-        Me.txt_court_isolvent = New System.Windows.Forms.TextBox()
+        Me.Txt_Insolvent_Court = New System.Windows.Forms.TextBox()
         Me.Label96 = New System.Windows.Forms.Label()
+        Me.Cbo_Actions_Status = New System.Windows.Forms.ComboBox()
+        Me.Label62 = New System.Windows.Forms.Label()
         Me.Label46 = New System.Windows.Forms.Label()
         Me.Txt_Income_GrandTotal = New System.Windows.Forms.TextBox()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.cmd_save = New System.Windows.Forms.Button()
+        Me.Cmd_delete = New System.Windows.Forms.Button()
+        Me.Cmd_update = New System.Windows.Forms.Button()
+        Me.cmd_cancel = New System.Windows.Forms.Button()
+        Me.cmd_clear = New System.Windows.Forms.Button()
+        Me.cmd_edit = New System.Windows.Forms.Button()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.Cmd_LinkDatabase = New System.Windows.Forms.Button()
+        Me.cmd_search = New System.Windows.Forms.Button()
+        Me.cmd_links = New System.Windows.Forms.Button()
+        Me.cmd_filter = New System.Windows.Forms.Button()
         Me.Group_detail = New System.Windows.Forms.GroupBox()
-        Me.Label110 = New System.Windows.Forms.Label()
+        Me.Lbl_Customer_Response = New System.Windows.Forms.Label()
         Me.Label109 = New System.Windows.Forms.Label()
         Me.lbl_timer = New System.Windows.Forms.Label()
         Me.lbl_count = New System.Windows.Forms.Label()
@@ -346,36 +363,35 @@ Partial Class FrmMainExecution
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label106 = New System.Windows.Forms.Label()
         Me.GroupBox16 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.Cbo_Action_Employee = New System.Windows.Forms.ComboBox()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.DateTimePicker5 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Txt_Customer_Detail = New System.Windows.Forms.TextBox()
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Dtgv_Main_find = New System.Windows.Forms.DataGridView()
         Me.Group_search = New System.Windows.Forms.GroupBox()
-        Me.Txt_Income_find = New System.Windows.Forms.TextBox()
+        Me.Cmd_Main_Find = New System.Windows.Forms.Button()
+        Me.Txt_Main_find = New System.Windows.Forms.TextBox()
         Me.Label111 = New System.Windows.Forms.Label()
-        Me.Cbo_Income_find = New System.Windows.Forms.ComboBox()
+        Me.Cbo_Main_find = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
-        Me.Cmd_Income_Find = New System.Windows.Forms.Button()
-        Me.cmd_save = New System.Windows.Forms.Button()
-        Me.Cmd_delete = New System.Windows.Forms.Button()
-        Me.Cmd_update = New System.Windows.Forms.Button()
-        Me.cmd_cancel = New System.Windows.Forms.Button()
-        Me.cmd_clear = New System.Windows.Forms.Button()
-        Me.cmd_edit = New System.Windows.Forms.Button()
-        Me.Cmd_LinkDatabase = New System.Windows.Forms.Button()
-        Me.cmd_search = New System.Windows.Forms.Button()
-        Me.cmd_links = New System.Windows.Forms.Button()
-        Me.cmd_filter = New System.Windows.Forms.Button()
+        Me.dtgv_Account_Action = New System.Windows.Forms.DataGridView()
+        Me.Dtp_Account_Month = New System.Windows.Forms.DateTimePicker()
+        Me.Chk_Account_Month = New System.Windows.Forms.CheckBox()
+        Me.Cbo_Account_Action = New System.Windows.Forms.ComboBox()
+        Me.Label114 = New System.Windows.Forms.Label()
+        Me.Cbo_Account_Result = New System.Windows.Forms.ComboBox()
+        Me.Label115 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage11.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
@@ -406,8 +422,9 @@ Partial Class FrmMainExecution
         Me.Group_detail.SuspendLayout()
         Me.GroupBox16.SuspendLayout()
         Me.GroupBox18.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Dtgv_Main_find, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Group_search.SuspendLayout()
+        CType(Me.dtgv_Account_Action, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -651,26 +668,26 @@ Partial Class FrmMainExecution
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.cbo_income_prefix)
+        Me.GroupBox4.Controls.Add(Me.Cbo_Customer_Prefix)
         Me.GroupBox4.Controls.Add(Me.Label2)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Firstname)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Firstname)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Lastname)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Lastname)
         Me.GroupBox4.Controls.Add(Me.Label5)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Accno)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_No)
         Me.GroupBox4.Controls.Add(Me.Label4)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Court)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Court)
         Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Acc)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Account)
         Me.GroupBox4.Controls.Add(Me.Label7)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Fullname)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Idcus)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Black)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Fullname)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Idc)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Black)
         Me.GroupBox4.Controls.Add(Me.Label16)
         Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Label11)
         Me.GroupBox4.Controls.Add(Me.Label15)
-        Me.GroupBox4.Controls.Add(Me.Txt_Income_Red)
+        Me.GroupBox4.Controls.Add(Me.Txt_Customer_Red)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.GroupBox4.Location = New System.Drawing.Point(580, 293)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
@@ -681,16 +698,16 @@ Partial Class FrmMainExecution
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ข้อมูลลูกค้า"
         '
-        'cbo_income_prefix
+        'Cbo_Customer_Prefix
         '
-        Me.cbo_income_prefix.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cbo_income_prefix.ForeColor = System.Drawing.Color.Blue
-        Me.cbo_income_prefix.FormattingEnabled = True
-        Me.cbo_income_prefix.Location = New System.Drawing.Point(117, 89)
-        Me.cbo_income_prefix.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.cbo_income_prefix.Name = "cbo_income_prefix"
-        Me.cbo_income_prefix.Size = New System.Drawing.Size(137, 23)
-        Me.cbo_income_prefix.TabIndex = 124
+        Me.Cbo_Customer_Prefix.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Customer_Prefix.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Customer_Prefix.FormattingEnabled = True
+        Me.Cbo_Customer_Prefix.Location = New System.Drawing.Point(117, 89)
+        Me.Cbo_Customer_Prefix.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Cbo_Customer_Prefix.Name = "Cbo_Customer_Prefix"
+        Me.Cbo_Customer_Prefix.Size = New System.Drawing.Size(137, 23)
+        Me.Cbo_Customer_Prefix.TabIndex = 124
         '
         'Label2
         '
@@ -705,15 +722,15 @@ Partial Class FrmMainExecution
         Me.Label2.TabIndex = 123
         Me.Label2.Text = "คำนำหน้า"
         '
-        'Txt_Income_Firstname
+        'Txt_Customer_Firstname
         '
-        Me.Txt_Income_Firstname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Firstname.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_Firstname.Location = New System.Drawing.Point(117, 116)
-        Me.Txt_Income_Firstname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Firstname.Name = "Txt_Income_Firstname"
-        Me.Txt_Income_Firstname.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Firstname.TabIndex = 107
+        Me.Txt_Customer_Firstname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Firstname.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Customer_Firstname.Location = New System.Drawing.Point(117, 116)
+        Me.Txt_Customer_Firstname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Firstname.Name = "Txt_Customer_Firstname"
+        Me.Txt_Customer_Firstname.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_Firstname.TabIndex = 107
         '
         'Label3
         '
@@ -728,15 +745,15 @@ Partial Class FrmMainExecution
         Me.Label3.TabIndex = 122
         Me.Label3.Text = "ชื่อลูกค้า"
         '
-        'Txt_Income_Lastname
+        'Txt_Customer_Lastname
         '
-        Me.Txt_Income_Lastname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Lastname.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_Lastname.Location = New System.Drawing.Point(117, 143)
-        Me.Txt_Income_Lastname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Lastname.Name = "Txt_Income_Lastname"
-        Me.Txt_Income_Lastname.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Lastname.TabIndex = 108
+        Me.Txt_Customer_Lastname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Lastname.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Customer_Lastname.Location = New System.Drawing.Point(117, 143)
+        Me.Txt_Customer_Lastname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Lastname.Name = "Txt_Customer_Lastname"
+        Me.Txt_Customer_Lastname.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_Lastname.TabIndex = 108
         '
         'Label5
         '
@@ -744,22 +761,22 @@ Partial Class FrmMainExecution
         Me.Label5.BackColor = System.Drawing.SystemColors.Window
         Me.Label5.Font = New System.Drawing.Font("Bookman Old Style", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Blue
-        Me.Label5.Location = New System.Drawing.Point(64, 145)
+        Me.Label5.Location = New System.Drawing.Point(67, 147)
         Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 16)
         Me.Label5.TabIndex = 121
         Me.Label5.Text = "นามสกุล"
         '
-        'Txt_Income_Accno
+        'Txt_Customer_No
         '
-        Me.Txt_Income_Accno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Accno.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_Accno.Location = New System.Drawing.Point(117, 35)
-        Me.Txt_Income_Accno.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Accno.Name = "Txt_Income_Accno"
-        Me.Txt_Income_Accno.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Accno.TabIndex = 105
+        Me.Txt_Customer_No.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_No.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Customer_No.Location = New System.Drawing.Point(117, 35)
+        Me.Txt_Customer_No.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_No.Name = "Txt_Customer_No"
+        Me.Txt_Customer_No.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_No.TabIndex = 105
         '
         'Label4
         '
@@ -774,15 +791,15 @@ Partial Class FrmMainExecution
         Me.Label4.TabIndex = 120
         Me.Label4.Text = "เลขที่ลูกหนี้"
         '
-        'Txt_Income_Court
+        'Txt_Customer_Court
         '
-        Me.Txt_Income_Court.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Court.ForeColor = System.Drawing.Color.DarkOrange
-        Me.Txt_Income_Court.Location = New System.Drawing.Point(117, 197)
-        Me.Txt_Income_Court.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Court.Name = "Txt_Income_Court"
-        Me.Txt_Income_Court.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Court.TabIndex = 110
+        Me.Txt_Customer_Court.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Court.ForeColor = System.Drawing.Color.DarkOrange
+        Me.Txt_Customer_Court.Location = New System.Drawing.Point(117, 197)
+        Me.Txt_Customer_Court.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Court.Name = "Txt_Customer_Court"
+        Me.Txt_Customer_Court.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_Court.TabIndex = 110
         '
         'Label6
         '
@@ -797,15 +814,15 @@ Partial Class FrmMainExecution
         Me.Label6.TabIndex = 119
         Me.Label6.Text = "เลขที่สัญญา"
         '
-        'Txt_Income_Acc
+        'Txt_Customer_Account
         '
-        Me.Txt_Income_Acc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Acc.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_Acc.Location = New System.Drawing.Point(117, 8)
-        Me.Txt_Income_Acc.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Acc.Name = "Txt_Income_Acc"
-        Me.Txt_Income_Acc.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Acc.TabIndex = 104
+        Me.Txt_Customer_Account.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Account.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Customer_Account.Location = New System.Drawing.Point(117, 8)
+        Me.Txt_Customer_Account.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Account.Name = "Txt_Customer_Account"
+        Me.Txt_Customer_Account.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_Account.TabIndex = 104
         '
         'Label7
         '
@@ -820,34 +837,34 @@ Partial Class FrmMainExecution
         Me.Label7.TabIndex = 116
         Me.Label7.Text = "เลขประจำตัวประชาชน"
         '
-        'Txt_Income_Fullname
+        'Txt_Customer_Fullname
         '
-        Me.Txt_Income_Fullname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Fullname.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_Fullname.Location = New System.Drawing.Point(117, 170)
-        Me.Txt_Income_Fullname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Fullname.Name = "Txt_Income_Fullname"
-        Me.Txt_Income_Fullname.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Fullname.TabIndex = 109
+        Me.Txt_Customer_Fullname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Fullname.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Customer_Fullname.Location = New System.Drawing.Point(117, 170)
+        Me.Txt_Customer_Fullname.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Fullname.Name = "Txt_Customer_Fullname"
+        Me.Txt_Customer_Fullname.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_Fullname.TabIndex = 109
         '
-        'Txt_Income_Idcus
+        'Txt_Customer_Idc
         '
-        Me.Txt_Income_Idcus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Idcus.ForeColor = System.Drawing.Color.Blue
-        Me.Txt_Income_Idcus.Location = New System.Drawing.Point(117, 62)
-        Me.Txt_Income_Idcus.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Idcus.Name = "Txt_Income_Idcus"
-        Me.Txt_Income_Idcus.Size = New System.Drawing.Size(137, 21)
-        Me.Txt_Income_Idcus.TabIndex = 106
+        Me.Txt_Customer_Idc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Idc.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Customer_Idc.Location = New System.Drawing.Point(117, 62)
+        Me.Txt_Customer_Idc.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Idc.Name = "Txt_Customer_Idc"
+        Me.Txt_Customer_Idc.Size = New System.Drawing.Size(137, 21)
+        Me.Txt_Customer_Idc.TabIndex = 106
         '
-        'Txt_Income_Black
+        'Txt_Customer_Black
         '
-        Me.Txt_Income_Black.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Black.Location = New System.Drawing.Point(117, 224)
-        Me.Txt_Income_Black.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Black.Name = "Txt_Income_Black"
-        Me.Txt_Income_Black.Size = New System.Drawing.Size(102, 21)
-        Me.Txt_Income_Black.TabIndex = 111
+        Me.Txt_Customer_Black.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Black.Location = New System.Drawing.Point(117, 224)
+        Me.Txt_Customer_Black.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Black.Name = "Txt_Customer_Black"
+        Me.Txt_Customer_Black.Size = New System.Drawing.Size(102, 21)
+        Me.Txt_Customer_Black.TabIndex = 111
         '
         'Label16
         '
@@ -901,22 +918,22 @@ Partial Class FrmMainExecution
         Me.Label15.TabIndex = 115
         Me.Label15.Text = "เลขคดีแดง"
         '
-        'Txt_Income_Red
+        'Txt_Customer_Red
         '
-        Me.Txt_Income_Red.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_Red.ForeColor = System.Drawing.Color.Red
-        Me.Txt_Income_Red.Location = New System.Drawing.Point(117, 251)
-        Me.Txt_Income_Red.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_Red.Name = "Txt_Income_Red"
-        Me.Txt_Income_Red.Size = New System.Drawing.Size(102, 21)
-        Me.Txt_Income_Red.TabIndex = 112
+        Me.Txt_Customer_Red.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Red.ForeColor = System.Drawing.Color.Red
+        Me.Txt_Customer_Red.Location = New System.Drawing.Point(117, 251)
+        Me.Txt_Customer_Red.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Customer_Red.Name = "Txt_Customer_Red"
+        Me.Txt_Customer_Red.Size = New System.Drawing.Size(102, 21)
+        Me.Txt_Customer_Red.TabIndex = 112
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Txt_bank)
-        Me.GroupBox1.Controls.Add(Me.cbo_hub)
+        Me.GroupBox1.Controls.Add(Me.Txt_Customer_Bank)
+        Me.GroupBox1.Controls.Add(Me.Cbo_Customer_Hub)
         Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.cbo_owner)
+        Me.GroupBox1.Controls.Add(Me.Cbo_Customer_Owner)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label22)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -929,23 +946,23 @@ Partial Class FrmMainExecution
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Owner"
         '
-        'Txt_bank
+        'Txt_Customer_Bank
         '
-        Me.Txt_bank.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_bank.Location = New System.Drawing.Point(116, 40)
-        Me.Txt_bank.Name = "Txt_bank"
-        Me.Txt_bank.Size = New System.Drawing.Size(137, 20)
-        Me.Txt_bank.TabIndex = 160
+        Me.Txt_Customer_Bank.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Bank.Location = New System.Drawing.Point(116, 40)
+        Me.Txt_Customer_Bank.Name = "Txt_Customer_Bank"
+        Me.Txt_Customer_Bank.Size = New System.Drawing.Size(137, 20)
+        Me.Txt_Customer_Bank.TabIndex = 160
         '
-        'cbo_hub
+        'Cbo_Customer_Hub
         '
-        Me.cbo_hub.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cbo_hub.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.cbo_hub.FormattingEnabled = True
-        Me.cbo_hub.Location = New System.Drawing.Point(116, 66)
-        Me.cbo_hub.Name = "cbo_hub"
-        Me.cbo_hub.Size = New System.Drawing.Size(137, 21)
-        Me.cbo_hub.TabIndex = 78
+        Me.Cbo_Customer_Hub.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Customer_Hub.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Cbo_Customer_Hub.FormattingEnabled = True
+        Me.Cbo_Customer_Hub.Location = New System.Drawing.Point(116, 66)
+        Me.Cbo_Customer_Hub.Name = "Cbo_Customer_Hub"
+        Me.Cbo_Customer_Hub.Size = New System.Drawing.Size(137, 21)
+        Me.Cbo_Customer_Hub.TabIndex = 78
         '
         'Label12
         '
@@ -959,14 +976,14 @@ Partial Class FrmMainExecution
         Me.Label12.TabIndex = 77
         Me.Label12.Text = "ศูนย์ประสานงาน"
         '
-        'cbo_owner
+        'Cbo_Customer_Owner
         '
-        Me.cbo_owner.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cbo_owner.FormattingEnabled = True
-        Me.cbo_owner.Location = New System.Drawing.Point(116, 13)
-        Me.cbo_owner.Name = "cbo_owner"
-        Me.cbo_owner.Size = New System.Drawing.Size(137, 21)
-        Me.cbo_owner.TabIndex = 76
+        Me.Cbo_Customer_Owner.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Customer_Owner.FormattingEnabled = True
+        Me.Cbo_Customer_Owner.Location = New System.Drawing.Point(116, 13)
+        Me.Cbo_Customer_Owner.Name = "Cbo_Customer_Owner"
+        Me.Cbo_Customer_Owner.Size = New System.Drawing.Size(137, 21)
+        Me.Cbo_Customer_Owner.TabIndex = 76
         '
         'Label10
         '
@@ -1009,6 +1026,8 @@ Partial Class FrmMainExecution
         '
         'TabPage11
         '
+        Me.TabPage11.Controls.Add(Me.DataGridView1)
+        Me.TabPage11.Controls.Add(Me.Lbl_PK)
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
@@ -1016,6 +1035,32 @@ Partial Class FrmMainExecution
         Me.TabPage11.TabIndex = 5
         Me.TabPage11.Text = "Action/Result"
         Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DataGridView1.Size = New System.Drawing.Size(558, 181)
+        Me.DataGridView1.TabIndex = 177
+        '
+        'Lbl_PK
+        '
+        Me.Lbl_PK.AutoSize = True
+        Me.Lbl_PK.ForeColor = System.Drawing.Color.Red
+        Me.Lbl_PK.Location = New System.Drawing.Point(6, 437)
+        Me.Lbl_PK.Name = "Lbl_PK"
+        Me.Lbl_PK.Size = New System.Drawing.Size(21, 13)
+        Me.Lbl_PK.TabIndex = 176
+        Me.Lbl_PK.Text = "PK"
+        Me.Lbl_PK.Visible = False
         '
         'TabPage1
         '
@@ -1111,7 +1156,7 @@ Partial Class FrmMainExecution
         '
         Me.GroupBox10.Controls.Add(Me.chk_date_send)
         Me.GroupBox10.Controls.Add(Me.cbo_status)
-        Me.GroupBox10.Controls.Add(Me.txt_oa)
+        Me.GroupBox10.Controls.Add(Me.Txt_oa)
         Me.GroupBox10.Controls.Add(Me.Label58)
         Me.GroupBox10.Controls.Add(Me.dtp_datesend)
         Me.GroupBox10.Controls.Add(Me.Label59)
@@ -1148,14 +1193,14 @@ Partial Class FrmMainExecution
         Me.cbo_status.Size = New System.Drawing.Size(141, 21)
         Me.cbo_status.TabIndex = 10
         '
-        'txt_oa
+        'Txt_oa
         '
-        Me.txt_oa.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_oa.ForeColor = System.Drawing.Color.Blue
-        Me.txt_oa.Location = New System.Drawing.Point(64, 19)
-        Me.txt_oa.Name = "txt_oa"
-        Me.txt_oa.Size = New System.Drawing.Size(141, 20)
-        Me.txt_oa.TabIndex = 9
+        Me.Txt_oa.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_oa.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_oa.Location = New System.Drawing.Point(64, 19)
+        Me.Txt_oa.Name = "Txt_oa"
+        Me.Txt_oa.Size = New System.Drawing.Size(141, 20)
+        Me.Txt_oa.TabIndex = 9
         '
         'Label58
         '
@@ -1544,11 +1589,8 @@ Partial Class FrmMainExecution
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.dtgv_Account_Action)
         Me.TabPage2.Controls.Add(Me.GroupBox12)
-        Me.TabPage2.Controls.Add(Me.Cbo_Repeat_EmpExe)
-        Me.TabPage2.Controls.Add(Me.Label63)
-        Me.TabPage2.Controls.Add(Me.ComboBox1)
-        Me.TabPage2.Controls.Add(Me.Label62)
         Me.TabPage2.Controls.Add(Me.TabControl2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
@@ -1558,97 +1600,105 @@ Partial Class FrmMainExecution
         Me.TabPage2.Text = "ตั้งเรื่องอายัด/ยึด"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'Cbo_Account_Status
+        '
+        Me.Cbo_Account_Status.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Account_Status.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Account_Status.FormattingEnabled = True
+        Me.Cbo_Account_Status.Location = New System.Drawing.Point(97, 154)
+        Me.Cbo_Account_Status.Name = "Cbo_Account_Status"
+        Me.Cbo_Account_Status.Size = New System.Drawing.Size(178, 21)
+        Me.Cbo_Account_Status.TabIndex = 177
+        '
+        'Label113
+        '
+        Me.Label113.AutoSize = True
+        Me.Label113.BackColor = System.Drawing.SystemColors.Window
+        Me.Label113.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label113.ForeColor = System.Drawing.Color.Blue
+        Me.Label113.Location = New System.Drawing.Point(41, 157)
+        Me.Label113.Name = "Label113"
+        Me.Label113.Size = New System.Drawing.Size(50, 13)
+        Me.Label113.TabIndex = 178
+        Me.Label113.Text = "STATUS"
+        '
         'GroupBox12
         '
-        Me.GroupBox12.Controls.Add(Me.DateTimePicker3)
-        Me.GroupBox12.Controls.Add(Me.chk_date_receipt)
-        Me.GroupBox12.Controls.Add(Me.CheckBox2)
-        Me.GroupBox12.Controls.Add(Me.DateTimePicker2)
-        Me.GroupBox12.Controls.Add(Me.Txt_Repeat_Detail)
+        Me.GroupBox12.Controls.Add(Me.Cbo_Account_Action)
+        Me.GroupBox12.Controls.Add(Me.Dtp_Account_Month)
+        Me.GroupBox12.Controls.Add(Me.Label114)
+        Me.GroupBox12.Controls.Add(Me.Chk_Account_Month)
+        Me.GroupBox12.Controls.Add(Me.Cbo_Account_Result)
+        Me.GroupBox12.Controls.Add(Me.Label115)
+        Me.GroupBox12.Controls.Add(Me.Cbo_Account_Status)
+        Me.GroupBox12.Controls.Add(Me.Dtp_Account_Date)
+        Me.GroupBox12.Controls.Add(Me.Label113)
+        Me.GroupBox12.Controls.Add(Me.Chk_Account_Date)
+        Me.GroupBox12.Controls.Add(Me.Txt_Account_Repeat_Detail)
+        Me.GroupBox12.Controls.Add(Me.Cbo_Account_Employee)
+        Me.GroupBox12.Controls.Add(Me.Label63)
         Me.GroupBox12.Controls.Add(Me.Label66)
         Me.GroupBox12.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox12.Location = New System.Drawing.Point(3, 178)
+        Me.GroupBox12.Location = New System.Drawing.Point(5, 5)
         Me.GroupBox12.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox12.Size = New System.Drawing.Size(283, 143)
+        Me.GroupBox12.Size = New System.Drawing.Size(283, 265)
         Me.GroupBox12.TabIndex = 161
         Me.GroupBox12.TabStop = False
-        Me.GroupBox12.Text = "ข้อมูลตั้งเรื่องอายัดซ้ำ"
+        Me.GroupBox12.Text = "ข้อมูลตั้งเรื่องอายัด/ยึด"
         '
-        'DateTimePicker3
+        'Dtp_Account_Date
         '
-        Me.DateTimePicker3.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker3.Location = New System.Drawing.Point(99, 17)
-        Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(107, 20)
-        Me.DateTimePicker3.TabIndex = 151
+        Me.Dtp_Account_Date.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dtp_Account_Date.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Account_Date.Location = New System.Drawing.Point(99, 17)
+        Me.Dtp_Account_Date.Name = "Dtp_Account_Date"
+        Me.Dtp_Account_Date.Size = New System.Drawing.Size(107, 20)
+        Me.Dtp_Account_Date.TabIndex = 151
         '
-        'chk_date_receipt
+        'Chk_Account_Date
         '
-        Me.chk_date_receipt.AutoSize = True
-        Me.chk_date_receipt.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_date_receipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.chk_date_receipt.Location = New System.Drawing.Point(12, 19)
-        Me.chk_date_receipt.Name = "chk_date_receipt"
-        Me.chk_date_receipt.Size = New System.Drawing.Size(81, 17)
-        Me.chk_date_receipt.TabIndex = 95
-        Me.chk_date_receipt.Text = "วันที่ตั้งเรื่อง"
-        Me.chk_date_receipt.ThreeState = True
-        Me.chk_date_receipt.UseVisualStyleBackColor = True
+        Me.Chk_Account_Date.AutoSize = True
+        Me.Chk_Account_Date.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Account_Date.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Chk_Account_Date.Location = New System.Drawing.Point(12, 19)
+        Me.Chk_Account_Date.Name = "Chk_Account_Date"
+        Me.Chk_Account_Date.Size = New System.Drawing.Size(81, 17)
+        Me.Chk_Account_Date.TabIndex = 95
+        Me.Chk_Account_Date.Text = "วันที่ตั้งเรื่อง"
+        Me.Chk_Account_Date.ThreeState = True
+        Me.Chk_Account_Date.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'Txt_Account_Repeat_Detail
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox2.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(8, 43)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(85, 19)
-        Me.CheckBox2.TabIndex = 150
-        Me.CheckBox2.Text = "วันที่คัด DBD"
-        Me.CheckBox2.ThreeState = True
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(99, 43)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(107, 20)
-        Me.DateTimePicker2.TabIndex = 149
-        '
-        'Txt_Repeat_Detail
-        '
-        Me.Txt_Repeat_Detail.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_Repeat_Detail.Location = New System.Drawing.Point(99, 69)
-        Me.Txt_Repeat_Detail.Multiline = True
-        Me.Txt_Repeat_Detail.Name = "Txt_Repeat_Detail"
-        Me.Txt_Repeat_Detail.Size = New System.Drawing.Size(178, 63)
-        Me.Txt_Repeat_Detail.TabIndex = 14
+        Me.Txt_Account_Repeat_Detail.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Account_Repeat_Detail.Location = New System.Drawing.Point(97, 181)
+        Me.Txt_Account_Repeat_Detail.Multiline = True
+        Me.Txt_Account_Repeat_Detail.Name = "Txt_Account_Repeat_Detail"
+        Me.Txt_Account_Repeat_Detail.Size = New System.Drawing.Size(178, 76)
+        Me.Txt_Account_Repeat_Detail.TabIndex = 14
         '
         'Label66
         '
         Me.Label66.AutoSize = True
         Me.Label66.BackColor = System.Drawing.SystemColors.Window
         Me.Label66.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label66.Location = New System.Drawing.Point(39, 69)
+        Me.Label66.Location = New System.Drawing.Point(37, 181)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(54, 15)
         Me.Label66.TabIndex = 148
         Me.Label66.Text = "รายละเอียด"
         '
-        'Cbo_Repeat_EmpExe
+        'Cbo_Account_Employee
         '
-        Me.Cbo_Repeat_EmpExe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cbo_Repeat_EmpExe.ForeColor = System.Drawing.Color.Blue
-        Me.Cbo_Repeat_EmpExe.FormattingEnabled = True
-        Me.Cbo_Repeat_EmpExe.Location = New System.Drawing.Point(102, 424)
-        Me.Cbo_Repeat_EmpExe.Name = "Cbo_Repeat_EmpExe"
-        Me.Cbo_Repeat_EmpExe.Size = New System.Drawing.Size(178, 21)
-        Me.Cbo_Repeat_EmpExe.TabIndex = 159
+        Me.Cbo_Account_Employee.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Account_Employee.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Account_Employee.FormattingEnabled = True
+        Me.Cbo_Account_Employee.Location = New System.Drawing.Point(97, 125)
+        Me.Cbo_Account_Employee.Name = "Cbo_Account_Employee"
+        Me.Cbo_Account_Employee.Size = New System.Drawing.Size(178, 21)
+        Me.Cbo_Account_Employee.TabIndex = 159
         '
         'Label63
         '
@@ -1656,33 +1706,11 @@ Partial Class FrmMainExecution
         Me.Label63.BackColor = System.Drawing.SystemColors.Window
         Me.Label63.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Label63.ForeColor = System.Drawing.Color.Blue
-        Me.Label63.Location = New System.Drawing.Point(8, 427)
+        Me.Label63.Location = New System.Drawing.Point(3, 128)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(88, 13)
         Me.Label63.TabIndex = 160
         Me.Label63.Text = "พนักงานบังคับคดี"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.ComboBox1.ForeColor = System.Drawing.Color.Blue
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(376, 424)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(178, 21)
-        Me.ComboBox1.TabIndex = 157
-        '
-        'Label62
-        '
-        Me.Label62.AutoSize = True
-        Me.Label62.BackColor = System.Drawing.SystemColors.Window
-        Me.Label62.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label62.ForeColor = System.Drawing.Color.Blue
-        Me.Label62.Location = New System.Drawing.Point(320, 427)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(50, 13)
-        Me.Label62.TabIndex = 158
-        Me.Label62.Text = "STATUS"
         '
         'TabControl2
         '
@@ -1690,23 +1718,23 @@ Partial Class FrmMainExecution
         Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Controls.Add(Me.TabPage8)
         Me.TabControl2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl2.Location = New System.Drawing.Point(3, 3)
+        Me.TabControl2.Location = New System.Drawing.Point(296, 6)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(403, 171)
+        Me.TabControl2.Size = New System.Drawing.Size(265, 171)
         Me.TabControl2.TabIndex = 156
         '
         'TabPage6
         '
         Me.TabPage6.Controls.Add(Me.Label67)
-        Me.TabPage6.Controls.Add(Me.txt_detail_receipt)
+        Me.TabPage6.Controls.Add(Me.Txt_Receipt_Detail1)
         Me.TabPage6.Controls.Add(Me.Label68)
-        Me.TabPage6.Controls.Add(Me.txt_total_receipt)
+        Me.TabPage6.Controls.Add(Me.Txt_Account_Receipt1)
         Me.TabPage6.ForeColor = System.Drawing.Color.Blue
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(395, 145)
+        Me.TabPage6.Size = New System.Drawing.Size(257, 145)
         Me.TabPage6.TabIndex = 0
         Me.TabPage6.Text = "ใบเสร็จ 1"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -1716,52 +1744,52 @@ Partial Class FrmMainExecution
         Me.Label67.AutoSize = True
         Me.Label67.BackColor = System.Drawing.SystemColors.Window
         Me.Label67.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label67.Location = New System.Drawing.Point(5, 12)
+        Me.Label67.Location = New System.Drawing.Point(8, 6)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(117, 13)
         Me.Label67.TabIndex = 78
         Me.Label67.Text = "จำนวนเงินในใบเสร็จ 1"
         '
-        'txt_detail_receipt
+        'Txt_Receipt_Detail1
         '
-        Me.txt_detail_receipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_detail_receipt.Location = New System.Drawing.Point(128, 37)
-        Me.txt_detail_receipt.Multiline = True
-        Me.txt_detail_receipt.Name = "txt_detail_receipt"
-        Me.txt_detail_receipt.Size = New System.Drawing.Size(263, 54)
-        Me.txt_detail_receipt.TabIndex = 12
+        Me.Txt_Receipt_Detail1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Receipt_Detail1.Location = New System.Drawing.Point(3, 55)
+        Me.Txt_Receipt_Detail1.Multiline = True
+        Me.Txt_Receipt_Detail1.Name = "Txt_Receipt_Detail1"
+        Me.Txt_Receipt_Detail1.Size = New System.Drawing.Size(251, 87)
+        Me.Txt_Receipt_Detail1.TabIndex = 12
         '
         'Label68
         '
         Me.Label68.AutoSize = True
         Me.Label68.BackColor = System.Drawing.SystemColors.Window
         Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label68.Location = New System.Drawing.Point(16, 37)
+        Me.Label68.Location = New System.Drawing.Point(6, 38)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(106, 13)
         Me.Label68.TabIndex = 87
         Me.Label68.Text = "รายละเอียดใบเสร็จ 1"
         '
-        'txt_total_receipt
+        'Txt_Account_Receipt1
         '
-        Me.txt_total_receipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_total_receipt.ForeColor = System.Drawing.Color.Orange
-        Me.txt_total_receipt.Location = New System.Drawing.Point(128, 9)
-        Me.txt_total_receipt.Name = "txt_total_receipt"
-        Me.txt_total_receipt.Size = New System.Drawing.Size(169, 20)
-        Me.txt_total_receipt.TabIndex = 11
+        Me.Txt_Account_Receipt1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Account_Receipt1.ForeColor = System.Drawing.Color.Orange
+        Me.Txt_Account_Receipt1.Location = New System.Drawing.Point(131, 3)
+        Me.Txt_Account_Receipt1.Name = "Txt_Account_Receipt1"
+        Me.Txt_Account_Receipt1.Size = New System.Drawing.Size(123, 20)
+        Me.Txt_Account_Receipt1.TabIndex = 11
         '
         'TabPage7
         '
         Me.TabPage7.Controls.Add(Me.Label69)
-        Me.TabPage7.Controls.Add(Me.txt_total_receipt2)
-        Me.TabPage7.Controls.Add(Me.txt_detail_receipt2)
+        Me.TabPage7.Controls.Add(Me.Txt_Account_Receipt2)
+        Me.TabPage7.Controls.Add(Me.Txt_Receipt_Detail2)
         Me.TabPage7.Controls.Add(Me.Label70)
         Me.TabPage7.ForeColor = System.Drawing.Color.Blue
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(395, 145)
+        Me.TabPage7.Size = New System.Drawing.Size(257, 145)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "ใบเสร็จ 2"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -1771,36 +1799,36 @@ Partial Class FrmMainExecution
         Me.Label69.AutoSize = True
         Me.Label69.BackColor = System.Drawing.SystemColors.Window
         Me.Label69.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label69.Location = New System.Drawing.Point(6, 13)
+        Me.Label69.Location = New System.Drawing.Point(8, 6)
         Me.Label69.Name = "Label69"
         Me.Label69.Size = New System.Drawing.Size(117, 13)
         Me.Label69.TabIndex = 89
         Me.Label69.Text = "จำนวนเงินในใบเสร็จ 2"
         '
-        'txt_total_receipt2
+        'Txt_Account_Receipt2
         '
-        Me.txt_total_receipt2.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_total_receipt2.ForeColor = System.Drawing.Color.Orange
-        Me.txt_total_receipt2.Location = New System.Drawing.Point(128, 9)
-        Me.txt_total_receipt2.Name = "txt_total_receipt2"
-        Me.txt_total_receipt2.Size = New System.Drawing.Size(170, 20)
-        Me.txt_total_receipt2.TabIndex = 14
+        Me.Txt_Account_Receipt2.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Account_Receipt2.ForeColor = System.Drawing.Color.Orange
+        Me.Txt_Account_Receipt2.Location = New System.Drawing.Point(131, 3)
+        Me.Txt_Account_Receipt2.Name = "Txt_Account_Receipt2"
+        Me.Txt_Account_Receipt2.Size = New System.Drawing.Size(123, 20)
+        Me.Txt_Account_Receipt2.TabIndex = 14
         '
-        'txt_detail_receipt2
+        'Txt_Receipt_Detail2
         '
-        Me.txt_detail_receipt2.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_detail_receipt2.Location = New System.Drawing.Point(128, 37)
-        Me.txt_detail_receipt2.Multiline = True
-        Me.txt_detail_receipt2.Name = "txt_detail_receipt2"
-        Me.txt_detail_receipt2.Size = New System.Drawing.Size(263, 54)
-        Me.txt_detail_receipt2.TabIndex = 15
+        Me.Txt_Receipt_Detail2.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Receipt_Detail2.Location = New System.Drawing.Point(3, 55)
+        Me.Txt_Receipt_Detail2.Multiline = True
+        Me.Txt_Receipt_Detail2.Name = "Txt_Receipt_Detail2"
+        Me.Txt_Receipt_Detail2.Size = New System.Drawing.Size(251, 87)
+        Me.Txt_Receipt_Detail2.TabIndex = 15
         '
         'Label70
         '
         Me.Label70.AutoSize = True
         Me.Label70.BackColor = System.Drawing.SystemColors.Window
         Me.Label70.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label70.Location = New System.Drawing.Point(14, 40)
+        Me.Label70.Location = New System.Drawing.Point(6, 38)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(106, 13)
         Me.Label70.TabIndex = 93
@@ -1808,34 +1836,34 @@ Partial Class FrmMainExecution
         '
         'TabPage8
         '
-        Me.TabPage8.Controls.Add(Me.txt_total_receipt3)
+        Me.TabPage8.Controls.Add(Me.Txt_Account_Receipt3)
         Me.TabPage8.Controls.Add(Me.Label71)
         Me.TabPage8.Controls.Add(Me.Label72)
-        Me.TabPage8.Controls.Add(Me.txt_detail_receipt3)
+        Me.TabPage8.Controls.Add(Me.Txt_Receipt_Detail3)
         Me.TabPage8.ForeColor = System.Drawing.Color.Blue
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(395, 145)
+        Me.TabPage8.Size = New System.Drawing.Size(257, 145)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "ใบเสร็จ 3"
         Me.TabPage8.UseVisualStyleBackColor = True
         '
-        'txt_total_receipt3
+        'Txt_Account_Receipt3
         '
-        Me.txt_total_receipt3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_total_receipt3.ForeColor = System.Drawing.Color.Orange
-        Me.txt_total_receipt3.Location = New System.Drawing.Point(128, 9)
-        Me.txt_total_receipt3.Name = "txt_total_receipt3"
-        Me.txt_total_receipt3.Size = New System.Drawing.Size(170, 20)
-        Me.txt_total_receipt3.TabIndex = 16
+        Me.Txt_Account_Receipt3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Account_Receipt3.ForeColor = System.Drawing.Color.Orange
+        Me.Txt_Account_Receipt3.Location = New System.Drawing.Point(131, 3)
+        Me.Txt_Account_Receipt3.Name = "Txt_Account_Receipt3"
+        Me.Txt_Account_Receipt3.Size = New System.Drawing.Size(123, 20)
+        Me.Txt_Account_Receipt3.TabIndex = 16
         '
         'Label71
         '
         Me.Label71.AutoSize = True
         Me.Label71.BackColor = System.Drawing.SystemColors.Window
         Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(8, 10)
+        Me.Label71.Location = New System.Drawing.Point(8, 6)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(117, 13)
         Me.Label71.TabIndex = 95
@@ -1846,20 +1874,20 @@ Partial Class FrmMainExecution
         Me.Label72.AutoSize = True
         Me.Label72.BackColor = System.Drawing.SystemColors.Window
         Me.Label72.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label72.Location = New System.Drawing.Point(16, 37)
+        Me.Label72.Location = New System.Drawing.Point(6, 38)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(106, 13)
         Me.Label72.TabIndex = 99
         Me.Label72.Text = "รายละเอียดใบเสร็จ 3"
         '
-        'txt_detail_receipt3
+        'Txt_Receipt_Detail3
         '
-        Me.txt_detail_receipt3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_detail_receipt3.Location = New System.Drawing.Point(128, 37)
-        Me.txt_detail_receipt3.Multiline = True
-        Me.txt_detail_receipt3.Name = "txt_detail_receipt3"
-        Me.txt_detail_receipt3.Size = New System.Drawing.Size(263, 54)
-        Me.txt_detail_receipt3.TabIndex = 17
+        Me.Txt_Receipt_Detail3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_Receipt_Detail3.Location = New System.Drawing.Point(3, 55)
+        Me.Txt_Receipt_Detail3.Multiline = True
+        Me.Txt_Receipt_Detail3.Name = "Txt_Receipt_Detail3"
+        Me.Txt_Receipt_Detail3.Size = New System.Drawing.Size(251, 87)
+        Me.Txt_Receipt_Detail3.TabIndex = 17
         '
         'TabPage3
         '
@@ -3627,7 +3655,7 @@ Partial Class FrmMainExecution
         '
         Me.TextBox9.Location = New System.Drawing.Point(78, 95)
         Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(137, 20)
+        Me.TextBox9.Size = New System.Drawing.Size(160, 20)
         Me.TextBox9.TabIndex = 165
         '
         'DateTimePicker9
@@ -3637,7 +3665,7 @@ Partial Class FrmMainExecution
         Me.DateTimePicker9.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker9.Location = New System.Drawing.Point(119, 44)
         Me.DateTimePicker9.Name = "DateTimePicker9"
-        Me.DateTimePicker9.Size = New System.Drawing.Size(96, 20)
+        Me.DateTimePicker9.Size = New System.Drawing.Size(119, 20)
         Me.DateTimePicker9.TabIndex = 102
         '
         'CheckBox8
@@ -3660,7 +3688,7 @@ Partial Class FrmMainExecution
         Me.DateTimePicker8.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker8.Location = New System.Drawing.Point(119, 18)
         Me.DateTimePicker8.Name = "DateTimePicker8"
-        Me.DateTimePicker8.Size = New System.Drawing.Size(96, 20)
+        Me.DateTimePicker8.Size = New System.Drawing.Size(119, 20)
         Me.DateTimePicker8.TabIndex = 100
         '
         'CheckBox7
@@ -3683,19 +3711,23 @@ Partial Class FrmMainExecution
         Me.DateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker7.Location = New System.Drawing.Point(119, 67)
         Me.DateTimePicker7.Name = "DateTimePicker7"
-        Me.DateTimePicker7.Size = New System.Drawing.Size(96, 20)
+        Me.DateTimePicker7.Size = New System.Drawing.Size(119, 20)
         Me.DateTimePicker7.TabIndex = 98
         '
         'GroupBox17
         '
-        Me.GroupBox17.Controls.Add(Me.Txt_Billcode)
+        Me.GroupBox17.Controls.Add(Me.Chk_Customer_Date_Add)
+        Me.GroupBox17.Controls.Add(Me.Label110)
+        Me.GroupBox17.Controls.Add(Me.Dtp_Customer_Date_Add)
+        Me.GroupBox17.Controls.Add(Me.Txt_Collector_User)
+        Me.GroupBox17.Controls.Add(Me.Txt_Customer_Billcode)
         Me.GroupBox17.Controls.Add(Me.Label64)
-        Me.GroupBox17.Controls.Add(Me.Txt_productcode)
+        Me.GroupBox17.Controls.Add(Me.Txt_Customer_Productcode)
         Me.GroupBox17.Controls.Add(Me.Label20)
         Me.GroupBox17.Controls.Add(Me.Label17)
-        Me.GroupBox17.Controls.Add(Me.Txt_Repeat_Block)
+        Me.GroupBox17.Controls.Add(Me.Txt_Customer_Block)
         Me.GroupBox17.Controls.Add(Me.Label21)
-        Me.GroupBox17.Controls.Add(Me.Txt_type)
+        Me.GroupBox17.Controls.Add(Me.Txt_Customer_Type)
         Me.GroupBox17.Location = New System.Drawing.Point(314, 3)
         Me.GroupBox17.Name = "GroupBox17"
         Me.GroupBox17.Size = New System.Drawing.Size(244, 178)
@@ -3703,13 +3735,55 @@ Partial Class FrmMainExecution
         Me.GroupBox17.TabStop = False
         Me.GroupBox17.Text = "ข้อมูลอื่น ๆ"
         '
-        'Txt_Billcode
+        'Chk_Customer_Date_Add
         '
-        Me.Txt_Billcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Billcode.Location = New System.Drawing.Point(101, 16)
-        Me.Txt_Billcode.Name = "Txt_Billcode"
-        Me.Txt_Billcode.Size = New System.Drawing.Size(137, 20)
-        Me.Txt_Billcode.TabIndex = 164
+        Me.Chk_Customer_Date_Add.AutoSize = True
+        Me.Chk_Customer_Date_Add.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Customer_Date_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Chk_Customer_Date_Add.ForeColor = System.Drawing.Color.Blue
+        Me.Chk_Customer_Date_Add.Location = New System.Drawing.Point(9, 149)
+        Me.Chk_Customer_Date_Add.Name = "Chk_Customer_Date_Add"
+        Me.Chk_Customer_Date_Add.Size = New System.Drawing.Size(104, 17)
+        Me.Chk_Customer_Date_Add.TabIndex = 97
+        Me.Chk_Customer_Date_Add.Text = "วันที่ Assignment"
+        Me.Chk_Customer_Date_Add.UseVisualStyleBackColor = True
+        '
+        'Label110
+        '
+        Me.Label110.AutoSize = True
+        Me.Label110.BackColor = System.Drawing.SystemColors.Window
+        Me.Label110.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label110.ForeColor = System.Drawing.Color.Blue
+        Me.Label110.Location = New System.Drawing.Point(58, 124)
+        Me.Label110.Name = "Label110"
+        Me.Label110.Size = New System.Drawing.Size(37, 13)
+        Me.Label110.TabIndex = 166
+        Me.Label110.Text = "USER"
+        '
+        'Dtp_Customer_Date_Add
+        '
+        Me.Dtp_Customer_Date_Add.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Customer_Date_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Customer_Date_Add.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Customer_Date_Add.Location = New System.Drawing.Point(119, 146)
+        Me.Dtp_Customer_Date_Add.Name = "Dtp_Customer_Date_Add"
+        Me.Dtp_Customer_Date_Add.Size = New System.Drawing.Size(119, 20)
+        Me.Dtp_Customer_Date_Add.TabIndex = 96
+        '
+        'Txt_Collector_User
+        '
+        Me.Txt_Collector_User.Location = New System.Drawing.Point(101, 120)
+        Me.Txt_Collector_User.Name = "Txt_Collector_User"
+        Me.Txt_Collector_User.Size = New System.Drawing.Size(137, 20)
+        Me.Txt_Collector_User.TabIndex = 165
+        '
+        'Txt_Customer_Billcode
+        '
+        Me.Txt_Customer_Billcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Billcode.Location = New System.Drawing.Point(101, 16)
+        Me.Txt_Customer_Billcode.Name = "Txt_Customer_Billcode"
+        Me.Txt_Customer_Billcode.Size = New System.Drawing.Size(137, 20)
+        Me.Txt_Customer_Billcode.TabIndex = 164
         '
         'Label64
         '
@@ -3723,13 +3797,13 @@ Partial Class FrmMainExecution
         Me.Label64.TabIndex = 152
         Me.Label64.Text = "BLOCK"
         '
-        'Txt_productcode
+        'Txt_Customer_Productcode
         '
-        Me.Txt_productcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_productcode.Location = New System.Drawing.Point(101, 68)
-        Me.Txt_productcode.Name = "Txt_productcode"
-        Me.Txt_productcode.Size = New System.Drawing.Size(137, 20)
-        Me.Txt_productcode.TabIndex = 162
+        Me.Txt_Customer_Productcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Productcode.Location = New System.Drawing.Point(101, 68)
+        Me.Txt_Customer_Productcode.Name = "Txt_Customer_Productcode"
+        Me.Txt_Customer_Productcode.Size = New System.Drawing.Size(137, 20)
+        Me.Txt_Customer_Productcode.TabIndex = 162
         '
         'Label20
         '
@@ -3755,12 +3829,12 @@ Partial Class FrmMainExecution
         Me.Label17.TabIndex = 155
         Me.Label17.Text = "BILLCODE"
         '
-        'Txt_Repeat_Block
+        'Txt_Customer_Block
         '
-        Me.Txt_Repeat_Block.Location = New System.Drawing.Point(101, 94)
-        Me.Txt_Repeat_Block.Name = "Txt_Repeat_Block"
-        Me.Txt_Repeat_Block.Size = New System.Drawing.Size(137, 20)
-        Me.Txt_Repeat_Block.TabIndex = 151
+        Me.Txt_Customer_Block.Location = New System.Drawing.Point(101, 94)
+        Me.Txt_Customer_Block.Name = "Txt_Customer_Block"
+        Me.Txt_Customer_Block.Size = New System.Drawing.Size(137, 20)
+        Me.Txt_Customer_Block.TabIndex = 151
         '
         'Label21
         '
@@ -3774,13 +3848,13 @@ Partial Class FrmMainExecution
         Me.Label21.TabIndex = 159
         Me.Label21.Text = "TYPE"
         '
-        'Txt_type
+        'Txt_Customer_Type
         '
-        Me.Txt_type.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_type.Location = New System.Drawing.Point(101, 42)
-        Me.Txt_type.Name = "Txt_type"
-        Me.Txt_type.Size = New System.Drawing.Size(137, 20)
-        Me.Txt_type.TabIndex = 158
+        Me.Txt_Customer_Type.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Customer_Type.Location = New System.Drawing.Point(101, 42)
+        Me.Txt_Customer_Type.Name = "Txt_Customer_Type"
+        Me.Txt_Customer_Type.Size = New System.Drawing.Size(137, 20)
+        Me.Txt_Customer_Type.TabIndex = 158
         '
         'GroupBox5
         '
@@ -3889,17 +3963,17 @@ Partial Class FrmMainExecution
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.TextBox7)
+        Me.GroupBox6.Controls.Add(Me.Txt_Insolvent_Officer)
         Me.GroupBox6.Controls.Add(Me.Label93)
-        Me.GroupBox6.Controls.Add(Me.chk_verify_insolvent)
+        Me.GroupBox6.Controls.Add(Me.Chk_Insolvent_Verify)
         Me.GroupBox6.Controls.Add(Me.Chk_date_request)
-        Me.GroupBox6.Controls.Add(Me.dtp_verify_insolvent)
-        Me.GroupBox6.Controls.Add(Me.dtp_date_request)
-        Me.GroupBox6.Controls.Add(Me.txt_description)
+        Me.GroupBox6.Controls.Add(Me.Dtp_Insolvent_verify)
+        Me.GroupBox6.Controls.Add(Me.Dtp_Insolvent_Request)
+        Me.GroupBox6.Controls.Add(Me.Txt_Insolvent_Description)
         Me.GroupBox6.Controls.Add(Me.Label94)
-        Me.GroupBox6.Controls.Add(Me.txt_number_insolvent)
+        Me.GroupBox6.Controls.Add(Me.Txt_Insolvent_Number)
         Me.GroupBox6.Controls.Add(Me.Label95)
-        Me.GroupBox6.Controls.Add(Me.txt_court_isolvent)
+        Me.GroupBox6.Controls.Add(Me.Txt_Insolvent_Court)
         Me.GroupBox6.Controls.Add(Me.Label96)
         Me.GroupBox6.Location = New System.Drawing.Point(5, -1)
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(5)
@@ -3910,14 +3984,14 @@ Partial Class FrmMainExecution
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "ข้อมูลล้มละลาย"
         '
-        'TextBox7
+        'Txt_Insolvent_Officer
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.TextBox7.ForeColor = System.Drawing.Color.Blue
-        Me.TextBox7.Location = New System.Drawing.Point(102, 19)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(170, 20)
-        Me.TextBox7.TabIndex = 88
+        Me.Txt_Insolvent_Officer.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Insolvent_Officer.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Insolvent_Officer.Location = New System.Drawing.Point(102, 19)
+        Me.Txt_Insolvent_Officer.Name = "Txt_Insolvent_Officer"
+        Me.Txt_Insolvent_Officer.Size = New System.Drawing.Size(170, 20)
+        Me.Txt_Insolvent_Officer.TabIndex = 88
         '
         'Label93
         '
@@ -3931,18 +4005,18 @@ Partial Class FrmMainExecution
         Me.Label93.TabIndex = 87
         Me.Label93.Text = "บริษัท"
         '
-        'chk_verify_insolvent
+        'Chk_Insolvent_Verify
         '
-        Me.chk_verify_insolvent.AutoSize = True
-        Me.chk_verify_insolvent.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chk_verify_insolvent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.chk_verify_insolvent.ForeColor = System.Drawing.Color.Blue
-        Me.chk_verify_insolvent.Location = New System.Drawing.Point(37, 154)
-        Me.chk_verify_insolvent.Name = "chk_verify_insolvent"
-        Me.chk_verify_insolvent.Size = New System.Drawing.Size(113, 17)
-        Me.chk_verify_insolvent.TabIndex = 96
-        Me.chk_verify_insolvent.Text = "นัดตรวจคำขอชำระ"
-        Me.chk_verify_insolvent.UseVisualStyleBackColor = True
+        Me.Chk_Insolvent_Verify.AutoSize = True
+        Me.Chk_Insolvent_Verify.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Insolvent_Verify.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Chk_Insolvent_Verify.ForeColor = System.Drawing.Color.Blue
+        Me.Chk_Insolvent_Verify.Location = New System.Drawing.Point(37, 154)
+        Me.Chk_Insolvent_Verify.Name = "Chk_Insolvent_Verify"
+        Me.Chk_Insolvent_Verify.Size = New System.Drawing.Size(113, 17)
+        Me.Chk_Insolvent_Verify.TabIndex = 96
+        Me.Chk_Insolvent_Verify.Text = "นัดตรวจคำขอชำระ"
+        Me.Chk_Insolvent_Verify.UseVisualStyleBackColor = True
         '
         'Chk_date_request
         '
@@ -3957,34 +4031,34 @@ Partial Class FrmMainExecution
         Me.Chk_date_request.Text = "วันที่คำขอนัดชำระหนี้"
         Me.Chk_date_request.UseVisualStyleBackColor = True
         '
-        'dtp_verify_insolvent
+        'Dtp_Insolvent_verify
         '
-        Me.dtp_verify_insolvent.CalendarForeColor = System.Drawing.Color.Blue
-        Me.dtp_verify_insolvent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.dtp_verify_insolvent.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_verify_insolvent.Location = New System.Drawing.Point(156, 151)
-        Me.dtp_verify_insolvent.Name = "dtp_verify_insolvent"
-        Me.dtp_verify_insolvent.Size = New System.Drawing.Size(116, 20)
-        Me.dtp_verify_insolvent.TabIndex = 94
+        Me.Dtp_Insolvent_verify.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Insolvent_verify.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Insolvent_verify.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Insolvent_verify.Location = New System.Drawing.Point(156, 151)
+        Me.Dtp_Insolvent_verify.Name = "Dtp_Insolvent_verify"
+        Me.Dtp_Insolvent_verify.Size = New System.Drawing.Size(116, 20)
+        Me.Dtp_Insolvent_verify.TabIndex = 94
         '
-        'dtp_date_request
+        'Dtp_Insolvent_Request
         '
-        Me.dtp_date_request.CalendarForeColor = System.Drawing.Color.Blue
-        Me.dtp_date_request.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.dtp_date_request.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_date_request.Location = New System.Drawing.Point(156, 125)
-        Me.dtp_date_request.Name = "dtp_date_request"
-        Me.dtp_date_request.Size = New System.Drawing.Size(116, 20)
-        Me.dtp_date_request.TabIndex = 92
+        Me.Dtp_Insolvent_Request.CalendarForeColor = System.Drawing.Color.Blue
+        Me.Dtp_Insolvent_Request.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Dtp_Insolvent_Request.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Insolvent_Request.Location = New System.Drawing.Point(156, 125)
+        Me.Dtp_Insolvent_Request.Name = "Dtp_Insolvent_Request"
+        Me.Dtp_Insolvent_Request.Size = New System.Drawing.Size(116, 20)
+        Me.Dtp_Insolvent_Request.TabIndex = 92
         '
-        'txt_description
+        'Txt_Insolvent_Description
         '
-        Me.txt_description.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_description.ForeColor = System.Drawing.Color.Blue
-        Me.txt_description.Location = New System.Drawing.Point(102, 96)
-        Me.txt_description.Name = "txt_description"
-        Me.txt_description.Size = New System.Drawing.Size(170, 20)
-        Me.txt_description.TabIndex = 70
+        Me.Txt_Insolvent_Description.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Insolvent_Description.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Insolvent_Description.Location = New System.Drawing.Point(102, 96)
+        Me.Txt_Insolvent_Description.Name = "Txt_Insolvent_Description"
+        Me.Txt_Insolvent_Description.Size = New System.Drawing.Size(170, 20)
+        Me.Txt_Insolvent_Description.TabIndex = 70
         '
         'Label94
         '
@@ -3998,14 +4072,14 @@ Partial Class FrmMainExecution
         Me.Label94.TabIndex = 69
         Me.Label94.Text = "หมายเหตุ"
         '
-        'txt_number_insolvent
+        'Txt_Insolvent_Number
         '
-        Me.txt_number_insolvent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_number_insolvent.ForeColor = System.Drawing.Color.Blue
-        Me.txt_number_insolvent.Location = New System.Drawing.Point(102, 70)
-        Me.txt_number_insolvent.Name = "txt_number_insolvent"
-        Me.txt_number_insolvent.Size = New System.Drawing.Size(170, 20)
-        Me.txt_number_insolvent.TabIndex = 68
+        Me.Txt_Insolvent_Number.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Insolvent_Number.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Insolvent_Number.Location = New System.Drawing.Point(102, 70)
+        Me.Txt_Insolvent_Number.Name = "Txt_Insolvent_Number"
+        Me.Txt_Insolvent_Number.Size = New System.Drawing.Size(170, 20)
+        Me.Txt_Insolvent_Number.TabIndex = 68
         '
         'Label95
         '
@@ -4019,14 +4093,14 @@ Partial Class FrmMainExecution
         Me.Label95.TabIndex = 67
         Me.Label95.Text = "เลขคดีล้มละลาย"
         '
-        'txt_court_isolvent
+        'Txt_Insolvent_Court
         '
-        Me.txt_court_isolvent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txt_court_isolvent.ForeColor = System.Drawing.Color.Blue
-        Me.txt_court_isolvent.Location = New System.Drawing.Point(102, 44)
-        Me.txt_court_isolvent.Name = "txt_court_isolvent"
-        Me.txt_court_isolvent.Size = New System.Drawing.Size(170, 20)
-        Me.txt_court_isolvent.TabIndex = 64
+        Me.Txt_Insolvent_Court.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Insolvent_Court.ForeColor = System.Drawing.Color.Blue
+        Me.Txt_Insolvent_Court.Location = New System.Drawing.Point(102, 44)
+        Me.Txt_Insolvent_Court.Name = "Txt_Insolvent_Court"
+        Me.Txt_Insolvent_Court.Size = New System.Drawing.Size(170, 20)
+        Me.Txt_Insolvent_Court.TabIndex = 64
         '
         'Label96
         '
@@ -4039,6 +4113,28 @@ Partial Class FrmMainExecution
         Me.Label96.Size = New System.Drawing.Size(68, 13)
         Me.Label96.TabIndex = 59
         Me.Label96.Text = "ศาลล้มละลาย"
+        '
+        'Cbo_Actions_Status
+        '
+        Me.Cbo_Actions_Status.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Actions_Status.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Actions_Status.FormattingEnabled = True
+        Me.Cbo_Actions_Status.Location = New System.Drawing.Point(589, 8)
+        Me.Cbo_Actions_Status.Name = "Cbo_Actions_Status"
+        Me.Cbo_Actions_Status.Size = New System.Drawing.Size(152, 21)
+        Me.Cbo_Actions_Status.TabIndex = 157
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = True
+        Me.Label62.BackColor = System.Drawing.Color.LavenderBlush
+        Me.Label62.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label62.ForeColor = System.Drawing.Color.Blue
+        Me.Label62.Location = New System.Drawing.Point(523, 11)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(56, 13)
+        Me.Label62.TabIndex = 158
+        Me.Label62.Text = "STATUS"
         '
         'Label46
         '
@@ -4090,6 +4186,103 @@ Partial Class FrmMainExecution
         Me.TabPage9.Text = "คำสั่ง/ควบคุม"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
+        'cmd_save
+        '
+        Me.cmd_save.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_save.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
+        Me.cmd_save.Location = New System.Drawing.Point(5, 5)
+        Me.cmd_save.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_save.Name = "cmd_save"
+        Me.cmd_save.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_save.TabIndex = 14
+        Me.cmd_save.Text = "บันทึกข้อมูล"
+        Me.cmd_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_save.UseVisualStyleBackColor = False
+        '
+        'Cmd_delete
+        '
+        Me.Cmd_delete.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_delete.ForeColor = System.Drawing.Color.Blue
+        Me.Cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete1
+        Me.Cmd_delete.Location = New System.Drawing.Point(6, 75)
+        Me.Cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_delete.Name = "Cmd_delete"
+        Me.Cmd_delete.Size = New System.Drawing.Size(144, 29)
+        Me.Cmd_delete.TabIndex = 142
+        Me.Cmd_delete.Text = "ลบข้อมูล"
+        Me.Cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_delete.UseVisualStyleBackColor = False
+        '
+        'Cmd_update
+        '
+        Me.Cmd_update.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_update.ForeColor = System.Drawing.Color.Blue
+        Me.Cmd_update.Image = Global.SCANDB.My.Resources.Resources.application_form_edit
+        Me.Cmd_update.Location = New System.Drawing.Point(6, 40)
+        Me.Cmd_update.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_update.Name = "Cmd_update"
+        Me.Cmd_update.Size = New System.Drawing.Size(144, 29)
+        Me.Cmd_update.TabIndex = 141
+        Me.Cmd_update.Text = "อัพเดตข้อมูล"
+        Me.Cmd_update.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_update.UseVisualStyleBackColor = False
+        '
+        'cmd_cancel
+        '
+        Me.cmd_cancel.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_cancel.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.edit_delete_icon16x16
+        Me.cmd_cancel.Location = New System.Drawing.Point(6, 145)
+        Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_cancel.Name = "cmd_cancel"
+        Me.cmd_cancel.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_cancel.TabIndex = 13
+        Me.cmd_cancel.Text = "ยกเลิก"
+        Me.cmd_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_cancel.UseVisualStyleBackColor = False
+        '
+        'cmd_clear
+        '
+        Me.cmd_clear.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_clear.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources.Actions_edit_rename_icon24x24
+        Me.cmd_clear.Location = New System.Drawing.Point(6, 180)
+        Me.cmd_clear.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_clear.Name = "cmd_clear"
+        Me.cmd_clear.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_clear.TabIndex = 140
+        Me.cmd_clear.Text = "เคลียข้อมูล"
+        Me.cmd_clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_clear.UseVisualStyleBackColor = False
+        '
+        'cmd_edit
+        '
+        Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_edit.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
+        Me.cmd_edit.Location = New System.Drawing.Point(6, 110)
+        Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_edit.Name = "cmd_edit"
+        Me.cmd_edit.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_edit.TabIndex = 11
+        Me.cmd_edit.Text = "แก้ไข"
+        Me.cmd_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_edit.UseVisualStyleBackColor = False
+        '
         'TabPage10
         '
         Me.TabPage10.Controls.Add(Me.Cmd_LinkDatabase)
@@ -4104,10 +4297,74 @@ Partial Class FrmMainExecution
         Me.TabPage10.Text = "ค้นหาข้อมูล"
         Me.TabPage10.UseVisualStyleBackColor = True
         '
+        'Cmd_LinkDatabase
+        '
+        Me.Cmd_LinkDatabase.BackColor = System.Drawing.SystemColors.Window
+        Me.Cmd_LinkDatabase.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_LinkDatabase.ForeColor = System.Drawing.Color.Blue
+        Me.Cmd_LinkDatabase.Image = Global.SCANDB.My.Resources.Resources.table_lightning
+        Me.Cmd_LinkDatabase.Location = New System.Drawing.Point(7, 42)
+        Me.Cmd_LinkDatabase.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Cmd_LinkDatabase.Name = "Cmd_LinkDatabase"
+        Me.Cmd_LinkDatabase.Size = New System.Drawing.Size(144, 29)
+        Me.Cmd_LinkDatabase.TabIndex = 150
+        Me.Cmd_LinkDatabase.Text = "ลิ้งค์ข้อมูลจากระบบอื่น"
+        Me.Cmd_LinkDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_LinkDatabase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_LinkDatabase.UseVisualStyleBackColor = False
+        '
+        'cmd_search
+        '
+        Me.cmd_search.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_search.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.folder_explore
+        Me.cmd_search.Location = New System.Drawing.Point(7, 7)
+        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_search.Name = "cmd_search"
+        Me.cmd_search.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_search.TabIndex = 137
+        Me.cmd_search.Text = "ค้นหาข้อมูลตรวจสำนวน"
+        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_search.UseVisualStyleBackColor = False
+        '
+        'cmd_links
+        '
+        Me.cmd_links.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_links.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_links.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_links.Image = Global.SCANDB.My.Resources.Resources.search
+        Me.cmd_links.Location = New System.Drawing.Point(7, 77)
+        Me.cmd_links.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_links.Name = "cmd_links"
+        Me.cmd_links.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_links.TabIndex = 2
+        Me.cmd_links.Text = "แสดงข้อมูลใบงาน"
+        Me.cmd_links.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_links.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_links.UseVisualStyleBackColor = False
+        '
+        'cmd_filter
+        '
+        Me.cmd_filter.BackColor = System.Drawing.SystemColors.Window
+        Me.cmd_filter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmd_filter.ForeColor = System.Drawing.Color.Blue
+        Me.cmd_filter.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
+        Me.cmd_filter.Location = New System.Drawing.Point(8, 112)
+        Me.cmd_filter.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmd_filter.Name = "cmd_filter"
+        Me.cmd_filter.Size = New System.Drawing.Size(144, 29)
+        Me.cmd_filter.TabIndex = 148
+        Me.cmd_filter.Text = "กรองข้อมูลพนักงาน"
+        Me.cmd_filter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmd_filter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.cmd_filter.UseVisualStyleBackColor = False
+        '
         'Group_detail
         '
         Me.Group_detail.BackColor = System.Drawing.Color.White
-        Me.Group_detail.Controls.Add(Me.Label110)
+        Me.Group_detail.Controls.Add(Me.Lbl_Customer_Response)
         Me.Group_detail.Controls.Add(Me.Label109)
         Me.Group_detail.Controls.Add(Me.lbl_timer)
         Me.Group_detail.Controls.Add(Me.lbl_count)
@@ -4124,19 +4381,19 @@ Partial Class FrmMainExecution
         Me.Group_detail.TabIndex = 172
         Me.Group_detail.TabStop = False
         '
-        'Label110
+        'Lbl_Customer_Response
         '
-        Me.Label110.BackColor = System.Drawing.SystemColors.InfoText
-        Me.Label110.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label110.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label110.ForeColor = System.Drawing.Color.Orange
-        Me.Label110.Location = New System.Drawing.Point(4, 249)
-        Me.Label110.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label110.Name = "Label110"
-        Me.Label110.Size = New System.Drawing.Size(151, 27)
-        Me.Label110.TabIndex = 175
-        Me.Label110.Text = "???"
-        Me.Label110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Lbl_Customer_Response.BackColor = System.Drawing.SystemColors.InfoText
+        Me.Lbl_Customer_Response.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Lbl_Customer_Response.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Lbl_Customer_Response.ForeColor = System.Drawing.Color.Yellow
+        Me.Lbl_Customer_Response.Location = New System.Drawing.Point(4, 249)
+        Me.Lbl_Customer_Response.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Lbl_Customer_Response.Name = "Lbl_Customer_Response"
+        Me.Lbl_Customer_Response.Size = New System.Drawing.Size(151, 27)
+        Me.Lbl_Customer_Response.TabIndex = 175
+        Me.Lbl_Customer_Response.Text = "???"
+        Me.Lbl_Customer_Response.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label109
         '
@@ -4317,9 +4574,11 @@ Partial Class FrmMainExecution
         'GroupBox16
         '
         Me.GroupBox16.BackColor = System.Drawing.Color.LavenderBlush
-        Me.GroupBox16.Controls.Add(Me.ComboBox4)
+        Me.GroupBox16.Controls.Add(Me.Cbo_Action_Employee)
         Me.GroupBox16.Controls.Add(Me.Label107)
         Me.GroupBox16.Controls.Add(Me.CheckBox4)
+        Me.GroupBox16.Controls.Add(Me.Cbo_Actions_Status)
+        Me.GroupBox16.Controls.Add(Me.Label62)
         Me.GroupBox16.Controls.Add(Me.ComboBox3)
         Me.GroupBox16.Controls.Add(Me.DateTimePicker4)
         Me.GroupBox16.Controls.Add(Me.CheckBox5)
@@ -4337,17 +4596,17 @@ Partial Class FrmMainExecution
         Me.GroupBox16.TabIndex = 173
         Me.GroupBox16.TabStop = False
         '
-        'ComboBox4
+        'Cbo_Action_Employee
         '
-        Me.ComboBox4.BackColor = System.Drawing.Color.LavenderBlush
-        Me.ComboBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.ComboBox4.ForeColor = System.Drawing.Color.Blue
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(589, 31)
-        Me.ComboBox4.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(152, 21)
-        Me.ComboBox4.TabIndex = 176
+        Me.Cbo_Action_Employee.BackColor = System.Drawing.Color.LavenderBlush
+        Me.Cbo_Action_Employee.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Action_Employee.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Action_Employee.FormattingEnabled = True
+        Me.Cbo_Action_Employee.Location = New System.Drawing.Point(589, 31)
+        Me.Cbo_Action_Employee.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Cbo_Action_Employee.Name = "Cbo_Action_Employee"
+        Me.Cbo_Action_Employee.Size = New System.Drawing.Size(152, 21)
+        Me.Cbo_Action_Employee.TabIndex = 176
         '
         'Label107
         '
@@ -4408,45 +4667,46 @@ Partial Class FrmMainExecution
         Me.DateTimePicker5.Size = New System.Drawing.Size(113, 20)
         Me.DateTimePicker5.TabIndex = 76
         '
-        'TextBox8
+        'Txt_Customer_Detail
         '
-        Me.TextBox8.Location = New System.Drawing.Point(6, 19)
-        Me.TextBox8.Multiline = True
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(251, 75)
-        Me.TextBox8.TabIndex = 165
+        Me.Txt_Customer_Detail.Location = New System.Drawing.Point(6, 19)
+        Me.Txt_Customer_Detail.Multiline = True
+        Me.Txt_Customer_Detail.Name = "Txt_Customer_Detail"
+        Me.Txt_Customer_Detail.Size = New System.Drawing.Size(251, 75)
+        Me.Txt_Customer_Detail.TabIndex = 165
         '
         'GroupBox18
         '
-        Me.GroupBox18.Controls.Add(Me.TextBox8)
+        Me.GroupBox18.BackColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox18.Controls.Add(Me.Txt_Customer_Detail)
         Me.GroupBox18.Location = New System.Drawing.Point(580, 572)
         Me.GroupBox18.Name = "GroupBox18"
         Me.GroupBox18.Size = New System.Drawing.Size(263, 100)
         Me.GroupBox18.TabIndex = 174
         Me.GroupBox18.TabStop = False
-        Me.GroupBox18.Text = "ราบละเอียด"
+        Me.GroupBox18.Text = "รายละเอียด Action/Result"
         '
-        'DataGridView1
+        'Dtgv_Main_find
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(2, 55)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView1.Size = New System.Drawing.Size(841, 134)
-        Me.DataGridView1.TabIndex = 76
+        Me.Dtgv_Main_find.AllowUserToAddRows = False
+        Me.Dtgv_Main_find.AllowUserToDeleteRows = False
+        Me.Dtgv_Main_find.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.Dtgv_Main_find.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.Dtgv_Main_find.BackgroundColor = System.Drawing.Color.White
+        Me.Dtgv_Main_find.Location = New System.Drawing.Point(2, 55)
+        Me.Dtgv_Main_find.Name = "Dtgv_Main_find"
+        Me.Dtgv_Main_find.ReadOnly = True
+        Me.Dtgv_Main_find.RowHeadersVisible = False
+        Me.Dtgv_Main_find.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.Dtgv_Main_find.Size = New System.Drawing.Size(841, 134)
+        Me.Dtgv_Main_find.TabIndex = 76
         '
         'Group_search
         '
-        Me.Group_search.Controls.Add(Me.Cmd_Income_Find)
-        Me.Group_search.Controls.Add(Me.Txt_Income_find)
+        Me.Group_search.Controls.Add(Me.Cmd_Main_Find)
+        Me.Group_search.Controls.Add(Me.Txt_Main_find)
         Me.Group_search.Controls.Add(Me.Label111)
-        Me.Group_search.Controls.Add(Me.Cbo_Income_find)
+        Me.Group_search.Controls.Add(Me.Cbo_Main_find)
         Me.Group_search.Controls.Add(Me.Label112)
         Me.Group_search.Location = New System.Drawing.Point(2, 13)
         Me.Group_search.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
@@ -4456,14 +4716,29 @@ Partial Class FrmMainExecution
         Me.Group_search.TabIndex = 175
         Me.Group_search.TabStop = False
         '
-        'Txt_Income_find
+        'Cmd_Main_Find
         '
-        Me.Txt_Income_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Txt_Income_find.Location = New System.Drawing.Point(441, 13)
-        Me.Txt_Income_find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Txt_Income_find.Name = "Txt_Income_find"
-        Me.Txt_Income_find.Size = New System.Drawing.Size(222, 22)
-        Me.Txt_Income_find.TabIndex = 1
+        Me.Cmd_Main_Find.BackColor = System.Drawing.Color.White
+        Me.Cmd_Main_Find.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cmd_Main_Find.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
+        Me.Cmd_Main_Find.Location = New System.Drawing.Point(673, 10)
+        Me.Cmd_Main_Find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Cmd_Main_Find.Name = "Cmd_Main_Find"
+        Me.Cmd_Main_Find.Size = New System.Drawing.Size(123, 27)
+        Me.Cmd_Main_Find.TabIndex = 2
+        Me.Cmd_Main_Find.Text = "ค้นหา"
+        Me.Cmd_Main_Find.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmd_Main_Find.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Cmd_Main_Find.UseVisualStyleBackColor = False
+        '
+        'Txt_Main_find
+        '
+        Me.Txt_Main_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Txt_Main_find.Location = New System.Drawing.Point(441, 13)
+        Me.Txt_Main_find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Txt_Main_find.Name = "Txt_Main_find"
+        Me.Txt_Main_find.Size = New System.Drawing.Size(222, 22)
+        Me.Txt_Main_find.TabIndex = 1
         '
         'Label111
         '
@@ -4476,15 +4751,15 @@ Partial Class FrmMainExecution
         Me.Label111.TabIndex = 2
         Me.Label111.Text = "ข้อมูลที่ต้องการค้นหา :"
         '
-        'Cbo_Income_find
+        'Cbo_Main_find
         '
-        Me.Cbo_Income_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cbo_Income_find.FormattingEnabled = True
-        Me.Cbo_Income_find.Location = New System.Drawing.Point(115, 12)
-        Me.Cbo_Income_find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Cbo_Income_find.Name = "Cbo_Income_find"
-        Me.Cbo_Income_find.Size = New System.Drawing.Size(181, 24)
-        Me.Cbo_Income_find.TabIndex = 1
+        Me.Cbo_Main_find.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Main_find.FormattingEnabled = True
+        Me.Cbo_Main_find.Location = New System.Drawing.Point(115, 12)
+        Me.Cbo_Main_find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
+        Me.Cbo_Main_find.Name = "Cbo_Main_find"
+        Me.Cbo_Main_find.Size = New System.Drawing.Size(181, 24)
+        Me.Cbo_Main_find.TabIndex = 1
         '
         'Label112
         '
@@ -4497,181 +4772,85 @@ Partial Class FrmMainExecution
         Me.Label112.TabIndex = 0
         Me.Label112.Text = "ค้นหาข้อมูลจาก :"
         '
-        'Cmd_Income_Find
+        'dtgv_Account_Action
         '
-        Me.Cmd_Income_Find.BackColor = System.Drawing.Color.White
-        Me.Cmd_Income_Find.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_Income_Find.Image = Global.SCANDB.My.Resources.Resources.Find_16x16
-        Me.Cmd_Income_Find.Location = New System.Drawing.Point(673, 10)
-        Me.Cmd_Income_Find.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
-        Me.Cmd_Income_Find.Name = "Cmd_Income_Find"
-        Me.Cmd_Income_Find.Size = New System.Drawing.Size(123, 27)
-        Me.Cmd_Income_Find.TabIndex = 2
-        Me.Cmd_Income_Find.Text = "ค้นหา"
-        Me.Cmd_Income_Find.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Cmd_Income_Find.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Cmd_Income_Find.UseVisualStyleBackColor = False
+        Me.dtgv_Account_Action.AllowUserToAddRows = False
+        Me.dtgv_Account_Action.AllowUserToDeleteRows = False
+        Me.dtgv_Account_Action.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtgv_Account_Action.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtgv_Account_Action.BackgroundColor = System.Drawing.Color.White
+        Me.dtgv_Account_Action.Location = New System.Drawing.Point(5, 276)
+        Me.dtgv_Account_Action.Name = "dtgv_Account_Action"
+        Me.dtgv_Account_Action.ReadOnly = True
+        Me.dtgv_Account_Action.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dtgv_Account_Action.Size = New System.Drawing.Size(556, 171)
+        Me.dtgv_Account_Action.TabIndex = 176
         '
-        'cmd_save
+        'Dtp_Account_Month
         '
-        Me.cmd_save.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_save.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_save.Image = Global.SCANDB.My.Resources.Resources.Save_16x16
-        Me.cmd_save.Location = New System.Drawing.Point(5, 5)
-        Me.cmd_save.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_save.Name = "cmd_save"
-        Me.cmd_save.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_save.TabIndex = 14
-        Me.cmd_save.Text = "บันทึกข้อมูล"
-        Me.cmd_save.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_save.UseVisualStyleBackColor = False
+        Me.Dtp_Account_Month.Font = New System.Drawing.Font("Bookman Old Style", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dtp_Account_Month.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dtp_Account_Month.Location = New System.Drawing.Point(99, 43)
+        Me.Dtp_Account_Month.Name = "Dtp_Account_Month"
+        Me.Dtp_Account_Month.Size = New System.Drawing.Size(107, 20)
+        Me.Dtp_Account_Month.TabIndex = 180
         '
-        'Cmd_delete
+        'Chk_Account_Month
         '
-        Me.Cmd_delete.BackColor = System.Drawing.SystemColors.Window
-        Me.Cmd_delete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_delete.ForeColor = System.Drawing.Color.Blue
-        Me.Cmd_delete.Image = Global.SCANDB.My.Resources.Resources.delete1
-        Me.Cmd_delete.Location = New System.Drawing.Point(6, 75)
-        Me.Cmd_delete.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Cmd_delete.Name = "Cmd_delete"
-        Me.Cmd_delete.Size = New System.Drawing.Size(144, 29)
-        Me.Cmd_delete.TabIndex = 142
-        Me.Cmd_delete.Text = "ลบข้อมูล"
-        Me.Cmd_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Cmd_delete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Cmd_delete.UseVisualStyleBackColor = False
+        Me.Chk_Account_Month.AutoSize = True
+        Me.Chk_Account_Month.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Chk_Account_Month.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Chk_Account_Month.Location = New System.Drawing.Point(9, 45)
+        Me.Chk_Account_Month.Name = "Chk_Account_Month"
+        Me.Chk_Account_Month.Size = New System.Drawing.Size(84, 17)
+        Me.Chk_Account_Month.TabIndex = 179
+        Me.Chk_Account_Month.Text = "วันเดือนที่ลง"
+        Me.Chk_Account_Month.ThreeState = True
+        Me.Chk_Account_Month.UseVisualStyleBackColor = True
         '
-        'Cmd_update
+        'Cbo_Account_Action
         '
-        Me.Cmd_update.BackColor = System.Drawing.SystemColors.Window
-        Me.Cmd_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_update.ForeColor = System.Drawing.Color.Blue
-        Me.Cmd_update.Image = Global.SCANDB.My.Resources.Resources.application_form_edit
-        Me.Cmd_update.Location = New System.Drawing.Point(5, 40)
-        Me.Cmd_update.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Cmd_update.Name = "Cmd_update"
-        Me.Cmd_update.Size = New System.Drawing.Size(144, 29)
-        Me.Cmd_update.TabIndex = 141
-        Me.Cmd_update.Text = "อัพเดตข้อมูล"
-        Me.Cmd_update.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Cmd_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Cmd_update.UseVisualStyleBackColor = False
+        Me.Cbo_Account_Action.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Account_Action.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Account_Action.FormattingEnabled = True
+        Me.Cbo_Account_Action.Location = New System.Drawing.Point(97, 98)
+        Me.Cbo_Account_Action.Name = "Cbo_Account_Action"
+        Me.Cbo_Account_Action.Size = New System.Drawing.Size(178, 21)
+        Me.Cbo_Account_Action.TabIndex = 181
         '
-        'cmd_cancel
+        'Label114
         '
-        Me.cmd_cancel.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.cmd_cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_cancel.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_cancel.Image = Global.SCANDB.My.Resources.Resources.edit_delete_icon16x16
-        Me.cmd_cancel.Location = New System.Drawing.Point(6, 145)
-        Me.cmd_cancel.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_cancel.Name = "cmd_cancel"
-        Me.cmd_cancel.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_cancel.TabIndex = 13
-        Me.cmd_cancel.Text = "ยกเลิก"
-        Me.cmd_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_cancel.UseVisualStyleBackColor = False
+        Me.Label114.AutoSize = True
+        Me.Label114.BackColor = System.Drawing.SystemColors.Window
+        Me.Label114.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label114.ForeColor = System.Drawing.Color.Blue
+        Me.Label114.Location = New System.Drawing.Point(54, 101)
+        Me.Label114.Name = "Label114"
+        Me.Label114.Size = New System.Drawing.Size(37, 13)
+        Me.Label114.TabIndex = 182
+        Me.Label114.Text = "Action"
         '
-        'cmd_clear
+        'Cbo_Account_Result
         '
-        Me.cmd_clear.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_clear.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_clear.Image = Global.SCANDB.My.Resources.Resources.Actions_edit_rename_icon24x24
-        Me.cmd_clear.Location = New System.Drawing.Point(6, 180)
-        Me.cmd_clear.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_clear.Name = "cmd_clear"
-        Me.cmd_clear.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_clear.TabIndex = 140
-        Me.cmd_clear.Text = "เคลียข้อมูล"
-        Me.cmd_clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_clear.UseVisualStyleBackColor = False
+        Me.Cbo_Account_Result.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Cbo_Account_Result.ForeColor = System.Drawing.Color.Blue
+        Me.Cbo_Account_Result.FormattingEnabled = True
+        Me.Cbo_Account_Result.Location = New System.Drawing.Point(97, 69)
+        Me.Cbo_Account_Result.Name = "Cbo_Account_Result"
+        Me.Cbo_Account_Result.Size = New System.Drawing.Size(178, 21)
+        Me.Cbo_Account_Result.TabIndex = 179
         '
-        'cmd_edit
+        'Label115
         '
-        Me.cmd_edit.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_edit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_edit.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_edit.Image = Global.SCANDB.My.Resources.Resources.edit_icon16x16
-        Me.cmd_edit.Location = New System.Drawing.Point(6, 110)
-        Me.cmd_edit.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_edit.Name = "cmd_edit"
-        Me.cmd_edit.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_edit.TabIndex = 11
-        Me.cmd_edit.Text = "แก้ไข"
-        Me.cmd_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_edit.UseVisualStyleBackColor = False
-        '
-        'Cmd_LinkDatabase
-        '
-        Me.Cmd_LinkDatabase.BackColor = System.Drawing.SystemColors.Window
-        Me.Cmd_LinkDatabase.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Cmd_LinkDatabase.ForeColor = System.Drawing.Color.Blue
-        Me.Cmd_LinkDatabase.Image = Global.SCANDB.My.Resources.Resources.table_lightning
-        Me.Cmd_LinkDatabase.Location = New System.Drawing.Point(7, 42)
-        Me.Cmd_LinkDatabase.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.Cmd_LinkDatabase.Name = "Cmd_LinkDatabase"
-        Me.Cmd_LinkDatabase.Size = New System.Drawing.Size(144, 29)
-        Me.Cmd_LinkDatabase.TabIndex = 150
-        Me.Cmd_LinkDatabase.Text = "ลิ้งค์ข้อมูลจากระบบอื่น"
-        Me.Cmd_LinkDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Cmd_LinkDatabase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Cmd_LinkDatabase.UseVisualStyleBackColor = False
-        '
-        'cmd_search
-        '
-        Me.cmd_search.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_search.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_search.Image = Global.SCANDB.My.Resources.Resources.folder_explore
-        Me.cmd_search.Location = New System.Drawing.Point(7, 7)
-        Me.cmd_search.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_search.Name = "cmd_search"
-        Me.cmd_search.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_search.TabIndex = 137
-        Me.cmd_search.Text = "ค้นหาข้อมูลตรวจสำนวน"
-        Me.cmd_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_search.UseVisualStyleBackColor = False
-        '
-        'cmd_links
-        '
-        Me.cmd_links.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_links.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_links.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_links.Image = Global.SCANDB.My.Resources.Resources.search
-        Me.cmd_links.Location = New System.Drawing.Point(7, 77)
-        Me.cmd_links.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_links.Name = "cmd_links"
-        Me.cmd_links.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_links.TabIndex = 2
-        Me.cmd_links.Text = "แสดงข้อมูลใบงาน"
-        Me.cmd_links.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_links.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_links.UseVisualStyleBackColor = False
-        '
-        'cmd_filter
-        '
-        Me.cmd_filter.BackColor = System.Drawing.SystemColors.Window
-        Me.cmd_filter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.cmd_filter.ForeColor = System.Drawing.Color.Blue
-        Me.cmd_filter.Image = Global.SCANDB.My.Resources.Resources.filter_icon16x16
-        Me.cmd_filter.Location = New System.Drawing.Point(8, 112)
-        Me.cmd_filter.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cmd_filter.Name = "cmd_filter"
-        Me.cmd_filter.Size = New System.Drawing.Size(144, 29)
-        Me.cmd_filter.TabIndex = 148
-        Me.cmd_filter.Text = "กรองข้อมูลพนักงาน"
-        Me.cmd_filter.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmd_filter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.cmd_filter.UseVisualStyleBackColor = False
+        Me.Label115.AutoSize = True
+        Me.Label115.BackColor = System.Drawing.SystemColors.Window
+        Me.Label115.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label115.ForeColor = System.Drawing.Color.Blue
+        Me.Label115.Location = New System.Drawing.Point(54, 72)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(37, 13)
+        Me.Label115.TabIndex = 180
+        Me.Label115.Text = "Result"
         '
         'FrmMainExecution
         '
@@ -4680,7 +4859,7 @@ Partial Class FrmMainExecution
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.Group_search)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.Dtgv_Main_find)
         Me.Controls.Add(Me.GroupBox18)
         Me.Controls.Add(Me.Label100)
         Me.Controls.Add(Me.GroupBox16)
@@ -4689,6 +4868,7 @@ Partial Class FrmMainExecution
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmMainExecution"
         Me.Text = "FrmMainExecution"
         Me.GroupBox2.ResumeLayout(False)
@@ -4700,6 +4880,9 @@ Partial Class FrmMainExecution
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage11.ResumeLayout(False)
+        Me.TabPage11.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
@@ -4712,7 +4895,6 @@ Partial Class FrmMainExecution
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
         Me.GroupBox12.ResumeLayout(False)
         Me.GroupBox12.PerformLayout()
         Me.TabControl2.ResumeLayout(False)
@@ -4751,9 +4933,10 @@ Partial Class FrmMainExecution
         Me.GroupBox16.PerformLayout()
         Me.GroupBox18.ResumeLayout(False)
         Me.GroupBox18.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Dtgv_Main_find, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Group_search.ResumeLayout(False)
         Me.Group_search.PerformLayout()
+        CType(Me.dtgv_Account_Action, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4780,9 +4963,9 @@ Partial Class FrmMainExecution
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents cbo_hub As ComboBox
+    Friend WithEvents Cbo_Customer_Hub As ComboBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents cbo_owner As ComboBox
+    Friend WithEvents Cbo_Customer_Owner As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Cmd_LinkDatabase As Button
     Friend WithEvents cmd_links As Button
@@ -4800,33 +4983,33 @@ Partial Class FrmMainExecution
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents TabPage4 As TabPage
     Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents cbo_income_prefix As ComboBox
+    Friend WithEvents Cbo_Customer_Prefix As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Txt_Income_Firstname As TextBox
+    Friend WithEvents Txt_Customer_Firstname As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Txt_Income_Lastname As TextBox
+    Friend WithEvents Txt_Customer_Lastname As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Txt_Income_Accno As TextBox
+    Friend WithEvents Txt_Customer_No As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Txt_Income_Court As TextBox
+    Friend WithEvents Txt_Customer_Court As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents Txt_Income_Acc As TextBox
+    Friend WithEvents Txt_Customer_Account As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents Txt_Income_Fullname As TextBox
-    Friend WithEvents Txt_Income_Idcus As TextBox
-    Friend WithEvents Txt_Income_Black As TextBox
+    Friend WithEvents Txt_Customer_Fullname As TextBox
+    Friend WithEvents Txt_Customer_Idc As TextBox
+    Friend WithEvents Txt_Customer_Black As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label15 As Label
-    Friend WithEvents Txt_Income_Red As TextBox
-    Friend WithEvents Txt_Billcode As TextBox
+    Friend WithEvents Txt_Customer_Red As TextBox
+    Friend WithEvents Txt_Customer_Billcode As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents Txt_productcode As TextBox
+    Friend WithEvents Txt_Customer_Productcode As TextBox
     Friend WithEvents Label20 As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents Txt_type As TextBox
-    Friend WithEvents Txt_bank As TextBox
+    Friend WithEvents Txt_Customer_Type As TextBox
+    Friend WithEvents Txt_Customer_Bank As TextBox
     Friend WithEvents Label22 As Label
     Friend WithEvents chk_checksend As CheckBox
     Friend WithEvents dtp_checksend As DateTimePicker
@@ -4948,7 +5131,7 @@ Partial Class FrmMainExecution
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents chk_date_send As CheckBox
     Friend WithEvents cbo_status As ComboBox
-    Friend WithEvents txt_oa As TextBox
+    Friend WithEvents Txt_oa As TextBox
     Friend WithEvents Label58 As Label
     Friend WithEvents dtp_datesend As DateTimePicker
     Friend WithEvents Label59 As Label
@@ -4961,32 +5144,30 @@ Partial Class FrmMainExecution
     Friend WithEvents dtp_date_soc As DateTimePicker
     Friend WithEvents TabControl2 As TabControl
     Friend WithEvents TabPage6 As TabPage
-    Friend WithEvents chk_date_receipt As CheckBox
+    Friend WithEvents Chk_Account_Date As CheckBox
     Friend WithEvents Label67 As Label
-    Friend WithEvents txt_detail_receipt As TextBox
+    Friend WithEvents Txt_Receipt_Detail1 As TextBox
     Friend WithEvents Label68 As Label
-    Friend WithEvents txt_total_receipt As TextBox
+    Friend WithEvents Txt_Account_Receipt1 As TextBox
     Friend WithEvents TabPage7 As TabPage
     Friend WithEvents Label69 As Label
-    Friend WithEvents txt_total_receipt2 As TextBox
-    Friend WithEvents txt_detail_receipt2 As TextBox
+    Friend WithEvents Txt_Account_Receipt2 As TextBox
+    Friend WithEvents Txt_Receipt_Detail2 As TextBox
     Friend WithEvents Label70 As Label
     Friend WithEvents TabPage8 As TabPage
-    Friend WithEvents txt_total_receipt3 As TextBox
+    Friend WithEvents Txt_Account_Receipt3 As TextBox
     Friend WithEvents Label71 As Label
     Friend WithEvents Label72 As Label
-    Friend WithEvents txt_detail_receipt3 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Txt_Receipt_Detail3 As TextBox
+    Friend WithEvents Cbo_Actions_Status As ComboBox
     Friend WithEvents Label62 As Label
-    Friend WithEvents Cbo_Repeat_EmpExe As ComboBox
+    Friend WithEvents Cbo_Account_Employee As ComboBox
     Friend WithEvents Label63 As Label
     Friend WithEvents Label64 As Label
-    Friend WithEvents Txt_Repeat_Block As TextBox
+    Friend WithEvents Txt_Customer_Block As TextBox
     Friend WithEvents GroupBox12 As GroupBox
-    Friend WithEvents DateTimePicker3 As DateTimePicker
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents Txt_Repeat_Detail As TextBox
+    Friend WithEvents Dtp_Account_Date As DateTimePicker
+    Friend WithEvents Txt_Account_Repeat_Detail As TextBox
     Friend WithEvents Label66 As Label
     Friend WithEvents GroupBox13 As GroupBox
     Friend WithEvents Label65 As Label
@@ -5048,17 +5229,17 @@ Partial Class FrmMainExecution
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Label92 As Label
     Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents Txt_Insolvent_Officer As TextBox
     Friend WithEvents Label93 As Label
-    Friend WithEvents chk_verify_insolvent As CheckBox
+    Friend WithEvents Chk_Insolvent_Verify As CheckBox
     Friend WithEvents Chk_date_request As CheckBox
-    Friend WithEvents dtp_verify_insolvent As DateTimePicker
-    Friend WithEvents dtp_date_request As DateTimePicker
-    Friend WithEvents txt_description As TextBox
+    Friend WithEvents Dtp_Insolvent_verify As DateTimePicker
+    Friend WithEvents Dtp_Insolvent_Request As DateTimePicker
+    Friend WithEvents Txt_Insolvent_Description As TextBox
     Friend WithEvents Label94 As Label
-    Friend WithEvents txt_number_insolvent As TextBox
+    Friend WithEvents Txt_Insolvent_Number As TextBox
     Friend WithEvents Label95 As Label
-    Friend WithEvents txt_court_isolvent As TextBox
+    Friend WithEvents Txt_Insolvent_Court As TextBox
     Friend WithEvents Label96 As Label
     Friend WithEvents Group_detail As GroupBox
     Friend WithEvents Label100 As Label
@@ -5094,17 +5275,32 @@ Partial Class FrmMainExecution
     Friend WithEvents CheckBox7 As CheckBox
     Friend WithEvents DateTimePicker7 As DateTimePicker
     Friend WithEvents GroupBox17 As GroupBox
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents Cbo_Action_Employee As ComboBox
     Friend WithEvents Label107 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents Txt_Customer_Detail As TextBox
     Friend WithEvents GroupBox18 As GroupBox
-    Friend WithEvents Label110 As Label
+    Friend WithEvents Lbl_Customer_Response As Label
     Friend WithEvents Label109 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Dtgv_Main_find As DataGridView
     Friend WithEvents Group_search As GroupBox
-    Friend WithEvents Cmd_Income_Find As Button
-    Friend WithEvents Txt_Income_find As TextBox
+    Friend WithEvents Cmd_Main_Find As Button
+    Friend WithEvents Txt_Main_find As TextBox
     Friend WithEvents Label111 As Label
-    Friend WithEvents Cbo_Income_find As ComboBox
+    Friend WithEvents Cbo_Main_find As ComboBox
     Friend WithEvents Label112 As Label
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Lbl_PK As Label
+    Friend WithEvents Label110 As Label
+    Friend WithEvents Txt_Collector_User As TextBox
+    Friend WithEvents Cbo_Account_Status As ComboBox
+    Friend WithEvents Label113 As Label
+    Friend WithEvents Chk_Customer_Date_Add As CheckBox
+    Friend WithEvents Dtp_Customer_Date_Add As DateTimePicker
+    Friend WithEvents dtgv_Account_Action As DataGridView
+    Friend WithEvents Dtp_Account_Month As DateTimePicker
+    Friend WithEvents Chk_Account_Month As CheckBox
+    Friend WithEvents Cbo_Account_Action As ComboBox
+    Friend WithEvents Label114 As Label
+    Friend WithEvents Cbo_Account_Result As ComboBox
+    Friend WithEvents Label115 As Label
 End Class

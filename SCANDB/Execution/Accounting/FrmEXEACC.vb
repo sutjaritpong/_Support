@@ -4,16 +4,15 @@ Imports System.Globalization
 Imports System.Threading
 Public Class FrmEXEACC
     '## Array entity_ACC() นำไปใช้เพิ่ม Columns ใน Datagridview 
-    Friend entity_ACC() As String = {"KEY", "PRODUCT", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล", "เลขที่สัญญา", "ธนาคาร", "BILLCODE", "Type", "CODE"}
+    Friend entity_ACC() As String = {"KEY", "PRODUCT", "เลขที่สัญญา", "เลขบัตรประชาชน", "ชื่อ-นามสกุล", "เลขที่คดีดำ", "เลขที่คดีแดง", "Status", "วันที่ใบเสร็จ", "จำนวนเงินในใบเสร็จ", "รายละเอียดใบเสร็จ", "จำนวนเงินใบเสร็จที่ 2", "รายละเอียดใบเสร็จที่ 2", "จำนวนเงินใบเสร็จที่ 3", "รายละเอียดใบเสร็จที่ 3", "เดือนที่ลงข้อมูล", "ธนาคาร", "BILLCODE", "Type", "CODE", "", "RESULT", "ACTION", "พนักงานบังคับคดี"}
 
     Private Sub FrmEXEACC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        NotEdit_information()
 
-
+        TabPage5.Visible = False
         EXEACC_LoadForm()
 
-        Repeat_LoadForm()
+
 
     End Sub
 
@@ -63,6 +62,7 @@ Public Class FrmEXEACC
 
     Sub Cleartext()
 
+        cbo_Result_PK.Text = ""
         cbo_owner.Text = ""
         txt_black.Text = ""
         txt_cusid.Text = ""
@@ -79,6 +79,7 @@ Public Class FrmEXEACC
         dtp_datework.Text = ""
         dtp_date_receipt.Text = ""
         cbo_owner.Text = ""
+        Cbo_Account_Employee.Text = ""
 
         'LINK Legal data
         Txt_account.Text = ""
@@ -100,8 +101,11 @@ Public Class FrmEXEACC
     End Sub
     Private Sub Readonly_obj()
 
+        cbo_Result_PK.Enabled = False
+
         cbo_owner.Enabled = False  'enable = false if readonly = true
         cbo_status.Enabled = False
+        Cbo_Account_Employee.Enabled = False
 
         txt_cusid.ReadOnly = True
         txt_cusname.ReadOnly = True
@@ -130,8 +134,10 @@ Public Class FrmEXEACC
     End Sub
     Private Sub Write_obj()
 
+        cbo_Result_PK.Enabled = True
         cbo_owner.Enabled = True  '#enable = true if readonly = false
         cbo_status.Enabled = True
+        Cbo_Account_Employee.Enabled = True
 
         txt_cusid.ReadOnly = False
         txt_cusname.ReadOnly = False
@@ -322,21 +328,20 @@ Public Class FrmEXEACC
             Return
         End If
 
-        sql = $"SELECT * FROM EXEACC "
+        sql = $"SELECT EA.*,EMP.EXEEMPLOYEES FROM EXEACC AS EA LEFT JOIN EXEEMPLOYEE AS EMP ON EA.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY "
 
         Select Case cbo_search.SelectedItem
 
-            Case "ธนาคาร" : sql &= $"WHERE ACCBANK"
-            Case "เลขบัตรประชาชน" : sql &= $"WHERE ACCIDC"
-            Case "ชื่อ-นามสกุล" : sql &= $"WHERE ACCCUSNAM"
-            Case "เลขที่คดีดำ" : sql &= $"WHERE ACCBLACK"
-            Case "เลขที่คดีแดง" : sql &= $"WHERE ACCRED"
-            Case "Status" : sql &= $"WHERE ACCSTATUS"
+            Case "ธนาคาร" : sql &= $"WHERE EA.ACCBANK"
+            Case "เลขบัตรประชาชน" : sql &= $"WHERE EA.ACCIDC"
+            Case "ชื่อ-นามสกุล" : sql &= $"WHERE EA.ACCCUSNAM"
+            Case "เลขที่คดีดำ" : sql &= $"WHERE EA.ACCBLACK"
+            Case "เลขที่คดีแดง" : sql &= $"WHERE EA.ACCRED"
+            Case "Status" : sql &= $"WHERE EA.ACCSTATUS"
 
         End Select
 
         sql &= $" LIKE '%{txt_search.Text}%' ORDER BY ACCMONTH"
-
 
         cmd = New SqlCommand(sql, cn)
         DA = New SqlDataAdapter(cmd)
@@ -358,20 +363,26 @@ Public Class FrmEXEACC
                 For i = 0 To entity_ACC.Length - 1
                     .Columns(i).HeaderText = entity_ACC(i)
                     .Columns(0).Visible = False
-                    .Columns(8).Visible = False
+
                     .Columns(9).Visible = False
                     .Columns(10).Visible = False
                     .Columns(11).Visible = False
                     .Columns(12).Visible = False
                     .Columns(13).Visible = False
-
+                    .Columns(14).Visible = False
+                    .Columns(16).Visible = False
+                    .Columns(17).Visible = False
+                    .Columns(18).Visible = False
+                    .Columns(19).Visible = False
+                    .Columns(20).Visible = False
+                    .Columns(22).Visible = False
                 Next
 
             End With
 
             dtgv_exeacc.Visible = True
-            Datagrid_format_dateshort(dtgv_exeacc, 7)
-            Datagrid_format_dateshort(dtgv_exeacc, 14)
+            Datagrid_format_dateshort(dtgv_exeacc, 8)
+            Datagrid_format_dateshort(dtgv_exeacc, 15)
             lbl_count_find.Text = $"พบข้อมูล {dtgv_exeacc.RowCount} รายการ.."
             lbl_count_find.ForeColor = Color.Green
 
@@ -398,21 +409,25 @@ Public Class FrmEXEACC
         Try
             Txt_ACC_PK.Text = dtgv_exeacc.CurrentRow.Cells(0).Value.ToString
             cbo_owner.Text = dtgv_exeacc.CurrentRow.Cells(1).Value.ToString
-            txt_cusid.Text = dtgv_exeacc.CurrentRow.Cells(2).Value.ToString
-            txt_cusname.Text = dtgv_exeacc.CurrentRow.Cells(3).Value.ToString
-            txt_black.Text = dtgv_exeacc.CurrentRow.Cells(4).Value.ToString
-            txt_red.Text = dtgv_exeacc.CurrentRow.Cells(5).Value.ToString
-            cbo_status.Text = dtgv_exeacc.CurrentRow.Cells(6).Value.ToString
-            dtp_date_receipt.Text = dtgv_exeacc.CurrentRow.Cells(7).Value.ToString
-            txt_total_receipt.Text = CInt(dtgv_exeacc.CurrentRow.Cells(8).Value)
-            txt_detail_receipt.Text = dtgv_exeacc.CurrentRow.Cells(9).Value.ToString
+            Txt_account.Text = dtgv_exeacc.CurrentRow.Cells(2).Value.ToString
+            txt_cusid.Text = dtgv_exeacc.CurrentRow.Cells(3).Value.ToString
+            txt_cusname.Text = dtgv_exeacc.CurrentRow.Cells(4).Value.ToString
+            txt_black.Text = dtgv_exeacc.CurrentRow.Cells(5).Value.ToString
+            txt_red.Text = dtgv_exeacc.CurrentRow.Cells(6).Value.ToString
+            cbo_status.Text = dtgv_exeacc.CurrentRow.Cells(7).Value.ToString
+            dtp_date_receipt.Text = dtgv_exeacc.CurrentRow.Cells(8).Value.ToString
+            txt_total_receipt.Text = CInt(dtgv_exeacc.CurrentRow.Cells(9).Value)
+            txt_detail_receipt.Text = dtgv_exeacc.CurrentRow.Cells(10).Value.ToString
 
-            txt_total_receipt2.Text = CInt(dtgv_exeacc.CurrentRow.Cells(10).Value)
-            txt_detail_receipt2.Text = dtgv_exeacc.CurrentRow.Cells(11).Value.ToString
-            txt_total_receipt3.Text = CInt(dtgv_exeacc.CurrentRow.Cells(12).Value.ToString)
-            txt_detail_receipt3.Text = dtgv_exeacc.CurrentRow.Cells(13).Value.ToString
+            txt_total_receipt2.Text = CInt(dtgv_exeacc.CurrentRow.Cells(11).Value)
+            txt_detail_receipt2.Text = dtgv_exeacc.CurrentRow.Cells(12).Value.ToString
+            txt_total_receipt3.Text = CInt(dtgv_exeacc.CurrentRow.Cells(13).Value.ToString)
+            txt_detail_receipt3.Text = dtgv_exeacc.CurrentRow.Cells(14).Value.ToString
 
-            dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(14).Value.ToString
+            dtp_datework.Text = dtgv_exeacc.CurrentRow.Cells(15).Value.ToString
+
+            cbo_Result_PK.Text = dtgv_exeacc.CurrentRow.Cells(21).Value.ToString
+            Cbo_Account_Employee.Text = dtgv_exeacc.CurrentRow.Cells(23).Value.ToString
 
             LinK_Legal()
 
@@ -420,12 +435,12 @@ Public Class FrmEXEACC
             Convertnum(txt_total_receipt2)
             Convertnum(txt_total_receipt3)
 
-            If dtgv_exeacc.CurrentRow.Cells(7).Value.ToString = "" Then
+            If dtgv_exeacc.CurrentRow.Cells(8).Value.ToString = "" Then
                 chk_date_receipt.Checked = False
             Else
                 chk_date_receipt.Checked = True
             End If
-            If dtgv_exeacc.CurrentRow.Cells(14).Value.ToString = "" Then
+            If dtgv_exeacc.CurrentRow.Cells(15).Value.ToString = "" Then
 
                 chk_date_work.Checked = False
             Else
@@ -446,8 +461,20 @@ Public Class FrmEXEACC
         Dim _date As DateTime = dtp_date_receipt.Text
 
         Connect()
+        If cbo_status.Text = "" Then         '# เช็คข้อมูลเลขที่บัตรประชาชน ว่าเป็นค่าว่างหรือไม่
+
+            Msg_error("กรุณาใส่ Status")
+            Return
+
+        End If
 
 
+        If cbo_Result_PK.Text = "" Then         '# เช็คข้อมูลเลขที่บัตรประชาชน ว่าเป็นค่าว่างหรือไม่
+
+            Msg_error("กรุณาใส่ Result")
+            Return
+
+        End If
 
         If txt_cusid.Text = "" Then         '# เช็คข้อมูลเลขที่บัตรประชาชน ว่าเป็นค่าว่างหรือไม่
 
@@ -463,7 +490,7 @@ Public Class FrmEXEACC
 
         End If
 
-        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{dtp_date_receipt.Text}'"
+        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCPRIMARY = {Txt_ACC_PK.Text} AND ACCRESULT = '{cbo_Result_PK.Text}'"
 
         cmd = New SqlCommand(sql, cn)
         Dim i As Integer = cmd.ExecuteScalar()
@@ -478,7 +505,12 @@ Public Class FrmEXEACC
         If Msg_confirm("ต้องการอัพเดตข้อมูล ใช่ หรือ ไม่", "แจ้งเตือน") = vbYes Then
 
 
-            sql = $"UPDATE EXEACC SET ACCKEY = '{cbo_owner.Text}-{txt_cusid.Text}-{_date}',ACCBANK = @bank,ACCIDC = @idc,ACCCUSNAM = @cusname,ACCBLACK = @black,ACCRED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send ,ACCACC = @Acc ,ACCTOWN = @Town,ACCBILLCODE = @Billcode,ACCTYPE = @Type,ACCPRODUCTCODE = @Productcode WHERE ACCKEY = '{Txt_ACC_PK.Text}'"
+            sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Account_Employee.Text}'"
+
+            cmd = New SqlCommand(sql, cn)
+            Dim Query_empkey As Integer = cmd.ExecuteScalar()
+
+            sql = $"UPDATE EXEACC SET ACCBANK = @bank,ACCIDC = @idc,ACCCUSNAM = @cusname,ACCBLACK = @black,ACCRED = @red,ACCSTATUS = @status,ACCDATE = @date_work,ACCRECEIPT = @total,ACCRECEIPT_DETAIL = @detail,ACCRECEIPT_OTHER_2 = @total2,ACCRECEIPT_OTHER_DETAIL2 = @detail2,ACCRECEIPT_OTHER_3 = @total3,ACCRECEIPT_OTHER_DETAIL3 = @detail3,ACCMONTH = @date_send ,ACCACC = @Acc ,ACCTOWN = @Town ,ACCBILLCODE = @Billcode ,ACCTYPE = @Type ,ACCPRODUCTCODE = @Productcode ,EMPLOYEES_KEY = @Employee ,ACCRESULT = @Result ,ACCACTION = @Action WHERE ACCPRIMARY ='{Txt_ACC_PK.Text}'"
 
             cmd.CommandText = sql
             cmd.Parameters.Clear()
@@ -497,6 +529,8 @@ Public Class FrmEXEACC
             cmd.Parameters.AddWithValue("total3", txt_total_receipt3.Text)
             cmd.Parameters.AddWithValue("detail3", txt_detail_receipt3.Text)
             cmd.Parameters.AddWithValue("date_send", dtp_datework.Text)
+            cmd.Parameters.AddWithValue("Employee", Query_empkey)
+
 
             ' # ข้อมูลที่ใช้เบิก TSS !
 
@@ -505,9 +539,24 @@ Public Class FrmEXEACC
             cmd.Parameters.AddWithValue("Billcode", Txt_Billcode.Text)
             cmd.Parameters.AddWithValue("Type", Txt_type.Text)
             cmd.Parameters.AddWithValue("Productcode", Txt_productcode.Text)
+            cmd.Parameters.AddWithValue("Result", cbo_Result_PK.Text)
+
+
+            If cbo_Result_PK.Text = "Y" And cbo_status.Text = "อายัด" Then
+                cmd.Parameters.AddWithValue("Action", "ตั้งเรื่องอายัด")
+            ElseIf cbo_Result_PK.Text = "Y" And cbo_status.Text = "ตั้งเรื่อง" Then
+                cmd.Parameters.AddWithValue("Action", "ตั้งเรื่องยึดทรัพย์")
+            ElseIf cbo_Result_PK.Text = "Y" And cbo_status.Text = "ส่งให้ศาลอื่นบังคับคดี" Then
+                cmd.Parameters.AddWithValue("Action", "ตั้งเรื่องอายัด")
+            ElseIf cbo_Result_PK.Text = "N" And cbo_status.Text = "อายัด" Then
+                cmd.Parameters.AddWithValue("Action", "ไม่ได้ตั้งเรื่อง")
+            ElseIf cbo_Result_PK.Text = "N" And cbo_status.Text = "ยึด" Then
+                cmd.Parameters.AddWithValue("Action", "ไม่ได้ตั้งเรื่อง")
+            End If
 
 
             Dim r As Integer = cmd.ExecuteNonQuery()
+
             If r = -1 Then
 
                 Msg_error("เกิดข้อผิดพลาด ไม่สามารถแก้ไขข้อมูลได้")
@@ -515,7 +564,7 @@ Public Class FrmEXEACC
             Else
 
                 Msg_OK("แก้ไขข้อมูล สำเร็จ")
-                Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text}", $"'{txt_cusid.Text}'", $"'{Txt_account.Text}'")
+                Getlogdataexe($"แก้ไข ข้อมูลตั้งเรื่อง ธนาคาร {cbo_owner.Text} ID CARD {txt_cusid.Text} ชื่อ-นามสกุล {txt_cusname.Text} ผล{cbo_Result_PK.Text}", $"'{txt_cusid.Text}'", $"'{Txt_account.Text}'")
 
             End If
 
@@ -527,6 +576,7 @@ Public Class FrmEXEACC
                 Readonly_obj()
                 cn.Close()
                 Txt_ACC_PK.Text = ""
+                cbo_Result_PK.Text = ""
             End If
 
 
@@ -536,9 +586,15 @@ Public Class FrmEXEACC
 
     Private Sub Cmd_send_Click(sender As Object, e As EventArgs) Handles cmd_send.Click
 
-        Dim _date As DateTime = dtp_date_receipt.Text
-        Dim acckey = $"{cbo_owner.Text}-{txt_cusid.Text}-{_date}"
         Connect()
+
+        If cbo_Result_PK.Text = "" Then         '# เช็คข้อมูลเลขที่บัตรประชาชน ว่าเป็นค่าว่างหรือไม่
+
+            Msg_error("กรุณาใส่ Result")
+            Return
+
+        End If
+
 
         If txt_cusid.Text = "" Then
 
@@ -561,9 +617,7 @@ Public Class FrmEXEACC
 
         End If
 
-
-
-        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCKEY = '{acckey}'"
+        sql = $"SELECT COUNT(*) AS verify FROM EXEACC WHERE ACCACC = '{Txt_account.Text}' AND ACCIDC = '{txt_cusid.Text}'AND ACCSTATUS = '{cbo_status.Text}'"
 
         cmd = New SqlCommand(sql, cn)
         Dim i As Integer = cmd.ExecuteScalar()
@@ -576,13 +630,20 @@ Public Class FrmEXEACC
 
         If Msg_confirm("คุณต้องการเพิ่มข้อมูลใหม่หรือไม่", "แจ้งเตือน") = vbYes Then
 
-            sql = "INSERT INTO EXEACC(ACCKEY,ACCBANK,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH,ACCACC,ACCTOWN,ACCBILLCODE,ACCTYPE,ACCPRODUCTCODE)VALUES(@KEY,@bank,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send,@Acc,@Town,@Billcode,@Types,@Productcode)"
+            sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Account_Employee.Text}'"
+            cmd = New SqlCommand(sql, cn)
+            Dim queryemp As Integer = cmd.ExecuteScalar
 
-            cmd.CommandText = sql
+
+
+            sqll = "INSERT INTO EXEACC(ACCBANK,ACCACC,ACCIDC,ACCCUSNAM,ACCBLACK,ACCRED,ACCSTATUS,ACCDATE,ACCRECEIPT,ACCRECEIPT_DETAIL,ACCRECEIPT_OTHER_2,ACCRECEIPT_OTHER_DETAIL2,ACCRECEIPT_OTHER_3,ACCRECEIPT_OTHER_DETAIL3,ACCMONTH,ACCTOWN,ACCBILLCODE,ACCTYPE,ACCPRODUCTCODE,EMPLOYEES_KEY,ACCRESULT,ACCACTION)VALUES(@bank,@Acc,@idc,@cusname,@black,@red,@status,@date_work,@total,@detail,@total2,@detail2,@total3,@detail3,@date_send,@Town,@Billcode,@Types,@Productcode,@Emp,@Result,@Action)"
+
+            cmd = New SqlCommand(sqll, cn)
             cmd.Parameters.Clear()
 
-            cmd.Parameters.AddWithValue("KEY", acckey)
+
             cmd.Parameters.AddWithValue("bank", cbo_owner.Text)
+            cmd.Parameters.AddWithValue("Acc", Txt_account.Text)
             cmd.Parameters.AddWithValue("idc", txt_cusid.Text)
             cmd.Parameters.AddWithValue("cusname", txt_cusname.Text)
             cmd.Parameters.AddWithValue("black", txt_black.Text)
@@ -599,13 +660,28 @@ Public Class FrmEXEACC
 
             ' # ข้อมูลที่ใช้เบิก TSS !
 
-            cmd.Parameters.AddWithValue("Acc", Txt_account.Text)
+
             cmd.Parameters.AddWithValue("Town", Txt_bank.Text)
             cmd.Parameters.AddWithValue("Billcode", Txt_Billcode.Text)
             cmd.Parameters.AddWithValue("Types", Txt_type.Text)
             cmd.Parameters.AddWithValue("Productcode", Txt_productcode.Text)
+            cmd.Parameters.AddWithValue("Emp", queryemp)
+            cmd.Parameters.AddWithValue("Result", cbo_Result_PK.Text)
+
+            If cbo_Result_PK.Text = "Y" And cbo_status.Text = "อายัด" Then
+                cmd.Parameters.AddWithValue("Action", "ตั้งเรื่องอายัด")
+            ElseIf cbo_Result_PK.Text = "Y" And cbo_status.Text = "ตั้งเรื่อง" Then
+                cmd.Parameters.AddWithValue("Action", "ตั้งเรื่องยึดทรัพย์")
+            ElseIf cbo_Result_PK.Text = "Y" And cbo_status.Text = "ส่งให้ศาลอื่นบังคับคดี" Then
+                cmd.Parameters.AddWithValue("Action", "ตั้งเรื่องอายัด")
+            ElseIf cbo_Result_PK.Text = "N" And cbo_status.Text = "อายัด" Then
+                cmd.Parameters.AddWithValue("Action", "ไม่ได้ตั้งเรื่อง")
+            ElseIf cbo_Result_PK.Text = "N" And cbo_status.Text = "ยึด" Then
+                cmd.Parameters.AddWithValue("Action", "ไม่ได้ตั้งเรื่อง")
+            End If
 
             Dim r As Integer = cmd.ExecuteNonQuery()
+
             If r = -1 Then
 
                 Msg_error("เกิดข้อผิดพลาดไม่สามารถเพิ่มข้อมูลได้")
@@ -613,12 +689,13 @@ Public Class FrmEXEACC
             Else
 
                 Msg_OK("บันทึกข้อมูลสำเร็จ")
-                Getlogdataexe($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text}", $"'{txt_cusid.Text}'", $"'{Txt_account.Text}'")
+                Getlogdataexe($"เพิ่มข้อมูลตั้งเรื่อง {cbo_owner.Text}-{txt_cusid.Text}-{txt_cusname.Text} ผล {cbo_Result_PK.Text}", $"'{txt_cusid.Text}'", $"'{Txt_account.Text}'")
 
                 Cleartext()
-                Countdata("ACCKEY", "EXEACC", lbl_count)
+                Countdata("ACCACC", "EXEACC", lbl_count)
                 Cleardatagrid(dtgv_exeacc)
                 cn.Close()
+
 
             End If
 
@@ -628,7 +705,6 @@ Public Class FrmEXEACC
     '## Event Closing ใช้สำหรับกดปิดหรือสั่งปิดฟอร์มให้ ปิดการเชื่อมต่อของฐานข้อมูลด้วย
     Private Sub FrmEXEACC_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
-        Repeat_ClearText()
         cnLegal.Close()
         cn.Close()
         Me.Dispose()
@@ -721,6 +797,8 @@ Public Class FrmEXEACC
 
         Cleardatagrid(dtgv_exeacc)
 
+
+        cbo_Result_PK.Items.Clear()
         cbo_status.Items.Clear()
         cbo_owner.Items.Clear()
         cbo_search.Items.Clear()
@@ -744,946 +822,947 @@ Public Class FrmEXEACC
         DR.Close()
         cbo_owner.SelectedIndex = -1
 
-        Countdata("ACCKEY", "EXEACC", lbl_count)
+        Countdata("ACCPRIMARY", "EXEACC", lbl_count)
 
-        cn.Close()
         Readonly_obj()
 
         dtgv_exeacc.Visible = False
-
-
-
-    End Sub
-
-    '############################### RepeatFreeze อายัดซ้ำ ####################################'
-
-    Private Sub Repeat_LoadForm()
-
-        Repeat_ClearText()
-
-        Connect()
-
-        Comboboxadd(Cbo_Repeat_Status, "RepeatFreeze_types", "Execution_RepeatFreeze")
-        Cbo_Repeat_Status.SelectedIndex = -1
-        Comboboxadd(Cbo_Repeat_product, "Customer_Owner", "Execution_RepeatFreeze")
-        Cbo_Repeat_product.SelectedIndex = -1
 
         sql = "SELECT DISTINCT EXEEMPLOYEES FROM EXEEMPLOYEE WHERE EXEJOB = '02-EXECUTION';"
         cmd = New SqlCommand(sql, cn)
         DR = cmd.ExecuteReader()
 
         While DR.Read()
-            Cbo_Repeat_EmpExe.Items.Add($"{DR("EXEEMPLOYEES")}")
+            Cbo_Account_Employee.Items.Add($"{DR("EXEEMPLOYEES")}")
         End While
 
         DR.Close()
-        Cbo_Repeat_EmpExe.SelectedIndex = -1
+        Cbo_Account_Employee.SelectedIndex = -1
 
+        Comboboxadd(cbo_Result_PK, "ACCRESULT", "EXEACC")
+        cbo_Result_PK.SelectedIndex = -1
 
-        Countdata("RepeatFreeze_PK", "Execution_RepeatFreeze", Lbl_Repeat_Count)
-
-        Datetimeformatshort(Dtp_Repeat_DateSheet)
-
-        Datetimeformatshort(Dtp_Repeat_DateWork)
-
-        Dim Repeat_Combobox() As String = {"ธนาคาร", "เลขบัตรประชาชน", "เลขที่สัญญา", "ชื่อลูกค้า", "นามสกุล", "ชื่อ-นามสกุล", "เลขที่คดีแดง", "Status"}
-
-        CboArray(Cbo_Repeat_find, Repeat_Combobox)
-
-
-    End Sub
-
-    Private Sub Repeat_ClearText()
-
-        Dim TextArray() As TextBox = {Txt_Repeat_Acc, Txt_Repeat_Bank, Txt_Repeat_Billcode, Txt_Repeat_Black, Txt_Repeat_Court, Txt_Repeat_Detail, Txt_Repeat_find, Txt_Repeat_FN, Txt_Repeat_Idc, Txt_Repeat_LN, Txt_Repeat_Red, Txt_Repeat_Type, Txt_Repeat_Block}
-
-        Dim CheckbokArray() As CheckBox = {Chk_Repeat_DateSheet, Chk_Repeat_DateWork}
-
-        Dim ComboboxArray() As ComboBox = {Cbo_Repeat_EmpExe, Cbo_Repeat_find, Cbo_Repeat_product, Cbo_Repeat_Status}
-
-        For _Combobox As Integer = 0 To ComboboxArray.Length - 1
-
-            ComboboxArray(_Combobox).Text = ""
-        Next
-
-        For i = 0 To TextArray.Length - 1
-
-            TextArray(i).Text = ""
-
-        Next
-
-        For i = 0 To CheckbokArray.Length - 1
-
-            CheckbokArray(i).Checked = False
-
-        Next
-
-        Cleardatagrid(Dtgv_Repeat_find)
-
-        Dtp_Repeat_DateSheet.Text = ""
-        Dtp_Repeat_DateWork.Text = ""
-
-    End Sub
-
-    Private Sub Edit_information()
-
-
-        Dim TextArray() As TextBox = {Txt_Repeat_Acc, Txt_Repeat_Bank, Txt_Repeat_Billcode, Txt_Repeat_Black, Txt_Repeat_Court, Txt_Repeat_Detail, Txt_Repeat_FN, Txt_Repeat_Idc, Txt_Repeat_LN, Txt_Repeat_Red, Txt_Repeat_Type, Txt_Repeat_Block}
-
-        Dim CheckbokArray() As CheckBox = {Chk_Repeat_DateSheet, Chk_Repeat_DateWork}
-
-
-        Dim ComboboxArray() As ComboBox = {Cbo_Repeat_EmpExe, Cbo_Repeat_find, Cbo_Repeat_product, Cbo_Repeat_Status}
-
-        For ObjEnabled = 0 To ComboboxArray.Length - 1
-
-            ComboboxArray(ObjEnabled).Enabled = True
-
-        Next
-
-        For ReadText = 0 To TextArray.Length - 1
-
-            TextArray(ReadText).ReadOnly = False
-
-        Next
-
-        For ObjCheckBox = 0 To CheckbokArray.Length - 1
-
-            CheckbokArray(ObjCheckBox).Enabled = True
-
-        Next
-
-
-    End Sub
-
-    Private Sub NotEdit_information()
-
-        Dim ComboboxArray() As ComboBox = {Cbo_Repeat_EmpExe, Cbo_Repeat_product, Cbo_Repeat_Status}
-
-
-        Dim TextArray() As TextBox = {Txt_Repeat_Acc, Txt_Repeat_Bank, Txt_Repeat_Billcode, Txt_Repeat_Black, Txt_Repeat_Court, Txt_Repeat_Detail, Txt_Repeat_FN, Txt_Repeat_Idc, Txt_Repeat_LN, Txt_Repeat_Red, Txt_Repeat_Type, Txt_Repeat_Block}
-
-        Dim CheckbokArray() As CheckBox = {Chk_Repeat_DateSheet, Chk_Repeat_DateWork}
-
-
-        For ObjEnabled = 0 To ComboboxArray.Length - 1
-
-            ComboboxArray(ObjEnabled).Enabled = False
-
-        Next
-
-        For ReadText = 0 To TextArray.Length - 1
-
-            TextArray(ReadText).ReadOnly = True
-
-        Next
-
-        For ObjCheckBox = 0 To CheckbokArray.Length - 1
-
-            CheckbokArray(ObjCheckBox).Enabled = False
-
-        Next
-
-        Dtp_Repeat_DateSheet.Enabled = False
-        Dtp_Repeat_DateWork.Enabled = False
-
-    End Sub
-
-    Private Sub Find_RepeatFreeze()
-
-        Connect()
-
-        Dim Repeat_entity() As String = {"Primary", "Product", "เลขบัตรประชาชน", "เลขที่สัญญา", "ชื่อ-นามสกุล", "เลขที่คดีแดง", "Status", "พนักงานบังคับคดี", "วันที่ในใบคำร้อง"}
-
-        Cleardatagrid(Dtgv_Repeat_find)
-
-        If Txt_Repeat_find.Text = "" Then
-
-            Msg_error("กรุณากรอกข้อมุลที่ต้องการค้นหา")
-            Return
-
-        End If
-
-        sql = $"SELECT ERF.RepeatFreeze_PK,ERF.Customer_Owner,ERF.Customer_id_card,ERF.Customer_Account,ERF.Customer_fullname,ERF.RepeatFreeze_Red,ERF.RepeatFreeze_types,EMP.EXEEMPLOYEES,ERF.RepeatFreeze_Date_Sheet FROM Execution_RepeatFreeze AS ERF LEFT JOIN EXEEMPLOYEE AS EMP ON ERF.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY "
-
-        Select Case Cbo_Repeat_find.SelectedItem
-
-            Case "ธนาคาร" : sql &= $"WHERE ERF.Customer_Owner"
-            Case "เลขที่สัญญา" : sql &= $"WHERE ERF.Customer_Account"
-            Case "เลขบัตรประชาชน" : sql &= $"WHERE ERF.Customer_id_card"
-            Case "ชื่อ-นามสกุล" : sql &= $"WHERE ERF.Customer_fullname"
-            Case "ชื่อลูกค้า" : sql &= "WHERE ERF.Customer_firstname"
-            Case "นามสกุล" : sql &= "WHERE ERF.Customer_lastname"
-            Case "เลขที่คดีแดง" : sql &= $"WHERE ERF.RepeatFreeze_Red"
-            Case "Status" : sql &= $"WHERE ERF.RepeatFreeze_types"
-
-        End Select
-
-        sql &= $" LIKE '%{Txt_Repeat_find.Text}%' ORDER BY RepeatFreeze_date_sheet"
-
-
-        cmd = New SqlCommand(sql, cn)
-        DA = New SqlDataAdapter(cmd)
-        DS = New DataSet
-        DA.Fill(DS, "_search")
-
-        If DS.Tables("_search").Rows.Count <= 0 Then
-
-            Lbl_Repeat_Find.Text = "ไม่พบข้อมูลที่ค้นหา.."
-            Lbl_Repeat_Find.ForeColor = Color.Red
-            Dtgv_Repeat_find.Visible = False
-            Return
-
-        Else
-
-            With Dtgv_Repeat_find
-                .DataSource = DS.Tables("_search")
-
-                For i = 0 To Repeat_entity.Length - 1
-
-                    .Columns(i).HeaderText = Repeat_entity(i)
-
-                Next
-
-            End With
-            Dtgv_Repeat_find.Columns(0).Visible = False
-            Dtgv_Repeat_find.Visible = True
-            Datagrid_format_dateshort(Dtgv_Repeat_find, 8)
-
-            Lbl_Repeat_Find.Text = $"พบข้อมูล {Dtgv_Repeat_find.RowCount} รายการ.."
-            Lbl_Repeat_Find.ForeColor = Color.Green
-
-        End If
 
         cn.Close()
-
     End Sub
 
-    Private Sub Dtgv_Repeat_find_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dtgv_Repeat_find.CellClick
+    ''############################### RepeatFreeze อายัดซ้ำ ####################################'
 
-        Connect()
+    'Private Sub Repeat_LoadForm()
 
-        'Dim Fullname() As String = Dtgv_Repeat_find.CurrentRow.Cells(3).Value.ToString.Split(" ")
+    '    Repeat_ClearText()
 
-        'Txt_Repeat_FN.Text = Fullname(0)
-        'Txt_Repeat_LN.Text = Fullname(1)
+    '    Connect()
 
-        With Dtgv_Repeat_find
+    '    Comboboxadd(Cbo_Repeat_Status, "RepeatFreeze_types", "Execution_RepeatFreeze")
+    '    Cbo_Repeat_Status.SelectedIndex = -1
+    '    Comboboxadd(Cbo_Repeat_product, "Customer_Owner", "Execution_RepeatFreeze")
+    '    Cbo_Repeat_product.SelectedIndex = -1
 
-            Txt_Repeact_PK.Text = .CurrentRow.Cells(0).Value.ToString
-            Cbo_Repeat_product.Text = .CurrentRow.Cells(1).Value.ToString
-            Txt_Repeat_Idc.Text = .CurrentRow.Cells(2).Value.ToString
-            Txt_Repeat_Acc.Text = .CurrentRow.Cells(3).Value.ToString
-            Txt_Repeat_Red.Text = .CurrentRow.Cells(5).Value.ToString
-            Cbo_Repeat_Status.Text = .CurrentRow.Cells(6).Value.ToString
-            Cbo_Repeat_EmpExe.Text = .CurrentRow.Cells(7).Value.ToString
-            Dtp_Repeat_DateSheet.Text = .CurrentRow.Cells(8).Value.ToString
+    '    Countdata("RepeatFreeze_PK", "Execution_RepeatFreeze", Lbl_Repeat_Count)
 
-        End With
+    '    Datetimeformatshort(Dtp_Repeat_DateSheet)
 
-        sql = $"SELECT Customer_firstname,Customer_lastname,RepeatFreeze_Court,RepeatFreeze_Detail,RepeatFreeze_Date_work FROM Execution_RepeatFreeze WHERE RepeatFreeze_pk = {Txt_Repeact_PK.Text} "
+    '    Datetimeformatshort(Dtp_Repeat_DateWork)
 
-        cmd = New SqlCommand(sql, cn)
-            DA = New SqlDataAdapter(cmd)
-            DS = New DataSet
-            DA.Fill(DS, "Queryfind")
+    '    Dim Repeat_Combobox() As String = {"ธนาคาร", "เลขบัตรประชาชน", "เลขที่สัญญา", "ชื่อลูกค้า", "นามสกุล", "ชื่อ-นามสกุล", "เลขที่คดีแดง", "Status"}
 
-        With DS.Tables("Queryfind")
+    '    CboArray(Cbo_Repeat_find, Repeat_Combobox)
 
 
-            Txt_Repeat_FN.Text = .Rows(0)("Customer_firstname").ToString
-            Txt_Repeat_LN.Text = .Rows(0)("Customer_lastname").ToString
-            Txt_Repeat_Court.Text = .Rows(0)("RepeatFreeze_Court").ToString
-            Txt_Repeat_Detail.Text = .Rows(0)("RepeatFreeze_Detail").ToString
-            Dtp_Repeat_DateWork.Text = .Rows(0)("RepeatFreeze_Date_work").ToString
+    'End Sub
 
+    'Private Sub Repeat_ClearText()
 
-            If Dtgv_Repeat_find.CurrentRow.Cells(8).Value.ToString = "" Then
+    '    Dim TextArray() As TextBox = {Txt_Repeat_Acc, Txt_Repeat_Bank, Txt_Repeat_Billcode, Txt_Repeat_Black, Txt_Repeat_Court, Txt_Repeat_Detail, Txt_Repeat_find, Txt_Repeat_FN, Txt_Repeat_Idc, Txt_Repeat_LN, Txt_Repeat_Red, Txt_Repeat_Type, Txt_Repeat_Block}
 
-                Chk_Repeat_DateSheet.Checked = False
-            Else
-                Chk_Repeat_DateSheet.Checked = True
+    '    Dim CheckbokArray() As CheckBox = {Chk_Repeat_DateSheet, Chk_Repeat_DateWork}
 
-            End If
+    '    Dim ComboboxArray() As ComboBox = {Cbo_Repeat_EmpExe, Cbo_Repeat_find, Cbo_Repeat_product, Cbo_Repeat_Status}
 
-            If .Rows(0)("RepeatFreeze_Date_work").ToString = "" Then
+    '    For _Combobox As Integer = 0 To ComboboxArray.Length - 1
 
-                Chk_Repeat_DateWork.Checked = False
-            Else
-                Chk_Repeat_DateWork.Checked = True
+    '        ComboboxArray(_Combobox).Text = ""
+    '    Next
 
-            End If
+    '    For i = 0 To TextArray.Length - 1
 
-            cn.Close()
+    '        TextArray(i).Text = ""
 
-        End With
+    '    Next
 
-    End Sub
+    '    For i = 0 To CheckbokArray.Length - 1
 
-    Private Sub Queryinsertsql()
+    '        CheckbokArray(i).Checked = False
 
-        If Msg_confirm("คุณต้องการเพิ่มข้อมูลอายัดซ้ำ ใช่ หรือ ไม่") = vbYes Then
+    '    Next
 
-            Connect()
+    '    Cleardatagrid(Dtgv_Repeat_find)
 
-            sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Repeat_EmpExe.Text}'"
-            cmd = New SqlCommand(sql, cn)
-            Dim queryemp As Integer = cmd.ExecuteScalar
+    '    Dtp_Repeat_DateSheet.Text = ""
+    '    Dtp_Repeat_DateWork.Text = ""
 
-            'DA = New SqlDataAdapter(cmd)
-            'DS = New DataSet
-            'DA.Fill(DS, "queryemp")
-            'Dim queryemp As Integer = DS.Tables("queryemp").Rows(0)("EMPLOYEES_KEY")
+    'End Sub
 
-            sql = $"INSERT INTO Execution_RepeatFreeze(Customer_Owner,Customer_id_card,Customer_Account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work,RepeatFreeze_Status)VALUES('{Cbo_Repeat_product.Text}','{Txt_Repeat_Idc.Text}','{Txt_Repeat_Acc.Text}','{Txt_Repeat_FN.Text}','{Txt_Repeat_LN.Text}','{Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text}','{Txt_Repeat_Court.Text}','{Txt_Repeat_Red.Text}',{queryemp},'{Cbo_Repeat_Status.Text}','{Txt_Repeat_Detail.Text}',"
+    'Private Sub Edit_information()
 
-            If Chk_Repeat_DateSheet.Checked = True Then
 
-                sql &= $"'{Dtp_Repeat_DateSheet.Text}',"
+    '    Dim TextArray() As TextBox = {Txt_Repeat_Acc, Txt_Repeat_Bank, Txt_Repeat_Billcode, Txt_Repeat_Black, Txt_Repeat_Court, Txt_Repeat_Detail, Txt_Repeat_FN, Txt_Repeat_Idc, Txt_Repeat_LN, Txt_Repeat_Red, Txt_Repeat_Type, Txt_Repeat_Block}
 
-            ElseIf Chk_Repeat_DateSheet.Checked = False Then
+    '    Dim CheckbokArray() As CheckBox = {Chk_Repeat_DateSheet, Chk_Repeat_DateWork}
 
-                sql &= $"NULL,"
 
-            End If
+    '    Dim ComboboxArray() As ComboBox = {Cbo_Repeat_EmpExe, Cbo_Repeat_find, Cbo_Repeat_product, Cbo_Repeat_Status}
 
-            sql &= $"'{Dtp_Repeat_DateWork.Text}','ไม่ได้ตั้งเรื่อง')"
+    '    For ObjEnabled = 0 To ComboboxArray.Length - 1
 
-            cmd = New SqlCommand(sql, cn)
-            Dim Queryinsert As Integer = cmd.ExecuteNonQuery()
+    '        ComboboxArray(ObjEnabled).Enabled = True
 
-            If Queryinsert > 0 Then
+    '    Next
 
-                Lbl_Repeat_Link.Text = $"เพิ่มข้อมูล {Queryinsert} รายการ"
-                Lbl_Repeat_Link.ForeColor = Color.Green
-                Getlogdataexe($"เพิ่มข้อมูล อายัดซ้ำ Product{Cbo_Repeat_product.Text} ชื่อ-นามสกุล {Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text} Status {Cbo_Repeat_Status.Text}", $"'{Txt_Repeat_Idc.Text}'", $"'{Txt_Repeat_Acc.Text}'")
-                Repeat_ClearText()
+    '    For ReadText = 0 To TextArray.Length - 1
 
-            Else
+    '        TextArray(ReadText).ReadOnly = False
 
-                Lbl_Repeat_Link.Text = $"เพิ่มข้อมูล ล้มเหลว"
-                Lbl_Repeat_Link.ForeColor = Color.Red
+    '    Next
 
-            End If
-            cn.Close()
+    '    For ObjCheckBox = 0 To CheckbokArray.Length - 1
 
-        End If
+    '        CheckbokArray(ObjCheckBox).Enabled = True
 
-    End Sub
+    '    Next
 
-    Private Sub Cmd_Repeat_Clear_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Clear.Click
 
-        Lbl_Repeat_Link.Text = $"ผลการค้นหา..."
-        Repeat_ClearText()
+    'End Sub
 
-    End Sub
+    'Private Sub NotEdit_information()
 
-    Private Sub Chk_Repeat_DateSheet_CheckedChanged(sender As Object, e As EventArgs) Handles Chk_Repeat_DateSheet.CheckedChanged
+    '    Dim ComboboxArray() As ComboBox = {Cbo_Repeat_EmpExe, Cbo_Repeat_product, Cbo_Repeat_Status}
 
-        Checkboxdatetime(Chk_Repeat_DateSheet, Dtp_Repeat_DateSheet)
 
-    End Sub
+    '    Dim TextArray() As TextBox = {Txt_Repeat_Acc, Txt_Repeat_Bank, Txt_Repeat_Billcode, Txt_Repeat_Black, Txt_Repeat_Court, Txt_Repeat_Detail, Txt_Repeat_FN, Txt_Repeat_Idc, Txt_Repeat_LN, Txt_Repeat_Red, Txt_Repeat_Type, Txt_Repeat_Block}
 
-    Private Sub Chk_Repeat_DateWork_CheckedChanged(sender As Object, e As EventArgs) Handles Chk_Repeat_DateWork.CheckedChanged
+    '    Dim CheckbokArray() As CheckBox = {Chk_Repeat_DateSheet, Chk_Repeat_DateWork}
 
-        Checkboxdatetime(Chk_Repeat_DateWork, Dtp_Repeat_DateWork)
 
-    End Sub
+    '    For ObjEnabled = 0 To ComboboxArray.Length - 1
 
-    Private Sub Cmd_Repeat_Edit_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Edit.Click
+    '        ComboboxArray(ObjEnabled).Enabled = False
 
-        Lbl_Repeat_Link.Text = $"ผลการค้นหา..."
-        Edit_information()
+    '    Next
 
-    End Sub
+    '    For ReadText = 0 To TextArray.Length - 1
 
-    Private Sub Cmd_Repeat_find_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_find.Click
+    '        TextArray(ReadText).ReadOnly = True
 
-        lbl_count_find.Visible = True
-        Find_RepeatFreeze()
+    '    Next
 
-    End Sub
+    '    For ObjCheckBox = 0 To CheckbokArray.Length - 1
 
-    Private Sub Cmd_Repeat_Link_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Link.Click
+    '        CheckbokArray(ObjCheckBox).Enabled = False
 
-        Link_Data()
+    '    Next
 
-    End Sub
+    '    Dtp_Repeat_DateSheet.Enabled = False
+    '    Dtp_Repeat_DateWork.Enabled = False
 
+    'End Sub
 
-    Private Sub Cmd_Repeat_Update_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Update.Click
+    'Private Sub Find_RepeatFreeze()
 
+    '    Connect()
 
+    '    Dim Repeat_entity() As String = {"Primary", "Product", "เลขบัตรประชาชน", "เลขที่สัญญา", "ชื่อ-นามสกุล", "เลขที่คดีแดง", "Status", "พนักงานบังคับคดี", "วันที่ในใบคำร้อง"}
 
-        QueryUpdate_()
+    '    Cleardatagrid(Dtgv_Repeat_find)
 
+    '    If Txt_Repeat_find.Text = "" Then
 
-    End Sub
+    '        Msg_error("กรุณากรอกข้อมุลที่ต้องการค้นหา")
+    '        Return
 
+    '    End If
 
-    Private Sub Cmd_Repeat_Add_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Add.Click
+    '    sql = $"SELECT ERF.RepeatFreeze_PK,ERF.Customer_Owner,ERF.Customer_id_card,ERF.Customer_Account,ERF.Customer_fullname,ERF.RepeatFreeze_Red,ERF.RepeatFreeze_types,EMP.EXEEMPLOYEES,ERF.RepeatFreeze_Date_Sheet FROM Execution_RepeatFreeze AS ERF LEFT JOIN EXEEMPLOYEE AS EMP ON ERF.EMPLOYEES_KEY = EMP.EMPLOYEES_KEY "
 
+    '    Select Case Cbo_Repeat_find.SelectedItem
 
+    '        Case "ธนาคาร" : sql &= $"WHERE ERF.Customer_Owner"
+    '        Case "เลขที่สัญญา" : sql &= $"WHERE ERF.Customer_Account"
+    '        Case "เลขบัตรประชาชน" : sql &= $"WHERE ERF.Customer_id_card"
+    '        Case "ชื่อ-นามสกุล" : sql &= $"WHERE ERF.Customer_fullname"
+    '        Case "ชื่อลูกค้า" : sql &= "WHERE ERF.Customer_firstname"
+    '        Case "นามสกุล" : sql &= "WHERE ERF.Customer_lastname"
+    '        Case "เลขที่คดีแดง" : sql &= $"WHERE ERF.RepeatFreeze_Red"
+    '        Case "Status" : sql &= $"WHERE ERF.RepeatFreeze_types"
 
-        If Txt_Repeat_Acc.Text = "" OrElse Cbo_Repeat_product.Text = "" OrElse Cbo_Repeat_EmpExe.Text = "" OrElse Cbo_Repeat_Status.Text = "" Then
+    '    End Select
 
-            Msg_error("กรุณากรอก เลขที่สัญญา โปรดัก ชื่อพนักงานบังคับคดี Status ให้ครบ " & vbNewLine & " แล้วลองอีกครั้ง")
-            Return
+    '    sql &= $" LIKE '%{Txt_Repeat_find.Text}%' ORDER BY RepeatFreeze_date_sheet"
 
-        Else
-            Connect()
 
-            sql = $"SELECT COUNT(Customer_Account) FROM Execution_RepeatFreeze WHERE Customer_Account = '{Txt_Repeat_Acc.Text}' AND RepeatFreeze_date_sheet = '{Dtp_Repeat_DateSheet.Text}' "
+    '    cmd = New SqlCommand(sql, cn)
+    '    DA = New SqlDataAdapter(cmd)
+    '    DS = New DataSet
+    '    DA.Fill(DS, "_search")
 
-            cmd = New SqlCommand(sql, cn)
-            Dim RepeatQuery As Integer = cmd.ExecuteScalar()
+    '    If DS.Tables("_search").Rows.Count <= 0 Then
 
-            If RepeatQuery > 0 Then
+    '        Lbl_Repeat_Find.Text = "ไม่พบข้อมูลที่ค้นหา.."
+    '        Lbl_Repeat_Find.ForeColor = Color.Red
+    '        Dtgv_Repeat_find.Visible = False
+    '        Return
 
-                Msg_error("มีข้อมูลนี้อยู่แล้วในระบบกรุณาตรวจสอบอีกครั้ง")
+    '    Else
 
-                Exit Sub
+    '        With Dtgv_Repeat_find
+    '            .DataSource = DS.Tables("_search")
 
-            Else
+    '            For i = 0 To Repeat_entity.Length - 1
 
-                Queryinsertsql()
+    '                .Columns(i).HeaderText = Repeat_entity(i)
 
+    '            Next
 
-            End If
+    '        End With
+    '        Dtgv_Repeat_find.Columns(0).Visible = False
+    '        Dtgv_Repeat_find.Visible = True
+    '        Datagrid_format_dateshort(Dtgv_Repeat_find, 8)
 
-        End If
+    '        Lbl_Repeat_Find.Text = $"พบข้อมูล {Dtgv_Repeat_find.RowCount} รายการ.."
+    '        Lbl_Repeat_Find.ForeColor = Color.Green
 
-    End Sub
+    '    End If
 
-    Private Sub Cmd_Repeat_Cancel_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Cancel.Click
+    '    cn.Close()
 
-        Lbl_Repeat_Link.Text = $"ผลการค้นหา..."
-        NotEdit_information()
+    'End Sub
 
-    End Sub
-    Private Sub QueryUpdate_()
+    'Private Sub Dtgv_Repeat_find_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dtgv_Repeat_find.CellClick
 
-        Connect()
+    '    Connect()
 
-        Dim Customer_Fullname As String = $"{Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text}"
+    '    'Dim Fullname() As String = Dtgv_Repeat_find.CurrentRow.Cells(3).Value.ToString.Split(" ")
 
-        sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Repeat_EmpExe.Text}'"
+    '    'Txt_Repeat_FN.Text = Fullname(0)
+    '    'Txt_Repeat_LN.Text = Fullname(1)
 
-        cmd = New SqlCommand(sql, cn)
-        Dim Query_empkey As Integer = cmd.ExecuteScalar()
+    '    With Dtgv_Repeat_find
 
-        sql = $"UPDATE Execution_RepeatFreeze SET Customer_OWner = @owner,Customer_id_card = @idcard,Customer_account = @account,Customer_firstname = @firstname,Customer_lastname = @lastname,Customer_fullname = @fullname,RepeatFreeze_Court = @Court,RepeatFreeze_red = @red ,EMPLOYEES_KEY = @EmpPK ,RepeatFreeze_types = @status ,RepeatFreeze_Detail = @detail,RepeatFreeze_date_sheet = @datesheet , RepeatFreeze_date_work = @datework WHERE RepeatFreeze_PK = @RPK;"
+    '        cbo_Result_PK.Text = .CurrentRow.Cells(0).Value.ToString
+    '        Cbo_Repeat_product.Text = .CurrentRow.Cells(1).Value.ToString
+    '        Txt_Repeat_Idc.Text = .CurrentRow.Cells(2).Value.ToString
+    '        Txt_Repeat_Acc.Text = .CurrentRow.Cells(3).Value.ToString
+    '        Txt_Repeat_Red.Text = .CurrentRow.Cells(5).Value.ToString
+    '        Cbo_Repeat_Status.Text = .CurrentRow.Cells(6).Value.ToString
+    '        Cbo_Repeat_EmpExe.Text = .CurrentRow.Cells(7).Value.ToString
+    '        Dtp_Repeat_DateSheet.Text = .CurrentRow.Cells(8).Value.ToString
 
+    '    End With
 
-        cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.Clear()
-        cmd.Parameters.AddWithValue("RPK", Txt_Repeact_PK.Text)
-        cmd.Parameters.AddWithValue("owner", Cbo_Repeat_product.Text)
-        cmd.Parameters.AddWithValue("idcard", Txt_Repeat_Idc.Text)
-        cmd.Parameters.AddWithValue("account", Txt_Repeat_Acc.Text)
-        cmd.Parameters.AddWithValue("firstname", Txt_Repeat_FN.Text)
-        cmd.Parameters.AddWithValue("lastname", Txt_Repeat_LN.Text)
-        cmd.Parameters.AddWithValue("fullname", Customer_Fullname)
-        cmd.Parameters.AddWithValue("Court", Txt_Repeat_Court.Text)
-        cmd.Parameters.AddWithValue("red", Txt_Repeat_Red.Text)
-        cmd.Parameters.AddWithValue("EmpPK", Query_empkey)
-        cmd.Parameters.AddWithValue("status", Cbo_Repeat_Status.Text)
-        cmd.Parameters.AddWithValue("detail", Txt_Repeat_Detail.Text)
-        cmd.Parameters.AddWithValue("datesheet", Dtp_Repeat_DateSheet.Text)
-        cmd.Parameters.AddWithValue("datework", Dtp_Repeat_DateWork.Text)
+    '    sql = $"SELECT Customer_firstname,Customer_lastname,RepeatFreeze_Court,RepeatFreeze_Detail,RepeatFreeze_Date_work FROM Execution_RepeatFreeze WHERE RepeatFreeze_pk = {cbo_Result_PK.Text} "
 
-        Dim Queryupdate As Integer = cmd.ExecuteNonQuery()
+    '    cmd = New SqlCommand(sql, cn)
+    '    DA = New SqlDataAdapter(cmd)
+    '    DS = New DataSet
+    '    DA.Fill(DS, "Queryfind")
 
-        If Queryupdate > 0 Then
+    '    With DS.Tables("Queryfind")
 
-            Lbl_Repeat_Link.Text = "แก้ไขข้อมูลสำเร็จ " & Queryupdate.ToString & "รายการ"
-            Lbl_Repeat_Link.ForeColor = Color.Green
 
-            Getlogdataexe($"แก้ไขข้อมูล อายัดซ้ำ {Cbo_Repeat_product.Text} {Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text} สถานะ {cbo_status.Text}", $"'{Txt_Repeat_Idc.Text}'", $"'{Txt_Repeat_Acc.Text}'")
+    '        Txt_Repeat_FN.Text = .Rows(0)("Customer_firstname").ToString
+    '        Txt_Repeat_LN.Text = .Rows(0)("Customer_lastname").ToString
+    '        Txt_Repeat_Court.Text = .Rows(0)("RepeatFreeze_Court").ToString
+    '        Txt_Repeat_Detail.Text = .Rows(0)("RepeatFreeze_Detail").ToString
+    '        Dtp_Repeat_DateWork.Text = .Rows(0)("RepeatFreeze_Date_work").ToString
 
-        Else
-            Lbl_Repeat_Link.Text = "แก้ไขล้มเหลว"
-            Lbl_Repeat_Link.ForeColor = Color.Red
 
-        End If
+    '        If Dtgv_Repeat_find.CurrentRow.Cells(8).Value.ToString = "" Then
 
-        cn.Close()
+    '            Chk_Repeat_DateSheet.Checked = False
+    '        Else
+    '            Chk_Repeat_DateSheet.Checked = True
 
-    End Sub
-    Private Sub Link_Data()
-        Try
+    '        End If
 
-            Select Case Cbo_Repeat_product.SelectedItem
+    '        If .Rows(0)("RepeatFreeze_Date_work").ToString = "" Then
 
-                Case "KBANK" : Connect_(cn_KBANK)
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
-                    cmd_Collec = New SqlCommand(sqll, cn_KBANK)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    '            Chk_Repeat_DateWork.Checked = False
+    '        Else
+    '            Chk_Repeat_DateWork.Checked = True
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '        End If
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '        cn.Close()
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '    End With
 
-                    Else
-                        sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    'End Sub
 
-                        cmd_Collec = New SqlCommand(sqll, cn_KBANK)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    'Private Sub Queryinsertsql()
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '    If Msg_confirm("คุณต้องการเพิ่มข้อมูลอายัดซ้ำ ใช่ หรือ ไม่") = vbYes Then
 
-                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '        Connect()
 
-                    End If
+    '        sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Repeat_EmpExe.Text}'"
+    '        cmd = New SqlCommand(sql, cn)
+    '        Dim queryemp As Integer = cmd.ExecuteScalar
 
-                    cn_KBANK.Close()
+    '        'DA = New SqlDataAdapter(cmd)
+    '        'DS = New DataSet
+    '        'DA.Fill(DS, "queryemp")
+    '        'Dim queryemp As Integer = DS.Tables("queryemp").Rows(0)("EMPLOYEES_KEY")
 
-                Case "KKB" : Connect_(cn_KKB)
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
-                    cmd_Collec = New SqlCommand(sqll, cn_KKB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    '        sql = $"INSERT INTO Execution_RepeatFreeze(Customer_Owner,Customer_id_card,Customer_Account,Customer_firstname,Customer_lastname,Customer_fullname,RepeatFreeze_court,RepeatFreeze_red,EMPLOYEES_KEY,RepeatFreeze_types,RepeatFreeze_Detail,RepeatFreeze_date_sheet,RepeatFreeze_date_work,RepeatFreeze_Status)VALUES('{Cbo_Repeat_product.Text}','{Txt_Repeat_Idc.Text}','{Txt_Repeat_Acc.Text}','{Txt_Repeat_FN.Text}','{Txt_Repeat_LN.Text}','{Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text}','{Txt_Repeat_Court.Text}','{Txt_Repeat_Red.Text}',{queryemp},'{Cbo_Repeat_Status.Text}','{Txt_Repeat_Detail.Text}',"
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '        If Chk_Repeat_DateSheet.Checked = True Then
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '            sql &= $"'{Dtp_Repeat_DateSheet.Text}',"
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '        ElseIf Chk_Repeat_DateSheet.Checked = False Then
 
+    '            sql &= $"NULL,"
 
-                    Else
-                        sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    '        End If
 
-                        cmd_Collec = New SqlCommand(sqll, cn_KKB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    '        sql &= $"'{Dtp_Repeat_DateWork.Text}','ไม่ได้ตั้งเรื่อง')"
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '        cmd = New SqlCommand(sql, cn)
+    '        Dim Queryinsert As Integer = cmd.ExecuteNonQuery()
 
-                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '        If Queryinsert > 0 Then
 
-                    End If
+    '            Lbl_Repeat_Link.Text = $"เพิ่มข้อมูล {Queryinsert} รายการ"
+    '            Lbl_Repeat_Link.ForeColor = Color.Green
+    '            Getlogdataexe($"เพิ่มข้อมูล อายัดซ้ำ Product{Cbo_Repeat_product.Text} ชื่อ-นามสกุล {Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text} Status {Cbo_Repeat_Status.Text}", $"'{Txt_Repeat_Idc.Text}'", $"'{Txt_Repeat_Acc.Text}'")
+    '            Repeat_ClearText()
 
-                    cn_KKB.Close()
+    '        Else
 
-                Case "SCB" : Connect_(cn_SCB)
-                    sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSBLK,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Acc.Text}'"
-                    cmd_Collec = New SqlCommand(sqll, cn_SCB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    '            Lbl_Repeat_Link.Text = $"เพิ่มข้อมูล ล้มเหลว"
+    '            Lbl_Repeat_Link.ForeColor = Color.Red
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '        End If
+    '        cn.Close()
 
+    '    End If
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    'End Sub
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    'Private Sub Cmd_Repeat_Clear_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Clear.Click
 
+    '    Lbl_Repeat_Link.Text = $"ผลการค้นหา..."
+    '    Repeat_ClearText()
 
-                    Else
+    'End Sub
 
-                        sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
-                        cmd_Collec = New SqlCommand(sqll, cn_SCB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    'Private Sub Chk_Repeat_DateSheet_CheckedChanged(sender As Object, e As EventArgs) Handles Chk_Repeat_DateSheet.CheckedChanged
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '    Checkboxdatetime(Chk_Repeat_DateSheet, Dtp_Repeat_DateSheet)
 
-                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    'End Sub
 
-                    End If
+    'Private Sub Chk_Repeat_DateWork_CheckedChanged(sender As Object, e As EventArgs) Handles Chk_Repeat_DateWork.CheckedChanged
 
-                    cn_SCB.Close()
+    '    Checkboxdatetime(Chk_Repeat_DateWork, Dtp_Repeat_DateWork)
 
-                Case "TSS" : Connect_(cn_GE)
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWSAN,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+    'End Sub
 
-                    cmd_Collec = New SqlCommand(sqll, cn_GE)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    'Private Sub Cmd_Repeat_Edit_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Edit.Click
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '    Lbl_Repeat_Link.Text = $"ผลการค้นหา..."
+    '    Edit_information()
 
+    'End Sub
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    'Private Sub Cmd_Repeat_find_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_find.Click
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '    lbl_count_find.Visible = True
+    '    Find_RepeatFreeze()
 
-                    Else
+    'End Sub
 
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    'Private Sub Cmd_Repeat_Link_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Link.Click
 
-                        cmd_Collec = New SqlCommand(sqll, cn_GE)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    '    Link_Data()
 
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    'End Sub
 
-                            Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-                            Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
 
-                            Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Green
+    'Private Sub Cmd_Repeat_Update_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Update.Click
 
-                        Else
 
-                            Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Red
 
-                        End If
+    '    QueryUpdate_()
 
-                    End If
 
-                    cn_GE.Close()
+    'End Sub
 
-                Case "TMB" : Connect_(cn_TMB)
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
 
-                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    'Private Sub Cmd_Repeat_Add_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Add.Click
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '    If Txt_Repeat_Acc.Text = "" OrElse Cbo_Repeat_product.Text = "" OrElse Cbo_Repeat_EmpExe.Text = "" OrElse Cbo_Repeat_Status.Text = "" Then
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '        Msg_error("กรุณากรอก เลขที่สัญญา โปรดัก ชื่อพนักงานบังคับคดี Status ให้ครบ " & vbNewLine & " แล้วลองอีกครั้ง")
+    '        Return
 
-                    Else
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    '    Else
+    '        Connect()
 
-                        cmd_Collec = New SqlCommand(sqll, cn_TMB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    '        sql = $"SELECT COUNT(Customer_Account) FROM Execution_RepeatFreeze WHERE Customer_Account = '{Txt_Repeat_Acc.Text}' AND RepeatFreeze_date_sheet = '{Dtp_Repeat_DateSheet.Text}' "
 
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '        cmd = New SqlCommand(sql, cn)
+    '        Dim RepeatQuery As Integer = cmd.ExecuteScalar()
 
-                            Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '        If RepeatQuery > 0 Then
 
-                            Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Green
+    '            Msg_error("มีข้อมูลนี้อยู่แล้วในระบบกรุณาตรวจสอบอีกครั้ง")
 
-                        Else
+    '            Exit Sub
 
-                            Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Red
+    '        Else
 
-                        End If
+    '            Queryinsertsql()
 
-                    End If
-                    cn_TMB.Close()
 
-                Case "TMB SME" : Connect_(cn_TMBSME)
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+    '        End If
 
-                    cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    '    End If
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    'End Sub
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    'Private Sub Cmd_Repeat_Cancel_Click(sender As Object, e As EventArgs) Handles Cmd_Repeat_Cancel.Click
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '    Lbl_Repeat_Link.Text = $"ผลการค้นหา..."
+    '    NotEdit_information()
 
-                    Else
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    'End Sub
+    'Private Sub QueryUpdate_()
 
-                        cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    '    Connect()
 
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '    Dim Customer_Fullname As String = $"{Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text}"
 
-                            Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '    sql = $"SELECT EMPLOYEES_KEY FROM EXEEMPLOYEE WHERE EXEEMPLOYEES = '{Cbo_Repeat_EmpExe.Text}'"
 
-                            Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Green
+    '    cmd = New SqlCommand(sql, cn)
+    '    Dim Query_empkey As Integer = cmd.ExecuteScalar()
 
-                        Else
+    '    sql = $"UPDATE Execution_RepeatFreeze SET Customer_OWner = @owner,Customer_id_card = @idcard,Customer_account = @account,Customer_firstname = @firstname,Customer_lastname = @lastname,Customer_fullname = @fullname,RepeatFreeze_Court = @Court,RepeatFreeze_red = @red ,EMPLOYEES_KEY = @EmpPK ,RepeatFreeze_types = @status ,RepeatFreeze_Detail = @detail,RepeatFreeze_date_sheet = @datesheet , RepeatFreeze_date_work = @datework WHERE RepeatFreeze_PK = @RPK;"
 
-                            Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Red
 
-                        End If
-                    End If
+    '    cmd = New SqlCommand(sql, cn)
+    '    cmd.Parameters.Clear()
+    '    cmd.Parameters.AddWithValue("RPK", cbo_Result_PK.Text)
+    '    cmd.Parameters.AddWithValue("owner", Cbo_Repeat_product.Text)
+    '    cmd.Parameters.AddWithValue("idcard", Txt_Repeat_Idc.Text)
+    '    cmd.Parameters.AddWithValue("account", Txt_Repeat_Acc.Text)
+    '    cmd.Parameters.AddWithValue("firstname", Txt_Repeat_FN.Text)
+    '    cmd.Parameters.AddWithValue("lastname", Txt_Repeat_LN.Text)
+    '    cmd.Parameters.AddWithValue("fullname", Customer_Fullname)
+    '    cmd.Parameters.AddWithValue("Court", Txt_Repeat_Court.Text)
+    '    cmd.Parameters.AddWithValue("red", Txt_Repeat_Red.Text)
+    '    cmd.Parameters.AddWithValue("EmpPK", Query_empkey)
+    '    cmd.Parameters.AddWithValue("status", Cbo_Repeat_Status.Text)
+    '    cmd.Parameters.AddWithValue("detail", Txt_Repeat_Detail.Text)
+    '    cmd.Parameters.AddWithValue("datesheet", Dtp_Repeat_DateSheet.Text)
+    '    cmd.Parameters.AddWithValue("datework", Dtp_Repeat_DateWork.Text)
 
-                    cn_TMBSME.Close()
+    '    Dim Queryupdate As Integer = cmd.ExecuteNonQuery()
 
-                Case "TBANK" : Connect_(cn_TBANK)
+    '    If Queryupdate > 0 Then
 
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+    '        Lbl_Repeat_Link.Text = "แก้ไขข้อมูลสำเร็จ " & Queryupdate.ToString & "รายการ"
+    '        Lbl_Repeat_Link.ForeColor = Color.Green
 
-                    cmd_Collec = New SqlCommand(sqll, cn_TBANK)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    '        Getlogdataexe($"แก้ไขข้อมูล อายัดซ้ำ {Cbo_Repeat_product.Text} {Txt_Repeat_FN.Text} {Txt_Repeat_LN.Text} สถานะ {cbo_status.Text}", $"'{Txt_Repeat_Idc.Text}'", $"'{Txt_Repeat_Acc.Text}'")
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '    Else
+    '        Lbl_Repeat_Link.Text = "แก้ไขล้มเหลว"
+    '        Lbl_Repeat_Link.ForeColor = Color.Red
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '    End If
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
-                    Else
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    '    cn.Close()
 
-                        cmd_Collec = New SqlCommand(sqll, cn_TBANK)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    'End Sub
+    'Private Sub Link_Data()
+    '    Try
 
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '        Select Case Cbo_Repeat_product.SelectedItem
 
-                            Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '            Case "KBANK" : Connect_(cn_KBANK)
+    '                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+    '                cmd_Collec = New SqlCommand(sqll, cn_KBANK)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                            Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Green
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                        Else
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-                            Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Red
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-                        End If
-                    End If
-                    cn_TBANK.Close()
+    '                Else
+    '                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
 
-                Case "UOB" : Connect_(cn_UOB)
+    '                    cmd_Collec = New SqlCommand(sqll, cn_KBANK)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-                    cmd_Collec = New SqlCommand(sqll, cn_UOB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+    '                    Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+    '                End If
 
-                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '                cn_KBANK.Close()
 
-                        Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '            Case "KKB" : Connect_(cn_KKB)
+    '                sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+    '                cmd_Collec = New SqlCommand(sqll, cn_KKB)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Else
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-                        cmd_Collec = New SqlCommand(sqll, cn_UOB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                            Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '                Else
+    '                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
 
-                            Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Green
+    '                    cmd_Collec = New SqlCommand(sqll, cn_KKB)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                        Else
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-                            Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Red
+    '                    Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-                        End If
+    '                End If
 
-                    End If
+    '                cn_KKB.Close()
 
-                    cn_UOB.Close()
+    '            Case "SCB" : Connect_(cn_SCB)
+    '                sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSBLK,RFCUS.CUSTLN,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Acc.Text}'"
+    '                cmd_Collec = New SqlCommand(sqll, cn_SCB)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                Case Else : Connect_(cnLegal)
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-                    sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
-                    cmdlegal = New SqlCommand(sqll, cnLegal)
-                    DALegal = New SqlDataAdapter(cmdlegal)
-                    DSLegal = New DataSet
-                    DALegal.Fill(DSLegal, "linklegal")
 
-                    If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-                        Lbl_Repeat_Link.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Red
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-                        Txt_Repeat_FN.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
-                        Txt_Repeat_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
-                        Txt_Repeat_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
-                        Txt_Repeat_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
-                        Txt_Repeat_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
-                        Txt_Repeat_Idc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
 
-                        Lbl_Repeat_Link.Text = $"พบ LIDC{DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '                Else
 
+    '                    sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    '                    cmd_Collec = New SqlCommand(sqll, cn_SCB)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    Else
-                        sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Repeat_Acc.Text}'"
-                        cmdlegal = New SqlCommand(sqll, cnLegal)
-                        DALegal = New SqlDataAdapter(cmdlegal)
-                        DSLegal = New DataSet
-                        DALegal.Fill(DSLegal, "linklegal")
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-                        If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+    '                    Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-                            Txt_Repeat_FN.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
-                            Txt_Repeat_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
-                            Txt_Repeat_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
-                            Txt_Repeat_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
-                            Txt_Repeat_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
-                            Txt_Repeat_Idc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+    '                End If
 
-                            Lbl_Repeat_Link.Text = $"พบ LACC{DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Green
-                        Else
+    '                cn_SCB.Close()
 
-                            Lbl_Repeat_Link.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-                            Lbl_Repeat_Link.ForeColor = Color.Red
+    '            Case "TSS" : Connect_(cn_GE)
+    '                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWSAN,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
 
-                        End If
-                    End If
+    '                cmd_Collec = New SqlCommand(sqll, cn_GE)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
 
-                    cnLegal.Close()
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
-            End Select
 
-        Catch ex As Exception
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
 
-        End Try
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
 
-    End Sub
+    '                Else
+
+    '                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+
+    '                    cmd_Collec = New SqlCommand(sqll, cn_GE)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+    '                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+    '                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                    Else
+
+    '                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    End If
+
+    '                End If
+
+    '                cn_GE.Close()
+
+    '            Case "TMB" : Connect_(cn_TMB)
+    '                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+
+    '                cmd_Collec = New SqlCommand(sqll, cn_TMB)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                Else
+    '                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+
+    '                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                    Else
+
+    '                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    End If
+
+    '                End If
+    '                cn_TMB.Close()
+
+    '            Case "TMB SME" : Connect_(cn_TMBSME)
+    '                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+
+    '                cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                Else
+    '                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+
+    '                    cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                    Else
+
+    '                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    End If
+    '                End If
+
+    '                cn_TMBSME.Close()
+
+    '            Case "TBANK" : Connect_(cn_TBANK)
+
+    '                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+
+    '                cmd_Collec = New SqlCommand(sqll, cn_TBANK)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
+    '                Else
+    '                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+
+    '                    cmd_Collec = New SqlCommand(sqll, cn_TBANK)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                    Else
+
+    '                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    End If
+    '                End If
+    '                cn_TBANK.Close()
+
+    '            Case "UOB" : Connect_(cn_UOB)
+
+    '                sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Txt_Repeat_Acc.Text}'"
+
+    '                cmd_Collec = New SqlCommand(sqll, cn_UOB)
+    '                DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                DS_Collec = New DataSet
+    '                DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                    Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                    Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                    Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                    Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                    Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                    Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                    Lbl_Repeat_Link.Text = $"พบ CACC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                Else
+
+    '                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFCUS.CUSTLN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+
+    '                    cmd_Collec = New SqlCommand(sqll, cn_UOB)
+    '                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+    '                    DS_Collec = New DataSet
+    '                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+    '                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+    '                        Txt_Repeat_Acc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+    '                        Txt_Repeat_Court.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+    '                        Txt_Repeat_Idc.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+    '                        Txt_Repeat_FN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+    '                        Txt_Repeat_LN.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+    '                        Txt_Repeat_Black.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+    '                        Txt_Repeat_Red.Text = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+    '                        Txt_Repeat_Block.Text = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+
+    '                        Lbl_Repeat_Link.Text = $"พบ CIDC{DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Green
+
+    '                    Else
+
+    '                        Lbl_Repeat_Link.Text = $"พบ {DS_Collec.Tables("LINKdB").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    End If
+
+    '                End If
+
+    '                cn_UOB.Close()
+
+    '            Case Else : Connect_(cnLegal)
+
+    '                sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSIDC = '{Txt_Repeat_Idc.Text}'"
+    '                cmdlegal = New SqlCommand(sqll, cnLegal)
+    '                DALegal = New SqlDataAdapter(cmdlegal)
+    '                DSLegal = New DataSet
+    '                DALegal.Fill(DSLegal, "linklegal")
+
+    '                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+    '                    Lbl_Repeat_Link.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    Txt_Repeat_FN.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+    '                    Txt_Repeat_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+    '                    Txt_Repeat_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+    '                    Txt_Repeat_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+    '                    Txt_Repeat_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+    '                    Txt_Repeat_Idc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+
+    '                    Lbl_Repeat_Link.Text = $"พบ LIDC{DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+    '                    Lbl_Repeat_Link.ForeColor = Color.Green
+
+
+    '                Else
+    '                    sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Txt_Repeat_Acc.Text}'"
+    '                    cmdlegal = New SqlCommand(sqll, cnLegal)
+    '                    DALegal = New SqlDataAdapter(cmdlegal)
+    '                    DSLegal = New DataSet
+    '                    DALegal.Fill(DSLegal, "linklegal")
+
+    '                    If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+    '                        Txt_Repeat_FN.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+    '                        Txt_Repeat_Red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+    '                        Txt_Repeat_Court.Text = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+    '                        Txt_Repeat_Black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+    '                        Txt_Repeat_Acc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+    '                        Txt_Repeat_Idc.Text = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+
+    '                        Lbl_Repeat_Link.Text = $"พบ LACC{DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Green
+    '                    Else
+
+    '                        Lbl_Repeat_Link.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
+    '                        Lbl_Repeat_Link.ForeColor = Color.Red
+
+    '                    End If
+    '                End If
+
+    '                cnLegal.Close()
+
+    '        End Select
+
+    '    Catch ex As Exception
+
+    '    End Try
+
+    'End Sub
 
 End Class

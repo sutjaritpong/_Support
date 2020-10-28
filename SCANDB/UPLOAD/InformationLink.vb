@@ -212,6 +212,9 @@ Public Class InformationLink
         Connect()
         Dim y As Integer = Dtgv_Exe.Rows.Count
         Dim Max As Integer = 100
+        Dim ResultUpdate As Integer = 0
+        Dim ResultInsert As Integer = 0
+
 
         Dim timenow As String = (DateAndTime.TimeString)
         Dim datenow As String = DateAndTime.Today.ToShortDateString
@@ -241,30 +244,84 @@ Public Class InformationLink
 
                 End If
 
-                sql = $"INSERT INTO "
 
                 Select Case cbo_products.SelectedItem
 
-                    Case "ข้อมูลลูกค้า(Execution-Customer)" : sql &= $"Execution_Customer(Customer_Owner,Customer_Bank,Customer_Hub,Customer_Account,Customer_No,Customer_Idc,Customer_Prefix,Customer_Firstname,Customer_Lastname,Customer_Fullname,Customer_Court,Customer_Black,Customer_Red,Customer_Date_Add,Customer_Billcode,Customer_Type,Customer_Productcode,Customer_Block)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}','{Dtgv_Exe.Rows(i).Cells(17).Value}')"
+                    Case "ข้อมูลลูกค้า(Execution-Customer)" : sql = $"SELECT COUNT(Customer_Account) FROM Execution_Customer WHERE Customer_Account = '{Dtgv_Exe.Rows(i).Cells(3).Value}' "
 
+                        cmd = New SqlCommand(sql, cn)
+                        Dim VerifyQueryAcc As Integer = cmd.ExecuteScalar()
+
+                        If VerifyQueryAcc > 0 Then
+
+                            sql = $"UPDATE Execution_Customer SET Customer_Owner ='{Dtgv_Exe.Rows(i).Cells(0).Value}' ,Customer_Bank = '{Dtgv_Exe.Rows(i).Cells(1).Value}',Customer_Hub = '{Dtgv_Exe.Rows(i).Cells(2).Value}' ,Customer_Account = '{Dtgv_Exe.Rows(i).Cells(3).Value}',Customer_No = '{Dtgv_Exe.Rows(i).Cells(4).Value}',Customer_Idc = '{Dtgv_Exe.Rows(i).Cells(5).Value}',Customer_Prefix = '{Dtgv_Exe.Rows(i).Cells(6).Value}',Customer_Firstname = '{Dtgv_Exe.Rows(i).Cells(7).Value}',Customer_Lastname = '{Dtgv_Exe.Rows(i).Cells(8).Value}',Customer_Fullname ='{Dtgv_Exe.Rows(i).Cells(9).Value}',Customer_Court ='{Dtgv_Exe.Rows(i).Cells(10).Value}',Customer_Black = '{Dtgv_Exe.Rows(i).Cells(11).Value}',Customer_Red = '{Dtgv_Exe.Rows(i).Cells(12).Value}',Customer_Date_Add = '{Dtgv_Exe.Rows(i).Cells(13).Value}',Customer_Billcode = '{Dtgv_Exe.Rows(i).Cells(14).Value}',Customer_Type = '{Dtgv_Exe.Rows(i).Cells(15).Value}',Customer_Productcode = '{Dtgv_Exe.Rows(i).Cells(16).Value}',Customer_Block = '{Dtgv_Exe.Rows(i).Cells(17).Value}',Collector_User = '{Dtgv_Exe.Rows(i).Cells(18).Value}' WHERE Customer_Owner = '{Dtgv_Exe.Rows(i).Cells(0).Value}' AND Customer_Account = '{Dtgv_Exe.Rows(i).Cells(18).Value}'"
+
+                            cmd = New SqlCommand(sql, cn)
+                            Dim VerifyUpdate As Integer = cmd.ExecuteScalar()
+
+                            If VerifyUpdate = 1 Then
+
+                                ResultUpdate += 1
+
+                            End If
+
+                        ElseIf VerifyQueryAcc = 0 Then
+
+                            sql = $"SELECT COUNT(Customer_idc) FROM Execution_Customer WHERE Customer_idc = '{Dtgv_Exe.Rows(i).Cells(5).Value}' "
+
+                            cmd = New SqlCommand(sql, cn)
+                            Dim VerifyQueryIdc As Integer = cmd.ExecuteScalar()
+
+                            If VerifyQueryIdc > 0 Then
+
+                                sql = $"UPDATE Execution_Customer SET Customer_Owner ='{Dtgv_Exe.Rows(i).Cells(0).Value}' ,Customer_Bank = '{Dtgv_Exe.Rows(i).Cells(1).Value}',Customer_Hub = '{Dtgv_Exe.Rows(i).Cells(2).Value}',Customer_Account = '{Dtgv_Exe.Rows(i).Cells(3).Value}',Customer_No = '{Dtgv_Exe.Rows(i).Cells(4).Value}',Customer_Idc = '{Dtgv_Exe.Rows(i).Cells(5).Value}',Customer_Prefix = '{Dtgv_Exe.Rows(i).Cells(6).Value}',Customer_Firstname = '{Dtgv_Exe.Rows(i).Cells(7).Value}',Customer_Lastname = '{Dtgv_Exe.Rows(i).Cells(8).Value}',Customer_Fullname ='{Dtgv_Exe.Rows(i).Cells(9).Value}',Customer_Court = '{Dtgv_Exe.Rows(i).Cells(10).Value}',Customer_Black = '{Dtgv_Exe.Rows(i).Cells(11).Value}',Customer_Red = '{Dtgv_Exe.Rows(i).Cells(12).Value}',Customer_Date_Add = '{Dtgv_Exe.Rows(i).Cells(13).Value}',Customer_Billcode = '{Dtgv_Exe.Rows(i).Cells(14).Value}',Customer_Type = '{Dtgv_Exe.Rows(i).Cells(15).Value}',Customer_Productcode = '{Dtgv_Exe.Rows(i).Cells(16).Value}',Customer_Block = '{Dtgv_Exe.Rows(i).Cells(17).Value}',Collector_User = '{Dtgv_Exe.Rows(i).Cells(18).Value}' WHERE Customer_Owner = '{Dtgv_Exe.Rows(i).Cells(0).Value}' AND Customer_idc = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
+                                cmd = New SqlCommand(sql, cn)
+                                Dim VerifyUpdate As Integer = cmd.ExecuteScalar()
+
+                                If VerifyUpdate = 1 Then
+
+                                    ResultUpdate += 1
+                                End If
+
+
+
+                            ElseIf VerifyQueryIdc = 0 Then
+
+                                sqll = $"INSERT INTO Execution_Customer(Customer_Owner,Customer_Bank,Customer_Hub,Customer_Account,Customer_No,Customer_Idc,Customer_Prefix,Customer_Firstname,Customer_Lastname,Customer_Fullname,Customer_Court,Customer_Black,Customer_Red,Customer_Date_Add,Customer_Billcode,Customer_Type,Customer_Productcode,Customer_Block,Collector_User)VALUES('{Dtgv_Exe.Rows(i).Cells(0).Value}','{Dtgv_Exe.Rows(i).Cells(1).Value}','{Dtgv_Exe.Rows(i).Cells(2).Value}','{Dtgv_Exe.Rows(i).Cells(3).Value}','{Dtgv_Exe.Rows(i).Cells(4).Value}','{Dtgv_Exe.Rows(i).Cells(5).Value}','{Dtgv_Exe.Rows(i).Cells(6).Value}','{Dtgv_Exe.Rows(i).Cells(7).Value}','{Dtgv_Exe.Rows(i).Cells(8).Value}','{Dtgv_Exe.Rows(i).Cells(9).Value}','{Dtgv_Exe.Rows(i).Cells(10).Value}','{Dtgv_Exe.Rows(i).Cells(11).Value}','{Dtgv_Exe.Rows(i).Cells(12).Value}','{Dtgv_Exe.Rows(i).Cells(13).Value}','{Dtgv_Exe.Rows(i).Cells(14).Value}','{Dtgv_Exe.Rows(i).Cells(15).Value}','{Dtgv_Exe.Rows(i).Cells(16).Value}','{Dtgv_Exe.Rows(i).Cells(17).Value}','{Dtgv_Exe.Rows(i).Cells(18).Value}')"
+
+
+                                cmd = New SqlCommand(sqll, cn)
+                                Dim VerifyInsert As Integer = cmd.ExecuteNonQuery()
+
+                                If VerifyInsert = 0 Then
+
+                                    ResultInsert += 1
+
+                                End If
+
+                            End If
+
+                        End If
                         '--------------------------- UPLOAD ข้อมูลลูกค้า --------------------------'
 
-
                 End Select
-
-                cmd = New SqlCommand(sql, cn)
-                cmd.ExecuteNonQuery()
 
                 lbl_statusprogress.Text = i.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
                 Main_progressbar.Value = (i / y) * Max
                 Threading.Thread.Sleep(100)
                 lbl_statusprogress.Text = i + 1.ToString & "/" & Dtgv_Exe.Rows.Count.ToString
 
+
             Next
 
         Catch ex As Exception
 
             MsgBox(ex.ToString)
+
+        Finally
+
+            Msg_OK($"ข้อมูลที่ทำการ แก้ไข {ResultUpdate} รายการ และ ข้อมูลใหม่ที่เพิ่มเข้ามา {ResultInsert} ")
 
         End Try
 
@@ -289,7 +346,7 @@ Public Class InformationLink
 
     Private Sub Cmd_Delete_Click(sender As Object, e As EventArgs) Handles Cmd_Delete.Click
 
-
+        lbl_flow.Text = "กำลังเช็คข้อมูลซ้ำ"
         Connect()
 
         Dim y As Integer = Dtgv_Exe.Rows.Count
@@ -302,6 +359,26 @@ Public Class InformationLink
         lbl_flow.ForeColor = Color.Red
 
         Try
+
+            For A As Integer = 0 To Dtgv_Exe.Rows.Count - 1
+                For B As Integer = A + 1 To Dtgv_Exe.Rows.Count - 2
+
+                    If Dtgv_Exe.Rows(A).Cells(3).Value.ToString = "" Then
+
+                        Continue For
+
+
+                    ElseIf Dtgv_Exe.Rows(A).Cells(3).Value.ToString = Dtgv_Exe.Rows(B).Cells(3).Value.ToString Then
+
+                        Dtgv_Exe.Rows.RemoveAt(B)
+                        A -= 1
+
+                    End If
+
+                Next
+
+            Next
+
 
             For i As Integer = 0 To y - 1 Step +1
                 'Dim p As Integer = (((i + 1) / y) * Max)
@@ -342,11 +419,11 @@ Public Class InformationLink
 
             Next
 
-            lbl_flow.Text = "ลบข้อมูลเสร็จสิ้น"
-            lbl_countimport.Text = Dtgv_Exe.Rows.Count & " " & "รายการ"
-
         Catch ex As Exception
 
+        Finally
+            lbl_flow.Text = "ลบข้อมูลเสร็จสิ้น"
+            lbl_countimport.Text = Dtgv_Exe.Rows.Count & " " & "รายการ"
         End Try
 
     End Sub
@@ -360,7 +437,7 @@ Public Class InformationLink
 
                 Case "TSS" : Connect_(cn_GE)
 
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSTYP,RFCUS.CUSLNO,RFCUS.CUSPRO,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSTYP,RFCUS.CUSLNO,RFCUS.CUSPRO,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
 
                     cmd_Collec = New SqlCommand(sqll, cn_GE)
                     DA_Collec = New SqlDataAdapter(cmd_Collec)
@@ -369,6 +446,7 @@ Public Class InformationLink
 
                     If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
                         Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
                         Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                         Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
@@ -381,9 +459,9 @@ Public Class InformationLink
                         Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
                         Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
                         Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
 
-
-                        Select Case Dtgv_Exe.Rows(i).Cells(15).Value
+                        Select Case Dtgv_Exe.Rows(i).Cells(16).Value
                             Case "CPL", "GPC", "TCP", "FC", "NFC", "TIN", "TIP", "PB", "HFC", "MHF" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท อยุธยา แคปปิตอล เซอร์วิสเซส จำกัด"
                             Case "CCC", "CCM", "RBV", "HPR", "CCP" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท เจเนอรัล คาร์ด เซอร์วิสเซส จำกัด"
                             Case "TES", "LTS", "TPL" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท เทสโก้ คาร์ด เซอร์วิสเซส จำกัด"
@@ -393,7 +471,7 @@ Public Class InformationLink
 
                     Else
 
-                        sqll = $"Select RFCUS.CUSIDC,RFCUS.CUSTYP,RFCUS.CUSLNO,RFCUS.CUSPRO,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW On RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                        sqll = $"Select RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSTYP,RFCUS.CUSLNO,RFCUS.CUSPRO,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW On RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
 
                         cmd_Collec = New SqlCommand(sqll, cn_GE)
                         DA_Collec = New SqlDataAdapter(cmd_Collec)
@@ -402,6 +480,7 @@ Public Class InformationLink
 
                         If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
 
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
                             Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
                             Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
                             Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
@@ -414,404 +493,22 @@ Public Class InformationLink
                             Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
                             Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
                             Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
 
 
-                            Select Case Dtgv_Exe.Rows(i).Cells(15).Value
+                            Select Case Dtgv_Exe.Rows(i).Cells(16).Value
                                 Case "CPL", "GPC", "TCP", "FC", "NFC", "TIN", "TIP", "PB", "HFC", "MHF" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท อยุธยา แคปปิตอล เซอร์วิสเซส จำกัด"
                                 Case "CCC", "CCM", "RBV", "HPR", "CCP" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท เจเนอรัล คาร์ด เซอร์วิสเซส จำกัด"
                                 Case "TES", "LTS", "TPL" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท เทสโก้ คาร์ด เซอร์วิสเซส จำกัด"
                                 Case "KCC", "KSM", "HPK", "HPR", "KHB", "KPL", "AYCC", "AYJC", "AYPL", "KJC", "HME", "TKCC", "TKJC" : Dtgv_Exe.Rows(i).Cells(1).Value = "บริษัท บัตรกรุงศรีอยุธยา จำกัด"
                             End Select
 
-                        End If
+                        Else
 
-                    End If
 
-                Case "KBANK" : Connect_(cn_KBANK)
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-                    cmd_Collec = New SqlCommand(sqll, cn_KBANK)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
+                            Connect_(cnLegal)
 
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Dtgv_Exe.Rows(i).Cells(4).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
-                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-                    Else
-                        sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-
-                        cmd_Collec = New SqlCommand(sqll, cn_KBANK)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(4).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-                        End If
-
-                    End If
-
-                    cn_KBANK.Close()
-
-                Case "KKB" : Connect_(cn_KKB)
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-                    cmd_Collec = New SqlCommand(sqll, cn_KKB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-                    Else
-                        sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-
-                        cmd_Collec = New SqlCommand(sqll, cn_KKB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-                        End If
-                    End If
-
-                    cn_KKB.Close()
-
-                Case "SCB" : Connect_(cn_SCB)
-                    sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-                    cmd_Collec = New SqlCommand(sqll, cn_SCB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-
-                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-                    Else
-
-                        sqll = $"SELECT RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-                        cmd_Collec = New SqlCommand(sqll, cn_SCB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-                        End If
-                    End If
-
-                    cn_SCB.Close()
-
-                Case "TMB" : Connect_(cn_TMB)
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-
-                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
-                    DA_Collec = New SqlDataAdapter(cmd_Collec)
-                    DS_Collec = New DataSet
-                    DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-
-                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                        Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                        Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                        Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-                    Else
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-
-                        cmd_Collec = New SqlCommand(sqll, cn_TMB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-                        End If
-                        cn_TMB.Close()
-
-                    End If
-
-                Case "TMB SME" : Connect_(cn_TMBSME)
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-
-                    cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                        Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-                    Else
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-
-                        cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
-                            DA_Collec = New SqlDataAdapter(cmd_Collec)
-                            DS_Collec = New DataSet
-                            DA_Collec.Fill(DS_Collec, "LINKdB")
-
-
-                            If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                                Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                                Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                                Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                                Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                                Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                                Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                                Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                                Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-                            Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-                        End If
-
-                        End If
-
-                        cn_TMBSME.Close()
-
-                        Case "TBANK" : Connect_(cn_TBANK)
-
-                    sqll = $"SELECT RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-
-                    cmd_Collec = New SqlCommand(sqll, cn_TBANK)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-                    Else
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-
-                        cmd_Collec = New SqlCommand(sqll, cn_TBANK)
-                            DA_Collec = New SqlDataAdapter(cmd_Collec)
-                            DS_Collec = New DataSet
-                            DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                            If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                                Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                                Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                                Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                                Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                                Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                                Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                                Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-                        End If
-                        End If
-                        cn_TBANK.Close()
-
-                        Case "UOB" : Connect_(cn_UOB)
-
-                    sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-
-                    cmd_Collec = New SqlCommand(sqll, cn_UOB)
-                        DA_Collec = New SqlDataAdapter(cmd_Collec)
-                        DS_Collec = New DataSet
-                        DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-
-                    Else
-
-                        sqll = $"SELECT RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
-
-                        cmd_Collec = New SqlCommand(sqll, cn_UOB)
-                            DA_Collec = New SqlDataAdapter(cmd_Collec)
-                            DS_Collec = New DataSet
-                            DA_Collec.Fill(DS_Collec, "LINKdB")
-
-                            If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
-
-                                Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
-                                Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
-                                Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
-                                Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
-                                Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
-                                Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
-                                Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
-
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
-                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
-
-
-                        End If
-
-                        End If
-
-                        cn_UOB.Close()
-
-                        Case Else : Connect_(cnLegal)
-
-                        sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
-                        cmdlegal = New SqlCommand(sqll, cnLegal)
-                        DALegal = New SqlDataAdapter(cmdlegal)
-                        DSLegal = New DataSet
-                        DALegal.Fill(DSLegal, "linklegal")
-
-                        If DSLegal.Tables("linklegal").Rows.Count > 0 Then
-
-                            Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
-                            Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
-                            Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
-                            Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
-                        Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
-                        Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
-                        Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
-
-
-                    Else
-
-                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
                             cmdlegal = New SqlCommand(sqll, cnLegal)
                             DALegal = New SqlDataAdapter(cmdlegal)
                             DSLegal = New DataSet
@@ -823,57 +520,816 @@ Public Class InformationLink
                                 Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
                                 Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
                                 Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
-                            Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
-                            Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
-                            Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
-                            Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
-                            Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
-                            Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
-                            Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
-                            Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
-                            Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+                            End If
+                            cnLegal.Close()
 
                         End If
 
                     End If
 
-                    cnLegal.Close()
+                Case "KBANK" : Connect_(cn_KBANK)
+
+
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                    cmd_Collec = New SqlCommand(sqll, cn_KBANK)
+                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+                    DS_Collec = New DataSet
+                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Dtgv_Exe.Rows(i).Cells(4).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+
+                    Else
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSACC = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_KBANK)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(4).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSACC").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+
+                        Else
+
+
+                            Connect_(cnLegal)
+
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                            cmdlegal = New SqlCommand(sqll, cnLegal)
+                            DALegal = New SqlDataAdapter(cmdlegal)
+                            DSLegal = New DataSet
+                            DALegal.Fill(DSLegal, "linklegal")
+
+                            If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+                            End If
+                            cnLegal.Close()
+
+                        End If
+
+                    End If
+
+                    cn_KBANK.Close()
+
+                Case "KKB" : Connect_(cn_KKB)
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                    cmd_Collec = New SqlCommand(sqll, cn_KKB)
+                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+                    DS_Collec = New DataSet
+                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                        Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+
+                    Else
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_KKB)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                            Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+
+                        Else
+
+
+                            Connect_(cnLegal)
+
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                            cmdlegal = New SqlCommand(sqll, cnLegal)
+                            DALegal = New SqlDataAdapter(cmdlegal)
+                            DSLegal = New DataSet
+                            DALegal.Fill(DSLegal, "linklegal")
+
+                            If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+                            End If
+                            cnLegal.Close()
+
+                        End If
+                    End If
+
+                    cn_KKB.Close()
+
+                Case "SCB" : Connect_(cn_SCB)
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                    cmd_Collec = New SqlCommand(sqll, cn_SCB)
+                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+                    DS_Collec = New DataSet
+                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                    Else
+
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSCNO,RFCUS.CUSIDC,RFCUS.CUSACC,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                        cmd_Collec = New SqlCommand(sqll, cn_SCB)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                        Else
+
+
+                            Connect_(cnLegal)
+
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                            cmdlegal = New SqlCommand(sqll, cnLegal)
+                            DALegal = New SqlDataAdapter(cmdlegal)
+                            DSLegal = New DataSet
+                            DALegal.Fill(DSLegal, "linklegal")
+
+                            If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+                            End If
+                            cnLegal.Close()
+
+
+                        End If
+                    End If
+
+                    cn_SCB.Close()
+
+                Case "TMB" : Connect_(cn_TMB)
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
+                    cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                    DA_Collec = New SqlDataAdapter(cmd_Collec)
+                    DS_Collec = New DataSet
+                    DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                        Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+
+                    Else
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_TMB)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                            Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                        Else
+
+
+                            Connect_(cnLegal)
+
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                            cmdlegal = New SqlCommand(sqll, cnLegal)
+                            DALegal = New SqlDataAdapter(cmdlegal)
+                            DSLegal = New DataSet
+                            DALegal.Fill(DSLegal, "linklegal")
+
+                            If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+                            End If
+
+                            cnLegal.Close()
+
+                        End If
+                        cn_TMB.Close()
+
+                    End If
+
+                Case "TMB SME" : Connect_(cn_TMBSME)
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
+                    cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                        Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                    Else
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSLNO,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO = RFLAW.LAWCNO WHERE RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_TMBSME)
+                            DA_Collec = New SqlDataAdapter(cmd_Collec)
+                            DS_Collec = New DataSet
+                            DA_Collec.Fill(DS_Collec, "LINKdB")
+
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                            Dtgv_Exe.Rows(i).Cells(14).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSLNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+
+
+                        End If
+
+                    End If
+
+                        cn_TMBSME.Close()
+
+                        Case "TBANK" : Connect_(cn_TBANK)
+
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSACC,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
+                    cmd_Collec = New SqlCommand(sqll, cn_TBANK)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                    Else
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFLAW.LAWSAN,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_TBANK)
+                            DA_Collec = New SqlDataAdapter(cmd_Collec)
+                            DS_Collec = New DataSet
+                            DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                        Else
+
+
+                            Connect_(cnLegal)
+
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                            cmdlegal = New SqlCommand(sqll, cnLegal)
+                            DALegal = New SqlDataAdapter(cmdlegal)
+                            DSLegal = New DataSet
+                            DALegal.Fill(DSLegal, "linklegal")
+
+                            If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+                                Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+                            End If
+
+                            cnLegal.Close()
+
+                        End If
+
+                    End If
+                        cn_TBANK.Close()
+
+                        Case "UOB" : Connect_(cn_UOB)
+
+                    sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
+                    cmd_Collec = New SqlCommand(sqll, cn_UOB)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                    If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+                        Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                        Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                        Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                        Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                        Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                        Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                        Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                        Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+
+                        Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                        Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                        Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                        Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                    Else
+
+
+                        sqll = $"SELECT RFCUS.CUSUSG,RFCUS.CUSIDC,RFCUS.CUSCNO,RFCUS.CUSTFN,RFLAW.LAWSAN,RFCUS.CUSTLN,RFCUS.CUSTYP,RFCUS.CUSPRO,RFCUS.CUSBLK,RFLAW.LAWSAN,RFLAW.LAWRED,RFLAW.LAWBLK,RFCUS.CUSUSA FROM RFCUS LEFT JOIN RFLAW ON RFCUS.CUSCNO =RFLAW.LAWCNO WHERE  RFCUS.CUSCNO = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+
+                        cmd_Collec = New SqlCommand(sqll, cn_UOB)
+                        DA_Collec = New SqlDataAdapter(cmd_Collec)
+                        DS_Collec = New DataSet
+                        DA_Collec.Fill(DS_Collec, "LINKdB")
+
+                        If DS_Collec.Tables("LINKdB").Rows.Count > 0 Then
+                            Dtgv_Exe.Rows(i).Cells(2).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSG").ToString
+                            Dtgv_Exe.Rows(i).Cells(3).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSCNO").ToString
+                            Dtgv_Exe.Rows(i).Cells(10).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWSAN").ToString
+                            Dtgv_Exe.Rows(i).Cells(5).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSIDC").ToString
+                            Dtgv_Exe.Rows(i).Cells(7).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTFN").ToString
+                            Dtgv_Exe.Rows(i).Cells(8).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTLN").ToString
+                            Dtgv_Exe.Rows(i).Cells(9).Value = $"{Dtgv_Exe.Rows(i).Cells(7).Value} {Dtgv_Exe.Rows(i).Cells(8).Value}"
+                            Dtgv_Exe.Rows(i).Cells(11).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(12).Value = DS_Collec.Tables("LINKdB").Rows(0)("LAWRED").ToString
+                            Dtgv_Exe.Rows(i).Cells(15).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSTYP").ToString
+                            Dtgv_Exe.Rows(i).Cells(16).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSPRO").ToString
+                            Dtgv_Exe.Rows(i).Cells(17).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSBLK").ToString
+                            Dtgv_Exe.Rows(i).Cells(18).Value = DS_Collec.Tables("LINKdB").Rows(0)("CUSUSA").ToString
+                        Else
+
+                            Connect_(cnLegal)
+
+                            sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+                            cmdlegal = New SqlCommand(sqll, cnLegal)
+                            DALegal = New SqlDataAdapter(cmdlegal)
+                            DSLegal = New DataSet
+                            DALegal.Fill(DSLegal, "linklegal")
+
+                            If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+                                Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+
+                            Else
+
+                                sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+                                cmdlegal = New SqlCommand(sqll, cnLegal)
+                                DALegal = New SqlDataAdapter(cmdlegal)
+                                DSLegal = New DataSet
+                                DALegal.Fill(DSLegal, "linklegal")
+
+                                If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+                                    Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+                                    Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+                                    Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+                                    Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+                                    Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+                                    Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+                                    Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+                                End If
+
+                                cnLegal.Close()
+
+
+                            End If
+
+                        End If
+                    End If
+                    cn_UOB.Close()
+
 
             End Select
-
-            'Case Else : Connect_legal()
-            '    sqll = $"Select dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSOWN = '{Dtgv_Exe.Rows}' AND dbCUS.CUSIDC = '{txt_cusid.Text}'"
-            '    cmdlegal = New SqlCommand(sqll, cnLegal)
-            '    DALegal = New SqlDataAdapter(cmdlegal)
-            '    DSLegal = New DataSet
-            '    DALegal.Fill(DSLegal, "linklegal")
-
-            '    If DSLegal.Tables("linklegal").Rows.Count <= 0 Then
-            '        Lbl_linklegal.Text = $"พบ {DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-            '        Lbl_linklegal.ForeColor = Color.Red
-            '    Else
-            '        txt_cusname.Text = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
-            '        txt_red.Text = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
-            '        txt_black.Text = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
-            '        Txt_account.Text = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
-            '        Txt_bank.Text = DSLegal.Tables("linklegal").Rows(0)("CUSTOWN").ToString
-            '        Txt_Billcode.Text = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
-            '        Txt_type.Text = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
-            '        Txt_productcode.Text = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
-
-            '        Lbl_linklegal.Text = $"พบ LIDC{DSLegal.Tables("Linklegal").Rows.Count} รายการ"
-            '        Lbl_linklegal.ForeColor = Color.Green
-            '    End If
-            '    cnLegal.Close()
-
 
         Next
 
 
-
-
-
     End Sub
 
+    'Private Sub LegaldBLink()
+
+    '    Connect_(cnLegal)
+
+    '    sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSCUS,dbCUS.CUSACC,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE dbCUS.CUSIDC = '{Dtgv_Exe.Rows(i).Cells(5).Value}'"
+    '    cmdlegal = New SqlCommand(sqll, cnLegal)
+    '    DALegal = New SqlDataAdapter(cmdlegal)
+    '    DSLegal = New DataSet
+    '    DALegal.Fill(DSLegal, "linklegal")
+
+    '    If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+    '        Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+    '        Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+    '        Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+    '        Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+    '        Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+    '        Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+    '        Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+    '        Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+    '        Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+    '        Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+    '        Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+    '        Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+
+    '    Else
+
+    '        sqll = $"Select dbCUS.CUSFNAM,dbCUS.CUSLNAM,dbCUS.CUSNAM,dbCUS.CUSACC,dbCUS.CUSCUS,dbCUS.CUSIDC,dbCUS.CUSTOWN,dbCUS.CUSCLS,dbCUS.CUSBUC,dbCUS.CUSPRO,dbLAW.LAWCOU,dbLAW.LAWBLK,dbLAW.LAWRED FROM dbCUS LEFT JOIN dbLAW On dbCUS.CUSACC = dbLAW.LAWACC WHERE  dbCUS.CUSACC = '{Dtgv_Exe.Rows(i).Cells(3).Value}'"
+    '        cmdlegal = New SqlCommand(sqll, cnLegal)
+    '        DALegal = New SqlDataAdapter(cmdlegal)
+    '        DSLegal = New DataSet
+    '        DALegal.Fill(DSLegal, "linklegal")
+
+    '        If DSLegal.Tables("linklegal").Rows.Count > 0 Then
+
+
+    '            Dtgv_Exe.Rows(i).Cells(7).Value = DSLegal.Tables("linklegal").Rows(0)("CUSFNAM").ToString
+    '            Dtgv_Exe.Rows(i).Cells(8).Value = DSLegal.Tables("linklegal").Rows(0)("CUSLNAM").ToString
+    '            Dtgv_Exe.Rows(i).Cells(9).Value = DSLegal.Tables("linklegal").Rows(0)("CUSNAM").ToString
+    '            Dtgv_Exe.Rows(i).Cells(12).Value = DSLegal.Tables("linklegal").Rows(0)("LAWRED").ToString
+    '            Dtgv_Exe.Rows(i).Cells(10).Value = DSLegal.Tables("linklegal").Rows(0)("LAWCOU").ToString
+    '            Dtgv_Exe.Rows(i).Cells(11).Value = DSLegal.Tables("linklegal").Rows(0)("LAWBLK").ToString
+    '            Dtgv_Exe.Rows(i).Cells(3).Value = DSLegal.Tables("linklegal").Rows(0)("CUSACC").ToString
+    '            Dtgv_Exe.Rows(i).Cells(4).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCUS").ToString
+    '            Dtgv_Exe.Rows(i).Cells(5).Value = DSLegal.Tables("linklegal").Rows(0)("CUSIDC").ToString
+    '            Dtgv_Exe.Rows(i).Cells(14).Value = DSLegal.Tables("linkLegal").Rows(0)("CUSCLS").ToString
+    '            Dtgv_Exe.Rows(i).Cells(15).Value = DSLegal.Tables("linklegal").Rows(0)("CUSBUC").ToString
+    '            Dtgv_Exe.Rows(i).Cells(16).Value = DSLegal.Tables("linklegal").Rows(0)("CUSPRO").ToString
+
+    '        End If
+    '    End If
+    '    cnLegal.Close()
+    'End Sub
 
 End Class

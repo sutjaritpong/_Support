@@ -10,6 +10,7 @@ Module VBdatabase
     Friend DS As New DataSet
     Friend DT As New DataTable
     Friend DR As SqlDataReader
+    Friend Trans As SqlTransaction
 
     Friend sql As String = ""
     Friend _sql As String = ""
@@ -36,8 +37,6 @@ Module VBdatabase
     Friend DS_Collec As New DataSet
     Friend DT_Collec As New DataTable
     Friend DR_Collec As SqlDataReader
-
-
 
 #End Region
 

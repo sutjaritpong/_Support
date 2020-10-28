@@ -396,8 +396,8 @@ Public Class FrmMastermain
 
     End Sub
 
-    Private Sub TESTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TESTToolStripMenuItem.Click
 
+    Private Sub Menu_Upload_Customer_Click(sender As Object, e As EventArgs) Handles Menu_Upload_Customer.Click
 
         If Application.OpenForms.OfType(Of InformationLink).Any Then
 
@@ -415,4 +415,5 @@ Public Class FrmMastermain
         End If
 
     End Sub
+
 End Class

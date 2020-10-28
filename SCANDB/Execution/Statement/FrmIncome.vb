@@ -2128,4 +2128,9 @@ Public Class FrmIncome
         End Try
 
     End Sub
+
+    Private Sub FrmIncome_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+    End Sub
+
 End Class
